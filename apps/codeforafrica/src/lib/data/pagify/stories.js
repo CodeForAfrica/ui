@@ -1,63 +1,15 @@
-import { formatTags } from "@/codeforafrica/lib/data/utils/posts";
-import formatDate from "@/codeforafrica/utils/formatDate";
+import { getPost } from "@/codeforafrica/lib/data/utils/posts";
 
 async function stories(api, context) {
-  const { params, locale } = context;
+  const { params } = context;
   const page = params.slugs[1];
   const slug = params.slugs[2];
-  const { docs } = await api.getCollection("posts", {
-    locale,
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  });
-  if (!docs?.length) {
-    return null;
-  }
-  const [story] = docs;
-  const {
-    authors,
-    title,
-    coverImage,
-    excerpt,
-    tags,
-    meta,
-    publishedOn,
-    ...other
-  } = story;
-  const articleMeta = {
-    title,
-    description: excerpt,
-    image: coverImage,
-    ...meta,
-  };
+  const post = await getPost(api, slug, page);
+  if (!post) return null;
   return {
-    title,
-    blocks: [
-      {
-        authors: authors.map(({ fullName }) => {
-          return {
-            name: fullName,
-            bio: "",
-          };
-        }),
-        title,
-        coverImage,
-        excerpt,
-        tags: formatTags(tags),
-        meta: articleMeta,
-        publishedOn: formatDate(publishedOn, {
-          includeTime: false,
-          month: "short",
-        }),
-        page,
-        blockType: "article",
-        ...other,
-      },
-    ],
-    meta: articleMeta,
+    ...post,
+    // TODO: get recent posts
+    recent: [],
   };
 }
 

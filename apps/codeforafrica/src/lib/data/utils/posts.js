@@ -25,6 +25,23 @@ export function formatPost(post, path) {
   };
 }
 
+export function formatTags(tags) {
+  const excludedTags = new Set(["stories", "opportunities"]);
+
+  const tagCounts = tags.reduce((counts, { name }) => {
+    // eslint-disable-next-line no-param-reassign
+    counts[name] = (counts[name] || 0) + 1;
+    return counts;
+  }, {});
+
+  const sortedTags = Object.keys(tagCounts)
+    .filter((tag) => !excludedTags.has(tag.toLowerCase()))
+    .sort((a, b) => tagCounts[b] - tagCounts[a])
+    .map((tag) => tags.find(({ name }) => name === tag));
+
+  return sortedTags;
+}
+
 export async function getPosts(api, params, path) {
   const { page: queryPage = 1, tag, q, where = {}, ...other } = params;
   const options = {
@@ -85,19 +102,58 @@ export async function getPosts(api, params, path) {
   };
 }
 
-export function formatTags(tags) {
-  const excludedTags = new Set(["stories", "opportunities"]);
+export async function getPost(api, slug, path) {
+  const { docs } = await api.getCollection("posts", {
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+  });
+  if (!docs?.length) {
+    return null;
+  }
+  const [post] = docs;
+  const {
+    authors,
+    title,
+    coverImage,
+    excerpt,
+    tags,
+    meta,
+    publishedOn,
+    ...other
+  } = post;
 
-  const tagCounts = tags.reduce((counts, { name }) => {
-    // eslint-disable-next-line no-param-reassign
-    counts[name] = (counts[name] || 0) + 1;
-    return counts;
-  }, {});
-
-  const sortedTags = Object.keys(tagCounts)
-    .filter((tag) => !excludedTags.has(tag.toLowerCase()))
-    .sort((a, b) => tagCounts[b] - tagCounts[a])
-    .map((tag) => tags.find(({ name }) => name === tag));
-
-  return sortedTags;
+  const postMeta = {
+    title,
+    description: excerpt,
+    image: coverImage,
+    ...meta,
+  };
+  return {
+    title,
+    blocks: [
+      {
+        authors: authors.map(({ fullName }) => {
+          return {
+            name: fullName,
+            bio: "",
+          };
+        }),
+        title,
+        coverImage,
+        excerpt,
+        tags: formatTags(tags),
+        publishedOn: formatDate(publishedOn, {
+          includeTime: false,
+          month: "short",
+        }),
+        path,
+        blockType: "article",
+        ...other,
+      },
+    ],
+    meta: postMeta,
+  };
 }

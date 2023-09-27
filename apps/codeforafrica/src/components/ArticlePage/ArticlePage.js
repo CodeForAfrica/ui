@@ -17,7 +17,7 @@ function ArticlePage({
   coverImage: { src: featureImage },
   content,
   publishedOn,
-  page,
+  path: page,
 }) {
   return (
     <Box component="article">
