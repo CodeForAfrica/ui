@@ -7,6 +7,7 @@ import GuidingPrinciples from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import JoinOurSlack from "../blocks/JoinOurSlack";
 import MeetOurTeam from "../blocks/MeetOurTeam";
+import Opportunities from "../blocks/Opportunities";
 import OurImpact from "../blocks/OurImpact";
 import OurPartners from "../blocks/OurPartners";
 import OurTeam from "../blocks/OurTeam";
@@ -57,6 +58,7 @@ const Pages = {
         MeetOurTeam,
         PageHeader,
         CustomPageHeader,
+        Opportunities,
         OurImpact,
         OurPartners,
         OurTeam,
