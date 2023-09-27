@@ -3,7 +3,7 @@
 exports[`<LongFormRichText /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-111za72"
+    class="MuiBox-root css-1atzel7"
   >
     <p
       class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
