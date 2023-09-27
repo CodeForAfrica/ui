@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import AboutPageEntity from "@/codeforafrica/components/AboutPageEntity";
 import Articles from "@/codeforafrica/components/Articles";
 import ContactForm from "@/codeforafrica/components/ContactForm";
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
@@ -16,11 +17,11 @@ import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import PageHeader from "@/codeforafrica/components/PageHeader";
-import Partner from "@/codeforafrica/components/Partner";
 import Projects from "@/codeforafrica/components/Projects";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
+  "about-page-entity": AboutPageEntity,
   articles: Articles,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,
@@ -37,7 +38,6 @@ const componentsBySlugs = {
   "our-team": OurTeam,
   "our-work": Projects,
   projects: FeaturedProjects,
-  partner: Partner,
 };
 
 function Index({ blocks, fallback }) {
