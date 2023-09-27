@@ -16,7 +16,7 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
     image: { src, alt },
     excerpt,
     href,
-    publishedAt,
+    publishedOn,
     sx,
     tags,
     title,
@@ -38,9 +38,11 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             <RichTypography
               sx={{ borderRight: "solid 1px", mr: 1.25, pr: 1.25 }}
             >
-              {publishedAt}
+              {publishedOn}
             </RichTypography>
-            <RichTypography>{tags?.join(", ")}</RichTypography>
+            <RichTypography>
+              {tags.map((tag) => tag.name).join(", ")}
+            </RichTypography>
           </Box>
           <RichTypography
             component="section"

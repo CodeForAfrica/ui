@@ -11,7 +11,7 @@ const Opportunities = {
           label: "Search",
           required: true,
           type: "text",
-          defaultValue: "Search Stories",
+          defaultValue: "Search Opportunities",
         },
         {
           name: "readMore",

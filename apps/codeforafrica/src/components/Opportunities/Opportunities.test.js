@@ -9,7 +9,16 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  opportunities: { pagination: {}, results: [] },
+  opportunities: [],
+  pagination: {
+    count: 0,
+    page: 1,
+  },
+  tags: [],
+  labels: {
+    search: "Search",
+    readMore: "Read more",
+  },
 };
 
 describe("<Opportunities />", () => {

@@ -1,5 +1,28 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
+export function formatTags(tags) {
+  const excludedTags = new Set(["stories", "opportunities"]);
+
+  const tagCounts = tags.reduce((counts, { name }) => {
+    // eslint-disable-next-line no-param-reassign
+    counts[name] = (counts[name] || 0) + 1;
+    return counts;
+  }, {});
+
+  const sortedTags = Object.keys(tagCounts)
+    .filter((tag) => !excludedTags.has(tag.toLowerCase()))
+    .sort((a, b) => tagCounts[b] - tagCounts[a])
+    .map((tagName) => {
+      const tag = tags.find(({ name }) => name === tagName);
+      return {
+        name: tag.name,
+        slug: tag.slug,
+      };
+    });
+
+  return sortedTags;
+}
+
 export function formatPost(post, path) {
   const {
     id,
@@ -8,6 +31,7 @@ export function formatPost(post, path) {
     excerpt,
     slug,
     publishedOn,
+    tags,
   } = post;
   if (!title) {
     return null;
@@ -21,25 +45,9 @@ export function formatPost(post, path) {
       includeTime: false,
       month: "short",
     }),
+    tags: formatTags(tags),
     href: `/posts/${path}/${slug}`,
   };
-}
-
-export function formatTags(tags) {
-  const excludedTags = new Set(["stories", "opportunities"]);
-
-  const tagCounts = tags.reduce((counts, { name }) => {
-    // eslint-disable-next-line no-param-reassign
-    counts[name] = (counts[name] || 0) + 1;
-    return counts;
-  }, {});
-
-  const sortedTags = Object.keys(tagCounts)
-    .filter((tag) => !excludedTags.has(tag.toLowerCase()))
-    .sort((a, b) => tagCounts[b] - tagCounts[a])
-    .map((tag) => tags.find(({ name }) => name === tag));
-
-  return sortedTags;
 }
 
 export async function getPosts(api, params, path) {
