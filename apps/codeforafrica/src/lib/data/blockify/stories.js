@@ -1,14 +1,14 @@
 import {
-  getStories,
-  formatStory,
+  getPosts,
+  formatPost,
   formatTags,
-} from "@/codeforafrica/lib/data/utils/stories";
+} from "@/codeforafrica/lib/data/utils/posts";
 
 async function stories(block, api, context) {
   const { query } = context;
   const { featured, title, labels } = block;
 
-  const featuredStory = featured && (formatStory(featured) || null);
+  const featuredStory = featured && (formatPost(featured, "stories") || null);
   const featuredStorySlug = featuredStory
     ? featuredStory.href.split("/").pop()
     : null;
@@ -24,7 +24,11 @@ async function stories(block, api, context) {
     ...query,
   };
 
-  const { stories: articles, pagination } = await getStories(api, options);
+  const { posts: articles, pagination } = await getPosts(
+    api,
+    options,
+    "stories",
+  );
 
   const { docs: allStories } = await api.getCollection("posts", {
     limit: 0,

@@ -59,7 +59,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const { data } = useArticles({ page, q, tag: tag.slug });
   useEffect(() => {
     if (data) {
-      const { stories: results, pagination } = data;
+      const { posts: results, pagination } = data;
       setCount(pagination.count);
       setArticles(results);
     }

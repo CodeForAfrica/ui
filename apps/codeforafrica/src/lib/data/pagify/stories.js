@@ -1,4 +1,4 @@
-import { formatTags } from "@/codeforafrica/lib/data/utils/stories";
+import { formatTags } from "@/codeforafrica/lib/data/utils/posts";
 import formatDate from "@/codeforafrica/utils/formatDate";
 
 async function stories(api, context) {

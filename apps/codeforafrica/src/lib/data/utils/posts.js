@@ -1,6 +1,6 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
-export function formatStory(story) {
+export function formatPost(post, page) {
   const {
     id,
     title,
@@ -8,7 +8,7 @@ export function formatStory(story) {
     excerpt,
     slug,
     publishedOn,
-  } = story;
+  } = post;
   if (!title) {
     return null;
   }
@@ -21,11 +21,11 @@ export function formatStory(story) {
       includeTime: false,
       month: "short",
     }),
-    href: `/posts/stories/${slug}`,
+    href: `/posts/${page}/${slug}`,
   };
 }
 
-export async function getStories(api, params) {
+export async function getPosts(api, params, page) {
   const { page: queryPage = 1, tag, q, where = {}, ...other } = params;
   const options = {
     limit: 9,
@@ -35,7 +35,7 @@ export async function getStories(api, params) {
       and: [
         {
           "tags.name": {
-            contains: "stories",
+            contains: page,
           },
         },
       ],
@@ -69,18 +69,18 @@ export async function getStories(api, params) {
   };
 
   const {
-    docs: storyList,
+    docs: postList,
     totalPages,
-    page,
+    page: newPage,
   } = await api.getCollection("posts", options);
 
-  const stories = storyList.map(formatStory).filter(Boolean);
+  const posts = postList.map((post) => formatPost(post, page));
 
   return {
-    stories,
+    posts,
     pagination: {
       count: totalPages,
-      page,
+      page: newPage,
     },
   };
 }
