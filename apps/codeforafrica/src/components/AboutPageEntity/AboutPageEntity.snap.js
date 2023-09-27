@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Partners /> renders unchanged 1`] = `
+exports[`<AboutPageEntity /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-1gghq2r"

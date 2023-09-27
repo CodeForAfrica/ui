@@ -8,6 +8,7 @@ import Media from "./src/payload/collections/Media";
 import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
+import Posts from "./src/payload/collections/Posts";
 import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
 import Projects from "./src/payload/collections/Projects";
@@ -53,11 +54,12 @@ export default buildConfig({
     Donors,
     GuidingPrinciples,
     Impact,
+    Media,
     Members,
     Pages,
-    Media,
     Partners,
     Projects,
+    Posts,
     Tags,
     Teams,
   ] as CollectionConfig[],
@@ -89,7 +91,7 @@ export default buildConfig({
       },
     }),
     seo({
-      collections: ["pages"],
+      collections: ["pages", "posts"],
       globals: [],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
@@ -97,7 +99,7 @@ export default buildConfig({
         doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
     } as any),
     nestedDocs({
-      collections: ["pages"],
+      collections: ["pages", "projects"],
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
