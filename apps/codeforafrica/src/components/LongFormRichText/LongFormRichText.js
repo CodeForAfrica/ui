@@ -14,36 +14,24 @@ const LongFormRichText = React.forwardRef((props, ref) => {
           color: "inherit",
         },
         "& h1": {
-          ...theme.typography.h1Small,
+          ...theme.typography.h1,
           mb: 3.75,
           mt: 5,
-          [theme.breakpoints.up("md")]: {
-            ...theme.typography.h1,
-          },
         },
         "& h2": {
           mb: 2.5,
           mt: 5,
-          ...theme.typography.h2Small,
-          [theme.breakpoints.up("md")]: {
-            ...theme.typography.h2,
-          },
+          ...theme.typography.h2,
         },
         "& h3": {
           mb: 1.25,
           mt: 5,
-          ...theme.typography.h3Small,
-          [theme.breakpoints.up("md")]: {
-            ...theme.typography.h3,
-          },
+          ...theme.typography.h3,
         },
         "& h4": {
           mb: 1.25,
           mt: 5,
-          ...theme.typography.h4Small,
-          [theme.breakpoints.up("md")]: {
-            ...theme.typography.h4,
-          },
+          ...theme.typography.h4,
         },
         "& h5": {
           mb: 1.25,
@@ -56,26 +44,30 @@ const LongFormRichText = React.forwardRef((props, ref) => {
         "& h6": {
           mb: 1.25,
           mt: 5,
-          ...theme.typography.h6Small,
-          [theme.breakpoints.up("md")]: {
-            ...theme.typography.h6,
-          },
+          ...theme.typography.h6,
         },
         "& p": {
-          ...theme.typography.p1,
+          ...theme.typography.body1,
           mb: 2,
           [theme.breakpoints.up("md")]: {
-            ...theme.typography.subheading,
+            ...theme.typography.body3,
+          },
+        },
+        "& a": {
+          ...theme.typography.body1,
+          mb: 2,
+          [theme.breakpoints.up("md")]: {
+            ...theme.typography.body3,
           },
         },
         "& ul": {
           mb: 2,
         },
         "& li": {
-          ...theme.typography.p1,
+          ...theme.typography.body1,
           mt: 1,
           [theme.breakpoints.up("md")]: {
-            ...theme.typography.subheading,
+            ...theme.typography.body3,
           },
         },
         "& :last-child": {
