@@ -15,6 +15,7 @@ import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OurImpact from "@/codeforafrica/components/OurImpact";
+import OurMission from "@/codeforafrica/components/OurMission";
 import OurPartners from "@/codeforafrica/components/OurPartners";
 import OurTeam from "@/codeforafrica/components/OurTeam";
 import PageHeader from "@/codeforafrica/components/PageHeader";
@@ -34,6 +35,7 @@ const componentsBySlugs = {
   "news-stories": NewsAndStories,
   "our-guiding-principles": GuidingPrinciplesCardList,
   "our-impact": OurImpact,
+  "our-mission": OurMission,
   "our-partners": OurPartners,
   "page-header": PageHeader,
   "our-team": OurTeam,
