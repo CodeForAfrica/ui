@@ -3,6 +3,7 @@ import { Section } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
+import LongFormExternalEmbed from "@/codeforafrica/components/LongFormExternalEmbed";
 import LongFormMedia from "@/codeforafrica/components/LongFormMedia";
 import LongFormRichText from "@/codeforafrica/components/LongFormRichText";
 
@@ -10,6 +11,7 @@ const CMSContent = React.forwardRef(function CMSContent({ children, sx }, ref) {
   const COMPONENT_BY_CONTENT_TYPE = {
     richText: LongFormRichText,
     mediaBlock: LongFormMedia,
+    "external-embed": LongFormExternalEmbed,
   };
   return (
     <Section
