@@ -2,6 +2,7 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutPageEntity from "@/codeforafrica/components/AboutPageEntity";
+import Articles from "@/codeforafrica/components/Articles";
 import ContactForm from "@/codeforafrica/components/ContactForm";
 import CustomPageHeader from "@/codeforafrica/components/CustomPageHeader";
 import FeaturedProjects from "@/codeforafrica/components/FeaturedProjects";
@@ -20,6 +21,7 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
   "about-page-entity": AboutPageEntity,
+  articles: Articles,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,
   "get-involved": GetInvolved,
@@ -54,7 +56,7 @@ function Index({ blocks, fallback }) {
         if (!Component) {
           return null;
         }
-        return <Component {...block} key={block.id} />;
+        return <Component {...block} key={block.slug} />;
       })}
     </PageComponent>
   );

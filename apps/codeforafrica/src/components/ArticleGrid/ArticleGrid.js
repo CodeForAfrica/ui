@@ -18,6 +18,8 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
     sx,
     tags,
     title,
+    searchLabel,
+    readMoreLabel,
     ...other
   } = props;
 
@@ -44,32 +46,33 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
             tag={selectedTag}
             tags={tags}
             SearchInputProps={{
-              placeholder: "Search",
+              placeholder: searchLabel,
             }}
             sx={{
               mb: { xs: 2.5, md: 5 },
             }}
           />
         </Grid>
+        {featuredArticle ? (
+          <Grid
+            item
+            xs={12}
+            sx={{ order: { xs: 1, md: 0 } }}
+            key={featuredArticle.id}
+          >
+            <FeaturedArticle
+              {...featuredArticle}
+              readMoreLabel={readMoreLabel}
+            />
+          </Grid>
+        ) : null}
         {articles?.length > 0 ? (
-          <>
-            {featuredArticle ? (
-              <Grid
-                item
-                xs={12}
-                sx={{ order: { xs: 1, md: 0 } }}
-                key={featuredArticle.id}
-              >
-                <FeaturedArticle {...featuredArticle} />
-              </Grid>
-            ) : null}
-            <Grid item xs={12} sx={{ order: { xs: 2 } }}>
-              <ArticleCardList
-                sx={{ pt: { xs: "28px", md: 0 } }}
-                articles={articles}
-              />
-            </Grid>
-          </>
+          <Grid item xs={12} sx={{ order: { xs: 2 } }}>
+            <ArticleCardList
+              sx={{ pt: { xs: "28px", md: 0 } }}
+              articles={articles}
+            />
+          </Grid>
         ) : null}
       </Grid>
     </Section>

@@ -8,6 +8,7 @@ import Media from "./src/payload/collections/Media";
 import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
+import Posts from "./src/payload/collections/Posts";
 import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
 import Teams from "./src/payload/collections/Teams";
@@ -50,10 +51,11 @@ export default buildConfig({
     Authors,
     GuidingPrinciples,
     Impact,
+    Media,
     Members,
     Pages,
-    Media,
     Partners,
+    Posts,
     Tags,
     Teams,
   ] as CollectionConfig[],
@@ -85,7 +87,7 @@ export default buildConfig({
       },
     }),
     seo({
-      collections: ["pages"],
+      collections: ["pages", "posts"],
       globals: [],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
