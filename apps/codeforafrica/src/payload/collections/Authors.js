@@ -14,6 +14,12 @@ const Authors = {
       localized: false,
       required: true,
     },
+    {
+      name: "bio",
+      type: "textarea",
+      label: "Bio",
+      required: true,
+    },
   ],
 };
 

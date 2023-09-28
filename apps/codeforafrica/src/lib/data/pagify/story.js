@@ -1,6 +1,6 @@
 import { getPost } from "@/codeforafrica/lib/data/utils/posts";
 
-async function stories(api, context) {
+async function story(api, context) {
   const { params } = context;
   const page = params.slugs[1];
   const slug = params.slugs[2];
@@ -13,4 +13,4 @@ async function stories(api, context) {
   };
 }
 
-export default stories;
+export default story;

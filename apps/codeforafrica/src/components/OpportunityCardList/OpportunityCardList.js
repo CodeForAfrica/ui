@@ -15,7 +15,7 @@ const OpportunityCardList = React.forwardRef(
         {opportunities.map((opportunity) => (
           <OpportunityCard
             {...opportunity}
-            key={opportunity.id}
+            key={opportunity.slug}
             readMore={readMore}
           />
         ))}

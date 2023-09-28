@@ -14,7 +14,7 @@ const Posts = {
   fields: [
     {
       name: "primaryTag",
-      label: "Primary Tag",
+      label: "Post Type",
       required: true,
       type: "select",
       options: primaryTags,

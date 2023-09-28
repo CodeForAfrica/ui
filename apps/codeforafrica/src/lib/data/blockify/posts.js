@@ -4,7 +4,7 @@ import {
   getTagsByPrimaryTag,
 } from "@/codeforafrica/lib/data/utils/posts";
 
-async function postList(block, api, context) {
+async function posts(block, api, context) {
   const { primaryTag, labels, stories = {} } = block;
   const { query } = context;
   const { featured, title } = stories;
@@ -12,18 +12,18 @@ async function postList(block, api, context) {
   const options = {
     ...query,
   };
-  const { posts, pagination } = await getPosts(api, options, primaryTag);
+  const { posts: list, pagination } = await getPosts(api, options, primaryTag);
   const tags = await getTagsByPrimaryTag(api, primaryTag);
   return {
     title,
     labels,
     tags,
     featured: featuredStory || null,
-    posts,
+    posts: list,
     pagination,
     primaryTag,
     slug: primaryTag,
   };
 }
 
-export default postList;
+export default posts;

@@ -1,23 +1,22 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
 export function formatTags(tags) {
-  const excludedTags = new Set(["stories", "opportunities"]);
+  const excludedTags = ["stories", "opportunities"];
 
-  const tagCounts = tags.reduce((counts, { name }) => {
+  const filteredTags = tags.filter(
+    (tag) => !excludedTags.includes(tag.name.toLowerCase()),
+  );
+
+  const tagCounts = filteredTags.reduce((counts, { name }) => {
     // eslint-disable-next-line no-param-reassign
     counts[name] = (counts[name] || 0) + 1;
     return counts;
   }, {});
 
   const sortedTags = Object.keys(tagCounts)
-    .filter((tag) => !excludedTags.has(tag.toLowerCase()))
     .sort((a, b) => tagCounts[b] - tagCounts[a])
     .map((tagName) => {
-      const tag = tags.find(({ name }) => name === tagName);
-      return {
-        name: tag.name,
-        slug: tag.slug,
-      };
+      return filteredTags.find((tag) => tag.name === tagName);
     });
 
   return sortedTags;
@@ -47,6 +46,7 @@ export function formatPost(post, primaryTag) {
     }),
     tags: formatTags(tags),
     href: `/posts/${primaryTag}/${slug}`,
+    slug,
   };
 }
 
@@ -142,10 +142,10 @@ export async function getPost(api, slug, primaryTag) {
     title,
     blocks: [
       {
-        authors: authors.map(({ fullName }) => {
+        authors: authors.map(({ fullName, bio }) => {
           return {
             name: fullName,
-            bio: "",
+            bio,
           };
         }),
         title,
