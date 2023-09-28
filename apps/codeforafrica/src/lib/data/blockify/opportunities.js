@@ -1,6 +1,7 @@
 import { getPosts, formatTags } from "@/codeforafrica/lib/data/utils/posts";
 
 async function opportunities(block, api, context) {
+  const primaryTag = "opportunities";
   const { query } = context;
   const { labels } = block;
 
@@ -8,13 +9,13 @@ async function opportunities(block, api, context) {
     ...query,
   };
 
-  const { posts, pagination } = await getPosts(api, options, "opportunities");
+  const { posts, pagination } = await getPosts(api, options, primaryTag);
 
   const { docs: allOpportunities } = await api.getCollection("posts", {
     limit: 0,
     where: {
       "tags.name": {
-        like: "opportunities",
+        like: primaryTag,
       },
     },
   });
@@ -31,6 +32,10 @@ async function opportunities(block, api, context) {
     tags,
     opportunities: posts,
     pagination,
+    primaryTag: {
+      name: primaryTag,
+      slug: primaryTag,
+    },
     slug: "opportunities",
   };
 }

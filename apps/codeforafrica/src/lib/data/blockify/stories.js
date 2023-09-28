@@ -5,10 +5,11 @@ import {
 } from "@/codeforafrica/lib/data/utils/posts";
 
 async function stories(block, api, context) {
+  const primaryTag = "stories";
   const { query } = context;
   const { featured, title, labels } = block;
 
-  const featuredStory = featured && (formatPost(featured, "stories") || null);
+  const featuredStory = featured && (formatPost(featured, primaryTag) || null);
   const featuredStorySlug = featuredStory
     ? featuredStory.href.split("/").pop()
     : null;
@@ -27,14 +28,14 @@ async function stories(block, api, context) {
   const { posts: articles, pagination } = await getPosts(
     api,
     options,
-    "stories",
+    primaryTag,
   );
 
   const { docs: allStories } = await api.getCollection("posts", {
     limit: 0,
     where: {
       "tags.name": {
-        like: "stories",
+        like: primaryTag,
       },
     },
   });
@@ -53,6 +54,10 @@ async function stories(block, api, context) {
     featured: featuredStory || null,
     articles,
     pagination,
+    primaryTag: {
+      name: primaryTag,
+      slug: primaryTag,
+    },
     slug: "articles",
   };
 }
