@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import { Section } from "@commons-ui/core";
 import { Stack } from "@mui/material";
 import { useRouter } from "next/router";
@@ -55,14 +56,12 @@ const Projects = React.forwardRef(function Projects(
   }, [data]);
 
   useEffect(() => {
-    if (router.isReady) {
-      const [pathname] = router.asPath.split("?");
-      const url = pathname ? `${pathname}${queryParams}` : queryParams;
-      router.push(url, undefined, {
-        scroll: true,
-        shallow: true,
-      });
-    }
+    const { pathname } = window.location;
+    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    router.push(url, undefined, {
+      scroll: true,
+      shallow: true,
+    });
     // We don't want to listen to router changes here since we're the ones
     // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
