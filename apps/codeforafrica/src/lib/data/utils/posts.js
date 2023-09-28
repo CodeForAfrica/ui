@@ -165,3 +165,22 @@ export async function getPost(api, slug, path) {
     meta: postMeta,
   };
 }
+
+export async function getTagsByPrimaryTag(api, primaryTag) {
+  const { docs: posts } = await api.getCollection("posts", {
+    limit: 0,
+    where: {
+      "tags.name": {
+        like: primaryTag,
+      },
+    },
+  });
+  const allTags = posts.reduce((acc, story) => {
+    const { tags = [] } = story;
+    return [...acc, ...tags.map(({ name, slug }) => ({ name, slug }))];
+  }, []);
+
+  const tags = formatTags(allTags);
+
+  return tags;
+}

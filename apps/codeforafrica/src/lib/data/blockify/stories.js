@@ -1,7 +1,7 @@
 import {
   getPosts,
   formatPost,
-  formatTags,
+  getTagsByPrimaryTag,
 } from "@/codeforafrica/lib/data/utils/posts";
 
 async function stories(block, api, context) {
@@ -31,21 +31,7 @@ async function stories(block, api, context) {
     primaryTag,
   );
 
-  const { docs: allStories } = await api.getCollection("posts", {
-    limit: 0,
-    where: {
-      "tags.name": {
-        like: primaryTag,
-      },
-    },
-  });
-
-  const allTags = allStories.reduce((acc, story) => {
-    const { tags = [] } = story;
-    return [...acc, ...tags.map(({ name, slug }) => ({ name, slug }))];
-  }, []);
-
-  const tags = formatTags(allTags);
+  const tags = await getTagsByPrimaryTag(api, primaryTag);
 
   return {
     title,
