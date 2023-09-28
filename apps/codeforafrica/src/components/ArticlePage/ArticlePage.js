@@ -14,7 +14,7 @@ function ArticlePage({
   excerpt,
   tags,
   title,
-  coverImage: { src: featureImage },
+  coverImage: { src },
   content,
   publishedOn,
   primaryTag,
@@ -25,7 +25,7 @@ function ArticlePage({
         ImageProps={{
           alt: title,
           sx: { objectFit: "cover" },
-          src: featureImage,
+          src,
         }}
         sx={{
           width: "100%",

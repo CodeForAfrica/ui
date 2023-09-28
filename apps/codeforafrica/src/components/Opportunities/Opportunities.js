@@ -23,14 +23,15 @@ const Opportunities = React.forwardRef(function Opportunities(
   },
   ref,
 ) {
+  const allTag = {
+    name: ALL_TAG,
+    slug: ALL_TAG,
+  };
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
   const [opportunities, setOpportunities] = useState(opportunitiesList);
   const [q, setQ] = useState();
-  const [tag, setTag] = useState({
-    name: ALL_TAG,
-    slug: ALL_TAG,
-  });
+  const [tag, setTag] = useState(allTag);
   const queryParams = useFilterQuery({ page, q, tag: tag.slug });
   const router = useRouter();
 
@@ -43,11 +44,8 @@ const Opportunities = React.forwardRef(function Opportunities(
   };
 
   const handleChangeTag = (_, value) => {
-    const newValue = (value &&
-      tags.find((t) => equalsIgnoreCase(value, t.slug))) || {
-      name: ALL_TAG,
-      slug: ALL_TAG,
-    };
+    const newValue =
+      (value && tags.find((t) => equalsIgnoreCase(value, t.slug))) || allTag;
     setTag(newValue);
     setPage(1);
   };
@@ -91,7 +89,7 @@ const Opportunities = React.forwardRef(function Opportunities(
           onChangeTag={handleChangeTag}
           q={q}
           tag={tag}
-          tags={[{ name: ALL_TAG, slug: ALL_TAG }, ...tags]}
+          tags={[allTag, ...tags]}
           SearchInputProps={{
             placeholder: search,
           }}

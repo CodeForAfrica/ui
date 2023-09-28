@@ -21,15 +21,16 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     pagination: { count: countProp, page: pageProp = 1 },
     primaryTag,
   } = props;
+  const allTag = {
+    name: ALL_TAG,
+    value: ALL_TAG,
+  };
   const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
   const [q, setQ] = useState();
   const [filtering, setFiltering] = useState(false);
-  const [tag, setTag] = useState({
-    name: ALL_TAG,
-    slug: ALL_TAG,
-  });
+  const [tag, setTag] = useState(allTag);
   const queryParams = useFilterQuery({ page, q, tag: tag.slug });
 
   const router = useRouter();
@@ -43,11 +44,8 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   };
 
   const handleChangeTag = (_, value) => {
-    const newValue = (value &&
-      tags.find((t) => equalsIgnoreCase(value, t.slug))) || {
-      name: ALL_TAG,
-      slug: ALL_TAG,
-    };
+    const newValue =
+      (value && tags.find((t) => equalsIgnoreCase(value, t.slug))) || allTag;
     setTag(newValue);
     setPage(1);
   };
@@ -87,13 +85,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
         selectedTag={tag}
-        tags={[
-          {
-            name: ALL_TAG,
-            slug: ALL_TAG,
-          },
-          ...tags,
-        ]}
+        tags={[allTag, ...tags]}
         searchLabel={search}
         q={q}
         readMoreLabel={readMore}
