@@ -9,7 +9,16 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  authors: [],
+  authors: [
+    {
+      name: "Author 1",
+      bio: "Author 1 bio",
+    },
+    {
+      name: "Author 2",
+      bio: "Author 2 bio",
+    },
+  ],
   coverImage: {
     src: "/images/stories-1.png",
     alt: "Stories",
@@ -65,6 +74,18 @@ const defaultProps = {
       ],
     },
   ],
+  tags: [
+    {
+      name: "tag1",
+      slug: "tag1",
+    },
+    {
+      name: "tag2",
+      slug: "tag2",
+    },
+  ],
+  primaryTag: "tag1",
+  publishedOn: "Sept 1, 2021",
 };
 
 describe("<ArticlePage />", () => {
