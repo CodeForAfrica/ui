@@ -52,7 +52,7 @@ const Projects = {
         position: "sidebar",
       },
     }),
-    linkGroup({ overrides: { name: "externalLink" } }),
+    linkGroup({ overrides: { name: "externalLink", label: "External Link" } }),
     image({
       overrides: {
         label: {
