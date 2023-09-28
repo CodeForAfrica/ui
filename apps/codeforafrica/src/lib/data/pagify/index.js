@@ -9,10 +9,9 @@ const COLLECTION_BY_SLUG = {
 };
 
 async function pagify(parentPage, api, context) {
-  const { slug: collection, meta = {} } = parentPage;
+  const { slug: collection } = parentPage;
   const pageProps = COLLECTION_BY_SLUG[collection];
-  const props = (await pageProps?.(api, context)) ?? null;
-  return { ...props, meta };
+  return pageProps?.(api, context) ?? null;
 }
 
 export default pagify;

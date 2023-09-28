@@ -54,7 +54,6 @@ async function projects(api, context) {
           }),
         })),
         partners: { list: project.partners, title: "Partners" },
-        externalHref: project.externalHref?.url,
         blockType: "project",
       },
     ],
