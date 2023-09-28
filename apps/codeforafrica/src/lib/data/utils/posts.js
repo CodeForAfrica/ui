@@ -7,18 +7,13 @@ export function formatTags(tags) {
     (tag) => !excludedTags.includes(tag.name.toLowerCase()),
   );
 
-  const tagCounts = filteredTags.reduce((counts, { name }) => {
-    // eslint-disable-next-line no-param-reassign
-    counts[name] = (counts[name] || 0) + 1;
-    return counts;
-  }, {});
+  const distinctTags = [
+    ...new Set(filteredTags.map((tag) => tag.name.toLowerCase())),
+  ];
 
-  const sortedTags = Object.keys(tagCounts)
-    .sort((a, b) => tagCounts[b] - tagCounts[a])
-    .map((tagName) => {
-      return filteredTags.find((tag) => tag.name === tagName);
-    });
-
+  const sortedTags = distinctTags.sort().map((tagName) => {
+    return filteredTags.find((tag) => tag.name.toLowerCase() === tagName);
+  });
   return sortedTags;
 }
 
