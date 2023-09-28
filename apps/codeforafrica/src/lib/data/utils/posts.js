@@ -146,7 +146,7 @@ export async function getPost(api, slug, primaryTag) {
         title,
         coverImage,
         excerpt,
-        tags: formatTags(tags),
+        tags,
         publishedOn: formatDate(publishedOn, {
           includeTime: false,
           month: "short",

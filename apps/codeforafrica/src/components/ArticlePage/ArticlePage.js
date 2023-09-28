@@ -8,6 +8,7 @@ import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
 import Author from "@/codeforafrica/components/Author";
 import CMSContent from "@/codeforafrica/components/CMSContent";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 function ArticlePage({
   authors,
@@ -19,6 +20,9 @@ function ArticlePage({
   publishedOn,
   primaryTag,
 }) {
+  const sortedTags = tags
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .filter((tag) => !equalsIgnoreCase(tag.name, primaryTag));
   return (
     <Box component="article">
       <Figure
@@ -35,7 +39,7 @@ function ArticlePage({
       <ArticleHeader
         title={title}
         date={publishedOn}
-        tags={tags}
+        tags={sortedTags}
         primaryTag={primaryTag}
         excerpt={excerpt}
         sx={{
