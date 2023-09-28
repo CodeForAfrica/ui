@@ -13,6 +13,7 @@ import OurMission from "../blocks/OurMission";
 import OurPartners from "../blocks/OurPartners";
 import OurTeam from "../blocks/OurTeam";
 import PageHeader from "../blocks/PageHeader";
+import Posts from "../blocks/Posts";
 import Stories from "../blocks/Stories";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
@@ -58,6 +59,7 @@ const Pages = {
         JoinOurSlack,
         MeetOurTeam,
         PageHeader,
+        Posts,
         CustomPageHeader,
         Opportunities,
         OurImpact,
