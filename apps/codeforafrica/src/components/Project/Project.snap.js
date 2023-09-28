@@ -149,9 +149,11 @@ exports[`<Project /> renders unchanged 1`] = `
               class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1orzhc1-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-                href=""
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-15w6lcd-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="https://codeforafrica.org"
+                rel="noreferrer noopener"
                 tabindex="0"
+                target="_blank"
               >
                 Launch Project
                 <span
