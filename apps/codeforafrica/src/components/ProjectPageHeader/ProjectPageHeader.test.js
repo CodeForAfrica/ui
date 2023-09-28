@@ -11,6 +11,7 @@ const render = createRender({ theme });
 const defaultProps = {
   href: "/projects/test-project",
   tag: "Iniatives",
+  externalLink: { href: "https://codeforafrica.org" },
 };
 
 describe("<ProjectPageHeader />", () => {
