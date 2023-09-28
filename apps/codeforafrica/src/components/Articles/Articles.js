@@ -23,7 +23,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   } = props;
   const allTag = {
     name: ALL_TAG,
-    value: ALL_TAG,
+    slug: ALL_TAG,
   };
   const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
