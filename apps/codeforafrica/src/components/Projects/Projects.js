@@ -55,12 +55,14 @@ const Projects = React.forwardRef(function Projects(
   }, [data]);
 
   useEffect(() => {
-    const [pathname] = router.asPath.split("?");
-    const url = pathname ? `${pathname}${queryParams}` : queryParams;
-    router.push(url, undefined, {
-      scroll: true,
-      shallow: true,
-    });
+    if (router.isReady) {
+      const [pathname] = router.asPath.split("?");
+      const url = pathname ? `${pathname}${queryParams}` : queryParams;
+      router.push(url, undefined, {
+        scroll: true,
+        shallow: true,
+      });
+    }
     // We don't want to listen to router changes here since we're the ones
     // updating them
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,7 +86,7 @@ const Projects = React.forwardRef(function Projects(
         {projects?.length > 0 ? (
           <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
             {projects.map((project) => (
-              <ProjectCard {...project} key={project.id} />
+              <ProjectCard {...project} key={project.slug} />
             ))}
           </Stack>
         ) : null}

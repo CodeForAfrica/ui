@@ -1,4 +1,3 @@
-import dateTime from "../fields/dateTime";
 import image from "../fields/image";
 import linkArray from "../fields/links/linkArray";
 import linkGroup from "../fields/links/linkGroup";
@@ -21,29 +20,6 @@ const Projects = {
       type: "text",
       required: true,
     },
-    {
-      name: "tagLine",
-      label: {
-        en: "Tag Line",
-      },
-      type: "text",
-    },
-    {
-      name: "title",
-      label: { en: "Title" },
-      type: "text",
-      required: true,
-    },
-    richText({
-      name: "subtitle",
-    }),
-    tags({
-      name: "tag",
-      hasMany: false,
-      admin: {
-        position: "sidebar",
-      },
-    }),
     image({
       overrides: {
         label: {
@@ -53,6 +29,30 @@ const Projects = {
         required: true,
       },
     }),
+    {
+      name: "title",
+      label: { en: "Title" },
+      type: "text",
+      required: true,
+    },
+    richText({
+      name: "subtitle",
+    }),
+    {
+      name: "tagLine",
+      label: {
+        en: "Tag Line",
+      },
+      type: "text",
+    },
+    tags({
+      name: "tag",
+      hasMany: false,
+      admin: {
+        position: "sidebar",
+      },
+    }),
+    linkGroup({ overrides: { name: "externalLink", label: "External Link" } }),
     image({
       overrides: {
         label: {
@@ -62,8 +62,6 @@ const Projects = {
         required: true,
       },
     }),
-    linkGroup({ overrides: { name: "externalHref" } }),
-    linkArray(),
     {
       name: "badges",
       type: "array",
@@ -79,27 +77,27 @@ const Projects = {
           type: "text",
           required: true,
         },
-        dateTime({ name: "date" }),
+        {
+          name: "date",
+          type: "date",
+          required: true,
+          admin: {
+            date: {
+              pickerAppearance: "dayAndTime",
+            },
+          },
+        },
       ],
     },
     richText({
       name: "description",
     }),
+    linkArray(),
     {
       name: "partners",
       required: true,
       type: "relationship",
       relationTo: "partners",
-      hasMany: true,
-    },
-    {
-      name: "team",
-      label: {
-        en: "Team",
-      },
-      required: true,
-      type: "relationship",
-      relationTo: "members",
       hasMany: true,
     },
     {
@@ -110,6 +108,16 @@ const Projects = {
       },
       type: "relationship",
       relationTo: "donors",
+      hasMany: true,
+    },
+    {
+      name: "team",
+      label: {
+        en: "Team",
+      },
+      required: true,
+      type: "relationship",
+      relationTo: "members",
       hasMany: true,
     },
     slug({ fieldToUse: "name" }),

@@ -31,7 +31,7 @@ const ProjectActionArea = styled(CardActionArea, {
 
 const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
   const {
-    externalHref,
+    externalLink,
     link: { href },
     icon,
     name,
