@@ -21,29 +21,6 @@ const Projects = {
       type: "text",
       required: true,
     },
-    {
-      name: "tagLine",
-      label: {
-        en: "Tag Line",
-      },
-      type: "text",
-    },
-    {
-      name: "title",
-      label: { en: "Title" },
-      type: "text",
-      required: true,
-    },
-    richText({
-      name: "subtitle",
-    }),
-    tags({
-      name: "tag",
-      hasMany: false,
-      admin: {
-        position: "sidebar",
-      },
-    }),
     image({
       overrides: {
         label: {
@@ -53,6 +30,30 @@ const Projects = {
         required: true,
       },
     }),
+    {
+      name: "title",
+      label: { en: "Title" },
+      type: "text",
+      required: true,
+    },
+    richText({
+      name: "subtitle",
+    }),
+    {
+      name: "tagLine",
+      label: {
+        en: "Tag Line",
+      },
+      type: "text",
+    },
+    tags({
+      name: "tag",
+      hasMany: false,
+      admin: {
+        position: "sidebar",
+      },
+    }),
+    linkGroup({ overrides: { name: "externalLink" } }),
     image({
       overrides: {
         label: {
@@ -62,8 +63,6 @@ const Projects = {
         required: true,
       },
     }),
-    linkGroup({ overrides: { name: "externalLink" } }),
-    linkArray(),
     {
       name: "badges",
       type: "array",
@@ -85,6 +84,7 @@ const Projects = {
     richText({
       name: "description",
     }),
+    linkArray(),
     {
       name: "partners",
       required: true,
@@ -102,7 +102,6 @@ const Projects = {
       relationTo: "donors",
       hasMany: true,
     },
-    slug({ fieldToUse: "name" }),
     {
       name: "team",
       label: {
@@ -113,6 +112,7 @@ const Projects = {
       relationTo: "members",
       hasMany: true,
     },
+    slug({ fieldToUse: "name" }),
   ],
   hooks: {
     afterRead: [nestCollectionUnderPage("work")],
