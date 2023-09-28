@@ -84,7 +84,7 @@ const Projects = React.forwardRef(function Projects(
         {projects?.length > 0 ? (
           <Stack direction="column" spacing={{ xs: 5, md: 7.5 }}>
             {projects.map((project) => (
-              <ProjectCard {...project} key={project.id} />
+              <ProjectCard {...project} key={project.slug} />
             ))}
           </Stack>
         ) : null}

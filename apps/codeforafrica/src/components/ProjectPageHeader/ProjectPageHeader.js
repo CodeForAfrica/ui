@@ -59,7 +59,7 @@ const ProjectTitle = styled(RichTypography, {
 const ProjectPageHeader = React.forwardRef(
   function ProjectPageHeader(props, ref) {
     const {
-      externalHref,
+      externalLink,
       icon,
       name,
       subtitle,
@@ -133,8 +133,8 @@ const ProjectPageHeader = React.forwardRef(
               </CardContent>
               <CardActions sx={{ mt: 2, p: 0 }}>
                 <Button
-                  href={externalHref}
-                  component={externalHref ? Link : undefined}
+                  href={externalLink}
+                  component={externalLink ? Link : undefined}
                   endIcon={
                     <SvgIcon
                       component={ExternalLinkIcon}

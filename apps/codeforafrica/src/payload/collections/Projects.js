@@ -62,7 +62,7 @@ const Projects = {
         required: true,
       },
     }),
-    linkGroup({ overrides: { name: "externalHref" } }),
+    linkGroup({ overrides: { name: "externalLink" } }),
     linkArray(),
     {
       name: "badges",
@@ -93,16 +93,6 @@ const Projects = {
       hasMany: true,
     },
     {
-      name: "team",
-      label: {
-        en: "Team",
-      },
-      required: true,
-      type: "relationship",
-      relationTo: "members",
-      hasMany: true,
-    },
-    {
       name: "donors",
       required: true,
       label: {
@@ -113,6 +103,16 @@ const Projects = {
       hasMany: true,
     },
     slug({ fieldToUse: "name" }),
+    {
+      name: "team",
+      label: {
+        en: "Team",
+      },
+      required: true,
+      type: "relationship",
+      relationTo: "members",
+      hasMany: true,
+    },
   ],
   hooks: {
     afterRead: [nestCollectionUnderPage("work")],
