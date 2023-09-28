@@ -7,14 +7,12 @@ import GuidingPrinciples from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import JoinOurSlack from "../blocks/JoinOurSlack";
 import MeetOurTeam from "../blocks/MeetOurTeam";
-import Opportunities from "../blocks/Opportunities";
 import OurImpact from "../blocks/OurImpact";
 import OurMission from "../blocks/OurMission";
 import OurPartners from "../blocks/OurPartners";
 import OurTeam from "../blocks/OurTeam";
 import PageHeader from "../blocks/PageHeader";
 import Posts from "../blocks/Posts";
-import Stories from "../blocks/Stories";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -61,12 +59,10 @@ const Pages = {
         PageHeader,
         Posts,
         CustomPageHeader,
-        Opportunities,
         OurImpact,
         OurMission,
         OurPartners,
         OurTeam,
-        Stories,
       ],
       admin: {
         initCollapsed: true,

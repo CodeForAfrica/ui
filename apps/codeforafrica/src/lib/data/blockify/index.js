@@ -1,21 +1,17 @@
 import getInvolved from "./get-involved";
 import hero from "./hero";
 import meetOurTeam from "./meetOurTeam";
-import opportunities from "./opportunities";
 import ourImpact from "./our-impact";
 import ourTeam from "./ourTeam";
 import postList from "./postList";
-import stories from "./stories";
 
 const propsifyBlockBySlug = {
   "get-involved": getInvolved,
   hero,
   "meet-our-team": meetOurTeam,
-  opportunities,
   "our-impact": ourImpact,
   "our-team": ourTeam,
   "post-list": postList,
-  stories,
 };
 
 async function blockify(blocks, api, context) {
