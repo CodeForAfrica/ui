@@ -41,7 +41,7 @@ const Projects = {
     {
       name: "tagLine",
       label: {
-        en: "Tag Line",
+        en: "Tagline",
       },
       type: "text",
     },
@@ -52,7 +52,7 @@ const Projects = {
         position: "sidebar",
       },
     }),
-    linkGroup({ overrides: { name: "externalLink", label: "External Link" } }),
+    linkGroup({ overrides: { name: "externalLink", label: "Link" } }),
     image({
       overrides: {
         label: {
