@@ -17,7 +17,7 @@ function ArticlePage({
   coverImage: { src: featureImage },
   content,
   publishedOn,
-  path: page,
+  primaryTag,
 }) {
   return (
     <Box component="article">
@@ -36,7 +36,7 @@ function ArticlePage({
         title={title}
         date={publishedOn}
         tags={tags}
-        page={page}
+        primaryTag={primaryTag}
         excerpt={excerpt}
         sx={{
           maxWidth: {

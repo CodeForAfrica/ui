@@ -23,7 +23,7 @@ export function formatTags(tags) {
   return sortedTags;
 }
 
-export function formatPost(post, path) {
+export function formatPost(post, primaryTag) {
   const {
     id,
     title,
@@ -46,21 +46,20 @@ export function formatPost(post, path) {
       month: "short",
     }),
     tags: formatTags(tags),
-    href: `/posts/${path}/${slug}`,
+    href: `/posts/${primaryTag}/${slug}`,
   };
 }
 
-export async function getPosts(api, params, path) {
-  const { page: queryPage = 1, tag, q, where = {}, ...other } = params;
+export async function getPosts(api, params, primaryTag) {
+  const { page: queryPage = 1, tag, q, ...other } = params;
   const options = {
     limit: 9,
     page: queryPage,
     where: {
-      ...where,
       and: [
         {
           "tags.name": {
-            contains: path,
+            contains: primaryTag,
           },
         },
       ],
@@ -99,7 +98,7 @@ export async function getPosts(api, params, path) {
     page,
   } = await api.getCollection("posts", options);
 
-  const posts = postList.map((post) => formatPost(post, path));
+  const posts = postList.map((post) => formatPost(post, primaryTag));
 
   return {
     posts,
@@ -110,7 +109,7 @@ export async function getPosts(api, params, path) {
   };
 }
 
-export async function getPost(api, slug, path) {
+export async function getPost(api, slug, primaryTag) {
   const { docs } = await api.getCollection("posts", {
     where: {
       slug: {
@@ -157,7 +156,7 @@ export async function getPost(api, slug, path) {
           includeTime: false,
           month: "short",
         }),
-        path,
+        primaryTag,
         blockType: "article",
         ...other,
       },

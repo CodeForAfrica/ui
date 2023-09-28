@@ -18,8 +18,8 @@ const Opportunities = React.forwardRef(function Opportunities(
     opportunities: opportunitiesList,
     pagination: { count: countProp, page: pageProp = 1 },
     sx,
-    slug,
     labels: { search, readMore },
+    primaryTag,
   },
   ref,
 ) {
@@ -52,7 +52,7 @@ const Opportunities = React.forwardRef(function Opportunities(
     setPage(1);
   };
 
-  const { data } = useOpportunities({ page, q, tag: tag.slug });
+  const { data } = useOpportunities({ page, q, tag: tag.slug }, primaryTag);
   useEffect(() => {
     if (data) {
       const { posts: results, pagination } = data;
@@ -92,7 +92,6 @@ const Opportunities = React.forwardRef(function Opportunities(
           q={q}
           tag={tag}
           tags={[{ name: ALL_TAG, slug: ALL_TAG }, ...tags]}
-          slug={slug}
           SearchInputProps={{
             placeholder: search,
           }}

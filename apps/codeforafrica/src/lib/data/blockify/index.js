@@ -4,6 +4,7 @@ import meetOurTeam from "./meetOurTeam";
 import opportunities from "./opportunities";
 import ourImpact from "./our-impact";
 import ourTeam from "./ourTeam";
+import postList from "./postList";
 import stories from "./stories";
 
 const propsifyBlockBySlug = {
@@ -13,6 +14,7 @@ const propsifyBlockBySlug = {
   opportunities,
   "our-impact": ourImpact,
   "our-team": ourTeam,
+  "post-list": postList,
   stories,
 };
 

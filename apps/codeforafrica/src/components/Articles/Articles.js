@@ -19,6 +19,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     title,
     labels: { search, readMore },
     pagination: { count: countProp, page: pageProp = 1 },
+    primaryTag,
   } = props;
   const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
@@ -56,7 +57,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setFiltering(isFiltering);
   }, [page, q, tag]);
 
-  const { data } = useArticles({ page, q, tag: tag.slug });
+  const { data } = useArticles({ page, q, tag: tag.slug }, primaryTag);
   useEffect(() => {
     if (data) {
       const { posts: results, pagination } = data;

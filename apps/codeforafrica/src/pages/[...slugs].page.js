@@ -25,7 +25,6 @@ import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 const componentsBySlugs = {
   "about-page-entity": AboutPageEntity,
   article: ArticlePage,
-  articles: Articles,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,
   "get-involved": GetInvolved,
@@ -42,6 +41,7 @@ const componentsBySlugs = {
   "our-team": OurTeam,
   "page-header": PageHeader,
   projects: FeaturedProjects,
+  stories: Articles,
 };
 
 function Index({ blocks, fallback }) {
