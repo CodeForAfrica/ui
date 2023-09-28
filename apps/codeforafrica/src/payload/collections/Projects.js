@@ -1,4 +1,3 @@
-import dateTime from "../fields/dateTime";
 import image from "../fields/image";
 import linkArray from "../fields/links/linkArray";
 import linkGroup from "../fields/links/linkGroup";
@@ -78,7 +77,16 @@ const Projects = {
           type: "text",
           required: true,
         },
-        dateTime({ name: "date" }),
+        {
+          name: "date",
+          type: "date",
+          required: true,
+          admin: {
+            date: {
+              pickerAppearance: "dayAndTime",
+            },
+          },
+        },
       ],
     },
     richText({
