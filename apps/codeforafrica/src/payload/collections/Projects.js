@@ -123,7 +123,7 @@ const Projects = {
     slug({ fieldToUse: "name" }),
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("work")],
+    afterRead: [nestCollectionUnderPage("projects")],
   },
 };
 

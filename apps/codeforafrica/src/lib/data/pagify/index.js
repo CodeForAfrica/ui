@@ -4,7 +4,7 @@ import projects from "./projects";
 
 const COLLECTION_BY_SLUG = {
   partners,
-  work: projects,
+  projects,
   members,
 };
 

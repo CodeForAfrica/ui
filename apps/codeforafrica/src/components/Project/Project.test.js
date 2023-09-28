@@ -33,7 +33,7 @@ const defaultProps = {
   },
   tag: "Knowedge",
   link: { href: "/projects/knowledge-africa" },
-  externalHref: "https://codeforafrica.org",
+  externalLink: { href: "https://codeforafrica.org" },
 };
 
 describe("<Project />", () => {
