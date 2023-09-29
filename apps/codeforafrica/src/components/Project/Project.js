@@ -17,13 +17,14 @@ function Project(props) {
     donors,
     links,
     partners,
-    relatedProjects: { title, projects },
+    relatedProjects: { title, projects } = {},
     team,
     stories,
+    descriptionTitle,
   } = props;
 
   return (
-    <Box>
+    <>
       <ProjectPageHeader {...props} />
       <Section
         sx={{
@@ -38,6 +39,7 @@ function Project(props) {
         description={description}
         donors={donors}
         links={links}
+        descriptionTitle={descriptionTitle}
         partners={partners}
         sx={{
           my: "42px",
@@ -88,7 +90,7 @@ function Project(props) {
           projects={projects}
         />
       </Box>
-    </Box>
+    </>
   );
 }
 

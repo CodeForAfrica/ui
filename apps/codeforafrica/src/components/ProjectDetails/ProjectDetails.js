@@ -6,7 +6,8 @@ import ProjectDescription from "./ProjectDescription";
 import ProjectStakeholders from "./ProjectStakeholders";
 
 const ProjectDetails = React.forwardRef(function ProjectDetails(props, ref) {
-  const { description, donors, links, partners, ...other } = props;
+  const { description, donors, links, partners, descriptionTitle, ...other } =
+    props;
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("md"));
 
   return (
@@ -35,7 +36,7 @@ const ProjectDetails = React.forwardRef(function ProjectDetails(props, ref) {
           <ProjectDescription
             description={description}
             links={links}
-            title="Description"
+            title={descriptionTitle}
           />
         </Grid>
       </Grid>

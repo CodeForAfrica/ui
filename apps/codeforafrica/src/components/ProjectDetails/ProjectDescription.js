@@ -24,12 +24,12 @@ const ProjectDescription = React.forwardRef(
         <RichText
           variant="body1"
           elements={description}
-          sx={{ typography: { md: "body2" } }}
+          typographyProps={{ sx: { typography: { md: "body2" } } }}
         />
         {links?.length > 0 ? (
           <Stack direction="row" spacing={2.5}>
-            {links.map(({ label, href, iconSlug }) => (
-              <Button key={href} href={href} slug={iconSlug}>
+            {links.map(({ label, href, type }) => (
+              <Button key={href} href={href} slug={type}>
                 {label}
               </Button>
             ))}

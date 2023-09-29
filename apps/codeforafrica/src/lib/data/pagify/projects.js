@@ -33,6 +33,7 @@ async function projects(api, context) {
     blocks: [
       {
         ...project,
+        descriptionTitle: "Description",
         tag: project.tag?.name ?? null,
         donors: {
           title: "Donors",

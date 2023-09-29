@@ -14,7 +14,7 @@ const ProjectDescriptionButton = React.forwardRef(
       case "data":
         Icon = DatabaseIcon;
         break;
-      case "github":
+      case "source":
         Icon = GitHubIcon;
         break;
       default:

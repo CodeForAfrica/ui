@@ -114,7 +114,12 @@ const ProjectPageHeader = React.forwardRef(
                 <RichText variant="h4" sx={{ mt: 2 }} elements={title} />
                 <RichText
                   variant="body2"
-                  sx={{ mt: 2.5, typography: { md: "subheading" } }}
+                  typographyProps={{
+                    sx: {
+                      typography: { md: "subheading" },
+                    },
+                  }}
+                  sx={{ mt: 2.5 }}
                   elements={subtitle}
                 />
               </CardContent>
