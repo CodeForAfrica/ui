@@ -1,10 +1,15 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
 export function sortTags(tags) {
-  const distinctTags = [...new Set(tags.map((tag) => tag.name.toLowerCase()))];
-  return distinctTags.sort().map((tagName) => {
-    return tags.find((tag) => tag.name.toLowerCase() === tagName);
-  });
+  // Since we know 2 different tags can't have the same slug, we can just use
+  // an object instead of `Set` and `find`
+  const tagsBySlug = tags.reduce((acc, curr) => {
+    acc[curr.slug] = curr;
+    return acc;
+  }, {});
+  return Object.keys(tagsBySlug)
+    .sort()
+    .map((slug) => tagsBySlug[slug]);
 }
 
 export function formatPost(post, primaryTag) {
@@ -17,6 +22,7 @@ export function formatPost(post, primaryTag) {
     publishedOn,
     tags,
   } = post;
+
   if (!title) {
     return null;
   }
@@ -29,7 +35,7 @@ export function formatPost(post, primaryTag) {
       includeTime: false,
       month: "short",
     }),
-    tags: sortTags(tags),
+    tags,
     href: `/posts/${primaryTag}/${slug}`,
     slug,
   };
@@ -76,13 +82,11 @@ export async function getPosts(api, params, primaryTag) {
     },
     ...other,
   };
-
   const {
     docs: postList,
     totalPages,
     page,
   } = await api.getCollection("posts", options);
-
   const posts = postList.map((post) => formatPost(post, primaryTag));
 
   return {
@@ -105,6 +109,7 @@ export async function getPost(api, slug, primaryTag) {
   if (!docs?.length) {
     return null;
   }
+
   const [post] = docs;
   const {
     authors,
@@ -136,7 +141,7 @@ export async function getPost(api, slug, primaryTag) {
         title,
         coverImage,
         excerpt,
-        tags: sortTags(tags),
+        tags,
         publishedOn: formatDate(publishedOn, {
           includeTime: false,
           month: "short",
