@@ -18,7 +18,6 @@ const Authors = {
       name: "bio",
       type: "textarea",
       label: "Bio",
-      required: true,
     },
   ],
 };

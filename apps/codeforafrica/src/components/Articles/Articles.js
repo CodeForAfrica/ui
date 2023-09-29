@@ -22,6 +22,9 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     pagination: { count: countProp, page: pageProp = 1 },
     primaryTag,
   } = props;
+  const filteredTags = tags.filter(
+    (tag) => !equalsIgnoreCase(tag.name, primaryTag),
+  );
   const allTag = {
     name: ALL_TAG,
     slug: ALL_TAG,
@@ -67,7 +70,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
 
   useEffect(() => {
     const { pathname } = window.location;
-    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    const url = `${pathname}${queryParams}`;
     router.push(url, undefined, {
       scroll: true,
       shallow: true,
@@ -86,7 +89,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
         selectedTag={tag}
-        tags={[allTag, ...tags]}
+        tags={[allTag, ...filteredTags]}
         searchLabel={search}
         q={q}
         readMoreLabel={readMore}

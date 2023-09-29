@@ -24,6 +24,9 @@ const Opportunities = React.forwardRef(function Opportunities(
   },
   ref,
 ) {
+  const filteredTags = tags.filter(
+    (tag) => !equalsIgnoreCase(tag.name, primaryTag),
+  );
   const allTag = {
     name: ALL_TAG,
     slug: ALL_TAG,
@@ -62,7 +65,7 @@ const Opportunities = React.forwardRef(function Opportunities(
 
   useEffect(() => {
     const { pathname } = window.location;
-    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    const url = `${pathname}${queryParams}`;
     router.push(url, undefined, {
       scroll: true,
       shallow: true,
@@ -90,7 +93,7 @@ const Opportunities = React.forwardRef(function Opportunities(
           onChangeTag={handleChangeTag}
           q={q}
           tag={tag}
-          tags={[allTag, ...tags]}
+          tags={[allTag, ...filteredTags]}
           SearchInputProps={{
             placeholder: search,
           }}

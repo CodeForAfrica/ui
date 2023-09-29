@@ -1,20 +1,10 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
-export function formatTags(tags) {
-  const excludedTags = ["stories", "opportunities"];
-
-  const filteredTags = tags.filter(
-    (tag) => !excludedTags.includes(tag.name.toLowerCase()),
-  );
-
-  const distinctTags = [
-    ...new Set(filteredTags.map((tag) => tag.name.toLowerCase())),
-  ];
-
-  const sortedTags = distinctTags.sort().map((tagName) => {
-    return filteredTags.find((tag) => tag.name.toLowerCase() === tagName);
+export function sortTags(tags) {
+  const distinctTags = [...new Set(tags.map((tag) => tag.name.toLowerCase()))];
+  return distinctTags.sort().map((tagName) => {
+    return tags.find((tag) => tag.name.toLowerCase() === tagName);
   });
-  return sortedTags;
 }
 
 export function formatPost(post, primaryTag) {
@@ -39,7 +29,7 @@ export function formatPost(post, primaryTag) {
       includeTime: false,
       month: "short",
     }),
-    tags: formatTags(tags),
+    tags: sortTags(tags),
     href: `/posts/${primaryTag}/${slug}`,
     slug,
   };
@@ -146,7 +136,7 @@ export async function getPost(api, slug, primaryTag) {
         title,
         coverImage,
         excerpt,
-        tags,
+        tags: sortTags(tags),
         publishedOn: formatDate(publishedOn, {
           includeTime: false,
           month: "short",
@@ -169,12 +159,6 @@ export async function getTagsByPrimaryTag(api, primaryTag) {
       },
     },
   });
-  const allTags = posts.reduce((acc, story) => {
-    const { tags = [] } = story;
-    return [...acc, ...tags.map(({ name, slug }) => ({ name, slug }))];
-  }, []);
-
-  const tags = formatTags(allTags);
-
-  return tags;
+  const allTags = posts.flatMap((post) => post.tags ?? []);
+  return sortTags(allTags);
 }

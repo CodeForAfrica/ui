@@ -20,9 +20,9 @@ function ArticlePage({
   publishedOn,
   primaryTag,
 }) {
-  const sortedTags = tags
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .filter((tag) => !equalsIgnoreCase(tag.name, primaryTag));
+  const filteredTags = tags.filter(
+    (tag) => !equalsIgnoreCase(tag.name, primaryTag),
+  );
   return (
     <Box component="article">
       <Figure
@@ -39,7 +39,7 @@ function ArticlePage({
       <ArticleHeader
         title={title}
         date={publishedOn}
-        tags={sortedTags}
+        tags={filteredTags}
         primaryTag={primaryTag}
         excerpt={excerpt}
         sx={{
