@@ -3,6 +3,7 @@ import hero from "./hero";
 import meetOurTeam from "./meetOurTeam";
 import ourImpact from "./our-impact";
 import ourTeam from "./ourTeam";
+import ourWork from "./ourWork";
 import posts from "./posts";
 
 const propsifyBlockBySlug = {
@@ -11,6 +12,7 @@ const propsifyBlockBySlug = {
   "meet-our-team": meetOurTeam,
   "our-impact": ourImpact,
   "our-team": ourTeam,
+  "our-work": ourWork,
   // post-list to avoid conflict with posts collection in payload
   "post-list": posts,
 };

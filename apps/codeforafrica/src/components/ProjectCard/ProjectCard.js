@@ -1,4 +1,4 @@
-import { Link, RichTypography } from "@commons-ui/next";
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Button,
@@ -12,6 +12,7 @@ import React from "react";
 
 import ProjectCardMedia from "@/codeforafrica/components/ProjectCardMedia";
 import ProjectTile from "@/codeforafrica/components/ProjectTile";
+import RichText from "@/codeforafrica/components/RichText";
 
 const ProjectActionArea = styled(CardActionArea, {
   slot: "Root",
@@ -30,8 +31,7 @@ const ProjectActionArea = styled(CardActionArea, {
 
 const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
   const {
-    externalHref,
-    href,
+    link: { href },
     icon,
     name,
     subtitle,
@@ -47,7 +47,7 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
   const tileProps = { icon, name, tagLine };
 
   return (
-    <Card elevation={0} square ref={ref} ownerState={ownerState} {...other}>
+    <Card elevation={0} square ref={ref} ownerState={ownerState}>
       <ProjectActionArea component={href ? Link : undefined} href={href}>
         <ProjectCardMedia {...thumbnail} component="img" />
         <Box
@@ -66,19 +66,17 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
             }}
           >
             <ProjectTile {...tileProps} />
-            <RichTypography
+            <RichText
               color="primary"
               variant="h5Small"
               sx={{ mt: 2, typography: { md: "h5" } }}
-            >
-              {title}
-            </RichTypography>
-            <RichTypography
+              elements={title}
+            />
+            <RichText
               variant="body1"
               sx={{ mt: 2.5, typography: { md: "body2" } }}
-            >
-              {subtitle}
-            </RichTypography>
+              elements={subtitle}
+            />
           </CardContent>
           <CardActions sx={{ mt: 2, p: 0 }}>
             <Button component="div" variant="contained-reverse" sx={{ py: 1 }}>

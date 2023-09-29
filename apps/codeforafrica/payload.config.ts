@@ -11,6 +11,8 @@ import Partners from "./src/payload/collections/Partners";
 import Posts from "./src/payload/collections/Posts";
 import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
+import Projects from "./src/payload/collections/Projects";
+import Donors from "./src/payload/collections/Donors";
 import Teams from "./src/payload/collections/Teams";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import dotenv from "dotenv";
@@ -49,12 +51,14 @@ export default buildConfig({
   serverURL: appURL,
   collections: [
     Authors,
+    Donors,
     GuidingPrinciples,
     Impact,
     Media,
     Members,
     Pages,
     Partners,
+    Projects,
     Posts,
     Tags,
     Teams,

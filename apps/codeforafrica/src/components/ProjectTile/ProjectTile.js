@@ -68,7 +68,7 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
         <>
           {icon?.src?.length > 0 ? (
             <Figure
-              ImageProps={{ alt: name, ...icon }}
+              ImageProps={{ alt: icon.alt, src: icon.src }}
               sx={{ height: "70px", width: "70px" }}
             />
           ) : null}
