@@ -1,4 +1,4 @@
-import { Link, RichTypography } from "@commons-ui/next";
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Button,
@@ -66,13 +66,12 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
             }}
           >
             <ProjectTile {...tileProps} />
-            <RichTypography
+            <RichText
               color="primary"
               variant="h5Small"
               sx={{ mt: 2, typography: { md: "h5" } }}
-            >
-              {title}
-            </RichTypography>
+              elements={title}
+            />
             <RichText
               variant="body1"
               sx={{ mt: 2.5, typography: { md: "body2" } }}
