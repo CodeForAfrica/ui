@@ -9,16 +9,7 @@ import RichText from "@/codeforafrica/components/RichText";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
 
 const Page = React.forwardRef(function Page(
-  {
-    description,
-    connect,
-    relatedProjects,
-    relatedProjectsTitle,
-    name,
-    logo,
-    user,
-    title,
-  },
+  { description, connect, relatedProjects, name, logo, user, title },
   ref,
 ) {
   return (
@@ -67,7 +58,7 @@ const Page = React.forwardRef(function Page(
 
         <ConnectBar title="Connect" links={connect} />
       </Section>
-      {relatedProjects?.length ? (
+      {relatedProjects?.list?.length ? (
         <>
           <SectionDivider
             sx={{
@@ -89,8 +80,8 @@ const Page = React.forwardRef(function Page(
             }}
             tileListProps={{ fixed: true }}
             titleProps={{ sx: { mb: { xs: "30px", md: 5 } } }}
-            title={relatedProjectsTitle}
-            projects={relatedProjects}
+            title={relatedProjects.title}
+            projects={relatedProjects?.list}
           />
         </>
       ) : null}

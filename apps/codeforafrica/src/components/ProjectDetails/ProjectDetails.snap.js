@@ -78,40 +78,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
       />
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-17q9xai-MuiGrid-root"
-      >
-        <div
-          class="MuiStack-root css-hqqldn-MuiStack-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"
-          >
-            Description
-          </div>
-          <div
-            class="MuiBox-root css-cmetz8"
-          >
-            This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa.
-          </div>
-          <div
-            class="MuiStack-root css-1dhgtrr-MuiStack-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall active css-irnzq2-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-              href="https://codeforafrica.org"
-              rel="noreferrer noopener"
-              tabindex="0"
-              target="_blank"
-            />
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-irnzq2-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-              href="https://github.com/CodeForAfrica"
-              rel="noreferrer noopener"
-              tabindex="0"
-              target="_blank"
-            />
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>

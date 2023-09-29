@@ -32,8 +32,10 @@ async function members(api, context) {
     blocks: [
       {
         ...member,
-        relatedProjects,
-        relatedProjectsTitle: "Projects",
+        relatedProjects: {
+          title: "Projects",
+          list: relatedProjects,
+        },
         user: true,
         logo: imageFromMedia(member.image),
         blockType: "about-page-entity",
