@@ -39,7 +39,7 @@ const ProjectPageHeaderRoot = styled(Card, {
   padding: `${theme.spacing(2.5)} 0`,
   [theme.breakpoints.up("sm")]: {
     alignItems: "flex-start",
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     justifyContent: "space-between",
     padding: `20px 0`,
   },
