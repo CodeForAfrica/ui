@@ -8,6 +8,7 @@ const authors = (overrides) =>
       relationTo: "author",
       hasMany: true,
       admin: {
+        isSortable: true,
         position: "sidebar",
       },
     },
