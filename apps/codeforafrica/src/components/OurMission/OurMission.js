@@ -2,7 +2,7 @@ import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import React from "react";
 
-import CMSContent from "@/codeforafrica/components/CMSContent";
+import RichText from "@/codeforafrica/components/RichText";
 
 const OurMission = React.forwardRef(function OurMission(props, ref) {
   const { description, subtitle, sx, title } = props;
@@ -11,47 +11,39 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
     return null;
   }
   return (
-    <React.Fragment ref={ref}>
-      <Section sx={sx}>
-        <RichTypography variant="h4" sx={{ mb: "30px" }}>
-          {title}
-        </RichTypography>
-        <RichTypography
-          variant="h4"
-          sx={{ mb: "30px", typography: { md: "h2" } }}
-        >
-          {subtitle}
-        </RichTypography>
-        <RichTypography
-          sx={{
-            mb: "30px",
-            "& h2": {
-              typography: { xs: "h4", md: "h2" },
-            },
-            "& p, & li": {
-              typography: { xs: "body1", md: "subheading" },
-            },
-          }}
-        >
-          {description}
-        </RichTypography>
-      </Section>
-      <CMSContent
-        TypographyProps={{
-          sx: {
-            mb: "30px",
-            "& h2": {
-              typography: { xs: "h4", md: "h2" },
-            },
-            "& p, & li": {
-              typography: { xs: "body1", md: "subheading" },
-            },
-          },
-        }}
+    <Section
+      sx={{
+        my: 10,
+        ...sx,
+      }}
+      ref={ref}
+    >
+      <RichTypography variant="h4" sx={{ mb: "30px" }}>
+        {title}
+      </RichTypography>
+      <RichTypography
+        variant="h4"
+        sx={{ mb: "30px", typography: { md: "h2" } }}
       >
-        {description}
-      </CMSContent>
-    </React.Fragment>
+        {subtitle}
+      </RichTypography>
+      <RichText
+        elements={description}
+        sx={(theme) => ({
+          mb: "30px",
+          "& h2": {
+            typography: { xs: "h4", md: "h2" },
+          },
+          "& p,& a, & li": {
+            typography: { xs: "body1", md: "subheading" },
+            mb: 2,
+          },
+          "& a": {
+            textDecorationColor: theme.palette.primary.main,
+          },
+        })}
+      />
+    </Section>
   );
 });
 

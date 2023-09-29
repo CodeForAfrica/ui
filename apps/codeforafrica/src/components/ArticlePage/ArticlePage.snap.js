@@ -24,9 +24,31 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
     >
       <div
+        class="MuiTypography-root MuiTypography-body2 css-myiz4y-MuiTypography-root"
+      >
+        Sept 1, 2021
+      </div>
+      <div
         class="MuiTypography-root MuiTypography-h1 css-1ceh4ag-MuiTypography-root"
       >
         Article
+      </div>
+      <div
+        class="MuiToggleButtonGroup-root css-10sq1fj-MuiToggleButtonGroup-root"
+        role="group"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-1bz03pl-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          href="/tag1?tag=tag2"
+          tabindex="0"
+          value="tag2"
+        >
+          <span
+            class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+          >
+            tag2
+          </span>
+        </a>
       </div>
       <div
         class="MuiStack-root css-1het2hz-MuiStack-root"
@@ -104,7 +126,41 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         </div>
         <div
           class="MuiStack-root css-190nj74-MuiStack-root"
-        />
+        >
+          <div
+            class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
+          >
+            Author 1
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+          >
+            Author 1 bio
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiStack-root css-1yu3riq-MuiStack-root"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-body2 css-tua52g-MuiTypography-root"
+        >
+          Article by
+        </div>
+        <div
+          class="MuiStack-root css-190nj74-MuiStack-root"
+        >
+          <div
+            class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
+          >
+            Author 2
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+          >
+            Author 2 bio
+          </div>
+        </div>
       </div>
     </address>
   </article>

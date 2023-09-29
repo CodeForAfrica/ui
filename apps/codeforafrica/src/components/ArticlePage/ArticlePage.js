@@ -8,24 +8,28 @@ import ArticleHeader from "@/codeforafrica/components/ArticleHeader";
 import Author from "@/codeforafrica/components/Author";
 import CMSContent from "@/codeforafrica/components/CMSContent";
 import SectionDivider from "@/codeforafrica/components/SectionDivider";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
 function ArticlePage({
-  primaryAuthor,
+  authors,
   excerpt,
   tags,
   title,
-  featureImage,
-  html,
-  publishedAt,
+  coverImage: { src },
+  content,
+  publishedOn,
   primaryTag,
 }) {
+  const filteredTags = tags.filter(
+    (tag) => !equalsIgnoreCase(tag.name, primaryTag),
+  );
   return (
     <Box component="article">
       <Figure
         ImageProps={{
           alt: title,
           sx: { objectFit: "cover" },
-          src: featureImage,
+          src,
         }}
         sx={{
           width: "100%",
@@ -34,8 +38,8 @@ function ArticlePage({
       />
       <ArticleHeader
         title={title}
-        date={publishedAt}
-        tags={tags}
+        date={publishedOn}
+        tags={filteredTags}
         primaryTag={primaryTag}
         excerpt={excerpt}
         sx={{
@@ -57,7 +61,7 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        {html}
+        {content}
       </CMSContent>
       <SectionDivider
         sx={{
@@ -80,7 +84,9 @@ function ArticlePage({
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        <Author {...primaryAuthor} />
+        {authors?.map((author) => (
+          <Author {...author} key={author.name} />
+        ))}
       </Section>
     </Box>
   );
