@@ -4,8 +4,8 @@ async function ourWork(block, api, context) {
   const { query } = context;
   const data = await getProjects(api, query);
   const { docs: allProjects } = await api.getCollection("projects");
-  const projectTags = allProjects.map(({ tag }) => tag?.name).filter(Boolean);
-  const tags = ["All", ...new Set(projectTags)];
+  const projectTags = allProjects.map(({ tag }) => tag).filter(Boolean);
+  const tags = [{ name: "All", slug: "all" }, ...new Set(projectTags)];
 
   return {
     tags,

@@ -14,8 +14,8 @@ function useFilterQuery(query = {}) {
   if (q) {
     searchParams.append("q", q);
   }
-  if (tag && !equalsIgnoreCase(tag, ALL_TAG)) {
-    searchParams.append("tag", tag);
+  if (tag.slug && !equalsIgnoreCase(tag.slug, ALL_TAG)) {
+    searchParams.append("tag", tag.slug);
   }
   const queryString = searchParams.toString();
   return queryString ? `?${queryString.toLocaleLowerCase()}` : "";

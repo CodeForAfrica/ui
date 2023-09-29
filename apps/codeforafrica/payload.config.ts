@@ -99,7 +99,7 @@ export default buildConfig({
         doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
     } as any),
     nestedDocs({
-      collections: ["pages", "projects"],
+      collections: ["pages"],
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),

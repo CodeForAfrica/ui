@@ -81,7 +81,7 @@ const Projects = {
           required: true,
           admin: {
             date: {
-              pickerAppearance: "dayAndTime",
+              pickerAppearance: "dayOnly",
             },
           },
         },
@@ -96,17 +96,17 @@ const Projects = {
         disableLinkTypeSelection: true,
         labelFields: [
           {
-            name: "iconSlug",
-            label: { en: "Icon Slug" },
+            name: "type",
+            label: { en: "Type of Link" },
             type: "select",
             options: [
               {
-                value: "github",
-                label: { en: "Github Icon" },
+                value: "source",
+                label: { en: "Source" },
               },
               {
                 value: "data",
-                label: { en: "Data Icon" },
+                label: { en: "Data" },
               },
             ],
           },

@@ -41,7 +41,8 @@ const Projects = React.forwardRef(function Projects(
 
   const handleChangeTag = (_, value) => {
     const newValue =
-      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+      (value && tags.find(({ slug }) => equalsIgnoreCase(value, slug))) ||
+      ALL_TAG;
     setTag(newValue);
     setPage(1);
   };
@@ -57,7 +58,7 @@ const Projects = React.forwardRef(function Projects(
 
   useEffect(() => {
     const { pathname } = window.location;
-    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    const url = `${pathname}${queryParams}`;
     router.push(url, undefined, {
       scroll: true,
       shallow: true,

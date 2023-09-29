@@ -4,7 +4,7 @@ function getQuery(fields, query) {
     or: q ? fields.map((field) => ({ [field]: { like: q } })) : [],
   };
   if (tag) {
-    whereQuery["tag.name"] = {
+    whereQuery["tag.slug"] = {
       like: tag,
     };
   }

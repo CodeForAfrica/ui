@@ -91,14 +91,19 @@ const FilterBar = React.forwardRef(function FilterBar(props, ref) {
           color="default"
           {...ChoiceChipGroupProps}
           onChange={handleChangeChoice}
-          value={tag}
+          value={tag.slug}
           sx={{
             order: { xs: 1, sm: 0 },
             ...ChoiceChipGroupProps?.sx,
           }}
         >
           {tags.map((t) => (
-            <ChoiceChip {...ChoiceChipProps} label={t} value={t} key={t} />
+            <ChoiceChip
+              {...ChoiceChipProps}
+              label={t.name}
+              value={t.slug}
+              key={t.slug}
+            />
           ))}
         </ChoiceChipGroup>
       ) : null}

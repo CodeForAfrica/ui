@@ -1,22 +1,31 @@
 /* eslint-env browser */
 import { Section } from "@commons-ui/core";
-import { RichTypography } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
-const CMSContent = React.forwardRef(function CMSContent(
-  { children, sx, TypographyProps },
-  ref,
-) {
+import LongFormExternalEmbed from "@/codeforafrica/components/LongFormExternalEmbed";
+import LongFormMedia from "@/codeforafrica/components/LongFormMedia";
+import LongFormRichText from "@/codeforafrica/components/LongFormRichText";
+
+const CMSContent = React.forwardRef(function CMSContent({ children, sx }, ref) {
+  const COMPONENT_BY_CONTENT_TYPE = {
+    richText: LongFormRichText,
+    mediaBlock: LongFormMedia,
+    "external-embed": LongFormExternalEmbed,
+  };
   return (
     <Section
       component="section"
       sx={{ px: { xs: 2.5, sm: 0 }, ...sx }}
       ref={ref}
     >
-      <RichTypography {...TypographyProps} ref={ref}>
-        {children}
-      </RichTypography>
+      {children.map((c) => {
+        const Component = COMPONENT_BY_CONTENT_TYPE[c.blockType];
+        if (Component) {
+          return <Component {...c} key={c.id} />;
+        }
+        return null;
+      })}
     </Section>
   );
 });
