@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Link, RichTypography } from "@commons-ui/next";
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Button,
@@ -46,14 +46,6 @@ const ProjectPageHeaderRoot = styled(Card, {
   [theme.breakpoints.up("md")]: {
     alignItems: "center",
     padding: `89px 0`,
-  },
-}));
-
-const ProjectTitle = styled(RichTypography, {
-  slot: "Root",
-})(({ theme }) => ({
-  "& .highlight": {
-    color: theme.palette.primary.main,
   },
 }));
 
@@ -119,12 +111,7 @@ const ProjectPageHeader = React.forwardRef(
                 }}
               >
                 <ProjectTile {...tileProps} />
-                <ProjectTitle
-                  variant="h4"
-                  sx={{ mt: 2, typography: { md: "h2" } }}
-                >
-                  {title}
-                </ProjectTitle>
+                <RichText variant="h4" sx={{ mt: 2 }} elements={title} />
                 <RichText
                   variant="body2"
                   sx={{ mt: 2.5, typography: { md: "subheading" } }}

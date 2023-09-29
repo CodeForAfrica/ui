@@ -12,7 +12,7 @@ exports[`<Project /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1rwywmd-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
         >
           <nav
             class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-15752dv-MuiTypography-root-MuiBreadcrumbs-root"
@@ -130,14 +130,9 @@ exports[`<Project /> renders unchanged 1`] = `
                 </div>
               </div>
               <div
-                class="MuiTypography-root MuiTypography-h4 css-bw2zps-MuiTypography-root"
+                class="MuiBox-root css-1yuhvjn"
               >
-                Empowering citizens through 
-                <span
-                  class="highlight"
-                >
-                  drone technology
-                </span>
+                Empowering citizens through &lt;span class="highlight"&gt;drone technology&lt;/span&gt;
               </div>
               <div
                 class="MuiBox-root css-1n9g8xy"

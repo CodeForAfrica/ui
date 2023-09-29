@@ -9,7 +9,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1rwywmd-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
       >
         <nav
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-15752dv-MuiTypography-root-MuiBreadcrumbs-root"

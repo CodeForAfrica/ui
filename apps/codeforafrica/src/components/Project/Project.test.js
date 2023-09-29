@@ -13,8 +13,11 @@ const defaultProps = {
   slug: "knowledge-africa",
   name: "knowledgeAFRICA",
   tagLine: "Knowledge tag line",
-  title:
-    'Empowering citizens through <span class="highlight">drone technology</span>',
+  title: [
+    {
+      text: 'Empowering citizens through <span class="highlight">drone technology</span>',
+    },
+  ],
   subtitle: [
     {
       text: "AfricanDRONE brings together communities of drone operators, enthusiasts, journalists, activists, and entrepreneurs in Africa who use drones for good.",
