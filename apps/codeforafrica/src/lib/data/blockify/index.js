@@ -11,6 +11,7 @@ const propsifyBlockBySlug = {
   "meet-our-team": meetOurTeam,
   "our-impact": ourImpact,
   "our-team": ourTeam,
+  // post-list to avoid conflict with posts collection in payload
   "post-list": posts,
 };
 
