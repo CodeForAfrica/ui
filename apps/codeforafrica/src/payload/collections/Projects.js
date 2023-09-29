@@ -1,4 +1,5 @@
 import image from "../fields/image";
+import link from "../fields/links/link";
 import linkArray from "../fields/links/linkArray";
 import linkGroup from "../fields/links/linkGroup";
 import richText from "../fields/richText";
@@ -82,6 +83,7 @@ const Projects = {
           admin: {
             date: {
               pickerAppearance: "dayOnly",
+              displayFormat: "yyyy-MM-dd",
             },
           },
         },
@@ -91,25 +93,29 @@ const Projects = {
       name: "description",
     }),
     linkArray({
-      linkConfig: {
-        defaultValue: "custom",
-        disableLinkTypeSelection: true,
-        labelFields: [
+      overrides: {
+        fields: [
           {
             name: "type",
-            label: { en: "Type of Link" },
+            label: { en: "Type" },
             type: "select",
             options: [
               {
                 value: "source",
-                label: { en: "Source" },
+                label: { en: "Source code" },
               },
               {
                 value: "data",
                 label: { en: "Data" },
               },
             ],
+            required: true,
           },
+          link({
+            defaultValue: "custom",
+            disableLinkTypeSelection: true,
+            disableOpenInNewTab: true,
+          }),
         ],
       },
     }),
