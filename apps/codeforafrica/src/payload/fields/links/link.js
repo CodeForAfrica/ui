@@ -31,6 +31,7 @@ const link = ({
   disableOpenInNewTab = false,
   overrides = {},
   required = true,
+  labelFields: fields = [],
 } = {}) => {
   const linkResult = {
     type: "row",
@@ -129,7 +130,12 @@ const link = ({
       },
     ];
   }
-  linkResult.fields = [...labelFields, ...linkResult.fields, ...linkTypes];
+  linkResult.fields = [
+    ...labelFields,
+    ...fields,
+    ...linkResult.fields,
+    ...linkTypes,
+  ];
   if (!disableOpenInNewTab) {
     linkResult.fields.push({
       type: "row",
