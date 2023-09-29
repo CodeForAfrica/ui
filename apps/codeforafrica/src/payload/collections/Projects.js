@@ -29,12 +29,10 @@ const Projects = {
         required: true,
       },
     }),
-    {
+    richText({
       name: "title",
       label: { en: "Title" },
-      type: "text",
-      required: true,
-    },
+    }),
     richText({
       name: "subtitle",
     }),
@@ -103,7 +101,7 @@ const Projects = {
             type: "select",
             options: [
               {
-                value: "Github",
+                value: "github",
                 label: { en: "Github Icon" },
               },
               {
@@ -145,7 +143,7 @@ const Projects = {
     slug({ fieldToUse: "name" }),
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("work")],
+    afterRead: [nestCollectionUnderPage("projects")],
   },
 };
 
