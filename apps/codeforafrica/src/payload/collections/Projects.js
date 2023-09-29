@@ -92,7 +92,22 @@ const Projects = {
     richText({
       name: "description",
     }),
-    linkArray(),
+    linkArray({
+      linkConfig: {
+        defaultValue: "custom",
+        disableLinkTypeSelection: true,
+        labelFields: [
+          image({
+            overrides: {
+              label: {
+                en: "Icon",
+              },
+              name: "icon",
+            },
+          }),
+        ],
+      },
+    }),
     {
       name: "partners",
       required: true,

@@ -156,6 +156,9 @@ export async function getPageProps(api, context) {
   }
   if (params?.slugs?.length > 2) {
     page = await pagify(page, api, context);
+    if (!page) {
+      return null;
+    }
   }
   const blocks = await blockify(page?.blocks, api, context);
   const settings = await api.findGlobal("settings");
