@@ -12,15 +12,24 @@ import {
 import React from "react";
 
 const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
-  const { featureImage, html, href, publishedAt, sx, tags, title } = props;
+  const {
+    image: { src, alt },
+    excerpt,
+    href,
+    publishedOn,
+    sx,
+    tags,
+    title,
+    readMore,
+  } = props;
 
-  if (!(title && html)) {
+  if (!(title && excerpt)) {
     return null;
   }
   return (
     <Card sx={{ boxShadow: "none", borderRadius: 0, ...sx }} ref={ref}>
       <CardActionArea component={href ? Link : undefined} href={href}>
-        <CardMedia component="img" alt="" src={featureImage} />
+        <CardMedia component="img" alt={alt} src={src} />
         <CardContent sx={{ padding: 0 }}>
           <RichTypography sx={{ mt: 5, mb: 2.5 }} variant="h3">
             {title}
@@ -29,9 +38,11 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
             <RichTypography
               sx={{ borderRight: "solid 1px", mr: 1.25, pr: 1.25 }}
             >
-              {publishedAt}
+              {publishedOn}
             </RichTypography>
-            <RichTypography>{tags?.join(", ")}</RichTypography>
+            <RichTypography>
+              {tags.map((tag) => tag.name).join(", ")}
+            </RichTypography>
           </Box>
           <RichTypography
             component="section"
@@ -42,15 +53,15 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
               WebkitLineClamp: "3",
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
-              maxHeight: 28 * 3,
+              maxHeight: 28 * 3.5,
             }}
           >
-            {html}
+            {excerpt}
           </RichTypography>
         </CardContent>
         <CardActions sx={{ p: 0, mt: 2.5 }}>
           <Button component="div" variant="contained-reverse">
-            Read More
+            {readMore}
           </Button>
         </CardActions>
       </CardActionArea>

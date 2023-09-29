@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import FilterBar from "./FilterBar";
+import LongFormMedia from "./LongFormMedia";
 
 import theme from "@/codeforafrica/theme";
 
@@ -9,21 +9,17 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  tags: [
-    {
-      name: "tag",
-      slug: "tag",
+  mediaBlockFields: {
+    image: {
+      alt: "alt",
+      src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705960/codeforafrica/images/Property_1_africanDRONE_y4surg.jpg",
     },
-  ],
-  tag: {
-    name: "tag",
-    slug: "tag",
   },
 };
 
-describe("<FilterBar />", () => {
+describe("<LongFormMedia />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<FilterBar {...defaultProps} />);
+    const { container } = render(<LongFormMedia {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

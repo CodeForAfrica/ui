@@ -19,7 +19,7 @@ exports[`<Opportunities /> renders unchanged 1`] = `
               aria-invalid="false"
               class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
               id=":r0:"
-              placeholder="Search opportunities"
+              placeholder="Search"
               type="search"
               value=""
             />
@@ -50,6 +50,23 @@ exports[`<Opportunities /> renders unchanged 1`] = `
                 </span>
               </legend>
             </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiToggleButtonGroup-root css-czr1qx-MuiToggleButtonGroup-root"
+          role="group"
+        >
+          <div
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-1unqgnq-MuiButtonBase-root-MuiChip-root"
+            role="button"
+            tabindex="0"
+            value="All"
+          >
+            <span
+              class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+            >
+              All
+            </span>
           </div>
         </div>
       </div>

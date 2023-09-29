@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -19,14 +20,23 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     title,
     labels: { search, readMore },
     pagination: { count: countProp, page: pageProp = 1 },
+    primaryTag,
   } = props;
+  const filteredTags = tags.filter(
+    (tag) => !equalsIgnoreCase(tag.name, primaryTag),
+  );
+  const allTag = {
+    name: ALL_TAG,
+    slug: ALL_TAG,
+  };
   const [articles, setArticles] = useState(articlesList);
   const [count, setCount] = useState(countProp);
   const [page, setPage] = useState(pageProp);
   const [q, setQ] = useState();
   const [filtering, setFiltering] = useState(false);
-  const [tag, setTag] = useState(ALL_TAG);
-  const queryParams = useFilterQuery({ page, q, tag });
+  const [tag, setTag] = useState(allTag);
+  const queryParams = useFilterQuery({ page, q, tag: tag.slug });
+
   const router = useRouter();
 
   const handleChangePage = (_, value) => {
@@ -39,28 +49,28 @@ const Articles = React.forwardRef(function Articles(props, ref) {
 
   const handleChangeTag = (_, value) => {
     const newValue =
-      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+      (value && tags.find((t) => equalsIgnoreCase(value, t.slug))) || allTag;
     setTag(newValue);
     setPage(1);
   };
 
   useEffect(() => {
-    const isFiltering = page !== 1 || q || !equalsIgnoreCase(tag, ALL_TAG);
+    const isFiltering = page !== 1 || q || !equalsIgnoreCase(tag.slug, ALL_TAG);
     setFiltering(isFiltering);
   }, [page, q, tag]);
 
-  const { data } = useArticles({ page, q, tag });
+  const { data } = useArticles({ page, q, tag: tag.slug }, primaryTag);
   useEffect(() => {
     if (data) {
-      const { stories: results, pagination } = data;
+      const { posts: results, pagination } = data;
       setCount(pagination.count);
       setArticles(results);
     }
   }, [data, filtering]);
 
   useEffect(() => {
-    const [pathname] = router.asPath.split("?");
-    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    const { pathname } = window.location;
+    const url = `${pathname}${queryParams}`;
     router.push(url, undefined, {
       scroll: true,
       shallow: true,
@@ -79,7 +89,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
         onChangeQ={handleChangeQ}
         onChangeTag={handleChangeTag}
         selectedTag={tag}
-        tags={[ALL_TAG, ...tags]}
+        tags={[allTag, ...filteredTags]}
         searchLabel={search}
         q={q}
         readMoreLabel={readMore}

@@ -1,9 +1,12 @@
 import members from "./members";
 import partners from "./partners";
+import post from "./post";
 
 const COLLECTION_BY_SLUG = {
-  partners,
   members,
+  opportunities: post,
+  partners,
+  stories: post,
 };
 
 async function pagify(parentPage, api, context) {

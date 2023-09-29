@@ -12,7 +12,7 @@ import OurMission from "../blocks/OurMission";
 import OurPartners from "../blocks/OurPartners";
 import OurTeam from "../blocks/OurTeam";
 import PageHeader from "../blocks/PageHeader";
-import Stories from "../blocks/Stories";
+import Posts from "../blocks/Posts";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -57,12 +57,12 @@ const Pages = {
         JoinOurSlack,
         MeetOurTeam,
         PageHeader,
+        Posts,
         CustomPageHeader,
         OurImpact,
         OurMission,
         OurPartners,
         OurTeam,
-        Stories,
       ],
       admin: {
         initCollapsed: true,
