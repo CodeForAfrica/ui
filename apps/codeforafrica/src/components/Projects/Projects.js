@@ -57,7 +57,7 @@ const Projects = React.forwardRef(function Projects(
 
   useEffect(() => {
     const { pathname } = window.location;
-    const url = pathname ? `${pathname}${queryParams}` : queryParams;
+    const url = `${pathname}${queryParams}`;
     router.push(url, undefined, {
       scroll: true,
       shallow: true,

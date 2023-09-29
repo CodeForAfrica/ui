@@ -81,7 +81,7 @@ const Projects = {
           required: true,
           admin: {
             date: {
-              pickerAppearance: "dayAndTime",
+              pickerAppearance: "dayOnly",
             },
           },
         },
