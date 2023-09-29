@@ -97,14 +97,21 @@ const Projects = {
         defaultValue: "custom",
         disableLinkTypeSelection: true,
         labelFields: [
-          image({
-            overrides: {
-              label: {
-                en: "Icon",
+          {
+            name: "iconSlug",
+            label: { en: "Icon Slug" },
+            type: "select",
+            options: [
+              {
+                value: "Github",
+                label: { en: "Github Icon" },
               },
-              name: "icon",
-            },
-          }),
+              {
+                value: "data",
+                label: { en: "Data Icon" },
+              },
+            ],
+          },
         ],
       },
     }),
