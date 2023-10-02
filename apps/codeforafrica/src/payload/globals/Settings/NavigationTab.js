@@ -1,5 +1,6 @@
 import link from "../../fields/links/link";
 import linkArray from "../../fields/links/linkArray";
+import { socialMediaOptions } from "../../fields/socialLinks";
 
 const linkField = link({
   disableOpenInNewTab: true,
@@ -31,6 +32,12 @@ const NavigationTab = {
                 },
               },
             }),
+            {
+              name: "connect",
+              type: "select",
+              label: "Connect",
+              options: socialMediaOptions,
+            },
           ],
         },
       ],

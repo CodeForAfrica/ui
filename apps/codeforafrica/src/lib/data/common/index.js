@@ -5,15 +5,16 @@ import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
 function getNavBar(settings) {
   const {
-    connect: { links: socialLinks = [] },
+    connect: { links = [] },
     primaryLogo: media,
-    primaryNavigation,
+    primaryNavigation: { menus = null, connect },
     title,
   } = settings;
+  const socialLinks = links.filter((link) => link.platform === connect);
 
   return {
     logo: imageFromMedia({ alt: title, ...media }),
-    menus: primaryNavigation?.menus || null,
+    menus,
     socialLinks,
   };
 }

@@ -3,7 +3,7 @@ import { array } from "payload/dist/fields/validations";
 
 import url from "./url";
 
-const socialMediaOptions = [
+export const socialMediaOptions = [
   "Facebook",
   "Twitter",
   "Instagram",
