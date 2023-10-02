@@ -18,9 +18,6 @@ const propsifyBlockBySlug = {
 };
 
 async function blockify(blocks, api, context) {
-  if (!blocks) {
-    return null;
-  }
   const promises = blocks?.map(async (block) => {
     const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
@@ -37,7 +34,7 @@ async function blockify(blocks, api, context) {
   if (promises) {
     return Promise.all(promises);
   }
-  return blocks;
+  return blocks ?? null;
 }
 
 export default blockify;

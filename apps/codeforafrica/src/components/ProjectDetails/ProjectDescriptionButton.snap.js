@@ -7,6 +7,7 @@ exports[`<ProjectDescriptionButton /> renders unchanged 1`] = `
     content="Github"
     href="https://github.com/CodeForAfrica"
     rel="noreferrer noopener"
+    slug="github"
     tabindex="0"
     target="_blank"
   />
