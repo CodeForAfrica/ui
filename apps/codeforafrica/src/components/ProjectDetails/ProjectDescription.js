@@ -29,7 +29,7 @@ const ProjectDescription = React.forwardRef(
         {links?.length > 0 ? (
           <Stack direction="row" spacing={2.5}>
             {links.map(({ label, href, type }) => (
-              <ProjectDescriptionButton key={href} href={href} slug={type}>
+              <ProjectDescriptionButton key={href} href={href} type={type}>
                 {label}
               </ProjectDescriptionButton>
             ))}

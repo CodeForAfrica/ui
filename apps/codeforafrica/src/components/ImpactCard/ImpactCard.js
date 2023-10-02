@@ -80,7 +80,9 @@ const ImpactCard = React.forwardRef(function ImpactCard(props, ref) {
             display: "block",
             pt: "10px",
           }}
-          variant="body3"
+          typographyProps={{
+            variant: "body3",
+          }}
         />
       </CardContent>
     </ImpactCardRoot>

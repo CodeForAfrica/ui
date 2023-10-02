@@ -1,13 +1,13 @@
-import members from "./member";
-import partners from "./partner";
+import member from "./member";
+import partner from "./partner";
 import post from "./post";
-import projects from "./project";
+import project from "./project";
 
 const COLLECTION_BY_SLUG = {
-  members,
+  members: member,
   opportunities: post,
-  partners,
-  projects,
+  partners: partner,
+  projects: project,
   stories: post,
 };
 

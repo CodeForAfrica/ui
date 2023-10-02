@@ -7,10 +7,10 @@ import GitHubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color
 
 const ProjectDescriptionButton = React.forwardRef(
   function ProjectDescriptionButton(props, ref) {
-    const { href, slug, ...other } = props;
+    const { href, type, ...other } = props;
 
     let Icon;
-    switch (slug) {
+    switch (type) {
       case "data":
         Icon = DatabaseIcon;
         break;
@@ -45,7 +45,7 @@ const ProjectDescriptionButton = React.forwardRef(
         href={href}
         component={href ? Link : undefined}
         ref={ref}
-        key={slug}
+        key={href}
       />
     );
   },
