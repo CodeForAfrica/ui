@@ -114,13 +114,13 @@ const ProjectPageHeader = React.forwardRef(
                 <RichText
                   typographyProps={{
                     variant: "h4",
+                    sx: (theme) => ({
+                      mt: 2,
+                      "& strong": {
+                        color: theme.palette.primary.main,
+                      },
+                    }),
                   }}
-                  sx={(theme) => ({
-                    mt: 2,
-                    "& strong": {
-                      color: theme.palette.primary.main,
-                    },
-                  })}
                   elements={title}
                 />
                 <RichText

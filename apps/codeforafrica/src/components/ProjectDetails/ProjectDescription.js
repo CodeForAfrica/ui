@@ -24,7 +24,10 @@ const ProjectDescription = React.forwardRef(
         <RichText
           variant="body1"
           elements={description}
-          typographyProps={{ sx: { typography: { md: "body2" } } }}
+          typographyProps={{
+            variant: "body1",
+            sx: { typography: { md: "body2" } },
+          }}
         />
         {links?.length > 0 ? (
           <Stack direction="row" spacing={2.5}>

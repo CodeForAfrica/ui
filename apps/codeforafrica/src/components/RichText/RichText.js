@@ -96,7 +96,7 @@ const RichText = React.forwardRef(function RichText(props, ref) {
     return null;
   }
   return (
-    <Box ref={ref} {...other}>
+    <Box {...other} ref={ref}>
       {serialize(elements, typographyProps)}
     </Box>
   );

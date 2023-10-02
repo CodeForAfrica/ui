@@ -66,6 +66,9 @@ const OurWork = {
           defaultValue: "Donors",
         },
       ],
+      admin: {
+        description: "Labels/Titles to be used in single project view page",
+      },
     },
   ],
 };
