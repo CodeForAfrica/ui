@@ -111,7 +111,16 @@ const ProjectPageHeader = React.forwardRef(
                 }}
               >
                 <ProjectTile {...tileProps} />
-                <RichText variant="h4" sx={{ mt: 2 }} elements={title} />
+                <RichText
+                  variant="h4"
+                  sx={(theme) => ({
+                    mt: 2,
+                    "& strong": {
+                      color: theme.palette.primary.main,
+                    },
+                  })}
+                  elements={title}
+                />
                 <RichText
                   variant="body2"
                   typographyProps={{

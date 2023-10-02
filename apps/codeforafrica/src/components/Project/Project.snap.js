@@ -127,7 +127,7 @@ exports[`<Project /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiBox-root css-1yuhvjn"
+              class="MuiBox-root css-18g0jc3"
             >
               Empowering citizens through &lt;span class="highlight"&gt;drone technology&lt;/span&gt;
             </div>

@@ -160,7 +160,7 @@ export async function getPageProps(api, context) {
       return null;
     }
   }
-  const blocks = await blockify(page?.blocks ?? null, api, context);
+  const blocks = await blockify(page?.blocks, api, context);
   const settings = await api.findGlobal("settings");
   const navbar = getNavBar(settings);
   const footer = getFooter(settings);
