@@ -112,7 +112,9 @@ const ProjectPageHeader = React.forwardRef(
               >
                 <ProjectTile {...tileProps} />
                 <RichText
-                  variant="h4"
+                  typographyProps={{
+                    variant: "h4",
+                  }}
                   sx={(theme) => ({
                     mt: 2,
                     "& strong": {
@@ -122,8 +124,8 @@ const ProjectPageHeader = React.forwardRef(
                   elements={title}
                 />
                 <RichText
-                  variant="body2"
                   typographyProps={{
+                    variant: "body2",
                     sx: {
                       typography: { md: "subheading" },
                     },

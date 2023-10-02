@@ -33,7 +33,11 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
             >
               {title}
             </RichTypography>
-            <RichText sx={{ pt: 5 }} variant="body3" elements={description} />
+            <RichText
+              sx={{ pt: 5 }}
+              typographyProps={{ variant: "body3" }}
+              elements={description}
+            />
             <Button
               component={href ? Link : undefined}
               href={href}
