@@ -1,6 +1,6 @@
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
-async function member(api, context) {
+async function member(api, context, parentPage) {
   const { params, locale } = context;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection("members", {
@@ -28,16 +28,19 @@ async function member(api, context) {
       },
     },
   });
+  const block = parentPage?.blocks?.find(
+    ({ blockType }) => blockType === "our-team",
+  );
   return {
     blocks: [
       {
         ...doc,
         relatedProjects: {
-          title: "Projects",
+          title: block?.labels?.projects,
           list: relatedProjects,
         },
         user: true,
-        logo: imageFromMedia(member.image),
+        logo: imageFromMedia(doc.image),
         blockType: "about-page-entity",
       },
     ],

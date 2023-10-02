@@ -38,6 +38,20 @@ const OurTeam = {
         },
       ],
     },
+    {
+      name: "labels",
+      label: "Labels",
+      type: "group",
+      fields: [
+        {
+          name: "projects",
+          label: "Projects",
+          required: true,
+          type: "text",
+          defaultValue: "Projects",
+        },
+      ],
+    },
   ],
 };
 

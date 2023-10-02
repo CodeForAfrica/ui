@@ -1,6 +1,6 @@
 import formatDate from "@/codeforafrica/utils/formatDate";
 
-async function project(api, context) {
+async function project(api, context, parentPage) {
   const { params, locale } = context;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection("projects", {
@@ -28,23 +28,26 @@ async function project(api, context) {
       },
     },
   });
+  const block = parentPage.blocks.find(
+    ({ blockType }) => blockType === "our-work",
+  );
   return {
     meta,
     blocks: [
       {
         ...doc,
-        descriptionTitle: "Description",
+        descriptionTitle: block?.labels?.description,
         tag: doc.tag?.name ?? null,
         donors: {
-          title: "Donors",
+          title: block?.labels?.donors,
           list: doc.donors,
         },
         team: {
-          title: "Team",
+          title: block?.labels?.team,
           team: doc?.team ?? null,
         },
         relatedProjects: {
-          title: "Related Projects",
+          title: block?.labels?.projects,
           projects: relatedProjects,
         },
         badges: doc.badges.map(({ name, date }) => ({
@@ -54,7 +57,7 @@ async function project(api, context) {
             month: "short",
           }),
         })),
-        partners: { list: doc.partners, title: "Partners" },
+        partners: { list: doc.partners, title: block?.labels?.partners },
         blockType: "project",
       },
     ],
