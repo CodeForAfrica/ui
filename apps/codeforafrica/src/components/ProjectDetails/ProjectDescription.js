@@ -2,7 +2,7 @@ import { RichTypography } from "@commons-ui/next";
 import { Stack } from "@mui/material";
 import React from "react";
 
-import Button from "./ProjectDescriptionButton";
+import ProjectDescriptionButton from "./ProjectDescriptionButton";
 
 import RichText from "@/codeforafrica/components/RichText";
 
@@ -29,9 +29,9 @@ const ProjectDescription = React.forwardRef(
         {links?.length > 0 ? (
           <Stack direction="row" spacing={2.5}>
             {links.map(({ label, href, type }) => (
-              <Button key={href} href={href} slug={type}>
+              <ProjectDescriptionButton key={href} href={href} slug={type}>
                 {label}
-              </Button>
+              </ProjectDescriptionButton>
             ))}
           </Stack>
         ) : null}

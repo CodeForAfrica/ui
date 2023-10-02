@@ -91,13 +91,13 @@ const serialize = (children, props) =>
   });
 
 const RichText = React.forwardRef(function RichText(props, ref) {
-  const { color, elements, sx, typographyProps, ...other } = props;
+  const { elements, variant, typographyProps, ...other } = props;
   if (!elements?.length) {
     return null;
   }
   return (
-    <Box color={color} sx={sx} ref={ref}>
-      {serialize(elements, { ...other, ...typographyProps })}
+    <Box ref={ref} {...other}>
+      {serialize(elements, { variant, ...typographyProps })}
     </Box>
   );
 });

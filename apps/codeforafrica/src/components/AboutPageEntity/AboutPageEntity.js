@@ -44,8 +44,10 @@ const Page = React.forwardRef(function Page(
         }}
       >
         <RichText
-          variant="subheading"
-          component="p"
+          typographyProps={{
+            component: "p",
+            variant: "subheading",
+          }}
           sx={{
             mb: 5,
             typography: "subheading",

@@ -1,6 +1,6 @@
 import { imageFromMedia } from "@/codeforafrica/lib/data/utils";
 
-async function members(api, context) {
+async function member(api, context) {
   const { params, locale } = context;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection("members", {
@@ -14,24 +14,24 @@ async function members(api, context) {
   if (!docs?.length) {
     return null;
   }
-  const [member] = docs;
+  const [doc] = docs;
   const meta = {
-    title: member.name,
-    description: member.decription,
-    image: member.image,
+    title: doc.name,
+    description: doc.decription,
+    image: doc.image,
   };
   const { docs: relatedProjects } = await api.getCollection("projects", {
     locale,
     where: {
       team: {
-        contains: member.id,
+        contains: doc.id,
       },
     },
   });
   return {
     blocks: [
       {
-        ...member,
+        ...doc,
         relatedProjects: {
           title: "Projects",
           list: relatedProjects,
@@ -45,4 +45,4 @@ async function members(api, context) {
   };
 }
 
-export default members;
+export default member;
