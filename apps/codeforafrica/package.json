@@ -25,13 +25,13 @@
     "build-server": "tsc --project tsconfig.server.json",
     "build-next": "NEXT_BUILD=true pnpm pnpm build-server && NEXT_BUILD=true PAYLOAD_CONFIG_PATH=dist/payload.config.js node dist/server.js",
     "build-payload": "payload build",
+    "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
     "dev": "NODE_OPTIONS='--inspect' ts-node --project tsconfig.server.json server.ts",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
     "build": "next build",
-    "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
