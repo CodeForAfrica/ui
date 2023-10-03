@@ -13,14 +13,13 @@ const Authors = {
     {
       name: "fullName",
       type: "text",
-      label: "Full Name",
-      localized: false,
       required: true,
+      localized: true,
     },
     {
       name: "bio",
       type: "textarea",
-      label: "Bio",
+      localized: true,
     },
   ],
 };

@@ -25,9 +25,6 @@ const Pages = {
     create: () => true,
     update: () => true,
   },
-  versions: {
-    drafts: true,
-  },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt"],
     group: "Publication",
@@ -39,8 +36,9 @@ const Pages = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
-    fullTitle(),
+    fullTitle({ overrides: { localized: true } }),
     slug(),
     {
       name: "blocks",
@@ -67,11 +65,15 @@ const Pages = {
         OurTeam,
         OurWork,
       ],
+      localized: true,
       admin: {
         initCollapsed: true,
       },
     },
   ],
+  versions: {
+    drafts: true,
+  },
 };
 
 export default Pages;

@@ -14,11 +14,10 @@ const Teams = {
   fields: [
     {
       name: "name",
-      label: "Name",
       type: "text",
+      unique: true,
       localized: true,
       required: true,
-      unique: true,
     },
     slug({ fieldToUse: "name" }),
   ],

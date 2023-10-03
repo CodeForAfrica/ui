@@ -20,17 +20,16 @@ const Donors = {
   fields: [
     {
       name: "name",
-      label: {
-        en: "Name",
-      },
       type: "text",
       required: true,
+      localized: true,
     },
     slug({ fieldToUse: "name" }),
     image({
       overrides: {
         name: "logo",
         required: true,
+        localized: true,
       },
     }),
   ],

@@ -18,34 +18,32 @@ const Projects = {
   fields: [
     {
       name: "name",
-      label: {
-        en: "Name",
-      },
       type: "text",
       required: true,
+      localized: true,
     },
     image({
       overrides: {
-        label: {
-          en: "Icon",
-        },
         name: "icon",
         required: true,
+        localized: true,
       },
     }),
     richText({
       name: "title",
-      label: { en: "Title" },
+      required: true,
+      localized: true,
     }),
     richText({
       name: "subtitle",
+      required: true,
+      localized: true,
     }),
     {
       name: "tagLine",
-      label: {
-        en: "Tagline",
-      },
       type: "text",
+      required: true,
+      localized: true,
     },
     tags({
       name: "tag",
@@ -54,28 +52,23 @@ const Projects = {
         position: "sidebar",
       },
     }),
-    linkGroup({ overrides: { name: "externalLink", label: "Link" } }),
+    linkGroup({
+      overrides: { name: "externalLink", label: "Link", localized: true },
+    }),
     image({
       overrides: {
-        label: {
-          en: "Thumbnail",
-        },
         name: "thumbnail",
         required: true,
+        localized: true,
       },
     }),
     {
       name: "badges",
       type: "array",
-      label: {
-        en: "Badges",
-      },
+      localized: true,
       fields: [
         {
           name: "name",
-          label: {
-            en: "Name",
-          },
           type: "text",
           required: true,
         },
@@ -94,13 +87,14 @@ const Projects = {
     },
     richText({
       name: "description",
+      required: true,
+      localized: true,
     }),
     linkArray({
       overrides: {
         fields: [
           {
             name: "type",
-            label: { en: "Type" },
             type: "select",
             options: [
               {
@@ -120,34 +114,32 @@ const Projects = {
             disableOpenInNewTab: true,
           }),
         ],
+        localized: true,
       },
     }),
     {
       name: "partners",
-      required: true,
       type: "relationship",
       relationTo: "partners",
       hasMany: true,
+      required: true,
+      localized: true,
     },
     {
       name: "donors",
-      required: true,
-      label: {
-        en: "Donors",
-      },
       type: "relationship",
       relationTo: "donors",
       hasMany: true,
+      required: true,
+      localized: true,
     },
     {
       name: "team",
-      label: {
-        en: "Team",
-      },
-      required: true,
       type: "relationship",
       relationTo: "members",
       hasMany: true,
+      required: true,
+      localized: true,
     },
     slug({ fieldToUse: "name" }),
   ],

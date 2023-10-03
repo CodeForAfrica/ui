@@ -13,25 +13,22 @@ const GuidingPrinciples = {
   fields: [
     {
       name: "title",
-      label: {
-        en: "Title",
-      },
       type: "text",
       required: true,
+      localized: true,
     },
     slug({ fieldToUse: "title" }),
     image({
       overrides: {
         name: "icon",
         required: true,
+        localized: true,
       },
     }),
     richText({
       name: "description",
-      label: {
-        en: "Description",
-      },
       required: true,
+      localized: true,
     }),
   ],
 };

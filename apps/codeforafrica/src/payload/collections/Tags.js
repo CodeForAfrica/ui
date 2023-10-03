@@ -14,11 +14,10 @@ const Tags = {
   fields: [
     {
       name: "name",
-      label: "Name",
       type: "text",
-      localized: true,
-      required: true,
       unique: true,
+      required: true,
+      localized: true,
     },
     slug({ fieldToUse: "name" }),
   ],
