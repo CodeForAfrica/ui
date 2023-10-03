@@ -1,5 +1,16 @@
 import linkGroup from "../fields/links/linkGroup";
 
+const primaryTags = [
+  {
+    label: "Stories",
+    value: "stories",
+  },
+  {
+    label: "Opportunities",
+    value: "opportunities",
+  },
+];
+
 const PostsOverview = {
   slug: "posts-overview",
   imageURL: "/images/cms/blocks/posts_overview.jpg",
@@ -10,6 +21,14 @@ const PostsOverview = {
       label: "Title",
       required: true,
       type: "text",
+    },
+    {
+      name: "primaryTag",
+      label: "Post Type",
+      required: true,
+      type: "select",
+      options: primaryTags,
+      hasMany: false,
     },
     {
       name: "featured",
