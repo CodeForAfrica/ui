@@ -3,11 +3,10 @@
 exports[`<ProjectTile /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined css-rp91d-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
   >
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1ccxlif-MuiTypography-root-MuiLink-root"
-      href="/projects/acfrican-drone"
+    <div
+      class="MuiBox-root css-uq7i85"
     >
       <figure
         class="MuiBox-root css-f1ltsh"
@@ -40,7 +39,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
           Drones for good
         </p>
       </div>
-    </a>
+    </div>
   </div>
 </div>
 `;

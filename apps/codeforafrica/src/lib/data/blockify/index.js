@@ -34,7 +34,7 @@ async function blockify(blocks, api, context) {
   if (promises) {
     return Promise.all(promises);
   }
-  return blocks;
+  return blocks ?? null;
 }
 
 export default blockify;

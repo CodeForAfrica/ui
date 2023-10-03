@@ -9,11 +9,10 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 css-bdfmo7-MuiGrid-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-outlined css-m6avhc-MuiPaper-root"
+        class="MuiPaper-root MuiPaper-outlined css-1w24b7k-MuiPaper-root"
       >
-        <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1ccxlif-MuiTypography-root-MuiLink-root"
-          href="/projects/acfrican-drone"
+        <div
+          class="MuiBox-root css-uq7i85"
         >
           <figure
             class="MuiBox-root css-f1ltsh"
@@ -46,7 +45,7 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
               Drones for good
             </p>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>

@@ -38,6 +38,23 @@ const OurTeam = {
         },
       ],
     },
+    {
+      name: "labels",
+      label: "Labels",
+      type: "group",
+      admin: {
+        description: "Labels/Titles to be used in member view page",
+      },
+      fields: [
+        {
+          name: "projects",
+          label: "Projects",
+          required: true,
+          type: "text",
+          defaultValue: "Projects",
+        },
+      ],
+    },
   ],
 };
 

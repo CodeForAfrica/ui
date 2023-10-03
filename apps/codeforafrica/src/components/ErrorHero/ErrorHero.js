@@ -32,7 +32,7 @@ const ErrorHero = React.forwardRef(function ErrorHero(props, ref) {
         >
           {title}
         </RichTypography>
-        <RichText variant="body2" elements={subtitle} />
+        <RichText typographyProps={{ variant: "body2" }} elements={subtitle} />
       </Section>
     </TwoToneBackground>
   );

@@ -14,7 +14,7 @@ const defaultProps = {
     {
       content: "Github",
       href: "https://github.com/CodeForAfrica",
-      slug: "github",
+      type: "github",
     },
   ],
 };
