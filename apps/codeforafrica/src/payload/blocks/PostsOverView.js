@@ -46,7 +46,6 @@ const PostsOverview = {
       maxRows: 3,
     },
     linkGroup({ overrides: { name: "action", label: "Action" } }),
-
     {
       name: "labels",
       label: "Labels",
