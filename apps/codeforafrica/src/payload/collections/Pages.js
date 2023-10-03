@@ -14,6 +14,7 @@ import OurTeam from "../blocks/OurTeam";
 import OurWork from "../blocks/OurWork";
 import PageHeader from "../blocks/PageHeader";
 import Posts from "../blocks/Posts";
+import PostsOverView from "../blocks/PostsOverView";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -59,6 +60,7 @@ const Pages = {
         MeetOurTeam,
         PageHeader,
         Posts,
+        PostsOverView,
         CustomPageHeader,
         OurImpact,
         OurMission,

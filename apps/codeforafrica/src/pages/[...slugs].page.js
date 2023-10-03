@@ -34,7 +34,7 @@ const componentsBySlugs = {
   hero: Hero,
   "join-our-slack": JoinOurSlack,
   "meet-our-team": MeetOurTeam,
-  "news-stories": NewsAndStories,
+  "posts-overview": NewsAndStories,
   opportunities: Opportunities,
   "our-guiding-principles": GuidingPrinciplesCardList,
   "our-impact": OurImpact,

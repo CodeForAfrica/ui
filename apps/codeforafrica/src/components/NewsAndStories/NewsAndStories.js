@@ -8,10 +8,13 @@ import FeaturedArticle from "@/codeforafrica/components/FeaturedArticle";
 
 // TODO(kilemensi): Remove hard-coded strings
 const NewsAndStories = React.forwardRef(function NewsAndStories(props, ref) {
-  const { articles, title } = props;
-  if (!articles?.length) {
-    return null;
-  }
+  const {
+    action: { label, href },
+    featured,
+    labels: { readStory },
+    posts,
+    title,
+  } = props;
   return (
     <Section
       sx={{
@@ -35,21 +38,19 @@ const NewsAndStories = React.forwardRef(function NewsAndStories(props, ref) {
           {title}
         </RichTypography>
         <FeaturedArticle
-          {...articles[0]}
+          {...featured}
+          readMoreLabel={readStory}
           variant="cover"
           sx={{ mb: { xs: "28px", sm: "40px", lg: "55px" }, width: "100%" }}
         />
-        <ArticleCardList
-          articles={articles.slice(1)}
-          sx={{ mb: { xs: 5, lg: "55px" } }}
-        />
+        <ArticleCardList articles={posts} sx={{ mb: { xs: 5, lg: "55px" } }} />
         <Button
           variant="contained"
           component={Link}
-          href="/stories"
+          href={href}
           sx={{ width: { xs: "100%", sm: "unset" } }}
         >
-          Browse More Stories
+          {label}
         </Button>
       </Box>
     </Section>
