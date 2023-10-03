@@ -11,7 +11,7 @@ const render = createRender({ theme });
 const defaultProps = {
   content: "Github",
   href: "https://github.com/CodeForAfrica",
-  slug: "github",
+  type: "github",
 };
 
 describe("<ProjectDescriptionButton />", () => {

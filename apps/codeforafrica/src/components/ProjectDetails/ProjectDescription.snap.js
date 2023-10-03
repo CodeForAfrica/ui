@@ -19,19 +19,7 @@ exports[`<ProjectDescription /> renders unchanged 1`] = `
         rel="noreferrer noopener"
         tabindex="0"
         target="_blank"
-      >
-        Github
-        <span
-          class="MuiButton-endIcon MuiButton-iconSizeSmall css-jcxoq4-MuiButton-endIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6r1fm2-MuiSvgIcon-root"
-            focusable="false"
-            viewbox="0 0 24 24"
-          />
-        </span>
-      </a>
+      />
     </div>
   </div>
 </div>
