@@ -7,22 +7,25 @@ import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
-const orQueryBuilder = (fields, search) => {
-  return fields.map((field) => ({ [field]: { like: search } }));
+const queryBuilder = (query) => {
+  const { search, location } = query;
+  const fields = ["description", "fullName", "location", "externalId"];
+  const where = {};
+  if (search) {
+    where.or = fields.map((field) => ({ [field]: { like: search } }));
+  }
+  if (location) {
+    where.location = { equals: location };
+  }
+  return where;
 };
 
 export async function getContributors(page, api, context) {
   const {
     locale,
-    query: { page: pageNumber = 1, limit = 12, search, sort = "fullName" } = {},
+    query: { page: pageNumber = 1, limit = 12, sort = "fullName" } = {},
   } = context;
-
-  const fields = ["description", "fullName", "location", "externalId"];
-  const toolQueries = orQueryBuilder(fields, search);
-  const query = {
-    or: toolQueries,
-  };
-
+  const where = queryBuilder(context.query);
   const { docs, ...pagination } = await api.getCollection(
     CONTRIBUTORS_COLLECTION,
     {
@@ -30,9 +33,7 @@ export async function getContributors(page, api, context) {
       page: parseInt(pageNumber, 10) || 1,
       limit,
       sort,
-      where: {
-        ...query,
-      },
+      where,
     },
   );
   const results = docs.map((person) => {

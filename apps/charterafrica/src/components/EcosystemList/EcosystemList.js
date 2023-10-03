@@ -84,9 +84,7 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
   if (loading && listRef.current) {
     listRef.current.scrollIntoView({ behavior: "smooth" });
   }
-  if (!results.length && !values.search) {
-    return null;
-  }
+
   return (
     <Box ref={ref} sx={{ backgroundColor: "common.white" }}>
       <Section
@@ -109,32 +107,41 @@ const EcosystemList = React.forwardRef(function EcosystemList(props, ref) {
             filterOptions={filterOptions}
             onQuerySearch={onQuerySearch}
           />
-          <RichTypography
-            textAlign={{ xs: "center", sm: "left" }}
-            color="neutral.dark"
-            variant="h2SemiBold"
-            sx={{ mt: 6.25 }}
-          >
-            {title}
-          </RichTypography>
-          {loading ? <LinearProgress color="secondary" /> : null}
-          <Grid sx={{ py: 6.25 }} container columnSpacing={2.5} rowSpacing={5}>
-            {results.map((item) => (
-              <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
-                <Component key={item.id} {...item} />
+          {results.length ? (
+            <>
+              <RichTypography
+                textAlign={{ xs: "center", sm: "left" }}
+                color="neutral.dark"
+                variant="h2SemiBold"
+                sx={{ mt: 6.25 }}
+              >
+                {title}
+              </RichTypography>
+              {loading ? <LinearProgress color="secondary" /> : null}
+              <Grid
+                sx={{ py: 6.25 }}
+                container
+                columnSpacing={2.5}
+                rowSpacing={5}
+              >
+                {results.map((item) => (
+                  <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
+                    <Component key={item.id} {...item} />
+                  </Grid>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-          <NextPrevPagination
-            count={totalPages}
-            onChange={(_, p) => onPageChange(p)}
-            page={page}
-            sx={{
-              backgroundColor: "common.white",
-              mt: 5,
-              pb: 8,
-            }}
-          />
+              <NextPrevPagination
+                count={totalPages}
+                onChange={(_, p) => onPageChange(p)}
+                page={page}
+                sx={{
+                  backgroundColor: "common.white",
+                  mt: 5,
+                  pb: 8,
+                }}
+              />
+            </>
+          ) : null}
         </Box>
       </Section>
     </Box>
