@@ -6,7 +6,6 @@ const ContactForm = {
     {
       name: "embedCode",
       type: "code",
-      label: "Embed Code",
       required: true,
       admin: {
         language: "html",

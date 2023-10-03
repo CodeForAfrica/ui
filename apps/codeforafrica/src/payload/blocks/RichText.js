@@ -9,6 +9,7 @@ const RichText = {
       fields: [
         richText({
           name: "content",
+          required: true,
           admin: {
             elements: [
               "h1",
