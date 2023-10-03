@@ -7,8 +7,30 @@ import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
-const orQueryBuilder = (fields, search) => {
-  return fields.map((field) => ({ [field]: { like: search } }));
+const queryBuilder = (query) => {
+  const { search, theme, homeCountry } = query;
+  const where = {};
+  if (search) {
+    const fields = [
+      "description",
+      "theme",
+      "operatingCountries",
+      "name",
+      "id",
+      "slug",
+      "homeCountry",
+    ];
+    where.or = fields.map((field) => ({ [field]: { like: search } }));
+  }
+  if (homeCountry) {
+    where.homeCountry = {
+      equals: homeCountry,
+    };
+  }
+  if (theme) {
+    where.theme = { equals: theme };
+  }
+  return where;
 };
 
 const getRepoLink = (tool) => {
@@ -99,27 +121,15 @@ async function processPageSingleTool(page, api, context) {
 export async function getTools(page, api, context) {
   const {
     locale,
-    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
+    query: { page: pageNumber = 1, limit = 12, sort = "name" } = {},
   } = context;
-  const fields = [
-    "description",
-    "theme",
-    "operatingCountries",
-    "name",
-    "id",
-    "slug",
-  ];
-  const toolQueries = orQueryBuilder(fields, search);
-  const query = {
-    or: toolQueries,
-  };
-
+  const where = queryBuilder(context.query);
   const { docs, ...pagination } = await api.getCollection(TOOL_COLLECTION, {
     locale,
     page: pageNumber,
     limit,
     sort,
-    where: query,
+    where,
   });
 
   const results = docs.map((tool) => {
