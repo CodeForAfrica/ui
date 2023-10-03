@@ -10,7 +10,6 @@ const Settings = {
   admin: {
     group: "Website",
   },
-  label: "Settings",
   fields: [
     {
       type: "tabs",
