@@ -57,7 +57,8 @@ const start = async (): Promise<void> => {
         "pnpm",
         ["next", "build", path.resolve(projectDir)],
         {
-          shell: true, stdio: "inherit",
+          shell: true,
+          stdio: "inherit",
         },
       );
       nextBuild.on("close", (code) => {
