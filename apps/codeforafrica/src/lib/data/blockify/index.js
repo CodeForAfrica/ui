@@ -5,6 +5,7 @@ import ourImpact from "./our-impact";
 import ourTeam from "./ourTeam";
 import ourWork from "./ourWork";
 import posts from "./posts";
+import relatedPosts from "./related-posts";
 
 const propsifyBlockBySlug = {
   "get-involved": getInvolved,
@@ -15,6 +16,7 @@ const propsifyBlockBySlug = {
   "our-work": ourWork,
   // post-list to avoid conflict with posts collection in payload
   "post-list": posts,
+  "related-posts": relatedPosts,
 };
 
 async function blockify(blocks, api, context) {
