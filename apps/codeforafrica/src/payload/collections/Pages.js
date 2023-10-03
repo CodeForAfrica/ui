@@ -30,6 +30,7 @@ const Pages = {
   },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt"],
+    group: "Publication",
     preview: (doc, options) => formatDraftUrl("pages", doc, options),
     useAsTitle: "title",
   },

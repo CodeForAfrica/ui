@@ -18,8 +18,10 @@ const Posts = {
     drafts: true,
   },
   admin: {
-    useAsTitle: "title",
     defaultColumns: ["title", "authors", "publishedOn"],
+    description: "Stories and Opportunities",
+    group: "Publication",
+    useAsTitle: "title",
   },
   fields: [
     {

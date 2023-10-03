@@ -4,6 +4,9 @@ const Authors = {
     read: () => true,
   },
   admin: {
+    defaultColumns: ["fullName", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Publication",
     useAsTitle: "fullName",
   },
   fields: [

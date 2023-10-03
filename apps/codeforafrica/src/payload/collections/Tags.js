@@ -3,6 +3,9 @@ import slug from "../fields/slug";
 const Tags = {
   slug: "tag",
   admin: {
+    defaultColumns: ["name", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Publication",
     useAsTitle: "name",
   },
   access: {

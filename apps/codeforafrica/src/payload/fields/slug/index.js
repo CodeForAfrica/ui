@@ -8,6 +8,7 @@ function slug({ fieldToUse = "title", overrides = undefined } = {}) {
     label: "Slug",
     type: "text",
     index: true,
+    unique: true,
     admin: {
       position: "sidebar",
     },

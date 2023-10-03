@@ -19,8 +19,10 @@ const Partners = {
     },
   },
   admin: {
+    defaultColumns: ["name", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
-    defaultColumns: ["name", "logo"],
   },
   access: {
     read: () => true,

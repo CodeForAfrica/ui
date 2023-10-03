@@ -12,8 +12,10 @@ const Donors = {
     },
   },
   admin: {
+    defaultColumns: ["name", "slug", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
-    defaultColumns: ["name", "logo"],
   },
   fields: [
     {

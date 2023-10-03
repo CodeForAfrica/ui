@@ -16,8 +16,10 @@ const Members = {
     },
   },
   admin: {
+    defaultColumns: ["name", "title", "team.name", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
-    defaultColumns: ["name", "title", "country"],
   },
   fields: [
     image({

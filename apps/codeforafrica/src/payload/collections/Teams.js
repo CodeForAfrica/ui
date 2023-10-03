@@ -3,8 +3,10 @@ import slug from "../fields/slug";
 const Teams = {
   slug: "teams",
   admin: {
+    defaultColumns: ["name", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
-    defaultColumns: ["name"],
   },
   access: {
     read: () => true,

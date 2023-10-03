@@ -10,6 +10,9 @@ import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 const Projects = {
   slug: "projects",
   admin: {
+    defaultColumns: ["name", "tagLine", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
   },
   fields: [

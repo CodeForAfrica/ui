@@ -4,8 +4,10 @@ import richText from "../fields/richText";
 const Impact = {
   slug: "impact",
   admin: {
+    defaultColumns: ["title", "value", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "title",
-    defaultColumns: ["title", "value"],
   },
   access: {
     read: () => true,
