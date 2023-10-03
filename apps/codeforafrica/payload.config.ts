@@ -123,4 +123,5 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ] as any[],
+  telemetry: process?.env?.NODE_ENV !== "production",
 });
