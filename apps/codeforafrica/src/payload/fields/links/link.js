@@ -42,16 +42,12 @@ const link = ({
           {
             label: {
               en: "Custom URL",
-              fr: "URL personnalisée",
-              pt: "URL personalizado",
             },
             value: "custom",
           },
           {
             label: {
               en: "Internal link",
-              fr: "Lien interne",
-              pt: "Link interno",
             },
             value: "internal",
           },

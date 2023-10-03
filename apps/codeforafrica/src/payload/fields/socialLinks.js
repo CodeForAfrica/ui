@@ -16,10 +16,13 @@ function socialLinks(overrides) {
   const defaults = {
     name: "links",
     type: "array",
-    label: "Links",
     labels: {
-      singular: "Link",
-      plural: "Links",
+      singular: {
+        en: "Link",
+      },
+      plural: {
+        en: "Links",
+      },
     },
     minRows: 1,
     admin: {

@@ -8,11 +8,6 @@ import link from "./link";
 function linkGroup({ linkConfig, overrides = {} } = {}) {
   const generatedLinkGroup = {
     name: "link",
-    label: {
-      en: "Link",
-      fr: "Lien",
-      pt: "Link",
-    },
     type: "group",
     required: true,
     fields: [link(linkConfig)],
