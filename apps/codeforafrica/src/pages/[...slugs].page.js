@@ -43,7 +43,7 @@ const componentsBySlugs = {
   "our-team": OurTeam,
   "our-work": Projects,
   "page-header": PageHeader,
-  projects: FeaturedProjects,
+  "our-work-showcase": FeaturedProjects,
   project: Project,
   stories: Articles,
 };

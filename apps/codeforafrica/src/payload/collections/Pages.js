@@ -12,6 +12,7 @@ import OurMission from "../blocks/OurMission";
 import OurPartners from "../blocks/OurPartners";
 import OurTeam from "../blocks/OurTeam";
 import OurWork from "../blocks/OurWork";
+import OurWorkShowcase from "../blocks/OurWorkShowcase";
 import PageHeader from "../blocks/PageHeader";
 import Posts from "../blocks/Posts";
 import fullTitle from "../fields/fullTitle";
@@ -65,6 +66,7 @@ const Pages = {
         OurPartners,
         OurTeam,
         OurWork,
+        OurWorkShowcase,
       ],
       admin: {
         initCollapsed: true,

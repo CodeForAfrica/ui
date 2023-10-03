@@ -6,18 +6,20 @@ import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ProjectTileList from "@/codeforafrica/components/ProjectTileList";
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const DEFAULT_TAG = "Products";
-
 const FeaturedProjects = React.forwardRef(
   function FeaturedProjects(props, ref) {
-    const { tags = [], projects = [], slug, ...other } = props;
-    const [selectedTag, setSelectedTag] = useState(DEFAULT_TAG);
+    const {
+      tags = [],
+      projects = [],
+      defaultTag: { slug: defaultTag } = {},
+    } = props;
+    const [selectedTag, setSelectedTag] = useState(defaultTag);
     const handleChangeCategory = (_, value) => {
-      const newTag = value || DEFAULT_TAG;
+      const newTag = value || defaultTag;
       setSelectedTag(newTag);
     };
     const filteredProjects = useMemo(() => {
-      return projects.filter((p) => equalsIgnoreCase(selectedTag, p.tag));
+      return projects.filter((p) => equalsIgnoreCase(selectedTag, p.tag.slug));
     }, [projects, selectedTag]);
 
     if (!projects?.length) {
@@ -32,7 +34,6 @@ const FeaturedProjects = React.forwardRef(
           px: { xs: 2.5, sm: 0 },
           py: { xs: 2.5, sm: 4.6, md: "66.8px" },
         }}
-        {...other}
         ref={ref}
       >
         {tags?.length > 0 ? (
@@ -42,7 +43,7 @@ const FeaturedProjects = React.forwardRef(
             value={selectedTag}
           >
             {tags.map((tag) => (
-              <ChoiceChip label={tag} value={tag} key={tag} />
+              <ChoiceChip label={tag.name} value={tag.slug} key={tag.slug} />
             ))}
           </ChoiceChipGroup>
         ) : null}
