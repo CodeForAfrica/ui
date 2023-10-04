@@ -1,6 +1,7 @@
 import ContactForm from "../blocks/ContactForm";
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
+import FeaturedStories from "../blocks/FeaturedStories";
 import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
 import GuidingPrinciples from "../blocks/GuidingPrinciples";
@@ -14,7 +15,6 @@ import OurTeam from "../blocks/OurTeam";
 import OurWork from "../blocks/OurWork";
 import PageHeader from "../blocks/PageHeader";
 import Posts from "../blocks/Posts";
-import PostsOverView from "../blocks/PostsOverView";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -57,10 +57,10 @@ const Pages = {
         GuidingPrinciples,
         Hero,
         JoinOurSlack,
+        FeaturedStories,
         MeetOurTeam,
         PageHeader,
         Posts,
-        PostsOverView,
         CustomPageHeader,
         OurImpact,
         OurMission,

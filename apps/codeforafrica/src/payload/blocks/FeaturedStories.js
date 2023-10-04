@@ -1,9 +1,17 @@
 import linkGroup from "../fields/links/linkGroup";
 
-const PostsOverview = {
-  slug: "posts-overview",
-  imageURL: "/images/cms/blocks/posts_overview.jpg",
-  imageAltText: "Stories & Opportunities Overview",
+const FeaturedStories = {
+  slug: "featured-stories",
+  imageURL: "/images/cms/blocks/featured_stories.jpg",
+  imageAltText: "Featured Stories",
+  labels: {
+    singular: {
+      en: "Featured Stories",
+    },
+    plural: {
+      en: "Featured Stories",
+    },
+  },
   fields: [
     {
       name: "title",
@@ -66,4 +74,4 @@ const PostsOverview = {
   ],
 };
 
-export default PostsOverview;
+export default FeaturedStories;
