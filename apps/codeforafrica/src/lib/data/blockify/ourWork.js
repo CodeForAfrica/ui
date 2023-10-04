@@ -1,5 +1,5 @@
-import { sortTags } from "@/codeforafrica/lib/data/utils/posts";
 import { getProjects } from "@/codeforafrica/lib/data/utils/projects";
+import { sortTags } from "@/codeforafrica/lib/data/utils/tags";
 
 async function ourWork(block, api, context) {
   const { query } = context;

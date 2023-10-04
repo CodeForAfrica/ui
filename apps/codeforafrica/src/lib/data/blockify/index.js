@@ -8,13 +8,13 @@ import ourWork from "./ourWork";
 import posts from "./posts";
 
 const propsifyBlockBySlug = {
+  "featured-projects": featuredProjects,
   "get-involved": getInvolved,
   hero,
   "meet-our-team": meetOurTeam,
   "our-impact": ourImpact,
   "our-team": ourTeam,
   "our-work": ourWork,
-  "featured-projects": featuredProjects,
   // post-list to avoid conflict with posts collection in payload
   "post-list": posts,
 };
