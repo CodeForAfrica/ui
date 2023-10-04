@@ -46,7 +46,7 @@ const componentsBySlugs = {
   "page-header": PageHeader,
   projects: FeaturedProjects,
   project: Project,
-  "related-posts": RelatedStories,
+  "recent-stories": RelatedStories,
   stories: Articles,
 };
 
