@@ -10,7 +10,7 @@ const render = createRender({ theme });
 
 const defaultProps = {
   title: "Related Stories",
-  posts: [
+  stories: [
     {
       title: "Battle for gender equality in African media continues",
       excerpt:
