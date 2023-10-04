@@ -1,5 +1,6 @@
 import link from "../../fields/links/link";
 import linkArray from "../../fields/links/linkArray";
+import { socialMediaOptions } from "../../fields/socialLinks";
 
 const linkField = link({
   disableOpenInNewTab: true,
@@ -11,7 +12,7 @@ const NavigationTab = {
     {
       name: "primaryNavigation",
       type: "group",
-      label: "Primary Navigation",
+      localized: true,
       fields: [
         {
           type: "collapsible",
@@ -20,10 +21,13 @@ const NavigationTab = {
             linkArray({
               overrides: {
                 name: "menus",
-                label: "Menus",
                 labels: {
-                  singular: "Menu",
-                  plural: "Menus",
+                  singular: {
+                    en: "Menu",
+                  },
+                  plural: {
+                    en: "Menus",
+                  },
                 },
                 fields: [linkField],
                 admin: {
@@ -31,6 +35,11 @@ const NavigationTab = {
                 },
               },
             }),
+            {
+              name: "connect",
+              type: "select",
+              options: socialMediaOptions,
+            },
           ],
         },
       ],
@@ -38,7 +47,7 @@ const NavigationTab = {
     {
       name: "secondaryNavigation",
       type: "group",
-      label: "Secondary Navigation",
+      localized: true,
       fields: [
         {
           type: "collapsible",
@@ -47,10 +56,13 @@ const NavigationTab = {
             linkArray({
               overrides: {
                 name: "menus",
-                label: "Menus",
                 labels: {
-                  singular: "Menu",
-                  plural: "Menus",
+                  singular: {
+                    en: "Menu",
+                  },
+                  plural: {
+                    en: "Menus",
+                  },
                 },
                 fields: [linkField],
                 admin: {

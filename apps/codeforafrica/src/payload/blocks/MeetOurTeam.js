@@ -9,13 +9,11 @@ const MeetOurTeam = {
   fields: [
     {
       name: "title",
-      label: "Title",
-      required: true,
       type: "text",
+      required: true,
     },
     richText({
       name: "description",
-      label: "Description",
       required: true,
     }),
     linkGroup({ overrides: { name: "action", label: "Action" } }),

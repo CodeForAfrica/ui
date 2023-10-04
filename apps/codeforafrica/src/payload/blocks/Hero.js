@@ -8,7 +8,6 @@ const Hero = {
   fields: [
     richText({
       name: "title",
-      label: "Title",
       required: true,
       admin: {
         elements: [],
@@ -18,7 +17,6 @@ const Hero = {
     {
       name: "messages",
       type: "array",
-      label: "Messages",
       minRows: 3,
       maxRows: 3,
       fields: [
@@ -39,8 +37,8 @@ const Hero = {
     {
       name: "subtitle",
       label: "Description",
-      required: true,
       type: "text",
+      required: true,
     },
     image({
       overrides: {

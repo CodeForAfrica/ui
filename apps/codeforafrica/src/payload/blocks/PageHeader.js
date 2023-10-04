@@ -1,16 +1,15 @@
 const PageHeader = {
   slug: "page-header",
   imageURL: "/images/cms/blocks/page_header.jpg",
+  imageAltText: "Header for content pages such as contact page.",
   fields: [
     {
       name: "title",
-      label: "Title",
       required: true,
       type: "text",
     },
     {
       name: "subtitle",
-      label: "Subtitle",
       required: true,
       type: "text",
     },

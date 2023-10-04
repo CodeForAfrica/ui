@@ -37,7 +37,6 @@ const ExternalEmbed = {
         },
         {
           name: "caption",
-          label: "Caption",
           type: "text",
           localized: true,
           admin: {
@@ -46,7 +45,6 @@ const ExternalEmbed = {
         },
         {
           name: "code",
-          label: "Code",
           type: "code",
           required: true,
           admin: {

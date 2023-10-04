@@ -3,11 +3,10 @@ import impacts from "../fields/impacts";
 const OurImpact = {
   slug: "our-impact",
   imageURL: "/images/cms/blocks/our_impact.jpg",
-  imageAltText: "Show Our Impact",
+  imageAltText: "Show our impact.",
   fields: [
     {
       name: "title",
-      label: "Title",
       type: "text",
       required: true,
     },

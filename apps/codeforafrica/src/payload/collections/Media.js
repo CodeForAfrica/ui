@@ -1,6 +1,9 @@
 const Media = {
   slug: "media",
   admin: {
+    defaultColumns: ["alt", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Publication",
     useAsTitle: "alt",
   },
   access: {
