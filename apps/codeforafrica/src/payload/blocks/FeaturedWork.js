@@ -1,9 +1,9 @@
 import tags from "../fields/tags";
 
-const FeaturedProjects = {
-  slug: "featured-projects",
+const FeaturedWork = {
+  slug: "featured-work",
   imageURL: "/images/cms/blocks/our-work-showcase.png",
-  imageAltText: "Featured Projects",
+  imageAltText: "Featured Work",
   fields: [
     tags({
       name: "defaultTag",
@@ -25,4 +25,4 @@ const FeaturedProjects = {
   ],
 };
 
-export default FeaturedProjects;
+export default FeaturedWork;

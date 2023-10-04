@@ -1,6 +1,6 @@
 import { sortTags } from "@/codeforafrica/lib/data/utils/tags";
 
-async function featuredProjects(block) {
+async function featuredWork(block) {
   const { projects } = block;
   const projectTags = projects.map(({ tag }) => tag).filter(Boolean);
   const tags = sortTags(projectTags);
@@ -12,4 +12,4 @@ async function featuredProjects(block) {
   };
 }
 
-export default featuredProjects;
+export default featuredWork;

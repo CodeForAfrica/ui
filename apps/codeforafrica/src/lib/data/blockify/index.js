@@ -1,4 +1,4 @@
-import featuredProjects from "./featuredProjects";
+import featuredWork from "./featuredWork";
 import getInvolved from "./get-involved";
 import hero from "./hero";
 import meetOurTeam from "./meetOurTeam";
@@ -8,7 +8,7 @@ import ourWork from "./ourWork";
 import posts from "./posts";
 
 const propsifyBlockBySlug = {
-  "featured-projects": featuredProjects,
+  "featured-work": featuredWork,
   "get-involved": getInvolved,
   hero,
   "meet-our-team": meetOurTeam,

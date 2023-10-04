@@ -29,7 +29,7 @@ const componentsBySlugs = {
   article: ArticlePage,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,
-  "featured-projects": FeaturedProjects,
+  "featured-work": FeaturedProjects,
   "get-involved": GetInvolved,
   "get-in-touch": GetInTouch,
   hero: Hero,
