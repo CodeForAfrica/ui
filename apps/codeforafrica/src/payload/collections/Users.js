@@ -44,7 +44,7 @@ const Users = {
       // Save this field to JWT so we can use from `req.user`
       saveToJWT: true,
       required: true,
-      defaultValue: [ROLE_DEFAULT],
+      defaultValue: ROLE_DEFAULT,
       access: {
         read: isAdminOrSelfFieldLevel,
         create: isAdminFieldLevel,
