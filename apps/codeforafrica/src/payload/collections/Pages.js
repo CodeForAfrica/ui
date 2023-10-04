@@ -1,6 +1,7 @@
 import ContactForm from "../blocks/ContactForm";
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
+import FeaturedStories from "../blocks/FeaturedStories";
 import FeaturedWork from "../blocks/FeaturedWork";
 import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
@@ -53,6 +54,7 @@ const Pages = {
         ContactForm,
         Error,
         FeaturedWork,
+        FeaturedStories,
         GetInTouch,
         GetInvolved,
         GuidingPrinciples,
