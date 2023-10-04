@@ -19,9 +19,6 @@ const OurWorkShowcase = {
         en: "Default Tag",
       },
       hasMany: false,
-      admin: {
-        position: "sidebar",
-      },
     }),
   ],
 };
