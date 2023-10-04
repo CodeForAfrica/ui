@@ -15,7 +15,6 @@ const FeaturedStories = {
   fields: [
     {
       name: "title",
-      label: "Title",
       type: "text",
       required: true,
     },
