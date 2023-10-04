@@ -1,16 +1,5 @@
 import linkGroup from "../fields/links/linkGroup";
 
-const primaryTags = [
-  {
-    label: "Stories",
-    value: "stories",
-  },
-  {
-    label: "Opportunities",
-    value: "opportunities",
-  },
-];
-
 const PostsOverview = {
   slug: "posts-overview",
   imageURL: "/images/cms/blocks/posts_overview.jpg",
@@ -19,45 +8,59 @@ const PostsOverview = {
     {
       name: "title",
       label: "Title",
-      required: true,
       type: "text",
+      required: true,
     },
     {
       name: "primaryTag",
       label: "Post Type",
-      required: true,
-      type: "select",
-      options: primaryTags,
-      hasMany: false,
+      type: "text",
+      defaultValue: "stories",
+      admin: {
+        hidden: true,
+      },
     },
     {
       name: "featured",
-      type: "relationship",
-      relationTo: "posts",
-      hasMany: false,
-      required: true,
-    },
-    {
-      name: "posts",
-      type: "relationship",
-      relationTo: "posts",
-      hasMany: true,
-      minRows: 3,
-      maxRows: 3,
-    },
-    linkGroup({ overrides: { name: "action", label: "Action" } }),
-    {
-      name: "labels",
-      label: "Labels",
+      label: "Featured Story",
       type: "group",
       fields: [
         {
-          name: "readStory",
-          label: "Read Story",
+          name: "story",
+          type: "relationship",
+          relationTo: "posts",
+          hasMany: false,
           required: true,
+        },
+        {
+          name: "action",
+          label: "Action Label",
           type: "text",
           defaultValue: "Read Story",
         },
+      ],
+    },
+    {
+      name: "stories",
+      label: "Stories",
+      type: "group",
+      fields: [
+        {
+          name: "items",
+          label: "Stories",
+          type: "relationship",
+          relationTo: "posts",
+          hasMany: true,
+          minRows: 1,
+          maxRows: 3,
+          required: true,
+        },
+        linkGroup({
+          overrides: {
+            name: "action",
+            label: "Browse More Action",
+          },
+        }),
       ],
     },
   ],

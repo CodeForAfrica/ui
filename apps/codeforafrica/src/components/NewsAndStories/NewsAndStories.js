@@ -11,8 +11,8 @@ const NewsAndStories = React.forwardRef(function NewsAndStories(props, ref) {
   const {
     action: { label, href },
     featured,
-    labels: { readStory },
-    posts,
+    featuredStoryActionLabel,
+    stories,
     title,
   } = props;
   return (
@@ -39,11 +39,14 @@ const NewsAndStories = React.forwardRef(function NewsAndStories(props, ref) {
         </RichTypography>
         <FeaturedArticle
           {...featured}
-          readMoreLabel={readStory}
+          readMoreLabel={featuredStoryActionLabel}
           variant="cover"
           sx={{ mb: { xs: "28px", sm: "40px", lg: "55px" }, width: "100%" }}
         />
-        <ArticleCardList articles={posts} sx={{ mb: { xs: 5, lg: "55px" } }} />
+        <ArticleCardList
+          articles={stories}
+          sx={{ mb: { xs: 5, lg: "55px" } }}
+        />
         <Button
           variant="contained"
           component={Link}

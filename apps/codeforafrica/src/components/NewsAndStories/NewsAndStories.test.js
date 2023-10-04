@@ -52,9 +52,7 @@ const defaultProps = {
       href: "/stories/article-1",
     },
   ],
-  labels: {
-    readStory: "Read Story",
-  },
+  featuredStoryActionLabel: "Read Story",
 };
 
 describe("<NewsAndStories />", () => {

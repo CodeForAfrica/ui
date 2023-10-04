@@ -1,11 +1,18 @@
 import { formatPost } from "@/codeforafrica/lib/data/utils/posts";
 
 async function postsOverview(block) {
-  const { featured, posts, primaryTag, ...other } = block;
+  const {
+    primaryTag,
+    featured: { story: featuredStory, action: featuredStoryActionLabel },
+    stories: { items, action },
+    ...other
+  } = block;
   return {
     ...other,
-    featured: formatPost(featured, primaryTag),
-    posts: posts.map((post) => formatPost(post, primaryTag)),
+    action,
+    featured: formatPost(featuredStory, primaryTag),
+    featuredStoryActionLabel,
+    stories: items.map((item) => formatPost(item, primaryTag)),
     slug: "posts-overview",
   };
 }
