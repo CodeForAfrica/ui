@@ -29,6 +29,7 @@ const componentsBySlugs = {
   article: ArticlePage,
   "contact-form": ContactForm,
   "custom-page-header": CustomPageHeader,
+  "featured-work": FeaturedProjects,
   "featured-stories": NewsAndStories,
   "get-involved": GetInvolved,
   "get-in-touch": GetInTouch,
@@ -43,7 +44,6 @@ const componentsBySlugs = {
   "our-team": OurTeam,
   "our-work": Projects,
   "page-header": PageHeader,
-  projects: FeaturedProjects,
   project: Project,
   stories: Articles,
 };
