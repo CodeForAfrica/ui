@@ -52,12 +52,12 @@ const Pages = {
       blocks: [
         ContactForm,
         Error,
+        FeaturedStories,
         GetInTouch,
         GetInvolved,
         GuidingPrinciples,
         Hero,
         JoinOurSlack,
-        FeaturedStories,
         MeetOurTeam,
         PageHeader,
         Posts,

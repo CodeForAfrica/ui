@@ -8,6 +8,7 @@ import ourWork from "./ourWork";
 import posts from "./posts";
 
 const propsifyBlockBySlug = {
+  "featured-stories": featuredStories,
   "get-involved": getInvolved,
   hero,
   "meet-our-team": meetOurTeam,
@@ -16,7 +17,6 @@ const propsifyBlockBySlug = {
   "our-work": ourWork,
   // post-list to avoid conflict with posts collection in payload
   "post-list": posts,
-  "featured-stories": featuredStories,
 };
 
 async function blockify(blocks, api, context) {
