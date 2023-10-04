@@ -1,7 +1,7 @@
 import { sortTags } from "@/codeforafrica/lib/data/utils/posts";
 
-async function ourWorkShowcase(block, api) {
-  const { docs: projects } = await api.getCollection("projects");
+async function ourWorkShowcase(block) {
+  const { projects } = block;
   const projectTags = projects.map(({ tag }) => tag).filter(Boolean);
   const tags = sortTags(projectTags);
 
