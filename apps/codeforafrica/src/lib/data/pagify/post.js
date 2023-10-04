@@ -13,26 +13,22 @@ async function post(api, context, parentPage) {
     },
     "stories",
   );
+  const individualPost = await getPost(api, slug, page);
+  const { blocks, ...other } = individualPost;
   const block = parentPage.blocks.find(
     ({ blockType }) => blockType === "post-list",
   );
-  const {
-    labels: { recentStories },
-  } = block;
-
-  const individualPost = await getPost(api, slug, page);
-  const { meta, blocks, title } = individualPost;
+  const recentStories = page === "stories" && {
+    blockType: "recent-stories",
+    title: block?.labels?.recentStories || "",
+    stories: recentPost,
+  };
+  if (recentStories) {
+    blocks.push(recentStories);
+  }
   return {
-    title,
-    meta,
-    blocks: [
-      ...blocks,
-      {
-        blockType: "recent-stories",
-        title: recentStories,
-        stories: recentPost,
-      },
-    ],
+    ...other,
+    blocks,
   };
 }
 
