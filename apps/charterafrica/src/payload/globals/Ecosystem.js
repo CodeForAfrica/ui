@@ -3,6 +3,7 @@ import airtableBaseSelect, {
 } from "../fields/ecosystem/airtableBaseSelect";
 import airtableColumnSelect from "../fields/ecosystem/airtableColumnSelect";
 import airtableTableSelect from "../fields/ecosystem/airtableTableSelect";
+import socialMediaColumns from "../fields/ecosystem/socialMediaFields";
 import sourceField from "../fields/ecosystem/sourceField";
 import { ECOSYSTEM_GLOBAL } from "../utils/collections";
 
@@ -246,18 +247,6 @@ const Ecosystem = {
                     },
                   },
                 }),
-                airtableColumnSelect({
-                  schema,
-                  tableField: "toolTableId",
-                  overrides: {
-                    name: "socialMedia",
-                    label: {
-                      en: "Social Media",
-                      fr: "Réseaux sociaux",
-                      pt: "Mídia social",
-                    },
-                  },
-                }),
                 sourceField({ tableField: "toolTableId", schema }),
                 airtableColumnSelect({
                   schema,
@@ -307,6 +296,7 @@ const Ecosystem = {
                     },
                   },
                 }),
+                socialMediaColumns({ schema, tableField: "toolTableId" }),
               ],
             },
           ],
@@ -431,17 +421,9 @@ const Ecosystem = {
                     hideGutter: true,
                   },
                 },
-                airtableColumnSelect({
+                socialMediaColumns({
                   schema,
                   tableField: "contributorTableId",
-                  overrides: {
-                    name: "socialMedia",
-                    label: {
-                      en: "Social Media",
-                      fr: "Réseaux sociaux",
-                      pt: "Mídia social",
-                    },
-                  },
                 }),
                 sourceField({ tableField: "contributorTableId", schema }),
               ],
@@ -579,17 +561,9 @@ const Ecosystem = {
                     },
                   },
                 }),
-                airtableColumnSelect({
+                socialMediaColumns({
                   schema,
                   tableField: "organisationTableId",
-                  overrides: {
-                    name: "socialMedia",
-                    label: {
-                      en: "Social Media",
-                      fr: "Réseaux sociaux",
-                      pt: "Mídia social",
-                    },
-                  },
                 }),
                 airtableColumnSelect({
                   schema,
@@ -696,64 +670,6 @@ const Ecosystem = {
                   overrides: {
                     name: "logo",
                     label: { en: "Logo", fr: "Logo", pt: "Logotipo" },
-                  },
-                }),
-              ],
-            },
-          ],
-        },
-        {
-          type: "collapsible",
-          label: {
-            en: "Social Media",
-            fr: "Réseaux sociaux",
-            pt: "Mídia social",
-          },
-          admin: {
-            initCollapsed: true,
-          },
-          fields: [
-            airtableTableSelect({
-              schema,
-              name: "socialMediaTableId",
-              label: {
-                en: "Table Name",
-                fr: "Nom du tableau",
-                pt: "Nome da tabela",
-              },
-            }),
-            {
-              type: "group",
-              name: "socialMediaTableColumns",
-              label: {
-                en: "Columns",
-                fr: "Colonnes",
-                pt: "Colunas",
-              },
-              admin: {
-                hideGutter: true,
-              },
-              fields: [
-                airtableColumnSelect({
-                  schema,
-                  tableField: "socialMediaTableId",
-                  overrides: {
-                    name: "name",
-                    label: {
-                      en: "Name",
-                      fr: "Nom",
-                      pt: "Nome",
-                    },
-                  },
-                }),
-                airtableColumnSelect({
-                  schema,
-                  tableField: "socialMediaTableId",
-                  overrides: {
-                    name: "url",
-                    label: {
-                      en: "URL",
-                    },
                   },
                 }),
               ],
