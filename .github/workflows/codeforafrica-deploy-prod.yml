@@ -2,7 +2,7 @@ name: Code for Africa | Deploy | PROD
 
 on:
   push:
-    branches: [main]
+    branches: [feature-auto-deploy]
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -14,8 +14,10 @@ env:
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   APP: "codeforafrica"
+  APP_NAME: "codeforafrica-ui"
   VERSION_FILE_NAME: "./apps/codeforafrica/package.json"
   GIT_PUSH_FLAGS: "--force"
+  NEXT_PUBLIC_APP_URL: "https://codeforafrica.prod.codeforafrica.org"
 
 jobs:
   deploy:
@@ -70,16 +72,18 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
       - name: Build Docker image
-        if: steps.version-check.outputs.changed == 'true'
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            APP=${{ env.APP }}
-            GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
-            GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET_KEY }}
+            NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CFA_LOGO_URL }}
+            NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CFA_NAME }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
+          file: ./Dockerfile.codeforafrica
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
 
