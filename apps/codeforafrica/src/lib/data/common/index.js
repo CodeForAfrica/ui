@@ -50,94 +50,104 @@ function getPageSlug({ params }) {
 function getDefaultErrorPageProps(slug = "404") {
   if (slug === "500") {
     return {
-      title: "Server Error. ",
-      subtitle: [
+      blocks: [
         {
-          children: [
+          title: "Server Error. ",
+          subtitle: [
             {
-              text: "Don't worry!, you can head back to our ",
-              children: null,
-            },
-            {
-              type: "link",
-              newTab: false,
-              url: "/",
               children: [
                 {
-                  text: "homepage",
+                  text: "Don't worry!, you can head back to our ",
+                  children: null,
+                },
+                {
+                  type: "link",
+                  newTab: false,
+                  url: "/",
+                  children: [
+                    {
+                      text: "homepage",
+                      children: null,
+                    },
+                  ],
+                  href: "/",
+                },
+                {
+                  text: "check out our most recent ",
+                  children: null,
+                },
+                {
+                  type: "link",
+                  newTab: false,
+                  url: "/projects",
+                  children: [
+                    {
+                      text: "projects",
+                      children: null,
+                    },
+                  ],
+                  href: "/projects",
+                },
+                {
+                  text: ", or read below some of the contents produced by our amazing team while the technical team is working on fixing the issue.",
                   children: null,
                 },
               ],
-              href: "/",
-            },
-            {
-              text: "check out our most recent ",
-              children: null,
-            },
-            {
-              type: "link",
-              newTab: false,
-              url: "/projects",
-              children: [
-                {
-                  text: "projects",
-                  children: null,
-                },
-              ],
-              href: "/projects",
-            },
-            {
-              text: ", or read below some of the contents produced by our amazing team while the technical team is working on fixing the issue.",
-              children: null,
             },
           ],
+          slug: "error",
         },
       ],
     };
   }
 
   return {
-    title: "Whoops! This page got lost in conversation! ",
-    subtitle: [
+    blocks: [
       {
-        children: [
+        title: "Whoops! This page got lost in conversation! ",
+        subtitle: [
           {
-            text: "Don't worry!, you can head back to our ",
-            children: null,
-          },
-          {
-            type: "link",
-            newTab: false,
-            url: "/",
             children: [
               {
-                text: "homepage",
+                text: "Don't worry!, you can head back to our ",
+                children: null,
+              },
+              {
+                type: "link",
+                newTab: false,
+                url: "/",
+                children: [
+                  {
+                    text: "homepage",
+                    children: null,
+                  },
+                ],
+                href: "/",
+              },
+              {
+                text: "check out our most recent ",
+                children: null,
+              },
+              {
+                type: "link",
+                newTab: false,
+                url: "/projects",
+                children: [
+                  {
+                    text: "projects",
+                    children: null,
+                  },
+                ],
+                href: "/projects",
+              },
+              {
+                text: ", or read below some of the contents produced by our amazing team.",
                 children: null,
               },
             ],
-            href: "/",
-          },
-          {
-            text: "check out our most recent ",
-            children: null,
-          },
-          {
-            type: "link",
-            newTab: false,
-            url: "/projects",
-            children: [
-              {
-                text: "projects",
-                children: null,
-              },
-            ],
-            href: "/projects",
-          },
-          {
-            text: ", or read below some of the contents produced by our amazing team.",
-            children: null,
           },
         ],
+        slug: "error",
       },
     ],
   };
