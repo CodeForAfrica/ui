@@ -12,7 +12,7 @@ module.exports = {
       "babel-jest",
       {
         presets: ["next/babel"],
-        plugins: ["@babel/plugin-proposal-private-methods"],
+        plugins: ["@babel/plugin-transform-private-methods"],
       },
     ],
   },

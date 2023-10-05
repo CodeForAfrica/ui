@@ -18,7 +18,6 @@ function checkConfig(config) {
     "contributorTableId",
     "organisationTableId",
     "partnersTableId",
-    "socialMediaTableId",
   ];
   const isPresent = (tableName) => config?.schema?.[tableName];
   return requiredTables.every(isPresent);

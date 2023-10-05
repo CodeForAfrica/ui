@@ -29,7 +29,7 @@ function getRepoLink(source = "github", slug = "") {
 
 function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
   const {
-    schema: { partnerTableColumns },
+    schema: { partnerTableColumns = {} },
   } = config;
   const { name, url, logo } = partnerTableColumns;
   const mapped = supporterIds.map((id) => {
@@ -47,27 +47,23 @@ function mapSupporterIdsToObjects(supporterIds, config, { partnersData }) {
   return mapped.filter(Boolean);
 }
 
-function mapSocialMediaIdsToObjects(socialMedia, config, tableData) {
-  const {
-    schema: { socialMediaTableColumns },
-  } = config;
-  const { name, url } = socialMediaTableColumns;
-  const { socialMediaData = [] } = tableData;
-  const mapped = socialMedia.map((id) => {
-    const { fields } = socialMediaData.find((item) => item.id === id) || {};
-
-    if (!fields) {
+function mapSocialMediaColumnsToObjects(columns, data) {
+  const getData = (name) => {
+    const link = getValue(data, columns[name]);
+    if (!link) {
       return null;
     }
     return {
-      name: getValue(fields, name),
-      link: getValue(fields, url),
+      name,
+      link,
     };
-  });
-  return mapped.filter(Boolean);
+  };
+  const SUPPORTED_SOCIAL_MEDIA =
+    "twitter,facebook,youtube,slack,tiktok,linkedIn,instagram,telegram,discord,whatsapp";
+  return SUPPORTED_SOCIAL_MEDIA.split(",").map(getData).filter(Boolean);
 }
 
-export function processTool(item, config, { partnersData, socialMediaData }) {
+export function processTool(item, config, { partnersData }) {
   const {
     schema: { toolTableColumns },
     localized,
@@ -107,17 +103,16 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   const partners = mapSupporterIdsToObjects(
     getValue(data, toolTableColumns.partners) || [],
     config,
-    { partnersData, socialMediaData },
+    { partnersData },
   );
   const supporters = mapSupporterIdsToObjects(
     getValue(data, toolTableColumns.supporters) || [],
     config,
-    { partnersData, socialMediaData },
+    { partnersData },
   );
-  const socialMedia = mapSocialMediaIdsToObjects(
-    getValue(data, toolTableColumns.socialMedia) || [],
-    config,
-    { partnersData, socialMediaData },
+  const socialMedia = mapSocialMediaColumnsToObjects(
+    toolTableColumns.socialMediaColumns,
+    data,
   );
   const source = getSourceType(getValue(data, toolTableColumns.source.url));
   return {
@@ -139,11 +134,7 @@ export function processTool(item, config, { partnersData, socialMediaData }) {
   };
 }
 
-export function processContributor(
-  item,
-  config,
-  { partnersData, socialMediaData },
-) {
+export function processContributor(item, config) {
   const {
     schema: { contributorTableColumns },
     localized,
@@ -157,10 +148,9 @@ export function processContributor(
   }
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
-  const socialMedia = mapSocialMediaIdsToObjects(
-    getValue(data, contributorTableColumns.socialMedia) || [],
-    config,
-    { partnersData, socialMediaData },
+  const socialMedia = mapSocialMediaColumnsToObjects(
+    contributorTableColumns.socialMediaColumns,
+    data,
   );
   const foundDescription = locales.reduce((acc, curr) => {
     const val = getValue(data, contributorTableColumns.description[curr]);
@@ -185,11 +175,7 @@ export function processContributor(
   };
 }
 
-export function processOrganisation(
-  item,
-  config,
-  { partnersData, socialMediaData },
-) {
+export function processOrganisation(item, config, { partnersData }) {
   const {
     schema: { organisationTableColumns },
     localized,
@@ -230,10 +216,9 @@ export function processOrganisation(
     config,
     { partnersData },
   );
-  const socialMedia = mapSocialMediaIdsToObjects(
-    getValue(data, organisationTableColumns.socialMedia) || [],
-    config,
-    { socialMediaData },
+  const socialMedia = mapSocialMediaColumnsToObjects(
+    organisationTableColumns.socialMediaColumns,
+    data,
   );
   const source = getSourceType(
     getValue(data, organisationTableColumns.source.url),

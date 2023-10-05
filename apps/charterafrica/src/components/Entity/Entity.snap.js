@@ -56,7 +56,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1sa2x3w-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rl8zr9-MuiTypography-root-MuiLink-root"
                 href="maito:johndoe@example.com"
               >
                 <div
@@ -70,7 +70,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-j4i3qf-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-4xpak5-MuiTypography-root-MuiLink-root"
                 href="https://github.com/johndoe"
                 rel="noreferrer noopener"
                 target="_blank"

@@ -32,7 +32,7 @@
     "@babel/preset-react": "^7.22.5",
     "@commons-ui/testing-library": "workspace:*",
     "@emotion/react": "^11.10.8",
-    "@emotion/styled": "^11.10.8",
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0",
     "@mui/utils": "^5.12.3",
     "@types/react": "^18.2.15",
@@ -53,7 +53,7 @@
   "peerDependencies": {
     "@babel/core": "^7.22.9",
     "@emotion/react": "^11.10.8",
-    "@emotion/styled": "^11.10.8",
+    "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.0",
     "@mui/utils": "^5.12.3",
     "react": "^18.2.0",
