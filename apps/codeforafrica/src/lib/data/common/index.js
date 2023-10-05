@@ -52,7 +52,7 @@ function getDefaultErrorPageProps(slug = "404") {
     return {
       blocks: [
         {
-          title: "Server Error. ",
+          title: "Server Error.",
           subtitle: [
             {
               children: [
