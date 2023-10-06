@@ -72,6 +72,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
       - name: Build Docker image
+        if: steps.version-check.outputs.changed == 'true'
         uses: docker/build-push-action@v3
         with:
           build-args: |
