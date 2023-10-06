@@ -46,7 +46,7 @@ const componentsBySlugs = {
   "our-work": Projects,
   "page-header": PageHeader,
   project: Project,
-  "recent-stories": RelatedStories,
+  "recent-posts": RelatedStories,
   stories: Articles,
 };
 
