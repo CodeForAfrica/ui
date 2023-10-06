@@ -59,8 +59,8 @@ jobs:
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
             GHOST_URL=${{ secrets.GHOST_URL }}
             GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
-            NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_CODEFORAFRICA_LOGO_URL }}
-            NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_CODEFORAFRICA_NAME }}
+            NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+            NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
