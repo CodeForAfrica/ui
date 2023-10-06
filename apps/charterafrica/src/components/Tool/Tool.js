@@ -63,8 +63,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                   {name}
                 </RichTypography>
                 <Button
-                  component={externalLink.href ? Link : undefined}
-                  href={externalLink.href}
+                  component={externalLink?.href ? Link : undefined}
+                  href={externalLink?.href}
                 >
                   <SvgIcon
                     inheritViewBox
