@@ -11,6 +11,13 @@ async function posts(block, api, context) {
   const featured = featuredStory ? formatPost(featuredStory, primaryTag) : null;
   const options = {
     ...query,
+    ...(featured && {
+      where: {
+        slug: {
+          not_equals: featured.slug,
+        },
+      },
+    }),
   };
   // rename post to fix eslint no-shadow
   const { posts: list, pagination } = await getPosts(api, options, primaryTag);
