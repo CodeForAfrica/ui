@@ -8,52 +8,59 @@ import tags from "../fields/tags";
 const Posts = {
   slug: "posts",
   labels: {
-    singular: "Post",
-    plural: "Posts",
+    singular: {
+      en: "Post",
+    },
+    plural: {
+      en: "Posts",
+    },
   },
   access: {
     read: () => true,
   },
-  versions: {
-    drafts: true,
-  },
   admin: {
-    useAsTitle: "title",
     defaultColumns: ["title", "authors", "publishedOn"],
+    description: "Stories and Opportunities",
+    group: "Publication",
+    useAsTitle: "title",
   },
   fields: [
     {
       name: "title",
       type: "text",
-      label: "Title",
       required: true,
+      localized: true,
     },
     image({
       overrides: {
         name: "coverImage",
-        label: "Cover Image",
+        required: true,
+        localized: true,
       },
     }),
-    content(),
+    content({ minRows: 1, required: true, localized: true }),
     slug(),
-    publishedOn(),
+    publishedOn({ localized: true }),
     tags({
       admin: {
         isSortable: true,
         position: "sidebar",
       },
     }),
-    authors(),
+    authors({ localized: true }),
     {
       name: "excerpt",
-      label: "Excerpt",
       type: "textarea",
       required: true,
+      localized: true,
       admin: {
         position: "sidebar",
       },
     },
   ],
+  versions: {
+    drafts: true,
+  },
 };
 
 export default Posts;

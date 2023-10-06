@@ -1,13 +1,10 @@
+import { deepmerge } from "@mui/utils";
+
 import populateFullTitle from "./populateFullTitle";
 
-function fullTitle() {
+function fullTitle({ overrides = undefined } = {}) {
   const fullTitleResult = {
     name: "fullTitle",
-    label: {
-      en: "Full title",
-      fr: "Titre complet ",
-      pt: "Título completo",
-    },
     type: "text",
     hooks: {
       beforeChange: [populateFullTitle],
@@ -19,7 +16,7 @@ function fullTitle() {
     },
   };
 
-  return fullTitleResult;
+  return deepmerge(fullTitleResult, overrides);
 }
 
 export default fullTitle;

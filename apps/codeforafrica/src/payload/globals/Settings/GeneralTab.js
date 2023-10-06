@@ -12,11 +12,12 @@ const GeneralTab = {
           name: "title",
           type: "text",
           required: true,
+          localized: true,
         },
         richText({
           name: "description",
-          label: "Description",
           required: true,
+          localized: true,
         }),
       ],
     },
@@ -27,8 +28,8 @@ const GeneralTab = {
         image({
           overrides: {
             name: "primaryLogo",
-            label: "Primary Logo",
             required: true,
+            localized: true,
             admin: {
               description: "Shown on main navigation bar.",
             },
@@ -37,7 +38,7 @@ const GeneralTab = {
         image({
           overrides: {
             name: "secondaryLogo",
-            label: "Secondary Logo",
+            localized: true,
             admin: {
               description:
                 "Shown on main footer. If not provided, primary logo will be reused.",

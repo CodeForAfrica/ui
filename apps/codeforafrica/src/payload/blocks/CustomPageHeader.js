@@ -7,15 +7,13 @@ const CustomPageHeader = {
   fields: [
     {
       name: "title",
-      label: "Title",
-      required: true,
       type: "text",
+      required: true,
     },
     {
       name: "subtitle",
-      label: "Subtitle",
-      required: true,
       type: "text",
+      required: true,
     },
     image({
       overrides: {

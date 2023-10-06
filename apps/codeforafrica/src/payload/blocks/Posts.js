@@ -26,14 +26,13 @@ const Posts = {
     {
       name: "primaryTag",
       label: "Post Type",
-      required: true,
       type: "select",
-      options: primaryTags,
       hasMany: false,
+      options: primaryTags,
+      required: true,
     },
     {
       name: "stories",
-      label: "Stories",
       type: "group",
       fields: [
         {
@@ -44,9 +43,8 @@ const Posts = {
         },
         {
           name: "title",
-          label: "Title",
-          required: true,
           type: "text",
+          required: true,
           defaultValue: "Stories",
         },
       ],
@@ -56,21 +54,18 @@ const Posts = {
     },
     {
       name: "labels",
-      label: "Labels",
       type: "group",
       fields: [
         {
           name: "search",
-          label: "Search",
-          required: true,
           type: "text",
+          required: true,
           defaultValue: "Search Posts",
         },
         {
           name: "readMore",
-          label: "Read More",
-          required: true,
           type: "text",
+          required: true,
           defaultValue: "Read More",
         },
         {

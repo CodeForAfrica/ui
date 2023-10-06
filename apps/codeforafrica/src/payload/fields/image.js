@@ -4,7 +4,6 @@ function image({ overrides = undefined } = {}) {
   const imageResult = {
     name: "image",
     type: "upload",
-    label: "Image",
     relationTo: "media",
     filterOptions: {
       mimeType: { contains: "image" },

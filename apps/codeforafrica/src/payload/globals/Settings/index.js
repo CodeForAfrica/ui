@@ -7,7 +7,9 @@ const Settings = {
   access: {
     read: () => true,
   },
-  label: "Settings",
+  admin: {
+    group: "Website",
+  },
   fields: [
     {
       type: "tabs",

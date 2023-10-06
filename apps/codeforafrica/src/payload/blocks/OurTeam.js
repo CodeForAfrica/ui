@@ -1,7 +1,7 @@
 const OurTeam = {
   slug: "our-team",
   imageURL: "/images/cms/blocks/team.png",
-  imageAltText: "Our Team",
+  imageAltText: "Our team.",
   labels: {
     singular: {
       en: "Team",
@@ -13,11 +13,7 @@ const OurTeam = {
   fields: [
     {
       name: "title",
-      label: {
-        en: "Title",
-      },
       type: "text",
-      localized: true,
       required: true,
     },
     {
@@ -40,7 +36,6 @@ const OurTeam = {
     },
     {
       name: "labels",
-      label: "Labels",
       type: "group",
       admin: {
         description: "Labels/Titles to be used in member view page",
@@ -48,9 +43,8 @@ const OurTeam = {
       fields: [
         {
           name: "projects",
-          label: "Projects",
-          required: true,
           type: "text",
+          required: true,
           defaultValue: "Projects",
         },
       ],

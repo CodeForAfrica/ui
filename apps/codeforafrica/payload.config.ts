@@ -1,7 +1,15 @@
 import path from "path";
 
 import { buildConfig } from "payload/config";
+import { CollectionConfig, GlobalConfig } from "payload/types";
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import dotenv from "dotenv";
+import seo from "@payloadcms/plugin-seo";
+import nestedDocs from "@payloadcms/plugin-nested-docs";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+
 import Authors from "./src/payload/collections/Authors";
+import Donors from "./src/payload/collections/Donors";
 import GuidingPrinciples from "./src/payload/collections/GuidingPrinciples";
 import Impact from "./src/payload/collections/Impact";
 import Media from "./src/payload/collections/Media";
@@ -9,17 +17,12 @@ import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Posts from "./src/payload/collections/Posts";
+import Projects from "./src/payload/collections/Projects";
 import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
-import Projects from "./src/payload/collections/Projects";
-import Donors from "./src/payload/collections/Donors";
 import Teams from "./src/payload/collections/Teams";
-import { CollectionConfig, GlobalConfig } from "payload/types";
-import dotenv from "dotenv";
-import seo from "@payloadcms/plugin-seo";
-import nestedDocs from "@payloadcms/plugin-nested-docs";
-import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
-import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+import Users from "./src/payload/collections/Users";
+import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 dotenv.config();
 dotenv.config({ path: "./.env.local" });
@@ -62,10 +65,21 @@ export default buildConfig({
     Posts,
     Tags,
     Teams,
+    Users,
   ] as CollectionConfig[],
   globals: [Settings] as GlobalConfig[],
+  ...(locales?.length
+    ? {
+        localization: {
+          locales,
+          defaultLocale,
+          fallback: true,
+        },
+      }
+    : undefined),
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
+    user: Users.slug,
     webpack: (config) => ({
       ...config,
       resolve: {
@@ -81,6 +95,10 @@ export default buildConfig({
   },
   cors,
   csrf,
+  i18n: {
+    fallbackLng: "en", // default
+    debug: false, // default
+  },
   plugins: [
     cloudStorage({
       collections: {
@@ -105,4 +123,5 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ] as any[],
+  telemetry: process?.env?.NODE_ENV !== "production",
 });

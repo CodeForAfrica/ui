@@ -6,11 +6,21 @@
     },
     "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "env": ["NEXT_PUBLIC_APP_NAME", "NEXT_PUBLIC_APP_URL"]
+      "env": [
+        "NEXT_PUBLIC_APP_NAME",
+        "NEXT_PUBLIC_APP_URL",
+        "PAYLOAD_PUBLIC_APP_URL",
+        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
+        "PAYLOAD_PUBLIC_LOCALES"
+      ]
     },
     "build-payload": {
       "outputs": ["build/**"],
-      "env": ["PAYLOAD_PUBLIC_APP_URL"]
+      "env": [
+        "PAYLOAD_PUBLIC_APP_URL",
+        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
+        "PAYLOAD_PUBLIC_LOCALES"
+      ]
     }
   }
 }

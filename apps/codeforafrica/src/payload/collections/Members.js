@@ -16,8 +16,10 @@ const Members = {
     },
   },
   admin: {
+    defaultColumns: ["name", "title", "team.name", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
-    defaultColumns: ["name", "title", "country"],
   },
   fields: [
     image({
@@ -27,47 +29,35 @@ const Members = {
     }),
     {
       name: "name",
-      label: {
-        en: "Name",
-      },
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "title",
-      label: {
-        en: "Title",
-      },
       type: "text",
       required: true,
+      localized: true,
     },
     slug({ fieldToUse: "name" }),
     {
       name: "country",
-      label: { en: "country" },
       type: "select",
       options: allCountries,
     },
     richText({
       name: "description",
-      label: {
-        en: "Description",
-        fr: "La description",
-        pt: "Descrição",
-      },
-      localized: true,
       required: true,
+      localized: true,
     }),
     socialLinks({
       name: "connect",
       label: "Social Media Links",
       required: false,
+      localized: true,
     }),
     {
       name: "team",
-      label: {
-        en: "Team",
-      },
       type: "relationship",
       relationTo: "teams",
       required: true,

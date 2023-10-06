@@ -5,11 +5,7 @@ const GuidingPrinciples = {
   fields: [
     {
       name: "title",
-      label: {
-        en: "Title",
-      },
       type: "text",
-      localized: true,
       required: true,
     },
     {

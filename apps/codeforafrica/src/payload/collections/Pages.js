@@ -1,6 +1,8 @@
 import ContactForm from "../blocks/ContactForm";
 import CustomPageHeader from "../blocks/CustomPageHeader";
 import Error from "../blocks/Error";
+import FeaturedStories from "../blocks/FeaturedStories";
+import FeaturedWork from "../blocks/FeaturedWork";
 import GetInTouch from "../blocks/GetInTouch";
 import GetInvolved from "../blocks/GetInvolved";
 import GuidingPrinciples from "../blocks/GuidingPrinciples";
@@ -25,11 +27,9 @@ const Pages = {
     create: () => true,
     update: () => true,
   },
-  versions: {
-    drafts: true,
-  },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt"],
+    group: "Publication",
     preview: (doc, options) => formatDraftUrl("pages", doc, options),
     useAsTitle: "title",
   },
@@ -38,8 +38,9 @@ const Pages = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
-    fullTitle(),
+    fullTitle({ overrides: { localized: true } }),
     slug(),
     {
       name: "blocks",
@@ -51,6 +52,8 @@ const Pages = {
       blocks: [
         ContactForm,
         Error,
+        FeaturedWork,
+        FeaturedStories,
         GetInTouch,
         GetInvolved,
         GuidingPrinciples,
@@ -66,11 +69,15 @@ const Pages = {
         OurTeam,
         OurWork,
       ],
+      localized: true,
       admin: {
         initCollapsed: true,
       },
     },
   ],
+  versions: {
+    drafts: true,
+  },
 };
 
 export default Pages;

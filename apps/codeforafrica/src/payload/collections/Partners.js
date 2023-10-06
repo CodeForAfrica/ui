@@ -9,18 +9,16 @@ const Partners = {
   labels: {
     singular: {
       en: "Partner",
-      fr: "Partenaire",
-      pt: "Parceiro",
     },
     plural: {
       en: "Partners",
-      fr: "Partenaires",
-      pt: "Parceiros",
     },
   },
   admin: {
+    defaultColumns: ["name", "updatedAt"],
+    enableRichTextLink: false,
+    group: "Organisation",
     useAsTitle: "name",
-    defaultColumns: ["name", "logo"],
   },
   access: {
     read: () => true,
@@ -43,22 +41,19 @@ const Partners = {
       overrides: {
         name: "logo",
         required: true,
+        localized: true,
       },
     }),
     richText({
       name: "description",
-      label: {
-        en: "Description",
-        fr: "La description",
-        pt: "Descrição",
-      },
-      localized: true,
       required: true,
+      localized: true,
     }),
     socialLinks({
       name: "connect",
       label: "Social Media Links",
       required: false,
+      localized: true,
     }),
   ],
   hooks: {

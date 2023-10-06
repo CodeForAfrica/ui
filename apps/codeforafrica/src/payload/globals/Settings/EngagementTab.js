@@ -7,6 +7,7 @@ const EngagementTab = {
       name: "connect",
       type: "group",
       label: "Social Accounts",
+      localized: true,
       fields: [
         {
           type: "collapsible",
@@ -15,7 +16,6 @@ const EngagementTab = {
             {
               name: "title",
               type: "text",
-              label: "Title",
               admin: {
                 description:
                   "Text that appears on contact links e.g Stay in Touch",
@@ -31,6 +31,7 @@ const EngagementTab = {
       name: "newsletter",
       type: "group",
       label: "Email Newsletter",
+      localized: true,
       fields: [
         {
           type: "collapsible",
@@ -39,13 +40,11 @@ const EngagementTab = {
             {
               name: "title",
               type: "text",
-              label: "Title",
               required: true,
             },
             {
               name: "embedCode",
               type: "code",
-              label: "Embed Code",
               required: true,
               admin: {
                 language: "html",
