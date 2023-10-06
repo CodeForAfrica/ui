@@ -35,7 +35,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
   const [q, setQ] = useState();
   const [filtering, setFiltering] = useState(false);
   const [tag, setTag] = useState(allTag);
-  const queryParams = useFilterQuery({ page, q, tag: tag.slug });
+  const queryParams = useFilterQuery({ page, q, tag });
 
   const router = useRouter();
 
@@ -59,7 +59,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setFiltering(isFiltering);
   }, [page, q, tag]);
 
-  const { data } = useArticles({ page, q, tag: tag.slug }, primaryTag);
+  const { data } = useArticles({ page, q, tag }, primaryTag);
   useEffect(() => {
     if (data) {
       const { posts: results, pagination } = data;
