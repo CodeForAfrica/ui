@@ -1,12 +1,5 @@
-const PostsSettings = {
-  slug: "posts-settings",
-  label: "Posts Settings",
-  access: {
-    read: () => true,
-  },
-  admin: {
-    group: "Website",
-  },
+const PostsTab = {
+  label: "Posts",
   fields: [
     {
       name: "stories",
@@ -86,4 +79,4 @@ const PostsSettings = {
   ],
 };
 
-export default PostsSettings;
+export default PostsTab;
