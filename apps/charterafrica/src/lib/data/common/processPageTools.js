@@ -33,15 +33,6 @@ const queryBuilder = (query) => {
   return where;
 };
 
-const getRepoLink = (tool) => {
-  switch (tool.source && tool.externalId) {
-    case "github":
-      return `https://github.com/${tool.externalId}`;
-    default:
-      return "";
-  }
-};
-
 async function processPageSingleTool(page, api, context) {
   const { params, locale } = context;
   const { slug: collection } = page;
@@ -79,11 +70,11 @@ async function processPageSingleTool(page, api, context) {
         ...tool,
         slug: "tool",
         contribute: {
-          href: getRepoLink(tool),
+          href: tool.repoLink,
           label: filterLabels.contribute,
         },
         goToRepo: {
-          href: getRepoLink(tool),
+          href: tool.repoLink,
           label: filterLabels.goToRepo,
         },
         topicLabel: filterLabels.theme,
@@ -113,6 +104,9 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
+        externalLink: {
+          href: tool.docLink ?? null,
+        },
       },
     ],
   };

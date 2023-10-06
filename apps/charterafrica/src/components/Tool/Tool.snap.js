@@ -34,18 +34,6 @@ exports[`<Tool /> renders unchanged 1`] = `
               >
                 Tool Name
               </div>
-              <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-4xpak5-MuiTypography-root-MuiLink-root"
-                href="https://git.com"
-                rel="noreferrer noopener"
-                target="_blank"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
-                  focusable="false"
-                />
-              </a>
             </div>
           </div>
           <div
