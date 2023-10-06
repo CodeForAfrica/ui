@@ -98,6 +98,6 @@ jobs:
         if: steps.version-check.outputs.changed == 'true'
         uses: dokku/github-action@v1.4.0
         with:
-          branch: ${{ env.DOKKU_REMOTE_BRANCH }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}
