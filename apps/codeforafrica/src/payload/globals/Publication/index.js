@@ -1,8 +1,8 @@
 import PostsTab from "./PostsTab";
 
-const Publications = {
-  slug: "publications",
-  label: "Publications",
+const Publication = {
+  slug: "publication",
+  label: "Publication",
   access: {
     read: () => true,
   },
@@ -17,4 +17,4 @@ const Publications = {
   ],
 };
 
-export default Publications;
+export default Publication;

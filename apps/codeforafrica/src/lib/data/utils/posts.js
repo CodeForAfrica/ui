@@ -140,7 +140,7 @@ export async function getPost(api, slug, primaryTag) {
     },
   ];
 
-  const globalPostSettings = await api.findGlobal("publications");
+  const globalPostSettings = await api.findGlobal("publication");
   const primaryTagGlobalSettings = globalPostSettings?.[primaryTag] ?? {};
   const { showRecent, title: recentTitle } = primaryTagGlobalSettings;
   if (showRecent) {

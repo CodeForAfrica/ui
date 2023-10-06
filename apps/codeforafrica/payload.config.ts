@@ -17,7 +17,7 @@ import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Posts from "./src/payload/collections/Posts";
-import Publications from "./src/payload/globals/Publications";
+import Publication from "./src/payload/globals/Publication";
 import Projects from "./src/payload/collections/Projects";
 import Site from "./src/payload/globals/Site";
 import Tags from "./src/payload/collections/Tags";
@@ -68,7 +68,7 @@ export default buildConfig({
     Teams,
     Users,
   ] as CollectionConfig[],
-  globals: [Publications, Site] as GlobalConfig[],
+  globals: [Publication, Site] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
