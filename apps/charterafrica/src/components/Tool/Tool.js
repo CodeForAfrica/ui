@@ -62,21 +62,20 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 <RichTypography color="neutral.dark" variant="h2SemiBold">
                   {name}
                 </RichTypography>
-                <Button
-                  component={externalLink?.href ? Link : undefined}
-                  href={externalLink?.href}
-                >
-                  <SvgIcon
-                    inheritViewBox
-                    component={ExternalLink}
-                    sx={{
-                      color: "text.primary",
-                      fill: "none",
-                      height: 32,
-                      width: 32,
-                    }}
-                  />
-                </Button>
+                {externalLink?.href ? (
+                  <Link href={externalLink?.href}>
+                    <SvgIcon
+                      inheritViewBox
+                      component={ExternalLink}
+                      sx={{
+                        color: "text.primary",
+                        fill: "none",
+                        height: 32,
+                        width: 32,
+                      }}
+                    />
+                  </Link>
+                ) : null}
               </Box>
             </Grid>
             <Grid item>

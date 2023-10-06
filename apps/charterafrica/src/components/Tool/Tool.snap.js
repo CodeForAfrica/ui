@@ -34,17 +34,6 @@ exports[`<Tool /> renders unchanged 1`] = `
               >
                 Tool Name
               </div>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-18jkoo-MuiButtonBase-root-MuiButton-root"
-                tabindex="0"
-                type="button"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-mg30as-MuiSvgIcon-root"
-                  focusable="false"
-                />
-              </button>
             </div>
           </div>
           <div
