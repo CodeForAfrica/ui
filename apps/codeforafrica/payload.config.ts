@@ -17,7 +17,7 @@ import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Partners from "./src/payload/collections/Partners";
 import Posts from "./src/payload/collections/Posts";
-import PostsSettings from './src/payload/globals/PostsSettings'
+import PostsSettings from "./src/payload/globals/PostsSettings";
 import Projects from "./src/payload/collections/Projects";
 import Settings from "./src/payload/globals/Settings";
 import Tags from "./src/payload/collections/Tags";
@@ -68,18 +68,15 @@ export default buildConfig({
     Teams,
     Users,
   ] as CollectionConfig[],
-  globals: [
-    PostsSettings,
-    Settings
-  ] as GlobalConfig[],
+  globals: [PostsSettings, Settings] as GlobalConfig[],
   ...(locales?.length
     ? {
-      localization: {
-        locales,
-        defaultLocale,
-        fallback: true,
-      },
-    }
+        localization: {
+          locales,
+          defaultLocale,
+          fallback: true,
+        },
+      }
     : undefined),
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
