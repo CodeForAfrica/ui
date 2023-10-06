@@ -2,7 +2,7 @@ name: Code for Africa | Deploy | PROD
 
 on:
   push:
-    branches: [feature-auto-deploy]
+    branches: [main]
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
