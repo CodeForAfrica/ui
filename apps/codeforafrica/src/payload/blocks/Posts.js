@@ -68,16 +68,6 @@ const Posts = {
           required: true,
           defaultValue: "Read More",
         },
-        {
-          name: "recentStories",
-          label: "Recent Stories",
-          required: true,
-          type: "text",
-          defaultValue: "Recent Stories",
-          admin: {
-            description: "This will only be shown on individual stories pages",
-          },
-        },
       ],
     },
   ],
