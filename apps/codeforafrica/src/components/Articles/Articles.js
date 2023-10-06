@@ -59,7 +59,13 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     setFiltering(isFiltering);
   }, [page, q, tag]);
 
-  const { data } = useArticles({ page, q, tag }, primaryTag);
+  const { data } = useArticles(
+    { page, q, tag },
+    {
+      primaryTag,
+      featured: !filtering && featuredArticle ? featuredArticle.slug : null,
+    },
+  );
   useEffect(() => {
     if (data) {
       const { posts: results, pagination } = data;
