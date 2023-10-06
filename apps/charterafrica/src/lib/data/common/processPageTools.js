@@ -34,9 +34,15 @@ const queryBuilder = (query) => {
 };
 
 const getRepoLink = (tool) => {
-  switch (tool.source && tool.externalId) {
+  if (!tool.externalId) {
+    return null;
+  }
+  switch (tool.source) {
     case "github":
-      return `https://github.com/${tool.externalId}`;
+      return `https://github.com/${tool.externalId.replace(
+        "https://github.com/",
+        "",
+      )}`;
     default:
       return "";
   }
@@ -113,6 +119,9 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
+        externalLink: {
+          href: tool.docLink ?? null,
+        },
       },
     ],
   };

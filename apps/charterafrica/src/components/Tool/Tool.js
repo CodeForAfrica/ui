@@ -18,7 +18,6 @@ const Tool = React.forwardRef(function Tool(props, ref) {
   const {
     image,
     name,
-    link,
     organisation,
     theme,
     operatingCountries,
@@ -34,6 +33,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     partners,
     tools,
     toolsTitle,
+    externalLink,
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
@@ -62,7 +62,10 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 <RichTypography color="neutral.dark" variant="h2SemiBold">
                   {name}
                 </RichTypography>
-                <Link href={link.href}>
+                <Button
+                  component={externalLink.href ? Link : undefined}
+                  href={externalLink.href}
+                >
                   <SvgIcon
                     inheritViewBox
                     component={ExternalLink}
@@ -73,7 +76,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                       width: 32,
                     }}
                   />
-                </Link>
+                </Button>
               </Box>
             </Grid>
             <Grid item>
