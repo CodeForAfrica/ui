@@ -1,5 +1,5 @@
-const Locations = {
-  slug: "locations",
+const Offices = {
+  slug: "offices",
   admin: {
     group: "Website",
     defaultColumns: ["title"],
@@ -40,4 +40,4 @@ const Locations = {
   ],
 };
 
-export default Locations;
+export default Offices;

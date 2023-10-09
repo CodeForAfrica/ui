@@ -1,5 +1,6 @@
 function ourOffices(block) {
-  const addresses = block.addresses.map((item) => ({
+  const { offices } = block;
+  const addresses = offices?.map((item) => ({
     ...item,
     position: {
       lng: item?.location?.[0],

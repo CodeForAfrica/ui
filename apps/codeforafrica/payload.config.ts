@@ -12,7 +12,7 @@ import Authors from "./src/payload/collections/Authors";
 import Donors from "./src/payload/collections/Donors";
 import GuidingPrinciples from "./src/payload/collections/GuidingPrinciples";
 import Impact from "./src/payload/collections/Impact";
-import Locations from "./src/payload/collections/Locations";
+import Offices from "./src/payload/collections/Offices";
 import Media from "./src/payload/collections/Media";
 import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
@@ -58,7 +58,7 @@ export default buildConfig({
     Donors,
     GuidingPrinciples,
     Impact,
-    Locations,
+    Offices,
     Media,
     Members,
     Pages,
