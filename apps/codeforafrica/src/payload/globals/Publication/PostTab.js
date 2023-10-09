@@ -28,16 +28,6 @@ const PostTab = {
                 condition: (_, data) => data.showRecent,
               },
             },
-            {
-              name: "primaryTag",
-              label: "Primary Tag",
-              type: "text",
-              required: true,
-              defaultValue: "stories",
-              admin: {
-                hidden: true,
-              },
-            },
           ],
           admin: {
             className: "group-field-nested",
@@ -70,16 +60,6 @@ const PostTab = {
               defaultValue: "Recent Opportunities",
               admin: {
                 condition: (_, data) => data.showRecent,
-              },
-            },
-            {
-              name: "primaryTag",
-              label: "Primary Tag",
-              type: "text",
-              required: true,
-              defaultValue: "opportunities",
-              admin: {
-                hidden: true,
               },
             },
           ],
