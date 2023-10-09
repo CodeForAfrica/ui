@@ -40,9 +40,7 @@ const Posts = {
       },
     }),
     content({ minRows: 1, required: true, localized: true }),
-    slug({
-      index: true,
-    }),
+    slug(),
     publishedOn({ localized: true }),
     tags({
       admin: {
