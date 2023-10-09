@@ -1,5 +1,7 @@
 const OurOffices = {
   slug: "our-offices",
+  imageURL: "/images/cms/blocks/our_offices.png",
+  imageAltText: "Our offices",
   fields: [
     {
       name: "title",
