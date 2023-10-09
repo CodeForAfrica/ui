@@ -31,7 +31,7 @@ export function formatPost(post, primaryTag) {
 }
 
 export async function getPosts(api, params, primaryTag) {
-  const { page: queryPage = 1, tag, q, ...other } = params;
+  const { page: queryPage = 1, tag, q, where, ...other } = params;
   const options = {
     limit: 9,
     page: queryPage,
@@ -68,6 +68,7 @@ export async function getPosts(api, params, primaryTag) {
           },
         ],
       }),
+      ...where,
     },
     ...other,
   };
@@ -117,29 +118,54 @@ export async function getPost(api, slug, primaryTag) {
     image: coverImage,
     ...meta,
   };
+  const blocks = [
+    {
+      authors: authors.map(({ fullName, bio }) => {
+        return {
+          name: fullName,
+          bio,
+        };
+      }),
+      title,
+      coverImage,
+      excerpt,
+      tags,
+      publishedOn: formatDate(publishedOn, {
+        includeTime: false,
+        month: "short",
+      }),
+      primaryTag,
+      blockType: "article",
+      ...other,
+    },
+  ];
+
+  const publicationSettings = await api.findGlobal("settings-publication");
+  const primaryTagPostSettings = publicationSettings?.[primaryTag] ?? {};
+  const { showRecent, title: recentTitle } = primaryTagPostSettings;
+  if (showRecent) {
+    const { posts } = await getPosts(
+      api,
+      {
+        limit: 3,
+        where: {
+          slug: {
+            not_equals: slug,
+          },
+        },
+      },
+      primaryTag,
+    );
+    blocks.push({
+      title: recentTitle,
+      posts,
+      blockType: "recent-posts",
+    });
+  }
+
   return {
     title,
-    blocks: [
-      {
-        authors: authors.map(({ fullName, bio }) => {
-          return {
-            name: fullName,
-            bio,
-          };
-        }),
-        title,
-        coverImage,
-        excerpt,
-        tags,
-        publishedOn: formatDate(publishedOn, {
-          includeTime: false,
-          month: "short",
-        }),
-        primaryTag,
-        blockType: "article",
-        ...other,
-      },
-    ],
+    blocks,
     meta: postMeta,
   };
 }

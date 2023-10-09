@@ -5,9 +5,9 @@ import React from "react";
 import ArticleCardList from "@/codeforafrica/components/ArticleCardList";
 
 const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
-  const { articles, sx, title } = props;
+  const { posts, sx, title } = props;
 
-  if (!articles?.length) {
+  if (!posts?.length) {
     return null;
   }
   return (
@@ -25,10 +25,7 @@ const RelatedStories = React.forwardRef(function RelatedStories(props, ref) {
       >
         {title}
       </RichTypography>
-      <ArticleCardList
-        articles={articles.slice(0, 3)}
-        sx={{ mb: { xs: 5, lg: "55px" } }}
-      />
+      <ArticleCardList articles={posts} sx={{ mb: { xs: 5, lg: "55px" } }} />
     </Section>
   );
 });
