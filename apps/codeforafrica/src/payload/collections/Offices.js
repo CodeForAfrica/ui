@@ -1,7 +1,7 @@
 const Offices = {
   slug: "offices",
   admin: {
-    group: "Website",
+    group: "Settings",
     defaultColumns: ["title"],
     useAsTitle: "title",
   },
