@@ -2,13 +2,14 @@ import EngagementTab from "./EngagementTab";
 import GeneralTab from "./GeneralTab";
 import NavigationTab from "./NavigationTab";
 
-const Settings = {
-  slug: "settings",
+const Site = {
+  slug: "settings-site",
+  label: "Site",
   access: {
     read: () => true,
   },
   admin: {
-    group: "Website",
+    group: "Settings",
   },
   fields: [
     {
@@ -18,4 +19,4 @@ const Settings = {
   ],
 };
 
-export default Settings;
+export default Site;

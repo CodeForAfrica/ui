@@ -16,7 +16,7 @@ const Users = {
   admin: {
     defaultColumns: ["firstName", "lastName", "email", "updatedAt"],
     enableRichTextLink: false,
-    group: "Website",
+    group: "Settings",
     useAsTitle: "email",
   },
   auth: {

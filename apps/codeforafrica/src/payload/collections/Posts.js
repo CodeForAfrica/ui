@@ -23,6 +23,7 @@ const Posts = {
     description: "Stories and Opportunities",
     group: "Publication",
     useAsTitle: "title",
+    listSearchableFields: ["content", "excerpt"],
   },
   fields: [
     {
