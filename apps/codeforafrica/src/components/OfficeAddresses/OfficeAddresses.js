@@ -18,7 +18,7 @@ const OfficeAddressesRoot = styled(Box)(({ theme, ownerState }) => ({
 }));
 
 const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
-  const { addresses, height = 700, map, title, ...other } = props;
+  const { addresses = [], height = 700, map, title, apiKey, ...other } = props;
   const [activeAddress, setActiveAddress] = React.useState(
     addresses?.[0] ?? null,
   );
@@ -33,8 +33,17 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
   }
   const ownerState = { height };
   const mapStyle = { height, width: "100%", ...map?.style };
+  const position = {
+    lng: activeAddress?.location?.[0],
+    lat: activeAddress?.location?.[1],
+  };
   return (
-    <OfficeAddressesRoot {...other} ownerState={ownerState} ref={ref}>
+    <OfficeAddressesRoot
+      {...other}
+      sx={{ mt: { xs: 2.5, md: 10 } }}
+      ownerState={ownerState}
+      ref={ref}
+    >
       <Box
         sx={{
           display: { xs: "none", md: "block" },
@@ -46,7 +55,13 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
           zIndex: -1,
         }}
       >
-        <GoogleMap {...map} {...activeAddress?.map} style={mapStyle} />
+        <GoogleMap
+          {...map}
+          {...activeAddress}
+          position={position}
+          center={position}
+          style={mapStyle}
+        />
       </Box>
       <Section
         sx={{

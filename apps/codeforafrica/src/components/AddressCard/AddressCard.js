@@ -13,14 +13,23 @@ const AddressCardRoot = styled(Card)(({ theme, ownerState }) => ({
 }));
 
 const AddressCard = React.forwardRef(function AddressCard(props, ref) {
-  const { active, content, onClick, title } = props;
+  const {
+    active,
+    addressLine1,
+    addressLine2,
+    zipcode,
+    city,
+    country,
+    onClick,
+    title,
+  } = props;
   const handleClick = (e) => {
     if (onClick) {
       onClick(e, title);
     }
   };
 
-  if (!(title && content)) {
+  if (!title) {
     return null;
   }
   const ownerState = { active };
@@ -38,12 +47,37 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
             {title}
           </RichTypography>
           <RichTypography
-            component="address"
             // In address, we treat <p> as a line i.e.no margins.
             sx={{ color: "inherit", pt: 1.25, "& p": { m: 0 } }}
             variant="body3"
           >
-            {content}
+            {addressLine1}
+          </RichTypography>
+          <RichTypography
+            sx={{ color: "inherit", "& p": { m: 0 } }}
+            variant="body3"
+          >
+            {addressLine2}
+          </RichTypography>
+          <RichTypography
+            sx={{ color: "inherit", "& p": { m: 0 } }}
+            variant="body3"
+            component="span"
+          >
+            {zipcode},
+          </RichTypography>
+          <RichTypography
+            component="span"
+            sx={{ color: "inherit", "& p": { m: 0 } }}
+            variant="body3"
+          >
+            {city}
+          </RichTypography>
+          <RichTypography
+            sx={{ color: "inherit", "& p": { m: 0 } }}
+            variant="body3"
+          >
+            {country}
           </RichTypography>
         </CardContent>
       </CardActionArea>

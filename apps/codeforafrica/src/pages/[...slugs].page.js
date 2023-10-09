@@ -14,6 +14,7 @@ import Hero from "@/codeforafrica/components/Hero";
 import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
+import OfficeAddresses from "@/codeforafrica/components/OfficeAddresses";
 import Opportunities from "@/codeforafrica/components/Opportunities";
 import OurImpact from "@/codeforafrica/components/OurImpact";
 import OurMission from "@/codeforafrica/components/OurMission";
@@ -40,6 +41,7 @@ const componentsBySlugs = {
   "our-guiding-principles": GuidingPrinciplesCardList,
   "our-impact": OurImpact,
   "our-mission": OurMission,
+  "our-address": OfficeAddresses,
   "our-partners": OurPartners,
   "our-team": OurTeam,
   "our-work": Projects,
