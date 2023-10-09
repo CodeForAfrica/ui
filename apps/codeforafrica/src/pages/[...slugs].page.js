@@ -41,7 +41,7 @@ const componentsBySlugs = {
   "our-guiding-principles": GuidingPrinciplesCardList,
   "our-impact": OurImpact,
   "our-mission": OurMission,
-  "our-address": OfficeAddresses,
+  "our-offices": OfficeAddresses,
   "our-partners": OurPartners,
   "our-team": OurTeam,
   "our-work": Projects,
