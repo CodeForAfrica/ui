@@ -1,7 +1,7 @@
 import PostTab from "./PostTab";
 
 const Publication = {
-  slug: "publication",
+  slug: "settings-publication",
   label: "Publication",
   access: {
     read: () => true,

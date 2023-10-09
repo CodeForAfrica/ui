@@ -3,7 +3,7 @@ import GeneralTab from "./GeneralTab";
 import NavigationTab from "./NavigationTab";
 
 const Site = {
-  slug: "site",
+  slug: "settings-site",
   label: "Site",
   access: {
     read: () => true,
