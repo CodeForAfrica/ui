@@ -23,6 +23,7 @@ const Posts = {
     description: "Stories and Opportunities",
     group: "Publication",
     useAsTitle: "title",
+    listSearchableFields: ["content", "excerpt"],
   },
   fields: [
     {
@@ -39,7 +40,9 @@ const Posts = {
       },
     }),
     content({ minRows: 1, required: true, localized: true }),
-    slug(),
+    slug({
+      index: true,
+    }),
     publishedOn({ localized: true }),
     tags({
       admin: {

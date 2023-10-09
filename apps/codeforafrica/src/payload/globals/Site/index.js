@@ -9,7 +9,7 @@ const Site = {
     read: () => true,
   },
   admin: {
-    group: "Website",
+    group: "Settings",
   },
   fields: [
     {

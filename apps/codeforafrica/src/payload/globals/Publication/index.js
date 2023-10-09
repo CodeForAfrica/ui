@@ -1,4 +1,4 @@
-import PostsTab from "./PostsTab";
+import PostTab from "./PostTab";
 
 const Publication = {
   slug: "publication",
@@ -7,12 +7,12 @@ const Publication = {
     read: () => true,
   },
   admin: {
-    group: "Website",
+    group: "Settings",
   },
   fields: [
     {
       type: "tabs",
-      tabs: [PostsTab],
+      tabs: [PostTab],
     },
   ],
 };
