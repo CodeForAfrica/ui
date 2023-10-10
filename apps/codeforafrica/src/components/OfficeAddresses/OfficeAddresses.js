@@ -48,7 +48,7 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
           zIndex: -1,
         }}
       >
-        <GoogleMap {...map} {...activeAddress?.map} style={mapStyle} />
+        <GoogleMap {...map} {...activeAddress} style={mapStyle} />
       </Box>
       <Section
         sx={{
