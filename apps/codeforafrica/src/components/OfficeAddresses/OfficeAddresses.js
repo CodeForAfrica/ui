@@ -22,10 +22,8 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
   const [activeAddress, setActiveAddress] = React.useState(
     addresses?.[0] ?? null,
   );
-  const handleClickAddress = (_, addressTitle) => {
-    setActiveAddress(
-      addresses.find((address) => address.title === addressTitle),
-    );
+  const handleClickAddress = (_, city) => {
+    setActiveAddress(addresses.find((address) => address.city === city));
   };
 
   if (!addresses?.length) {
@@ -50,7 +48,7 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
           zIndex: -1,
         }}
       >
-        <GoogleMap {...map} {...activeAddress} style={mapStyle} />
+        <GoogleMap {...map} {...activeAddress?.map} style={mapStyle} />
       </Box>
       <Section
         sx={{
@@ -89,11 +87,11 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
                 sm={5}
                 md={2}
                 sx={{ order: { xs: 2, md: 0 } }}
-                key={address.title}
+                key={address.city}
               >
                 <AddressCard
                   {...address}
-                  active={address.title === activeAddress.title}
+                  active={address.city === activeAddress.city}
                   onClick={handleClickAddress}
                 />
               </Grid>

@@ -9,9 +9,9 @@ const OurOffices = {
       required: true,
     },
     {
+      hasMany: true,
       type: "relationship",
       relationTo: "offices",
-      hasMany: true,
       name: "offices",
       required: true,
     },

@@ -1,16 +1,20 @@
 function ourOffices(block) {
   const { offices } = block;
-  const addresses = offices?.map((item) => ({
-    ...item,
-    position: {
-      lng: item?.location?.[0],
-      lat: item?.location?.[1],
-    },
-    center: {
-      lng: item?.location?.[0],
-      lat: item?.location?.[1],
-    },
-  }));
+  const addresses =
+    offices?.map((item) => {
+      let location = null;
+      if (item?.location?.length) {
+        location = {
+          lng: item?.location?.[0],
+          lat: item?.location?.[1],
+        };
+      }
+      return {
+        ...item,
+        position: location,
+        center: location,
+      };
+    }) ?? null;
   return {
     ...block,
     slug: block.blockType,

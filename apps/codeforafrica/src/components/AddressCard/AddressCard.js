@@ -17,19 +17,18 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
     active,
     addressLine1,
     addressLine2,
-    zipcode,
+    zipCode,
     city,
     country,
     onClick,
-    title,
   } = props;
   const handleClick = (e) => {
     if (onClick) {
-      onClick(e, title);
+      onClick(e, city);
     }
   };
 
-  if (!title) {
+  if (!city) {
     return null;
   }
   const ownerState = { active };
@@ -44,7 +43,7 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
       <CardActionArea onClick={handleClick}>
         <CardContent sx={{ p: 0 }}>
           <RichTypography sx={{ color: "inherit" }} variant="body3Underline">
-            {title}
+            {city}
           </RichTypography>
           <RichTypography
             // In address, we treat <p> as a line i.e.no margins.
@@ -64,7 +63,8 @@ const AddressCard = React.forwardRef(function AddressCard(props, ref) {
             variant="body3"
             component="span"
           >
-            {zipcode},
+            {zipCode}
+            {zipCode ? "," : null}
           </RichTypography>
           <RichTypography
             component="span"

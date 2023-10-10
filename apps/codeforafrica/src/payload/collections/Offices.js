@@ -1,13 +1,13 @@
 const Offices = {
   slug: "offices",
   admin: {
-    group: "Settings",
-    defaultColumns: ["title"],
-    useAsTitle: "title",
+    group: "Organisation",
+    defaultColumns: ["city", "country"],
+    useAsTitle: "city",
   },
   fields: [
     {
-      name: "title",
+      name: "city",
       type: "text",
       required: true,
     },
@@ -26,11 +26,7 @@ const Offices = {
       type: "text",
     },
     {
-      name: "zipcode",
-      type: "text",
-    },
-    {
-      name: "city",
+      name: "zipCode",
       type: "text",
     },
     {
