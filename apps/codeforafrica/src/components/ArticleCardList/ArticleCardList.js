@@ -21,7 +21,7 @@ const ArticleCardList = React.forwardRef(function ArticleCardList(props, ref) {
       ref={ref}
     >
       {articles?.map((article) => (
-        <Grid item xs={12} sm={4} key={article.id}>
+        <Grid item xs={12} sm={4} key={article.href}>
           <ArticleCard
             sx={{
               width: "100%",

@@ -12,6 +12,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
         class="MuiBox-root css-f1ltsh"
       >
         <img
+          alt="africanDRONE"
           class="css-g98gbd"
           data-nimg="fill"
           decoding="async"

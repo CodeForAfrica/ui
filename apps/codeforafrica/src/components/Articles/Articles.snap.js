@@ -83,19 +83,25 @@ exports[`<Articles /> renders unchanged 1`] = `
                 class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-r0wqfl-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
+                value="tag1"
               >
                 <span
                   class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
-                />
+                >
+                  tag1
+                </span>
               </div>
               <div
                 class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-r0wqfl-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
+                value="tag2"
               >
                 <span
                   class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
-                />
+                >
+                  tag2
+                </span>
               </div>
             </div>
           </div>
