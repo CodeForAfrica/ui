@@ -1,3 +1,5 @@
+import { allCountries } from "../../lib/data/json/countries";
+
 const Offices = {
   slug: "offices",
   admin: {
@@ -31,7 +33,8 @@ const Offices = {
     },
     {
       name: "country",
-      type: "text",
+      type: "select",
+      options: allCountries,
     },
   ],
 };
