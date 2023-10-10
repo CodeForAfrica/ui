@@ -16,6 +16,7 @@ env:
   APP: "codeforafrica"
   VERSION_FILE_NAME: "./apps/codeforafrica/package.json"
   GIT_PUSH_FLAGS: "--force"
+  NEXT_PUBLIC_APP_URL: "https://cfa.dev.codeforafrica.org"
 
 jobs:
   deploy:
@@ -74,12 +75,15 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            APP=${{ env.APP }}
-            GHOST_API_KEY=${{ secrets.GHOST_API_KEY }}
-            GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}
+            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGODB_URL }}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
+            NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+            NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
+          file: ./Dockerfile.codeforafrica
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
 
@@ -93,7 +97,6 @@ jobs:
         if: steps.version-check.outputs.changed == 'true'
         uses: dokku/github-action@v1.4.0
         with:
-          branch: ${{ env.DOKKU_REMOTE_BRANCH }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          git_push_flags: ${{ env.GIT_PUSH_FLAGS }}
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}
