@@ -9,7 +9,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1rwywmd-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
       >
         <nav
           class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-15752dv-MuiTypography-root-MuiBreadcrumbs-root"
@@ -45,7 +45,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
           </ol>
         </nav>
         <img
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-vpxcaz-MuiCardMedia-root"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
         />
         <div
           class="MuiBox-root css-1ntmuzk"
@@ -111,10 +111,12 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
           <div
             class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-12dqrmj-MuiButtonBase-root-MuiButton-root"
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-15w6lcd-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              href="https://codeforafrica.org"
+              rel="noreferrer noopener"
               tabindex="0"
-              type="button"
+              target="_blank"
             >
               Launch Project
               <span
@@ -127,7 +129,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
                   viewbox="0 0 24 24"
                 />
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

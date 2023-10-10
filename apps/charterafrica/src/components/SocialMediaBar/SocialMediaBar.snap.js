@@ -3,7 +3,7 @@
 exports[`<SocialMediaBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-v2woy3-MuiStack-root"
+    class="MuiStack-root css-j378z1-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
@@ -11,7 +11,7 @@ exports[`<SocialMediaBar /> renders unchanged 1`] = `
       Connect with: 
     </div>
     <div
-      class="MuiStack-root css-6za6r5-MuiStack-root"
+      class="MuiStack-root css-b6wkik-MuiStack-root"
     />
   </div>
 </div>

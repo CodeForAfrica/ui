@@ -48,16 +48,20 @@ exports[`<GetInvolved /> renders unchanged 1`] = `
                 15000
               </div>
               <div
-                class="MuiTypography-root MuiTypography-body3 css-51w9j7-MuiTypography-root"
+                class="MuiBox-root css-2ligbh"
               >
-                In 10 years, 15 000 trainees have learned new skills and knowledge within the civic tech and media space.
+                <span
+                  class="MuiTypography-root MuiTypography-body3 css-s9m4rs-MuiTypography-root"
+                >
+                  Our team makes an impact in more than 20 countries where members are present.
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-dlpjkq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1utjjui-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/contact"
         tabindex="0"
       >

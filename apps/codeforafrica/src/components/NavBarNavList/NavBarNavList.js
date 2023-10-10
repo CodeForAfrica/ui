@@ -4,19 +4,33 @@ import { SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
+import GitHubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
+import LinkedInIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
+import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
-  const { direction, menu, ...other } = props;
+const platformToIconMap = {
+  Facebook: FacebookIcon,
+  Twitter: TwitterIcon,
+  Instagram: InstagramIcon,
+  Linkedin: LinkedInIcon,
+  Github: GitHubIcon,
+  Slack: SlackIcon,
+};
 
-  if (!menu?.length) {
+const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
+  const { direction, menus, socialLinks, ...other } = props;
+
+  if (!menus?.length) {
     return null;
   }
   return (
     <NavList direction={direction} {...other} ref={ref}>
-      {menu.map((item) => (
-        <NavListItem key={item.content} sx={{ m: "20px" }}>
+      {menus.map((item) => (
+        <NavListItem key={item.label} sx={{ m: "20px" }}>
           <Link
             href={item.href}
             color="inherit"
@@ -30,31 +44,36 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
               },
             }}
           >
-            {item.content}
+            {item.label}
           </Link>
         </NavListItem>
       ))}
-      <NavListItem sx={{ m: "20px", mr: 0 }}>
-        <Link
-          href="https://twitter.com/Code4Africa"
-          sx={{ color: { xs: "inherit" } }}
-        >
-          <SvgIcon
-            component={TwitterIcon}
-            sx={{
-              mt: direction === "column" ? 0 : 1,
-              fill: { xs: "none" },
-            }}
-          />
-        </Link>
-      </NavListItem>
+      {socialLinks?.map(({ platform, url }) => {
+        const Icon = platformToIconMap[platform];
+        if (!Icon) {
+          return null;
+        }
+        return (
+          <NavListItem key={platform} sx={{ m: "20px", mr: 0 }}>
+            <Link href={url} sx={{ color: { xs: "inherit" } }}>
+              <SvgIcon
+                component={Icon}
+                sx={{
+                  mt: direction === "column" ? 0 : 1,
+                  fill: { xs: "none" },
+                }}
+              />
+            </Link>
+          </NavListItem>
+        );
+      })}
     </NavList>
   );
 });
 
 NavBarNavList.propTypes = {
   direction: PropTypes.string,
-  menu: PropTypes.arrayOf(
+  menus: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -64,7 +83,7 @@ NavBarNavList.propTypes = {
 
 NavBarNavList.defaultProps = {
   direction: undefined,
-  menu: undefined,
+  menus: undefined,
 };
 
 export default NavBarNavList;

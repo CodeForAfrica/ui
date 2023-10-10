@@ -127,7 +127,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                 class="MuiBox-root css-oqyb22"
               >
                 <div
-                  class="MuiStack-root css-82jnlo-MuiStack-root"
+                  class="MuiStack-root css-hhlonh-MuiStack-root"
                 >
                   <div
                     class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
@@ -135,7 +135,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                     Share via
                   </div>
                   <div
-                    class="MuiStack-root css-6za6r5-MuiStack-root"
+                    class="MuiStack-root css-b6wkik-MuiStack-root"
                   >
                     <button
                       aria-label="twitter"
@@ -239,7 +239,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   26
                 </div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1sel0v5-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -255,7 +255,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1sel0v5-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -271,7 +271,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1sel0v5-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -287,7 +287,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1sel0v5-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg

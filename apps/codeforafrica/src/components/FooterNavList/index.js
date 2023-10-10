@@ -6,8 +6,8 @@ import React from "react";
 
 import NavListItem from "@/codeforafrica/components/NavListItem";
 
-function FooterNavList({ menu, children }) {
-  if (!menu?.length) {
+function FooterNavList({ menus, children }) {
+  if (!menus?.length) {
     return null;
   }
   return (
@@ -22,10 +22,10 @@ function FooterNavList({ menu, children }) {
         direction="column"
         sx={{ padding: 0, alignItems: { xs: "center", md: "flex-start" } }}
       >
-        {menu.map((item, i) => (
+        {menus.map((item, i) => (
           <NavListItem
-            key={item.content}
-            sx={{ mb: i < menu.length - 1 ? "20px" : 0 }}
+            key={item.label}
+            sx={{ mb: i < menus.length - 1 ? "20px" : 0 }}
           >
             <Link
               href={item.href}
@@ -39,7 +39,7 @@ function FooterNavList({ menu, children }) {
                 },
               }}
             >
-              {item.content}
+              {item.label}
             </Link>
           </NavListItem>
         ))}
@@ -50,7 +50,7 @@ function FooterNavList({ menu, children }) {
 }
 
 FooterNavList.propTypes = {
-  menu: PropTypes.arrayOf(
+  menus: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -59,7 +59,7 @@ FooterNavList.propTypes = {
 };
 
 FooterNavList.defaultProps = {
-  menu: undefined,
+  menus: undefined,
 };
 
 export default FooterNavList;

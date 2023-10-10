@@ -20,16 +20,23 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             title
           </div>
           <div
-            class="MuiTypography-root MuiTypography-body3 css-scexb3-MuiTypography-root"
+            class="MuiBox-root css-pxpt32"
           >
-            description
+            <span
+              class="MuiTypography-root MuiTypography-body3 css-s9m4rs-MuiTypography-root"
+            >
+              <strong>
+                Africa's
+              </strong>
+              largest network of civic tech and open data labs
+            </span>
           </div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium css-1oeh6fq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium css-16j572f-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/about#our-team"
             tabindex="0"
           >
-            Meet our Team
+            Meet our team
           </a>
         </div>
         <div

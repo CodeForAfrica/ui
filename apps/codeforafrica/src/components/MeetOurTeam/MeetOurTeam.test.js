@@ -11,9 +11,29 @@ const render = createRender({ theme });
 const defaultProps = {
   slug: "our-team",
   title: "title",
-  description: "description",
-  logo: "/images/Africa@2400x 1",
-  href: "/about#our-team",
+  description: [
+    {
+      children: [
+        {
+          text: "Africa's",
+          bold: true,
+          children: null,
+        },
+        {
+          text: "largest network of civic tech and open data labs",
+          children: null,
+        },
+      ],
+    },
+  ],
+  image: {
+    alt: "Our offices across africa",
+    src: "/images/Africa@2400x 1",
+  },
+  action: {
+    href: "/about#our-team",
+    label: "Meet our team",
+  },
 };
 
 describe("<MeetOurTeam />", () => {

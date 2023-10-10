@@ -4,7 +4,6 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-eoqn3z-MuiContainer-root"
-    description="This award-winning initiative works to give citizens a new perspective on their lives. Using drone technology, africanDRONE empowers local pilots through a self-help network that offers seed funding, skills development, resource sharing, advocacy, and networking opportunities for members. The goal is to support the evolution of a vibrant and diverse drone ecosystem across Africa."
   >
     <div
       class="MuiGrid-root MuiGrid-container css-1ldf9ke-MuiGrid-root"
@@ -13,7 +12,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1vcuf8r-MuiGrid-root"
       >
         <div
-          class="MuiStack-root css-1b1mat0-MuiStack-root"
+          class="MuiStack-root css-h9vuy5-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
@@ -21,7 +20,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
             Details
           </div>
           <div
-            class="MuiStack-root css-7d4qva-MuiStack-root"
+            class="MuiStack-root css-1025p66-MuiStack-root"
           >
             <div
               class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -29,7 +28,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               Share This Project
             </div>
             <div
-              class="MuiStack-root css-b5mw1t-MuiStack-root"
+              class="MuiStack-root css-1jqw290-MuiStack-root"
             >
               <button
                 aria-label="Twitter"
@@ -79,59 +78,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
       />
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-17q9xai-MuiGrid-root"
-      >
-        <div
-          class="MuiStack-root css-4ktc6n-MuiStack-root"
-        >
-          <div
-            class="MuiTypography-root MuiTypography-h5 css-1a7nesc-MuiTypography-root"
-          >
-            Description
-          </div>
-          <div
-            class="MuiStack-root css-5vyr5n-MuiStack-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall active css-eljsgr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-              href="https://codeforafrica.org"
-              rel="noreferrer noopener"
-              tabindex="0"
-              target="_blank"
-            >
-              Launch Project
-              <span
-                class="MuiButton-endIcon MuiButton-iconSizeSmall css-jcxoq4-MuiButton-endIcon"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6r1fm2-MuiSvgIcon-root"
-                  focusable="false"
-                  viewbox="0 0 24 24"
-                />
-              </span>
-            </a>
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall css-eljsgr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-              href="https://github.com/CodeForAfrica"
-              rel="noreferrer noopener"
-              tabindex="0"
-              target="_blank"
-            >
-              GitHub
-              <span
-                class="MuiButton-endIcon MuiButton-iconSizeSmall css-jcxoq4-MuiButton-endIcon"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-6r1fm2-MuiSvgIcon-root"
-                  focusable="false"
-                  viewbox="0 0 24 24"
-                />
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </div>

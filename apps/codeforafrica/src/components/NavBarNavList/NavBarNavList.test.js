@@ -9,26 +9,36 @@ import theme from "@/codeforafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  menu: [
+  menus: [
     {
-      content: "Our Work",
+      label: "Our Work",
       href: "/our-work",
     },
     {
-      content: "About",
+      label: "About",
       href: "/about",
     },
     {
-      content: "Stories",
+      label: "Stories",
       href: "/about",
     },
     {
-      content: "Opportunity",
+      label: "Opportunity",
       href: "/opportunity",
     },
     {
-      content: "Contact",
+      label: "Contact",
       href: "/contact",
+    },
+  ],
+  socialLinks: [
+    {
+      url: "https://www.facebook.com/CodeForAfrica",
+      platform: "Facebook",
+    },
+    {
+      url: "https://twitter.com/Code4Africa",
+      platform: "Twitter",
     },
   ],
 };

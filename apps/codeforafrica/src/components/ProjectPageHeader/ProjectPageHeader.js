@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Link, RichTypography } from "@commons-ui/next";
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Button,
@@ -15,6 +15,7 @@ import ExternalLinkIcon from "@/codeforafrica/assets/icons/Type=external-link, S
 import Breadcrumbs from "@/codeforafrica/components/Breadcrumbs";
 import ProjectCardMedia from "@/codeforafrica/components/ProjectCardMedia";
 import ProjectTile from "@/codeforafrica/components/ProjectTile";
+import RichText from "@/codeforafrica/components/RichText";
 import TwoToneBackground from "@/codeforafrica/components/TwoToneBackground";
 
 const Background = styled(TwoToneBackground, {
@@ -38,7 +39,7 @@ const ProjectPageHeaderRoot = styled(Card, {
   padding: `${theme.spacing(2.5)} 0`,
   [theme.breakpoints.up("sm")]: {
     alignItems: "flex-start",
-    flexDirection: "row",
+    flexDirection: "row-reverse",
     justifyContent: "space-between",
     padding: `20px 0`,
   },
@@ -48,18 +49,10 @@ const ProjectPageHeaderRoot = styled(Card, {
   },
 }));
 
-const ProjectTitle = styled(RichTypography, {
-  slot: "Root",
-})(({ theme }) => ({
-  "& .highlight": {
-    color: theme.palette.primary.main,
-  },
-}));
-
 const ProjectPageHeader = React.forwardRef(
   function ProjectPageHeader(props, ref) {
     const {
-      externalHref,
+      externalLink: { href },
       icon,
       name,
       subtitle,
@@ -118,23 +111,33 @@ const ProjectPageHeader = React.forwardRef(
                 }}
               >
                 <ProjectTile {...tileProps} />
-                <ProjectTitle
-                  variant="h4"
-                  sx={{ mt: 2, typography: { md: "h2" } }}
-                >
-                  {title}
-                </ProjectTitle>
-                <RichTypography
-                  variant="body2"
-                  sx={{ mt: 2.5, typography: { md: "subheading" } }}
-                >
-                  {subtitle}
-                </RichTypography>
+                <RichText
+                  typographyProps={{
+                    variant: "h4",
+                    sx: (theme) => ({
+                      mt: 2,
+                      "& strong": {
+                        color: theme.palette.primary.main,
+                      },
+                    }),
+                  }}
+                  elements={title}
+                />
+                <RichText
+                  typographyProps={{
+                    variant: "body2",
+                    sx: {
+                      typography: { md: "subheading" },
+                    },
+                  }}
+                  sx={{ mt: 2.5 }}
+                  elements={subtitle}
+                />
               </CardContent>
               <CardActions sx={{ mt: 2, p: 0 }}>
                 <Button
-                  href={externalHref}
-                  component={externalHref ? Link : undefined}
+                  href={href}
+                  component={href ? Link : undefined}
                   endIcon={
                     <SvgIcon
                       component={ExternalLinkIcon}

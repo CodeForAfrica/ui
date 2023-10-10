@@ -5,10 +5,6 @@ const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
-const ghostUrl =
-  process.env.GHOST_ADMIN_URL?.trim() || process.env.GHOST_URL?.trim();
-const ghostAdminUrl = new URL("/ghost", ghostUrl).toString();
-
 module.exports = {
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
@@ -30,16 +26,6 @@ module.exports = {
   output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
-  async redirects() {
-    return [
-      {
-        source: "/longform/:path*",
-        destination: `${ghostAdminUrl}/:path*`,
-        permanent: false,
-        basePath: false,
-      },
-    ];
-  },
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   webpack: (config) => {
     config.module.rules.push(

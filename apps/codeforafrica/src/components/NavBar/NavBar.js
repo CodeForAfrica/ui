@@ -5,20 +5,22 @@ import React from "react";
 import DesktopNavBar from "@/codeforafrica/components/DesktopNavBar";
 import MobileNavBar from "@/codeforafrica/components/MobileNavBar";
 
-function NavBar({ logo, menu }) {
+function NavBar({ logo, menus, socialLinks }) {
   return (
     <NavigationBar sx={{ py: { xs: "10px", md: "15.5" } }}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar
           logo={logo}
-          menu={menu}
+          menus={menus}
+          socialLinks={socialLinks}
           sx={{
             display: { xs: "flex", md: "none" },
           }}
         />
         <DesktopNavBar
           logo={logo}
-          menu={menu}
+          menus={menus}
+          socialLinks={socialLinks}
           sx={{
             display: { xs: "none", md: "flex" },
           }}
@@ -29,7 +31,7 @@ function NavBar({ logo, menu }) {
 }
 
 NavBar.propTypes = {
-  menu: PropTypes.arrayOf(
+  menus: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -38,7 +40,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-  menu: undefined,
+  menus: undefined,
 };
 
 export default NavBar;

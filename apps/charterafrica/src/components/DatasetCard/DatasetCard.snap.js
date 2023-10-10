@@ -58,7 +58,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-6thyz8-MuiGrid-root"
           >
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1puf64w-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-2n8s2x-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
@@ -67,7 +67,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1g3w73k-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-euezk3-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"

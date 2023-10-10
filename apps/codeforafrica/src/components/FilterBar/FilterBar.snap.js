@@ -52,15 +52,15 @@ exports[`<FilterBar /> renders unchanged 1`] = `
       role="group"
     >
       <div
-        class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+        class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-1unqgnq-MuiButtonBase-root-MuiChip-root"
         role="button"
         tabindex="0"
-        value="All"
+        value="tag"
       >
         <span
           class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
         >
-          All
+          tag
         </span>
       </div>
     </div>

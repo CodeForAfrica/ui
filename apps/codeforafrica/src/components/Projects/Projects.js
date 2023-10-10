@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import { Section } from "@commons-ui/core";
 import { Stack } from "@mui/material";
 import { useRouter } from "next/router";
@@ -16,10 +17,8 @@ import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 const Projects = React.forwardRef(function Projects(
   {
     tags,
-    projects: {
-      pagination: { count: countProp, page: pageProp = 1 },
-      results: resultsProp,
-    },
+    pagination: { count: countProp, page: pageProp = 1 },
+    results: resultsProp,
     sx,
   },
   ref,
@@ -42,7 +41,8 @@ const Projects = React.forwardRef(function Projects(
 
   const handleChangeTag = (_, value) => {
     const newValue =
-      (value && tags.find((t) => equalsIgnoreCase(value, t))) || ALL_TAG;
+      (value && tags.find(({ slug }) => equalsIgnoreCase(value, slug))) ||
+      ALL_TAG;
     setTag(newValue);
     setPage(1);
   };
@@ -57,7 +57,9 @@ const Projects = React.forwardRef(function Projects(
   }, [data]);
 
   useEffect(() => {
-    router.push(queryParams, undefined, {
+    const { pathname } = window.location;
+    const url = `${pathname}${queryParams}`;
+    router.push(url, undefined, {
       scroll: true,
       shallow: true,
     });

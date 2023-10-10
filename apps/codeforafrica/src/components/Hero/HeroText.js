@@ -3,6 +3,8 @@ import { Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
+import RichText from "@/codeforafrica/components/RichText";
+
 const HeroTextRoot = styled(Stack)(({ theme }) => ({
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -13,7 +15,7 @@ const HeroTextRoot = styled(Stack)(({ theme }) => ({
   },
 }));
 
-const Heading = styled(RichTypography)(({ theme }) => ({
+const Heading = styled(RichText)(({ theme }) => ({
   "& .highlight, & em, & strong": {
     color: theme.palette.primary.main,
   },
@@ -187,6 +189,7 @@ const HeroFigure = React.forwardRef(function HeroFigure(props, ref) {
     <HeroTextRoot sx={sx} ref={ref}>
       <Heading
         variant="h2"
+        elements={title}
         sx={{
           mt: 2.5,
           typography: { xs: "h4", md: "h2" },
@@ -194,9 +197,7 @@ const HeroFigure = React.forwardRef(function HeroFigure(props, ref) {
             typography: { xs: "h4", md: "h2" },
           },
         }}
-      >
-        {title}
-      </Heading>
+      />
       <MessageHeader
         component="h1"
         sx={{ mt: 2.5, typography: { xs: "h3", md: "h1" } }}

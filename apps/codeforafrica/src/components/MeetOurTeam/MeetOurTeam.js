@@ -4,8 +4,15 @@ import { Box, Button, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "@/codeforafrica/components/RichText";
+
 const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
-  const { title, description, href, logo } = props;
+  const {
+    title,
+    description,
+    action: { href, label },
+    image,
+  } = props;
 
   if (!title || !description) {
     return null;
@@ -26,16 +33,18 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
             >
               {title}
             </RichTypography>
-            <RichTypography variant="body3" sx={{ pt: 5 }}>
-              {description}
-            </RichTypography>
+            <RichText
+              sx={{ pt: 5 }}
+              typographyProps={{ variant: "body3" }}
+              elements={description}
+            />
             <Button
               component={href ? Link : undefined}
               href={href}
               sx={{ width: { xs: "100%", sm: "auto" }, margin: "2.5rem 0" }}
               variant="contained-reverse"
             >
-              Meet our Team
+              {label}
             </Button>
           </Grid>
 
@@ -48,8 +57,7 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
           >
             <Figure
               ImageProps={{
-                src: logo,
-                alt: "Our offices across africa",
+                ...image,
               }}
               sx={{
                 height: { xs: "21.93rem", sm: "26rem", lg: "32.37rem" },
@@ -65,14 +73,17 @@ const MeetOurTeam = React.forwardRef(function MeetOurTeam(props, ref) {
 
 MeetOurTeam.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string,
-  logo: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
+  image: PropTypes.shape({
+    src: PropTypes.string,
+    alt: PropTypes.string,
+  }),
 };
 
 MeetOurTeam.defaultProps = {
   title: undefined,
   description: undefined,
-  logo: undefined,
+  image: undefined,
 };
 
 export default MeetOurTeam;

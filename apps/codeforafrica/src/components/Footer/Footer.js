@@ -25,8 +25,14 @@ const FooterRoot = styled(Box)(
 );
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { subscription, description, secondaryMenu, stayInTouch, menu, logo } =
-    props;
+  const {
+    connect,
+    description,
+    logo,
+    newsletter,
+    primaryMenus,
+    secondaryMenus,
+  } = props;
 
   return (
     <FooterRoot component="footer" ref={ref}>
@@ -54,25 +60,27 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 }}
               >
                 <Grid item>
-                  <FooterDescription logo={logo} sx={{ mt: { xs: 10, md: 0 } }}>
-                    {description}
-                  </FooterDescription>
+                  <FooterDescription
+                    description={description}
+                    logo={logo}
+                    sx={{ mt: { xs: 10, md: 0 } }}
+                  />
                 </Grid>
                 <Grid item>
-                  <StayInTouch {...stayInTouch} sx={{ mt: "52px" }} />
+                  <StayInTouch {...connect} sx={{ mt: "52px" }} />
                 </Grid>
               </Grid>
               <Grid item xs={12} md="auto">
                 <FooterLinks
-                  menu={menu}
-                  secondaryMenu={secondaryMenu}
+                  primaryMenus={primaryMenus}
+                  secondaryMenus={secondaryMenus}
                   sx={{ mt: { xs: "52px", md: 0 } }}
                 />
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
-            <NewsletterSubscription {...subscription} />
+            <NewsletterSubscription {...newsletter} />
           </Grid>
         </Grid>
       </Section>
@@ -81,8 +89,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
 });
 
 Footer.propTypes = {
-  subscription: PropTypes.shape({}),
-  menu: PropTypes.arrayOf(
+  newsletter: PropTypes.shape({}),
+  menus: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
@@ -91,8 +99,8 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  subscription: undefined,
-  menu: undefined,
+  newsletter: undefined,
+  menus: undefined,
 };
 
 export default Footer;
