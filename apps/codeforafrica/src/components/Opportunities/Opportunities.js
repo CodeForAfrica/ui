@@ -36,7 +36,7 @@ const Opportunities = React.forwardRef(function Opportunities(
   const [opportunities, setOpportunities] = useState(opportunitiesList);
   const [q, setQ] = useState();
   const [tag, setTag] = useState(allTag);
-  const queryParams = useFilterQuery({ page, q, tag: tag.slug });
+  const queryParams = useFilterQuery({ page, q, tag });
   const router = useRouter();
 
   const handleChangePage = (_, value) => {
@@ -54,7 +54,7 @@ const Opportunities = React.forwardRef(function Opportunities(
     setPage(1);
   };
 
-  const { data } = useOpportunities({ page, q, tag: tag.slug }, primaryTag);
+  const { data } = useOpportunities({ page, q, tag }, primaryTag);
   useEffect(() => {
     if (data) {
       const { posts: results, pagination } = data;

@@ -16,7 +16,7 @@ function nestCollectionUnderPage(pageSlug) {
     } catch (error) {
       // TODO(kilemensi): Add Sentry to payload & report errors
     }
-    return { ...doc, link: { href } };
+    return { ...doc, docLink: doc.link ?? null, link: { href } };
   };
 }
 

@@ -11,7 +11,7 @@ const config = {
   },
   webServer: {
     ...webServer,
-    command: `npm run start -- --port ${PORT}`,
+    command: `PORT=${PORT} node .next/standalone/apps/codeforafrica/server.js`,
     port: PORT,
   },
 };

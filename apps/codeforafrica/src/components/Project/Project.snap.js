@@ -45,6 +45,7 @@ exports[`<Project /> renders unchanged 1`] = `
           </ol>
         </nav>
         <img
+          alt="knowledgeAFRICA"
           class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
           src="https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg"
         />
@@ -97,6 +98,7 @@ exports[`<Project /> renders unchanged 1`] = `
                   class="MuiBox-root css-f1ltsh"
                 >
                   <img
+                    alt="knowledgeAFRICA"
                     class="css-g98gbd"
                     data-nimg="fill"
                     decoding="async"

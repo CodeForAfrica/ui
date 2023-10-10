@@ -8,7 +8,6 @@
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "AIRTABLE_API_TOKEN",
-        "CI",
         "MONGO_URL",
         "NEXT_BUILD",
         "NEXT_HOSTNAME",
@@ -46,10 +45,14 @@
       "env": [
         "AIRTABLE_API_TOKEN",
         "CHARTERAFRICA_SENTRY_DSN",
-        "CI",
+        "GOOGLE_API_KEY",
         "MONGO_URL",
         "NEXT_BUILD",
         "NEXT_HOSTNAME",
+        "NEXT_PUBLIC_APP_NAME",
+        "NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
+        "NEXT_PUBLIC_VERCEL_ENV",
+        "NEXT_PUBLIC_VERCEL_URL",
         "NODE_ENV",
         "NODE_OPTIONS",
         "PAYLOAD_CORS",

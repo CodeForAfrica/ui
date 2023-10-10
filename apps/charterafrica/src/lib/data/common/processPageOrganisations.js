@@ -4,8 +4,17 @@ import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
-const orQueryBuilder = (fields, search) => {
-  return fields.map((field) => ({ [field]: { like: search } }));
+const queryBuilder = (query) => {
+  const { search, location } = query;
+  const fields = ["description", "location", "name", "externalId", "slug"];
+  const where = {};
+  if (search) {
+    where.or = fields.map((field) => ({ [field]: { like: search } }));
+  }
+  if (location) {
+    where.location = { equals: location };
+  }
+  return where;
 };
 
 async function processPageSingleOrganisation(page, api, context) {
@@ -65,13 +74,9 @@ async function processPageSingleOrganisation(page, api, context) {
 export async function getOrganisations(page, api, context) {
   const {
     locale,
-    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
+    query: { page: pageNumber = 1, limit = 12, sort = "name" } = {},
   } = context;
-  const fields = ["description", "location", "name", "externalId", "slug"];
-  const toolQueries = orQueryBuilder(fields, search);
-  const query = {
-    or: toolQueries,
-  };
+  const where = queryBuilder(context.query);
   const filterLabels = labelsPerLocale[locale];
   const { docs, ...pagination } = await api.getCollection(
     ORGANIZATION_COLLECTION,
@@ -80,9 +85,7 @@ export async function getOrganisations(page, api, context) {
       page: pageNumber,
       limit,
       sort,
-      where: {
-        ...query,
-      },
+      where,
     },
   );
   const results = docs.map((tool) => {

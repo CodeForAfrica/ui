@@ -43,7 +43,10 @@ const defaultProps = {
     readMore: "Read More",
     search: "Search",
   },
-  tags: ["tag1", "tag2"],
+  tags: [
+    { name: "tag1", slug: "tag1" },
+    { name: "tag2", slug: "tag2" },
+  ],
   title: "Title",
 };
 

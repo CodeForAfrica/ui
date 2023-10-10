@@ -68,15 +68,13 @@ async function data(config) {
       organisationTableId,
       contributorTableId,
       partnersTableId,
-      socialMediaTableId,
     },
   } = config;
   const toolsData = await table(baseId, toolTableId);
   const contributorsData = await table(baseId, contributorTableId);
   const organisationsData = await table(baseId, organisationTableId);
-  const socialMediaData = await table(baseId, socialMediaTableId);
   const partnersData = await table(baseId, partnersTableId);
-  const tableData = { socialMediaData, partnersData };
+  const tableData = { partnersData };
   const tools = toolsData
     .map((item) => processTool(item, config, tableData))
     .filter(Boolean);
@@ -90,7 +88,6 @@ async function data(config) {
     tools,
     organisations,
     contributors,
-    socialMedia: socialMediaData,
     partners: partnersData,
   };
 }

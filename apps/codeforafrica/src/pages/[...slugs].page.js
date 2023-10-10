@@ -23,6 +23,7 @@ import OurTeam from "@/codeforafrica/components/OurTeam";
 import PageHeader from "@/codeforafrica/components/PageHeader";
 import Project from "@/codeforafrica/components/Project";
 import Projects from "@/codeforafrica/components/Projects";
+import RelatedStories from "@/codeforafrica/components/RelatedStories";
 import { getPageServerSideProps } from "@/codeforafrica/lib/data";
 
 const componentsBySlugs = {
@@ -47,6 +48,7 @@ const componentsBySlugs = {
   "our-work": Projects,
   "page-header": PageHeader,
   project: Project,
+  "recent-posts": RelatedStories,
   stories: Articles,
 };
 

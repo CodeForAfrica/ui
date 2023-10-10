@@ -29,9 +29,11 @@ const defaultProps = {
     },
   ],
   icon: {
+    alt: "knowledgeAFRICA",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652431402/codeforafrica/icons/Type_SourceAfrica_m7yvmt.svg",
   },
   thumbnail: {
+    alt: "knowledgeAFRICA",
     src: "https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg",
   },
   tag: "Knowedge",

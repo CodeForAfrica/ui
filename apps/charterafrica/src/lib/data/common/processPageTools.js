@@ -7,17 +7,30 @@ import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
-const orQueryBuilder = (fields, search) => {
-  return fields.map((field) => ({ [field]: { like: search } }));
-};
-
-const getRepoLink = (tool) => {
-  switch (tool.source && tool.externalId) {
-    case "github":
-      return `https://github.com/${tool.externalId}`;
-    default:
-      return "";
+const queryBuilder = (query) => {
+  const { search, theme, homeCountry } = query;
+  const where = {};
+  if (search) {
+    const fields = [
+      "description",
+      "theme",
+      "operatingCountries",
+      "name",
+      "id",
+      "slug",
+      "homeCountry",
+    ];
+    where.or = fields.map((field) => ({ [field]: { like: search } }));
   }
+  if (homeCountry) {
+    where.homeCountry = {
+      equals: homeCountry,
+    };
+  }
+  if (theme) {
+    where.theme = { equals: theme };
+  }
+  return where;
 };
 
 async function processPageSingleTool(page, api, context) {
@@ -37,7 +50,7 @@ async function processPageSingleTool(page, api, context) {
   }
 
   const tool = docs[0];
-  const contributors = tool.toolContributors;
+  const { contributors } = tool;
   const { docs: orgDocs } = await api.getCollection(ORGANIZATION_COLLECTION, {
     locale,
     where: {
@@ -57,11 +70,11 @@ async function processPageSingleTool(page, api, context) {
         ...tool,
         slug: "tool",
         contribute: {
-          href: getRepoLink(tool),
+          href: tool.repoLink,
           label: filterLabels.contribute,
         },
         goToRepo: {
-          href: getRepoLink(tool),
+          href: tool.repoLink,
           label: filterLabels.goToRepo,
         },
         topicLabel: filterLabels.theme,
@@ -91,6 +104,9 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
+        externalLink: {
+          href: tool.docLink ?? null,
+        },
       },
     ],
   };
@@ -99,27 +115,15 @@ async function processPageSingleTool(page, api, context) {
 export async function getTools(page, api, context) {
   const {
     locale,
-    query: { page: pageNumber = 1, limit = 12, search, sort = "name" } = {},
+    query: { page: pageNumber = 1, limit = 12, sort = "name" } = {},
   } = context;
-  const fields = [
-    "description",
-    "theme",
-    "operatingCountries",
-    "name",
-    "id",
-    "slug",
-  ];
-  const toolQueries = orQueryBuilder(fields, search);
-  const query = {
-    or: toolQueries,
-  };
-
+  const where = queryBuilder(context.query);
   const { docs, ...pagination } = await api.getCollection(TOOL_COLLECTION, {
     locale,
     page: pageNumber,
     limit,
     sort,
-    where: query,
+    where,
   });
 
   const results = docs.map((tool) => {
