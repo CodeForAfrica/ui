@@ -59,9 +59,7 @@ exports[`<FilterBar /> renders unchanged 1`] = `
       >
         <span
           class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
-        >
-          tag
-        </span>
+        />
       </div>
     </div>
   </div>
