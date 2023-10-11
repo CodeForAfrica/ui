@@ -25,13 +25,9 @@ export default function getPageSeoFromMeta(page, settings) {
     description: metaDescription,
     image = {},
   } = pageMeta;
-  const { title: siteTitle, description: siteDescription } = settings;
-  const title =
-    metaTitle ||
-    pageTitle ||
-    siteTitle ||
-    process.env.NEXT_PUBLIC_APP_NAME ||
-    null;
+  const { title: settingsTitle, description: siteDescription } = settings;
+  const siteTitle = settingsTitle ?? site.name;
+  const title = metaTitle || pageTitle || siteTitle || null;
   const description =
     metaDescription || stringifyDescription(siteDescription) || null;
   const titleTemplate = siteTitle ? `%s | ${siteTitle}` : null;

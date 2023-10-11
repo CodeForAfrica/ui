@@ -2,7 +2,7 @@ name: Code for Africa | Deploy | DEV
 
 on:
   push:
-    branches: [develop]
+    branches: [main]
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
