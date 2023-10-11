@@ -18,14 +18,12 @@ const OfficeAddressesRoot = styled(Box)(({ theme, ownerState }) => ({
 }));
 
 const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
-  const { addresses, height = 700, map, title, ...other } = props;
+  const { addresses = [], height = 700, map, title } = props;
   const [activeAddress, setActiveAddress] = React.useState(
     addresses?.[0] ?? null,
   );
-  const handleClickAddress = (_, addressTitle) => {
-    setActiveAddress(
-      addresses.find((address) => address.title === addressTitle),
-    );
+  const handleClickAddress = (_, city) => {
+    setActiveAddress(addresses.find((address) => address.city === city));
   };
 
   if (!addresses?.length) {
@@ -34,7 +32,11 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
   const ownerState = { height };
   const mapStyle = { height, width: "100%", ...map?.style };
   return (
-    <OfficeAddressesRoot {...other} ownerState={ownerState} ref={ref}>
+    <OfficeAddressesRoot
+      sx={{ mt: { xs: 2.5, md: 10 } }}
+      ownerState={ownerState}
+      ref={ref}
+    >
       <Box
         sx={{
           display: { xs: "none", md: "block" },
@@ -46,7 +48,7 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
           zIndex: -1,
         }}
       >
-        <GoogleMap {...map} {...activeAddress?.map} style={mapStyle} />
+        <GoogleMap {...map} {...activeAddress} style={mapStyle} />
       </Box>
       <Section
         sx={{
@@ -85,11 +87,11 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
                 sm={5}
                 md={2}
                 sx={{ order: { xs: 2, md: 0 } }}
-                key={address.title}
+                key={address.city}
               >
                 <AddressCard
                   {...address}
-                  active={address.title === activeAddress.title}
+                  active={address.city === activeAddress.city}
                   onClick={handleClickAddress}
                 />
               </Grid>

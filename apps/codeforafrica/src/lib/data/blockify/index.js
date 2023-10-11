@@ -4,6 +4,7 @@ import getInvolved from "./get-involved";
 import hero from "./hero";
 import meetOurTeam from "./meetOurTeam";
 import ourImpact from "./our-impact";
+import ourOffices from "./ourOffices";
 import ourTeam from "./ourTeam";
 import ourWork from "./ourWork";
 import posts from "./posts";
@@ -17,6 +18,7 @@ const propsifyBlockBySlug = {
   "our-impact": ourImpact,
   "our-team": ourTeam,
   "our-work": ourWork,
+  "our-offices": ourOffices,
   // post-list to avoid conflict with posts collection in payload
   "post-list": posts,
 };
