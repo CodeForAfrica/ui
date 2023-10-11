@@ -41,7 +41,7 @@ export default function getPageSeoFromMeta(page, settings) {
     title,
     description,
     type: "website",
-    site_name: siteTitle,
+    site_name: siteTitle ?? null,
   };
   if (image.url) {
     const { alt, height, mimeType: type, url, width } = image;
