@@ -11,7 +11,7 @@ async function getTags(fields, docs) {
 
       return {
         field: "Team",
-        tags: teamTags.map((slug) => ({ label: slug, value: slug, slug })),
+        tags: teamTags.map((slug) => ({ name: slug, value: slug, slug })),
       };
     }
     const uniqueTags =
@@ -19,7 +19,7 @@ async function getTags(fields, docs) {
       [];
     return {
       field: `${field.charAt(0).toUpperCase()}${field.slice(1)}`,
-      tags: uniqueTags.map((slug) => ({ label: slug, value: slug, slug })),
+      tags: uniqueTags.map((slug) => ({ name: slug, value: slug, slug })),
     };
   });
 }

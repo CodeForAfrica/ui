@@ -66,7 +66,10 @@ const OurTeam = React.forwardRef(function OurTeam(
 
   const handleChangeTag = (_, value) => {
     const newValue =
-      (value && tags.find((t) => equalsIgnoreCase(value, t.slug))) || ALL_TAG;
+      (value &&
+        !equalsIgnoreCase(value, ALL_TAG.slug) &&
+        tags.find((t) => equalsIgnoreCase(value, t.slug))) ||
+      ALL_TAG;
     setTag(newValue);
     setPage(1);
     setAction("tag");

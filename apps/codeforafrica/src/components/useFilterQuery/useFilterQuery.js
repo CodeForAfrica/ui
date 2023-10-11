@@ -1,6 +1,6 @@
 import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
 
-const ALL_TAG = { label: "All", value: "All", slug: "All" };
+const ALL_TAG = "All";
 
 function useFilterQuery(query = {}) {
   const searchParams = new URLSearchParams();
@@ -14,7 +14,7 @@ function useFilterQuery(query = {}) {
   if (q) {
     searchParams.append("q", q);
   }
-  if (tag.slug && !equalsIgnoreCase(tag.slug, ALL_TAG.slug)) {
+  if (tag.slug && !equalsIgnoreCase(tag.slug, ALL_TAG)) {
     searchParams.append("tag", tag.slug);
   }
   const queryString = searchParams.toString();
