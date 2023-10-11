@@ -100,7 +100,7 @@ const FilterBar = React.forwardRef(function FilterBar(props, ref) {
           {tags.map((t) => (
             <ChoiceChip
               {...ChoiceChipProps}
-              label={t.name}
+              label={t.label}
               value={t.slug}
               key={t.slug}
             />

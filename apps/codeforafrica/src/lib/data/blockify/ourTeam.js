@@ -3,13 +3,15 @@ import { getMembers } from "@/codeforafrica/lib/data/utils/members";
 async function getTags(fields, docs) {
   return fields.map((field) => {
     if (field === "team") {
+      const teamTags =
+        [
+          "All",
+          ...new Set(docs.map((item) => item[field].name).filter(Boolean)),
+        ] ?? [];
+
       return {
         field: "Team",
-        tags:
-          [
-            "All",
-            ...new Set(docs.map((item) => item[field].name).filter(Boolean)),
-          ] ?? [],
+        tags: teamTags.map((slug) => ({ label: slug, value: slug, slug })),
       };
     }
     const uniqueTags =
@@ -17,7 +19,7 @@ async function getTags(fields, docs) {
       [];
     return {
       field: `${field.charAt(0).toUpperCase()}${field.slice(1)}`,
-      tags: uniqueTags,
+      tags: uniqueTags.map((slug) => ({ label: slug, value: slug, slug })),
     };
   });
 }
