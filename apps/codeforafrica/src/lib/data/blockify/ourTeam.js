@@ -1,5 +1,10 @@
+import { countries } from "@/codeforafrica/lib/data/json/countries";
 import { getMembers } from "@/codeforafrica/lib/data/utils/members";
 import { sortTags } from "@/codeforafrica/lib/data/utils/tags";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
+
+const getCountryFromName = (name) =>
+  countries.find((c) => equalsIgnoreCase(c.slug, name)) ?? null;
 
 function getTeamTags(docs) {
   const tags = sortTags(docs.map((item) => item.team).filter(Boolean));
@@ -8,9 +13,7 @@ function getTeamTags(docs) {
 
 function getCountryTags(docs) {
   const tags = sortTags(
-    docs
-      .map(({ country }) => (country ? { name: country, slug: country } : null))
-      .filter(Boolean),
+    docs.map(({ country }) => getCountryFromName(country)).filter(Boolean),
   );
   return [{ name: "All", slug: "All" }, ...tags];
 }
