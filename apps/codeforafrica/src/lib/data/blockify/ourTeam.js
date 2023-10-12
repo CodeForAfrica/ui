@@ -1,25 +1,32 @@
 import { getMembers } from "@/codeforafrica/lib/data/utils/members";
+import { sortTags } from "@/codeforafrica/lib/data/utils/tags";
 
+function getTeamTags(docs) {
+  const tags = sortTags(docs.map((item) => item.team).filter(Boolean));
+  return [{ name: "All", slug: "All" }, ...tags];
+}
+
+function getStringTags(field, docs) {
+  const tags = sortTags(
+    docs
+      .map((item) =>
+        item[field] ? { name: item[field], slug: item[field] } : null,
+      )
+      .filter(Boolean),
+  );
+  return [{ name: "All", slug: "All" }, ...tags];
+}
 async function getTags(fields, docs) {
   return fields.map((field) => {
     if (field === "team") {
-      const teamTags =
-        [
-          "All",
-          ...new Set(docs.map((item) => item[field].name).filter(Boolean)),
-        ] ?? [];
-
       return {
         field: "Team",
-        tags: teamTags.map((slug) => ({ name: slug, value: slug, slug })),
+        tags: getTeamTags(docs),
       };
     }
-    const uniqueTags =
-      ["All", ...new Set(docs.map((item) => item[field]).filter(Boolean))] ??
-      [];
     return {
       field: `${field.charAt(0).toUpperCase()}${field.slice(1)}`,
-      tags: uniqueTags.map((slug) => ({ name: slug, value: slug, slug })),
+      tags: getStringTags(field, docs),
     };
   });
 }
