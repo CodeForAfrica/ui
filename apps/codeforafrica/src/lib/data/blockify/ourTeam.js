@@ -6,16 +6,15 @@ function getTeamTags(docs) {
   return [{ name: "All", slug: "All" }, ...tags];
 }
 
-function getStringTags(field, docs) {
+function getCountryTags(docs) {
   const tags = sortTags(
     docs
-      .map((item) =>
-        item[field] ? { name: item[field], slug: item[field] } : null,
-      )
+      .map(({ country }) => (country ? { name: country, slug: country } : null))
       .filter(Boolean),
   );
   return [{ name: "All", slug: "All" }, ...tags];
 }
+
 async function getTags(fields, docs) {
   return fields.map((field) => {
     if (field === "team") {
@@ -25,8 +24,8 @@ async function getTags(fields, docs) {
       };
     }
     return {
-      field: `${field.charAt(0).toUpperCase()}${field.slice(1)}`,
-      tags: getStringTags(field, docs),
+      field: "Country",
+      tags: getCountryTags(docs),
     };
   });
 }
