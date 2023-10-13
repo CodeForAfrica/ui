@@ -1,23 +1,34 @@
+import { countries } from "@/codeforafrica/lib/data/json/countries";
 import { getMembers } from "@/codeforafrica/lib/data/utils/members";
+import { sortTags, ALL_TAG } from "@/codeforafrica/lib/data/utils/tags";
+import equalsIgnoreCase from "@/codeforafrica/utils/equalsIgnoreCase";
+
+const getCountryFromCode = (alpha3) =>
+  countries.find((c) => equalsIgnoreCase(c.alpha3, alpha3)) ?? null;
+
+function getTeamTags(docs) {
+  const tags = sortTags(docs.map((item) => item.team).filter(Boolean));
+  return [ALL_TAG, ...tags];
+}
+
+function getCountryTags(docs) {
+  const tags = sortTags(
+    docs.map(({ country }) => getCountryFromCode(country)).filter(Boolean),
+  );
+  return [ALL_TAG, ...tags];
+}
 
 async function getTags(fields, docs) {
   return fields.map((field) => {
     if (field === "team") {
       return {
         field: "Team",
-        tags:
-          [
-            "All",
-            ...new Set(docs.map((item) => item[field].name).filter(Boolean)),
-          ] ?? [],
+        tags: getTeamTags(docs),
       };
     }
-    const uniqueTags =
-      ["All", ...new Set(docs.map((item) => item[field]).filter(Boolean))] ??
-      [];
     return {
-      field: `${field.charAt(0).toUpperCase()}${field.slice(1)}`,
-      tags: uniqueTags,
+      field: "Country",
+      tags: getCountryTags(docs),
     };
   });
 }

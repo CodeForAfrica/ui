@@ -10,4 +10,4 @@ export function sortTags(tags) {
     .map((slug) => tagsBySlug[slug]);
 }
 
-export default null;
+export const ALL_TAG = { name: "All", slug: "All" };
