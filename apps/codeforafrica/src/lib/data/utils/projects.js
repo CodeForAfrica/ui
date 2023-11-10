@@ -17,6 +17,8 @@ export async function getProjects(api, params) {
   const options = {
     limit: 6,
     page: queryPage,
+    // We want case-insensitive sort by name; slug is the closest thing to it.
+    sort: "slug",
     where: getQuery(fields, params),
   };
   const {
