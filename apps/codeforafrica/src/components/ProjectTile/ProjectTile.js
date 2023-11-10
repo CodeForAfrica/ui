@@ -4,6 +4,8 @@ import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
+import LineClampedRichTypography from "@/codeforafrica/components/LineClampedRichTypography";
+
 const ProjectTileRoot = styled(Paper, {
   slot: "Root",
 })(({ theme, ownerState }) => ({
@@ -87,14 +89,17 @@ const ProjectTile = React.forwardRef(function ProjectTile(props, ref) {
             }}
           >
             <Typography variant="body3SemiBold">{name}</Typography>
-            <Typography
+            <LineClampedRichTypography
+              lineClamp={2}
               variant="body2"
               sx={{
                 color: "#9F9494",
+                maxHeight: 26 * 2, // body2 line * 2
+                minHeight: 26 * 2, // body2 line * 2
               }}
             >
-              {tagLine?.substring(0, 25)}
-            </Typography>
+              {tagLine}
+            </LineClampedRichTypography>
           </Stack>
         </>
       </Box>
