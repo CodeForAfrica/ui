@@ -24,11 +24,11 @@ exports[`<Articles /> renders unchanged 1`] = `
               class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1u16ib2-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-ta5w64-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <input
                   aria-invalid="false"
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-h7q3zr-MuiInputBase-input-MuiOutlinedInput-input"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-sxrb32-MuiInputBase-input-MuiOutlinedInput-input"
                   id=":r0:"
                   placeholder="Search"
                   type="search"
@@ -136,12 +136,12 @@ exports[`<Articles /> renders unchanged 1`] = `
                     class="MuiCardContent-root css-jq2jyh-MuiCardContent-root"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body1 css-pdkb43-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 css-stw5jb-MuiTypography-root"
                     >
                       Battle for gender equality in African media continues
                     </p>
                     <p
-                      class="MuiTypography-root MuiTypography-body1 css-ajju11-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-body1 css-1c6ri73-MuiTypography-root"
                     >
                       Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
                     </p>
