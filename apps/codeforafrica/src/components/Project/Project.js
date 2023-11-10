@@ -42,7 +42,7 @@ function Project(props) {
         descriptionTitle={descriptionTitle}
         partners={partners}
         sx={{
-          my: "42px",
+          mt: "42px",
           px: { xs: 2.5, sm: 0 },
         }}
       />

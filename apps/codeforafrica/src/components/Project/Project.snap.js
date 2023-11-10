@@ -12,7 +12,7 @@ exports[`<Project /> renders unchanged 1`] = `
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
       >
         <nav
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-15752dv-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1wlpb5z-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -37,7 +37,7 @@ exports[`<Project /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-q9j6dh-MuiTypography-root"
               >
                 Knowedge
               </div>
@@ -53,7 +53,7 @@ exports[`<Project /> renders unchanged 1`] = `
           class="MuiBox-root css-1ntmuzk"
         >
           <nav
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-mdodgn-MuiTypography-root-MuiBreadcrumbs-root"
+            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-357526-MuiTypography-root-MuiBreadcrumbs-root"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -78,7 +78,7 @@ exports[`<Project /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-q9j6dh-MuiTypography-root"
                 >
                   Knowedge
                 </div>
@@ -120,11 +120,11 @@ exports[`<Project /> renders unchanged 1`] = `
                   >
                     knowledgeAFRICA
                   </span>
-                  <p
-                    class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-qn5s81-MuiTypography-root"
                   >
                     Knowledge tag line
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -170,7 +170,7 @@ exports[`<Project /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1mtya01-MuiContainer-root"
   />
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-kxk6gi-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1rw4djt-MuiContainer-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container css-1ldf9ke-MuiGrid-root"
