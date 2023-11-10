@@ -6,13 +6,17 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
     class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-1lxhh98-MuiPaper-root-MuiCard-root"
   >
     <button
-      class="MuiButtonBase-root MuiCardActionArea-root css-1c12nz6-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-1f2y1bk-MuiButtonBase-root-MuiCardActionArea-root"
       tabindex="0"
       type="button"
     >
-      <img
-        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
-      />
+      <div
+        class="MuiBox-root css-0"
+      >
+        <img
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
+        />
+      </div>
       <div
         class="MuiBox-root css-zg1vud"
       >
@@ -33,9 +37,6 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
               >
                 <span
                   class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
-                />
-                <p
-                  class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
                 />
               </div>
             </div>
