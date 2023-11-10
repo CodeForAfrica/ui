@@ -30,13 +30,13 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
             class="MuiBox-root css-k008qs"
           >
             <div
-              class="MuiTypography-root MuiTypography-body1 css-q9j6dh-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
             >
               Data Journalism
             </div>
           </div>
           <section
-            class="MuiTypography-root MuiTypography-body2 css-ne3jpg-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-1u319hv-MuiTypography-root"
           >
             Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...
           </section>

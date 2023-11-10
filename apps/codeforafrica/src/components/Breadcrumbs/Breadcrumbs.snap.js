@@ -3,7 +3,7 @@
 exports[`<Breadcrumbs /> renders unchanged 1`] = `
 <div>
   <nav
-    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-73kzuo-MuiTypography-root-MuiBreadcrumbs-root"
+    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1yleyq8-MuiTypography-root-MuiBreadcrumbs-root"
   >
     <ol
       class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -28,7 +28,7 @@ exports[`<Breadcrumbs /> renders unchanged 1`] = `
         class="MuiBreadcrumbs-li"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1 css-q9j6dh-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
         >
           Initiatives
         </div>

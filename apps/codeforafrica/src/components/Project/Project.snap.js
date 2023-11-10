@@ -12,7 +12,7 @@ exports[`<Project /> renders unchanged 1`] = `
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
       >
         <nav
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1wlpb5z-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-19xgsyh-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -37,7 +37,7 @@ exports[`<Project /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 css-q9j6dh-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
               >
                 Knowedge
               </div>
@@ -53,7 +53,7 @@ exports[`<Project /> renders unchanged 1`] = `
           class="MuiBox-root css-1ntmuzk"
         >
           <nav
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-357526-MuiTypography-root-MuiBreadcrumbs-root"
+            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1y4hekn-MuiTypography-root-MuiBreadcrumbs-root"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -78,7 +78,7 @@ exports[`<Project /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-q9j6dh-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
                 >
                   Knowedge
                 </div>
@@ -121,7 +121,7 @@ exports[`<Project /> renders unchanged 1`] = `
                     knowledgeAFRICA
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-qn5s81-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1vf0r2q-MuiTypography-root"
                   >
                     Knowledge tag line
                   </div>

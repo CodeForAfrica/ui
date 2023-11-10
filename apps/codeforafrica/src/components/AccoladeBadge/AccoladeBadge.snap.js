@@ -31,7 +31,7 @@ exports[`<AccoladeBadge /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 css-glb3r2-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-cx4ow6-MuiTypography-root"
               >
                 Award Name
               </p>
@@ -40,7 +40,7 @@ exports[`<AccoladeBadge /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <span
-                class="MuiTypography-root MuiTypography-caption css-1daj61l-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-caption css-1nn8juq-MuiTypography-root"
               >
                 Month 2021
               </span>

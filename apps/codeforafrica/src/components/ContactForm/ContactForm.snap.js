@@ -6,7 +6,7 @@ exports[`<ContactForm /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-body1 css-1sczjxd-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-s7jzf1-MuiTypography-root"
     >
       
     

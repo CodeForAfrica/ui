@@ -349,7 +349,7 @@ deepmerge(
     body1: {
       fontSize: pxToRem(14),
       lineHeight: 23 / 14,
-      marginTop: 28,
+      marginTop: pxToRem(28),
       "&:first-of-type": {
         marginTop: 0,
       },
@@ -368,7 +368,7 @@ deepmerge(
     body2: {
       fontSize: pxToRem(16),
       lineHeight: 26 / 16,
-      marginTop: 30,
+      marginTop: pxToRem(28),
       "&:first-of-type": {
         marginTop: 0,
       },

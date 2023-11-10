@@ -29,12 +29,12 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
             class="MuiCardContent-root css-jq2jyh-MuiCardContent-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 css-stw5jb-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-kaytih-MuiTypography-root"
             >
               Battle for gender equality in African media continues
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-1c6ri73-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-k5rac-MuiTypography-root"
             >
               Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
             </p>
