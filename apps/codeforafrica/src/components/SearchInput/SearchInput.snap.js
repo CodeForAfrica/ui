@@ -6,11 +6,11 @@ exports[`<SearchInput /> renders unchanged 1`] = `
     class="MuiFormControl-root MuiTextField-root css-1vqv0ht-MuiFormControl-root-MuiTextField-root"
   >
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-1wj8iyj-MuiInputBase-root-MuiOutlinedInput-root"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-j0rfn6-MuiInputBase-root-MuiOutlinedInput-root"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-12ielp9-MuiInputBase-input-MuiOutlinedInput-input"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-krewe6-MuiInputBase-input-MuiOutlinedInput-input"
         id=":r0:"
         type="search"
         value=""

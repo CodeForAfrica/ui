@@ -22,8 +22,8 @@ const ProjectDescription = React.forwardRef(
       >
         <RichTypography variant="h5">{title}</RichTypography>
         <RichText
-          variant="body1"
           elements={description}
+          variant="body1"
           typographyProps={{
             variant: "body1",
             sx: { typography: { md: "body2" } },

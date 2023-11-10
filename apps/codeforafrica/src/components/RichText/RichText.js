@@ -92,6 +92,7 @@ const serialize = (children, props) =>
 
 const RichText = React.forwardRef(function RichText(props, ref) {
   const { elements, variant, typographyProps, ...other } = props;
+
   if (!elements?.length) {
     return null;
   }

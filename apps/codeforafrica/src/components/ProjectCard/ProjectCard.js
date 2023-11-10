@@ -24,7 +24,8 @@ const ProjectActionArea = styled(CardActionArea, {
   padding: `${theme.spacing(2.5)} 0`,
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
-    gap: 58,
+    justifyContent: "space-between",
+    gap: 50,
     padding: `${theme.spacing(5)} 0`,
   },
 }));
@@ -49,7 +50,9 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
   return (
     <Card elevation={0} square ref={ref} ownerState={ownerState}>
       <ProjectActionArea component={href ? Link : undefined} href={href}>
-        <ProjectCardMedia {...thumbnail} component="img" />
+        <Box>
+          <ProjectCardMedia {...thumbnail} component="img" />
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -72,9 +75,9 @@ const ProjectCard = React.forwardRef(function ProjectCard(props, ref) {
               elements={title}
             />
             <RichText
+              elements={subtitle}
               typographyProps={{ variant: "body1" }}
               sx={{ mt: 2.5, typography: { md: "body2" } }}
-              elements={subtitle}
             />
           </CardContent>
           <CardActions sx={{ mt: 2, p: 0 }}>

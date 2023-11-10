@@ -40,11 +40,11 @@ exports[`<ProjectTileList /> renders unchanged 1`] = `
             >
               africanDRONE
             </span>
-            <p
-              class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
+            <div
+              class="MuiTypography-root MuiTypography-body2 css-1vf0r2q-MuiTypography-root"
             >
               Drones for good
-            </p>
+            </div>
           </div>
         </div>
       </div>

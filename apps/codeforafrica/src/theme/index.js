@@ -349,6 +349,10 @@ deepmerge(
     body1: {
       fontSize: pxToRem(14),
       lineHeight: 23 / 14,
+      marginTop: pxToRem(28),
+      "&:first-of-type": {
+        marginTop: 0,
+      },
     },
     body1SemiBold: {
       ...theme.typography.body1,
@@ -364,6 +368,10 @@ deepmerge(
     body2: {
       fontSize: pxToRem(16),
       lineHeight: 26 / 16,
+      marginTop: pxToRem(28),
+      "&:first-of-type": {
+        marginTop: 0,
+      },
     },
     body2SemiBold: {
       ...theme.typography.body2,

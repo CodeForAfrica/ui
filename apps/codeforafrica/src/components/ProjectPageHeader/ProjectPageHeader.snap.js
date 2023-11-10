@@ -12,7 +12,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
         class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
       >
         <nav
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-15752dv-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-19xgsyh-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
             class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -37,7 +37,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
               >
                 Iniatives
               </div>
@@ -51,7 +51,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
           class="MuiBox-root css-1ntmuzk"
         >
           <nav
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-mdodgn-MuiTypography-root-MuiBreadcrumbs-root"
+            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1y4hekn-MuiTypography-root-MuiBreadcrumbs-root"
           >
             <ol
               class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
@@ -76,7 +76,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-fc9h1t-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
                 >
                   Iniatives
                 </div>
@@ -100,9 +100,6 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
                 >
                   <span
                     class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
-                  />
-                  <p
-                    class="MuiTypography-root MuiTypography-body2 css-1rafkl6-MuiTypography-root"
                   />
                 </div>
               </div>
