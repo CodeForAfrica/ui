@@ -10,11 +10,11 @@ import Datasets from "@/charterafrica/components/Datasets";
 import Document from "@/charterafrica/components/Document";
 import Documents from "@/charterafrica/components/Documents";
 import Ecosystem from "@/charterafrica/components/Ecosystem";
-import EmbeddedChart from "@/charterafrica/components/EmbeddedChart";
 import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
+import FlourishChart from "@/charterafrica/components/FlourishChart";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
 import GuidingPrinciples from "@/charterafrica/components/GuidingPrinciples";
@@ -46,13 +46,13 @@ const componentsBySlugs = {
   dataset: Dataset,
   documents: Documents,
   ecosystem: Ecosystem,
-  "embedded-chart": EmbeddedChart,
   "embedded-playlist": Consultations,
   document: Document,
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
   "fellowships-and-grants-header": OpportunityHeader,
+  "flourish-chart": FlourishChart,
   "focal-countries": FocalCountries,
   "guiding-principles": GuidingPrinciples,
   helpdesk: Helpdesk,
