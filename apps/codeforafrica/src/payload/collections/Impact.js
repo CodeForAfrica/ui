@@ -26,8 +26,7 @@ const Impact = {
     }),
     {
       name: "value",
-      type: "number",
-      min: 1,
+      type: "text",
       required: true,
       localized: true,
     },
