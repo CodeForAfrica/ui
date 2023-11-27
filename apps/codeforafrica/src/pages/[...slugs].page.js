@@ -12,6 +12,7 @@ import GetInvolved from "@/codeforafrica/components/GetInvolved";
 import GuidingPrinciplesCardList from "@/codeforafrica/components/GuidingPrinciplesCardList";
 import Hero from "@/codeforafrica/components/Hero";
 import JoinOurSlack from "@/codeforafrica/components/JoinOurSlack";
+import LongForm from "@/codeforafrica/components/LongForm/LongForm";
 import MeetOurTeam from "@/codeforafrica/components/MeetOurTeam";
 import NewsAndStories from "@/codeforafrica/components/NewsAndStories";
 import OfficeAddresses from "@/codeforafrica/components/OfficeAddresses";
@@ -30,6 +31,7 @@ const componentsBySlugs = {
   "about-page-entity": AboutPageEntity,
   article: ArticlePage,
   "contact-form": ContactForm,
+  longform: LongForm,
   "custom-page-header": CustomPageHeader,
   "featured-work": FeaturedProjects,
   "featured-stories": NewsAndStories,

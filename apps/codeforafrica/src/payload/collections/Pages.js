@@ -8,6 +8,7 @@ import GetInvolved from "../blocks/GetInvolved";
 import GuidingPrinciples from "../blocks/GuidingPrinciples";
 import Hero from "../blocks/Hero";
 import JoinOurSlack from "../blocks/JoinOurSlack";
+import LongForm from "../blocks/LongForm";
 import MeetOurTeam from "../blocks/MeetOurTeam";
 import OurImpact from "../blocks/OurImpact";
 import OurMission from "../blocks/OurMission";
@@ -64,6 +65,7 @@ const Pages = {
         PageHeader,
         Posts,
         CustomPageHeader,
+        LongForm,
         OurOffices,
         OurImpact,
         OurMission,
