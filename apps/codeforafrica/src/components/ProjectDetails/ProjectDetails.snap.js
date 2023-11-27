@@ -12,7 +12,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-true css-1vcuf8r-MuiGrid-root"
       >
         <div
-          class="MuiStack-root css-h9vuy5-MuiStack-root"
+          class="MuiStack-root css-1b1mat0-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
@@ -20,7 +20,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
             Details
           </div>
           <div
-            class="MuiStack-root css-1025p66-MuiStack-root"
+            class="MuiStack-root css-7d4qva-MuiStack-root"
           >
             <div
               class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -28,7 +28,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               Share This Project
             </div>
             <div
-              class="MuiStack-root css-1jqw290-MuiStack-root"
+              class="MuiStack-root css-b5mw1t-MuiStack-root"
             >
               <button
                 aria-label="Twitter"

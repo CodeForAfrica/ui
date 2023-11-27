@@ -3,7 +3,7 @@
 exports[`<ProjectStakeholders /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-h9vuy5-MuiStack-root"
+    class="MuiStack-root css-1b1mat0-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
@@ -19,7 +19,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       class="MuiStack-root css-1y69rbp-MuiStack-root"
     >
       <div
-        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-16g6el-MuiChip-root"
+        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1xpc6d0-MuiChip-root"
       >
         <span
           class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
@@ -29,7 +29,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiStack-root css-1025p66-MuiStack-root"
+      class="MuiStack-root css-7d4qva-MuiStack-root"
     >
       <div
         class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -37,7 +37,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         Share This Project
       </div>
       <div
-        class="MuiStack-root css-1jqw290-MuiStack-root"
+        class="MuiStack-root css-b5mw1t-MuiStack-root"
       >
         <button
           aria-label="Twitter"

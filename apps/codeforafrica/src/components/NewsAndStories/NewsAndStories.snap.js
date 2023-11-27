@@ -17,7 +17,7 @@ exports[`<NewsAndStories /> renders unchanged 1`] = `
         class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1486ctq-MuiPaper-root-MuiCard-root"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-275i79-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ihjyes-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
           href="/stories/article-1"
           tabindex="0"
         >
@@ -94,7 +94,7 @@ exports[`<NewsAndStories /> renders unchanged 1`] = `
         </a>
       </div>
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-xtiyn3-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-dm3c7w-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/stories"
         tabindex="0"
       >

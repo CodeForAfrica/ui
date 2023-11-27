@@ -3,7 +3,7 @@
 exports[`<Author /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiStack-root css-1yu3riq-MuiStack-root"
+    class="MuiStack-root css-ty68jk-MuiStack-root"
   >
     <div
       class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
@@ -11,7 +11,7 @@ exports[`<Author /> renders unchanged 1`] = `
       Article by
     </div>
     <div
-      class="MuiStack-root css-190nj74-MuiStack-root"
+      class="MuiStack-root css-3oepjh-MuiStack-root"
     />
   </div>
 </div>

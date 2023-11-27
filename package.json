@@ -28,14 +28,14 @@
     "@actions/exec": "^1.1.1",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
-    "@playwright/test": "^1.33.0",
-    "eslint": "^8.39.0",
+    "@playwright/test": "^1.40.0",
+    "eslint": "^8.54.0",
     "eslint-config-commons-ui": "workspace:*",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "playwright-config-commons-ui": "workspace:*",
-    "prettier": "^3.0.0",
-    "turbo": "^1.9.3"
+    "prettier": "^3.1.0",
+    "turbo": "^1.10.16"
   },
   "engines": {
     "node": "18.x",

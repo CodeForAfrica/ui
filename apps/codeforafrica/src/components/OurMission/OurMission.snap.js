@@ -23,7 +23,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
       >
         CfA builds digital democracy solutions that give citizens unfettered access to actionable information that empowers them to make informed decisions, which strengthens civic engagement for improved public governance and accountability. This includes building infrastructures like the continent’s largest open data portals at 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://openafrica.net/"
           rel="noreferrer noopener"
           target="_blank"
@@ -32,7 +32,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://sourceafrica.net/"
           rel="noreferrer noopener"
           target="_blank"
@@ -41,7 +41,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
         . CfA incubates initiatives as diverse as the 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://africandrone.org/"
           rel="noreferrer noopener"
           target="_blank"
@@ -50,7 +50,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          network, the 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://pesacheck.org/"
           rel="noreferrer noopener"
           target="_blank"
@@ -59,7 +59,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          fact-checking initiative and the 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://sensors.africa/"
           rel="noreferrer noopener"
           target="_blank"
@@ -73,7 +73,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
       >
         CfA manages the 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://investigate.africa/"
           rel="noreferrer noopener"
           target="_blank"
@@ -82,7 +82,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          (ANCIR), which gives the continent’s top muckraking newsrooms the best possible 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://data.investigate.africa/"
           rel="noreferrer noopener"
           target="_blank"
@@ -91,7 +91,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
         , 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://getoutline.org/"
           rel="noreferrer noopener"
           target="_blank"
@@ -100,7 +100,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          and 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://afrileaks.org/"
           rel="noreferrer noopener"
           target="_blank"
@@ -109,7 +109,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          to help improve their ability to tackle crooked politicians, organised crime and predatory big business. CfA runs 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://academy.africa/"
           rel="noreferrer noopener"
           target="_blank"
@@ -118,7 +118,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
         , one of the continent’s largest 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://courses.academy.africa/"
           rel="noreferrer noopener"
           target="_blank"
@@ -127,7 +127,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
         </a>
          initiatives for digital journalists, and seed funds cross-border collaboration. CfA’s research and analysis programme 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://civicsignal.africa/#/home"
           rel="noreferrer noopener"
           target="_blank"
@@ -170,7 +170,7 @@ exports[`<OurMission /> renders unchanged 1`] = `
       >
         CfA shares a covenant with the rest of the 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-1evosmk-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 active css-xz8260-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="https://codeforall.org/"
           rel="noreferrer noopener"
           target="_blank"

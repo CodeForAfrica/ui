@@ -28,7 +28,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiTypography-root MuiTypography-p1 css-l6prdf-MuiTypography-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-inherit css-1ruhe-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-inherit css-dhy9gx-MuiTypography-root"
             >
               Created January 1, 2021
             </span>
@@ -37,7 +37,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1phk7xb-MuiGrid-root"
           >
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-2n8s2x-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1puf64w-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
@@ -46,7 +46,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-euezk3-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1g3w73k-MuiChip-root"
             >
               <span
                 class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
@@ -83,7 +83,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             Open Dataset
           </button>
           <div
-            class="MuiStack-root css-1fwy3an-MuiStack-root"
+            class="MuiStack-root css-1xe1uy8-MuiStack-root"
           >
             <div
               class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
@@ -91,7 +91,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               Share Via
             </div>
             <div
-              class="MuiStack-root css-b6wkik-MuiStack-root"
+              class="MuiStack-root css-6za6r5-MuiStack-root"
             >
               <button
                 aria-label="twitter"
