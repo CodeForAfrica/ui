@@ -14,7 +14,7 @@ const ProjectTileList = React.forwardRef(function ProjectTileList(props, ref) {
   return (
     <Grid container spacing="18px" {...other} ref={ref}>
       {projects?.map((project) => (
-        <Grid key={project.href} item xs={12} sm={sm} md={md} {...itemProps}>
+        <Grid item xs={12} sm={sm} md={md} {...itemProps} key={project.slug}>
           <ProjectTile variant="detailed" {...project} />
         </Grid>
       ))}
