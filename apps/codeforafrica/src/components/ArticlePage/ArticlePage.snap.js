@@ -38,7 +38,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         role="group"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-1bz03pl-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-z7fpuu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
           href="/tag1?tag=tag2"
           tabindex="0"
           value="tag2"
@@ -51,7 +51,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         </a>
       </div>
       <div
-        class="MuiStack-root css-1het2hz-MuiStack-root"
+        class="MuiStack-root css-yhfzs2-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
@@ -59,7 +59,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Share This Article
         </div>
         <div
-          class="MuiStack-root css-1jqw290-MuiStack-root"
+          class="MuiStack-root css-b5mw1t-MuiStack-root"
         >
           <button
             aria-label="Twitter"
@@ -117,7 +117,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
     >
       <div
-        class="MuiStack-root css-1yu3riq-MuiStack-root"
+        class="MuiStack-root css-ty68jk-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
@@ -125,7 +125,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Article by
         </div>
         <div
-          class="MuiStack-root css-190nj74-MuiStack-root"
+          class="MuiStack-root css-3oepjh-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
@@ -140,7 +140,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiStack-root css-1yu3riq-MuiStack-root"
+        class="MuiStack-root css-ty68jk-MuiStack-root"
       >
         <div
           class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
@@ -148,7 +148,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Article by
         </div>
         <div
-          class="MuiStack-root css-190nj74-MuiStack-root"
+          class="MuiStack-root css-3oepjh-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"

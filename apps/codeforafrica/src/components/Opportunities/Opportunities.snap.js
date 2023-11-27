@@ -57,7 +57,7 @@ exports[`<Opportunities /> renders unchanged 1`] = `
           role="group"
         >
           <div
-            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-1unqgnq-MuiButtonBase-root-MuiChip-root"
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-12piyyp-MuiButtonBase-root-MuiChip-root"
             role="button"
             tabindex="0"
             value="All"

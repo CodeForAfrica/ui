@@ -9,7 +9,7 @@ exports[`<DesktopNavBar /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-1eqh9fg-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-ethxoc-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
         href="/"
         tabindex="0"
       >

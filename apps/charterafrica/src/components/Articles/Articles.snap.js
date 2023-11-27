@@ -67,11 +67,12 @@ exports[`<Articles /> renders unchanged 1`] = `
               class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-a46zki-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
+                aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Without label"
                 class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-1mtwe1r-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                role="button"
+                role="combobox"
                 tabindex="0"
               >
                 Most recent

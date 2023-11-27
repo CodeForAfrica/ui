@@ -68,7 +68,7 @@ exports[`<Articles /> renders unchanged 1`] = `
               role="group"
             >
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-1unqgnq-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-12piyyp-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="All"
@@ -80,7 +80,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-r0wqfl-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-4r2hgb-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag1"
@@ -92,7 +92,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-r0wqfl-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-4r2hgb-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag2"
@@ -113,7 +113,7 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ern672-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-275i79-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ihjyes-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
               href="/stories/article-1"
               tabindex="0"
             >
@@ -203,7 +203,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1dxfqf3-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-mfu8qg-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1cub10c-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/stories/article-1"
                   tabindex="0"
                 >
