@@ -1,4 +1,4 @@
-FROM node:18-alpine as node-alpine
+FROM node:21-alpine as node-alpine
 
 RUN apk update \
     && apk upgrade
