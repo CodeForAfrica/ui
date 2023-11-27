@@ -1,4 +1,5 @@
 import content from "../fields/content";
+import linkGroup from "../fields/linkGroup";
 import publishedOn from "../fields/publishedOn";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
@@ -52,6 +53,16 @@ const Grantees = {
       localized: true,
       admin: {
         elements: ["leaves"],
+      },
+    }),
+    linkGroup({
+      linkConfig: {
+        disableLabel: true,
+        disableOpenInNewTab: true,
+        required: false,
+      },
+      overrides: {
+        required: false,
       },
     }),
     tags(),

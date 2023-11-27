@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Box, Button, CardContent, CardMedia } from "@mui/material";
+import { Box, Button, CardContent, CardMedia, Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -17,7 +17,7 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
     square,
     variant = "outlined",
     elevation,
-    href,
+    link,
     tags,
   } = props;
   const ownerState = {
@@ -28,14 +28,15 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
 
   let ActionArea = Box;
   let ActionAreaProps = { sx: { p: 2.5 } };
-  if (href?.length) {
+  if (link?.href?.length) {
     ActionArea = StyledActionArea;
     ActionAreaProps = {
       ...ActionAreaProps,
       component: Link,
-      href,
+      href: link.href,
     };
   }
+
   return (
     <Card
       elevation={elevation}
@@ -53,7 +54,7 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
             height: { sm: 243, md: 264 },
           }}
         />
-        <CardContent sx={{ p: 0 }}>
+        <CardContent sx={{ p: 0, ":last-child": { p: 0 } }}>
           <LineClampedRichTypography
             color="neutral.dark"
             html={false}
@@ -77,11 +78,11 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
             lineClamp={3}
           />
           {tags?.length > 0 ? (
-            <Box
+            <Stack
+              spacing={1.25}
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                height: 74,
+                minHeight: 74,
+                maxHeight: 74,
                 mt: 2.5,
                 overflow: "hidden",
               }}
@@ -94,9 +95,6 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
                     color: "neutral.dark",
                     typography: "footerCap",
                     width: "fit-content",
-                    ":last-of-type": {
-                      mt: 1.25,
-                    },
                   }}
                   size="small"
                   variant="contained"
@@ -105,7 +103,7 @@ const GranteeCard = React.forwardRef(function GranteeCard(props, ref) {
                   {tag.name}
                 </Button>
               ))}
-            </Box>
+            </Stack>
           ) : null}
         </CardContent>
       </ActionArea>
