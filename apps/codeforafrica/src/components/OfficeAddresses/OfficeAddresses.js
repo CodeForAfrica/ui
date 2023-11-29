@@ -77,7 +77,9 @@ const OfficeAddresses = React.forwardRef(function OfficeAddresses(props, ref) {
             container
             columns={10}
             justifyContent={{ md: "space-between" }}
-            rowGap={5}
+            columnSpacing={1}
+            rowSpacing={5}
+            // rowGap={5}
             sx={{ mt: { xs: 2.5, md: 1.25 } }}
           >
             {addresses.map((address) => (
