@@ -49,7 +49,7 @@
     "react-dom": "^18.2.0",
     "react-share": "^5.0.3",
     "reading-time": "^1.5.0",
-    "sharp": "^0.32.6",
+    "sharp": "^0.33.0",
     "simplebar-react": "^2.4.3",
     "tiny-warning": "^1.0.3",
     "victory": "^36.7.0"

@@ -73,7 +73,7 @@
     "react-share": "^5.0.3",
     "react-swipeable-views-react-18-fix": "^0.14.1",
     "scheduler": "^0.23.0",
-    "sharp": "^0.32.6",
+    "sharp": "^0.33.0",
     "slate": "^0.101.1",
     "swr": "^2.2.4",
     "video.js": "^8.6.1",
