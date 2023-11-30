@@ -138,7 +138,6 @@ exports[`<Tool /> renders unchanged 1`] = `
                     class="MuiStack-root css-6za6r5-MuiStack-root"
                   >
                     <button
-                      aria-label="twitter"
                       class="react-share__ShareButton"
                       medium="twitter"
                       style="background-color: transparent; padding: 0px; cursor: pointer;"
@@ -151,7 +150,6 @@ exports[`<Tool /> renders unchanged 1`] = `
                       />
                     </button>
                     <button
-                      aria-label="facebook"
                       class="react-share__ShareButton"
                       medium="facebook"
                       style="background-color: transparent; padding: 0px; cursor: pointer;"
@@ -164,7 +162,6 @@ exports[`<Tool /> renders unchanged 1`] = `
                       />
                     </button>
                     <button
-                      aria-label="linkedin"
                       class="react-share__ShareButton"
                       medium="linkedin"
                       style="background-color: transparent; padding: 0px; cursor: pointer;"

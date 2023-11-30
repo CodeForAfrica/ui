@@ -29,7 +29,6 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     # Since some pages are completely rendered during build, we need
     # these secret ARGs defined in the builder
     GOOGLE_API_KEY="" \
-    GHOST_API_KEY \
     # APP is build time arg only. Shouldn't be used in the image.
     APP
 

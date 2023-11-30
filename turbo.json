@@ -9,13 +9,6 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"],
       "env": [
-        "GHOST_ADMIN_URL",
-        "GHOST_API_KEY",
-        "GHOST_API_VERSION",
-        "GHOST_URL",
-        "GITHUB_AUTH_ENDPOINT",
-        "GITHUB_BACKEND_REPO",
-        "GITHUB_TOKEN",
         "GOOGLE_API_KEY",
         "NEXT_PUBLIC_APP_DIRECTORY",
         "NEXT_PUBLIC_APP_LOGO_URL",
@@ -28,8 +21,6 @@
         "NEXT_PUBLIC_VERCEL_URL",
         "NODE_ENV",
         "NODE_OPTIONS",
-        "OAUTH_CLIENT_ID",
-        "OAUTH_CLIENT_SECRET",
         "PROJECT_ROOT"
       ]
     },
