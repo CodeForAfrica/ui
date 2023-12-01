@@ -5,7 +5,7 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
 const queryBuilder = (query) => {
-  const { search, location } = query;
+  const { search, location, organisationCollection } = query;
   const fields = ["description", "location", "name", "externalId", "slug"];
   const where = {};
   if (search) {
@@ -13,6 +13,9 @@ const queryBuilder = (query) => {
   }
   if (location) {
     where.location = { equals: location };
+  }
+  if (organisationCollection) {
+    where.organisationCollection = { equals: organisationCollection };
   }
   return where;
 };
@@ -117,6 +120,12 @@ async function processPageOrganisations(page, api, context) {
   }
   const { filters, title } = blocks[foundIndex];
   const filterLabels = labelsPerLocale[locale];
+  const collections = [
+    ...new Set(results.map((item) => item.organisationCollection)),
+  ].map((value) => ({
+    value: value ?? null,
+    label: value ?? null,
+  }));
   const filterOptions =
     filters?.map((filter) => {
       if (filter === "sort") {
@@ -141,6 +150,15 @@ async function processPageOrganisations(page, api, context) {
             value: country.value,
             label: country.label?.[locale || "en"],
           })),
+        };
+      }
+      if (filter === "organisationCollection") {
+        return {
+          type: "select",
+          name: "organisationCollection",
+          label: filterLabels.collection,
+          multiple: true,
+          options: collections,
         };
       }
       return null;

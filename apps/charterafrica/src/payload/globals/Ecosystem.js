@@ -296,6 +296,18 @@ const Ecosystem = {
                     },
                   },
                 }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "toolTableId",
+                  overrides: {
+                    name: "toolCollection",
+                    label: {
+                      en: "Collection",
+                      fr: "Collection",
+                      pt: "Coleção",
+                    },
+                  },
+                }),
                 socialMediaColumns({ schema, tableField: "toolTableId" }),
               ],
             },
@@ -421,6 +433,18 @@ const Ecosystem = {
                     hideGutter: true,
                   },
                 },
+                airtableColumnSelect({
+                  schema,
+                  tableField: "contributorTableId",
+                  overrides: {
+                    name: "contributorCollection",
+                    label: {
+                      en: "Collection",
+                      fr: "Collection",
+                      pt: "Coleção",
+                    },
+                  },
+                }),
                 socialMediaColumns({
                   schema,
                   tableField: "contributorTableId",
@@ -558,6 +582,18 @@ const Ecosystem = {
                     label: {
                       en: "Type",
                       pt: "Tipo",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "organisationTableId",
+                  overrides: {
+                    name: "organisationCollection",
+                    label: {
+                      en: "Collection",
+                      fr: "Collection",
+                      pt: "Coleção",
                     },
                   },
                 }),

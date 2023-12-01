@@ -46,6 +46,15 @@ const Organisations = {
         readOnly: true,
       },
     },
+    {
+      name: "organisationCollection",
+      type: "text",
+      admin: {
+        readOnly: true,
+      },
+      localized: true,
+      label: { en: "Collection", fr: "Collection", pt: "Collection" },
+    },
     // Can either be Non-Profit, For- Profit, Donor/ Investor, Charter Grantee
     {
       name: "type",

@@ -49,6 +49,15 @@ const Contributors = {
       },
     },
     {
+      name: "contributorCollection",
+      type: "text",
+      admin: {
+        readOnly: true,
+      },
+      localized: true,
+      label: { en: "Collection", fr: "Collection", pt: "Collection" },
+    },
+    {
       name: "description",
       type: "textarea",
       label: {

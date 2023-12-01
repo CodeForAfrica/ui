@@ -8,7 +8,7 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
 const queryBuilder = (query) => {
-  const { search, theme, homeCountry } = query;
+  const { search, theme, homeCountry, toolCollection } = query;
   const where = {};
   if (search) {
     const fields = [
@@ -19,6 +19,7 @@ const queryBuilder = (query) => {
       "id",
       "slug",
       "homeCountry",
+      "toolCollection",
     ];
     where.or = fields.map((field) => ({ [field]: { like: search } }));
   }
@@ -29,6 +30,9 @@ const queryBuilder = (query) => {
   }
   if (theme) {
     where.theme = { equals: theme };
+  }
+  if (toolCollection) {
+    where.toolCollection = { equals: toolCollection };
   }
   return where;
 };
@@ -159,6 +163,12 @@ async function processPageTools(page, api, context) {
     value,
     label: value,
   }));
+  const collections = [...new Set(docs.map((item) => item.toolCollection))].map(
+    (value) => ({
+      value: value ?? null,
+      label: value ?? null,
+    }),
+  );
   const filterLabels = labelsPerLocale[locale];
   const filterOptions = filters.map((filter) => {
     if (filter === "sort") {
@@ -195,6 +205,15 @@ async function processPageTools(page, api, context) {
         label: filterLabels.theme,
         multiple: true,
         options: themes,
+      };
+    }
+    if (filter === "toolCollection") {
+      return {
+        type: "select",
+        name: "toolCollection",
+        label: filterLabels.collection,
+        multiple: true,
+        options: collections,
       };
     }
     return null;

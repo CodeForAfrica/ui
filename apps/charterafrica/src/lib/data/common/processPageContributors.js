@@ -8,7 +8,7 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
 const queryBuilder = (query) => {
-  const { search, location } = query;
+  const { search, location, contributorCollection } = query;
   const fields = ["description", "fullName", "location", "externalId"];
   const where = {};
   if (search) {
@@ -16,6 +16,9 @@ const queryBuilder = (query) => {
   }
   if (location) {
     where.location = { equals: location };
+  }
+  if (contributorCollection) {
+    where.contributorCollection = { equals: contributorCollection };
   }
   return where;
 };
@@ -128,6 +131,12 @@ async function processPageContributors(page, api, context) {
   }
   const { filters, title } = blocks[foundIndex];
   const filterLabels = labelsPerLocale[locale];
+  const collections = [
+    ...new Set(results.map((item) => item.contributorCollection)),
+  ].map((value) => ({
+    value: value ?? null,
+    label: value ?? null,
+  }));
   const filterOptions =
     filters?.map((filter) => {
       if (filter === "sort") {
@@ -152,6 +161,15 @@ async function processPageContributors(page, api, context) {
             value: country.value,
             label: country.label?.[locale || "en"],
           })),
+        };
+      }
+      if (filter === "contributorCollection") {
+        return {
+          type: "select",
+          name: "contributorCollection",
+          label: filterLabels.collection,
+          multiple: true,
+          options: collections,
         };
       }
       return null;

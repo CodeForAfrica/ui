@@ -35,6 +35,10 @@ const Contributors = {
             fr: "Emplacement",
           },
         },
+        {
+          value: "contributorCollection",
+          label: { en: "Collection", fr: "Collection", pt: "Collection" },
+        },
       ],
     },
     {

@@ -30,6 +30,7 @@ const labelsPerLocale = {
     discussions: "Discussions",
     lastCommit: "Last Commit",
     forks: "Forks",
+    collection: "Collection",
   },
   fr: {
     topic: "Sujet A-Z",
@@ -62,6 +63,7 @@ const labelsPerLocale = {
     discussions: "Discussions",
     lastCommit: "Dernier Commit",
     forks: "Forks",
+    collection: "Collection",
   },
   pt: {
     topic: "Tópico A-Z",
@@ -94,6 +96,7 @@ const labelsPerLocale = {
     discussions: "Discussões",
     lastCommit: "Último Commit",
     forks: "Forks",
+    collection: "Collection",
   },
 };
 
