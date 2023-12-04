@@ -209,11 +209,6 @@ exports[`<Tool /> renders unchanged 1`] = `
             >
               Collection
             </div>
-            <div
-              class="MuiTypography-root MuiTypography-p3 css-1s3vopo-MuiTypography-root"
-            >
-              Tool
-            </div>
           </div>
           <div
             class="MuiBox-root css-46b038"
