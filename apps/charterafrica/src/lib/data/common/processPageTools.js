@@ -108,6 +108,7 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
+        collection: tool.toolCollection,
         externalLink: {
           href: tool.docLink ?? null,
         },
