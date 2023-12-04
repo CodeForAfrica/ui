@@ -13,6 +13,7 @@ const OurMission = React.forwardRef(function OurMission(props, ref) {
   return (
     <Section
       sx={{
+        px: { xs: 2.5, sm: 0 },
         my: 10,
         ...sx,
       }}
