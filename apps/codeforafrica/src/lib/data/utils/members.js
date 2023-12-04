@@ -26,6 +26,7 @@ export async function getMembers(api, params) {
   const options = {
     limit: 18,
     page: queryPage,
+    sort: "name",
     where: getQueryFromParams(params),
   };
   const {

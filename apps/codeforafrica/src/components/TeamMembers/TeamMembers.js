@@ -4,13 +4,13 @@ import React from "react";
 import TeamMemberCardList from "@/codeforafrica/components/TeamMemberCardList";
 
 const TeamMembers = React.forwardRef(function TeamMembers(props, ref) {
-  const { team, title } = props;
+  const { sx, team, title } = props;
 
   if (!team?.length) {
     return null;
   }
   return (
-    <Section ref={ref}>
+    <Section sx={sx} ref={ref}>
       <RichTypography
         variant="h5Small"
         sx={{ mb: 2.5, typography: { md: "h5" } }}
