@@ -8,7 +8,7 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
 const queryBuilder = (query) => {
-  const { search, theme, homeCountry, toolCollection } = query;
+  const { search, theme, homeCountry, classification } = query;
   const where = {};
   if (search) {
     const fields = [
@@ -19,7 +19,7 @@ const queryBuilder = (query) => {
       "id",
       "slug",
       "homeCountry",
-      "toolCollection",
+      "classification",
     ];
     where.or = fields.map((field) => ({ [field]: { like: search } }));
   }
@@ -31,8 +31,8 @@ const queryBuilder = (query) => {
   if (theme) {
     where.theme = { equals: theme };
   }
-  if (toolCollection) {
-    where.toolCollection = { equals: toolCollection };
+  if (classification) {
+    where.classification = { equals: classification };
   }
   return where;
 };
@@ -108,7 +108,7 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
-        collection: tool.toolCollection,
+        collection: tool.classification,
         externalLink: {
           href: tool.docLink ?? null,
         },
@@ -164,7 +164,7 @@ async function processPageTools(page, api, context) {
     value,
     label: value,
   }));
-  const collections = [...new Set(docs.map((item) => item.toolCollection))].map(
+  const collections = [...new Set(docs.map((item) => item.classification))].map(
     (value) => ({
       value: value ?? null,
       label: value ?? null,
@@ -208,10 +208,10 @@ async function processPageTools(page, api, context) {
         options: themes,
       };
     }
-    if (filter === "toolCollection") {
+    if (filter === "classification") {
       return {
         type: "select",
-        name: "toolCollection",
+        name: "classification",
         label: filterLabels.collection,
         multiple: true,
         options: collections,

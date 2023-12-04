@@ -52,8 +52,12 @@ const Tools = {
           },
         },
         {
-          value: "toolCollection",
-          label: { en: "Collection", fr: "Collection", pt: "Collection" },
+          value: "classification",
+          label: {
+            en: "Classification",
+            fr: "Classification",
+            pt: "Classificação",
+          },
         },
       ],
     },

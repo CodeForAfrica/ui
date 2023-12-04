@@ -49,13 +49,17 @@ const Contributors = {
       },
     },
     {
-      name: "contributorCollection",
+      name: "classification",
       type: "text",
       admin: {
         readOnly: true,
       },
       localized: true,
-      label: { en: "Collection", fr: "Collection", pt: "Collection" },
+      label: {
+        en: "Classification",
+        fr: "Classification",
+        pt: "Classificação",
+      },
     },
     {
       name: "description",

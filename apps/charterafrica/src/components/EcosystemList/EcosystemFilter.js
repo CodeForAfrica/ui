@@ -32,7 +32,7 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
           />
         </Grid>
         {filterOptions.map((option) => {
-          if (option.type === "select" && option.options.length) {
+          if (option?.type === "select" && option.options.length) {
             const value = values[option.name] || "";
             const optValue = option.options.find((opt) => value === opt.value);
 

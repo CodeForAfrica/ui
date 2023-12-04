@@ -47,7 +47,7 @@ const Organisations = {
       },
     },
     {
-      name: "organisationCollection",
+      name: "classification",
       type: "text",
       admin: {
         readOnly: true,

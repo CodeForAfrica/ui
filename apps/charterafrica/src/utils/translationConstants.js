@@ -31,6 +31,7 @@ const labelsPerLocale = {
     lastCommit: "Last Commit",
     forks: "Forks",
     collection: "Collection",
+    classification: "Classification",
   },
   fr: {
     topic: "Sujet A-Z",
@@ -64,6 +65,7 @@ const labelsPerLocale = {
     lastCommit: "Dernier Commit",
     forks: "Forks",
     collection: "Collection",
+    classification: "Classification",
   },
   pt: {
     topic: "Tópico A-Z",
@@ -97,6 +99,7 @@ const labelsPerLocale = {
     lastCommit: "Último Commit",
     forks: "Forks",
     collection: "Collection",
+    classification: "classificação",
   },
 };
 

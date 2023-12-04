@@ -300,11 +300,11 @@ const Ecosystem = {
                   schema,
                   tableField: "toolTableId",
                   overrides: {
-                    name: "toolCollection",
+                    name: "classification",
                     label: {
-                      en: "Collection",
-                      fr: "Collection",
-                      pt: "Coleção",
+                      en: "Classification",
+                      fr: "Classification",
+                      pt: "Classificação",
                     },
                   },
                 }),
@@ -437,11 +437,11 @@ const Ecosystem = {
                   schema,
                   tableField: "contributorTableId",
                   overrides: {
-                    name: "contributorCollection",
+                    name: "classification",
                     label: {
-                      en: "Collection",
-                      fr: "Collection",
-                      pt: "Coleção",
+                      en: "Classification",
+                      fr: "Classification",
+                      pt: "Classificação",
                     },
                   },
                 }),
@@ -589,11 +589,11 @@ const Ecosystem = {
                   schema,
                   tableField: "organisationTableId",
                   overrides: {
-                    name: "organisationCollection",
+                    name: "classification",
                     label: {
-                      en: "Collection",
-                      fr: "Collection",
-                      pt: "Coleção",
+                      en: "Classification",
+                      fr: "Classification",
+                      pt: "Classificação",
                     },
                   },
                 }),

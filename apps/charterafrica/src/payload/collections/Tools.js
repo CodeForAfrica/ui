@@ -114,13 +114,17 @@ const Tools = {
       label: { en: "Theme", fr: "Thème", pt: "Tema" },
     },
     {
-      name: "toolCollection",
+      name: "classification",
       type: "text",
       admin: {
         readOnly: true,
       },
       localized: true,
-      label: { en: "Collection", fr: "Collection", pt: "Collection" },
+      label: {
+        en: "Classification",
+        fr: "Classification",
+        pt: "Classificação",
+      },
     },
     {
       name: "techSkills",
