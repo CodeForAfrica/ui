@@ -1,9 +1,16 @@
-import { Dialog, DialogContent, Grid, Slide } from "@mui/material";
+import {
+  Dialog,
+  DialogContent,
+  Grid,
+  IconButton,
+  Slide,
+  SvgIcon,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import closebutton from "@/codeforafrica/assets/close-button.svg?url";
+import CloseIcon from "@/codeforafrica/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import menuIcon from "@/codeforafrica/assets/menu-icon.svg?url";
 import NavBarNavList from "@/codeforafrica/components/NavBarNavList";
 import NextImageButton from "@/codeforafrica/components/NextImageButton";
@@ -16,7 +23,7 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
     background: "transparent",
   },
   "& .MuiDialogContent-root": {
-    padding: spacing(2),
+    padding: spacing(5),
     color: palette.text.secondary,
     background: palette.primary.main,
   },
@@ -74,7 +81,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             id="mobile-navbar-dialog"
             sx={{
               m: 0,
-              p: 2,
+              p: 0,
               display: "flex",
               color: "inherit",
               justifyContent: "space-between",
@@ -82,18 +89,20 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             }}
             onClose={handleClose}
           >
-            <NavBarNavList menus={menus} socialLinks={socialLinks} />
-            <NextImageButton
-              src={closebutton}
-              alt="Logo"
-              width={32}
-              height={32}
-              sx={{
-                display: "flex",
-                marginTop: "1rem",
-              }}
-              onClick={handleClose}
+            <NavBarNavList
+              menus={menus}
+              socialLinks={socialLinks}
+              NavListItemProps={{ onClick: handleClose }}
             />
+            <IconButton color="inherit" onClick={handleClose} sx={{ p: 0 }}>
+              <SvgIcon
+                component={CloseIcon}
+                sx={{
+                  fill: { xs: "none" },
+                  fontSize: 32,
+                }}
+              />
+            </IconButton>
           </DialogContent>
         </DialogContainer>
       </Grid>

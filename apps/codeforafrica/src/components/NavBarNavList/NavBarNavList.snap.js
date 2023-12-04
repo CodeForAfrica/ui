@@ -6,84 +6,84 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
     class="css-f15emd"
   >
     <li
-      class="css-1n7p56k"
+      class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-eeqtvc-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1gzg4jk-MuiTypography-root-MuiLink-root"
         href="/our-work"
       >
         Our Work
       </a>
     </li>
     <li
-      class="css-1n7p56k"
+      class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-eeqtvc-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1gzg4jk-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         About
       </a>
     </li>
     <li
-      class="css-1n7p56k"
+      class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-eeqtvc-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1gzg4jk-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         Stories
       </a>
     </li>
     <li
-      class="css-1n7p56k"
+      class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-eeqtvc-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1gzg4jk-MuiTypography-root-MuiLink-root"
         href="/opportunity"
       >
         Opportunity
       </a>
     </li>
     <li
-      class="css-1n7p56k"
+      class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h4 MuiLink-root MuiLink-underlineNone css-eeqtvc-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1gzg4jk-MuiTypography-root-MuiLink-root"
         href="/contact"
       >
         Contact
       </a>
     </li>
     <li
-      class="css-14eadhm"
+      class="css-o9b79t"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1pxleca-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineAlways css-14ndlm4-MuiTypography-root-MuiLink-root"
         href="https://www.facebook.com/CodeForAfrica"
         rel="noreferrer noopener"
         target="_blank"
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1yelrcy-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
       </a>
     </li>
     <li
-      class="css-14eadhm"
+      class="css-o9b79t"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1pxleca-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineAlways css-14ndlm4-MuiTypography-root-MuiLink-root"
         href="https://twitter.com/Code4Africa"
         rel="noreferrer noopener"
         target="_blank"
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o1xeqk-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1yelrcy-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />

@@ -22,7 +22,7 @@ const platformToIconMap = {
 };
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
-  const { direction, menus, socialLinks, ...other } = props;
+  const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
 
   if (!menus?.length) {
     return null;
@@ -30,18 +30,27 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   return (
     <NavList direction={direction} {...other} ref={ref}>
       {menus.map((item) => (
-        <NavListItem key={item.label} sx={{ m: "20px" }}>
+        <NavListItem
+          key={item.label}
+          sx={{
+            mb: { xs: 2.5, md: 0 },
+            mr: { xs: 0, md: 2.5 },
+          }}
+        >
           <Link
-            href={item.href}
             color="inherit"
             underline="none"
-            variant="h4"
+            // in mobile h3 = h4 in desktop
+            variant="h3"
+            {...NavListItemProps}
+            href={item.href}
             sx={{
               typography: { md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
                 color: { xs: "inherit", md: "primary.main" },
               },
+              ...NavListItemProps?.sx,
             }}
           >
             {item.label}
@@ -54,13 +63,21 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           return null;
         }
         return (
-          <NavListItem key={platform} sx={{ m: "20px", mr: 0 }}>
-            <Link href={url} sx={{ color: { xs: "inherit" } }}>
+          <NavListItem key={platform}>
+            <Link
+              href={url}
+              variant="h3"
+              sx={{
+                color: { xs: "inherit" },
+                typography: { md: "h5" },
+              }}
+            >
               <SvgIcon
                 component={Icon}
+                fontSize="inherit"
                 sx={{
-                  mt: direction === "column" ? 0 : 1,
                   fill: { xs: "none" },
+                  mt: direction === "column" ? 0 : 1,
                 }}
               />
             </Link>
@@ -72,6 +89,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
 });
 
 NavBarNavList.propTypes = {
+  NavListItemProps: PropTypes.shape({}),
   direction: PropTypes.string,
   menus: PropTypes.arrayOf(
     PropTypes.shape({
@@ -82,6 +100,7 @@ NavBarNavList.propTypes = {
 };
 
 NavBarNavList.defaultProps = {
+  NavListItemProps: undefined,
   direction: undefined,
   menus: undefined,
 };
