@@ -11,7 +11,7 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
   }
   return (
     <Section
-      sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, sm: 10 }, ...sx }}
+      sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 7, lg: 10 }, ...sx }}
       ref={ref}
     >
       <RichTypography
