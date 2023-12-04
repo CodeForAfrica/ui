@@ -81,7 +81,6 @@ exports[`<Articles /> renders unchanged 1`] = `
                 aria-hidden="true"
                 aria-invalid="false"
                 class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                name=":r1:"
                 tabindex="-1"
                 value="-publishedOn"
               />

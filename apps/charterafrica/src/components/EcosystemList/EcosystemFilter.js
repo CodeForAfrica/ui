@@ -8,8 +8,7 @@ import { ControlledSearchInput } from "@/charterafrica/components/SearchInput";
 
 const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
   const { onChange, searchPlaceholder, values, filterOptions = [] } = props;
-  const spans = 12 / (filterOptions.length + 1.25);
-
+  const spans = Math.floor(9 / filterOptions.length);
   return (
     <Box sx={{ pb: 3.75 }} bgcolor="common.white" ref={ref}>
       <Grid
@@ -18,8 +17,9 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
         justifyContent="space-between"
         columnGap={1.25}
         rowGap={1.25}
+        sx={{ flexWrap: { lg: "nowrap" } }}
       >
-        <Grid item xs={12} lg={spans}>
+        <Grid item xs={12} lg={3}>
           <ControlledSearchInput
             value={values.search}
             onChange={(e) => onChange({ search: e.target.value })}
