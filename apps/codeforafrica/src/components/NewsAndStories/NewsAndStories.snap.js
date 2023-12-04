@@ -3,7 +3,7 @@
 exports[`<NewsAndStories /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1wsvydc-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zy2rzy-MuiContainer-root"
   >
     <div
       class="MuiBox-root css-dvxtzn"
@@ -102,5 +102,8 @@ exports[`<NewsAndStories /> renders unchanged 1`] = `
       </a>
     </div>
   </div>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-92tnng-MuiDivider-root"
+  />
 </div>
 `;

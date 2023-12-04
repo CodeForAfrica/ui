@@ -32,6 +32,7 @@ const Members = {
       type: "text",
       required: true,
       localized: true,
+      index: true,
     },
     {
       name: "title",

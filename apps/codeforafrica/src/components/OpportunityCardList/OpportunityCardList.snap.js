@@ -30,7 +30,7 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
             class="MuiBox-root css-k008qs"
           >
             <div
-              class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1es9scj-MuiTypography-root"
             >
               Data Journalism
             </div>

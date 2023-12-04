@@ -3,7 +3,7 @@
 exports[`<OurMission /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-t9cczc-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ur5qos-MuiContainer-root"
   >
     <div
       class="MuiTypography-root MuiTypography-h4 css-1mfb3bx-MuiTypography-root"

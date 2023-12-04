@@ -48,6 +48,7 @@ function ArticlePage({
             md: "912px",
           },
           px: { xs: 2.5, sm: 0 },
+          pt: { xs: 2.5, md: 7.5 },
         }}
       />
       <CMSContent
