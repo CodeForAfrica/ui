@@ -36,11 +36,11 @@ const OpportunityCard = React.forwardRef(function OpportunityCard(props, ref) {
           </RichTypography>
           <Box sx={{ display: "flex" }}>
             <RichTypography
-              sx={{ borderRight: "solid 1px", mr: 1.25, pr: 1.25 }}
+              sx={{ borderRight: "solid 1px", mr: 1.25, mt: 0, pr: 1.25 }}
             >
               {publishedOn}
             </RichTypography>
-            <RichTypography>
+            <RichTypography mt={0}>
               {tags.map((tag) => tag.name).join(", ")}
             </RichTypography>
           </Box>
