@@ -31,7 +31,7 @@
     "@mui/material": "^5.14.19",
     "@mui/styles": "^5.14.19",
     "@mui/utils": "^5.14.19",
-    "@sentry/nextjs": "^7.84.0",
+    "@sentry/nextjs": "^7.85.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "form-data": "^4.0.0",
