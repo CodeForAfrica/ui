@@ -302,9 +302,9 @@ const Ecosystem = {
                   overrides: {
                     name: "classification",
                     label: {
-                      en: "Classification",
-                      fr: "Classification",
-                      pt: "Classificação",
+                      en: "Collection",
+                      fr: "Collection",
+                      pt: "Coleção",
                     },
                   },
                 }),
@@ -439,9 +439,9 @@ const Ecosystem = {
                   overrides: {
                     name: "classification",
                     label: {
-                      en: "Classification",
-                      fr: "Classification",
-                      pt: "Classificação",
+                      en: "Collection",
+                      fr: "Collection",
+                      pt: "Coleção",
                     },
                   },
                 }),
@@ -591,9 +591,9 @@ const Ecosystem = {
                   overrides: {
                     name: "classification",
                     label: {
-                      en: "Classification",
-                      fr: "Classification",
-                      pt: "Classificação",
+                      en: "Collection",
+                      fr: "Collection",
+                      pt: "Coleção",
                     },
                   },
                 }),

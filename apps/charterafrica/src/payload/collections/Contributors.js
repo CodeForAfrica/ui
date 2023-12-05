@@ -56,9 +56,9 @@ const Contributors = {
       },
       localized: true,
       label: {
-        en: "Classification",
-        fr: "Classification",
-        pt: "Classificação",
+        en: "Collection",
+        fr: "Collection",
+        pt: "Coleção",
       },
     },
     {

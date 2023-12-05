@@ -54,9 +54,9 @@ const Tools = {
         {
           value: "classification",
           label: {
-            en: "Classification",
-            fr: "Classification",
-            pt: "Classificação",
+            en: "Collection",
+            fr: "Collection",
+            pt: "Coleção",
           },
         },
       ],

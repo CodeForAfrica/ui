@@ -232,7 +232,7 @@ async function processPageTools(page, api, context) {
 
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/ecosystem`;
-  const qs = queryString({ ...queryParams, collection: "tools" });
+  const qs = queryString({ ...queryParams });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }

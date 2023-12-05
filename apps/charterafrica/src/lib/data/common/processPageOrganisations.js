@@ -156,7 +156,7 @@ async function processPageOrganisations(page, api, context) {
         return {
           type: "select",
           name: "classification",
-          label: filterLabels.classification,
+          label: filterLabels.collection,
           multiple: true,
           options: collections,
         };
