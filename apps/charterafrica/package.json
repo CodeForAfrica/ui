@@ -54,7 +54,7 @@
     "@payloadcms/plugin-cloud-storage": "^1.1.1",
     "@payloadcms/plugin-nested-docs": "^1.0.9",
     "@payloadcms/plugin-seo": "^1.0.15",
-    "@sentry/nextjs": "^7.84.0",
+    "@sentry/nextjs": "^7.85.0",
     "airtable": "^0.12.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
