@@ -51,6 +51,14 @@ const Tools = {
             fr: "Emplacement",
           },
         },
+        {
+          value: "classification",
+          label: {
+            en: "Collection",
+            fr: "Collection",
+            pt: "Coleção",
+          },
+        },
       ],
     },
   ],

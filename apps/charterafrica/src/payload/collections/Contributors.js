@@ -49,6 +49,19 @@ const Contributors = {
       },
     },
     {
+      name: "classification",
+      type: "text",
+      admin: {
+        readOnly: true,
+      },
+      localized: true,
+      label: {
+        en: "Collection",
+        fr: "Collection",
+        pt: "Coleção",
+      },
+    },
+    {
       name: "description",
       type: "textarea",
       label: {

@@ -34,6 +34,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     tools,
     toolsTitle,
     externalLink,
+    classification,
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
@@ -145,7 +146,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 Collection
               </RichTypography>
               <RichTypography sx={{ mt: 1 }} variant="p3">
-                Tool
+                {classification}
               </RichTypography>
             </Box>
             <Contributors

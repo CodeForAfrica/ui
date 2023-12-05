@@ -8,7 +8,8 @@ import { ControlledSearchInput } from "@/charterafrica/components/SearchInput";
 
 const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
   const { onChange, searchPlaceholder, values, filterOptions = [] } = props;
-
+  // Search input field spans 3 columns, so divide 9 by the filter options
+  const spans = Math.floor(9 / filterOptions.length);
   return (
     <Box sx={{ pb: 3.75 }} bgcolor="common.white" ref={ref}>
       <Grid
@@ -17,8 +18,9 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
         justifyContent="space-between"
         columnGap={1.25}
         rowGap={1.25}
+        sx={{ flexWrap: { lg: "nowrap" } }}
       >
-        <Grid item xs={12} lg={2}>
+        <Grid item xs={12} lg={3}>
           <ControlledSearchInput
             value={values.search}
             onChange={(e) => onChange({ search: e.target.value })}
@@ -31,7 +33,7 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
           />
         </Grid>
         {filterOptions.map((option) => {
-          if (option.type === "select" && option.options.length) {
+          if (option?.type === "select" && option.options.length) {
             const value = values[option.name] || "";
             const optValue = option.options.find((opt) => value === opt.value);
 
@@ -39,7 +41,7 @@ const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
               onChange({ [option.name]: v });
             };
             return (
-              <Grid key={option.name} item xs={12} lg={3}>
+              <Grid key={option.name} item xs={12} lg={spans}>
                 <ComboBox
                   size="small"
                   options={option.options}

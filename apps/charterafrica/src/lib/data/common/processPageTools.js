@@ -8,7 +8,7 @@ import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
 const queryBuilder = (query) => {
-  const { search, theme, homeCountry } = query;
+  const { search, theme, homeCountry, classification } = query;
   const where = {};
   if (search) {
     const fields = [
@@ -19,6 +19,7 @@ const queryBuilder = (query) => {
       "id",
       "slug",
       "homeCountry",
+      "classification",
     ];
     where.or = fields.map((field) => ({ [field]: { like: search } }));
   }
@@ -29,6 +30,9 @@ const queryBuilder = (query) => {
   }
   if (theme) {
     where.theme = { equals: theme };
+  }
+  if (classification) {
+    where.classification = { equals: classification };
   }
   return where;
 };
@@ -104,6 +108,7 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
+        collection: tool.classification,
         externalLink: {
           href: tool.docLink ?? null,
         },
@@ -159,6 +164,12 @@ async function processPageTools(page, api, context) {
     value,
     label: value,
   }));
+  const collections = [...new Set(docs.map((item) => item.classification))].map(
+    (value) => ({
+      value: value ?? null,
+      label: value ?? null,
+    }),
+  );
   const filterLabels = labelsPerLocale[locale];
   const filterOptions = filters.map((filter) => {
     if (filter === "sort") {
@@ -197,6 +208,15 @@ async function processPageTools(page, api, context) {
         options: themes,
       };
     }
+    if (filter === "classification") {
+      return {
+        type: "select",
+        name: "classification",
+        label: filterLabels.collection,
+        multiple: true,
+        options: collections,
+      };
+    }
     return null;
   });
   const tool = {
@@ -212,7 +232,7 @@ async function processPageTools(page, api, context) {
 
   const { slugs, ...queryParams } = context.query;
   let swrKey = `/api/v1/resources/ecosystem`;
-  const qs = queryString({ ...queryParams, collection: "tools" });
+  const qs = queryString({ ...queryParams });
   if (qs) {
     swrKey = `${swrKey}?${qs}`;
   }

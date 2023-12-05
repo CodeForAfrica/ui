@@ -124,6 +124,7 @@ export function processTool(item, config, { partnersData }) {
     link: getValue(data, toolTableColumns.url),
     operatingCountries,
     contributors: getValue(data, toolTableColumns.contributors),
+    classification: getValue(data, toolTableColumns.classification),
     source,
     supporters,
     partners,
@@ -168,6 +169,7 @@ export function processContributor(item, config) {
   );
   return {
     airtableId: data.id,
+    classification: getValue(data, contributorTableColumns.classification),
     externalId,
     repoLink,
     socialMedia,
@@ -231,6 +233,7 @@ export function processOrganisation(item, config, { partnersData }) {
     externalId,
     type: getValue(data, organisationTableColumns.type)?.replace(/&/g, "and"),
     repoLink: getValue(data, organisationTableColumns.source.url),
+    classification: getValue(data, organisationTableColumns.classification),
     supporters,
     partners,
     socialMedia,

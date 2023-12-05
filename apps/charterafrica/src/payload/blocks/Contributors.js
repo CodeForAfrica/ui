@@ -35,6 +35,14 @@ const Contributors = {
             fr: "Emplacement",
           },
         },
+        {
+          value: "classification",
+          label: {
+            en: "Collection",
+            fr: "Collection",
+            pt: "Coleção",
+          },
+        },
       ],
     },
     {
