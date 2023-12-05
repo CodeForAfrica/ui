@@ -8,6 +8,7 @@ import { ControlledSearchInput } from "@/charterafrica/components/SearchInput";
 
 const EcosystemFilter = React.forwardRef(function EcosystemFilter(props, ref) {
   const { onChange, searchPlaceholder, values, filterOptions = [] } = props;
+  // Search input field spans 3 columns, so divide 9 by the filter options
   const spans = Math.floor(9 / filterOptions.length);
   return (
     <Box sx={{ pb: 3.75 }} bgcolor="common.white" ref={ref}>
