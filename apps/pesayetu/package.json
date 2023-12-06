@@ -36,7 +36,7 @@
     "@commons-ui/next": "workspace:*",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/lab": "5.0.0-alpha.153",
+    "@mui/lab": "5.0.0-alpha.155",
     "@mui/material": "^5.14.19",
     "@mui/styles": "^5.14.19",
     "@mui/utils": "^5.14.19",
