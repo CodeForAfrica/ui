@@ -39,7 +39,7 @@
     "@mui/lab": "5.0.0-alpha.155",
     "@mui/material": "^5.14.19",
     "@mui/styles": "^5.14.19",
-    "@mui/utils": "^5.14.19",
+    "@mui/utils": "^5.14.20",
     "@reactour/tour": "^3.6.1",
     "aws-sdk": "^2.1510.0",
     "clsx": "^2.0.0",

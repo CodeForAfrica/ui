@@ -67,8 +67,8 @@ importers:
         specifier: ^5.14.19
         version: 5.14.19(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
       "@mui/utils":
-        specifier: ^5.14.19
-        version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
+        specifier: ^5.14.20
+        version: 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@next/env":
         specifier: ^14.0.3
         version: 14.0.3
@@ -269,8 +269,8 @@ importers:
         specifier: ^5.14.19
         version: 5.14.19(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
       "@mui/utils":
-        specifier: ^5.14.19
-        version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
+        specifier: ^5.14.20
+        version: 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@next/env":
         specifier: ~14.0.3
         version: 14.0.3
@@ -432,8 +432,8 @@ importers:
         specifier: ^5.14.19
         version: 5.14.19(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
       "@mui/utils":
-        specifier: ^5.14.19
-        version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
+        specifier: ^5.14.20
+        version: 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@next/env":
         specifier: ^14.0.3
         version: 14.0.3
@@ -538,8 +538,8 @@ importers:
         specifier: ^5.14.19
         version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
       "@mui/utils":
-        specifier: ^5.14.19
-        version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
+        specifier: ^5.14.20
+        version: 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@reactour/tour":
         specifier: ^3.6.1
         version: 3.6.1(react@18.2.0)
@@ -791,8 +791,8 @@ importers:
         specifier: ^5.14.19
         version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
       "@mui/utils":
-        specifier: ^5.14.19
-        version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
+        specifier: ^5.14.20
+        version: 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@sentry/nextjs":
         specifier: ^7.85.0
         version: 7.85.0(next@14.0.3)(react@18.2.0)(webpack@5.89.0)
@@ -949,8 +949,8 @@ importers:
         specifier: ^5.14.19
         version: 5.14.19(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
       "@mui/utils":
-        specifier: ^5.14.19
-        version: 5.14.19(@types/react@18.2.41)(react@18.2.0)
+        specifier: ^5.14.20
+        version: 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@types/react":
         specifier: ^18.2.41
         version: 18.2.41
@@ -6354,7 +6354,7 @@ packages:
       "@mui/core-downloads-tracker": 5.14.19
       "@mui/system": 5.14.19(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.41)(react@18.2.0)
       "@mui/types": 7.2.10(@types/react@18.2.41)
-      "@mui/utils": 5.14.19(@types/react@18.2.41)(react@18.2.0)
+      "@mui/utils": 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@types/react": 18.2.41
       "@types/react-transition-group": 4.4.9
       clsx: 2.0.0
@@ -6445,7 +6445,7 @@ packages:
       "@emotion/hash": 0.9.1
       "@mui/private-theming": 5.14.19(@types/react@18.2.41)(react@18.2.0)
       "@mui/types": 7.2.10(@types/react@18.2.41)
-      "@mui/utils": 5.14.19(@types/react@18.2.41)(react@18.2.0)
+      "@mui/utils": 5.14.20(@types/react@18.2.41)(react@18.2.0)
       "@types/react": 18.2.41
       clsx: 2.0.0
       csstype: 3.1.2
@@ -6539,26 +6539,6 @@ packages:
         optional: true
     dependencies:
       "@types/react": 18.2.41
-
-  /@mui/utils@5.14.19(@types/react@18.2.41)(react@18.2.0):
-    resolution:
-      {
-        integrity: sha512-qAHvTXzk7basbyqPvhgWqN6JbmI2wLB/mf97GkSlz5c76MiKYV6Ffjvw9BjKZQ1YRb8rDX9kgdjRezOcoB91oQ==,
-      }
-    engines: { node: ">=12.0.0" }
-    peerDependencies:
-      "@types/react": ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      "@types/react":
-        optional: true
-    dependencies:
-      "@babel/runtime": 7.23.5
-      "@types/prop-types": 15.7.11
-      "@types/react": 18.2.41
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-is: 18.2.0
 
   /@mui/utils@5.14.20(@types/react@18.2.41)(react@18.2.0):
     resolution:
