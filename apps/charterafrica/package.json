@@ -50,7 +50,7 @@
     "@nivo/core": "^0.80.0",
     "@nivo/pie": "^0.80.0",
     "@nivo/tooltip": "^0.80.0",
-    "@nivo/waffle": "^0.80.0",
+    "@nivo/waffle": "^0.84.0",
     "@payloadcms/plugin-cloud-storage": "^1.1.1",
     "@payloadcms/plugin-nested-docs": "^1.0.9",
     "@payloadcms/plugin-seo": "^1.0.15",
