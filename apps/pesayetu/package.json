@@ -41,7 +41,7 @@
     "@mui/styles": "^5.14.19",
     "@mui/utils": "^5.14.20",
     "@reactour/tour": "^3.6.1",
-    "aws-sdk": "^2.1510.0",
+    "aws-sdk": "^2.1512.0",
     "clsx": "^2.0.0",
     "d3-format": "^3.1.0",
     "deepmerge": "^4.3.1",
