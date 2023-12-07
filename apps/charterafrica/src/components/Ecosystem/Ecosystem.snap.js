@@ -26,18 +26,10 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
         >
           <div
             class="MuiBox-root css-ii4xwr"
-          >
-            <div
-              style="width: 100%; height: 100%;"
-            />
-          </div>
+          />
           <div
             class="MuiBox-root css-qrdm0d"
-          >
-            <div
-              style="width: 100%; height: 100%;"
-            />
-          </div>
+          />
           <div
             class="MuiBox-root css-kx5zyc"
           >
