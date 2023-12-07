@@ -56,9 +56,10 @@ const PageHeader = {
       },
     }),
     linkGroup({
-      linkConfig: { required: false },
+      linkConfig: { disableOpenInNewTab: true, required: false },
       overrides: {
         required: false,
+        localized: true,
         admin: {
           condition: (_, siblingData) => siblingData?.variant === "image",
         },
