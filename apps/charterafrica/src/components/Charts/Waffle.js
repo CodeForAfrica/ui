@@ -1,44 +1,37 @@
 import { ResponsiveWaffle } from "@nivo/waffle";
+import { animated } from "@react-spring/web";
 import React from "react";
 
 import Tooltip from "./Tooltip";
 
 function WaffleCell({
-  position,
-  size,
-  x,
-  y,
-  color,
-  fill,
+  cell,
+  animatedProps,
+  borderRadius,
   borderWidth,
-  borderColor,
-  data,
-  onHover,
-  onLeave,
-  onClick,
+  testIdPrefix,
 }) {
   return (
-    <rect
-      width={size}
-      height={size}
-      x={x}
-      y={y}
-      fill={fill || color}
-      strokeWidth={borderWidth}
-      stroke={borderColor}
+    <animated.rect
+      x={animatedProps.x}
+      y={animatedProps.y}
+      width={animatedProps.size}
+      height={animatedProps.size}
+      rx={borderRadius}
+      ry={borderRadius}
       opacity={0.7}
-      onMouseEnter={onHover}
-      onMouseMove={onHover}
-      onMouseLeave={onLeave}
-      onClick={(event) => {
-        onClick({ position, color, x, y, data }, event);
-      }}
+      fill={cell.fill || animatedProps.color}
+      stroke={animatedProps.borderColor}
+      strokeWidth={borderWidth}
+      data-test-id={
+        testIdPrefix ? `${testIdPrefix}.cell_${cell.key}` : undefined
+      }
     />
   );
 }
 
-function WaffleTooltip({ id, label, value }) {
-  return <Tooltip label={label || id} value={value} />;
+function WaffleTooltip({ data }) {
+  return <Tooltip {...data} />;
 }
 
 function Waffle({ data, height, total, width }) {
