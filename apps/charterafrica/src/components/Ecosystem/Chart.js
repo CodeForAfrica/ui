@@ -1,8 +1,17 @@
 /* eslint-env browser */
 import { Box, useTheme, useMediaQuery } from "@mui/material";
+import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 
-import { Pie, Waffle } from "@/charterafrica/components/Charts";
+const Pie = dynamic(() => import("@/charterafrica/components/Charts/Pie"), {
+  ssr: false,
+});
+const Waffle = dynamic(
+  () => import("@/charterafrica/components/Charts/Waffle"),
+  {
+    ssr: false,
+  },
+);
 
 const Chart = React.forwardRef(function Chart(props, ref) {
   const { data, ...other } = props;
