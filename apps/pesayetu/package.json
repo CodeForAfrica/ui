@@ -80,7 +80,7 @@
     "@commons-ui/testing-library": "workspace:*",
     "@material-ui/codemod": "^4.5.1",
     "@playwright/test": "^1.40.1",
-    "@storybook/addon-actions": "^7.6.3",
+    "@storybook/addon-actions": "^7.6.4",
     "@storybook/addon-essentials": "^7.6.3",
     "@storybook/addon-links": "^7.6.3",
     "@storybook/addons": "^7.6.3",
