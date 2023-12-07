@@ -5,8 +5,8 @@ import Tooltip from "./Tooltip";
 
 import { neutral } from "@/charterafrica/colors";
 
-function PieTooltip({ datum: { id, label, value } }) {
-  return <Tooltip label={label || id} value={value} />;
+function PieTooltip({ datum }) {
+  return <Tooltip {...datum} />;
 }
 
 function Pie({ data, height, width }) {
