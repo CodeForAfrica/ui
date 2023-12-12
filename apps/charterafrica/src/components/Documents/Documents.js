@@ -102,9 +102,8 @@ const Documents = React.forwardRef(function Documents(props, ref) {
       <Section
         sx={{
           borderTop: `1px solid ${neutral[200]}`,
-          px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, md: 0 },
-          pb: { md: 5 },
+          px: { xs: 5, sm: 0 },
+          py: { xs: 5, md: 10 },
         }}
       >
         <RichTypography color="neutral.dark" variant="h2">
@@ -150,7 +149,7 @@ const Documents = React.forwardRef(function Documents(props, ref) {
               }}
             />
           ))}
-          <Divider sx={{ my: 2 }} />
+          <Divider sx={{ my: 5 }} />
           {documents?.map((document) => (
             <DocumentCard
               {...document}

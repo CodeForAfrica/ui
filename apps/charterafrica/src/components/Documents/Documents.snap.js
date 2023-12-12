@@ -6,7 +6,7 @@ exports[`<Documents /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-pnz2mz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-27tpcc-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-blp6vs"
@@ -162,7 +162,7 @@ exports[`<Documents /> renders unchanged 1`] = `
           </div>
         </div>
         <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-ctpjxq-MuiDivider-root"
+          class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
         />
       </div>
     </div>
