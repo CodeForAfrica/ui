@@ -16,6 +16,11 @@ const PageDescription = React.forwardRef(function PageDescription(props, ref) {
         <LongFormRichText
           color="neutral.dark"
           richTextBlockFields={{ content: description }}
+          sx={{
+            "& :first-child": {
+              mt: 0,
+            },
+          }}
         />
       </Section>
     </Box>
