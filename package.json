@@ -41,5 +41,10 @@
     "node": "18.x",
     "pnpm": "8"
   },
-  "packageManager": "pnpm@8.5.0"
+  "packageManager": "pnpm@8.5.0",
+  "pnpm": {
+    "overrides": {
+      "sharp": "^0.33.0"
+    }
+  }
 }
