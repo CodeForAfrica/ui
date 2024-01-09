@@ -1,4 +1,5 @@
 import linkGroup from "../fields/linkGroup";
+import richText from "../fields/richText";
 
 const Helpdesk = {
   slug: "helpdesk",
@@ -30,7 +31,7 @@ const Helpdesk = {
           localized: true,
           required: true,
         },
-        {
+        richText({
           name: "description",
           label: {
             en: "Description",
@@ -42,7 +43,7 @@ const Helpdesk = {
           admin: {
             elements: ["ol", "ul", "link"],
           },
-        },
+        }),
         linkGroup(),
       ],
       admin: {

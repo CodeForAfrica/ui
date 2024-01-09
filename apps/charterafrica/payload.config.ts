@@ -6,6 +6,9 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
+import { slateEditor } from "@payloadcms/richtext-slate";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { webpackBundler } from '@payloadcms/bundler-webpack'
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
@@ -73,6 +76,11 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
+  editor: slateEditor({}),
+  db: mongooseAdapter({
+    url: process.env.MONGO_URL,
+    migrationDir: "./migrations/v2"
+  }),
   collections: [
     Authors,
     CommunityPlatforms,
@@ -103,13 +111,14 @@ export default buildConfig({
   ] as GlobalConfig[],
   ...(locales?.length
     ? {
-        localization: {
-          locales,
-          defaultLocale,
-          fallback: true,
-        },
-      }
+      localization: {
+        locales,
+        defaultLocale,
+        fallback: true,
+      },
+    }
     : undefined),
+
   admin: {
     webpack: (config) => ({
       ...config,
@@ -123,6 +132,7 @@ export default buildConfig({
         },
       },
     }),
+    bundler: webpackBundler()
   },
   cors,
   csrf,
@@ -178,4 +188,4 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ],
-});
+} as any);
