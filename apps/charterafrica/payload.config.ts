@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { webpackBundler } from '@payloadcms/bundler-webpack'
+import { webpackBundler } from "@payloadcms/bundler-webpack";
 
 import Authors from "./src/payload/collections/Authors";
 import CommunityPlatforms from "./src/payload/collections/CommunityPlatforms";
@@ -79,7 +79,7 @@ export default buildConfig({
   editor: slateEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
-    migrationDir: "./migrations/v2"
+    migrationDir: "./migrations/v2",
   }),
   collections: [
     Authors,
@@ -111,12 +111,12 @@ export default buildConfig({
   ] as GlobalConfig[],
   ...(locales?.length
     ? {
-      localization: {
-        locales,
-        defaultLocale,
-        fallback: true,
-      },
-    }
+        localization: {
+          locales,
+          defaultLocale,
+          fallback: true,
+        },
+      }
     : undefined),
 
   admin: {
@@ -132,7 +132,7 @@ export default buildConfig({
         },
       },
     }),
-    bundler: webpackBundler()
+    bundler: webpackBundler(),
   },
   cors,
   csrf,

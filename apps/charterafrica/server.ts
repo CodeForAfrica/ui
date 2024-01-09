@@ -40,15 +40,15 @@ const start = async (): Promise<void> => {
     localPayload = await payload.init({
       ...(sendGridAPIKey
         ? {
-          email: {
-            transportOptions: nodemailerSendgrid({
-              apiKey: sendGridAPIKey,
-            }),
-            fromName: process.env.SENDGRID_FROM_NAME || "Admin",
-            fromAddress:
-              process.env.SENDGRID_FROM_EMAIL || "admin@example.com",
-          },
-        }
+            email: {
+              transportOptions: nodemailerSendgrid({
+                apiKey: sendGridAPIKey,
+              }),
+              fromName: process.env.SENDGRID_FROM_NAME || "Admin",
+              fromAddress:
+                process.env.SENDGRID_FROM_EMAIL || "admin@example.com",
+            },
+          }
         : undefined),
       secret: process.env.PAYLOAD_SECRET_KEY,
       express: server,
