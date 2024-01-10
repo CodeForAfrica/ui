@@ -7,9 +7,6 @@ import next from "next";
 import nodemailerSendgrid from "nodemailer-sendgrid";
 import payload from "payload";
 import { Payload } from "payload/dist/payload";
-import dotenv from "dotenv";
-
-dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -40,15 +37,15 @@ const start = async (): Promise<void> => {
     localPayload = await payload.init({
       ...(sendGridAPIKey
         ? {
-            email: {
-              transportOptions: nodemailerSendgrid({
-                apiKey: sendGridAPIKey,
-              }),
-              fromName: process.env.SENDGRID_FROM_NAME || "Admin",
-              fromAddress:
-                process.env.SENDGRID_FROM_EMAIL || "admin@example.com",
-            },
-          }
+          email: {
+            transportOptions: nodemailerSendgrid({
+              apiKey: sendGridAPIKey,
+            }),
+            fromName: process.env.SENDGRID_FROM_NAME || "Admin",
+            fromAddress:
+              process.env.SENDGRID_FROM_EMAIL || "admin@example.com",
+          },
+        }
         : undefined),
       secret: process.env.PAYLOAD_SECRET_KEY,
       express: server,

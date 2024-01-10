@@ -79,7 +79,7 @@ export default buildConfig({
   editor: slateEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
-    migrationDir: "./migrations/v2",
+    migrationDir: "./src/migrations",
   }),
   collections: [
     Authors,
@@ -111,12 +111,12 @@ export default buildConfig({
   ] as GlobalConfig[],
   ...(locales?.length
     ? {
-        localization: {
-          locales,
-          defaultLocale,
-          fallback: true,
-        },
-      }
+      localization: {
+        locales,
+        defaultLocale,
+        fallback: true,
+      },
+    }
     : undefined),
 
   admin: {
