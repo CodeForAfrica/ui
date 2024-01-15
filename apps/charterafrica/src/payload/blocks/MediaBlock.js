@@ -15,6 +15,13 @@ const MediaBlock = {
             mimeType: { contains: "image" },
           },
         },
+        {
+          name: "caption",
+          type: "text",
+          label: { en: "Caption", fr: "Légende", pt: "Legenda" },
+          required: false,
+          localized: true,
+        },
       ],
     }),
   ],
