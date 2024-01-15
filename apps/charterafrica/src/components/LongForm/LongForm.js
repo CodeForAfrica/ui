@@ -3,9 +3,11 @@ import { Box } from "@mui/material";
 import React from "react";
 
 import { secondary } from "@/charterafrica/colors";
+import LongFormMediaBlock from "@/charterafrica/components/LongFormMediaBlock";
 import LongFormRichText from "@/charterafrica/components/LongFormRichText";
 
 const COMPONENT_BY_LONG_FORM_TYPE = {
+  mediaBlock: LongFormMediaBlock,
   richText: LongFormRichText,
 };
 
@@ -30,10 +32,10 @@ const LongForm = React.forwardRef(function LongForm(props, ref) {
           py: { xs: 5, md: "74.5px" },
         }}
       >
-        {content.map((c) => {
+        {content.map((c, i) => {
           const Component = COMPONENT_BY_LONG_FORM_TYPE[c.slug];
           if (Component) {
-            return <Component {...c} key={c.slug} />;
+            return <Component {...c} key={c.id || `${c.slug}-${i}`} />;
           }
           return null;
         })}
