@@ -48,8 +48,8 @@ const processSpotlight = (page, api, context) => {
         item: {
           ...itemData,
           image: {
-            src: itemData.image.url,
-            alt: itemData.image.alt,
+            src: itemData.image?.url ?? null,
+            alt: itemData.image?.alt ?? null,
           },
           date: new Date(itemData.date).toLocaleDateString(locale, {
             year: "numeric",
