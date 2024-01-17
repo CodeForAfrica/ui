@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  charterafrica:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev.charterafrica
+      args:
+        MONGO_URL: ${MONGO_URL}
+        PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+        SENTRY_ORG: ${SENTRY_ORG}
+        NEXT_PUBLIC_SENTRY_DSN: ${CHARTERAFRICA_SENTRY_DSN}
+        SENTRY_ENV: ${SENTRY_ENV}
+        SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+    container_name: charterafrica
+    env_file:
+      - apps/charterafrica/.env.local
