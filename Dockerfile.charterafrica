@@ -59,6 +59,7 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     PAYLOAD_PUBLIC_APP_URL=http://localhost:3000 \
     PAYLOAD_SECRET_KEY
 
+RUN cd apps/charterafrica && npx payload migrate && cd ../../
 RUN pnpm build-next --filter=charterafrica
 
 # Needed by Payload at Payload build time

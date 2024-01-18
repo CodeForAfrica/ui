@@ -1,0 +1,59 @@
+version: "3.8"
+
+services:
+  charterafrica:
+    depends_on:
+      mongodb_container:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile.charterafrica
+      args:
+        MONGO_URL: mongodb://root:rootpassword@host.docker.internal:27017/charterafrica?authSource=admin
+        PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+        SENTRY_ORG: ${SENTRY_ORG}
+        NEXT_PUBLIC_SENTRY_DSN: ${CHARTERAFRICA_SENTRY_DSN}
+        SENTRY_ENV: ${SENTRY_ENV}
+        SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+    container_name: charterafrica
+    env_file:
+      - apps/charterafrica/.env.local
+    networks:
+      - net
+
+  mongodb_container:
+    container_name: mongodb_container
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - data_container:/data/db
+      - ./mongo-keyfile:/etc/mongo-keyfile
+      - ./scripts/db-init.sh:/scripts/db-init.sh
+    restart: always
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh mongodb_container:27017/charterafrica --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    command:
+      [
+        "--replSet",
+        "dbrs",
+        "--bind_ip_all",
+        "--keyFile",
+        "/etc/mongo-keyfile/mongo-keyfile",
+      ]
+    networks:
+      - net
+volumes:
+  data_container:
+networks:
+  net:
+    driver: bridge
