@@ -4,12 +4,12 @@ services:
   charterafrica:
     depends_on:
       mongodb_container:
-        condition: service_healthy
+        condition: service_started
     build:
       context: .
       dockerfile: Dockerfile.charterafrica
       args:
-        MONGO_URL: mongodb://root:rootpassword@host.docker.internal:27017/charterafrica?authSource=admin
+        MONGO_URL: mongodb://root:rootpassword@host.docker.internal:27017/charterafrica?authSource=admin&directConnection=true
         PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
         SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
         SENTRY_ORG: ${SENTRY_ORG}
@@ -26,7 +26,7 @@ services:
 
   mongodb_container:
     container_name: mongodb_container
-    image: mongo:latest
+    image: mongo:6.0.13
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
@@ -43,13 +43,7 @@ services:
       timeout: 5s
       retries: 3
     command:
-      [
-        "--replSet",
-        "dbrs",
-        "--bind_ip_all",
-        "--keyFile",
-        "/etc/mongo-keyfile/mongo-keyfile",
-      ]
+      ["--replSet", "dbrs", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
     networks:
       - net
 volumes:
