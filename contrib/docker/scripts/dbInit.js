@@ -4,7 +4,7 @@ const config = {
   members: [
     {
       _id: 1,
-      host: "mongodb_container:27017",
+      host: "mongodb:27017",
       priority: 1,
     },
   ],

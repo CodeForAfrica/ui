@@ -3,7 +3,7 @@ version: "3.8"
 services:
   charterafrica:
     depends_on:
-      mongodb_container:
+      mongodb:
         condition: service_started
     build:
       context: .
@@ -24,8 +24,8 @@ services:
     networks:
       - net
 
-  mongodb_container:
-    container_name: mongodb_container
+  mongodb:
+    container_name: mongodb
     image: mongo:6.0.13
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -33,17 +33,24 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - data_container:/data/db
+      - ./contrib/docker/db:/data/db
       - ./mongo-keyfile:/etc/mongo-keyfile
-      - ./data_container/scripts/db-init.js:/docker-entrypoint-initdb.d/db-init.js
+      - ./contrib/docker/scripts/dbInit.js:/docker-entrypoint-initdb.d/dbInit.js:ro
     restart: always
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh mongodb_container:27017/charterafrica --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh mongodb:27017/charterafrica --quiet
       interval: 10s
       timeout: 5s
       retries: 3
     command:
-      ["--replSet", "dbrs", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
+      [
+        "mongod",
+        "--replSet",
+        "dbrs",
+        "--bind_ip_all",
+        "--keyFile",
+        "/etc/mongo-keyfile",
+      ]
     networks:
       - net
 volumes:

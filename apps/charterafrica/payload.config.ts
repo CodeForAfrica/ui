@@ -79,7 +79,7 @@ export default buildConfig({
   editor: slateEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
-    migrationDir: process.env.MIGRATIONS_DIR ?? "./migrations",
+    migrationDir: process.env.MIGRATIONS_DIR,
   }),
   collections: [
     Authors,
