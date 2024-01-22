@@ -35,7 +35,7 @@ services:
     volumes:
       - data_container:/data/db
       - ./mongo-keyfile:/etc/mongo-keyfile
-      - ./scripts/db-init.sh:/scripts/db-init.sh
+      - ./data_container/scripts/db-init.js:/docker-entrypoint-initdb.d/db-init.js
     restart: always
     healthcheck:
       test: echo 'db.runCommand("ping").ok' | mongosh mongodb_container:27017/charterafrica --quiet

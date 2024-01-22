@@ -1,10 +1,9 @@
 # Makefile
 
-.PHONY: charterafrica init-db
+.PHONY: charterafrica
 
 charterafrica:
-	docker-compose --env-file apps/charterafrica/.env.local up charterafrica --build
+	docker-compose --env-file apps/charterafrica/.env.local up charterafrica --build -d
 
 init-db:
 	docker-compose up mongodb_container --build -d
-	docker exec mongodb_container /scripts/db-init.sh
