@@ -9,7 +9,6 @@ const config = {
     },
   ],
 };
-console.log("==================>");
 rs.initiate(config, { force: true });
 
 rs.status();
