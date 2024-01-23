@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const PageDescription = {
@@ -20,21 +22,23 @@ const PageDescription = {
       },
       required: true,
       localized: true,
-      admin: {
-        elements: [
-          "h1",
-          "h2",
-          "h3",
-          "h4",
-          "h5",
-          "h6",
-          "link",
-          "ol",
-          "ul",
-          "indent",
-        ],
-        leaves: ["bold", "code", "italic", "underline"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "link",
+            "ol",
+            "ul",
+            "indent",
+          ],
+          leaves: ["bold", "code", "italic", "underline"],
+        },
+      }),
     }),
   ],
 };

@@ -54,4 +54,4 @@ apps/promisetracker/public/data/**
 storybook-static
 
 mongo-keyfile
-contrib/docker/db
+data_container

@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import documentCloudSource from "../fields/documentCloudSource";
 import richText from "../fields/richText";
 
@@ -30,10 +32,12 @@ const EmbeddedDocuments = {
             pt: "Descrição",
           },
           localized: true,
-          admin: {
-            elements: ["h3", "h4", "h5", "h6", "link", "ol", "ul", "indent"],
-            leaves: ["bold", "code", "italic", "underline"],
-          },
+          editor: slateEditor({
+            admin: {
+              elements: ["h3", "h4", "h5", "h6", "link", "ol", "ul", "indent"],
+              leaves: ["bold", "code", "italic", "underline"],
+            },
+          }),
         }),
       ],
     },

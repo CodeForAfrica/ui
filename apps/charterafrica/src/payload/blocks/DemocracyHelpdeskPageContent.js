@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
@@ -11,10 +13,22 @@ const HelpdeskPageContent = {
         fr: "La description",
         pt: "Descrição",
       },
-      admin: {
-        elements: ["h2", "h3", "h4", "h5", "h6", "link", "ol", "ul", "indent"],
-        leaves: ["bold", "code", "italic", "strikethrough", "underline"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "link",
+            "ol",
+            "ul",
+            "indent",
+          ],
+          leaves: ["bold", "code", "italic", "strikethrough", "underline"],
+        },
+      }),
       localized: true,
     }),
     linkGroup(),

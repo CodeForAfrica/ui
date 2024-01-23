@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const Impressum = {
@@ -10,10 +12,22 @@ const Impressum = {
       },
       required: true,
       localized: true,
-      admin: {
-        elements: ["h2", "h3", "h4", "h5", "h6", "link", "ol", "ul", "indent"],
-        leaves: ["bold", "italic", "strikethrough", "underline"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "link",
+            "ol",
+            "ul",
+            "indent",
+          ],
+          leaves: ["bold", "italic", "strikethrough", "underline"],
+        },
+      }),
     }),
     {
       name: "image",

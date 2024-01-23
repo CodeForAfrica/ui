@@ -33,9 +33,6 @@ const Partners = {
         fr: "La description",
         pt: "Descrição",
       },
-      admin: {
-        elements: [],
-      },
       localized: true,
     }),
     {

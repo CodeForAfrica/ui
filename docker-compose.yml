@@ -35,7 +35,7 @@ services:
     env_file:
       - apps/charterafrica/.env.local
     volumes:
-      - ./contrib/docker/db:/data/db
+      - ./data_container/db:/data/db
       - ./mongo-keyfile:/etc/mongo-keyfile
       - ./contrib/docker/scripts/dbInit.js:/docker-entrypoint-initdb.d/dbInit.js:ro
     restart: always

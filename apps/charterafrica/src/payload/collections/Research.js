@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import authors from "../fields/authors";
 import content from "../fields/content";
 import publishedOn from "../fields/publishedOn";
@@ -53,9 +55,11 @@ const Research = {
         pt: "Excerto",
       },
       localized: true,
-      admin: {
-        elements: ["leaves"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: ["leaves"],
+        },
+      }),
     }),
     tags(),
     content(),

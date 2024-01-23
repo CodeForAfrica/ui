@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
@@ -40,9 +42,11 @@ const Helpdesk = {
           type: "richText",
           localized: true,
           required: true,
-          admin: {
-            elements: ["ol", "ul", "link"],
-          },
+          editor: slateEditor({
+            admin: {
+              elements: ["ol", "ul", "link"],
+            },
+          }),
         }),
         linkGroup(),
       ],

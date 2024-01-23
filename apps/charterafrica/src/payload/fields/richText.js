@@ -1,5 +1,4 @@
 import { deepmerge } from "@mui/utils";
-import { slateEditor } from "@payloadcms/richtext-slate";
 
 import mapLinkTypeToHref from "../utils/mapLinkTypeToHref";
 
@@ -44,16 +43,12 @@ async function mapLinkToHrefAfterRead({ req: { payload }, value }) {
   return insertHref(value, payload);
 }
 
-function richText({ admin, ...overrides }) {
-  const editor = slateEditor({
-    admin,
-  });
+function richText(overrides) {
   const richTextResult = {
     type: "richText",
     hooks: {
       afterRead: [mapLinkToHrefAfterRead],
     },
-    editor,
   };
 
   return deepmerge(richTextResult, overrides);
