@@ -19,8 +19,6 @@ services:
     ports:
       - 3000:3000
     container_name: charterafrica
-    env_file:
-      - apps/charterafrica/.env.local
     networks:
       - net
 
@@ -32,8 +30,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}
     ports:
       - ${MONGODB_PORT:-27017}:27017
-    env_file:
-      - apps/charterafrica/.env.local
     volumes:
       - ./data_container/db:/data/db
       - ./mongo-keyfile:/etc/mongo-keyfile
