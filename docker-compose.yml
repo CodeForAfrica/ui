@@ -19,6 +19,8 @@ services:
     ports:
       - 3000:3000
     container_name: charterafrica
+    env_file:
+      - ${ENV_FILE}
     networks:
       - net
 
