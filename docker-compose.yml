@@ -44,12 +44,9 @@ services:
       retries: 3
     command:
       [
-        "mongod",
-        "--replSet",
-        "dbrs",
-        "--bind_ip_all",
-        "--keyFile",
-        "/etc/mongo-keyfile",
+        "sh",
+        "-c",
+        "chmod 600 /etc/mongo-keyfile && exec mongod --replSet dbrs --bind_ip_all --keyFile /etc/mongo-keyfile",
       ]
     networks:
       - net
