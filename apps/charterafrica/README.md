@@ -24,6 +24,7 @@ Generate a new MongoDB keyfile by running the following command:
 
 ```bash
 openssl rand -base64 741 > ./mongo-keyfile
+chmod 600 ./mongo-keyfile
 ```
 
 Start the database server:
