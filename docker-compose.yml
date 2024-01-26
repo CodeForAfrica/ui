@@ -13,48 +13,34 @@ services:
         PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
         SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
         SENTRY_ORG: ${SENTRY_ORG}
-        NEXT_PUBLIC_SENTRY_DSN: ${CHARTERAFRICA_SENTRY_DSN}
+        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN}
         SENTRY_ENV: ${SENTRY_ENV}
         SENTRY_PROJECT: ${SENTRY_PROJECT}
     ports:
       - 3000:3000
-    container_name: charterafrica
-    env_file:
-      - ${ENV_FILE}
-    networks:
-      - net
 
   mongodb:
-    container_name: mongodb
     image: mongo:6.0.13
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}
     ports:
-      - ${MONGODB_PORT:-27017}:27017
+      - 27017:27017
     volumes:
-      - ./data_container/db:/data/db
+      - db_data:/data/db
       - ./mongo-keyfile:/etc/mongo-keyfile
-      - ./contrib/docker/scripts/dbInit.js:/docker-entrypoint-initdb.d/dbInit.js:ro
-    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh mongodb:27017/charterafrica --quiet
-      interval: 10s
-      timeout: 5s
-      retries: 3
+      # https://medium.com/workleap/the-only-local-mongodb-replica-set-with-docker-compose-guide-youll-ever-need-2f0b74dd8384
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'host.docker.internal:27017'}]}) }" | mongosh --port 27017 --quiet
+      interval: 5s
+      timeout: 30s
+      start_period: 0s
+      start_interval: 1s
+      retries: 30
     command:
-      [
-        "mongod",
-        "--replSet",
-        "dbrs",
-        "--bind_ip_all",
-        "--keyFile",
-        "/etc/mongo-keyfile",
-      ]
-    networks:
-      - net
+      ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
+
 volumes:
-  data_container:
-networks:
-  net:
-    driver: bridge
+  db_data:
