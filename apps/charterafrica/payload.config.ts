@@ -77,6 +77,9 @@ const adapter = s3Adapter({
 export default buildConfig({
   serverURL: appURL,
   editor: slateEditor({}),
+  routes: {
+    admin: "/admin",
+  },
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
     migrationDir: process.env.MIGRATIONS_DIR,
@@ -111,12 +114,12 @@ export default buildConfig({
   ] as GlobalConfig[],
   ...(locales?.length
     ? {
-        localization: {
-          locales,
-          defaultLocale,
-          fallback: true,
-        },
-      }
+      localization: {
+        locales,
+        defaultLocale,
+        fallback: true,
+      },
+    }
     : undefined),
 
   admin: {
