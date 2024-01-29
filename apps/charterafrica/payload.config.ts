@@ -114,12 +114,12 @@ export default buildConfig({
   ] as GlobalConfig[],
   ...(locales?.length
     ? {
-        localization: {
-          locales,
-          defaultLocale,
-          fallback: true,
-        },
-      }
+      localization: {
+        locales,
+        defaultLocale,
+        fallback: true,
+      },
+    }
     : undefined),
 
   admin: {
@@ -183,7 +183,7 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc, locale }: any) =>
         doc?.slug?.value ? `${appURL}/${locale}/${doc.slug.value}` : undefined,
-    } as any),
+    }),
     nestedDocs({
       collections: ["pages"],
       generateLabel: (_, doc) => doc.title as string,
@@ -191,4 +191,4 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ],
-} as any);
+});

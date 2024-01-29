@@ -101,8 +101,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.9.0)
       "@payloadcms/plugin-nested-docs":
-        specifier: ^1.0.9
-        version: 1.0.9
+        specifier: ^1.0.11
+        version: 1.0.11
       "@payloadcms/plugin-seo":
         specifier: ^1.0.15
         version: 1.0.15(payload@2.9.0)(react@18.2.0)
@@ -7722,6 +7722,13 @@ packages:
     dependencies:
       payload: 1.15.8(@types/react@18.2.45)(typescript@5.3.3)
       range-parser: 1.2.1
+    dev: false
+
+  /@payloadcms/plugin-nested-docs@1.0.11:
+    resolution:
+      {
+        integrity: sha512-Bh7CWNDleazNHeRZSNKO67lRnf24yHur69qP/tbbQNM2/RyanPFR2+fWOk/WO0K0/3k7IKzuMEF8n4L3eKek0w==,
+      }
     dev: false
 
   /@payloadcms/plugin-nested-docs@1.0.9:
