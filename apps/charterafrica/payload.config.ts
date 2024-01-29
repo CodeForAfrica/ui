@@ -191,4 +191,4 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ],
-});
+} as any);
