@@ -13,7 +13,7 @@ rs.initiate(config, { force: true });
 
 rs.status();
 db.createUser({
-  user: "root",
-  pwd: "rootpassword",
+  user: process.env.MONGO_INITDB_ROOT_USERNAME || "root",
+  pwd: process.env.MONGO_INITDB_ROOT_PASSWORD || "rootpassword",
   roles: [{ role: "root", db: "admin" }],
 });
