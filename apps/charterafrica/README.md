@@ -23,8 +23,7 @@ For more, see NextJS env var docs [here](https://nextjs.org/docs/basic-features/
 Generate a new MongoDB keyfile by running the following command:
 
 ```bash
-openssl rand -base64 741 > ./mongo-keyfile
-chmod 600 ./mongo-keyfile
+make mongodb-keyfile
 ```
 
 Start the database server:
