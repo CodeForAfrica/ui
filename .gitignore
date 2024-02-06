@@ -54,4 +54,3 @@ apps/promisetracker/public/data/**
 storybook-static
 
 mongo-keyfile
-db_data
