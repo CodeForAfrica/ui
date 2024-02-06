@@ -21,12 +21,14 @@ For more, see NextJS env var docs [here](https://nextjs.org/docs/basic-features/
 ## Database setup
 
 Generate a new MongoDB keyfile by running the following command:
+NB: Run this command on the root directory
 
 ```bash
 make mongodb-keyfile
 ```
 
 Start the database server:
+NB: Run this command on the root directory
 
 ```bash
 make mongodb
