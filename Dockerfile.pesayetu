@@ -1,0 +1,104 @@
+FROM node:18-alpine as node-alpine
+
+# Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
+# Update local cache so that other stages don't need to update cache
+RUN apk update \
+    && apk upgrade
+
+FROM node-alpine as base
+
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+
+ARG PNPM_VERSION=8.5.0
+
+RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
+
+WORKDIR /workspace
+
+COPY pnpm-lock.yaml .
+
+RUN pnpm fetch
+
+
+FROM base as builder
+
+WORKDIR /workspace
+
+COPY *.yaml *.json ./
+COPY packages ./packages
+COPY apps/pesayetu ./apps/pesayetu
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm install --recursive --offline --frozen-lockfile
+
+ARG NEXT_TELEMETRY_DISABLED=1 \
+    # Needed by Next.js at build time
+    NEXT_PUBLIC_APP_NAME=Pesayetu \
+    NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+    NEXT_PUBLIC_SENTRY_DSN="" \
+    NEXT_PUBLIC_SEO_DISABLED="true" \
+    NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
+    NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
+    NEXT_PUBLIC_OPENAFRICA_DOMAINS="open.africa,openafrica.net,africaopendata.org" \
+    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS="dc.sourceafrica.net" \
+    NEXT_PUBLIC_GOOGLE_ANALYTICS="" \
+    # Needed by Next.js and server.ts at build time
+    PORT=3000 \
+    # Sentry config for source maps upload (needed at build time only)
+    SENTRY_AUTH_TOKEN="" \
+    SENTRY_ENV="" \
+    SENTRY_ORG="" \
+    SENTRY_PROJECT="" \
+    # Wordpress config
+    WORDPRESS_URL \
+    WORDPRESS_MULTISITE_PREFIX="/pesayetu" \
+    WORDPRESS_PREVIEW_SECRET \
+    WORDPRESS_APPLICATION_USERNAME \
+    WORDPRESS_APPLICATION_PASSWORD \
+    JWT_SECRET_KEY \
+    HURUMAP_API_URL \
+    # AWS S3 bucket for storing images
+    S3_UPLOAD_KEY \
+    S3_UPLOAD_SECRET \
+    S3_UPLOAD_BUCKET \
+    S3_UPLOAD_REGION
+
+RUN pnpm build --filter=pesayetu
+
+FROM builder as runner
+
+# Remember to remove local cache from runner
+RUN rm -rf /var/cache/apk/*
+
+ARG NEXT_TELEMETRY_DISABLED \
+    NEXT_PUBLIC_APP_NAME \
+    NEXT_PUBLIC_APP_URL \
+    NEXT_PUBLIC_SENTRY_DSN \
+    NEXT_PUBLIC_SEO_DISABLED \
+    NEXT_PUBLIC_IMAGE_DOMAINS \
+    NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
+    NEXT_PUBLIC_OPENAFRICA_DOMAINS \
+    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS \
+    NEXT_PUBLIC_GOOGLE_ANALYTICS \
+    PORT \
+    SENTRY_ENV
+
+ENV NODE_ENV=production \
+    NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
+    NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+    NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
+    NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED} \
+    NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
+    NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
+    NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
+    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS} \
+    NEXT_PUBLIC_GOOGLE_ANALYTICS=${NEXT_PUBLIC_GOOGLE_ANALYTICS} \
+    PORT=${PORT} \
+    SENTRY_ENV=${SENTRY_ENV}
+
+WORKDIR /workspace/apps/pesayetu
+
+EXPOSE ${PORT}
+
+CMD ["node", "dist/server.js"]
