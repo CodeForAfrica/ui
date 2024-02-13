@@ -122,6 +122,24 @@ function Dataset({
                 ))}
               </Grid>
             ) : null}
+            <Button
+              variant="contained"
+              color="primary"
+              size="medium"
+              startIcon={<ExternalLinkIcon />}
+              href={url}
+              target="_blank"
+              sx={{
+                width: {
+                  xs: "100%",
+                  sm: "200px",
+                },
+                height: "50px",
+                mt: 4,
+              }}
+            >
+              {labels.openDataset}
+            </Button>
             <RichTypography
               color="common.black"
               order={1}
@@ -163,23 +181,6 @@ function Dataset({
             >
               {labels.backToDatasets}
             </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              size="medium"
-              startIcon={<ExternalLinkIcon />}
-              href={url}
-              target="_blank"
-              sx={{
-                width: {
-                  xs: "100%",
-                  sm: "200px",
-                },
-                height: "50px",
-              }}
-            >
-              {labels.openDataset}
-            </Button>
             <ShareThisPage
               title={labels.shareDataset}
               sx={{

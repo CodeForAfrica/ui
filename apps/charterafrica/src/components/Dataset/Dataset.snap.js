@@ -55,6 +55,19 @@ exports[`<Dataset /> renders unchanged 1`] = `
               </span>
             </div>
           </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-13ms8fp-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            target="_blank"
+            type="button"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
+            >
+              <div />
+            </span>
+            Open Dataset
+          </button>
           <div
             class="MuiTypography-root MuiTypography-p1 css-iycfiz-MuiTypography-root"
           >
@@ -69,19 +82,6 @@ exports[`<Dataset /> renders unchanged 1`] = `
           >
             Back to Datasets
           </a>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1scqxyq-MuiButtonBase-root-MuiButton-root"
-            tabindex="0"
-            target="_blank"
-            type="button"
-          >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium css-gcc2o7-MuiButton-startIcon"
-            >
-              <div />
-            </span>
-            Open Dataset
-          </button>
           <div
             class="MuiStack-root css-1xe1uy8-MuiStack-root"
           >
