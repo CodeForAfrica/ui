@@ -66,6 +66,14 @@ const GET_USER = `query($username: String!) {
           }
           visibility
           url
+          updatedAt
+          languages(first:5) {
+          edges  {
+              node {
+                name
+              }
+            }
+          }
         }
       }
     }
@@ -192,13 +200,22 @@ export async function fetchContributor({ externalId }) {
       stargazers,
       visibility,
       url: repoURL,
+      updatedAt,
+      languages,
     } = edge?.node ?? {};
+
+    const techSkills = languages?.edges
+      ?.map((language) => language?.node?.name)
+      .join(", ");
+
     return {
       name: repoName,
       description,
       stargazers: stargazers?.totalCount,
       visibility,
       url: repoURL,
+      updatedAt,
+      techSkills,
     };
   });
 

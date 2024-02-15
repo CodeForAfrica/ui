@@ -4,6 +4,8 @@ import { Grid, SvgIcon, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RepositoryCard from "../RepositoryCard";
+
 import FacebookIcon from "@/charterafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import LinkedInIcon from "@/charterafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
@@ -71,6 +73,8 @@ const Entity = React.forwardRef(function Entity(props, ref) {
     toolsTitle,
     role,
     currentOrganisation,
+    repositories,
+    repositoriesTitle,
   } = props;
   const icons = getIcons(props);
   return (
@@ -159,6 +163,23 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             </Grid>
           </Grid>
         </Grid>
+        {repositories.length ? (
+          <>
+            <RichTypography
+              sx={{ mt: 6.25 }}
+              color="neutral.dark"
+              variant="h3Small"
+              textAlign="left"
+            >
+              {repositoriesTitle}
+            </RichTypography>
+            <Grid sx={{ mt: 5 }} container gap={2.5}>
+              {repositories.map((repo) => (
+                <RepositoryCard {...repo} key={repo.url} />
+              ))}
+            </Grid>
+          </>
+        ) : null}
         {tools.length ? (
           <>
             <RichTypography

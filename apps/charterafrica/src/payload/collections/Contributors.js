@@ -231,6 +231,24 @@ const Contributors = {
           type: "text",
           label: { en: "URL", fr: "URL", pt: "URL" },
         },
+        {
+          name: "techSkills",
+          type: "text",
+          label: {
+            en: "Tech Skills",
+            fr: "Compétences techniques",
+            pt: "Habilidades técnicas",
+          },
+        },
+        {
+          name: "updatedAt",
+          type: "date",
+          label: {
+            en: "Updated At",
+            fr: "Mis à jour",
+            pt: "Atualizado em",
+          },
+        },
       ],
     },
   ],

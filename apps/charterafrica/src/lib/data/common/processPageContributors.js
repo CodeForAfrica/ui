@@ -69,9 +69,7 @@ async function processPagePerson(page, api, context) {
     return null;
   }
 
-  const block = blocks.findIndex(
-    ({ slug: bSlug }) => bSlug === "our-contributors",
-  );
+  const block = blocks.find(({ slug: bSlug }) => bSlug === "our-contributors");
   const contributor = docs[0] || {};
   const { docs: toolDocs } = await api.getCollection(TOOL_COLLECTION, {
     locale,
@@ -119,6 +117,8 @@ async function processPagePerson(page, api, context) {
           : null,
         tools,
         socialMedia,
+        repositories: contributor.repositories ?? null,
+        repositoriesTitle: block?.repositoriesTitle ?? null,
       },
     ],
   };
