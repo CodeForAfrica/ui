@@ -170,6 +170,11 @@ export function processContributor(item, config) {
   return {
     airtableId: data.id,
     classification: getValue(data, contributorTableColumns.classification),
+    role: getValue(data, contributorTableColumns.role),
+    currentOrganisation: getValue(
+      data,
+      contributorTableColumns.currentOrganisation,
+    ),
     externalId,
     repoLink,
     socialMedia,

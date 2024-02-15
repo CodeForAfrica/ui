@@ -62,7 +62,16 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
 });
 
 const Entity = React.forwardRef(function Entity(props, ref) {
-  const { name, location, description, image, tools, toolsTitle } = props;
+  const {
+    name,
+    location,
+    description,
+    image,
+    tools,
+    toolsTitle,
+    role,
+    currentOrganisation,
+  } = props;
   const icons = getIcons(props);
   return (
     <Box ref={ref} bgcolor="common.white">
@@ -97,7 +106,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             <RichTypography
               textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
-              variant="h2SemiBold"
+              variant="h2"
               sx={{ width: "100%" }}
             >
               {name}
@@ -106,13 +115,29 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               textAlign={{ xs: "center", sm: "left" }}
               color="neutral.dark"
               sx={{ mt: 2.5, width: "100%" }}
-              variant="h4Small"
+              variant="p4"
+            >
+              {role}
+            </RichTypography>
+            <RichTypography
+              textAlign={{ xs: "center", sm: "left" }}
+              color="neutral.dark"
+              sx={{ mt: 2.5, width: "100%" }}
+              variant="p4"
+            >
+              {currentOrganisation}
+            </RichTypography>
+            <RichTypography
+              textAlign={{ xs: "center", sm: "left" }}
+              color="neutral.dark"
+              sx={{ mt: 2.5, width: "100%" }}
+              variant="p4"
             >
               {location}
             </RichTypography>
             <RichTypography
               textAlign={{ xs: "center", sm: "left" }}
-              color="neutral.dark"
+              color="text.primary"
               sx={{ mt: 2.5, width: "100%" }}
               variant="p1"
             >

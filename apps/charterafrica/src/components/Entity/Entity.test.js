@@ -12,8 +12,18 @@ const defaultProps = {
   name: "John Doe",
   location: "San Francisco, CA",
   description: "Full-stack web developer with over 5 years of experience.",
-  twitter: "https://twitter.com/johndoe",
-  github: "https://github.com/johndoe",
+  socilaMedia: [
+    {
+      name: "twitter",
+      link: "https://twitter.com/johndoe",
+      id: 1,
+    },
+    {
+      name: "github",
+      link: "https://github.com/johndoe",
+      id: 2,
+    },
+  ],
   email: "johndoe@example.com",
   image: "/static/images/avatar/1.jpg",
   tools: [
@@ -36,6 +46,8 @@ const defaultProps = {
     },
   ],
   toolsTitle: "Favorite Tools",
+  role: "Developer",
+  currentOrganisation: "Charter Africa",
 };
 
 describe("<OrgAndContributor />", () => {

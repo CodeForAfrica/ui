@@ -91,6 +91,15 @@ async function processPagePerson(page, api, context) {
     };
   });
 
+  const { socialMedia = [] } = contributor;
+  if (contributor.source === "github") {
+    const github = {
+      link: `https://github.com/${contributor?.externalId || ""}`,
+      name: "gitHub",
+    };
+    socialMedia.push(github);
+  }
+
   return {
     ...page,
     blocks: [
@@ -99,6 +108,8 @@ async function processPagePerson(page, api, context) {
         id: block.id ?? null,
         image: contributor.avatarUrl ?? null,
         name: contributor?.fullName ?? contributor?.externalId ?? null,
+        role: contributor.role ?? null,
+        currentOrganisation: contributor.currentOrganisation ?? null,
         location: contributor.location ?? null,
         description: contributor.description ?? null,
         email: contributor.email ?? null,
@@ -106,11 +117,8 @@ async function processPagePerson(page, api, context) {
         lastActive: contributor.lastActive
           ? formatDateTime(contributor.lastActive, {})
           : null,
-        github:
-          contributor.source === "github"
-            ? `https://github.com/${contributor?.externalId || ""}`
-            : "",
         tools,
+        socialMedia,
       },
     ],
   };

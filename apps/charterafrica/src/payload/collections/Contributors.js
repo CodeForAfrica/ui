@@ -49,6 +49,26 @@ const Contributors = {
       },
     },
     {
+      name: "role",
+      type: "text",
+      label: { en: "Role", fr: "Rôle", pt: "Função" },
+      admin: {
+        readOnly: true,
+      },
+    },
+    {
+      name: "currentOrganisation",
+      type: "text",
+      label: {
+        en: "Current Organization",
+        fr: "Organisation actuelle",
+        pt: "Organização atual",
+      },
+      admin: {
+        readOnly: true,
+      },
+    },
+    {
       name: "classification",
       type: "text",
       admin: {

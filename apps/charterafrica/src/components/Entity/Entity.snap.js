@@ -35,17 +35,27 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-6q6fhx-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2SemiBold css-1ij80lf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-1leish6-MuiTypography-root"
           >
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h4Small css-6del67-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-163fda8-MuiTypography-root"
+          >
+            Developer
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-p4 css-163fda8-MuiTypography-root"
+          >
+            Charter Africa
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-p4 css-163fda8-MuiTypography-root"
           >
             San Francisco, CA
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-1syd6cp-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-ik26xw-MuiTypography-root"
           >
             Full-stack web developer with over 5 years of experience.
           </div>
@@ -58,22 +68,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rl8zr9-MuiTypography-root-MuiLink-root"
                 href="maito:johndoe@example.com"
-              >
-                <div
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
-                  focusable="false"
-                />
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-            >
-              <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-4xpak5-MuiTypography-root-MuiLink-root"
-                href="https://github.com/johndoe"
-                rel="noreferrer noopener"
-                target="_blank"
               >
                 <div
                   aria-hidden="true"
