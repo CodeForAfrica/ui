@@ -47,7 +47,32 @@ const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String
     }
   }`;
 
-async function fetchRepository(variables) {
+const GET_USER = `query($username: String!) {
+  user(login: $username) {
+    name
+    avatarUrl
+    url
+    email
+    location
+    login
+    websiteUrl
+    repositories(first: 3, orderBy: {field: STARGAZERS, direction: DESC}) {
+      edges {
+        node {
+          name
+          description
+          stargazers {
+            totalCount
+          }
+          visibility
+          url
+        }
+      }
+    }
+  }
+}`;
+
+async function fetchGithubGraphqlApi(query, variables) {
   const url = `${BASE_URL}/graphql`;
   const headers = {
     "Content-Type": "application/json",
@@ -55,15 +80,15 @@ async function fetchRepository(variables) {
   };
   const data = {
     variables,
-    query: GET_REPOSITORY,
+    query,
   };
   const res = await fetchJson.post(url, { data, headers });
-  if (res?.data?.repository) {
-    return res.data.repository;
+  if (res?.data) {
+    return res.data;
   }
-  const message = `Unable to fetch ${variables.repositoryOwner}/${
-    variables.repositoryName
-  } from github errors ${JSON.stringify(res.errors)}`;
+  const message = `Unable to fetch from github errors ${JSON.stringify(
+    res.errors,
+  )}`;
   Sentry.captureException(message);
   throw new FetchError(message, res.errors, 500);
 }
@@ -108,29 +133,31 @@ export async function fetchTool({ externalId }) {
     return null;
   }
 
-  const data = await fetchRepository({
+  const data = await fetchGithubGraphqlApi(GET_REPOSITORY, {
     repositoryOwner,
     repositoryName,
   });
-  const techSkills = data.languages?.nodes?.map((language) => ({
+  const { repository } = data;
+
+  const techSkills = repository.languages?.nodes?.map((language) => ({
     language: language?.name,
   }));
-  const commit = data?.defaultBranchRef?.target.history.edges?.[0]?.node;
+  const commit = repository?.defaultBranchRef?.target.history.edges?.[0]?.node;
   return {
     externalId,
-    repoLink: data.url,
-    link: data.homepageUrl,
+    repoLink: repository.url,
+    link: repository.homepageUrl,
     techSkills,
     lastCommit: {
       author: commit?.author?.name,
       committedDate: commit?.committedDate,
       message: commit?.message,
     },
-    stars: data?.stargazers?.totalCount,
-    views: data?.watchers?.totalCount,
-    forks: data?.forks?.totalCount,
+    stars: repository?.stargazers?.totalCount,
+    views: repository?.watchers?.totalCount,
+    forks: repository?.forks?.totalCount,
     source: "github",
-    sourceUpdatedAt: new Date(data.updatedAt),
+    sourceUpdatedAt: new Date(repository.updatedAt),
   };
 }
 
@@ -150,19 +177,38 @@ export async function fetchOrganisation({ externalId, eTag }) {
   };
 }
 
-export async function fetchContributor({ externalId, eTag }) {
-  const data = await fetchGithubApi(`users/${externalId}`, eTag);
-  if (!data) {
-    return null;
-  }
+export async function fetchContributor({ externalId }) {
+  const data = await fetchGithubGraphqlApi(GET_USER, {
+    username: externalId,
+  });
+  const {
+    user: { name, avatarUrl, url, email, location, websiteUrl, repositories },
+  } = data;
+
+  const repos = repositories?.edges?.map((edge) => {
+    const {
+      name: repoName,
+      description,
+      stargazers,
+      visibility,
+      url: repoURL,
+    } = edge?.node ?? {};
+    return {
+      name: repoName,
+      description,
+      stargazers: stargazers?.totalCount,
+      visibility,
+      url: repoURL,
+    };
+  });
 
   return {
-    fullName: data.name,
-    avatarUrl: data.avatar_url,
-    repoLink: data.html_url,
-    location: data.location,
-    website: data.blog,
-    email: data.email,
-    eTag: data.eTag,
+    fullName: name,
+    avatarUrl,
+    repoLink: url,
+    location,
+    website: websiteUrl,
+    email,
+    repositories: repos,
   };
 }

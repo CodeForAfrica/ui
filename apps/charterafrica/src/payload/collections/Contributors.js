@@ -193,6 +193,46 @@ const Contributors = {
         position: "sidebar",
       },
     },
+    {
+      name: "repositories",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: {
+        en: "Repositories",
+        fr: "Dépôts",
+        pt: "Repositórios",
+      },
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          label: { en: "Name", fr: "Nom", pt: "Nome" },
+        },
+        {
+          name: "description",
+          type: "textarea",
+          label: { en: "Description", fr: "Description", pt: "Descrição" },
+        },
+        {
+          name: "stargazers",
+          type: "number",
+          label: { en: "Stargazers", fr: "Stargazers", pt: "Stargazers" },
+        },
+        {
+          name: "visibility",
+          type: "text",
+          label: { en: "Visibility", fr: "Visibilité", pt: "Visibilidade" },
+        },
+        {
+          name: "url",
+          type: "text",
+          label: { en: "URL", fr: "URL", pt: "URL" },
+        },
+      ],
+    },
   ],
   hooks: {
     afterRead: [
