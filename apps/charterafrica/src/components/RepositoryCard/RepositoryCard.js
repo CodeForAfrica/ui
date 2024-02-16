@@ -1,6 +1,6 @@
 import { RichTypography } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { Button, Grid } from "@mui/material";
+import { Grid, Chip } from "@mui/material";
 import React from "react";
 
 import StarIcon from "@/charterafrica/assets/icons/Type=Star, Size=24, Color=CurrentColor.svg";
@@ -61,16 +61,7 @@ const RepositoryCard = React.forwardRef(function Tools(props, ref) {
               />
               <RichTypography variant="p1SemiBold">{stargazers}</RichTypography>
             </Grid>
-            <Button
-              variant="outlined"
-              sx={{
-                color: "#000",
-                borderColor: neutral[500],
-                borderRadius: "10px",
-              }}
-            >
-              {visibility}
-            </Button>
+            <Chip label={visibility} variant="outlined" />
           </Grid>
         </Grid>
       </StyledActionArea>

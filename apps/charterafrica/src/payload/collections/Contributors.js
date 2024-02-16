@@ -2,7 +2,10 @@ import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
-import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
+import {
+  CONTRIBUTORS_COLLECTION,
+  ORGANIZATION_COLLECTION,
+} from "../utils/collections";
 import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 function useFullNameOrExternalId({ doc }) {
@@ -104,18 +107,6 @@ const Contributors = {
       },
     },
     {
-      name: "twitter",
-      type: "text",
-      label: {
-        en: "Twitter handle",
-        fr: "Twitter de la personne",
-        pt: "Twitter da Pessoa",
-      },
-      admin: {
-        readOnly: true,
-      },
-    },
-    {
       name: "email",
       type: "email",
       label: {
@@ -191,6 +182,20 @@ const Contributors = {
       admin: {
         readOnly: true,
         position: "sidebar",
+      },
+    },
+    {
+      name: "organisations",
+      type: "relationship",
+      hasMany: true,
+      admin: {
+        readOnly: true,
+      },
+      relationTo: ORGANIZATION_COLLECTION,
+      label: {
+        en: "Organizations",
+        fr: "Organisations",
+        pt: "Organizações",
       },
     },
     {

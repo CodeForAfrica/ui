@@ -393,6 +393,18 @@ const Ecosystem = {
                   schema,
                   tableField: "contributorTableId",
                   overrides: {
+                    name: "organisations",
+                    label: {
+                      en: "Organisations",
+                      fr: "Organisations",
+                      pt: "Organizações",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "contributorTableId",
+                  overrides: {
                     name: "avatarUrl",
                     label: { en: "Image", fr: "Image", pt: "Imagem" },
                   },

@@ -15,7 +15,16 @@ export async function prepareContributors(airtableData, config) {
   const { contributors } = airtableData;
   await bulkMarkDeleted(CONTRIBUTORS_COLLECTION, contributors);
   const toProcess = airtableData?.contributors?.map(async (item) => {
-    return createCollection(CONTRIBUTORS_COLLECTION, item, config);
+    const rawOrganisations = item?.organisations || [];
+    const organisations = await getCollectionIdsPerAirtableId(
+      ORGANIZATION_COLLECTION,
+      rawOrganisations,
+    );
+    const toCreate = {
+      ...item,
+      organisations,
+    };
+    return createCollection(CONTRIBUTORS_COLLECTION, toCreate, config);
   });
   return Promise.allSettled(toProcess);
 }

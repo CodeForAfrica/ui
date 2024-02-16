@@ -73,7 +73,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
     toolsTitle,
     role,
     currentOrganisation,
-    repositories,
+    repositories = [],
     repositoriesTitle,
   } = props;
   const icons = getIcons(props);
