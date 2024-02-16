@@ -1,3 +1,4 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
 import { array } from "payload/dist/fields/validations";
 
 import linkGroup from "../fields/linkGroup";
@@ -33,9 +34,11 @@ const FocalCountries = {
       },
       localized: true,
       required: true,
-      admin: {
-        elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: ["h2", "h3", "h4", "h5", "h6", "ol", "ul", "link"],
+        },
+      }),
     }),
     {
       name: "countries",

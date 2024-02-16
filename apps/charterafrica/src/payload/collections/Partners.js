@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
@@ -87,9 +89,11 @@ const Partners = {
         fr: "La description",
         pt: "Descrição",
       },
-      admin: {
-        elements: [],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [],
+        },
+      }),
       localized: true,
       required: true,
     }),

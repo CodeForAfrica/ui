@@ -48,7 +48,6 @@ const start = async (): Promise<void> => {
           }
         : undefined),
       secret: process.env.PAYLOAD_SECRET_KEY,
-      mongoURL: process.env.MONGO_URL,
       express: server,
       onInit: (initPayload) => {
         initPayload.logger.info(

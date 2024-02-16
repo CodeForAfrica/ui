@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import content from "../fields/content";
 import linkGroup from "../fields/linkGroup";
 import publishedOn from "../fields/publishedOn";
@@ -86,9 +88,11 @@ const Grant = {
         pt: "Excerto",
       },
       localized: true,
-      admin: {
-        elements: ["leaves"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: ["leaves"],
+        },
+      }),
     }),
     content(),
     {

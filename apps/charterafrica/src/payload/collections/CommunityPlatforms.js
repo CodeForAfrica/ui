@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
@@ -43,10 +45,12 @@ const CommunityPlatforms = {
       },
       localized: true,
       required: true,
-      admin: {
-        elements: [],
-        leaves: ["bold", "code", "italic", "strikethrough", "underline"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold", "code", "italic", "strikethrough", "underline"],
+        },
+      }),
     }),
     {
       name: "icon",

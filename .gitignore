@@ -52,3 +52,5 @@ apps/promisetracker/public/data/**
 
 # Storybook
 storybook-static
+
+mongo-keyfile
