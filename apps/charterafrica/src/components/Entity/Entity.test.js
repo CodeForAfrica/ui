@@ -48,6 +48,26 @@ const defaultProps = {
   toolsTitle: "Favorite Tools",
   role: "Developer",
   currentOrganisation: "Charter Africa",
+  repositories: Array.from({ length: 3 }, (_, i) => ({
+    id: 1,
+    name: `Repository ${i}`,
+    stargazers: 100,
+    visibility: "PUBLIC",
+    description: "Charter Africa website",
+    url: "https://charter.africa",
+    updatedAt: "2021-10-01T00:00:00Z",
+    techSkills: "React, Next.js, TypeScript",
+  })),
+  repositoriesTitle: "Repositories",
+  organisations: Array.from({ length: 3 }, (_, i) => ({
+    id: 1,
+    name: `Organisation ${i}`,
+    avatarUrl: "/static/images/charterafrica.png",
+    link: {
+      href: "https://charter.africa",
+    },
+  })),
+  organisationsTitle: "Organisations",
 };
 
 describe("<OrgAndContributor />", () => {

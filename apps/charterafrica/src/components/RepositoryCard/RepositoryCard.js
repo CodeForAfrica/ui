@@ -5,7 +5,6 @@ import React from "react";
 
 import StarIcon from "@/charterafrica/assets/icons/Type=Star, Size=24, Color=CurrentColor.svg";
 import { neutral } from "@/charterafrica/colors";
-import Card, { StyledActionArea } from "@/charterafrica/components/StyledCard";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const RepositoryCard = React.forwardRef(function Tools(props, ref) {
@@ -22,9 +21,11 @@ const RepositoryCard = React.forwardRef(function Tools(props, ref) {
   const updatedDate = formatDateTime(updatedAt, { includeTime: false });
 
   return (
-    <Card
+    <Link
       ref={ref}
-      variant="outlined"
+      underline="none"
+      color="text.primary"
+      href={url}
       sx={{
         boxShadow: "none",
         my: 2,
@@ -32,40 +33,39 @@ const RepositoryCard = React.forwardRef(function Tools(props, ref) {
         borderRadius: "0",
         borderBottom: "1px solid ",
         borderColor: neutral[50],
+        width: "100%",
         ...sx,
       }}
     >
-      <StyledActionArea component={url ? Link : undefined} href={url}>
-        <Grid container justifyContent="space-between">
-          <Grid item>
-            <RichTypography variant="h6" mb={2}>
-              {name}
-            </RichTypography>
-            <RichTypography variant="body2" mb={1}>
-              {description}
-            </RichTypography>
-            <RichTypography variant="body2" mb={1}>
-              {techSkills}
-            </RichTypography>
-            <RichTypography variant="body2" mb={1}>
-              {updatedDate}
-            </RichTypography>
-          </Grid>
-          <Grid item container direction="column" md={1} gap={1}>
-            <Grid container gap={1} alignItems="center" justifyContent="center">
-              <StarIcon
-                sx={{
-                  width: "25px",
-                  height: "25px",
-                }}
-              />
-              <RichTypography variant="p1SemiBold">{stargazers}</RichTypography>
-            </Grid>
-            <Chip label={visibility} variant="outlined" />
-          </Grid>
+      <Grid container justifyContent="space-between">
+        <Grid item>
+          <RichTypography variant="h6" mb={2}>
+            {name}
+          </RichTypography>
+          <RichTypography variant="body2" mb={1}>
+            {description}
+          </RichTypography>
+          <RichTypography variant="body2" mb={1}>
+            {techSkills}
+          </RichTypography>
+          <RichTypography variant="body2" mb={1}>
+            {updatedDate}
+          </RichTypography>
         </Grid>
-      </StyledActionArea>
-    </Card>
+        <Grid item container direction="column" md={1} gap={1}>
+          <Grid container gap={1} alignItems="center" justifyContent="center">
+            <StarIcon
+              sx={{
+                width: "25px",
+                height: "25px",
+              }}
+            />
+            <RichTypography variant="p1SemiBold">{stargazers}</RichTypography>
+          </Grid>
+          <Chip label={visibility} variant="outlined" />
+        </Grid>
+      </Grid>
+    </Link>
   );
 });
 

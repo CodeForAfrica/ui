@@ -4,9 +4,6 @@ import { Grid, SvgIcon, Box, Container } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import OrganisationImageCard from "../OrganisationCard/OrganisationImageCard";
-import RepositoryCard from "../RepositoryCard";
-
 import DiscordIcon from "@/charterafrica/assets/icons/Property 1=icons8-discord 1.svg";
 import TelegramIcon from "@/charterafrica/assets/icons/Property 1=icons8-telegram 1.svg";
 import TikTokIcon from "@/charterafrica/assets/icons/Property 1=icons8-tiktok 1.svg";
@@ -19,6 +16,8 @@ import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=24, Color=Cu
 import SlackIcon from "@/charterafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import YouTubeIcon from "@/charterafrica/assets/icons/Type=youtube, Size=24, Color=Black.svg";
+import OrganisationImageCard from "@/charterafrica/components/OrganisationCard/OrganisationImageCard";
+import RepositoryCard from "@/charterafrica/components/RepositoryCard";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
 function getIcons({ socialMedia, email, github }) {
