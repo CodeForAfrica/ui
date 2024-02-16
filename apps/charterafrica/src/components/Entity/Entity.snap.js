@@ -6,13 +6,13 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1sdb2xz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10h56vb-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-s1wmk7-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-gqilsr-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1bxfcex-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
         >
           <figure
             class="MuiBox-root css-db5opy"
@@ -32,41 +32,41 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-6q6fhx-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-u4yv58-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-1leish6-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-1h8yx9o-MuiTypography-root"
           >
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-163fda8-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
           >
             Developer
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-163fda8-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
           >
             Charter Africa
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-163fda8-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
           >
             San Francisco, CA
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-ik26xw-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-x8x784-MuiTypography-root"
           >
             Full-stack web developer with over 5 years of experience.
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-f44kqc-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-3odm25-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rl8zr9-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-cp0dln-MuiTypography-root-MuiLink-root"
                 href="maito:johndoe@example.com"
               >
                 <div
