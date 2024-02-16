@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  charterafrica:
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile.charterafrica
+      args:
+        MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
+        PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
+        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+        SENTRY_ORG: ${SENTRY_ORG}
+        SENTRY_ENV: ${SENTRY_ENV}
+        SENTRY_PROJECT: ${SENTRY_PROJECT}
+    environment:
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      S3_BUCKET: ${S3_BUCKET}
+      S3_REGION: ${S3_REGION}
+      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
+      PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+      SENTRY_ORG: ${SENTRY_ORG}
+      SENTRY_ENV: ${SENTRY_ENV}
+      SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+
+  mongodb:
+    image: mongo:6.0.13
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}
+    ports:
+      - 27017:27017
+    volumes:
+      - db_data:/data/db
+      - ./mongo-keyfile:/etc/mongo-keyfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      # https://medium.com/workleap/the-only-local-mongodb-replica-set-with-docker-compose-guide-youll-ever-need-2f0b74dd8384
+      test: echo "try { rs.status() } catch (err) { rs.initiate({_id:'rs0',members:[{_id:0,host:'host.docker.internal:27017'}]}) }" | mongosh --port 27017 --quiet
+      interval: 5s
+      timeout: 30s
+      start_period: 0s
+      retries: 30
+    command:
+      ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
+
+volumes:
+  db_data:

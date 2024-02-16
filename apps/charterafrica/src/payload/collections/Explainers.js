@@ -49,9 +49,6 @@ const Explainers = {
       },
       localized: true,
       required: true,
-      admin: {
-        elements: [],
-      },
     }),
     {
       name: "image",

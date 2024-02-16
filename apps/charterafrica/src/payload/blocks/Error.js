@@ -46,9 +46,6 @@ const Error = {
       },
       localized: true,
       required: true,
-      admin: {
-        elements: [],
-      },
     }),
     linkGroup(),
   ],

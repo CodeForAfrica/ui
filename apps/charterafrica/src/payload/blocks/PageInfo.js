@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const PageInfo = {
@@ -22,10 +24,12 @@ const PageInfo = {
         fr: "La description",
         pt: "Descrição",
       },
-      admin: {
-        elements: [],
-        leaves: ["bold", "italic", "underline", "code"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold", "italic", "underline", "code"],
+        },
+      }),
       localized: true,
     }),
   ],

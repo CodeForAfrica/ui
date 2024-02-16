@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import link from "../fields/link";
 import richText from "../fields/richText";
 import {
@@ -37,10 +39,12 @@ const Hero = {
               },
               required: true,
               localized: true,
-              admin: {
-                elements: [],
-                leaves: ["bold", "italic", "underline"],
-              },
+              editor: slateEditor({
+                admin: {
+                  elements: [],
+                  leaves: ["bold", "italic", "underline"],
+                },
+              }),
             }),
             {
               name: "color",

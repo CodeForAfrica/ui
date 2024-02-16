@@ -1,4 +1,5 @@
 import { deepmerge } from "@mui/utils";
+import { slateEditor } from "@payloadcms/richtext-slate";
 
 import richText from "./richText";
 
@@ -52,10 +53,12 @@ function accordion({ richTextConfig, overrides = {} } = {}) {
             },
             required: true,
             localized: true,
-            admin: {
-              elements: ["h6", "link", "ol", "ul", "indent"],
-              leaves: ["bold", "italic", "underline", "code"],
-            },
+            editor: slateEditor({
+              admin: {
+                elements: ["h6", "link", "ol", "ul", "indent"],
+                leaves: ["bold", "italic", "underline", "code"],
+              },
+            }),
           },
           richTextConfig,
           { clone: false },

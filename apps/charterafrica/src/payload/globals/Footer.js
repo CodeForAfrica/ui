@@ -1,3 +1,4 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
 import { text, array } from "payload/dist/fields/validations";
 
 import linkArray from "../fields/linkArray";
@@ -55,10 +56,12 @@ const Footer = {
       },
       localized: true,
       required: true,
-      admin: {
-        elements: ["ol", "ul", "link"],
-        leaves: ["bold", "italic", "underline", "code"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: ["ol", "ul", "link"],
+          leaves: ["bold", "italic", "underline", "code"],
+        },
+      }),
     }),
     richText({
       name: "projectDescription",
@@ -70,10 +73,12 @@ const Footer = {
       type: "richText",
       localized: true,
       required: true,
-      admin: {
-        elements: ["ol", "ul", "link"],
-        leaves: ["bold", "italic", "underline", "code"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: ["ol", "ul", "link"],
+          leaves: ["bold", "italic", "underline", "code"],
+        },
+      }),
     }),
     {
       type: "group",
