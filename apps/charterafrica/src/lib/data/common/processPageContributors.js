@@ -97,6 +97,13 @@ async function processPagePerson(page, api, context) {
     };
     socialMedia.push(github);
   }
+  if (contributor.email) {
+    const email = {
+      link: `mailto:${contributor.email}`,
+      name: "email",
+    };
+    socialMedia.push(email);
+  }
 
   return {
     ...page,
@@ -110,15 +117,16 @@ async function processPagePerson(page, api, context) {
         currentOrganisation: contributor.currentOrganisation ?? null,
         location: contributor.location ?? null,
         description: contributor.description ?? null,
-        email: contributor.email ?? null,
         toolsTitle: block?.toolsTitle ?? null,
         lastActive: contributor.lastActive
           ? formatDateTime(contributor.lastActive, {})
           : null,
         tools,
         socialMedia,
-        repositories: contributor.repositories ?? null,
+        repositories: contributor.repositories ?? [],
         repositoriesTitle: block?.repositoriesTitle ?? null,
+        organisations: contributor.organisations ?? [],
+        organisationsTitle: block?.organisationsTitle ?? null,
       },
     ],
   };
