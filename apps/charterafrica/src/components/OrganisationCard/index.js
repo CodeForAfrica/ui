@@ -1,5 +1,5 @@
 import OrganisationCard from "./OrganisationCard";
-import OrganisationImageCard from "./OrganisationImageCard";
+import OrganisationImageLink from "./OrganisationImageLink";
 
 export default OrganisationCard;
-export { OrganisationImageCard };
+export { OrganisationImageLink };

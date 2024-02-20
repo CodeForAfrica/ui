@@ -16,7 +16,7 @@ import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=24, Color=Cu
 import SlackIcon from "@/charterafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
 import YouTubeIcon from "@/charterafrica/assets/icons/Type=youtube, Size=24, Color=Black.svg";
-import OrganisationImageCard from "@/charterafrica/components/OrganisationCard/OrganisationImageCard";
+import { OrganisationImageLink } from "@/charterafrica/components/OrganisationCard";
 import RepositoryCard from "@/charterafrica/components/RepositoryCard";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
@@ -196,7 +196,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
                 </RichTypography>
                 <Grid sx={{}} container gap={2.5}>
                   {organisations.map((org) => (
-                    <OrganisationImageCard {...org} key={org.name} />
+                    <OrganisationImageLink {...org} key={org.name} />
                   ))}
                 </Grid>
               </>

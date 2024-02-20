@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OrganisationImageCard from "./OrganisationImageCard";
+import OrganisationImageLink from "./OrganisationImageLink";
 
 import theme from "@/charterafrica/theme";
 
@@ -18,7 +18,7 @@ const defaultProps = {
 
 describe("<OrganisationImageCard />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OrganisationImageCard {...defaultProps} />);
+    const { container } = render(<OrganisationImageLink {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

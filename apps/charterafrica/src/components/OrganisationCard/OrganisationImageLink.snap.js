@@ -9,7 +9,7 @@ exports[`<OrganisationImageCard /> renders unchanged 1`] = `
     target="_blank"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-z0k8mw-MuiGrid-root"
+      class="MuiStack-root css-1l9qugs-MuiStack-root"
     >
       <figure
         class="MuiBox-root css-1u82k0c"

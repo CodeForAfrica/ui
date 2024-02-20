@@ -1,16 +1,16 @@
 import { RichTypography } from "@commons-ui/core";
 import { Link, Figure } from "@commons-ui/next";
-import { Grid } from "@mui/material";
+import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const OrganisationImageCard = React.forwardRef(
-  function OrganisationImageCard(props, ref) {
+const OrganisationImageLink = React.forwardRef(
+  function OrganisationImageLink(props, ref) {
     const { avatarUrl: image, link, name } = props;
 
     return (
       <Link href={link.href} ref={ref} underline="none">
-        <Grid gap={1.2} container direction="column">
+        <Stack spacing={1.2}>
           <Figure
             sx={{
               height: "46px",
@@ -33,20 +33,20 @@ const OrganisationImageCard = React.forwardRef(
           >
             {name}
           </RichTypography>
-        </Grid>
+        </Stack>
       </Link>
     );
   },
 );
 
-OrganisationImageCard.propTypes = {
+OrganisationImageLink.propTypes = {
   name: PropTypes.string,
   avatarUrl: PropTypes.string,
 };
 
-OrganisationImageCard.defaultProps = {
+OrganisationImageLink.defaultProps = {
   name: undefined,
   avatarUrl: undefined,
 };
 
-export default OrganisationImageCard;
+export default OrganisationImageLink;

@@ -66,6 +66,38 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-zo8y90-MuiTypography-root-MuiLink-root"
+                href="https://twitter.com/johndoe"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                  focusable="false"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-zo8y90-MuiTypography-root-MuiLink-root"
+                href="https://github.com/johndoe"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                  focusable="false"
+                />
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
+            >
+              <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-cp0dln-MuiTypography-root-MuiLink-root"
                 href="maito:johndoe@example.com"
               >
@@ -92,7 +124,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               target="_blank"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-z0k8mw-MuiGrid-root"
+                class="MuiStack-root css-1l9qugs-MuiStack-root"
               >
                 <figure
                   class="MuiBox-root css-1u82k0c"
@@ -123,7 +155,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               target="_blank"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-z0k8mw-MuiGrid-root"
+                class="MuiStack-root css-1l9qugs-MuiStack-root"
               >
                 <figure
                   class="MuiBox-root css-1u82k0c"
@@ -154,7 +186,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               target="_blank"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column css-z0k8mw-MuiGrid-root"
+                class="MuiStack-root css-1l9qugs-MuiStack-root"
               >
                 <figure
                   class="MuiBox-root css-1u82k0c"

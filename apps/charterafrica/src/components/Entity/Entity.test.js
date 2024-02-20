@@ -12,7 +12,7 @@ const defaultProps = {
   name: "John Doe",
   location: "San Francisco, CA",
   description: "Full-stack web developer with over 5 years of experience.",
-  socilaMedia: [
+  socialMedia: [
     {
       name: "twitter",
       link: "https://twitter.com/johndoe",
