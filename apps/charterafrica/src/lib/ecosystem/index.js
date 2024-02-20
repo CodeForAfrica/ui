@@ -35,7 +35,6 @@ export async function updateList() {
       level: "info",
     });
     const data = await airtable.data(config);
-    // console.log()
     await prepareContributors(data, config);
     await prepareTools(data, config);
     await prepareOrganisations(data, config);

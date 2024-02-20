@@ -138,22 +138,26 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             >
               {name}
             </RichTypography>
-            <RichTypography
-              textAlign="left"
-              color="neutral.dark"
-              sx={{ width: "100%" }}
-              variant="p4"
-            >
-              {role}
-            </RichTypography>
-            <RichTypography
-              textAlign="left"
-              color="neutral.dark"
-              sx={{ width: "100%" }}
-              variant="p4"
-            >
-              {currentOrganisation}
-            </RichTypography>
+            {role ? (
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ width: "100%" }}
+                variant="p4"
+              >
+                {role}
+              </RichTypography>
+            ) : null}
+            {currentOrganisation ? (
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ width: "100%" }}
+                variant="p4"
+              >
+                {currentOrganisation}
+              </RichTypography>
+            ) : null}
             <RichTypography
               textAlign="left"
               color="neutral.dark"
