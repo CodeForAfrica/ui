@@ -1,8 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 
-import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
+import github from "./github";
 
-const BASE_URL = "https://api.github.com";
 const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String!) {
     repository(owner: $repositoryOwner, name: $repositoryName) {
       name
@@ -80,54 +79,6 @@ const GET_USER = `query($username: String!) {
   }
 }`;
 
-async function fetchGithubGraphqlApi(query, variables) {
-  const url = `${BASE_URL}/graphql`;
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-  };
-  const data = {
-    variables,
-    query,
-  };
-  const res = await fetchJson.post(url, { data, headers });
-  if (res?.data) {
-    return res.data;
-  }
-  const message = `Unable to fetch from github errors ${JSON.stringify(
-    res.errors,
-  )}`;
-  Sentry.captureException(message);
-  throw new FetchError(message, res.errors, 500);
-}
-
-async function fetchGithubApi(path, tag) {
-  const url = `${BASE_URL}/${path}`;
-  const headers = {
-    "If-None-Match": tag,
-    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-  };
-  try {
-    const res = await fetch(url, { headers });
-    if (res.ok) {
-      const response = await res.json();
-      const eTag = res.headers.get("ETag");
-      return { ...response, eTag };
-    }
-    if (res.status !== 304) {
-      const response = await res.json();
-      const message = `Error fetching "${url}" from github errors ${JSON.stringify(
-        response,
-      )}`;
-      throw new FetchError(message, res, 500);
-    }
-    return null;
-  } catch (e) {
-    Sentry.captureException(e);
-    return null;
-  }
-}
-
 export async function fetchTool({ externalId }) {
   let [repositoryOwner, repositoryName] = externalId
     .replace(/^https?:\/\/github\.com\//, "")
@@ -141,7 +92,7 @@ export async function fetchTool({ externalId }) {
     return null;
   }
 
-  const data = await fetchGithubGraphqlApi(GET_REPOSITORY, {
+  const data = await github.graphQuery(GET_REPOSITORY, {
     repositoryOwner,
     repositoryName,
   });
@@ -170,7 +121,7 @@ export async function fetchTool({ externalId }) {
 }
 
 export async function fetchOrganisation({ externalId, eTag }) {
-  const data = await fetchGithubApi(`orgs/${externalId}`, eTag);
+  const data = await github.restQuery(`orgs/${externalId}`, eTag);
   if (!data) {
     return null;
   }
@@ -186,7 +137,7 @@ export async function fetchOrganisation({ externalId, eTag }) {
 }
 
 export async function fetchContributor({ externalId }) {
-  const data = await fetchGithubGraphqlApi(GET_USER, {
+  const data = await github.graphQuery(GET_USER, {
     username: externalId,
   });
   const {
