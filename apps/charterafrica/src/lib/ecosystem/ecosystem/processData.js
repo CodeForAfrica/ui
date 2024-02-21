@@ -66,7 +66,9 @@ export async function prepareTools(airtableData, config) {
 }
 
 export async function updateContributor(forceUpdate) {
-  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION);
+  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
+    pagination: false,
+  });
   const updatePromises = docs.map(async (item) => {
     const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
     const updated = await github.fetchContributor(itemToFetch);
@@ -76,7 +78,9 @@ export async function updateContributor(forceUpdate) {
 }
 
 export async function updateOrganisation(forceUpdate) {
-  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION);
+  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
+    pagination: false,
+  });
   const updatePromises = docs.map(async (item) => {
     const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
     const updated = await github.fetchOrganisation(itemToFetch);
@@ -86,7 +90,9 @@ export async function updateOrganisation(forceUpdate) {
 }
 
 export async function updateTool(forceUpdate) {
-  const { docs } = await api.getCollection(TOOL_COLLECTION);
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    pagination: false,
+  });
   const updatePromises = docs.map(async (item) => {
     const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
     const updated = await github.fetchTool(itemToFetch);
