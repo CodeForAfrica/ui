@@ -138,16 +138,14 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             >
               {name}
             </RichTypography>
-            {role ? (
-              <RichTypography
-                textAlign="left"
-                color="neutral.dark"
-                sx={{ width: "100%" }}
-                variant="p4"
-              >
-                {role}
-              </RichTypography>
-            ) : null}
+            <RichTypography
+              textAlign="left"
+              color="neutral.dark"
+              sx={{ width: "100%" }}
+              variant="p4"
+            >
+              {role}
+            </RichTypography>
             {currentOrganisation ? (
               <RichTypography
                 textAlign="left"
@@ -198,9 +196,11 @@ const Entity = React.forwardRef(function Entity(props, ref) {
                 >
                   {organisationsTitle}
                 </RichTypography>
-                <Grid sx={{}} container gap={2.5}>
+                <Grid container gap={2.5}>
                   {organisations.map((org) => (
-                    <OrganisationImageLink {...org} key={org.name} />
+                    <Grid item key={org.name}>
+                      <OrganisationImageLink {...org} />
+                    </Grid>
                   ))}
                 </Grid>
               </>
@@ -226,7 +226,9 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             </RichTypography>
             <Grid sx={{ mt: 5 }} container gap={2.5}>
               {repositories.map((repo) => (
-                <RepositoryCard {...repo} key={repo.url} />
+                <Grid xs={12} key={repo.url} item>
+                  <RepositoryCard {...repo} />
+                </Grid>
               ))}
             </Grid>
           </Container>

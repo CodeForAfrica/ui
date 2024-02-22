@@ -125,16 +125,16 @@ function Dataset({
             <Button
               variant="contained"
               color="primary"
-              size="medium"
+              size="large"
               startIcon={<ExternalLinkIcon />}
               href={url}
               target="_blank"
               sx={{
-                width: {
-                  xs: "100%",
-                  sm: "200px",
-                },
-                height: "50px",
+                // width: {
+                //   xs: "100%",
+                //   sm: "200px",
+                // },
+                // height: "50px",
                 mt: 4,
               }}
             >

@@ -1,6 +1,6 @@
 import { RichTypography } from "@commons-ui/core";
 import { Link, Figure } from "@commons-ui/next";
-import { Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,7 +9,13 @@ const OrganisationImageLink = React.forwardRef(
     const { avatarUrl: image, link, name } = props;
 
     return (
-      <Link href={link.href} ref={ref} underline="none">
+      <Button
+        component={link.href ? Link : undefined}
+        href={link.href}
+        ref={ref}
+        underline="none"
+        sx={{ padding: 0 }}
+      >
         <Stack spacing={1.2}>
           <Figure
             sx={{
@@ -34,7 +40,7 @@ const OrganisationImageLink = React.forwardRef(
             {name}
           </RichTypography>
         </Stack>
-      </Link>
+      </Button>
     );
   },
 );
