@@ -65,13 +65,15 @@ export async function prepareTools(airtableData, config) {
   return Promise.allSettled(toProcess);
 }
 
-export async function updateContributor(forceUpdate) {
+export async function updateContributor() {
   const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
     pagination: false,
   });
+  const githubContributors = await github.bulkFetchContributors(
+    docs.map(({ externalId }) => externalId),
+  );
   const updatePromises = docs.map(async (item) => {
-    const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
-    const updated = await github.fetchContributor(itemToFetch);
+    const updated = githubContributors[item.externalId];
     return api.updateCollection(CONTRIBUTORS_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);

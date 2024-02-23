@@ -46,37 +46,40 @@ const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String
     }
   }`;
 
-const GET_USER = `query($username: String!) {
-  user(login: $username) {
-    name
-    avatarUrl
-    url
-    email
-    location
-    login
-    websiteUrl
-    repositories(first: 3, orderBy: {field: STARGAZERS, direction: DESC}) {
-      edges {
-        node {
-          name
-          description
-          stargazers {
-            totalCount
-          }
-          visibility
-          url
-          updatedAt
-          languages(first:5) {
-          edges  {
-              node {
-                name
-              }
+function createUserQuery(username) {
+  return `user(login: $${username}) {
+  name
+  avatarUrl
+  url
+  email
+  location
+  login
+  websiteUrl
+  repositories(first: 3, orderBy: {field: STARGAZERS, direction: DESC}) {
+    edges {
+      node {
+        name
+        description
+        stargazers {
+          totalCount
+        }
+        visibility
+        url
+        updatedAt
+        languages(first:5) {
+        edges  {
+            node {
+              name
             }
           }
         }
       }
     }
   }
+}`;
+}
+const GET_USER = `query($username: String!) {
+  ${createUserQuery("username")}
 }`;
 
 export async function fetchTool({ externalId }) {
@@ -136,13 +139,12 @@ export async function fetchOrganisation({ externalId, eTag }) {
   };
 }
 
-export async function fetchContributor({ externalId }) {
-  const data = await github.graphQuery(GET_USER, {
-    username: externalId,
-  });
-  const {
-    user: { name, avatarUrl, url, email, location, websiteUrl, repositories },
-  } = data;
+function processGithubContributor(data) {
+  if (!data) {
+    return null;
+  }
+  const { name, avatarUrl, url, email, location, websiteUrl, repositories } =
+    data;
 
   const repos = repositories?.edges?.map((edge) => {
     const {
@@ -179,4 +181,42 @@ export async function fetchContributor({ externalId }) {
     email,
     repositories: repos,
   };
+}
+export async function fetchContributor({ externalId }) {
+  const data = await github.graphQuery(GET_USER, {
+    username: externalId,
+  });
+  return processGithubContributor(data.user);
+}
+
+function chunkArray(array, chunkSize) {
+  return Array.from(
+    { length: Math.ceil(array.length / chunkSize) },
+    (_, index) => array.slice(index * chunkSize, (index + 1) * chunkSize),
+  );
+}
+
+export async function bulkFetchContributors(externalIds) {
+  const contributors = {};
+  const chunkedArrays = chunkArray(externalIds, 80);
+  const promises = chunkedArrays.map(async (arr) => {
+    const variables = arr.reduce((acc, currentValue) => {
+      acc[currentValue?.replaceAll("-", "_")] = currentValue;
+      return acc;
+    }, {});
+    const sanitizedIds = Object.keys(variables);
+    let query = `query($${sanitizedIds.join(" : String!, $")} : String!){`;
+    sanitizedIds.forEach((id) => {
+      query += `\n${id}: ${createUserQuery(id)}`;
+    });
+    query += "\n}";
+    const data = await github.graphQuery(query, variables);
+    Object.keys(data || {}).forEach((externalId) => {
+      contributors[variables[externalId]] = processGithubContributor(
+        data[externalId],
+      );
+    });
+  });
+  await Promise.allSettled(promises);
+  return contributors;
 }
