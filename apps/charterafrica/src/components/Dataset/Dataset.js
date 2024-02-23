@@ -130,11 +130,6 @@ function Dataset({
               href={url}
               target="_blank"
               sx={{
-                // width: {
-                //   xs: "100%",
-                //   sm: "200px",
-                // },
-                // height: "50px",
                 mt: 4,
               }}
             >

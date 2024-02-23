@@ -46,7 +46,7 @@ const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String
     }
   }`;
 
-function createUserQuery(username) {
+function fetchUserQuery(username) {
   return `user(login: $${username}) {
   name
   avatarUrl
@@ -78,9 +78,6 @@ function createUserQuery(username) {
   }
 }`;
 }
-const GET_USER = `query($username: String!) {
-  ${createUserQuery("username")}
-}`;
 
 export async function fetchTool({ externalId }) {
   let [repositoryOwner, repositoryName] = externalId
@@ -182,12 +179,6 @@ function processGithubContributor(data) {
     repositories: repos,
   };
 }
-export async function fetchContributor({ externalId }) {
-  const data = await github.graphQuery(GET_USER, {
-    username: externalId,
-  });
-  return processGithubContributor(data.user);
-}
 
 function chunkArray(array, chunkSize) {
   return Array.from(
@@ -196,26 +187,45 @@ function chunkArray(array, chunkSize) {
   );
 }
 
+function constructGraphQLQuery(ids) {
+  const queryParts = ids.map((id) => {
+    const queryPart = fetchUserQuery(id);
+    return `${id}: ${queryPart}`;
+  });
+  return `query(${ids
+    .map((id) => `$${id}: String!`)
+    .join(", ")}){\n${queryParts.join("\n")}\n}`;
+}
+
+async function fetchContributorsData(users) {
+  const variables = users.reduce((acc, id) => {
+    const sanitizedId = id.replaceAll("-", "_");
+    acc[sanitizedId] = id;
+    return acc;
+  }, {});
+
+  const query = constructGraphQLQuery(Object.keys(variables));
+  const data = await github.graphQuery(query, variables);
+
+  return Object.keys(data || {}).reduce((acc, key) => {
+    acc[variables[key]] = processGithubContributor(data[key]);
+    return acc;
+  }, {});
+}
+
+const USER_QUERY_LIMIT = 80;
+
 export async function bulkFetchContributors(externalIds) {
   const contributors = {};
-  const chunkedArrays = chunkArray(externalIds, 80);
+  const chunkedArrays = chunkArray(externalIds, USER_QUERY_LIMIT);
+
   const promises = chunkedArrays.map(async (arr) => {
-    const variables = arr.reduce((acc, currentValue) => {
-      acc[currentValue?.replaceAll("-", "_")] = currentValue;
-      return acc;
-    }, {});
-    const sanitizedIds = Object.keys(variables);
-    let query = `query($${sanitizedIds.join(" : String!, $")} : String!){`;
-    sanitizedIds.forEach((id) => {
-      query += `\n${id}: ${createUserQuery(id)}`;
-    });
-    query += "\n}";
-    const data = await github.graphQuery(query, variables);
-    Object.keys(data || {}).forEach((externalId) => {
-      contributors[variables[externalId]] = processGithubContributor(
-        data[externalId],
-      );
-    });
+    try {
+      const data = await fetchContributorsData(arr);
+      Object.assign(contributors, data);
+    } catch (error) {
+      Sentry.captureMessage(error.message);
+    }
   });
   await Promise.allSettled(promises);
   return contributors;
