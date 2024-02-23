@@ -67,6 +67,7 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
       <SvgIcon
         inheritViewBox
         component={icons[variant]}
+        viewBox="0 0 24 24"
         sx={{
           color: "text.primary",
           display: "inline-flex",
