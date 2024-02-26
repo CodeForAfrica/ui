@@ -56,6 +56,7 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
     instagram: InstagramIcon,
     youtube: YouTubeIcon,
   };
+  const largeIconSizes = ["discord", "telegram", "whatsapp"];
   return href && icons[variant] ? (
     <Link
       ref={ref}
@@ -67,7 +68,7 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
       <SvgIcon
         inheritViewBox
         component={icons[variant]}
-        viewBox="0 0 24 24"
+        viewBox={largeIconSizes.includes(variant) ? "0 0 25 25" : "0 0 24 24"}
         sx={{
           color: "text.primary",
           display: "inline-flex",
