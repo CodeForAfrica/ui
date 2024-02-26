@@ -17,7 +17,7 @@ import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Col
 import WhatsAppIcon from "@/charterafrica/assets/icons/Type=whatsapp, Size=25, Color=Black.svg";
 import YouTubeIcon from "@/charterafrica/assets/icons/Type=youtube, Size=24, Color=Black.svg";
 import { OrganisationImageLink } from "@/charterafrica/components/OrganisationCard";
-import RepositoryCard from "@/charterafrica/components/RepositoryCard";
+import Repository from "@/charterafrica/components/Repository";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
 function getIcons({ socialMedia, email, github }) {
@@ -228,7 +228,7 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             <Grid sx={{ mt: 5 }} container gap={2.5}>
               {repositories.map((repo) => (
                 <Grid xs={12} key={repo.url} item>
-                  <RepositoryCard {...repo} />
+                  <Repository {...repo} />
                 </Grid>
               ))}
             </Grid>

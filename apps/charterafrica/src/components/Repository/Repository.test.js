@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import RepositoryCard from "./RepositoryCard";
+import Repository from "./Repository";
 
 import theme from "@/charterafrica/theme";
 
@@ -19,9 +19,9 @@ const defaultProps = {
   techSkills: "React, Next.js, TypeScript",
 };
 
-describe("<RepositoryCard />", () => {
+describe("<Repository />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<RepositoryCard {...defaultProps} />);
+    const { container } = render(<Repository {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

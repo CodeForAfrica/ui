@@ -7,7 +7,7 @@ import StarIcon from "@/charterafrica/assets/icons/Type=Star, Size=24, Color=Cur
 import { neutral } from "@/charterafrica/colors";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
-const RepositoryCard = React.forwardRef(function Tools(props, ref) {
+const Repository = React.forwardRef(function Tools(props, ref) {
   const {
     name,
     stargazers,
@@ -69,4 +69,4 @@ const RepositoryCard = React.forwardRef(function Tools(props, ref) {
   );
 });
 
-export default RepositoryCard;
+export default Repository;
