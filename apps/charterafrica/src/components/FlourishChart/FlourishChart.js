@@ -9,14 +9,9 @@ const FlourishChart = React.forwardRef(function FlourishChart(props, ref) {
 
   useEffect(() => {
     const handleMessageEvent = (event) => {
-      try {
-        const { sender, context, ...message } = JSON.parse(event.data) || {};
-        if (sender === "Flourish" && context === "iframe.resize") {
-          return setHeight(Math.ceil(message.height));
-        }
-        return null;
-      } catch (error) {
-        return null;
+      const { sender, context, ...message } = JSON.parse(event.data) || {};
+      if (sender === "Flourish" && context === "iframe.resize") {
+        setHeight(Math.ceil(message.height));
       }
     };
     window.addEventListener("message", handleMessageEvent);
