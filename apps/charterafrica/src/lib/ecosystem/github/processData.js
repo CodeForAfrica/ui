@@ -1,8 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 
-import fetchJson, { FetchError } from "@/charterafrica/utils/fetchJson";
+import github from "./github";
 
-const BASE_URL = "https://api.github.com";
 const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String!) {
     repository(owner: $repositoryOwner, name: $repositoryName) {
       name
@@ -47,52 +46,37 @@ const GET_REPOSITORY = `query($repositoryOwner: String!, $repositoryName: String
     }
   }`;
 
-async function fetchRepository(variables) {
-  const url = `${BASE_URL}/graphql`;
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-  };
-  const data = {
-    variables,
-    query: GET_REPOSITORY,
-  };
-  const res = await fetchJson.post(url, { data, headers });
-  if (res?.data?.repository) {
-    return res.data.repository;
-  }
-  const message = `Unable to fetch ${variables.repositoryOwner}/${
-    variables.repositoryName
-  } from github errors ${JSON.stringify(res.errors)}`;
-  Sentry.captureException(message);
-  throw new FetchError(message, res.errors, 500);
-}
-
-async function fetchGithubApi(path, tag) {
-  const url = `${BASE_URL}/${path}`;
-  const headers = {
-    "If-None-Match": tag,
-    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-  };
-  try {
-    const res = await fetch(url, { headers });
-    if (res.ok) {
-      const response = await res.json();
-      const eTag = res.headers.get("ETag");
-      return { ...response, eTag };
+function fetchUserQuery(username) {
+  return `user(login: $${username}) {
+  name
+  avatarUrl
+  url
+  email
+  location
+  login
+  websiteUrl
+  repositories(first: 3, orderBy: {field: STARGAZERS, direction: DESC}) {
+    edges {
+      node {
+        name
+        description
+        stargazers {
+          totalCount
+        }
+        visibility
+        url
+        updatedAt
+        languages(first:5) {
+        edges  {
+            node {
+              name
+            }
+          }
+        }
+      }
     }
-    if (res.status !== 304) {
-      const response = await res.json();
-      const message = `Error fetching "${url}" from github errors ${JSON.stringify(
-        response,
-      )}`;
-      throw new FetchError(message, res, 500);
-    }
-    return null;
-  } catch (e) {
-    Sentry.captureException(e);
-    return null;
   }
+}`;
 }
 
 export async function fetchTool({ externalId }) {
@@ -108,34 +92,36 @@ export async function fetchTool({ externalId }) {
     return null;
   }
 
-  const data = await fetchRepository({
+  const data = await github.graphQuery(GET_REPOSITORY, {
     repositoryOwner,
     repositoryName,
   });
-  const techSkills = data.languages?.nodes?.map((language) => ({
+  const { repository } = data;
+
+  const techSkills = repository.languages?.nodes?.map((language) => ({
     language: language?.name,
   }));
-  const commit = data?.defaultBranchRef?.target.history.edges?.[0]?.node;
+  const commit = repository?.defaultBranchRef?.target.history.edges?.[0]?.node;
   return {
     externalId,
-    repoLink: data.url,
-    link: data.homepageUrl,
+    repoLink: repository.url,
+    link: repository.homepageUrl,
     techSkills,
     lastCommit: {
       author: commit?.author?.name,
       committedDate: commit?.committedDate,
       message: commit?.message,
     },
-    stars: data?.stargazers?.totalCount,
-    views: data?.watchers?.totalCount,
-    forks: data?.forks?.totalCount,
+    stars: repository?.stargazers?.totalCount,
+    views: repository?.watchers?.totalCount,
+    forks: repository?.forks?.totalCount,
     source: "github",
-    sourceUpdatedAt: new Date(data.updatedAt),
+    sourceUpdatedAt: new Date(repository.updatedAt),
   };
 }
 
 export async function fetchOrganisation({ externalId, eTag }) {
-  const data = await fetchGithubApi(`orgs/${externalId}`, eTag);
+  const data = await github.restQuery(`orgs/${externalId}`, eTag);
   if (!data) {
     return null;
   }
@@ -150,19 +136,97 @@ export async function fetchOrganisation({ externalId, eTag }) {
   };
 }
 
-export async function fetchContributor({ externalId, eTag }) {
-  const data = await fetchGithubApi(`users/${externalId}`, eTag);
+function processGithubContributor(data) {
   if (!data) {
     return null;
   }
+  const { name, avatarUrl, url, email, location, websiteUrl, repositories } =
+    data;
+
+  const repos = repositories?.edges?.map((edge) => {
+    const {
+      name: repoName,
+      description,
+      stargazers,
+      visibility,
+      url: repoURL,
+      updatedAt,
+      languages,
+    } = edge?.node ?? {};
+
+    const techSkills = languages?.edges
+      ?.map((language) => language?.node?.name)
+      .join(", ");
+
+    return {
+      name: repoName,
+      description,
+      stargazers: stargazers?.totalCount,
+      visibility,
+      url: repoURL,
+      updatedAt,
+      techSkills,
+    };
+  });
 
   return {
-    fullName: data.name,
-    avatarUrl: data.avatar_url,
-    repoLink: data.html_url,
-    location: data.location,
-    website: data.blog,
-    email: data.email,
-    eTag: data.eTag,
+    fullName: name,
+    avatarUrl,
+    repoLink: url,
+    location,
+    website: websiteUrl,
+    email,
+    repositories: repos,
   };
+}
+
+function chunkArray(array, chunkSize) {
+  return Array.from(
+    { length: Math.ceil(array.length / chunkSize) },
+    (_, index) => array.slice(index * chunkSize, (index + 1) * chunkSize),
+  );
+}
+
+function constructGraphQLQuery(ids) {
+  const queryParts = ids.map((id) => {
+    const queryPart = fetchUserQuery(id);
+    return `${id}: ${queryPart}`;
+  });
+  return `query(${ids
+    .map((id) => `$${id}: String!`)
+    .join(", ")}){\n${queryParts.join("\n")}\n}`;
+}
+
+async function fetchContributorsData(users) {
+  const variables = users.reduce((acc, id) => {
+    const sanitizedId = id.replaceAll("-", "_");
+    acc[sanitizedId] = id;
+    return acc;
+  }, {});
+
+  const query = constructGraphQLQuery(Object.keys(variables));
+  const data = await github.graphQuery(query, variables);
+
+  return Object.keys(data || {}).reduce((acc, key) => {
+    acc[variables[key]] = processGithubContributor(data[key]);
+    return acc;
+  }, {});
+}
+
+const USER_QUERY_LIMIT = 80;
+
+export async function bulkFetchContributors(externalIds) {
+  const contributors = {};
+  const chunkedArrays = chunkArray(externalIds, USER_QUERY_LIMIT);
+
+  const promises = chunkedArrays.map(async (arr) => {
+    try {
+      const data = await fetchContributorsData(arr);
+      Object.assign(contributors, data);
+    } catch (error) {
+      Sentry.captureMessage(error.message);
+    }
+  });
+  await Promise.allSettled(promises);
+  return contributors;
 }

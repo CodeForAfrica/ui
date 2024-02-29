@@ -1,16 +1,23 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
-import { Grid, SvgIcon, Box } from "@mui/material";
+import { Grid, SvgIcon, Box, Container } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import DiscordIcon from "@/charterafrica/assets/icons/Type=discord, Size=25, Color=Black.svg";
 import FacebookIcon from "@/charterafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
 import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import InstagramIcon from "@/charterafrica/assets/icons/Type=instagram, Size=24, Color=Black.svg";
 import LinkedInIcon from "@/charterafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
 import EmailIcon from "@/charterafrica/assets/icons/Type=mail, Size=24, Color=CurrentColor.svg";
 import SlackIcon from "@/charterafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
-import TelegramIcon from "@/charterafrica/assets/icons/Type=telegram, Size=24, Color=CurrentColor.svg";
+import TelegramIcon from "@/charterafrica/assets/icons/Type=telegram, Size=25, Color=Black.svg";
+import TikTokIcon from "@/charterafrica/assets/icons/Type=tiktok, Size=25, Color=Black.svg";
 import TwitterIcon from "@/charterafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
+import WhatsAppIcon from "@/charterafrica/assets/icons/Type=whatsapp, Size=25, Color=Black.svg";
+import YouTubeIcon from "@/charterafrica/assets/icons/Type=youtube, Size=24, Color=Black.svg";
+import { OrganisationImageLink } from "@/charterafrica/components/OrganisationCard";
+import Repository from "@/charterafrica/components/Repository";
 import ToolCard from "@/charterafrica/components/ToolCard";
 
 function getIcons({ socialMedia, email, github }) {
@@ -43,12 +50,25 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
     slack: SlackIcon,
     linkedin: LinkedInIcon,
     telegram: TelegramIcon,
+    discord: DiscordIcon,
+    tiktok: TikTokIcon,
+    whatsapp: WhatsAppIcon,
+    instagram: InstagramIcon,
+    youtube: YouTubeIcon,
   };
+  const largeIconSizes = ["discord", "telegram", "whatsapp"];
   return href && icons[variant] ? (
-    <Link ref={ref} href={href}>
+    <Link
+      ref={ref}
+      href={href}
+      sx={{
+        padding: 0,
+      }}
+    >
       <SvgIcon
         inheritViewBox
         component={icons[variant]}
+        viewBox={largeIconSizes.includes(variant) ? "0 0 25 25" : "0 0 24 24"}
         sx={{
           color: "text.primary",
           display: "inline-flex",
@@ -62,13 +82,31 @@ const SocialMediaLink = React.forwardRef(function SocialMediaLink(props, ref) {
 });
 
 const Entity = React.forwardRef(function Entity(props, ref) {
-  const { name, location, description, image, tools, toolsTitle } = props;
+  const {
+    name,
+    location,
+    description,
+    image,
+    tools,
+    toolsTitle,
+    role,
+    currentOrganisation,
+    repositories = [],
+    repositoriesTitle,
+    organisations = [],
+    organisationsTitle,
+  } = props;
   const icons = getIcons(props);
   return (
     <Box ref={ref} bgcolor="common.white">
-      <Section sx={{ py: { xs: 3.75 } }}>
-        <Grid container columnSpacing={{ sm: 6.25 }} sx={{ p: 5 }}>
-          <Grid item xs={12} sm={4} sx={{ p: 2 }}>
+      <Section
+        sx={{
+          py: { xs: 3.75 },
+          px: { xs: 2 },
+        }}
+      >
+        <Grid container columnSpacing={{ md: 6.25 }}>
+          <Grid item xs={12} md={4}>
             <Figure
               ImageProps={{
                 src: image,
@@ -90,30 +128,48 @@ const Entity = React.forwardRef(function Entity(props, ref) {
             alignItems="flex-start"
             justifyContent="center"
             item
-            sx={{ p: 2 }}
             xs={12}
-            sm={8}
+            md={8}
+            gap={2.5}
           >
             <RichTypography
-              textAlign={{ xs: "center", sm: "left" }}
+              textAlign="left"
               color="neutral.dark"
-              variant="h2SemiBold"
+              variant="h2"
               sx={{ width: "100%" }}
             >
               {name}
             </RichTypography>
             <RichTypography
-              textAlign={{ xs: "center", sm: "left" }}
+              textAlign="left"
               color="neutral.dark"
-              sx={{ mt: 2.5, width: "100%" }}
-              variant="h4Small"
+              sx={{ width: "100%" }}
+              variant="p4"
+            >
+              {role}
+            </RichTypography>
+            {currentOrganisation ? (
+              <RichTypography
+                textAlign="left"
+                color="neutral.dark"
+                sx={{ width: "100%" }}
+                variant="p4"
+              >
+                {currentOrganisation}
+              </RichTypography>
+            ) : null}
+            <RichTypography
+              textAlign="left"
+              color="neutral.dark"
+              sx={{ width: "100%" }}
+              variant="p4"
             >
               {location}
             </RichTypography>
             <RichTypography
-              textAlign={{ xs: "center", sm: "left" }}
-              color="neutral.dark"
-              sx={{ mt: 2.5, width: "100%" }}
+              textAlign="left"
+              color="text.primary"
+              sx={{ width: "100%" }}
               variant="p1"
             >
               {description}
@@ -122,18 +178,63 @@ const Entity = React.forwardRef(function Entity(props, ref) {
               item
               xs="auto"
               container
-              sx={{ mt: 3, width: "100%" }}
-              justifyContent={{ xs: "center", sm: "flex-start" }}
+              sx={{ width: "100%" }}
+              justifyContent="left"
               columnSpacing={2}
             >
               {icons.map((icon) => (
-                <Grid key={icon.variant} item>
+                <Grid key={icon.variant} item gap={2.5}>
                   <SocialMediaLink {...icon} />
                 </Grid>
               ))}
             </Grid>
+            {organisations.length ? (
+              <>
+                <RichTypography
+                  sx={{ mt: 2 }}
+                  color="neutral.dark"
+                  variant="h3Small"
+                  textAlign="left"
+                >
+                  {organisationsTitle}
+                </RichTypography>
+                <Grid container gap={2.5}>
+                  {organisations.map((org) => (
+                    <Grid item key={org.name}>
+                      <OrganisationImageLink {...org} />
+                    </Grid>
+                  ))}
+                </Grid>
+              </>
+            ) : null}
           </Grid>
         </Grid>
+        {repositories.length ? (
+          <Container
+            sx={{
+              display: {
+                xs: "none",
+                md: "block",
+              },
+            }}
+          >
+            <RichTypography
+              sx={{ mt: 6.25 }}
+              color="neutral.dark"
+              variant="h3Small"
+              textAlign="left"
+            >
+              {repositoriesTitle}
+            </RichTypography>
+            <Grid sx={{ mt: 5 }} container gap={2.5}>
+              {repositories.map((repo) => (
+                <Grid xs={12} key={repo.url} item>
+                  <Repository {...repo} />
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        ) : null}
         {tools.length ? (
           <>
             <RichTypography

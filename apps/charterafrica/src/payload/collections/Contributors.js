@@ -2,7 +2,10 @@ import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
 import source from "../fields/source";
-import { CONTRIBUTORS_COLLECTION } from "../utils/collections";
+import {
+  CONTRIBUTORS_COLLECTION,
+  ORGANIZATION_COLLECTION,
+} from "../utils/collections";
 import nestCollectionUnderPage from "../utils/nestCollectionUnderPage";
 
 function useFullNameOrExternalId({ doc }) {
@@ -49,6 +52,26 @@ const Contributors = {
       },
     },
     {
+      name: "role",
+      type: "text",
+      label: { en: "Role", fr: "Rôle", pt: "Função" },
+      admin: {
+        readOnly: true,
+      },
+    },
+    {
+      name: "currentOrganisation",
+      type: "text",
+      label: {
+        en: "Current Organization",
+        fr: "Organisation actuelle",
+        pt: "Organização atual",
+      },
+      admin: {
+        readOnly: true,
+      },
+    },
+    {
       name: "classification",
       type: "text",
       admin: {
@@ -79,18 +102,6 @@ const Contributors = {
       name: "location",
       type: "text",
       label: { en: "Location", fr: "Emplacement", pt: "Localização" },
-      admin: {
-        readOnly: true,
-      },
-    },
-    {
-      name: "twitter",
-      type: "text",
-      label: {
-        en: "Twitter handle",
-        fr: "Twitter de la personne",
-        pt: "Twitter da Pessoa",
-      },
       admin: {
         readOnly: true,
       },
@@ -172,6 +183,78 @@ const Contributors = {
         readOnly: true,
         position: "sidebar",
       },
+    },
+    {
+      name: "organisations",
+      type: "relationship",
+      hasMany: true,
+      admin: {
+        readOnly: true,
+      },
+      relationTo: ORGANIZATION_COLLECTION,
+      label: {
+        en: "Organizations",
+        fr: "Organisations",
+        pt: "Organizações",
+      },
+    },
+    {
+      name: "repositories",
+      type: "array",
+      admin: {
+        readOnly: true,
+        initCollapsed: true,
+      },
+      label: {
+        en: "Repositories",
+        fr: "Dépôts",
+        pt: "Repositórios",
+      },
+      fields: [
+        {
+          name: "name",
+          type: "text",
+          label: { en: "Name", fr: "Nom", pt: "Nome" },
+        },
+        {
+          name: "description",
+          type: "textarea",
+          label: { en: "Description", fr: "Description", pt: "Descrição" },
+        },
+        {
+          name: "stargazers",
+          type: "number",
+          label: { en: "Stargazers", fr: "Stargazers", pt: "Stargazers" },
+        },
+        {
+          name: "visibility",
+          type: "text",
+          label: { en: "Visibility", fr: "Visibilité", pt: "Visibilidade" },
+        },
+        {
+          name: "url",
+          type: "text",
+          label: { en: "URL", fr: "URL", pt: "URL" },
+        },
+        {
+          name: "techSkills",
+          type: "text",
+          label: {
+            en: "Tech Skills",
+            fr: "Compétences techniques",
+            pt: "Habilidades técnicas",
+          },
+        },
+        {
+          name: "updatedAt",
+          type: "date",
+          label: {
+            en: "Updated At",
+            fr: "Mis à jour",
+            pt: "Atualizado em",
+          },
+        },
+      ],
     },
   ],
   hooks: {
