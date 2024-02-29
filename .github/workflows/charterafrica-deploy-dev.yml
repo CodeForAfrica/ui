@@ -2,7 +2,7 @@ name: charterAFRICA | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches: [ft/fix-charterafrica-dev-deployment]
     paths:
       - "apps/charterafrica/**"
       - "Dockerfile.charterafrica"
@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.dev.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charterafrica.dev.codeforafrica.org"
   SENTRY_ENV: "development"
