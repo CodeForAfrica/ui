@@ -263,6 +263,9 @@ importers:
 
   apps/codeforafrica:
     dependencies:
+      "@aws-sdk/client-s3":
+        specifier: ^3.470.0
+        version: 3.470.0
       "@commons-ui/core":
         specifier: workspace:*
         version: link:../../packages/commons-ui-core
@@ -295,7 +298,7 @@ importers:
         version: 14.0.4
       "@payloadcms/plugin-cloud-storage":
         specifier: ^1.1.1
-        version: 1.1.1(payload@1.15.8)
+        version: 1.1.1(@aws-sdk/client-s3@3.470.0)(payload@1.15.8)
       "@payloadcms/plugin-nested-docs":
         specifier: ^1.0.9
         version: 1.0.9
@@ -1511,6 +1514,74 @@ packages:
     dev: false
     optional: true
 
+  /@aws-sdk/client-s3@3.470.0:
+    resolution:
+      {
+        integrity: sha512-HdhNlz25ImxID17qK7qfLXileJPYdPT7kgC+gm083edhFk0JI0+N8y7N9ybnVYpoHzZZPXeO1KZkmfdWK4IQhw==,
+      }
+    engines: { node: ">=14.0.0" }
+    dependencies:
+      "@aws-crypto/sha1-browser": 3.0.0
+      "@aws-crypto/sha256-browser": 3.0.0
+      "@aws-crypto/sha256-js": 3.0.0
+      "@aws-sdk/client-sts": 3.470.0
+      "@aws-sdk/core": 3.468.0
+      "@aws-sdk/credential-provider-node": 3.470.0
+      "@aws-sdk/middleware-bucket-endpoint": 3.470.0
+      "@aws-sdk/middleware-expect-continue": 3.468.0
+      "@aws-sdk/middleware-flexible-checksums": 3.468.0
+      "@aws-sdk/middleware-host-header": 3.468.0
+      "@aws-sdk/middleware-location-constraint": 3.468.0
+      "@aws-sdk/middleware-logger": 3.468.0
+      "@aws-sdk/middleware-recursion-detection": 3.468.0
+      "@aws-sdk/middleware-sdk-s3": 3.470.0
+      "@aws-sdk/middleware-signing": 3.468.0
+      "@aws-sdk/middleware-ssec": 3.468.0
+      "@aws-sdk/middleware-user-agent": 3.470.0
+      "@aws-sdk/region-config-resolver": 3.470.0
+      "@aws-sdk/signature-v4-multi-region": 3.470.0
+      "@aws-sdk/types": 3.468.0
+      "@aws-sdk/util-endpoints": 3.470.0
+      "@aws-sdk/util-user-agent-browser": 3.468.0
+      "@aws-sdk/util-user-agent-node": 3.470.0
+      "@aws-sdk/xml-builder": 3.465.0
+      "@smithy/config-resolver": 2.0.21
+      "@smithy/eventstream-serde-browser": 2.0.15
+      "@smithy/eventstream-serde-config-resolver": 2.0.15
+      "@smithy/eventstream-serde-node": 2.0.15
+      "@smithy/fetch-http-handler": 2.3.1
+      "@smithy/hash-blob-browser": 2.0.16
+      "@smithy/hash-node": 2.0.17
+      "@smithy/hash-stream-node": 2.0.17
+      "@smithy/invalid-dependency": 2.0.15
+      "@smithy/md5-js": 2.0.17
+      "@smithy/middleware-content-length": 2.0.17
+      "@smithy/middleware-endpoint": 2.2.3
+      "@smithy/middleware-retry": 2.0.24
+      "@smithy/middleware-serde": 2.0.15
+      "@smithy/middleware-stack": 2.0.9
+      "@smithy/node-config-provider": 2.1.8
+      "@smithy/node-http-handler": 2.2.1
+      "@smithy/protocol-http": 3.0.11
+      "@smithy/smithy-client": 2.1.18
+      "@smithy/types": 2.7.0
+      "@smithy/url-parser": 2.0.15
+      "@smithy/util-base64": 2.0.1
+      "@smithy/util-body-length-browser": 2.0.1
+      "@smithy/util-body-length-node": 2.1.0
+      "@smithy/util-defaults-mode-browser": 2.0.22
+      "@smithy/util-defaults-mode-node": 2.0.29
+      "@smithy/util-endpoints": 1.0.7
+      "@smithy/util-retry": 2.0.8
+      "@smithy/util-stream": 2.0.23
+      "@smithy/util-utf8": 2.0.2
+      "@smithy/util-waiter": 2.0.15
+      fast-xml-parser: 4.2.5
+      tslib: 2.6.2
+    transitivePeerDependencies:
+      - aws-crt
+    dev: false
+
   /@aws-sdk/client-s3@3.472.0:
     resolution:
       {
@@ -2199,6 +2270,16 @@ packages:
       {
         integrity: sha512-UvFa/vR+e19XookZF8RzFZBrw2EUkQWxiBW0yYQAhvk3C+QVGl0H3ouca8LDBlBfQKXwmW3huo/59H8rwb1wJw==,
       }
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
+  /@aws-sdk/xml-builder@3.465.0:
+    resolution:
+      {
+        integrity: sha512-9TKW5ZgsReygePTnAUdvaqxr/k1HXsEz2yDnk/jTLaUeRPsd5la8fFjb6OfgYYlbEVNlxTcKzaqOdrqxpUkmyQ==,
+      }
+    engines: { node: ">=14.0.0" }
     dependencies:
       tslib: 2.6.2
     dev: false
@@ -7666,7 +7747,7 @@ packages:
       - supports-color
     dev: false
 
-  /@payloadcms/plugin-cloud-storage@1.1.1(payload@1.15.8):
+  /@payloadcms/plugin-cloud-storage@1.1.1(@aws-sdk/client-s3@3.470.0)(payload@1.15.8):
     resolution:
       {
         integrity: sha512-WFqfZcT7R1LD+FfKKKYNsJPDRE+0VlYEMxzGuPKeUQn9w9sqTy2UD01YCEl0Zcyuq8fD9mRUjeLitSo1aAUimQ==,
@@ -7687,6 +7768,7 @@ packages:
       "@google-cloud/storage":
         optional: true
     dependencies:
+      "@aws-sdk/client-s3": 3.470.0
       payload: 1.15.8(@types/react@18.2.45)(typescript@5.3.3)
       range-parser: 1.2.1
     dev: false
