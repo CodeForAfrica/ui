@@ -6,7 +6,7 @@ on:
     paths:
       - "apps/charterafrica/**"
       - "Dockerfile.charterafrica"
-      - ".github/workflows/charterafrica-deploy-dev.yml"
+      - ".github/**"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
