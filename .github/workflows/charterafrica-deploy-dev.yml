@@ -6,6 +6,7 @@ on:
     paths:
       - "apps/charterafrica/**"
       - "Dockerfile.charterafrica"
+      - ".github/workflows/charterafrica-deploy-dev.yml"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -13,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.dev.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charterafrica.dev.codeforafrica.org"
   SENTRY_ENV: "development"
