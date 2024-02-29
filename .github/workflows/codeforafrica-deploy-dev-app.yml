@@ -6,7 +6,7 @@ on:
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
-      - ".github/workflows/codeforafrica-deploy-dev-app.yml"
+      - ".github/**"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
