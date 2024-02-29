@@ -540,6 +540,9 @@ importers:
       "@emotion/styled":
         specifier: ^11.11.0
         version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.45)(react@18.2.0)
+      "@mui/icons-material":
+        specifier: ^5.14.19
+        version: 5.15.0(@mui/material@5.15.0)(@types/react@18.2.45)(react@18.2.0)
       "@mui/material":
         specifier: ^5.14.20
         version: 5.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)

@@ -18,7 +18,9 @@
       }
     ],
     "paths": {
-      "@/outline-vpn/*": ["./src/*"]
+      "@/outline-vpn/*": ["./src/*"],
+      "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
+      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
