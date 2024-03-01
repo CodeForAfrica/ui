@@ -16,17 +16,18 @@ import {
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { RichTypography } from "@commons-ui/core";
-import Header from "../components/Header";
+import Header from "@/outline-vpn/app/components/Header";
 import { CheckBox } from "@mui/icons-material";
-import { User } from "../types";
+import { GoogleUser, User } from "@/outline-vpn/app/types";
 
 const options: string[] = ["Resend VPN", "Generate new key", "Disable VPN"];
 
 interface Props {
   users: User[];
+  header: GoogleUser;
 }
-export default function Home(props: Props): JSX.Element {
-  const { users: rows } = props;
+export default function Dashboard(props: Props): JSX.Element {
+  const { users: rows, header } = props;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(8);
@@ -51,7 +52,7 @@ export default function Home(props: Props): JSX.Element {
 
   return (
     <Fragment>
-      <Header />
+      <Header {...header} />
       <Box
         sx={{
           margin: "auto",
@@ -118,29 +119,33 @@ export default function Home(props: Props): JSX.Element {
                       >
                         <MoreVertIcon />
                       </IconButton>
-                      <Menu
-                        id="long-menu"
-                        MenuListProps={{
-                          "aria-labelledby": "long-button",
-                        }}
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        PaperProps={{
-                          style: {
-                            maxHeight: 48 * 4.5,
-                          },
-                        }}
-                      >
-                        {options.map((option) => (
-                          <MenuItem key={option} onClick={handleClose}>
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </Menu>
                     </TableCell>
                   </TableRow>
                 ))}
+              <Menu
+                id="long-menu"
+                MenuListProps={{
+                  "aria-labelledby": "long-button",
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                PaperProps={{
+                  style: {
+                    maxHeight: 48 * 4.5,
+                  },
+                }}
+              >
+                {options.map((option) => (
+                  <MenuItem
+                    sx={{ margin: 0 }}
+                    key={option}
+                    onClick={handleClose}
+                  >
+                    {option}
+                  </MenuItem>
+                ))}
+              </Menu>
             </TableBody>
           </Table>
           <TablePagination

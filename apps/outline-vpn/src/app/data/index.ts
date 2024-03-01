@@ -1,3 +1,4 @@
+import { getHeaderProps } from "./globals";
 import { getUsers } from "./users";
 
-export { getUsers };
+export { getUsers, getHeaderProps };

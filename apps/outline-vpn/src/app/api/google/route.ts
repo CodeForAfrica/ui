@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { verifyToken } from "@/outline-vpn/app/utils";
+import { verifyToken, logoutUser } from "@/outline-vpn/app/utils";
+import { redirect } from "next/navigation";
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,4 +27,9 @@ export async function POST(request: NextRequest) {
       status: 403,
     });
   }
+}
+
+export async function DELETE(request: NextRequest) {
+  logoutUser();
+  return redirect("/");
 }

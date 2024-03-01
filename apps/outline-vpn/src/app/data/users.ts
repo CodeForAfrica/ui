@@ -1,4 +1,4 @@
-import { User } from "../types";
+import { User } from "@/outline-vpn/app/types";
 
 export async function getUsers() {
   const users: User[] = [

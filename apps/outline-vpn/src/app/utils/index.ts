@@ -1,3 +1,4 @@
+import logoutUser from "./logoutUser";
 import verifyToken from "./verifyToken";
 
-export { verifyToken };
+export { verifyToken, logoutUser };
