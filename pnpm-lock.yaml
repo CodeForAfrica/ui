@@ -552,6 +552,9 @@ importers:
       google-auth-library:
         specifier: ^9.6.3
         version: 9.6.3
+      jwt-decode:
+        specifier: ^4.0.0
+        version: 4.0.0
       next:
         specifier: 14.1.0
         version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
