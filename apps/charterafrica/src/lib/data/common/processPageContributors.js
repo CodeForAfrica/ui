@@ -69,9 +69,7 @@ async function processPagePerson(page, api, context) {
     return null;
   }
 
-  const block = blocks.findIndex(
-    ({ slug: bSlug }) => bSlug === "our-contributors",
-  );
+  const block = blocks.find(({ slug: bSlug }) => bSlug === "our-contributors");
   const contributor = docs[0] || {};
   const { docs: toolDocs } = await api.getCollection(TOOL_COLLECTION, {
     locale,
@@ -91,6 +89,22 @@ async function processPagePerson(page, api, context) {
     };
   });
 
+  const { socialMedia = [] } = contributor;
+  if (contributor.source === "github") {
+    const github = {
+      link: `https://github.com/${contributor?.externalId || ""}`,
+      name: "gitHub",
+    };
+    socialMedia.push(github);
+  }
+  if (contributor.email) {
+    const email = {
+      link: `mailto:${contributor.email}`,
+      name: "email",
+    };
+    socialMedia.push(email);
+  }
+
   return {
     ...page,
     blocks: [
@@ -99,18 +113,20 @@ async function processPagePerson(page, api, context) {
         id: block.id ?? null,
         image: contributor.avatarUrl ?? null,
         name: contributor?.fullName ?? contributor?.externalId ?? null,
+        role: contributor.role ?? null,
+        currentOrganisation: contributor.currentOrganisation ?? null,
         location: contributor.location ?? null,
         description: contributor.description ?? null,
-        email: contributor.email ?? null,
         toolsTitle: block?.toolsTitle ?? null,
         lastActive: contributor.lastActive
           ? formatDateTime(contributor.lastActive, {})
           : null,
-        github:
-          contributor.source === "github"
-            ? `https://github.com/${contributor?.externalId || ""}`
-            : "",
         tools,
+        socialMedia,
+        repositories: contributor.repositories ?? [],
+        repositoriesTitle: block?.repositoriesTitle ?? null,
+        organisations: contributor.organisations ?? [],
+        organisationsTitle: block?.organisationsTitle ?? null,
       },
     ],
   };

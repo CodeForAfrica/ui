@@ -12,8 +12,18 @@ const defaultProps = {
   name: "John Doe",
   location: "San Francisco, CA",
   description: "Full-stack web developer with over 5 years of experience.",
-  twitter: "https://twitter.com/johndoe",
-  github: "https://github.com/johndoe",
+  socialMedia: [
+    {
+      name: "twitter",
+      link: "https://twitter.com/johndoe",
+      id: 1,
+    },
+    {
+      name: "github",
+      link: "https://github.com/johndoe",
+      id: 2,
+    },
+  ],
   email: "johndoe@example.com",
   image: "/static/images/avatar/1.jpg",
   tools: [
@@ -36,6 +46,28 @@ const defaultProps = {
     },
   ],
   toolsTitle: "Favorite Tools",
+  role: "Developer",
+  currentOrganisation: "Charter Africa",
+  repositories: Array.from({ length: 3 }, (_, i) => ({
+    id: 1,
+    name: `Repository ${i}`,
+    stargazers: 100,
+    visibility: "PUBLIC",
+    description: "Charter Africa website",
+    url: "https://charter.africa",
+    updatedAt: "2021-10-01T00:00:00Z",
+    techSkills: "React, Next.js, TypeScript",
+  })),
+  repositoriesTitle: "Repositories",
+  organisations: Array.from({ length: 3 }, (_, i) => ({
+    id: 1,
+    name: `Organisation ${i}`,
+    avatarUrl: "/static/images/charterafrica.png",
+    link: {
+      href: "https://charter.africa",
+    },
+  })),
+  organisationsTitle: "Organisations",
 };
 
 describe("<OrgAndContributor />", () => {

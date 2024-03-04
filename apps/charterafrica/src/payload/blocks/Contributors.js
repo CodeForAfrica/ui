@@ -56,6 +56,28 @@ const Contributors = {
       required: true,
       localized: true,
     },
+    {
+      type: "text",
+      label: {
+        en: "Repositories Title",
+        fr: "Titre des dépôts",
+        pt: "Título dos repositórios",
+      },
+      name: "repositoriesTitle",
+      required: true,
+      localized: true,
+    },
+    {
+      type: "text",
+      label: {
+        en: "Organisations Title",
+        fr: "Titre des organisations",
+        pt: "Título das organizações",
+      },
+      name: "organisationsTitle",
+      required: true,
+      localized: true,
+    },
   ],
 };
 export default Contributors;

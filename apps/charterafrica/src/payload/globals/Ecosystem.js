@@ -373,6 +373,38 @@ const Ecosystem = {
                   schema,
                   tableField: "contributorTableId",
                   overrides: {
+                    name: "role",
+                    label: { en: "Role", fr: "Rôle", pt: "Função" },
+                  },
+                }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "contributorTableId",
+                  overrides: {
+                    name: "currentOrganisation",
+                    label: {
+                      en: "Current Organisation",
+                      fr: "Organisation actuelle",
+                      pt: "Organização atual",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "contributorTableId",
+                  overrides: {
+                    name: "organisations",
+                    label: {
+                      en: "Organisations",
+                      fr: "Organisations",
+                      pt: "Organizações",
+                    },
+                  },
+                }),
+                airtableColumnSelect({
+                  schema,
+                  tableField: "contributorTableId",
+                  overrides: {
                     name: "avatarUrl",
                     label: { en: "Image", fr: "Image", pt: "Imagem" },
                   },

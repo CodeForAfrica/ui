@@ -110,6 +110,7 @@ const theme = createTheme({
     p2SemiBold: initializeTypographyVariant(16, 19, 600),
     p3: initializeTypographyVariant(18, 21.6),
     p3SemiBold: initializeTypographyVariant(18, 21.6, 600),
+    p4: initializeTypographyVariant(23, 28),
     body1: undefined,
     body2: undefined,
     caption: initializeTypographyVariant(12, 14),
