@@ -1,0 +1,4 @@
+declare module "@/vpn-manager";
+declare module "@commons-ui/core";
+declare module "@commons-ui/next";
+declare module "@commons-ui/testing-library";
