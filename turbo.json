@@ -51,7 +51,7 @@
         "SOURCE_LIB"
       ]
     },
-    "vpn-manager#build-ts": {},
+    "vpnmanager#build-ts": {},
     "jest": {
       "inputs": ["src/**/*.js"]
     },

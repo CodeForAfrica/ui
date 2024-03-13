@@ -939,7 +939,7 @@ importers:
         specifier: ^5.89.0
         version: 5.89.0(@swc/core@1.3.78)(webpack-cli@4.10.0)
 
-  apps/vpn-manager:
+  apps/vpnmanager:
     dependencies:
       "@babel/core":
         specifier: ^7.23.6
