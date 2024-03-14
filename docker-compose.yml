@@ -57,7 +57,7 @@ services:
       args:
         SENTRY_ORG: ${SENTRY_ORG}
         SENTRY_PROJECT: ${SENTRY_PROJECT}
-        NEXT_APP_SENTRY_DSN: ${NEXT_APP_SENTRY_DSN}
+        SENTRY_DSN: ${SENTRY_DSN}
     environment:
       - NODE_ENV=production
     ports:
