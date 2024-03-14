@@ -1,5 +1,3 @@
-import "@/vpnmanager/theme/fonts.css";
-
 import React, { ReactNode } from "react";
 
 import { AppProps } from "next/app";

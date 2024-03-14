@@ -44,7 +44,6 @@ ARG PORT=3000 \
     SENTRY_ORG="" \
     SENTRY_PROJECT="" \
     NEXT_APP_SENTRY_DSN=""
-RUN pnpm build-ts --filter=vpnmanager
 RUN pnpm build --filter=vpnmanager
 
 FROM builder as runner
