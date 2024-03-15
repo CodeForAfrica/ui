@@ -1,7 +1,7 @@
-import { google } from 'googleapis';
+import { google } from "googleapis";
 
-import { SheetRow } from '@/vpnmanager/types';
-import { toCamelCase } from '@/vpnmanager/utils';
+import { SheetRow } from "@/vpnmanager/types";
+import { toCamelCase } from "@/vpnmanager/utils";
 
 function gSheet() {
   const auth = new google.auth.GoogleAuth({

@@ -1,3 +1,3 @@
-import vpnManager from './OutlineVpn';
+import vpnManager from "./OutlineVpn";
 
 export { vpnManager };

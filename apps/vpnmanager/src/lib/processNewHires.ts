@@ -1,8 +1,8 @@
-import { SheetRow } from '@/vpnmanager/types';
-import * as Sentry from '@sentry/nextjs';
+import { SheetRow } from "@/vpnmanager/types";
+import * as Sentry from "@sentry/nextjs";
 
-import spreadsheet from './data/spreadsheet';
-import { vpnManager } from './outline';
+import spreadsheet from "./data/spreadsheet";
+import { vpnManager } from "./outline";
 
 export async function processEmployee(item: SheetRow) {
   const { emailAddress } = item;
@@ -20,12 +20,12 @@ export async function processEmployee(item: SheetRow) {
   }
   if (!user) {
     try {
-      user = await vpnManager.createUser(emailAddress)
-    }catch (error: any) {
+      user = await vpnManager.createUser(emailAddress);
+    } catch (error: any) {
       Sentry.captureException(error);
     }
   }
-  return user
+  return user;
 }
 
 export async function processNewHires() {

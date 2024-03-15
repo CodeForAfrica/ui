@@ -12,10 +12,10 @@ class FetchError extends Error {
     }
   }
 }
-async function processResponse(response: Response){
+async function processResponse(response: Response) {
   const res = await response.json();
   if (response.status >= 200 && response.status <= 399) {
-    return res
+    return res;
   } else {
     throw new FetchError(response.statusText, response.status, res);
   }
@@ -28,7 +28,7 @@ async function get(url: string, options?: { params?: Record<string, string> }) {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
- return processResponse(response)
+  return processResponse(response);
 }
 
 async function _delete(
@@ -43,7 +43,7 @@ async function _delete(
     headers: { "Content-Type": "application/json" },
   });
 
-  return processResponse(response)
+  return processResponse(response);
 }
 
 async function post(
@@ -60,7 +60,7 @@ async function post(
     body: JSON.stringify(body),
   });
 
-  return processResponse(response)
+  return processResponse(response);
 }
 
 async function put(
@@ -77,7 +77,7 @@ async function put(
     body: JSON.stringify(body),
   });
 
-  return processResponse(response)
+  return processResponse(response);
 }
 
 export default { get, post, put, delete: _delete };

@@ -4,8 +4,8 @@ import {
   OutlineServer,
   OutlineServerMetrics,
   OutlineUser,
-} from '@/vpnmanager/types';
-import { fetchJson } from '@/vpnmanager/utils';
+} from "@/vpnmanager/types";
+import { fetchJson } from "@/vpnmanager/utils";
 
 export class OutlineVPN {
   apiUrl: string;
@@ -32,12 +32,12 @@ export class OutlineVPN {
 
   public async getUsers(): Promise<OutlineUser[]> {
     const res = await fetchJson.get(`${this.apiUrl}/access-keys`);
-    return res.accessKeys
+    return res.accessKeys;
   }
 
   public async getKey(email: string): Promise<OutlineUser | null> {
     const users = await this.getUsers();
-    return users.find(({ name }) => name===email) ?? null
+    return users.find(({ name }) => name === email) ?? null;
   }
 
   public async getUser(id: string): Promise<OutlineUser | null> {
@@ -117,4 +117,4 @@ export class OutlineVPN {
 
 export default new OutlineVPN({
   apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
-})
+});
