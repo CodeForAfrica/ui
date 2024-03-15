@@ -54,3 +54,9 @@ apps/promisetracker/public/data/**
 storybook-static
 
 mongo-keyfile
+
+#Google credentials
+credentials.json
+
+# Sentry Config File
+.sentryclirc

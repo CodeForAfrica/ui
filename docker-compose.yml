@@ -50,6 +50,17 @@ services:
       retries: 30
     command:
       ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
-
+  vpnmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile.vpnmanager
+      args:
+        SENTRY_ORG: ${SENTRY_ORG}
+        SENTRY_PROJECT: ${SENTRY_PROJECT}
+        SENTRY_DSN: ${SENTRY_DSN}
+    environment:
+      - NODE_ENV=production
+    ports:
+      - ${VPN_MANAGER_PORT:-3000}:3000
 volumes:
   db_data:
