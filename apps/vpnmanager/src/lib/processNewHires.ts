@@ -5,7 +5,7 @@ import * as Sentry from "@sentry/nextjs";
 import spreadsheet from "./data/spreadsheet";
 import { vpnManager } from "./outline";
 
-export async function processEmployee(item: SheetRow) {
+export async function processEmployee(item: Partial<SheetRow>) {
   const { emailAddress } = item;
   if (!emailAddress) {
     return null;
