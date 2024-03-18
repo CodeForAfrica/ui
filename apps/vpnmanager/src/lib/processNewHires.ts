@@ -1,4 +1,5 @@
-import { SheetRow } from "@/vpnmanager/types";
+import { sendVpnKeyEmail } from "@/vpnmanager/lib/email/sender";
+import { OutlineUser, SheetRow } from "@/vpnmanager/types";
 import * as Sentry from "@sentry/nextjs";
 
 import spreadsheet from "./data/spreadsheet";
@@ -9,7 +10,7 @@ export async function processEmployee(item: SheetRow) {
   if (!emailAddress) {
     return null;
   }
-  let user;
+  let user: OutlineUser | null = null;
   try {
     user = await vpnManager.getKey(emailAddress);
   } catch (error: any) {
@@ -25,6 +26,10 @@ export async function processEmployee(item: SheetRow) {
       Sentry.captureException(error);
     }
   }
+  await sendVpnKeyEmail({
+    recipient: user?.name ?? "",
+    key: user?.accessUrl ?? "",
+  });
   return user;
 }
 
