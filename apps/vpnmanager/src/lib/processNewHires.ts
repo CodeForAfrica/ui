@@ -1,10 +1,10 @@
 import { SheetRow } from "@/vpnmanager/types";
 import * as Sentry from "@sentry/nextjs";
 
-import spreadsheet from "./data/spreadsheet";
+import spreadsheet, { updateSheet } from "./data/spreadsheet";
 
 export async function processEmployee(item: SheetRow) {
-  // Capture to test that it works
+  updateSheet({ ...item, keySent: "Yes" });
   Sentry.captureException(item);
 }
 
