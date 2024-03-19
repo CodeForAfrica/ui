@@ -50,7 +50,7 @@ async function list(
 async function newHires() {
   const data = await list(spreadsheetId, range);
   return data.filter(
-    (row: SheetRow) => row.emailAddress && row.keySent !== "Yes",
+    (row: SheetRow) => row.emailAddress && row.keySent?.trim() !== "Yes",
   );
 }
 
@@ -66,19 +66,23 @@ export async function updateSheet(row: Partial<SheetRow>) {
     return null;
   }
   const titles = rows[0];
-  const emailIndex = titles.findIndex((item) => item === "Email Address");
+  const emailIndex = titles.findIndex(
+    (item) => item?.toLowerCase()?.trim() === "email address",
+  );
   const rowIndexToUpdate = rows.findIndex(
     (item: string[]) => item[emailIndex] === emailAddress,
   );
   const rowToUpdate = rows[rowIndexToUpdate];
   if (outlineKeyCreated) {
     const outlineKeyCreatedIndex = titles.findIndex(
-      (item) => item === "Outline Key Created?",
+      (item) => item?.toLowerCase()?.trim() === "outline key created?",
     );
     rowToUpdate[outlineKeyCreatedIndex] = outlineKeyCreated;
   }
   if (keySent) {
-    const keySentIndex = titles.findIndex((item) => item === "Key sent");
+    const keySentIndex = titles.findIndex(
+      (item) => item?.toLowerCase()?.trim() === "key sent",
+    );
     rowToUpdate[keySentIndex] = keySent;
   }
   const validRange = range?.split("!")?.[0] + `!A${rowIndexToUpdate + 1}`;
