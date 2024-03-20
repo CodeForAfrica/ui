@@ -9,7 +9,7 @@ export async function processEmployee(item: SheetRow) {
 }
 
 export async function processNewHires() {
-  const newHires = await spreadsheet.newHires();
+  const newHires = await spreadsheet.newUsers();
   const promises = newHires.map((item) => processEmployee(item));
   Promise.allSettled(promises);
 }

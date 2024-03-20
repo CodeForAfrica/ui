@@ -3,8 +3,8 @@ import { google } from "googleapis";
 import { SheetRow } from "@/vpnmanager/types";
 import { toCamelCase } from "@/vpnmanager/utils";
 
-const spreadsheetId = process.env.NEXT_APP_GOOGLE_SHEET_ID;
-const range = process.env.NEXT_APP_GOOGLE_SHEET_RANGE;
+const SHEET_ID = process.env.NEXT_APP_GOOGLE_SHEET_ID;
+const RANGE = process.env.NEXT_APP_GOOGLE_SHEET_RANGE;
 
 function gSheet() {
   const auth = new google.auth.GoogleAuth({
@@ -47,8 +47,8 @@ async function list(
   return data;
 }
 
-async function newHires() {
-  const data = await list(spreadsheetId, range);
+async function newUsers() {
+  const data = await list(SHEET_ID, RANGE);
   return data.filter(
     (row: SheetRow) => row.emailAddress && row.keySent?.trim() !== "Yes",
   );
@@ -58,8 +58,8 @@ export async function updateSheet(row: Partial<SheetRow>) {
   const { emailAddress, outlineKeyCreated, keySent } = row;
   const sheets = gSheet();
   const response = await sheets.spreadsheets.values.get({
-    spreadsheetId,
-    range,
+    spreadsheetId: SHEET_ID,
+    range: RANGE,
   });
   const rows = response.data.values;
   if (!rows?.length) {
@@ -85,9 +85,9 @@ export async function updateSheet(row: Partial<SheetRow>) {
     );
     rowToUpdate[keySentIndex] = keySent;
   }
-  const validRange = range?.split("!")?.[0] + `!A${rowIndexToUpdate + 1}`;
+  const validRange = RANGE?.split("!")?.[0] + `!A${rowIndexToUpdate + 1}`;
   return sheets.spreadsheets.values.update({
-    spreadsheetId,
+    spreadsheetId: SHEET_ID,
     range: validRange,
     valueInputOption: "USER_ENTERED",
     requestBody: {
@@ -98,6 +98,6 @@ export async function updateSheet(row: Partial<SheetRow>) {
 
 export default {
   list,
-  newHires,
+  newUsers,
   updateSheet,
 };
