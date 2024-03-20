@@ -2,9 +2,12 @@ import { google } from "googleapis";
 
 import { SheetRow } from "@/vpnmanager/types";
 import { toCamelCase } from "@/vpnmanager/utils";
+import { loadEnvConfig } from "@next/env";
 
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 const SHEET_ID = process.env.NEXT_APP_GOOGLE_SHEET_ID;
-const RANGE = process.env.NEXT_APP_GOOGLE_SHEET_RANGE;
+const SHEET_NAME = process.env.NEXT_APP_GOOGLE_SHEET_NAME;
 
 function gSheet() {
   const auth = new google.auth.GoogleAuth({
@@ -48,23 +51,15 @@ async function list(
 }
 
 async function newUsers() {
-  const data = await list(SHEET_ID, RANGE);
+  const range = `${SHEET_NAME}!A:Z`;
+  const data = await list(SHEET_ID, range);
   return data.filter(
     (row: SheetRow) => row.emailAddress && row.keySent?.trim() !== "Yes",
   );
 }
 
-export async function updateSheet(row: Partial<SheetRow>) {
+function updateRow(rows: string[][], row: Partial<SheetRow>) {
   const { emailAddress, outlineKeyCreated, keySent } = row;
-  const sheets = gSheet();
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: SHEET_ID,
-    range: RANGE,
-  });
-  const rows = response.data.values;
-  if (!rows?.length) {
-    return null;
-  }
   const titles = rows[0];
   const emailIndex = titles.findIndex(
     (item) => item?.toLowerCase()?.trim() === "email address",
@@ -85,13 +80,30 @@ export async function updateSheet(row: Partial<SheetRow>) {
     );
     rowToUpdate[keySentIndex] = keySent;
   }
-  const validRange = RANGE?.split("!")?.[0] + `!A${rowIndexToUpdate + 1}`;
+  rows[rowIndexToUpdate] = rowToUpdate;
+  return rows;
+}
+
+export async function updateSheet(toUpdate: Partial<SheetRow>[]) {
+  const range = `${SHEET_NAME}!A:Z`;
+  const sheets = gSheet();
+  const response = await sheets.spreadsheets.values.get({
+    spreadsheetId: SHEET_ID,
+    range,
+  });
+  const rows = response.data.values;
+  if (!rows?.length) {
+    return null;
+  }
+
+  const values = toUpdate.reduce((acc, curr) => updateRow(acc, curr), rows);
+  const validRange = `${SHEET_NAME}!A:Z`;
   return sheets.spreadsheets.values.update({
     spreadsheetId: SHEET_ID,
     range: validRange,
     valueInputOption: "USER_ENTERED",
     requestBody: {
-      values: [rowToUpdate],
+      values,
     },
   });
 }
