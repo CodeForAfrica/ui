@@ -12,8 +12,8 @@ export async function processUser(item: SheetRow) {
 }
 
 export async function processNewUsers() {
-  const newHires = await spreadsheet.newUsers();
-  const promises = newHires.map((item) => processUser(item));
+  const users = await spreadsheet.newUsers();
+  const promises = users.map((item) => processUser(item));
   const settled = await Promise.allSettled(promises);
   const fulfilled = settled
     .filter((item) => item.status === "fulfilled")

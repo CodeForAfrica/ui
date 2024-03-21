@@ -7,7 +7,7 @@
     "build": "pnpm run build-ts && next build",
     "start": "next start",
     "build-ts": "tsc --project tsconfig.server.json && tsc-alias -p tsconfig.server.json",
-    "process-spreadsheet": "node dist/src/scripts/processGsheet.js"
+    "process-spreadsheet": "node dist/scripts/processGsheet.js"
   },
   "dependencies": {
     "@babel/core": "^7.23.6",

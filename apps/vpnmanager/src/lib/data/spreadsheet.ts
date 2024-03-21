@@ -2,12 +2,6 @@ import { google } from "googleapis";
 
 import { SheetRow } from "@/vpnmanager/types";
 import { toCamelCase } from "@/vpnmanager/utils";
-import { loadEnvConfig } from "@next/env";
-
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
-const SHEET_ID = process.env.NEXT_APP_GOOGLE_SHEET_ID;
-const SHEET_NAME = process.env.NEXT_APP_GOOGLE_SHEET_NAME;
 
 function gSheet() {
   const auth = new google.auth.GoogleAuth({
@@ -17,7 +11,7 @@ function gSheet() {
   return google.sheets({ version: "v4", auth });
 }
 
-async function list(
+async function fetchRange(
   spreadsheetId?: string,
   range?: string,
 ): Promise<SheetRow[]> {
@@ -51,14 +45,15 @@ async function list(
 }
 
 async function newUsers() {
-  const range = `${SHEET_NAME}!A:Z`;
-  const data = await list(SHEET_ID, range);
+  const spreadsheetId = process.env.NEXT_APP_GOOGLE_SHEET_ID;
+  const range = `${process.env.NEXT_APP_GOOGLE_SHEET_NAME}!A:Z`;
+  const data = await fetchRange(spreadsheetId, range);
   return data.filter(
     (row: SheetRow) => row.emailAddress && row.keySent?.trim() !== "Yes",
   );
 }
 
-function updateRow(rows: string[][], row: Partial<SheetRow>) {
+function processRow(rows: string[][], row: Partial<SheetRow>) {
   const { emailAddress, outlineKeyCreated, keySent } = row;
   const titles = rows[0];
   const emailIndex = titles.findIndex(
@@ -85,10 +80,11 @@ function updateRow(rows: string[][], row: Partial<SheetRow>) {
 }
 
 export async function updateSheet(toUpdate: Partial<SheetRow>[]) {
-  const range = `${SHEET_NAME}!A:Z`;
+  const spreadsheetId = process.env.NEXT_APP_GOOGLE_SHEET_ID;
+  const range = `${process.env.NEXT_APP_GOOGLE_SHEET_NAME}!A:Z`;
   const sheets = gSheet();
   const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: SHEET_ID,
+    spreadsheetId,
     range,
   });
   const rows = response.data.values;
@@ -96,11 +92,10 @@ export async function updateSheet(toUpdate: Partial<SheetRow>[]) {
     return null;
   }
 
-  const values = toUpdate.reduce((acc, curr) => updateRow(acc, curr), rows);
-  const validRange = `${SHEET_NAME}!A:Z`;
+  const values = toUpdate.reduce((acc, curr) => processRow(acc, curr), rows);
   return sheets.spreadsheets.values.update({
-    spreadsheetId: SHEET_ID,
-    range: validRange,
+    spreadsheetId,
+    range,
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values,
@@ -109,7 +104,7 @@ export async function updateSheet(toUpdate: Partial<SheetRow>[]) {
 }
 
 export default {
-  list,
+  fetchRange,
   newUsers,
   updateSheet,
 };
