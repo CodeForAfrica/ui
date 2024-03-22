@@ -1,6 +1,5 @@
+import spreadsheet, { updateSheet } from "@/vpnmanager/lib/data/spreadsheet";
 import { SheetRow } from "@/vpnmanager/types";
-
-import spreadsheet, { updateSheet } from "./data/spreadsheet";
 
 export async function processUser(item: SheetRow) {
   return {
