@@ -62,6 +62,9 @@ function processRow(rows: string[][], row: Partial<SheetRow>) {
   const rowIndexToUpdate = rows.findIndex(
     (item: string[]) => item[emailIndex] === emailAddress,
   );
+  if (rowIndexToUpdate < 0) {
+    return rows;
+  }
   const rowToUpdate = rows[rowIndexToUpdate];
   if (outlineKeyCreated) {
     const outlineKeyCreatedIndex = titles.findIndex(
