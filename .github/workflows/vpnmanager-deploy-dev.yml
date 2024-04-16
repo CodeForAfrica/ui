@@ -2,7 +2,7 @@ name: VPN Manager | Deploy | DEV
 
 on:
   push:
-    branches: [feature/auto-deploy-vpnmanager]
+    branches: [main]
     paths:
       - "apps/vpnmanager/**"
       - "Dockerfile.vpnmanager"
