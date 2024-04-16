@@ -19,7 +19,6 @@ interface Props {
   socialLinks: SocialLinks[];
 }
 function NavBar({ logo, menus, socialLinks }: Props) {
-  console.log("------------>")
   return (
     <NavigationBar sx={{ py: { xs: "10px", md: "15.5" } }}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
