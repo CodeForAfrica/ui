@@ -971,6 +971,9 @@ importers:
       "@mui/utils":
         specifier: ^5.14.20
         version: 5.15.0(@types/react@18.2.45)(react@18.2.0)
+      "@next/env":
+        specifier: ^14.1.4
+        version: 14.1.4
       "@sendgrid/mail":
         specifier: ^8.1.1
         version: 8.1.1
@@ -7282,6 +7285,13 @@ packages:
     resolution:
       {
         integrity: sha512-VhgXTvrgeBRxNPjyfBsDIMvgsKDxjlpw4IAUsHCX8Gjl1vtHUYRT3+xfQ/wwvLPDd/6kqfLqk9Pt4+7gysuCKQ==,
+      }
+    dev: false
+
+  /@next/env@14.1.4:
+    resolution:
+      {
+        integrity: sha512-e7X7bbn3Z6DWnDi75UWn+REgAbLEqxI8Tq2pkFOFAMpWAWApz/YCUhtWMWn410h8Q2fYiYL7Yg5OlxMOCfFjJQ==,
       }
     dev: false
 

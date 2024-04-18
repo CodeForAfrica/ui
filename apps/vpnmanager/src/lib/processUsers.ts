@@ -1,11 +1,10 @@
 import { sendVpnKeyEmail } from "@/vpnmanager/lib/email/sender";
 import { OutlineUser, SheetRow } from "@/vpnmanager/types";
+import spreadsheet, { updateSheet } from "@/vpnmanager/lib/data/spreadsheet";
+import { vpnManager } from "./outline";
 import * as Sentry from "@sentry/nextjs";
 
-import spreadsheet from "./data/spreadsheet";
-import { vpnManager } from "./outline";
-
-export async function processEmployee(item: Partial<SheetRow>) {
+export async function processUser(item: SheetRow) {
   const { emailAddress } = item;
   if (!emailAddress) {
     return null;
@@ -33,10 +32,14 @@ export async function processEmployee(item: Partial<SheetRow>) {
   return user;
 }
 
-export async function processNewHires() {
-  const newHires = await spreadsheet.newHires();
-  const promises = newHires.map((item) => processEmployee(item));
-  await Promise.allSettled(promises);
+export async function processNewUsers() {
+  const users = await spreadsheet.newUsers();
+  const promises = users.map((item) => processUser(item));
+  const settled = await Promise.allSettled(promises);
+  const fulfilled = settled
+    .filter((item) => item.status === "fulfilled")
+    .map(({ value }: any) => value);
+  if (fulfilled.length) {
+    updateSheet(fulfilled);
+  }
 }
-
-processNewHires();
