@@ -11,7 +11,7 @@ export async function processUser(item: SheetRow) {
   }
   const vpnManager = new OutlineVPN({
     apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
-  })
+  });
   let user: OutlineUser | null = null;
   try {
     user = await vpnManager.getKey(emailAddress);
@@ -26,7 +26,7 @@ export async function processUser(item: SheetRow) {
       user = await vpnManager.createUser(emailAddress);
     } catch (error: any) {
       Sentry.captureException(error);
-      return
+      return;
     }
   }
   await sendVpnKeyEmail({
