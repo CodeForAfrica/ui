@@ -1,7 +1,7 @@
 import { sendVpnKeyEmail } from "@/vpnmanager/lib/email/sender";
 import { OutlineUser, SheetRow } from "@/vpnmanager/types";
 import spreadsheet, { updateSheet } from "@/vpnmanager/lib/data/spreadsheet";
-import { vpnManager } from "./outline";
+import { OutlineVPN } from "./outline";
 import * as Sentry from "@sentry/nextjs";
 
 export async function processUser(item: SheetRow) {
@@ -9,6 +9,9 @@ export async function processUser(item: SheetRow) {
   if (!emailAddress) {
     return null;
   }
+  const vpnManager = new OutlineVPN({
+    apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
+  })
   let user: OutlineUser | null = null;
   try {
     user = await vpnManager.getKey(emailAddress);
@@ -23,13 +26,17 @@ export async function processUser(item: SheetRow) {
       user = await vpnManager.createUser(emailAddress);
     } catch (error: any) {
       Sentry.captureException(error);
+      return
     }
   }
   await sendVpnKeyEmail({
     recipient: user?.name ?? "",
     key: user?.accessUrl ?? "",
   });
-  return user;
+  return {
+    ...item,
+    keySent: "Yes",
+  };
 }
 
 export async function processNewUsers() {
@@ -37,7 +44,7 @@ export async function processNewUsers() {
   const promises = users.map((item) => processUser(item));
   const settled = await Promise.allSettled(promises);
   const fulfilled = settled
-    .filter((item) => item.status === "fulfilled")
+    .filter((item) => item.status === "fulfilled" && !!item.value)
     .map(({ value }: any) => value);
   if (fulfilled.length) {
     updateSheet(fulfilled);

@@ -115,6 +115,4 @@ export class OutlineVPN {
   }
 }
 
-export default new OutlineVPN({
-  apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
-});
+export default OutlineVPN;
