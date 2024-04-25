@@ -12,7 +12,7 @@ export async function sendVpnKeyEmail({ recipient: to, key }: MailSender) {
   try {
     const sendGridApiKey = process.env.VPN_MANAGER_SENDGRID_API_KEY as string;
     if (!sendGridApiKey) {
-      return null;
+      throw new Error("Send Grid API Key is not provided");
     }
     sgMail.setApiKey(sendGridApiKey);
     const from = {
