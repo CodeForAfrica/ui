@@ -17,6 +17,7 @@ export async function processUser(item: SheetRow) {
     user = await vpnManager.getKey(emailAddress);
   } catch (error: any) {
     if (error.statusCode !== 404) {
+      console.log(error);
       Sentry.captureException(error);
       return;
     }
@@ -25,6 +26,7 @@ export async function processUser(item: SheetRow) {
     try {
       user = await vpnManager.createUser(emailAddress);
     } catch (error: any) {
+      console.log(error);
       Sentry.captureException(error);
       return;
     }
