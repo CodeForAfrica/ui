@@ -4,7 +4,9 @@ import { SheetRow } from "@/vpnmanager/types";
 import { toCamelCase } from "@/vpnmanager/utils";
 
 function gSheet() {
-  const credentials = JSON.parse(process.env.NEXT_APP_GOOGLE_CREDENTIALS ?? '{}');
+  const credentials = JSON.parse(
+    process.env.NEXT_APP_GOOGLE_CREDENTIALS ?? "{}",
+  );
   const auth = new google.auth.GoogleAuth({
     credentials,
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
