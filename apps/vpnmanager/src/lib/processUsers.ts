@@ -41,7 +41,6 @@ export async function processUser(item: SheetRow) {
 
 export async function processNewUsers() {
   const users = await spreadsheet.newUsers();
-  console.log(users)
   const promises = users.map((item) => processUser(item));
   const settled = await Promise.allSettled(promises);
   const fulfilled = settled
