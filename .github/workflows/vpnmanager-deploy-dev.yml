@@ -2,7 +2,7 @@ name: VPN Manager | Deploy | DEV
 
 on:
   push:
-    branches: [feature/fix-cron-failing]
+    branches: [main]
     paths:
       - "apps/vpnmanager/**"
       - "Dockerfile.vpnmanager"
