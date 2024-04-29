@@ -29,7 +29,6 @@ export async function sendVpnKeyEmail({ recipient: to, key }: MailSender) {
     };
     await sgMail.send(message);
   } catch (error) {
-    console.log(error);
     Sentry.captureException(error);
   }
 }
