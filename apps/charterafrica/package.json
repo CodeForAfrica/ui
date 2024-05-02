@@ -68,7 +68,7 @@
     "next": "^14.0.4",
     "next-seo": "^6.4.0",
     "nodemailer-sendgrid": "^1.0.3",
-    "payload": "^2.9.0",
+    "payload": "^2.14.2",
     "prop-types": "^15.8.1",
     "qs": "^6.11.2",
     "react": "^18.2.0",
