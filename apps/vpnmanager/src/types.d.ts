@@ -39,3 +39,7 @@ export interface SheetRow {
   endDate: string;
   keySent: "Yes" | "No";
 }
+
+export interface User extends SheetRow {
+  keySentDate: string;
+}

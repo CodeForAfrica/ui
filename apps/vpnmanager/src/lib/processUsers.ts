@@ -1,8 +1,9 @@
 import { sendVpnKeyEmail } from "@/vpnmanager/lib/email/sender";
-import { OutlineUser, SheetRow } from "@/vpnmanager/types";
+import { OutlineUser, SheetRow, User } from "@/vpnmanager/types";
 import spreadsheet, { updateSheet } from "@/vpnmanager/lib/data/spreadsheet";
 import { OutlineVPN } from "./outline";
 import * as Sentry from "@sentry/nextjs";
+import local from "./data/local";
 
 export async function processUser(item: SheetRow) {
   const { emailAddress } = item;
@@ -33,10 +34,14 @@ export async function processUser(item: SheetRow) {
     recipient: user?.name ?? "",
     key: user?.accessUrl ?? "",
   });
-  return {
+  const localUser: User = {
     ...item,
     keySent: "Yes",
-  };
+    outlineKey: user?.accessUrl ?? "",
+    keySentDate: new Date().toUTCString()
+  } as User
+  local.addUserOrUpdate(localUser)
+  return localUser;
 }
 
 export async function processNewUsers() {
