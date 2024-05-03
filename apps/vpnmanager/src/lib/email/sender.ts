@@ -6,9 +6,10 @@ import { emailKeyTemplate } from "./templates";
 interface MailSender {
   recipient: string;
   key: string;
+  name: string;
 }
 
-export async function sendVpnKeyEmail({ recipient: to, key }: MailSender) {
+export async function sendVpnKeyEmail({ recipient: to, key, name }: MailSender) {
   try {
     const sendGridApiKey = process.env.VPN_MANAGER_SENDGRID_API_KEY as string;
     if (!sendGridApiKey) {
@@ -25,7 +26,7 @@ export async function sendVpnKeyEmail({ recipient: to, key }: MailSender) {
       to,
       from,
       subject,
-      html: emailKeyTemplate(key),
+      html: emailKeyTemplate(key, name),
     };
     await sgMail.send(message);
   } catch (error) {

@@ -32,6 +32,7 @@ export async function processUser(item: SheetRow) {
   await sendVpnKeyEmail({
     recipient: user?.name ?? "",
     key: user?.accessUrl ?? "",
+    name: item?.member ?? user?.name
   });
   return {
     ...item,
