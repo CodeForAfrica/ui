@@ -20,5 +20,5 @@ export function emailKeyTemplate(key: string, name: string) {
     <li>Open the Outline client app. If your access key is auto-detected, tap 'Connect'. If your access key is not auto-detected, paste it in the field, then tap 'Connect'. You are good to go!</li>
   </ol>
   
-  </div>`
+  </div>`;
 }

@@ -9,7 +9,11 @@ interface MailSender {
   name: string;
 }
 
-export async function sendVpnKeyEmail({ recipient: to, key, name }: MailSender) {
+export async function sendVpnKeyEmail({
+  recipient: to,
+  key,
+  name,
+}: MailSender) {
   try {
     const sendGridApiKey = process.env.VPN_MANAGER_SENDGRID_API_KEY as string;
     if (!sendGridApiKey) {
