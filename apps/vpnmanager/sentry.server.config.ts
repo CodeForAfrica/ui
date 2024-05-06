@@ -1,8 +1,13 @@
 import * as Sentry from "@sentry/nextjs";
 
-Sentry.init({
+const options = {
   dsn: process.env.SENTRY_DSN,
-  environment: process.env.SENTRY_ENV,
+  environment: process.env.SENTRY_ENV ?? "local",
   tracesSampleRate: 1,
-  debug: false,
-});
+};
+
+Sentry.init(options);
+
+export function initSentry() {
+  Sentry.init(options);
+}

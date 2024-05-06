@@ -33,7 +33,7 @@ export interface OutlineServerMetrics {
 export interface SheetRow {
   emailAddressCreated: string;
   emailAddress: string;
-  name: string;
+  member: string;
   outlineKeyCreated: string;
   startDate: string;
   endDate: string;

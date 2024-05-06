@@ -4,11 +4,12 @@ import * as Sentry from "@sentry/nextjs";
 import { emailKeyTemplate } from "./templates";
 
 interface MailSender {
-  recipient: string;
+  to: string;
   key: string;
+  name: string;
 }
 
-export async function sendVpnKeyEmail({ recipient: to, key }: MailSender) {
+export async function sendVpnKeyEmail({ to, key, name }: MailSender) {
   try {
     const sendGridApiKey = process.env.VPN_MANAGER_SENDGRID_API_KEY as string;
     if (!sendGridApiKey) {
@@ -25,9 +26,20 @@ export async function sendVpnKeyEmail({ recipient: to, key }: MailSender) {
       to,
       from,
       subject,
-      html: emailKeyTemplate(key),
+      html: emailKeyTemplate(key, name),
     };
     await sgMail.send(message);
+    Sentry.withScope((scope) => {
+      scope.setLevel("info");
+      scope.setUser({
+        email: to,
+      });
+      scope.addAttachment({
+        filename: "email.html",
+        data: emailKeyTemplate("*hidden*", name),
+      });
+      Sentry.captureMessage("Outline key sent");
+    });
   } catch (error) {
     Sentry.captureException(error);
   }

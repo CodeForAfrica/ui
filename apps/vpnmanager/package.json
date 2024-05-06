@@ -22,7 +22,7 @@
     "@mui/utils": "^5.14.20",
     "@next/env": "^14.1.4",
     "@sendgrid/mail": "^8.1.1",
-    "@sentry/nextjs": "^7.105.0",
+    "@sentry/nextjs": "^7.106.1",
     "@svgr/webpack": "^8.1.0",
     "@types/jest": "^29.5.12",
     "googleapis": "^133.0.0",
