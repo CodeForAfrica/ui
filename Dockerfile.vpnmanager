@@ -1,4 +1,4 @@
-FROM node:18-alpine as node-alpine
+FROM node:22-alpine as node-alpine
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
