@@ -33,6 +33,7 @@ export async function sendVpnKeyEmail({
       html: emailKeyTemplate(key, name),
     };
     await sgMail.send(message);
+    Sentry.captureMessage(`Email sent to "${to}" ${emailKeyTemplate(key, name)}`, 'info');
   } catch (error) {
     Sentry.captureException(error);
   }

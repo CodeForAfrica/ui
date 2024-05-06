@@ -3,7 +3,6 @@ export function emailKeyTemplate(key: string, name: string) {
   <div>
 
   <p>Hi ${name},</p>
-  <p>Thanks for indicating interest in using Outline VPN.</p>
   <p>Use the following instructions to set it up on your devices:</p>
   
   <ol>
