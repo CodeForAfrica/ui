@@ -35,7 +35,10 @@ export async function sendVpnKeyEmail({ to, key, name }: MailSender) {
         id: to,
         email: to,
       });
-      scope.addAttachment({ filename: "email.html", data: emailKeyTemplate("*hidden*", name)})
+      scope.addAttachment({
+        filename: "email.html",
+        data: emailKeyTemplate("*hidden*", name),
+      });
       Sentry.captureMessage("Outline key sent");
     });
   } catch (error) {
