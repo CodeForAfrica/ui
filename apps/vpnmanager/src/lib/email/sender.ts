@@ -32,7 +32,6 @@ export async function sendVpnKeyEmail({ to, key, name }: MailSender) {
     Sentry.withScope((scope) => {
       scope.setLevel("info");
       scope.setUser({
-        id: to,
         email: to,
       });
       scope.addAttachment({
