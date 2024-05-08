@@ -259,6 +259,12 @@ importers:
 
   apps/codeforafrica:
     dependencies:
+      "@aws-sdk/client-s3":
+        specifier: ^3.470.0
+        version: 3.472.0
+      "@aws-sdk/lib-storage":
+        specifier: ^3.470.0
+        version: 3.472.0(@aws-sdk/client-s3@3.472.0)
       "@commons-ui/core":
         specifier: workspace:*
         version: link:../../packages/commons-ui-core
@@ -297,7 +303,7 @@ importers:
         version: 1.4.0(payload@2.16.1)
       "@payloadcms/plugin-cloud-storage":
         specifier: ^1.1.1
-        version: 1.1.1(payload@2.16.1)
+        version: 1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1)
       "@payloadcms/plugin-nested-docs":
         specifier: ^1.0.9
         version: 1.0.9
@@ -7441,7 +7447,7 @@ packages:
       - supports-color
     dev: false
 
-  /@payloadcms/plugin-cloud-storage@1.1.1(payload@2.16.1):
+  /@payloadcms/plugin-cloud-storage@1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1):
     resolution:
       {
         integrity: sha512-WFqfZcT7R1LD+FfKKKYNsJPDRE+0VlYEMxzGuPKeUQn9w9sqTy2UD01YCEl0Zcyuq8fD9mRUjeLitSo1aAUimQ==,
@@ -7462,6 +7468,8 @@ packages:
       "@google-cloud/storage":
         optional: true
     dependencies:
+      "@aws-sdk/client-s3": 3.472.0
+      "@aws-sdk/lib-storage": 3.472.0(@aws-sdk/client-s3@3.472.0)
       payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       range-parser: 1.2.1
     dev: false
