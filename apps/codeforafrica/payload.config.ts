@@ -1,6 +1,9 @@
 import path from "path";
 
 import { buildConfig } from "payload/config";
+import { slateEditor } from "@payloadcms/richtext-slate";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import dotenv from "dotenv";
@@ -54,6 +57,11 @@ const adapter = s3Adapter({
 
 export default buildConfig({
   serverURL: appURL,
+  editor: slateEditor({}),
+  db: mongooseAdapter({
+    url: process.env.MONGODB_URL,
+    migrationDir: process.env.MIGRATIONS_DIR,
+  }),
   collections: [
     Authors,
     Donors,
@@ -95,6 +103,7 @@ export default buildConfig({
         },
       },
     }),
+    bundler: webpackBundler(),
   },
   cors,
   csrf,

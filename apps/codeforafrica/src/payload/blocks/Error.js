@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const Error = {
@@ -12,9 +14,11 @@ const Error = {
     },
     richText({
       name: "subtitle",
-      admin: {
-        elements: ["link"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: ["link"],
+        },
+      }),
     }),
   ],
 };

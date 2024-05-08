@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import image from "../fields/image";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
@@ -29,6 +31,7 @@ const GuidingPrinciples = {
       name: "description",
       required: true,
       localized: true,
+      editor: slateEditor({}),
     }),
   ],
 };

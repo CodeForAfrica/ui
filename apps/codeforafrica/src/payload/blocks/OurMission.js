@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const OurMission = {
@@ -18,20 +20,22 @@ const OurMission = {
     richText({
       name: "description",
       required: true,
-      admin: {
-        elements: [
-          "h1",
-          "h2",
-          "h3",
-          "h4",
-          "h5",
-          "h6",
-          "link",
-          "ol",
-          "ul",
-          "indent",
-        ],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "link",
+            "ol",
+            "ul",
+            "indent",
+          ],
+        },
+      }),
     }),
   ],
 };
