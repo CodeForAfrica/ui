@@ -89,7 +89,6 @@ export default buildConfig({
       }
     : undefined),
   admin: {
-    css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
     webpack: (config) => ({
       ...config,
