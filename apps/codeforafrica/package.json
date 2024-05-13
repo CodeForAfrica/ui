@@ -58,7 +58,7 @@
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
     "jsdom": "^23.0.1",
-    "next": "^14.0.4",
+    "next": "^14.1.1",
     "next-seo": "^6.4.0",
     "nodemailer-sendgrid": "^1.0.3",
     "payload": "^2.16.1",
