@@ -47,7 +47,7 @@
     "deepmerge": "^4.3.1",
     "leaflet": "^1.9.4",
     "lodash": "^4.17.21",
-    "next": "^14.0.4",
+    "next": "^14.1.1",
     "next-images": "^1.8.5",
     "next-seo": "^6.4.0",
     "papaparse": "^5.4.1",

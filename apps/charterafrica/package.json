@@ -65,7 +65,7 @@
     "leaflet": "^1.9.4",
     "migrate-mongo": "^11.0.0",
     "monaco-editor": "^0.44.0",
-    "next": "^14.0.4",
+    "next": "^14.1.1",
     "next-seo": "^6.4.0",
     "nodemailer-sendgrid": "^1.0.3",
     "payload": "^2.16.1",
