@@ -89,22 +89,22 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       "@payloadcms/bundler-webpack":
         specifier: ^1.0.6
-        version: 1.0.6(@swc/core@1.3.100)(payload@2.9.0)
+        version: 1.0.6(@swc/core@1.3.100)(payload@2.16.1)
       "@payloadcms/db-mongodb":
-        specifier: ^1.4.0
-        version: 1.4.0(payload@2.9.0)
+        specifier: ^1.5.1
+        version: 1.5.1(payload@2.16.1)
       "@payloadcms/plugin-cloud-storage":
         specifier: ^1.1.2
-        version: 1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.9.0)
+        version: 1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1)
       "@payloadcms/plugin-nested-docs":
-        specifier: ^1.0.11
-        version: 1.0.11
+        specifier: ^1.0.12
+        version: 1.0.12(payload@2.16.1)
       "@payloadcms/plugin-seo":
-        specifier: ^2.2.0
-        version: 2.2.0(payload@2.9.0)(react@18.2.0)
+        specifier: ^2.3.2
+        version: 2.3.2(payload@2.16.1)(react@18.2.0)
       "@payloadcms/richtext-slate":
-        specifier: ^1.4.0
-        version: 1.4.0(payload@2.9.0)(react-dom@18.2.0)
+        specifier: ^1.5.2
+        version: 1.5.2(payload@2.16.1)(react-dom@18.2.0)(react@18.2.0)
       "@react-spring/web":
         specifier: ^9.7.3
         version: 9.7.3(react-dom@18.2.0)(react@18.2.0)
@@ -139,8 +139,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       payload:
-        specifier: ^2.9.0
-        version: 2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+        specifier: ^2.16.1
+        version: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -506,7 +506,7 @@ importers:
         version: 7.6.4
       "@storybook/nextjs":
         specifier: ^7.6.4
-        version: 7.6.4(@swc/core@1.3.100)(esbuild@0.18.20)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)(webpack@5.89.0)
+        version: 7.6.4(@swc/core@1.3.107)(esbuild@0.18.20)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)(webpack@5.89.0)
       "@storybook/react":
         specifier: ^7.6.4
         version: 7.6.4(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
@@ -7183,7 +7183,7 @@ packages:
       }
     dev: false
 
-  /@payloadcms/bundler-webpack@1.0.6(@swc/core@1.3.100)(payload@2.9.0):
+  /@payloadcms/bundler-webpack@1.0.6(@swc/core@1.3.100)(payload@2.16.1):
     resolution:
       {
         integrity: sha512-hKnRqF2IhYCqNwb8FjKNnjR9fKCXVK2PJgPu3R89dvFhvMnwkbkbj86LMCC4dLmQ9RXmmh/drw4Q5acQ/Xec8g==,
@@ -7201,7 +7201,7 @@ packages:
       md5: 2.3.0
       mini-css-extract-plugin: 1.6.2(webpack@5.89.0)
       path-browserify: 1.0.1
-      payload: 2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       postcss: 8.4.31
       postcss-loader: 6.2.1(postcss@8.4.31)(webpack@5.89.0)
       postcss-preset-env: 9.0.0(postcss@8.4.31)
@@ -7316,10 +7316,10 @@ packages:
       - supports-color
     dev: false
 
-  /@payloadcms/db-mongodb@1.4.0(payload@2.9.0):
+  /@payloadcms/db-mongodb@1.5.1(payload@2.16.1):
     resolution:
       {
-        integrity: sha512-9DVazhkV5+T2+NpIvIDMZ3AmJScjkj7r8OPwrz3BBvXXKid2NUDewTKFQSVtqWK6Ed5ArlvCAlk9J6zO3Q0+cA==,
+        integrity: sha512-llaVGLqHkBaRvMuPG0hNdXUQ0UBfzCxujAc2N9ZtNGru7+PIyxsjVbhvgflcybuFHX12BDgOD1uvTUWfa/MgiA==,
       }
     peerDependencies:
       payload: ^2.0.0
@@ -7331,7 +7331,7 @@ packages:
       mongoose: 6.12.3
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
-      payload: 2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -7366,7 +7366,7 @@ packages:
       range-parser: 1.2.1
     dev: false
 
-  /@payloadcms/plugin-cloud-storage@1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.9.0):
+  /@payloadcms/plugin-cloud-storage@1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1):
     resolution:
       {
         integrity: sha512-wBpEWv4VdfltBqEi5ECSrKQ/TtNvmBWT4DLCrTCOhpNuD8dYD2rp+0Eoj7cF8f6wU7DpS5rvdQ/8gxlqh0Armw==,
@@ -7393,15 +7393,19 @@ packages:
       "@aws-sdk/client-s3": 3.472.0
       "@aws-sdk/lib-storage": 3.472.0(@aws-sdk/client-s3@3.472.0)
       find-node-modules: 2.1.3
-      payload: 2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       range-parser: 1.2.1
     dev: false
 
-  /@payloadcms/plugin-nested-docs@1.0.11:
+  /@payloadcms/plugin-nested-docs@1.0.12(payload@2.16.1):
     resolution:
       {
-        integrity: sha512-Bh7CWNDleazNHeRZSNKO67lRnf24yHur69qP/tbbQNM2/RyanPFR2+fWOk/WO0K0/3k7IKzuMEF8n4L3eKek0w==,
+        integrity: sha512-CZcfGjN3nUtlAHHlbjgnmiB+lPCw3X7CNN2t2IL5+n94OH98Kwfnu+qhPV/ALm1JAWMY0sQ46kRIwWHij016Nw==,
       }
+    peerDependencies:
+      payload: ^0.18.5 || ^1.0.0 || ^2.0.0
+    dependencies:
+      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
     dev: false
 
   /@payloadcms/plugin-nested-docs@1.0.9:
@@ -7424,16 +7428,16 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@payloadcms/plugin-seo@2.2.0(payload@2.9.0)(react@18.2.0):
+  /@payloadcms/plugin-seo@2.3.2(payload@2.16.1)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-SekiWzl444AKGORJDufjKn7QK0W5fSn6d1mFqpJVPLFiNBWwbaUuR0N+rbtkEey5sUfFnaFKFA1lFDQYJqUClg==,
+        integrity: sha512-wlYxY36CRDQQBSgpdvfNlovqw7qYp0jo5ORbkWZl7eeAliUl58ng7SEapRiihYWfqfPQ+eQOs2yL7CNz0GAvLg==,
       }
     peerDependencies:
       payload: ^2.7.0
-      react: ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      payload: 2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
     dev: false
 
@@ -7460,18 +7464,19 @@ packages:
       - react-native
     dev: false
 
-  /@payloadcms/richtext-slate@1.4.0(payload@2.9.0)(react-dom@18.2.0):
+  /@payloadcms/richtext-slate@1.5.2(payload@2.16.1)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-nIQmo/q5ZeRylSXuUEn6DHgDXgye/SjMZ3HNPKhyEDe1ziiCvqpgb9CJ9m1DgPg1eDqh2OYxCUHipC21k0X0jw==,
+        integrity: sha512-0rq9zgOhpPHO5kcFlajld3h5beww6jjYwHZH5sxgtuen3bz6pepIr3agg650R/aE1+sfez0NdpwoB0gb7FX03g==,
       }
     peerDependencies:
       payload: ^2.3.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       "@faceless-ui/modal": 2.0.1(react-dom@18.2.0)(react@18.2.0)
       i18next: 22.5.1
       is-hotkey: 0.2.0
-      payload: 2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
       react-i18next: 11.18.6(i18next@22.5.1)(react-dom@18.2.0)(react@18.2.0)
       slate: 0.91.4
@@ -10183,7 +10188,7 @@ packages:
       }
     dev: true
 
-  /@storybook/nextjs@7.6.4(@swc/core@1.3.100)(esbuild@0.18.20)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)(webpack@5.89.0):
+  /@storybook/nextjs@7.6.4(@swc/core@1.3.107)(esbuild@0.18.20)(next@14.1.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)(webpack@5.89.0):
     resolution:
       {
         integrity: sha512-cKGsumJcWmFdGrlVyxtbcp1DzXd+P6yUtVNMWUtPR5mDTV8TmQ6Y12Tm18mmVANo4aTNssEfKpOWiFTnakVnyg==,
@@ -10777,18 +10782,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@swc/core-darwin-arm64@1.3.76:
-    resolution:
-      {
-        integrity: sha512-ovviEhZ/1E81Z9OGrO0ivLWk4VCa3I3ZzM+cd3gugglRRwVwtlIaoIYqY5S3KiCAupDd1+UCl5X7Vbio7a/V8g==,
-      }
-    engines: { node: ">=10" }
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@swc/core-darwin-arm64@1.3.96:
     resolution:
       {
@@ -10822,18 +10815,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@swc/core-darwin-x64@1.3.76:
-    resolution:
-      {
-        integrity: sha512-tcySTDqs0SHCebtW35sCdcLWsmTEo7bEwx0gNL/spetqVT9fpFi6qU8qcnt7i2KaZHbeNl9g1aadu+Yrni+GzA==,
-      }
-    engines: { node: ">=10" }
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@swc/core-darwin-x64@1.3.96:
     resolution:
       {
@@ -10854,18 +10835,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    optional: true
-
-  /@swc/core-linux-arm-gnueabihf@1.3.76:
-    resolution:
-      {
-        integrity: sha512-apgzpGWy1AwoMF4urAAASsAjE7rEzZFIF+p6utuxhS7cNHzE0AyEVDYJbo+pzBdlZ8orBdzzsHtFwoEgKOjebA==,
-      }
-    engines: { node: ">=10" }
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@swc/core-linux-arm-gnueabihf@1.3.96:
@@ -10901,18 +10870,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@swc/core-linux-arm64-gnu@1.3.76:
-    resolution:
-      {
-        integrity: sha512-c3c0zz6S0eludqidDpuqbadE0WT3OZczyQxe9Vw8lFFXES85mvNGtwYzyGK2o7TICpsuHrndwDIoYpmpWk879g==,
-      }
-    engines: { node: ">=10" }
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@swc/core-linux-arm64-gnu@1.3.96:
     resolution:
       {
@@ -10944,18 +10901,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    optional: true
-
-  /@swc/core-linux-arm64-musl@1.3.76:
-    resolution:
-      {
-        integrity: sha512-Is3bpq7F2qtlnkzEeOD6HIZJPpOmu3q6c82lKww90Q0NnrlSluVMozTHJgwVoFZyizH7uLnk0LuNcEAWLnmJIw==,
-      }
-    engines: { node: ">=10" }
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@swc/core-linux-arm64-musl@1.3.96:
@@ -10991,18 +10936,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@swc/core-linux-x64-gnu@1.3.76:
-    resolution:
-      {
-        integrity: sha512-iwCeRzd9oSvUzqt7nU6p/ztceAWfnO9XVxBn502R5gs6QCBbE1HCKrWHDO77aKPK7ss+0NcIGHvXTd9L8/wRzw==,
-      }
-    engines: { node: ">=10" }
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@swc/core-linux-x64-gnu@1.3.96:
     resolution:
       {
@@ -11034,18 +10967,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    optional: true
-
-  /@swc/core-linux-x64-musl@1.3.76:
-    resolution:
-      {
-        integrity: sha512-a671g4tW8kyFeuICsgq4uB9ukQfiIyXJT4V6YSnmqhCTz5mazWuDxZ5wKnx/1g5nXTl+U5cWH2TZaCJatp4GKA==,
-      }
-    engines: { node: ">=10" }
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@swc/core-linux-x64-musl@1.3.96:
@@ -11081,18 +11002,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@swc/core-win32-arm64-msvc@1.3.76:
-    resolution:
-      {
-        integrity: sha512-+swEFtjdMezS0vKUhJC3psdSDtOJGY5pEOt4e8XOPvn7aQpKQ9LfF49XVtIwDSk5SGuWtVoLFzkSY3reWUJCyg==,
-      }
-    engines: { node: ">=10" }
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@swc/core-win32-arm64-msvc@1.3.96:
     resolution:
       {
@@ -11126,18 +11035,6 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@swc/core-win32-ia32-msvc@1.3.76:
-    resolution:
-      {
-        integrity: sha512-5CqwAykpGBJ3PqGLOlWGLGIPpBAG1IwWVDUfro3hhjQ7XJxV5Z1aQf5V5OJ90HJVtrEAVx2xx59UV/Dh081LOg==,
-      }
-    engines: { node: ">=10" }
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: false
-    optional: true
-
   /@swc/core-win32-ia32-msvc@1.3.96:
     resolution:
       {
@@ -11169,18 +11066,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    optional: true
-
-  /@swc/core-win32-x64-msvc@1.3.76:
-    resolution:
-      {
-        integrity: sha512-CiMpWLLlR3Cew9067E7XxaLBwYYJ90r9EhGSO6V1pvYSWj7ET/Ppmtj1ZhzPJMqRXAP6xflfl5R5o4ee1m4WLA==,
-      }
-    engines: { node: ">=10" }
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: false
     optional: true
 
   /@swc/core-win32-x64-msvc@1.3.96:
@@ -11247,31 +11132,6 @@ packages:
       "@swc/core-win32-ia32-msvc": 1.3.107
       "@swc/core-win32-x64-msvc": 1.3.107
 
-  /@swc/core@1.3.76:
-    resolution:
-      {
-        integrity: sha512-aYYTA2aVYkwJAZepQXtPnkUthhOfn8qd6rsh+lrJxonFrjmpI7RHt2tMDVTXP6XDX7fvnvrVtT1bwZfmBFPh0Q==,
-      }
-    engines: { node: ">=10" }
-    requiresBuild: true
-    peerDependencies:
-      "@swc/helpers": ^0.5.0
-    peerDependenciesMeta:
-      "@swc/helpers":
-        optional: true
-    optionalDependencies:
-      "@swc/core-darwin-arm64": 1.3.76
-      "@swc/core-darwin-x64": 1.3.76
-      "@swc/core-linux-arm-gnueabihf": 1.3.76
-      "@swc/core-linux-arm64-gnu": 1.3.76
-      "@swc/core-linux-arm64-musl": 1.3.76
-      "@swc/core-linux-x64-gnu": 1.3.76
-      "@swc/core-linux-x64-musl": 1.3.76
-      "@swc/core-win32-arm64-msvc": 1.3.76
-      "@swc/core-win32-ia32-msvc": 1.3.76
-      "@swc/core-win32-x64-msvc": 1.3.76
-    dev: false
-
   /@swc/core@1.3.96:
     resolution:
       {
@@ -11323,21 +11183,6 @@ packages:
       "@swc/core": ^1.0.46
     dependencies:
       "@swc/core": 1.3.107
-      lodash.clonedeep: 4.5.0
-      pirates: 4.0.6
-      source-map-support: 0.5.21
-    dev: false
-
-  /@swc/register@0.1.10(@swc/core@1.3.76):
-    resolution:
-      {
-        integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==,
-      }
-    hasBin: true
-    peerDependencies:
-      "@swc/core": ^1.0.46
-    dependencies:
-      "@swc/core": 1.3.76
       lodash.clonedeep: 4.5.0
       pirates: 4.0.6
       source-map-support: 0.5.21
@@ -16990,7 +16835,7 @@ packages:
       lodash: 4.17.21
       resolve: 2.0.0-next.5
       semver: 5.7.2
-      webpack: 5.89.0(@swc/core@1.3.100)(webpack-cli@4.10.0)
+      webpack: 5.89.0(@swc/core@1.3.96)(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -22382,13 +22227,6 @@ packages:
       }
     engines: { node: ">= 0.6" }
 
-  /micro-memoize@4.1.2:
-    resolution:
-      {
-        integrity: sha512-+HzcV2H+rbSJzApgkj0NdTakkC+bnyeiUxgT6/m7mjcz1CmM22KYFKp+EVj1sWe4UYcnriJr5uqHQD/gMHLD+g==,
-      }
-    dev: false
-
   /micromark@2.11.4:
     resolution:
       {
@@ -24036,115 +23874,6 @@ packages:
       scmp: 2.1.0
       sharp: 0.33.2
       swc-loader: 0.2.3(@swc/core@1.3.107)(webpack@5.89.0)
-      terser-webpack-plugin: 5.3.9(@swc/core@1.3.107)(esbuild@0.18.20)(webpack@5.89.0)
-      ts-essentials: 7.0.3(typescript@5.3.3)
-      use-context-selector: 1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.23.0)
-      uuid: 9.0.1
-    transitivePeerDependencies:
-      - "@swc/helpers"
-      - "@types/react"
-      - encoding
-      - esbuild
-      - react-native
-      - supports-color
-      - typescript
-      - uglify-js
-      - webpack
-    dev: false
-
-  /payload@2.9.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0):
-    resolution:
-      {
-        integrity: sha512-C8QekOUOh1689qWWrCLNXhgC5K1LnKYFmFEru/GxhQBEO6SFEULdQHMnmjP1yrHARu1eVU24UdFVniKY+9oR7A==,
-      }
-    engines: { node: ">=14" }
-    hasBin: true
-    dependencies:
-      "@date-io/date-fns": 2.16.0(date-fns@2.30.0)
-      "@dnd-kit/core": 6.0.8(react-dom@18.2.0)(react@18.2.0)
-      "@dnd-kit/sortable": 7.0.2(@dnd-kit/core@6.0.8)(react@18.2.0)
-      "@faceless-ui/modal": 2.0.1(react-dom@18.2.0)(react@18.2.0)
-      "@faceless-ui/scroll-info": 1.3.0(react-dom@18.2.0)(react@18.2.0)
-      "@faceless-ui/window-info": 2.1.1(react-dom@18.2.0)(react@18.2.0)
-      "@monaco-editor/react": 4.5.1(monaco-editor@0.38.0)(react-dom@18.2.0)(react@18.2.0)
-      "@swc/core": 1.3.76
-      "@swc/register": 0.1.10(@swc/core@1.3.76)
-      body-parser: 1.20.2
-      body-scroll-lock: 4.0.0-beta.0
-      bson-objectid: 2.0.4
-      compression: 1.7.4
-      conf: 10.2.0
-      connect-history-api-fallback: 1.6.0
-      console-table-printer: 2.11.2
-      dataloader: 2.2.2
-      date-fns: 2.30.0
-      deep-equal: 2.2.2
-      deepmerge: 4.3.1
-      dotenv: 8.6.0
-      express: 4.18.2
-      express-fileupload: 1.4.0
-      express-rate-limit: 5.5.1
-      file-type: 16.5.4
-      find-up: 4.1.0
-      flatley: 5.2.0
-      fs-extra: 10.1.0
-      get-tsconfig: 4.6.2
-      graphql: 16.8.1
-      graphql-http: 1.21.0(graphql@16.8.1)
-      graphql-playground-middleware-express: 1.7.23(express@4.18.2)
-      graphql-query-complexity: 0.12.0(graphql@16.8.1)
-      graphql-scalars: 1.22.2(graphql@16.8.1)
-      graphql-type-json: 0.3.2(graphql@16.8.1)
-      html-webpack-plugin: 5.5.3(webpack@5.89.0)
-      http-status: 1.6.2
-      i18next: 22.5.1
-      i18next-browser-languagedetector: 6.1.8
-      i18next-http-middleware: 3.3.2
-      is-hotkey: 0.2.0
-      is-plain-object: 5.0.0
-      isomorphic-fetch: 3.0.0
-      joi: 17.9.2
-      json-schema-to-typescript: 11.0.3
-      jsonwebtoken: 9.0.1
-      jwt-decode: 3.1.2
-      md5: 2.3.0
-      method-override: 3.0.0
-      micro-memoize: 4.1.2
-      minimist: 1.2.8
-      mkdirp: 1.0.4
-      monaco-editor: 0.38.0
-      nodemailer: 6.9.8
-      object-to-formdata: 4.5.1
-      passport: 0.6.0
-      passport-anonymous: 1.0.1
-      passport-headerapikey: 1.2.2
-      passport-jwt: 4.0.1
-      passport-local: 1.0.0
-      pino: 8.15.0
-      pino-pretty: 10.2.0
-      pluralize: 8.0.0
-      probe-image-size: 6.0.0
-      process: 0.11.10
-      qs: 6.11.2
-      qs-middleware: 1.0.3
-      react: 18.2.0
-      react-animate-height: 2.1.2(react-dom@18.2.0)(react@18.2.0)
-      react-datepicker: 4.16.0(react-dom@18.2.0)(react@18.2.0)
-      react-diff-viewer-continued: 3.2.6(react-dom@18.2.0)(react@18.2.0)
-      react-dom: 18.2.0(react@18.2.0)
-      react-helmet: 6.1.0(react@18.2.0)
-      react-i18next: 11.18.6(i18next@22.5.1)(react-dom@18.2.0)(react@18.2.0)
-      react-image-crop: 10.1.8(react@18.2.0)
-      react-router-dom: 5.3.4(react@18.2.0)
-      react-router-navigation-prompt: 1.9.6(react-router-dom@5.3.4)(react@18.2.0)
-      react-select: 5.7.4(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
-      react-toastify: 8.2.0(react-dom@18.2.0)(react@18.2.0)
-      sanitize-filename: 1.6.3
-      sass: 1.69.4
-      scheduler: 0.23.0
-      scmp: 2.1.0
-      sharp: 0.33.2
-      swc-loader: 0.2.3(@swc/core@1.3.76)(webpack@5.89.0)
       terser-webpack-plugin: 5.3.9(@swc/core@1.3.107)(esbuild@0.18.20)(webpack@5.89.0)
       ts-essentials: 7.0.3(typescript@5.3.3)
       use-context-selector: 1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.23.0)
@@ -28368,19 +28097,6 @@ packages:
     dependencies:
       "@swc/core": 1.3.107
       webpack: 5.89.0(@swc/core@1.3.96)(webpack-cli@4.10.0)
-
-  /swc-loader@0.2.3(@swc/core@1.3.76)(webpack@5.89.0):
-    resolution:
-      {
-        integrity: sha512-D1p6XXURfSPleZZA/Lipb3A8pZ17fP4NObZvFCDjK/OKljroqDpPmsBdTraWhVBqUNpcWBQY1imWdoPScRlQ7A==,
-      }
-    peerDependencies:
-      "@swc/core": ^1.2.147
-      webpack: ">=2"
-    dependencies:
-      "@swc/core": 1.3.76
-      webpack: 5.89.0(@swc/core@1.3.100)(webpack-cli@4.10.0)
-    dev: false
 
   /swc-loader@0.2.3(@swc/core@1.3.96)(webpack@5.89.0):
     resolution:
