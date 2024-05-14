@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import image from "../fields/image";
 import richText from "../fields/richText";
 import slug from "../fields/slug";
@@ -48,6 +50,7 @@ const Partners = {
       name: "description",
       required: true,
       localized: true,
+      editor: slateEditor(),
     }),
     socialLinks({
       name: "connect",
