@@ -65,6 +65,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           file: Dockerfile.pesayetu
+          push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
       # Temp fix
