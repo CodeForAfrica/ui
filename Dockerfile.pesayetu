@@ -96,4 +96,4 @@ WORKDIR /workspace/apps/pesayetu
 
 EXPOSE ${PORT}
 
-CMD ["node", "dist/server.js"]
+CMD ["pnpm", "start"]
