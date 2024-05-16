@@ -16,7 +16,23 @@ and modify the `.env.local` file according to your needs.
 
 The default `.env` file is for the publicly visible environment variables.
 **DO NOT** include any secrets in it. All secrets should go into `env.local`.
-For more, see <<nextjs env var docs>>
+For more, see NextJS env var docs [here](https://nextjs.org/docs/basic-features/environment-variables).
+
+## Database setup
+
+Generate a new MongoDB keyfile by running the following command:
+NB: Run this command on the root directory
+
+```bash
+make mongodb-keyfile
+```
+
+Start the database server:
+NB: Run this command on the root directory
+
+```bash
+make mongodb
+```
 
 Then run the development server:
 

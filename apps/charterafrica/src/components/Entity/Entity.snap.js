@@ -6,13 +6,13 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1sdb2xz-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10h56vb-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-s1wmk7-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-gqilsr-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1bxfcex-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
         >
           <figure
             class="MuiBox-root css-db5opy"
@@ -32,32 +32,44 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-6q6fhx-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-u4yv58-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2SemiBold css-1ij80lf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-1h8yx9o-MuiTypography-root"
           >
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h4Small css-6del67-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
+          >
+            Developer
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
+          >
+            Charter Africa
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
           >
             San Francisco, CA
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-1syd6cp-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-x8x784-MuiTypography-root"
           >
             Full-stack web developer with over 5 years of experience.
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-f44kqc-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-3odm25-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-rl8zr9-MuiTypography-root-MuiLink-root"
-                href="maito:johndoe@example.com"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-zo8y90-MuiTypography-root-MuiLink-root"
+                href="https://twitter.com/johndoe"
+                rel="noreferrer noopener"
+                target="_blank"
               >
                 <div
                   aria-hidden="true"
@@ -67,10 +79,10 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               </a>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-4xpak5-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-zo8y90-MuiTypography-root-MuiLink-root"
                 href="https://github.com/johndoe"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -82,6 +94,342 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                 />
               </a>
             </div>
+            <div
+              class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-cp0dln-MuiTypography-root-MuiLink-root"
+                href="maito:johndoe@example.com"
+              >
+                <div
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                  focusable="false"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            class="MuiTypography-root MuiTypography-h3Small css-lx54qi-MuiTypography-root"
+          >
+            Organisations
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container css-5kyae9-MuiGrid-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="https://charter.africa"
+                rel="noreferrer noopener"
+                tabindex="0"
+                target="_blank"
+              >
+                <div
+                  class="MuiStack-root css-1l9qugs-MuiStack-root"
+                >
+                  <figure
+                    class="MuiBox-root css-1u82k0c"
+                  >
+                    <img
+                      alt="Organisation 0"
+                      class="css-1r7uxv0"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=640&q=75 640w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=750&q=75 750w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=828&q=75 828w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1080&q=75 1080w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1200&q=75 1200w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1920&q=75 1920w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=2048&q=75 2048w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                  </figure>
+                  <div
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+                  >
+                    Organisation 0
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="https://charter.africa"
+                rel="noreferrer noopener"
+                tabindex="0"
+                target="_blank"
+              >
+                <div
+                  class="MuiStack-root css-1l9qugs-MuiStack-root"
+                >
+                  <figure
+                    class="MuiBox-root css-1u82k0c"
+                  >
+                    <img
+                      alt="Organisation 1"
+                      class="css-1r7uxv0"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=640&q=75 640w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=750&q=75 750w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=828&q=75 828w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1080&q=75 1080w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1200&q=75 1200w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1920&q=75 1920w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=2048&q=75 2048w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                  </figure>
+                  <div
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+                  >
+                    Organisation 1
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="https://charter.africa"
+                rel="noreferrer noopener"
+                tabindex="0"
+                target="_blank"
+              >
+                <div
+                  class="MuiStack-root css-1l9qugs-MuiStack-root"
+                >
+                  <figure
+                    class="MuiBox-root css-1u82k0c"
+                  >
+                    <img
+                      alt="Organisation 2"
+                      class="css-1r7uxv0"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=3840&q=75"
+                      srcset="/_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=640&q=75 640w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=750&q=75 750w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=828&q=75 828w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1080&q=75 1080w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1200&q=75 1200w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=1920&q=75 1920w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=2048&q=75 2048w, /_next/image?url=%2Fstatic%2Fimages%2Fcharterafrica.png&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                  </figure>
+                  <div
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+                  >
+                    Organisation 2
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg css-1jzu7sv-MuiContainer-root"
+      >
+        <div
+          class="MuiTypography-root MuiTypography-h3Small css-1n4it2y-MuiTypography-root"
+        >
+          Repositories
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-container css-e187gj-MuiGrid-root"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone active css-15h90l6-MuiTypography-root-MuiLink-root"
+              href="https://charter.africa"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+                  >
+                    Repository 0
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    Charter Africa website
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    React, Next.js, TypeScript
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    October 1, 2021
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-md-1 css-eggpic-MuiGrid-root"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-container css-12137kz-MuiGrid-root"
+                  >
+                    <div
+                      sx="[object Object]"
+                    />
+                    <div
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+                    >
+                      100
+                    </div>
+                  </div>
+                  <div
+                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+                    >
+                      PUBLIC
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone active css-15h90l6-MuiTypography-root-MuiLink-root"
+              href="https://charter.africa"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+                  >
+                    Repository 1
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    Charter Africa website
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    React, Next.js, TypeScript
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    October 1, 2021
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-md-1 css-eggpic-MuiGrid-root"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-container css-12137kz-MuiGrid-root"
+                  >
+                    <div
+                      sx="[object Object]"
+                    />
+                    <div
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+                    >
+                      100
+                    </div>
+                  </div>
+                  <div
+                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+                    >
+                      PUBLIC
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone active css-15h90l6-MuiTypography-root-MuiLink-root"
+              href="https://charter.africa"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+                >
+                  <div
+                    class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+                  >
+                    Repository 2
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    Charter Africa website
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    React, Next.js, TypeScript
+                  </div>
+                  <div
+                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                  >
+                    October 1, 2021
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-md-1 css-eggpic-MuiGrid-root"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-container css-12137kz-MuiGrid-root"
+                  >
+                    <div
+                      sx="[object Object]"
+                    />
+                    <div
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+                    >
+                      100
+                    </div>
+                  </div>
+                  <div
+                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+                  >
+                    <span
+                      class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+                    >
+                      PUBLIC
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

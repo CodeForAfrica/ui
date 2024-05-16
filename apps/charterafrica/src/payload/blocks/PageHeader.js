@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
@@ -13,10 +15,12 @@ const PageHeader = {
       },
       required: true,
       localized: true,
-      admin: {
-        elements: [],
-        leaves: ["bold", "italic", "strikethrough", "underline"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold", "italic", "strikethrough", "underline"],
+        },
+      }),
     }),
     {
       name: "variant",
@@ -49,11 +53,13 @@ const PageHeader = {
         pt: "Descrição",
       },
       localized: true,
-      admin: {
-        condition: (_, siblingData) => siblingData?.variant === "image",
-        elements: [],
-        leaves: ["bold", "italic", "strikethrough", "underline"],
-      },
+      editor: slateEditor({
+        admin: {
+          condition: (_, siblingData) => siblingData?.variant === "image",
+          elements: [],
+          leaves: ["bold", "italic", "strikethrough", "underline"],
+        },
+      }),
     }),
     linkGroup({
       linkConfig: { disableOpenInNewTab: true, required: false },

@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import { allCountries } from "../../lib/data/json/countries";
 import image from "../fields/image";
 import richText from "../fields/richText";
@@ -50,6 +52,7 @@ const Members = {
       name: "description",
       required: true,
       localized: true,
+      editor: slateEditor({}),
     }),
     socialLinks({
       name: "connect",

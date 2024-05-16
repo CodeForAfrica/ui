@@ -1,7 +1,11 @@
-import { fetchTool, fetchOrganisation, fetchContributor } from "./processData";
+import {
+  bulkFetchContributors,
+  fetchTool,
+  fetchOrganisation,
+} from "./processData";
 
 export default {
   fetchTool,
   fetchOrganisation,
-  fetchContributor,
+  bulkFetchContributors,
 };

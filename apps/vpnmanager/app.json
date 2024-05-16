@@ -1,0 +1,9 @@
+{
+  "name": "vpnmanager",
+  "cron": [
+    {
+      "command": "pnpm process-spreadsheet",
+      "schedule": "@hourly"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import image from "../fields/image";
 import richText from "../fields/richText";
 
@@ -9,10 +11,12 @@ const Hero = {
     richText({
       name: "title",
       required: true,
-      admin: {
-        elements: [],
-        leaves: ["bold"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold"],
+        },
+      }),
     }),
     {
       name: "messages",

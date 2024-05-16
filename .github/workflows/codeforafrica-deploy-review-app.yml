@@ -5,7 +5,7 @@ on:
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
-      - ".github/**"
+      - ".github/workflows/codeforafrica-deploy-review.yml"
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: false
@@ -69,7 +69,6 @@ jobs:
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
-          # create a review app
           command: review-apps:create
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           # specify a name for the review app

@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
 
@@ -13,10 +15,12 @@ const Mooc = {
       },
       required: true,
       localized: true,
-      admin: {
-        elements: [],
-        leaves: ["bold", "italic", "underline", "code"],
-      },
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold", "italic", "underline", "code"],
+        },
+      }),
     }),
     linkGroup(),
     {

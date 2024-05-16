@@ -15,7 +15,16 @@ export async function prepareContributors(airtableData, config) {
   const { contributors } = airtableData;
   await bulkMarkDeleted(CONTRIBUTORS_COLLECTION, contributors);
   const toProcess = airtableData?.contributors?.map(async (item) => {
-    return createCollection(CONTRIBUTORS_COLLECTION, item, config);
+    const rawOrganisations = item?.organisations || [];
+    const organisations = await getCollectionIdsPerAirtableId(
+      ORGANIZATION_COLLECTION,
+      rawOrganisations,
+    );
+    const toCreate = {
+      ...item,
+      organisations,
+    };
+    return createCollection(CONTRIBUTORS_COLLECTION, toCreate, config);
   });
   return Promise.allSettled(toProcess);
 }
@@ -56,18 +65,24 @@ export async function prepareTools(airtableData, config) {
   return Promise.allSettled(toProcess);
 }
 
-export async function updateContributor(forceUpdate) {
-  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION);
+export async function updateContributor() {
+  const { docs } = await api.getCollection(CONTRIBUTORS_COLLECTION, {
+    pagination: false,
+  });
+  const githubContributors = await github.bulkFetchContributors(
+    docs.map(({ externalId }) => externalId),
+  );
   const updatePromises = docs.map(async (item) => {
-    const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
-    const updated = await github.fetchContributor(itemToFetch);
+    const updated = githubContributors[item.externalId];
     return api.updateCollection(CONTRIBUTORS_COLLECTION, item.id, updated);
   });
   return Promise.allSettled(updatePromises);
 }
 
 export async function updateOrganisation(forceUpdate) {
-  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION);
+  const { docs } = await api.getCollection(ORGANIZATION_COLLECTION, {
+    pagination: false,
+  });
   const updatePromises = docs.map(async (item) => {
     const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
     const updated = await github.fetchOrganisation(itemToFetch);
@@ -77,7 +92,9 @@ export async function updateOrganisation(forceUpdate) {
 }
 
 export async function updateTool(forceUpdate) {
-  const { docs } = await api.getCollection(TOOL_COLLECTION);
+  const { docs } = await api.getCollection(TOOL_COLLECTION, {
+    pagination: false,
+  });
   const updatePromises = docs.map(async (item) => {
     const itemToFetch = forceUpdate ? { ...item, eTag: null } : item;
     const updated = await github.fetchTool(itemToFetch);
