@@ -1959,6 +1959,16 @@ const countries = [
     value: "Zimbabwe",
     continent: "Africa",
   },
+  {
+    name: "Africa",
+    label: {
+      pt: "África",
+      en: "Africa",
+      fr: "Afrique",
+    },
+    value: "Africa",
+    continent: "Africa",
+  },
 ];
 
 export const countriesByContinent = (continent) => {
