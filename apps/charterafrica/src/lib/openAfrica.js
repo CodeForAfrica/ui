@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
-import { countriesByContinent } from "@/charterafrica/lib/data/json/countries";
+import { countriesByContinent } from "@/charterafrica/lib/data/json/locations";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const OPEN_AFRICA_URL = "https://open.africa/";

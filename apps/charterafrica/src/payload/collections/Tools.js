@@ -1,7 +1,7 @@
 import {
-  allCountries,
+  allLocations,
   countriesByContinent,
-} from "../../lib/data/json/countries";
+} from "../../lib/data/json/locations";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
@@ -272,7 +272,7 @@ const Tools = {
     {
       name: "homeCountry",
       type: "select",
-      options: allCountries,
+      options: allLocations,
       label: { en: "Home Country", fr: "Pays natal", pt: "País natal" },
       admin: {
         readOnly: true,

@@ -1,4 +1,4 @@
-const countries = [
+const locations = [
   {
     name: "Afghanistan",
     label: {
@@ -1972,11 +1972,11 @@ const countries = [
 ];
 
 export const countriesByContinent = (continent) => {
-  return countries
+  return locations
     .filter((country) => continent === country.continent)
     .map(({ continent: cntnt, name, ...c }) => c);
 };
 
-export const allCountries = countries.map(
+export const allLocations = locations.map(
   ({ continent: cntnt, name, ...c }) => c,
 );

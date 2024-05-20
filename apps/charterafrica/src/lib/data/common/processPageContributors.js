@@ -1,4 +1,4 @@
-import { allCountries } from "@/charterafrica/lib/data/json/countries";
+import { allLocations } from "@/charterafrica/lib/data/json/locations";
 import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,
@@ -173,7 +173,7 @@ async function processPageContributors(page, api, context) {
           type: "select",
           name: "location",
           label: filterLabels.location,
-          options: allCountries.map((country) => ({
+          options: allLocations.map((country) => ({
             value: country.value,
             label: country.label?.[locale || "en"],
           })),
