@@ -1,4 +1,4 @@
-import { allLocations } from "@/charterafrica/lib/data/json/locations";
+import { allCountries } from "@/charterafrica/lib/data/json/locations";
 import { ORGANIZATION_COLLECTION } from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
@@ -146,7 +146,7 @@ async function processPageOrganisations(page, api, context) {
           type: "select",
           name: "location",
           label: filterLabels.location,
-          options: allLocations.map((country) => ({
+          options: allCountries.map((country) => ({
             value: country.value,
             label: country.label?.[locale || "en"],
           })),
