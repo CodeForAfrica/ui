@@ -1,6 +1,6 @@
 import {
   allLocations,
-  countriesByContinent,
+  locationsByContinent,
 } from "../../lib/data/json/locations";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
@@ -93,7 +93,7 @@ const Tools = {
     {
       name: "operatingCountries",
       type: "select",
-      options: countriesByContinent("Africa"),
+      options: locationsByContinent("Africa"),
       label: {
         en: "Operating Countries",
         fr: "Pays opérationnels",

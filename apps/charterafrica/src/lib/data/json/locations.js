@@ -1971,7 +1971,7 @@ const locations = [
   },
 ];
 
-export const countriesByContinent = (continent) => {
+export const locationsByContinent = (continent) => {
   return locations
     .filter((country) => continent === country.continent)
     .map(({ continent: cntnt, name, ...c }) => c);
