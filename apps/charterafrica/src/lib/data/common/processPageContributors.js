@@ -1,4 +1,4 @@
-import { allCountries } from "@/charterafrica/lib/data/json/countries";
+import { allCountries } from "@/charterafrica/lib/data/json/locations";
 import {
   CONTRIBUTORS_COLLECTION,
   TOOL_COLLECTION,

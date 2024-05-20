@@ -1,4 +1,4 @@
-import { allCountries } from "@/charterafrica/lib/data/json/countries";
+import { allCountries } from "@/charterafrica/lib/data/json/locations";
 import { ORGANIZATION_COLLECTION } from "@/charterafrica/payload/utils/collections";
 import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
