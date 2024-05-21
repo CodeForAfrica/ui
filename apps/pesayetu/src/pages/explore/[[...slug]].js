@@ -6,7 +6,6 @@ import ExplorePage from "@/pesayetu/components/ExplorePage";
 import Tutorial from "@/pesayetu/components/HURUmap/Tutorial";
 import Page from "@/pesayetu/components/Page";
 import formatBlocksForSections from "@/pesayetu/functions/formatBlocksForSections";
-import getPostTypeStaticProps from "@/pesayetu/functions/postTypes/getPostTypeStaticProps";
 import { fetchProfile, fetchProfileGeography } from "@/pesayetu/lib/hurumap";
 
 export default function Explore(props) {
@@ -43,7 +42,7 @@ Explore.defaultProps = {
   blocks: undefined,
 };
 
-const postType = "page";
+// const postType = "page";
 
 export async function getStaticPaths() {
   const { locations } = await fetchProfile();
@@ -57,18 +56,22 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ preview, previewData, params }) {
-  const { props, revalidate, notFound } = await getPostTypeStaticProps(
-    { slug: "explore" },
-    postType,
-    preview,
-    previewData,
-  );
-  if (notFound) {
-    return {
-      notFound,
-    };
-  }
+export async function getStaticProps({ params }) {
+  const props = {};
+  const revalidate = true;
+  // const { props, revalidate, notFound } = await getPostTypeStaticProps(
+  //   { slug: "explore" },
+  //   postType,
+  //   preview,
+  //   previewData,
+  // );
+  // if (notFound) {
+  //   console.error("Not found!!!");
+  //   return {
+  //     props: {},
+  //     // notFound,
+  //   };
+  // }
 
   const blocks = await formatBlocksForSections(props?.post?.blocks);
   const { locations, preferredChildren } = await fetchProfile();
