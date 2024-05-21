@@ -63,7 +63,7 @@ function Tutorial({ children, defaultOpen, items, ...props }) {
       accentColor="#fff"
       maskClassName={classes.mask}
       highlightedMaskClassName={classes.highlightedMask}
-      steps={items?.map((item, index) => ({
+      steps={items.map((item, index) => ({
         selector: item?.selector,
         content: <TutorialStep activeStep={index} {...item} />,
       }))}

@@ -42,11 +42,6 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/explore/ke",
-        permanent: true,
-      },
-      {
         source: "/data",
         destination: "/data/documents",
         permanent: true,
