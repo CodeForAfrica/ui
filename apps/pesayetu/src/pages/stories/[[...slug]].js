@@ -4,14 +4,14 @@ import React from "react";
 import Page from "@/pesayetu/components/Page";
 import StoriesPage from "@/pesayetu/components/StoriesPage";
 import StoryPage from "@/pesayetu/components/StoryPage";
-import formatBlocksForSections from "@/pesayetu/functions/formatBlocksForSections";
-import getCategories from "@/pesayetu/functions/getCategories";
-import getImagePlaceholder from "@/pesayetu/functions/getImagePlaceholder";
-import getPostTypeStaticPaths from "@/pesayetu/functions/postTypes/getPostTypeStaticPaths";
-import getPostTypeStaticProps from "@/pesayetu/functions/postTypes/getPostTypeStaticProps";
-import formatStoryPosts from "@/pesayetu/utils/formatStoryPosts";
+// import formatBlocksForSections from "@/pesayetu/functions/formatBlocksForSections";
+// import getCategories from "@/pesayetu/functions/getCategories";
+// import getImagePlaceholder from "@/pesayetu/functions/getImagePlaceholder";
+// import getPostTypeStaticPaths from "@/pesayetu/functions/postTypes/getPostTypeStaticPaths";
+// import getPostTypeStaticProps from "@/pesayetu/functions/postTypes/getPostTypeStaticProps";
+// import formatStoryPosts from "@/pesayetu/utils/formatStoryPosts";
 // Define route post type.
-const postType = "post";
+// const postType = "post";
 
 export default function Index({
   archive,
@@ -108,62 +108,69 @@ Index.defaultProps = {
 };
 
 export async function getStaticPaths() {
-  return getPostTypeStaticPaths(postType);
+  // return getPostTypeStaticPaths(postType);
+  return { paths: [], fallback: false };
 }
 
-export async function getStaticProps({ params, preview, previewData }) {
-  const [activeCategory, page] = params?.slug || [];
-  const categories = await getCategories();
-
-  const isPageNumber = page && Number.isInteger(Number(page));
-  let offset = 0;
-  const pageNumber = parseInt(page, 10) || 1;
-  if (pageNumber > 1) {
-    offset = (pageNumber - 2) * 9 + 6;
-  }
-
-  const { props, revalidate, notFound } = await getPostTypeStaticProps(
-    isPageNumber || params?.slug?.length === 1
-      ? { slug: [activeCategory], offset }
-      : params,
-    postType,
-    preview,
-    previewData,
-  );
-
-  if (notFound || props?.error) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const cateegoryPosts = await formatStoryPosts(props?.posts);
-  const items = {
-    label: categories.find(({ slug }) => slug === activeCategory)?.name,
-    slug: activeCategory,
-    pagination: props?.pagination ?? null,
-    posts: cateegoryPosts,
-  };
-
-  const blocks = await formatBlocksForSections(props?.post?.blocks || []);
-  const postImagePlaceholder = await getImagePlaceholder(
-    props?.post?.featuredImage?.node?.sourceUrl,
-  );
-  const relatedPostsNode =
-    props?.post?.categories?.edges?.[0]?.node?.posts?.nodes;
-  const relatedPosts = await formatStoryPosts(relatedPostsNode);
-
+// export async function getStaticProps({ params, preview, previewData }) {
+export async function getStaticProps() {
   return {
     props: {
-      ...props,
-      blocks,
-      activeCategory: activeCategory ?? null,
-      categories,
-      items,
-      relatedPosts: relatedPosts.slice(0, 3),
-      postImagePlaceholder,
-      page: pageNumber,
+      // props for your component
     },
-    revalidate,
   };
+  // const [activeCategory, page] = params?.slug || [];
+  // const categories = await getCategories();
+
+  // const isPageNumber = page && Number.isInteger(Number(page));
+  // let offset = 0;
+  // const pageNumber = parseInt(page, 10) || 1;
+  // if (pageNumber > 1) {
+  //   offset = (pageNumber - 2) * 9 + 6;
+  // }
+
+  // const { props, revalidate, notFound } = await getPostTypeStaticProps(
+  //   isPageNumber || params?.slug?.length === 1
+  //     ? { slug: [activeCategory], offset }
+  //     : params,
+  //   postType,
+  //   preview,
+  //   previewData,
+  // );
+
+  // if (notFound || props?.error) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
+
+  // const cateegoryPosts = await formatStoryPosts(props?.posts);
+  // const items = {
+  //   label: categories.find(({ slug }) => slug === activeCategory)?.name,
+  //   slug: activeCategory,
+  //   pagination: props?.pagination ?? null,
+  //   posts: cateegoryPosts,
+  // };
+
+  // const blocks = await formatBlocksForSections(props?.post?.blocks || []);
+  // const postImagePlaceholder = await getImagePlaceholder(
+  //   props?.post?.featuredImage?.node?.sourceUrl,
+  // );
+  // const relatedPostsNode =
+  //   props?.post?.categories?.edges?.[0]?.node?.posts?.nodes;
+  // const relatedPosts = await formatStoryPosts(relatedPostsNode);
+
+  // return {
+  //   props: {
+  //     ...props,
+  //     blocks,
+  //     activeCategory: activeCategory ?? null,
+  //     categories,
+  //     items,
+  //     relatedPosts: relatedPosts.slice(0, 3),
+  //     postImagePlaceholder,
+  //     page: pageNumber,
+  //   },
+  //   revalidate,
+  // };
 }

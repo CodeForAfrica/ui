@@ -37,6 +37,13 @@ module.exports = {
         },
       ],
     });
+    // eslint-disable-next-line no-param-reassign
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
+      child_process: false,
+    };
     return config;
   },
   async redirects() {
