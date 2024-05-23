@@ -12,7 +12,7 @@ export const socialMediaOptions = [
   "Slack",
 ];
 
-function socialLinks(overrides) {
+function socialLinks(overrides = {}) {
   const defaults = {
     name: "links",
     type: "array",
