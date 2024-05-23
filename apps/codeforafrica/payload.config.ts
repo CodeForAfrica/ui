@@ -110,6 +110,13 @@ export default buildConfig({
   i18n: {
     fallbackLng: "en", // default
     debug: false, // default
+    resources: {
+      en: {
+        "codeforafrica.validation": {
+          uniquePlatforms: "Please select a unique platform",
+        },
+      },
+    },
   },
   plugins: [
     cloudStorage({
