@@ -5,7 +5,6 @@ import React from "react";
 import ExplorePage from "@/hurumap/components/ExplorePage";
 import Tutorial from "@/hurumap/components/HURUmap/Tutorial";
 import Page from "@/hurumap/components/Page";
-import formatBlocksForSections from "@/hurumap/functions/formatBlocksForSections";
 import { fetchProfile, fetchProfileGeography } from "@/hurumap/lib/hurumap";
 
 export default function Explore(props) {
@@ -59,21 +58,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const props = {};
   const revalidate = true;
-  // const { props, revalidate, notFound } = await getPostTypeStaticProps(
-  //   { slug: "explore" },
-  //   postType,
-  //   preview,
-  //   previewData,
-  // );
-  // if (notFound) {
-  //   console.error("Not found!!!");
-  //   return {
-  //     props: {},
-  //     // notFound,
-  //   };
-  // }
 
-  const blocks = await formatBlocksForSections(props?.post?.blocks);
+  const blocks = [];
   const { locations, preferredChildren } = await fetchProfile();
   const [originalCode] = params?.slug || [""];
   const code = originalCode.trim().toLowerCase();
