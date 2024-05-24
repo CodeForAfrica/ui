@@ -2,7 +2,7 @@ name: Hurumap | Deploy | DEV
 
 on:
   push:
-    branches: [ft/pesayetu-dev-setup]
+    branches: [ft/hurumap-setup]
     paths:
       - "apps/hurumap/**"
       - "Dockerfile.hurumap"
