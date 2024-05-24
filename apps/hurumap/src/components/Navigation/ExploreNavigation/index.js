@@ -6,11 +6,11 @@ import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
 import React from "react";
 
-import SearchIcon from "@/pesayetu/assets/icons/search-explore.svg";
-import DropdownSearch from "@/pesayetu/components/DropdownSearch";
-import Image from "@/pesayetu/components/Image";
-import Link from "@/pesayetu/components/Link";
-import Section from "@/pesayetu/components/Section";
+import SearchIcon from "@/hurumap/assets/icons/search-explore.svg";
+import DropdownSearch from "@/hurumap/components/DropdownSearch";
+import Image from "@/hurumap/components/Image";
+import Link from "@/hurumap/components/Link";
+import Section from "@/hurumap/components/Section";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: {},

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import site from "@/pesayetu/utils/site";
+import site from "@/hurumap/utils/site";
 
 export default {
   titleTemplate: "%s",

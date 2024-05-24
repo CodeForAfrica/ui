@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 
-import Chart from "@/pesayetu/components/HURUmap/Chart";
+import Chart from "@/hurumap/components/HURUmap/Chart";
 
 export default {
   title: "Components/HURUmap/Chart",

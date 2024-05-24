@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Source from "@/pesayetu/components/HURUmap/Source";
+import Source from "@/hurumap/components/HURUmap/Source";
 
 function KeyMetric({
   className,

@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-import categoriesPostFields from "@/pesayetu/lib/wordpress/_query-partials/categoriesPostFields";
+import categoriesPostFields from "@/hurumap/lib/wordpress/_query-partials/categoriesPostFields";
 
 // Query: retrieve all categories.
 const queryCategories = gql`

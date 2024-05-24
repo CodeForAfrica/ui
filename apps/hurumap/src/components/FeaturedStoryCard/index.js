@@ -5,8 +5,8 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Card from "@/pesayetu/components/Card";
-import Content from "@/pesayetu/components/Card/Content";
+import Card from "@/hurumap/components/Card";
+import Content from "@/hurumap/components/Card/Content";
 
 function FeaturedStoryCard({
   chart,

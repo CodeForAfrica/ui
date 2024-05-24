@@ -2,7 +2,7 @@ import React from "react";
 
 import PinAndCompare from ".";
 
-import { hurumapArgs } from "@/pesayetu/config";
+import { hurumapArgs } from "@/hurumap/config";
 
 const { pinAndCompare } = hurumapArgs;
 

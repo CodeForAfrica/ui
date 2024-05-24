@@ -7,8 +7,8 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import ShareButton from "./ShareButton";
 import useStyles from "./useStyles";
 
-import { ReactComponent as CopyIcon } from "@/pesayetu/assets/icons/Group 5062.svg";
-import site from "@/pesayetu/utils/site";
+import { ReactComponent as CopyIcon } from "@/hurumap/assets/icons/Group 5062.svg";
+import site from "@/hurumap/utils/site";
 
 function Share({
   title,

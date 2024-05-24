@@ -10,9 +10,9 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/pesayetu/assets/icons/Component 108-1.svg";
-import Image from "@/pesayetu/components/Image";
-import slugify from "@/pesayetu/utils/slugify";
+import { ReactComponent as CloseIcon } from "@/hurumap/assets/icons/Component 108-1.svg";
+import Image from "@/hurumap/components/Image";
+import slugify from "@/hurumap/utils/slugify";
 
 function SvgIcon(props) {
   return <MuiSvgIcon {...props} />;

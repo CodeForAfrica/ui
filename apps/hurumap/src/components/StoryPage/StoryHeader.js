@@ -3,8 +3,8 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Header from "@/pesayetu/components/Header";
-import Section from "@/pesayetu/components/Section";
+import Header from "@/hurumap/components/Header";
+import Section from "@/hurumap/components/Section";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   root: {

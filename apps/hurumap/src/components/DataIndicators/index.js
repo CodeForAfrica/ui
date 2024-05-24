@@ -14,9 +14,9 @@ import Icon from "./Icon";
 import IndicatorPanel from "./IndicatorPanel";
 import useStyles from "./useStyles";
 
-import bg from "@/pesayetu/assets/images/Mask Group 8.png";
-import Header from "@/pesayetu/components/Header";
-import Image from "@/pesayetu/components/Image";
+import bg from "@/hurumap/assets/images/Mask Group 8.png";
+import Header from "@/hurumap/components/Header";
+import Image from "@/hurumap/components/Image";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={300} ref={ref} {...props} />;

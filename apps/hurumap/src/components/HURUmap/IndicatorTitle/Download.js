@@ -10,10 +10,10 @@ import XLSX from "xlsx";
 
 import useStyles from "./useStyles";
 
-import cfalogo from "@/pesayetu/assets/logos/Group4462.svg";
-import projectlogo from "@/pesayetu/assets/logos/Group5002.svg";
-import { idify } from "@/pesayetu/components/HURUmap/Chart/utils";
-import config, { hurumapArgs } from "@/pesayetu/config";
+import cfalogo from "@/hurumap/assets/logos/Group4462.svg";
+import projectlogo from "@/hurumap/assets/logos/Group5002.svg";
+import { idify } from "@/hurumap/components/HURUmap/Chart/utils";
+import config, { hurumapArgs } from "@/hurumap/config";
 
 function Download({
   title,

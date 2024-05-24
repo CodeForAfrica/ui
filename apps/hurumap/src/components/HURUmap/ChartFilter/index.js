@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/pesayetu/assets/icons/Component1081.svg";
-import Select from "@/pesayetu/components/Select";
+import { ReactComponent as CloseIcon } from "@/hurumap/assets/icons/Component1081.svg";
+import Select from "@/hurumap/components/Select";
 
 function ChartFilter({
   groups,

@@ -5,8 +5,8 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import LocationHighlight from "@/pesayetu/components/HURUmap/LocationHighlight";
-import LocationTag from "@/pesayetu/components/HURUmap/LocationTag";
+import LocationHighlight from "@/hurumap/components/HURUmap/LocationHighlight";
+import LocationTag from "@/hurumap/components/HURUmap/LocationTag";
 
 function Location({ className, highlights, isLoading, tags, ...props }) {
   const classes = useStyles(props);

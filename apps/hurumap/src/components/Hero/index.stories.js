@@ -2,7 +2,7 @@ import React from "react";
 
 import Hero from ".";
 
-import { searchArgs } from "@/pesayetu/config";
+import { searchArgs } from "@/hurumap/config";
 
 export default {
   title: "Sections/Hero",

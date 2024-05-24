@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client";
 
-import acfFeaturedStoriesBlockFields from "@/pesayetu/lib/wordpress/_query-partials/acfFeaturedStoriesBlockFields";
-import categoriesPostFields from "@/pesayetu/lib/wordpress/_query-partials/categoriesPostFields";
-import defaultPageData from "@/pesayetu/lib/wordpress/_query-partials/defaultPageData";
-import seoPostFields from "@/pesayetu/lib/wordpress/_query-partials/seoPostFields";
+import acfFeaturedStoriesBlockFields from "@/hurumap/lib/wordpress/_query-partials/acfFeaturedStoriesBlockFields";
+import categoriesPostFields from "@/hurumap/lib/wordpress/_query-partials/categoriesPostFields";
+import defaultPageData from "@/hurumap/lib/wordpress/_query-partials/defaultPageData";
+import seoPostFields from "@/hurumap/lib/wordpress/_query-partials/seoPostFields";
 import {
   archivePostFragment,
   archivePosts,
-} from "@/pesayetu/lib/wordpress/posts/queryPostsArchive";
+} from "@/hurumap/lib/wordpress/posts/queryPostsArchive";
 
 // Query: retrieve posts category archive.
 const queryPostsByCategory = gql`

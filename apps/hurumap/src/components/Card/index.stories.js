@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from ".";
 
-import { insightData, aboutTeam } from "@/pesayetu/config";
+import { insightData, aboutTeam } from "@/hurumap/config";
 
 const [insightItem] = insightData.items;
 const [teamItem] = aboutTeam.items;

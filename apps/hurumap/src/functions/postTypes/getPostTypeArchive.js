@@ -1,9 +1,9 @@
-import getMenus from "@/pesayetu/functions/menus/getMenus";
-import formatArchiveSeoData from "@/pesayetu/functions/seo/formatArchiveSeoData";
-import formatDefaultSeoData from "@/pesayetu/functions/seo/formatDefaultSeoData";
-import archiveQuerySeo from "@/pesayetu/lib/wordpress/_config/archiveQuerySeo";
-import { postTypes } from "@/pesayetu/lib/wordpress/_config/postTypes";
-import { initializeWpApollo } from "@/pesayetu/lib/wordpress/connector";
+import getMenus from "@/hurumap/functions/menus/getMenus";
+import formatArchiveSeoData from "@/hurumap/functions/seo/formatArchiveSeoData";
+import formatDefaultSeoData from "@/hurumap/functions/seo/formatDefaultSeoData";
+import archiveQuerySeo from "@/hurumap/lib/wordpress/_config/archiveQuerySeo";
+import { postTypes } from "@/hurumap/lib/wordpress/_config/postTypes";
+import { initializeWpApollo } from "@/hurumap/lib/wordpress/connector";
 
 /**
  * Retrieve post archive.

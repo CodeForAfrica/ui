@@ -2,7 +2,7 @@ import React from "react";
 
 import Navigation from ".";
 
-import { navigationArgs } from "@/pesayetu/config";
+import { navigationArgs } from "@/hurumap/config";
 
 export default {
   title: "Sections/Navigation",

@@ -4,13 +4,13 @@ import React from "react";
 
 import RichData from "./RichData";
 
-import { ReactComponent as TopIcon } from "@/pesayetu/assets/icons/Component 130 – 1.svg";
-import Print from "@/pesayetu/assets/icons/print.svg";
-import LocationHeader from "@/pesayetu/components/HURUmap/LocationHeader";
-import PinAndCompare from "@/pesayetu/components/HURUmap/PinAndCompare";
-import Section from "@/pesayetu/components/Section";
-import Tabs from "@/pesayetu/components/Tabs";
-import { hurumapArgs } from "@/pesayetu/config";
+import { ReactComponent as TopIcon } from "@/hurumap/assets/icons/Component 130 – 1.svg";
+import Print from "@/hurumap/assets/icons/print.svg";
+import LocationHeader from "@/hurumap/components/HURUmap/LocationHeader";
+import PinAndCompare from "@/hurumap/components/HURUmap/PinAndCompare";
+import Section from "@/hurumap/components/Section";
+import Tabs from "@/hurumap/components/Tabs";
+import { hurumapArgs } from "@/hurumap/config";
 
 // being last is necessary for style override to work
 // eslint-disable-next-line import/order

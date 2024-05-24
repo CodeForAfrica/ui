@@ -1,4 +1,4 @@
-import filterMenusByLocation from "@/pesayetu/functions/menus/filterMenusByLocation";
+import filterMenusByLocation from "@/hurumap/functions/menus/filterMenusByLocation";
 
 // Define default menu locations.
 export const menuLocations = ["primary-menu", "footer-menu", "mobile-menu"];

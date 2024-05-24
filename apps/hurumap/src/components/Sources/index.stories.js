@@ -2,7 +2,7 @@ import React from "react";
 
 import Sources from ".";
 
-import { documentsArgs } from "@/pesayetu/config";
+import { documentsArgs } from "@/hurumap/config";
 
 export default {
   title: "Components/Sources",

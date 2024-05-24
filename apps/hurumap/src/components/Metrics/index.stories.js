@@ -2,7 +2,7 @@ import React from "react";
 
 import Metrics from ".";
 
-import { metrics } from "@/pesayetu/config";
+import { metrics } from "@/hurumap/config";
 
 export default {
   title: "Sections/Metrics",

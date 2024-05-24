@@ -4,11 +4,11 @@ import React, { forwardRef } from "react";
 
 import ProfileItems from "./ProfileItems";
 
-import Print from "@/pesayetu/assets/icons/print.svg";
-import LocationHeader from "@/pesayetu/components/HURUmap/LocationHeader";
-import PinAndCompare from "@/pesayetu/components/HURUmap/PinAndCompare";
-import Loading from "@/pesayetu/components/Loading";
-import { hurumapArgs } from "@/pesayetu/config";
+import Print from "@/hurumap/assets/icons/print.svg";
+import LocationHeader from "@/hurumap/components/HURUmap/LocationHeader";
+import PinAndCompare from "@/hurumap/components/HURUmap/PinAndCompare";
+import Loading from "@/hurumap/components/Loading";
+import { hurumapArgs } from "@/hurumap/config";
 
 const useStyles = makeStyles(({ typography, breakpoints, zIndex }) => ({
   profile: {

@@ -3,7 +3,7 @@ import React from "react";
 
 import SubcategoryList from "./SubcategoryList";
 
-import Profile from "@/pesayetu/components/HURUmap/Panel/Profile";
+import Profile from "@/hurumap/components/HURUmap/Panel/Profile";
 
 function RichData({ item, ...props }) {
   return (

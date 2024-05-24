@@ -3,7 +3,7 @@ import React from "react";
 
 import ExploreOtherTools from ".";
 
-import { exploreTools } from "@/pesayetu/config";
+import { exploreTools } from "@/hurumap/config";
 
 export default {
   title: "Sections/ExploreOtherTools",

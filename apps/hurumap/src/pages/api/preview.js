@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 
-import getPostTypeById from "@/pesayetu/functions/postTypes/getPostTypeById";
-import { postTypes } from "@/pesayetu/lib/wordpress/_config/postTypes";
-import { wpPreviewSecret } from "@/pesayetu/lib/wordpress/connector";
+import getPostTypeById from "@/hurumap/functions/postTypes/getPostTypeById";
+import { postTypes } from "@/hurumap/lib/wordpress/_config/postTypes";
+import { wpPreviewSecret } from "@/hurumap/lib/wordpress/connector";
 
 export default async function preview(req, res) {
   try {

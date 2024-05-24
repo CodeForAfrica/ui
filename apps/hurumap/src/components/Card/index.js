@@ -8,7 +8,7 @@ import CardContent from "./Content";
 import CardMedia from "./Media";
 import useStyles from "./useStyles";
 
-import Link from "@/pesayetu/components/Link";
+import Link from "@/hurumap/components/Link";
 
 function Card({
   chart,

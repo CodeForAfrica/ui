@@ -1,7 +1,7 @@
 import React from "react";
 
-import OurCourses from "@/pesayetu/components/OurCourses";
-import { ourCourses } from "@/pesayetu/config";
+import OurCourses from "@/hurumap/components/OurCourses";
+import { ourCourses } from "@/hurumap/config";
 
 export default {
   title: "Sections/OurCourses",

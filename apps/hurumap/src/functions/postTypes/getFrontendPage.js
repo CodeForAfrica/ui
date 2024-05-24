@@ -1,9 +1,9 @@
-import getMenus from "@/pesayetu/functions/menus/getMenus";
-import replaceMultisitePrefix from "@/pesayetu/functions/replaceMultisitePrefix";
-import formatDefaultSeoData from "@/pesayetu/functions/seo/formatDefaultSeoData";
-import frontendPageSeo from "@/pesayetu/lib/wordpress/_config/frontendPageSeo";
-import { initializeWpApollo } from "@/pesayetu/lib/wordpress/connector";
-import queryDefaultPageData from "@/pesayetu/lib/wordpress/pages/queryDefaultPageData";
+import getMenus from "@/hurumap/functions/menus/getMenus";
+import replaceMultisitePrefix from "@/hurumap/functions/replaceMultisitePrefix";
+import formatDefaultSeoData from "@/hurumap/functions/seo/formatDefaultSeoData";
+import frontendPageSeo from "@/hurumap/lib/wordpress/_config/frontendPageSeo";
+import { initializeWpApollo } from "@/hurumap/lib/wordpress/connector";
+import queryDefaultPageData from "@/hurumap/lib/wordpress/pages/queryDefaultPageData";
 
 /**
  * Retrieve data for Frontend-only route (i.e., page that do not exist in WordPress).

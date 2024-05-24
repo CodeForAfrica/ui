@@ -4,8 +4,8 @@ import React from "react";
 import List from "./List";
 import useStyles from "./useStyles";
 
-import FeaturedStoryCard from "@/pesayetu/components/FeaturedStoryCard";
-import Pagination from "@/pesayetu/components/Pagination";
+import FeaturedStoryCard from "@/hurumap/components/FeaturedStoryCard";
+import Pagination from "@/hurumap/components/Pagination";
 
 function Stories({
   featuredStoryProps,

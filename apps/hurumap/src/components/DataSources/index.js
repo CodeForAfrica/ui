@@ -5,9 +5,9 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Header from "@/pesayetu/components/Header";
-import Link from "@/pesayetu/components/Link";
-import Section from "@/pesayetu/components/Section";
+import Header from "@/hurumap/components/Header";
+import Link from "@/hurumap/components/Link";
+import Section from "@/hurumap/components/Section";
 
 function DataSources({ items, title, subtitle, image, ...props }) {
   const classes = useStyles(props);

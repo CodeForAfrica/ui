@@ -1,5 +1,5 @@
-import { hurumapArgs } from "@/pesayetu/config";
-import theme from "@/pesayetu/theme";
+import { hurumapArgs } from "@/hurumap/config";
+import theme from "@/hurumap/theme";
 
 const graphValueTypes = {
   Percentage: "percentage",

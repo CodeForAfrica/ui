@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 
-import site from "@/pesayetu/utils/site";
+import site from "@/hurumap/utils/site";
 
 const NextComposed = forwardRef(function NextComposed(props, ref) {
   const {

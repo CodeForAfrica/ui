@@ -1,6 +1,6 @@
 import React from "react";
 
-import ChartTooltip from "@/pesayetu/components/HURUmap/ChartTooltip";
+import ChartTooltip from "@/hurumap/components/HURUmap/ChartTooltip";
 
 export default {
   title: "Components/HURUmap/ChartTooltip",

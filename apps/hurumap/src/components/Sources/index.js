@@ -6,8 +6,8 @@ import React, { useEffect, useState } from "react";
 import List from "./List";
 import useStyles from "./useStyles";
 
-import Pagination from "@/pesayetu/components/Pagination";
-import SourcesFilter from "@/pesayetu/components/SourcesFilter";
+import Pagination from "@/hurumap/components/Pagination";
+import SourcesFilter from "@/hurumap/components/SourcesFilter";
 
 function Sources({ ctaText, contentRef, filterProps, items, type, ...props }) {
   const classes = useStyles({ ...props, type });

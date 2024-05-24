@@ -2,7 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/pesayetu/theme";
+import theme from "@/hurumap/theme";
 
 export default function MultiLineChartScope(
   primaryData,

@@ -1,5 +1,5 @@
-import replaceMultisitePrefix from "@/pesayetu/functions/replaceMultisitePrefix";
-import { postTypes } from "@/pesayetu/lib/wordpress/_config/postTypes";
+import replaceMultisitePrefix from "@/hurumap/functions/replaceMultisitePrefix";
+import { postTypes } from "@/hurumap/lib/wordpress/_config/postTypes";
 
 /**
  * Format archive SEO data.

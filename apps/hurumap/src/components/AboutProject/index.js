@@ -2,11 +2,11 @@ import { Grid, Typography, Button } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import aboutProjectBg from "@/pesayetu/assets/images/sat-mtKenya-2@2x.jpg";
-import useStyles from "@/pesayetu/components/AboutProject/useStyles";
-import Link from "@/pesayetu/components/Link";
-import Section from "@/pesayetu/components/Section";
-import useProgressiveImage from "@/pesayetu/utils/useProgressiveImage";
+import aboutProjectBg from "@/hurumap/assets/images/sat-mtKenya-2@2x.jpg";
+import useStyles from "@/hurumap/components/AboutProject/useStyles";
+import Link from "@/hurumap/components/Link";
+import Section from "@/hurumap/components/Section";
+import useProgressiveImage from "@/hurumap/utils/useProgressiveImage";
 
 function AboutProject({ subtitle, title, href, ctaText, ...props }) {
   const image = useProgressiveImage(aboutProjectBg.src);

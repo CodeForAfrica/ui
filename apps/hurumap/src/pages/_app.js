@@ -6,10 +6,10 @@ import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
-import * as ga from "@/pesayetu/lib/ga";
-import "@/pesayetu/theme/fonts.css";
-import SEO from "@/pesayetu/next-seo.config";
-import theme from "@/pesayetu/theme";
+import * as ga from "@/hurumap/lib/ga";
+import "@/hurumap/theme/fonts.css";
+import SEO from "@/hurumap/next-seo.config";
+import theme from "@/hurumap/theme";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

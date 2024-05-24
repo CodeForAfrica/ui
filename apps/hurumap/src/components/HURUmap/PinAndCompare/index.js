@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as PinIconDefault } from "@/pesayetu/assets/Component 96 – 12.svg";
-import { ReactComponent as PinIconSelected } from "@/pesayetu/assets/Group 958.svg";
-import Select from "@/pesayetu/components/Select";
+import { ReactComponent as PinIconDefault } from "@/hurumap/assets/Component 96 – 12.svg";
+import { ReactComponent as PinIconSelected } from "@/hurumap/assets/Group 958.svg";
+import Select from "@/hurumap/components/Select";
 
 function PinIcon(props) {
   return <SvgIcon {...props} />;

@@ -8,9 +8,9 @@ import Action from "./Action";
 import Download from "./Download";
 import Share from "./Share";
 
-import { ReactComponent as DownloadIcon } from "@/pesayetu/assets/icons/Component 1.svg";
-import { ReactComponent as ShareIcon } from "@/pesayetu/assets/icons/Component 27.svg";
-import { ReactComponent as InfoIcon } from "@/pesayetu/assets/icons/Component852.svg";
+import { ReactComponent as DownloadIcon } from "@/hurumap/assets/icons/Component 1.svg";
+import { ReactComponent as ShareIcon } from "@/hurumap/assets/icons/Component 27.svg";
+import { ReactComponent as InfoIcon } from "@/hurumap/assets/icons/Component852.svg";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {

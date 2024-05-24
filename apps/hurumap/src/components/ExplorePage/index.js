@@ -8,10 +8,10 @@ import useExplore from "./useExplore";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
-import Location from "@/pesayetu/components/HURUmap/Location";
-import Panel from "@/pesayetu/components/HURUmap/Panel";
+import Location from "@/hurumap/components/HURUmap/Location";
+import Panel from "@/hurumap/components/HURUmap/Panel";
 
-const Map = dynamic(() => import("@/pesayetu/components/HURUmap/Map"), {
+const Map = dynamic(() => import("@/hurumap/components/HURUmap/Map"), {
   ssr: false,
 });
 

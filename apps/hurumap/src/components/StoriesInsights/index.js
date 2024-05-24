@@ -4,9 +4,9 @@ import React, { useRef, useState } from "react";
 import CarouselItem from "./CarouselItem";
 import useStyles from "./useStyles";
 
-import Carousel from "@/pesayetu/components/Carousel";
-import Header from "@/pesayetu/components/Header";
-import Section from "@/pesayetu/components/Section";
+import Carousel from "@/hurumap/components/Carousel";
+import Header from "@/hurumap/components/Header";
+import Section from "@/hurumap/components/Section";
 
 const responsive = {
   desktop: {

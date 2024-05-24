@@ -1,4 +1,4 @@
-import { fetchProfile } from "@/pesayetu/lib/hurumap";
+import { fetchProfile } from "@/hurumap/lib/hurumap";
 
 export default async function index(req, res) {
   if (req.method === "GET") {

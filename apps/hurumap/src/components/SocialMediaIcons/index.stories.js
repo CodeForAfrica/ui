@@ -2,7 +2,7 @@ import React from "react";
 
 import SocialMediaIcons from ".";
 
-import { navigationArgs } from "@/pesayetu/config";
+import { navigationArgs } from "@/hurumap/config";
 
 export default {
   title: "Components/SocialMediaIcons",

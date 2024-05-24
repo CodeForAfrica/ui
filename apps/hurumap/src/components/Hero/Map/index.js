@@ -5,7 +5,7 @@ import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
-import theme from "@/pesayetu/theme";
+import theme from "@/hurumap/theme";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {

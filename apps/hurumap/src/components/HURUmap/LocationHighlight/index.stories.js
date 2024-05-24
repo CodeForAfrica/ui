@@ -2,7 +2,7 @@ import React from "react";
 
 import LocationHighlight from ".";
 
-import { hurumapArgs } from "@/pesayetu/config";
+import { hurumapArgs } from "@/hurumap/config";
 
 const {
   location: {

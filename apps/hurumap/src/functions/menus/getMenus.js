@@ -1,6 +1,6 @@
-import filterMenusByLocation from "@/pesayetu/functions/menus/filterMenusByLocation";
-import { fetchProfile } from "@/pesayetu/lib/hurumap";
-import menuLocations from "@/pesayetu/lib/wordpress/_config/menuLocations";
+import filterMenusByLocation from "@/hurumap/functions/menus/filterMenusByLocation";
+import { fetchProfile } from "@/hurumap/lib/hurumap";
+import menuLocations from "@/hurumap/lib/wordpress/_config/menuLocations";
 
 /**
  * Get menu data from WPGraphQL.

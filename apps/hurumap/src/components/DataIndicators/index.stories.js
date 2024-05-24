@@ -3,7 +3,7 @@ import React from "react";
 
 import DataIndicators from ".";
 
-import { dataIndicator } from "@/pesayetu/config";
+import { dataIndicator } from "@/hurumap/config";
 
 export default {
   title: "Sections/DataIndicators",

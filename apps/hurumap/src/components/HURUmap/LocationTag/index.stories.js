@@ -1,7 +1,7 @@
 import React from "react";
 
-import LocationTag from "@/pesayetu/components/HURUmap/LocationTag";
-import { hurumapArgs } from "@/pesayetu/config";
+import LocationTag from "@/hurumap/components/HURUmap/LocationTag";
+import { hurumapArgs } from "@/hurumap/config";
 
 const {
   location: { tags },

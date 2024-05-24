@@ -2,11 +2,11 @@ import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import aboutHeroBg from "@/pesayetu/assets/images/sat-mtKenya-2@2x.jpg";
-import useStyles from "@/pesayetu/components/AboutHero/useStyles";
-import Header from "@/pesayetu/components/Header";
-import Image from "@/pesayetu/components/Image";
-import Section from "@/pesayetu/components/Section";
+import aboutHeroBg from "@/hurumap/assets/images/sat-mtKenya-2@2x.jpg";
+import useStyles from "@/hurumap/components/AboutHero/useStyles";
+import Header from "@/hurumap/components/Header";
+import Image from "@/hurumap/components/Image";
+import Section from "@/hurumap/components/Section";
 
 function AboutHero({ overline, subtitle, title, ...props }) {
   const classes = useStyles(props);

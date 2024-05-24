@@ -2,7 +2,7 @@ import ServerStyleSheets from "@mui/styles/ServerStyleSheets";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
-import theme from "@/pesayetu/theme";
+import theme from "@/hurumap/theme";
 
 export default class MyDocument extends Document {
   render() {

@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Card from "@/pesayetu/components/Card";
+import Card from "@/hurumap/components/Card";
 
 function List({ items, variant, ...props }) {
   const classes = useStyles(props);

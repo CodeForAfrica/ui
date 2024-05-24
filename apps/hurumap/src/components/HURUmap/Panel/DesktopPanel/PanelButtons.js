@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 import useStyles from "./useStyles";
 
-import PanelButtonGroup from "@/pesayetu/components/HURUmap/PanelButtonGroup";
+import PanelButtonGroup from "@/hurumap/components/HURUmap/PanelButtonGroup";
 
 function PanelButtons({
   isPinning,

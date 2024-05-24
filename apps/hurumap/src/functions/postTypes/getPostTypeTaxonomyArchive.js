@@ -1,10 +1,10 @@
-import getMenus from "@/pesayetu/functions/menus/getMenus";
-import replaceMultisitePrefix from "@/pesayetu/functions/replaceMultisitePrefix";
-import formatDefaultSeoData from "@/pesayetu/functions/seo/formatDefaultSeoData";
-import { postTypes } from "@/pesayetu/lib/wordpress/_config/postTypes";
-import queryPostsByCategory from "@/pesayetu/lib/wordpress/categories/queryPostsByCategory";
-import { initializeWpApollo } from "@/pesayetu/lib/wordpress/connector";
-import queryPostsByTag from "@/pesayetu/lib/wordpress/tags/queryPostsByTag";
+import getMenus from "@/hurumap/functions/menus/getMenus";
+import replaceMultisitePrefix from "@/hurumap/functions/replaceMultisitePrefix";
+import formatDefaultSeoData from "@/hurumap/functions/seo/formatDefaultSeoData";
+import { postTypes } from "@/hurumap/lib/wordpress/_config/postTypes";
+import queryPostsByCategory from "@/hurumap/lib/wordpress/categories/queryPostsByCategory";
+import { initializeWpApollo } from "@/hurumap/lib/wordpress/connector";
+import queryPostsByTag from "@/hurumap/lib/wordpress/tags/queryPostsByTag";
 
 /**
  * Retrieve post taxnomy archive.

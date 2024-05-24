@@ -1,6 +1,6 @@
 import { camelCase } from "lodash";
 
-import formatHierarchicalMenu from "@/pesayetu/functions/menus/formatHeirarchialMenu";
+import formatHierarchicalMenu from "@/hurumap/functions/menus/formatHeirarchialMenu";
 /**
  * Filter menus array by menu location.
  *

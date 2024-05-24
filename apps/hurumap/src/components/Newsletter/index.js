@@ -5,8 +5,8 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import email from "@/pesayetu/assets/icons/Component 117 – 1@2x.png";
-import { ReactComponent as EnvelopeIcon } from "@/pesayetu/assets/icons/Group 4767.svg";
+import email from "@/hurumap/assets/icons/Component 117 – 1@2x.png";
+import { ReactComponent as EnvelopeIcon } from "@/hurumap/assets/icons/Group 4767.svg";
 
 const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {

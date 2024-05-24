@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import TabPanel from "@/pesayetu/components/Tabs/TabPanel";
+import TabPanel from "@/hurumap/components/Tabs/TabPanel";
 
 function a11yProps(name, index) {
   return {

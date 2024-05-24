@@ -3,7 +3,7 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Image from "@/pesayetu/components/Image";
+import Image from "@/hurumap/components/Image";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: ({ square, variant }) => {

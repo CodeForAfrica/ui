@@ -3,7 +3,7 @@ import React from "react";
 
 import Footer from ".";
 
-import { footerArgs } from "@/pesayetu/config";
+import { footerArgs } from "@/hurumap/config";
 
 export default {
   title: "Sections/Footer",

@@ -1,4 +1,4 @@
-import replaceMultisitePrefix from "@/pesayetu/functions/replaceMultisitePrefix";
+import replaceMultisitePrefix from "@/hurumap/functions/replaceMultisitePrefix";
 /**
  * Format a flat list WP nav menu into a heirarchial list.
  *

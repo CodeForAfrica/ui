@@ -1,6 +1,6 @@
 import React from "react";
 
-import SubcategoryHeader from "@/pesayetu/components/HURUmap/SubcategoryHeader";
+import SubcategoryHeader from "@/hurumap/components/HURUmap/SubcategoryHeader";
 
 export default {
   title: "Components/HURUmap/SubcategoryHeader",

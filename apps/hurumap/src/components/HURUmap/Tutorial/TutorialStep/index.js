@@ -7,7 +7,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/pesayetu/assets/icons/Component 108 – 5.svg";
+import { ReactComponent as CloseIcon } from "@/hurumap/assets/icons/Component 108 – 5.svg";
 
 function TutorialStep({ description, title, image, selector, ...props }) {
   const classes = useStyles(props);

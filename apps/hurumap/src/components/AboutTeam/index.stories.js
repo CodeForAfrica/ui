@@ -2,7 +2,7 @@ import React from "react";
 
 import AboutTeam from ".";
 
-import { aboutTeam } from "@/pesayetu/config";
+import { aboutTeam } from "@/hurumap/config";
 
 export default {
   title: "Sections/AboutTeam",

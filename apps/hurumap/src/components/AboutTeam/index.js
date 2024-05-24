@@ -4,9 +4,9 @@ import { chunk, uniqueId } from "lodash";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Card from "@/pesayetu/components/Card";
-import Carousel from "@/pesayetu/components/Carousel";
-import Section from "@/pesayetu/components/Section";
+import Card from "@/hurumap/components/Card";
+import Carousel from "@/hurumap/components/Carousel";
+import Section from "@/hurumap/components/Section";
 
 // NOTE(kilemensi) useStyles uses import/definition order to determine how
 //                 classes are ordered.

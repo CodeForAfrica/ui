@@ -1,7 +1,7 @@
 import React from "react";
 
-import Group4658 from "@/pesayetu/assets/icons/Group 4658-white.svg";
-import CategoryHeader from "@/pesayetu/components/HURUmap/CategoryHeader";
+import Group4658 from "@/hurumap/assets/icons/Group 4658-white.svg";
+import CategoryHeader from "@/hurumap/components/HURUmap/CategoryHeader";
 
 export default {
   title: "Components/HURUmap/CategoryHeader",

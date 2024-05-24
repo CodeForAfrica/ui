@@ -1,5 +1,5 @@
-import queryReusableBlocks from "@/pesayetu/lib/wordpress/blocks/queryReusableBlocks";
-import { initializeWpApollo } from "@/pesayetu/lib/wordpress/connector";
+import queryReusableBlocks from "@/hurumap/lib/wordpress/blocks/queryReusableBlocks";
+import { initializeWpApollo } from "@/hurumap/lib/wordpress/connector";
 
 /**
  * Retrieve reusable block  by ID.

@@ -1,5 +1,5 @@
-import getPostTypeTaxonomyArchive from "@/pesayetu/functions/postTypes/getPostTypeTaxonomyArchive";
-import formatStoryPosts from "@/pesayetu/utils/formatStoryPosts";
+import getPostTypeTaxonomyArchive from "@/hurumap/functions/postTypes/getPostTypeTaxonomyArchive";
+import formatStoryPosts from "@/hurumap/utils/formatStoryPosts";
 /**
  * Load more posts for category archive.
  *

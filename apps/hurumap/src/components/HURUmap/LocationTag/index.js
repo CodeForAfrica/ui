@@ -6,7 +6,7 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { ReactComponent as CancelIcon } from "@/pesayetu/assets/icons/Component108-4.svg";
+import { ReactComponent as CancelIcon } from "@/hurumap/assets/icons/Component108-4.svg";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: ({ active, variant }) => {

@@ -10,10 +10,10 @@ import configureScope from "./configureScope";
 import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
-import ChartTooltip from "@/pesayetu/components/HURUmap/ChartTooltip";
-import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
-import Source from "@/pesayetu/components/HURUmap/Source";
-import theme from "@/pesayetu/theme";
+import ChartTooltip from "@/hurumap/components/HURUmap/ChartTooltip";
+import IndicatorTitle from "@/hurumap/components/HURUmap/IndicatorTitle";
+import Source from "@/hurumap/components/HURUmap/Source";
+import theme from "@/hurumap/theme";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {

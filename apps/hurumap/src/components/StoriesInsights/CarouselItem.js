@@ -6,8 +6,8 @@ import React from "react";
 import CarouselDots from "./CarouselDots";
 import useStyles from "./useStyles";
 
-import Content from "@/pesayetu/components/Card/Content";
-import Section from "@/pesayetu/components/Section";
+import Content from "@/hurumap/components/Card/Content";
+import Section from "@/hurumap/components/Section";
 
 function CarouselItem({ activeStep, onClick, steps, story, ...props }) {
   const classes = useStyles(props);

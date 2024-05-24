@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import {
   APOLLO_STATE_PROP_NAME,
   initializeApollo,
-} from "@/pesayetu/lib/apolloConfig";
+} from "@/hurumap/lib/apolloConfig";
 
 // Define env vars.
 export const wpApiUrlBase = process.env.WORDPRESS_URL;

@@ -4,12 +4,12 @@ import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Footer from "@/pesayetu/components/Footer";
-import Navigation from "@/pesayetu/components/Navigation";
-import { navigationArgs } from "@/pesayetu/config";
-import { seoPropTypes } from "@/pesayetu/functions/getPagePropTypes";
-import getFooterMenu from "@/pesayetu/functions/menus/getFooterMenu";
-import getNavigationMenu from "@/pesayetu/functions/menus/getNavigationMenu";
+import Footer from "@/hurumap/components/Footer";
+import Navigation from "@/hurumap/components/Navigation";
+import { navigationArgs } from "@/hurumap/config";
+import { seoPropTypes } from "@/hurumap/functions/getPagePropTypes";
+import getFooterMenu from "@/hurumap/functions/menus/getFooterMenu";
+import getNavigationMenu from "@/hurumap/functions/menus/getNavigationMenu";
 
 /**
  * Base page that can be used to build all other pages.

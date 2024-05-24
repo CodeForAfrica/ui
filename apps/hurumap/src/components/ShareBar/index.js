@@ -12,11 +12,11 @@ import {
 import ShareButton from "./ShareButton";
 import useStyles from "./useStyles";
 
-import { ReactComponent as TwitterIcon } from "@/pesayetu/assets/icons/Group 3047.svg";
-import { ReactComponent as FacebookIcon } from "@/pesayetu/assets/icons/Group 3048.svg";
-import { ReactComponent as LinkedInIcon } from "@/pesayetu/assets/icons/Group 3184.svg";
-import { ReactComponent as EmailIcon } from "@/pesayetu/assets/icons/Group 4106.svg";
-import { ReactComponent as CopyIcon } from "@/pesayetu/assets/icons/Group 5062.svg";
+import { ReactComponent as TwitterIcon } from "@/hurumap/assets/icons/Group 3047.svg";
+import { ReactComponent as FacebookIcon } from "@/hurumap/assets/icons/Group 3048.svg";
+import { ReactComponent as LinkedInIcon } from "@/hurumap/assets/icons/Group 3184.svg";
+import { ReactComponent as EmailIcon } from "@/hurumap/assets/icons/Group 4106.svg";
+import { ReactComponent as CopyIcon } from "@/hurumap/assets/icons/Group 5062.svg";
 
 function ShareBar({ socialLinks, title, children, ...props }) {
   const classes = useStyles(props);

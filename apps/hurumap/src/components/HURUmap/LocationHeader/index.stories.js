@@ -1,7 +1,7 @@
 import React from "react";
 
-import Print from "@/pesayetu/assets/icons/print.svg";
-import LocationHeader from "@/pesayetu/components/HURUmap/LocationHeader";
+import Print from "@/hurumap/assets/icons/print.svg";
+import LocationHeader from "@/hurumap/components/HURUmap/LocationHeader";
 
 export default {
   title: "Components/HURUmap/LocationHeader",

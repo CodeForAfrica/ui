@@ -13,8 +13,8 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Link from "@/pesayetu/components/Link";
-import Section from "@/pesayetu/components/Section";
+import Link from "@/hurumap/components/Link";
+import Section from "@/hurumap/components/Section";
 
 function Footer({
   title,

@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Section from "@/pesayetu/components/Section";
+import Section from "@/hurumap/components/Section";
 
 function Summary({ content, title, subtitle, ...props }) {
   const classes = useStyles(props);

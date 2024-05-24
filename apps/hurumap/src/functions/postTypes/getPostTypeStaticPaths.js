@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 
-import isHierarchicalPostType from "@/pesayetu/functions/postTypes/isHierarchicalPostType";
-import isValidPostType from "@/pesayetu/functions/postTypes/isValidPostType";
-import { postTypes } from "@/pesayetu/lib/wordpress/_config/postTypes";
-import { initializeWpApollo } from "@/pesayetu/lib/wordpress/connector";
+import isHierarchicalPostType from "@/hurumap/functions/postTypes/isHierarchicalPostType";
+import isValidPostType from "@/hurumap/functions/postTypes/isValidPostType";
+import { postTypes } from "@/hurumap/lib/wordpress/_config/postTypes";
+import { initializeWpApollo } from "@/hurumap/lib/wordpress/connector";
 
 /**
  * Retrieve static paths by post type.

@@ -4,9 +4,9 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { ReactComponent as Caret } from "@/pesayetu/assets/icons/caret.svg";
-import Link from "@/pesayetu/components/Link";
-import slugify from "@/pesayetu/utils/slugify";
+import { ReactComponent as Caret } from "@/hurumap/assets/icons/caret.svg";
+import Link from "@/hurumap/components/Link";
+import slugify from "@/hurumap/utils/slugify";
 
 const useStyles = makeStyles(({ palette, typography, zIndex }) => ({
   root: {

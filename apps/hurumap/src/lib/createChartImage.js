@@ -2,8 +2,8 @@ import AWS from "aws-sdk";
 import sharp from "sharp";
 import * as vega from "vega";
 
-import configureScope from "@/pesayetu/components/HURUmap/Chart/configureScope";
-import config from "@/pesayetu/config";
+import configureScope from "@/hurumap/components/HURUmap/Chart/configureScope";
+import config from "@/hurumap/config";
 
 function uploadAsync(s3, params) {
   return new Promise((resolve, reject) => {

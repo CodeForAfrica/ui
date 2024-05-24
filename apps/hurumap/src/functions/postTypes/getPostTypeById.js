@@ -1,7 +1,7 @@
-import isHierarchicalPostType from "@/pesayetu/functions/postTypes/isHierarchicalPostType";
-import processPostTypeQuery from "@/pesayetu/functions/postTypes/processPostTypeQuery";
-import queryPageById from "@/pesayetu/lib/wordpress/pages/queryPageById";
-import queryPostById from "@/pesayetu/lib/wordpress/posts/queryPostById";
+import isHierarchicalPostType from "@/hurumap/functions/postTypes/isHierarchicalPostType";
+import processPostTypeQuery from "@/hurumap/functions/postTypes/processPostTypeQuery";
+import queryPageById from "@/hurumap/lib/wordpress/pages/queryPageById";
+import queryPostById from "@/hurumap/lib/wordpress/posts/queryPostById";
 
 /**
  * Retrieve single post by specified identifier.

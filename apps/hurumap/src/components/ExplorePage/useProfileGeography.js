@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-import fetchJson from "@/pesayetu/utils/fetchJson";
+import fetchJson from "@/hurumap/utils/fetchJson";
 
 function useProfileGeography(shouldFetch) {
   const fetcher = (code) => {

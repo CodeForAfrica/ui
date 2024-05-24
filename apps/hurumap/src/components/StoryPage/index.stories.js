@@ -2,7 +2,7 @@ import React from "react";
 
 import StoryPage from ".";
 
-import storyImage from "@/pesayetu/assets/images/stephen-dawson-qwtCeJ5cLYs-unsplash.png";
+import storyImage from "@/hurumap/assets/images/stephen-dawson-qwtCeJ5cLYs-unsplash.png";
 
 export default {
   title: "Sections/StoryPage",

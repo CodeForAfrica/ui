@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {
   isHierarchicalPostType,
   isValidPostType,
-} from "@/pesayetu/lib/wordpress/_config/postTypes";
+} from "@/hurumap/lib/wordpress/_config/postTypes";
 
 // Yoast SEO social prop types.
 export const seoSocialPropTypes = {

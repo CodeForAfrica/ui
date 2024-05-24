@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-import Link from "@/pesayetu/components/Link";
+import Link from "@/hurumap/components/Link";
 
 function extendProfileTags(profile, options) {
   const { tags: originalTags, ...other } = profile || {};

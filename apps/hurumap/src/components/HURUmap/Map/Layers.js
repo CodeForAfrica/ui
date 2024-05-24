@@ -6,11 +6,11 @@ import React, { useCallback, useEffect, useRef } from "react";
 import ReactDOMServer from "react-dom/server";
 import { useMap, FeatureGroup, GeoJSON } from "react-leaflet";
 
-import LocationTag from "@/pesayetu/components/HURUmap/LocationTag";
+import LocationTag from "@/hurumap/components/HURUmap/LocationTag";
 import theme, {
   CHART_PRIMARY_COLOR_SCHEME,
   CHART_SECONDARY_COLOR_SCHEME,
-} from "@/pesayetu/theme";
+} from "@/hurumap/theme";
 
 const useStyles = makeStyles(() => ({
   locationtag: {

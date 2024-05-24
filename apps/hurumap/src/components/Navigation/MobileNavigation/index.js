@@ -13,13 +13,13 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import SearchIcon from "@/pesayetu/assets/icons/search-open.svg";
-import MenuCloseIcon from "@/pesayetu/assets/menu_close.svg";
-import MenuOpenIcon from "@/pesayetu/assets/menu_open.svg";
-import DropdownSearch from "@/pesayetu/components/DropdownSearch";
-import Link from "@/pesayetu/components/Link";
-import Menu from "@/pesayetu/components/Menu";
-import Section from "@/pesayetu/components/Section";
+import SearchIcon from "@/hurumap/assets/icons/search-open.svg";
+import MenuCloseIcon from "@/hurumap/assets/menu_close.svg";
+import MenuOpenIcon from "@/hurumap/assets/menu_open.svg";
+import DropdownSearch from "@/hurumap/components/DropdownSearch";
+import Link from "@/hurumap/components/Link";
+import Menu from "@/hurumap/components/Menu";
+import Section from "@/hurumap/components/Section";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {},

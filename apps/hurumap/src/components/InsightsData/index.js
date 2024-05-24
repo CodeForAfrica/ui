@@ -5,9 +5,9 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Card from "@/pesayetu/components/Card";
-import Header from "@/pesayetu/components/Header";
-import Section from "@/pesayetu/components/Section";
+import Card from "@/hurumap/components/Card";
+import Header from "@/hurumap/components/Header";
+import Section from "@/hurumap/components/Section";
 
 function InsightsData({ title, overline, items, ...props }) {
   const classes = useStyles(props);

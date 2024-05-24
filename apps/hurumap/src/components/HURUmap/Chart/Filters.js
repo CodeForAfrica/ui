@@ -5,7 +5,7 @@ import React, { useEffect, useState, useCallback } from "react";
 
 import { idify } from "./utils";
 
-import ChartFilter from "@/pesayetu/components/HURUmap/ChartFilter";
+import ChartFilter from "@/hurumap/components/HURUmap/ChartFilter";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {

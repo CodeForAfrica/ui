@@ -1,6 +1,6 @@
 import React from "react";
 
-import Map from "@/pesayetu/components/HURUmap/Map";
+import Map from "@/hurumap/components/HURUmap/Map";
 
 export default {
   title: "Components/HURUmap/Map",

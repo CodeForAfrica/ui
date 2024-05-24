@@ -1,4 +1,4 @@
-import queryPostsArchive from "@/pesayetu/lib/wordpress/posts/queryPostsArchive";
+import queryPostsArchive from "@/hurumap/lib/wordpress/posts/queryPostsArchive";
 
 // Define SEO for archives.
 const archiveQuerySeo = {

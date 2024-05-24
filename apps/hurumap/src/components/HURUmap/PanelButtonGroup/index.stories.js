@@ -2,7 +2,7 @@ import React from "react";
 
 import PanelButtonGroup from ".";
 
-import { panelArgs } from "@/pesayetu/config";
+import { panelArgs } from "@/hurumap/config";
 
 export default {
   title: "Components/HURUmap/PanelButtonGroup",

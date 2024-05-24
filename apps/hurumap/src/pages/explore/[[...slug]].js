@@ -2,11 +2,11 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React from "react";
 
-import ExplorePage from "@/pesayetu/components/ExplorePage";
-import Tutorial from "@/pesayetu/components/HURUmap/Tutorial";
-import Page from "@/pesayetu/components/Page";
-import formatBlocksForSections from "@/pesayetu/functions/formatBlocksForSections";
-import { fetchProfile, fetchProfileGeography } from "@/pesayetu/lib/hurumap";
+import ExplorePage from "@/hurumap/components/ExplorePage";
+import Tutorial from "@/hurumap/components/HURUmap/Tutorial";
+import Page from "@/hurumap/components/Page";
+import formatBlocksForSections from "@/hurumap/functions/formatBlocksForSections";
+import { fetchProfile, fetchProfileGeography } from "@/hurumap/lib/hurumap";
 
 export default function Explore(props) {
   const {

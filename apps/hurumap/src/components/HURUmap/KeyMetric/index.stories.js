@@ -1,6 +1,6 @@
 import React from "react";
 
-import KeyMetric from "@/pesayetu/components/HURUmap/KeyMetric";
+import KeyMetric from "@/hurumap/components/HURUmap/KeyMetric";
 
 export default {
   title: "Components/HURUmap/KeyMetric",

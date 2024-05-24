@@ -1,8 +1,8 @@
 import data from "./data";
 import signals from "./signals";
 
-import { createFiltersForGroups } from "@/pesayetu/components/HURUmap/Chart/utils";
-import theme from "@/pesayetu/theme";
+import { createFiltersForGroups } from "@/hurumap/components/HURUmap/Chart/utils";
+import theme from "@/hurumap/theme";
 
 export default function Scope(
   primaryData,

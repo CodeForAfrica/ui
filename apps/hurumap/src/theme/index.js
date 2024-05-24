@@ -1,9 +1,9 @@
 import { createTheme } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
-import chevronrightDark from "@/pesayetu/assets/icons/Group 997-dark.svg";
-import chevronright from "@/pesayetu/assets/icons/Group 997.svg";
-import hoverIcon from "@/pesayetu/assets/icons/hover-icon.png";
+import chevronrightDark from "@/hurumap/assets/icons/Group 997-dark.svg";
+import chevronright from "@/hurumap/assets/icons/Group 997.svg";
+import hoverIcon from "@/hurumap/assets/icons/hover-icon.png";
 
 const FONT_FAMILY = '"Poppins", "sans-serif"';
 

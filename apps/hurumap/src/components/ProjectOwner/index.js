@@ -6,7 +6,7 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/pesayetu/components/Link";
+import Link from "@/hurumap/components/Link";
 
 const useStyles = makeStyles(({ breakpoints, typography }) => ({
   root: {

@@ -5,9 +5,9 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Card from "@/pesayetu/components/Card";
-import Carousel from "@/pesayetu/components/Carousel";
-import Section from "@/pesayetu/components/Section";
+import Card from "@/hurumap/components/Card";
+import Carousel from "@/hurumap/components/Carousel";
+import Section from "@/hurumap/components/Section";
 
 function OurCourses({ title, items, ...props }) {
   const classes = useStyles(props);

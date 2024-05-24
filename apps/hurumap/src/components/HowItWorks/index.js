@@ -3,12 +3,12 @@ import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import visualsImg from "@/pesayetu/assets/images/Component1236.svg";
-import howItWorksBg from "@/pesayetu/assets/images/sat-mtKenya-1_alt@2400x.jpg";
-import Player from "@/pesayetu/components/HowItWorks/Player";
-import useStyles from "@/pesayetu/components/HowItWorks/useStyles";
-import Image from "@/pesayetu/components/Image";
-import Section from "@/pesayetu/components/Section";
+import visualsImg from "@/hurumap/assets/images/Component1236.svg";
+import howItWorksBg from "@/hurumap/assets/images/sat-mtKenya-1_alt@2400x.jpg";
+import Player from "@/hurumap/components/HowItWorks/Player";
+import useStyles from "@/hurumap/components/HowItWorks/useStyles";
+import Image from "@/hurumap/components/Image";
+import Section from "@/hurumap/components/Section";
 
 function HowItWorks({ title, ctaText, description, href, ...props }) {
   const classes = useStyles(props);

@@ -7,9 +7,9 @@ import React from "react";
 import StoryHeader from "./StoryHeader";
 import useStyles from "./useStyles";
 
-import RelatedStories from "@/pesayetu/components/InsightsData";
-import Section from "@/pesayetu/components/Section";
-import ShareBar from "@/pesayetu/components/ShareBar";
+import RelatedStories from "@/hurumap/components/InsightsData";
+import Section from "@/hurumap/components/Section";
+import ShareBar from "@/hurumap/components/ShareBar";
 
 function StoryPage({
   content,

@@ -2,7 +2,7 @@ import React from "react";
 
 import Panel from ".";
 
-import { hurumapArgs, panelArgs } from "@/pesayetu/config";
+import { hurumapArgs, panelArgs } from "@/hurumap/config";
 
 const { locations } = hurumapArgs;
 

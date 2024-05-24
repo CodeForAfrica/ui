@@ -6,7 +6,7 @@ module.exports = {
   ...defaultConfig,
   moduleNameMapper: {
     ...moduleNameMapper,
-    "^@/pesayetu/(.*)$": "<rootDir>/src/$1",
+    "^@/hurumap/(.*)$": "<rootDir>/src/$1",
     "^@/commons-ui/core/(.*)$":
       "<rootDir>/../../packages/commons-ui-core/src/$1",
     "^@/commons-ui/next/(.*)$":

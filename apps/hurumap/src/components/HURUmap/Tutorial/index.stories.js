@@ -1,8 +1,8 @@
 import { RichTypography } from "@commons-ui/core";
 import React from "react";
 
-import Tutorial from "@/pesayetu/components/HURUmap/Tutorial";
-import { hurumapArgs } from "@/pesayetu/config";
+import Tutorial from "@/hurumap/components/HURUmap/Tutorial";
+import { hurumapArgs } from "@/hurumap/config";
 
 const { tutorial } = hurumapArgs;
 

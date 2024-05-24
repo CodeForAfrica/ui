@@ -1,6 +1,6 @@
 import React from "react";
 
-import ChartFilter from "@/pesayetu/components/HURUmap/ChartFilter";
+import ChartFilter from "@/hurumap/components/HURUmap/ChartFilter";
 
 export default {
   title: "Components/HURUmap/ChartFilter",

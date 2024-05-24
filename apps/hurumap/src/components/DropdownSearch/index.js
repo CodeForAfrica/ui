@@ -11,8 +11,8 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
-import SearchIcon from "@/pesayetu/assets/icons/Group 3257.svg";
-import Link from "@/pesayetu/components/Link";
+import SearchIcon from "@/hurumap/assets/icons/Group 3257.svg";
+import Link from "@/hurumap/components/Link";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: {},

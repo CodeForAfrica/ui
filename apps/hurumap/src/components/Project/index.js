@@ -4,10 +4,10 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Newsletter from "@/pesayetu/components/Newsletter";
-import ProjectOwner from "@/pesayetu/components/ProjectOwner";
-import ProjectPartners from "@/pesayetu/components/ProjectPartners";
-import Section from "@/pesayetu/components/Section";
+import Newsletter from "@/hurumap/components/Newsletter";
+import ProjectOwner from "@/hurumap/components/ProjectOwner";
+import ProjectPartners from "@/hurumap/components/ProjectPartners";
+import Section from "@/hurumap/components/Section";
 
 const useStyles = makeStyles(
   ({ breakpoints, palette, typography, widths }) => ({

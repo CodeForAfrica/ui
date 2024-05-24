@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import React, { useRef } from "react";
 
-import Section from "@/pesayetu/components/Section";
-import Sources from "@/pesayetu/components/Sources";
-import Tabs from "@/pesayetu/components/Tabs";
+import Section from "@/hurumap/components/Section";
+import Sources from "@/hurumap/components/Sources";
+import Tabs from "@/hurumap/components/Tabs";
 
 // NOTE(kilemensi) useStyles uses import/definition order to determine how
 //                 classes are ordered.

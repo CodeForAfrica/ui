@@ -2,7 +2,7 @@ import React from "react";
 
 import DatasetsAndDocuments from ".";
 
-import { documentsAndDatasetsArgs } from "@/pesayetu/config";
+import { documentsAndDatasetsArgs } from "@/hurumap/config";
 
 export default {
   title: "Sections/DatasetsAndDocuments",

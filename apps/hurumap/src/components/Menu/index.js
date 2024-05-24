@@ -3,8 +3,8 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/pesayetu/components/Link";
-import SocialMediaIcons from "@/pesayetu/components/SocialMediaIcons";
+import Link from "@/hurumap/components/Link";
+import SocialMediaIcons from "@/hurumap/components/SocialMediaIcons";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   root: {

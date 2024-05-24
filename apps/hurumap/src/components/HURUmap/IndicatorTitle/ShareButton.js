@@ -10,11 +10,11 @@ import {
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as EmailIcon } from "@/pesayetu/assets/icons/Email.svg";
-import { ReactComponent as FacebookIcon } from "@/pesayetu/assets/icons/Facebook.svg";
-import { ReactComponent as LinkedInIcon } from "@/pesayetu/assets/icons/LinkedIn.svg";
-import { ReactComponent as TwitterIcon } from "@/pesayetu/assets/icons/Twitter.svg";
-import { ReactComponent as WhatsAppIcon } from "@/pesayetu/assets/icons/WhatsApp.svg";
+import { ReactComponent as EmailIcon } from "@/hurumap/assets/icons/Email.svg";
+import { ReactComponent as FacebookIcon } from "@/hurumap/assets/icons/Facebook.svg";
+import { ReactComponent as LinkedInIcon } from "@/hurumap/assets/icons/LinkedIn.svg";
+import { ReactComponent as TwitterIcon } from "@/hurumap/assets/icons/Twitter.svg";
+import { ReactComponent as WhatsAppIcon } from "@/hurumap/assets/icons/WhatsApp.svg";
 
 const componentMap = {
   Facebook: { icon: FacebookIcon, button: FacebookShareButton },

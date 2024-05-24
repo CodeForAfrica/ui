@@ -1,4 +1,4 @@
-import config from "@/pesayetu/config";
+import config from "@/hurumap/config";
 
 // see: https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
 const ensureTrailingSlash = (string) => {

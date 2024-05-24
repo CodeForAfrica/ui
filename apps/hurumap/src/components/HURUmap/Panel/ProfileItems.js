@@ -5,14 +5,14 @@ import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { memo, Fragment } from "react";
 
-import CategoryHeader from "@/pesayetu/components/HURUmap/CategoryHeader";
-import KeyMetric from "@/pesayetu/components/HURUmap/KeyMetric";
-import SubcategoryHeader from "@/pesayetu/components/HURUmap/SubcategoryHeader";
-import Loading from "@/pesayetu/components/Loading";
-import formatNumericalValue from "@/pesayetu/utils/formatNumericalValue";
-import slugify from "@/pesayetu/utils/slugify";
+import CategoryHeader from "@/hurumap/components/HURUmap/CategoryHeader";
+import KeyMetric from "@/hurumap/components/HURUmap/KeyMetric";
+import SubcategoryHeader from "@/hurumap/components/HURUmap/SubcategoryHeader";
+import Loading from "@/hurumap/components/Loading";
+import formatNumericalValue from "@/hurumap/utils/formatNumericalValue";
+import slugify from "@/hurumap/utils/slugify";
 
-const Chart = dynamic(() => import("@/pesayetu/components/HURUmap/Chart"), {
+const Chart = dynamic(() => import("@/hurumap/components/HURUmap/Chart"), {
   ssr: false,
   loading: () => <Loading />,
 });

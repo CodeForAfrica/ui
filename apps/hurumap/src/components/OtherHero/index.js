@@ -4,11 +4,11 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import mapLines from "@/pesayetu/assets/images/bg-map-grey.jpg";
-import Header from "@/pesayetu/components/Header";
-import Image from "@/pesayetu/components/Image";
-import Section from "@/pesayetu/components/Section";
-import useProgressiveImage from "@/pesayetu/utils/useProgressiveImage";
+import mapLines from "@/hurumap/assets/images/bg-map-grey.jpg";
+import Header from "@/hurumap/components/Header";
+import Image from "@/hurumap/components/Image";
+import Section from "@/hurumap/components/Section";
+import useProgressiveImage from "@/hurumap/utils/useProgressiveImage";
 
 const useStyles = makeStyles(({ palette, typography, breakpoints }) => ({
   root: {

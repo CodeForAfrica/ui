@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 
-import acfInsightsStoriesBlockFields from "@/pesayetu/lib/wordpress/_query-partials/acfInsightsStoriesBlockFields";
-import authorPostFields from "@/pesayetu/lib/wordpress/_query-partials/authorPostFields";
-import defaultPageData from "@/pesayetu/lib/wordpress/_query-partials/defaultPageData";
-import featuredImagePostFields from "@/pesayetu/lib/wordpress/_query-partials/featuredImagePostFields";
-import globalPostFields from "@/pesayetu/lib/wordpress/_query-partials/globalPostFields";
-import seoPostFields from "@/pesayetu/lib/wordpress/_query-partials/seoPostFields";
+import acfInsightsStoriesBlockFields from "@/hurumap/lib/wordpress/_query-partials/acfInsightsStoriesBlockFields";
+import authorPostFields from "@/hurumap/lib/wordpress/_query-partials/authorPostFields";
+import defaultPageData from "@/hurumap/lib/wordpress/_query-partials/defaultPageData";
+import featuredImagePostFields from "@/hurumap/lib/wordpress/_query-partials/featuredImagePostFields";
+import globalPostFields from "@/hurumap/lib/wordpress/_query-partials/globalPostFields";
+import seoPostFields from "@/hurumap/lib/wordpress/_query-partials/seoPostFields";
 
 // Fragment: retrieve single page fields.
 export const singlePageFragment = gql`

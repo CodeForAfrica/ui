@@ -3,7 +3,7 @@ import React from "react";
 
 import DataVisuals from ".";
 
-import { dataVisuals } from "@/pesayetu/config";
+import { dataVisuals } from "@/hurumap/config";
 
 export default {
   title: "Sections/DataVisualisationGuide",

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Select from "@/pesayetu/components/Select";
+import Select from "@/hurumap/components/Select";
 
 const useStyles = makeStyles(({ typography, palette }) => ({
   root: {

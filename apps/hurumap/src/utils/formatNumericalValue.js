@@ -1,6 +1,6 @@
 import { format } from "d3-format";
 
-import { hurumap } from "@/pesayetu/config";
+import { hurumap } from "@/hurumap/config";
 
 function formatNumericalValue({ value, method }) {
   const { formatting } = hurumap;

@@ -3,8 +3,8 @@ import React, { useRef } from "react";
 
 import useStyles from "./useStyles";
 
-import Profile from "@/pesayetu/components/HURUmap/Panel/Profile";
-import TreeView from "@/pesayetu/components/HURUmap/TreeView";
+import Profile from "@/hurumap/components/HURUmap/Panel/Profile";
+import TreeView from "@/hurumap/components/HURUmap/TreeView";
 
 function RichData({ primaryProfile, ...props }) {
   const classes = useStyles(props);

@@ -3,8 +3,8 @@ import { TourProvider, useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import Connector from "@/pesayetu/components/HURUmap/Tutorial/Connector";
-import TutorialStep from "@/pesayetu/components/HURUmap/Tutorial/TutorialStep";
+import Connector from "@/hurumap/components/HURUmap/Tutorial/Connector";
+import TutorialStep from "@/hurumap/components/HURUmap/Tutorial/TutorialStep";
 
 const useStyles = makeStyles(({ typography, palette }) => ({
   tour: {

@@ -2,11 +2,11 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/pesayetu/components/Link";
-import Hero from "@/pesayetu/components/OtherHero";
-import Section from "@/pesayetu/components/Section";
-import Stories from "@/pesayetu/components/Stories";
-import Tabs from "@/pesayetu/components/Tabs";
+import Link from "@/hurumap/components/Link";
+import Hero from "@/hurumap/components/OtherHero";
+import Section from "@/hurumap/components/Section";
+import Stories from "@/hurumap/components/Stories";
+import Tabs from "@/hurumap/components/Tabs";
 
 const useStyles = makeStyles(({ typography, breakpoints }) => ({
   root: {},

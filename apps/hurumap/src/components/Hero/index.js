@@ -5,11 +5,11 @@ import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import heroBg from "@/pesayetu/assets/images/bg-map-white.jpg";
-import DropdownSearch from "@/pesayetu/components/DropdownSearch";
-import Header from "@/pesayetu/components/Header";
-import Image from "@/pesayetu/components/Image";
-import Section from "@/pesayetu/components/Section";
+import heroBg from "@/hurumap/assets/images/bg-map-white.jpg";
+import DropdownSearch from "@/hurumap/components/DropdownSearch";
+import Header from "@/hurumap/components/Header";
+import Image from "@/hurumap/components/Image";
+import Section from "@/hurumap/components/Section";
 
 const Map = dynamic(() => import("./Map"), { ssr: false });
 

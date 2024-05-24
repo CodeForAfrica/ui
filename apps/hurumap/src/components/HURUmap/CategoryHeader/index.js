@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import Image from "@/pesayetu/components/Image";
+import Image from "@/hurumap/components/Image";
 
 function CategoryHeader({ title, description, icon, ...props }) {
   const classes = useStyles();

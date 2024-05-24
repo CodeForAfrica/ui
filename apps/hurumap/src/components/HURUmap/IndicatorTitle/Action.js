@@ -12,7 +12,7 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import { ReactComponent as CloseIcon } from "@/pesayetu/assets/icons/action-close.svg";
+import { ReactComponent as CloseIcon } from "@/hurumap/assets/icons/action-close.svg";
 
 const useStyles = makeStyles(({ palette, typography, zIndex }) => ({
   root: {},

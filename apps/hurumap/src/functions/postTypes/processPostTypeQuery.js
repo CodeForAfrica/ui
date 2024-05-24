@@ -1,10 +1,10 @@
-import getMenus from "@/pesayetu/functions/menus/getMenus";
-import replaceMultisitePrefix from "@/pesayetu/functions/replaceMultisitePrefix";
-import formatDefaultSeoData from "@/pesayetu/functions/seo/formatDefaultSeoData";
+import getMenus from "@/hurumap/functions/menus/getMenus";
+import replaceMultisitePrefix from "@/hurumap/functions/replaceMultisitePrefix";
+import formatDefaultSeoData from "@/hurumap/functions/seo/formatDefaultSeoData";
 import {
   createWpApolloClient,
   initializeWpApollo,
-} from "@/pesayetu/lib/wordpress/connector";
+} from "@/hurumap/lib/wordpress/connector";
 
 /**
  * Retrieve single post.

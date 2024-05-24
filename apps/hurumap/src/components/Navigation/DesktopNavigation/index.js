@@ -4,10 +4,10 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Image from "@/pesayetu/components/Image";
-import Link from "@/pesayetu/components/Link";
-import Menu from "@/pesayetu/components/Menu";
-import Section from "@/pesayetu/components/Section";
+import Image from "@/hurumap/components/Image";
+import Link from "@/hurumap/components/Link";
+import Menu from "@/hurumap/components/Menu";
+import Section from "@/hurumap/components/Section";
 
 const useStyles = makeStyles(() => ({
   root: {},

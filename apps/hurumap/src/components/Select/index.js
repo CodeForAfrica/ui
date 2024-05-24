@@ -14,7 +14,7 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as ExpandMore } from "@/pesayetu/assets/icons/expand_more.svg";
+import { ReactComponent as ExpandMore } from "@/hurumap/assets/icons/expand_more.svg";
 
 function ExpandMoreIcon(props) {
   return <SvgIcon {...props} component={ExpandMore} />;

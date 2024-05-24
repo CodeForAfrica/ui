@@ -1,7 +1,7 @@
-import defaultIcon from "@/pesayetu/assets/icons/Group 4658-white.svg";
-import { hurumap } from "@/pesayetu/config";
-import fetchJson from "@/pesayetu/utils/fetchJson";
-import formatNumericalValue from "@/pesayetu/utils/formatNumericalValue";
+import defaultIcon from "@/hurumap/assets/icons/Group 4658-white.svg";
+import { hurumap } from "@/hurumap/config";
+import fetchJson from "@/hurumap/utils/fetchJson";
+import formatNumericalValue from "@/hurumap/utils/formatNumericalValue";
 
 const apiUrl = process.env.HURUMAP_API_URL || hurumap?.api?.url;
 

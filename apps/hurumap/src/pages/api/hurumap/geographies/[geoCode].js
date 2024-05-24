@@ -1,4 +1,4 @@
-import { fetchProfileGeography } from "@/pesayetu/lib/hurumap";
+import { fetchProfileGeography } from "@/hurumap/lib/hurumap";
 
 export default async function index(req, res) {
   if (req.method === "GET") {

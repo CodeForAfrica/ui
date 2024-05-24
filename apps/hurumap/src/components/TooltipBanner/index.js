@@ -3,8 +3,8 @@ import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/pesayetu/components/Link";
-import Section from "@/pesayetu/components/Section";
+import Link from "@/hurumap/components/Link";
+import Section from "@/hurumap/components/Section";
 
 const useStyles = makeStyles(({ typography }) => ({
   root: {

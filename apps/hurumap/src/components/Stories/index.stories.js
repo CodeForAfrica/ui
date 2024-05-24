@@ -2,8 +2,8 @@ import React from "react";
 
 import Stories from ".";
 
-import cardImage from "@/pesayetu/assets/images/stephen-dawson-qwtCeJ5cLYs-unsplash.png";
-import { insightDataTabStories } from "@/pesayetu/config";
+import cardImage from "@/hurumap/assets/images/stephen-dawson-qwtCeJ5cLYs-unsplash.png";
+import { insightDataTabStories } from "@/hurumap/config";
 
 export default {
   title: "Components/Stories",

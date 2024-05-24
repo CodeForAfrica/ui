@@ -1,5 +1,5 @@
-import queryCategories from "@/pesayetu/lib/wordpress/categories/queryCategories";
-import { initializeWpApollo } from "@/pesayetu/lib/wordpress/connector";
+import queryCategories from "@/hurumap/lib/wordpress/categories/queryCategories";
+import { initializeWpApollo } from "@/hurumap/lib/wordpress/connector";
 
 export default async function getCategories() {
   const apolloClient = initializeWpApollo();

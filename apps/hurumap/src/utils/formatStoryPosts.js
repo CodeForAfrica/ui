@@ -1,4 +1,4 @@
-import getImagePlaceholder from "@/pesayetu/functions/getImagePlaceholder";
+import getImagePlaceholder from "@/hurumap/functions/getImagePlaceholder";
 
 export default async function formatStoryPosts(posts) {
   return Promise.all(

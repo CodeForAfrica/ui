@@ -1,10 +1,10 @@
-import getFrontendPage from "@/pesayetu/functions/postTypes/getFrontendPage";
-import getPostTypeArchive from "@/pesayetu/functions/postTypes/getPostTypeArchive";
-import getPostTypeById from "@/pesayetu/functions/postTypes/getPostTypeById";
-import getPostTypeTaxonomyArchive from "@/pesayetu/functions/postTypes/getPostTypeTaxonomyArchive";
-import { addApolloState } from "@/pesayetu/lib/apolloConfig";
-import archiveQuerySeo from "@/pesayetu/lib/wordpress/_config/archiveQuerySeo";
-import frontendPageSeo from "@/pesayetu/lib/wordpress/_config/frontendPageSeo";
+import getFrontendPage from "@/hurumap/functions/postTypes/getFrontendPage";
+import getPostTypeArchive from "@/hurumap/functions/postTypes/getPostTypeArchive";
+import getPostTypeById from "@/hurumap/functions/postTypes/getPostTypeById";
+import getPostTypeTaxonomyArchive from "@/hurumap/functions/postTypes/getPostTypeTaxonomyArchive";
+import { addApolloState } from "@/hurumap/lib/apolloConfig";
+import archiveQuerySeo from "@/hurumap/lib/wordpress/_config/archiveQuerySeo";
+import frontendPageSeo from "@/hurumap/lib/wordpress/_config/frontendPageSeo";
 
 /**
  * Retrieve static props by post type.
