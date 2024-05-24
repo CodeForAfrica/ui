@@ -5,10 +5,10 @@ import DatasetsAndDocuments from "@/pesayetu/components/DatasetsAndDocuments";
 import DataSources from "@/pesayetu/components/DataSources";
 import Hero from "@/pesayetu/components/OtherHero";
 import Page from "@/pesayetu/components/Page";
-// import formatBlocksForSections from "@/pesayetu/functions/formatBlocksForSections";
-// import getPostTypeStaticProps from "@/pesayetu/functions/postTypes/getPostTypeStaticProps";
-// import fetchOpenAfricaDatasets from "@/pesayetu/utils/fetchOpenAfricaDatasets";
-// import fetchSourceAfricaDocuments from "@/pesayetu/utils/fetchSourceAfricaDocuments";
+import formatBlocksForSections from "@/pesayetu/functions/formatBlocksForSections";
+import getPostTypeStaticProps from "@/pesayetu/functions/postTypes/getPostTypeStaticProps";
+import fetchOpenAfricaDatasets from "@/pesayetu/utils/fetchOpenAfricaDatasets";
+import fetchSourceAfricaDocuments from "@/pesayetu/utils/fetchSourceAfricaDocuments";
 
 const types = ["documents", "datasets"];
 
@@ -44,57 +44,51 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-// export async function getStaticProps({ params, preview, previewData }) {
-export async function getStaticProps() {
+export async function getStaticProps({ params, preview, previewData }) {
+  const {
+    slug: [activeType],
+  } = params;
+  if (!types.includes(activeType)) {
+    return { notFound: true };
+  }
+
+  const postType = "page";
+  const { props, revalidate, notFound } = await getPostTypeStaticProps(
+    { slug: "data" },
+    postType,
+    preview,
+    previewData,
+  );
+  if (notFound) {
+    return { notFound };
+  }
+
+  const blocks = await formatBlocksForSections(props?.post?.blocks);
+  blocks.documentsAndDatasets =
+    (await Promise.all(
+      blocks?.documentsAndDatasets?.map(
+        async ({ type, items: originalItems, ...others }) => {
+          let items = originalItems;
+          if (type === "datasets") {
+            items = await Promise.all(items.map(fetchOpenAfricaDatasets));
+          } else if (type === "documents") {
+            items = await Promise.all(items.map(fetchSourceAfricaDocuments));
+          }
+          // A single url can contain multiple datasets/documents & hence the
+          // need for flat(1)
+          items = items.flat(1);
+
+          return { ...others, type, items };
+        },
+      ),
+    )) || null;
+
   return {
     props: {
-      // props for your component
+      ...props,
+      activeType,
+      blocks,
     },
+    revalidate,
   };
-  // const {
-  //   slug: [activeType],
-  // } = params;
-  // if (!types.includes(activeType)) {
-  //   return { notFound: true };
-  // }
-
-  // const postType = "page";
-  // const { props, revalidate, notFound } = await getPostTypeStaticProps(
-  //   { slug: "data" },
-  //   postType,
-  //   preview,
-  //   previewData,
-  // );
-  // if (notFound) {
-  //   return { notFound };
-  // }
-
-  // const blocks = await formatBlocksForSections(props?.post?.blocks);
-  // blocks.documentsAndDatasets =
-  //   (await Promise.all(
-  //     blocks?.documentsAndDatasets?.map(
-  //       async ({ type, items: originalItems, ...others }) => {
-  //         let items = originalItems;
-  //         if (type === "datasets") {
-  //           items = await Promise.all(items.map(fetchOpenAfricaDatasets));
-  //         } else if (type === "documents") {
-  //           items = await Promise.all(items.map(fetchSourceAfricaDocuments));
-  //         }
-  //         // A single url can contain multiple datasets/documents & hence the
-  //         // need for flat(1)
-  //         items = items.flat(1);
-
-  //         return { ...others, type, items };
-  //       },
-  //     ),
-  //   )) || null;
-
-  // return {
-  //   props: {
-  //     ...props,
-  //     activeType,
-  //     blocks,
-  //   },
-  //   revalidate,
-  // };
 }

@@ -236,13 +236,10 @@ function Layers({
       });
       layer.addLayer(featuredGeo);
       if (!isPinOrCompare) {
-        const bounds = layer.getBounds();
-        if (bounds.isValid()) {
-          map.fitBounds(layer.getBounds(), {
-            animate: true,
-            duration: 0.5, // in seconds
-          });
-        }
+        map.fitBounds(layer.getBounds(), {
+          animate: true,
+          duration: 0.5, // in seconds
+        });
       } else {
         const mark = new L.Marker(layer.getBounds().getCenter(), {
           icon: pinIcon,

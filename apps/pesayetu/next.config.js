@@ -37,22 +37,10 @@ module.exports = {
         },
       ],
     });
-    // eslint-disable-next-line no-param-reassign
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      path: false,
-      child_process: false,
-    };
     return config;
   },
   async redirects() {
     return [
-      {
-        source: "/",
-        destination: "/explore/ke",
-        permanent: true,
-      },
       {
         source: "/data",
         destination: "/data/documents",

@@ -48,7 +48,7 @@ Home.defaultProps = {
   blocks: undefined,
 };
 
-export async function _getStaticProps({ preview, previewData }) {
+export async function getStaticProps({ preview, previewData }) {
   const postType = "page";
   const { props, revalidate, notFound } = await getPostTypeStaticProps(
     { slug: "how-it-works" },
