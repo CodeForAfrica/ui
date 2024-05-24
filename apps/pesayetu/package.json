@@ -1,11 +1,11 @@
 {
-  "name": "pesayetu",
+  "name": "hurumap",
   "version": "1.0.2",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
-  "description": "PesaYetu helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.",
+  "description": "Hurumap helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.",
   "keywords": [
-    "pesayetu",
+    "hurumap",
     "next",
     "next.js",
     "react",
@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/codeforafrica/ui.git",
-    "directory": "apps/pesayetu"
+    "directory": "apps/hurumap"
   },
   "license": "MIT",
   "bugs": {

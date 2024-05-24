@@ -1,12 +1,12 @@
-name: Pesayetu | Deploy | DEV
+name: Hurumap | Deploy | DEV
 
 on:
   push:
-    branches: [ft/pesayetu-deployment]
+    branches: [ft/pesayetu-dev-setup]
     paths:
-      - "apps/pesayetu/**"
-      - "Dockerfile.pesayetu"
-      - ".github/workflows/pesayetu-deploy-dev.yml"
+      - "apps/hurumap/**"
+      - "Dockerfile.hurumap"
+      - ".github/workflows/hurumap-deploy-dev.yml"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
@@ -15,10 +15,10 @@ concurrency:
 env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
-  IMAGE_NAME: "codeforafrica/pesayetu-ui"
-  NEXT_PUBLIC_APP_URL: "https://pesayetu-ui.dev.codeforafrica.org"
+  IMAGE_NAME: "codeforafrica/hurumap-ui"
+  NEXT_PUBLIC_APP_URL: "https://hurumap-ui.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: pesayetu-ui
+  APP_NAME: hurumap-ui
 
 jobs:
   deploy:
@@ -54,17 +54,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            WORDPRESS_URL=${{ secrets.PESAYETU_WORDPRESS_URL }}
-            WORDPRESS_MULTISITE_PREFIX=${{ secrets.PESAYETU_WORDPRESS_MULTISITE_PREFIX }}
-            WORDPRESS_PREVIEW_SECRET=${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}
-            WORDPRESS_APPLICATION_USERNAME=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}
-            WORDPRESS_APPLICATION_PASSWORD=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}
-            JWT_SECRET_KEY=${{ secrets.PESAYETU_JWT_SECRET_KEY }}
-            HURUMAP_API_URL=${{ secrets.PESAYETU_HURUMAP_API_URL }}
+            HURUMAP_API_URL=${{ secrets.HURUMAP_HURUMAP_API_URL }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: Dockerfile.pesayetu
+          file: Dockerfile.hurumap
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
