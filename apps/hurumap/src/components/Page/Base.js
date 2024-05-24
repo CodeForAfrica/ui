@@ -7,7 +7,6 @@ import React from "react";
 import Footer from "@/hurumap/components/Footer";
 import Navigation from "@/hurumap/components/Navigation";
 import { navigationArgs } from "@/hurumap/config";
-import { seoPropTypes } from "@/hurumap/functions/getPagePropTypes";
 import getFooterMenu from "@/hurumap/functions/menus/getFooterMenu";
 import getNavigationMenu from "@/hurumap/functions/menus/getNavigationMenu";
 
@@ -76,7 +75,6 @@ BasePage.propTypes = {
     primaryMenu: PropTypes.arrayOf(PropTypes.shape({})),
   }),
   variant: PropTypes.string,
-  ...seoPropTypes,
 };
 
 BasePage.defaultProps = {

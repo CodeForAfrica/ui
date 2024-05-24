@@ -38,7 +38,7 @@ export default async function createChartImage(
     profileNames,
     isCompare,
   );
-  const Key = `media/images/pesayetu-${geoCode}-${chartId}.png`;
+  const Key = `media/images/hurumap-${geoCode}-${chartId}.png`;
   const view = new vega.View(vega.parse(spec), { renderer: "none" });
   if (background) {
     view.background(background);

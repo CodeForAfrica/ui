@@ -3,19 +3,19 @@ import site from "@/hurumap/utils/site";
 
 export default {
   titleTemplate: "%s",
-  defaultTitle: "PesaYetu",
+  defaultTitle: "Hurumap",
   description: "County data to hold your government accountable",
   openGraph: {
     type: "website",
     url: site.environmentUrl,
     locale: "en",
-    site_name: "PesaYetu",
+    site_name: "Hurumap",
     images: [
       {
         url: `${site.environmentUrl}image.jpg`,
         width: 1600,
         height: 800,
-        alt: "PesaYetu",
+        alt: "Hurumap",
         type: "image/jpeg",
       },
     ],

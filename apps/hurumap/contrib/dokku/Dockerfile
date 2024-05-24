@@ -1,1 +1,1 @@
-FROM codeforafrica/pesayetu-ui:1.0.2
+FROM codeforafrica/hurumap-ui:0.0.1
