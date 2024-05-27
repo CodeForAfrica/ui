@@ -110,6 +110,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         <button
           aria-disabled="false"
           class="vjs-skip-forward-undefined vjs-control vjs-button vjs-hidden"
+          title="Skip Forward"
           type="button"
         >
           <span
@@ -119,7 +120,9 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
           <span
             aria-live="polite"
             class="vjs-control-text"
-          />
+          >
+            Skip Forward
+          </span>
         </button>
         <div
           class="vjs-volume-panel vjs-control vjs-volume-panel-horizontal"
@@ -564,6 +567,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         aria-describedby="vjs_video_3_component_503_description"
         aria-hidden="true"
         aria-label="Modal Window"
+        aria-live="polite"
         class="vjs-error-display vjs-modal-dialog vjs-hidden "
         role="dialog"
         tabindex="-1"
@@ -583,6 +587,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         aria-describedby="vjs_video_3_component_509_description"
         aria-hidden="true"
         aria-label="Caption Settings Dialog"
+        aria-live="polite"
         class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings"
         role="dialog"
         tabindex="-1"
@@ -613,12 +618,14 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
+                  for="vjs_select_535"
                   id="captions-foreground-color-vjs_video_3_component_509"
                 >
                   Color
                 </label>
                 <select
                   aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-color-vjs_video_3_component_509"
+                  id="vjs_select_535"
                 >
                   <option
                     aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-color-vjs_video_3_component_509 captions-foreground-color-vjs_video_3_component_509-White"
@@ -683,12 +690,14 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
+                  for="vjs_select_536"
                   id="captions-foreground-opacity-vjs_video_3_component_509"
                 >
                   Opacity
                 </label>
                 <select
                   aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-opacity-vjs_video_3_component_509"
+                  id="vjs_select_536"
                 >
                   <option
                     aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-opacity-vjs_video_3_component_509 captions-foreground-opacity-vjs_video_3_component_509-Opaque"
@@ -720,12 +729,14 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
+                  for="vjs_select_537"
                   id="captions-background-color-vjs_video_3_component_509"
                 >
                   Color
                 </label>
                 <select
                   aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-color-vjs_video_3_component_509"
+                  id="vjs_select_537"
                 >
                   <option
                     aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-color-vjs_video_3_component_509 captions-background-color-vjs_video_3_component_509-Black"
@@ -790,12 +801,14 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
+                  for="vjs_select_538"
                   id="captions-background-opacity-vjs_video_3_component_509"
                 >
                   Opacity
                 </label>
                 <select
                   aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-opacity-vjs_video_3_component_509"
+                  id="vjs_select_538"
                 >
                   <option
                     aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-opacity-vjs_video_3_component_509 captions-background-opacity-vjs_video_3_component_509-Opaque"
@@ -834,12 +847,14 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
+                  for="vjs_select_539"
                   id="captions-window-color-vjs_video_3_component_509"
                 >
                   Color
                 </label>
                 <select
                   aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-color-vjs_video_3_component_509"
+                  id="vjs_select_539"
                 >
                   <option
                     aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-color-vjs_video_3_component_509 captions-window-color-vjs_video_3_component_509-Black"
@@ -904,12 +919,14 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               >
                 <label
                   class="vjs-label"
+                  for="vjs_select_540"
                   id="captions-window-opacity-vjs_video_3_component_509"
                 >
                   Opacity
                 </label>
                 <select
                   aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-opacity-vjs_video_3_component_509"
+                  id="vjs_select_540"
                 >
                   <option
                     aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-opacity-vjs_video_3_component_509 captions-window-opacity-vjs_video_3_component_509-Transparent"
@@ -943,13 +960,13 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               class="vjs-font-percent vjs-track-setting"
             >
               <legend
-                class=""
                 id="captions-font-size-vjs_video_3_component_509"
               >
                 Font Size
               </legend>
               <select
                 aria-labelledby="captions-font-size-vjs_video_3_component_509"
+                id="vjs_select_541"
               >
                 <option
                   aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-50"
@@ -1020,13 +1037,13 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               class="vjs-edge-style vjs-track-setting"
             >
               <legend
-                class=""
                 id="vjs_video_3_component_509"
               >
                 Text Edge Style
               </legend>
               <select
                 aria-labelledby="vjs_video_3_component_509"
+                id="vjs_select_542"
               >
                 <option
                   aria-labelledby="vjs_video_3_component_509 vjs_video_3_component_509-None"
@@ -1069,13 +1086,13 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
               class="vjs-font-family vjs-track-setting"
             >
               <legend
-                class=""
                 id="captions-font-family-vjs_video_3_component_509"
               >
                 Font Family
               </legend>
               <select
                 aria-labelledby="captions-font-family-vjs_video_3_component_509"
+                id="vjs_select_543"
               >
                 <option
                   aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-ProportionalSansSerif"

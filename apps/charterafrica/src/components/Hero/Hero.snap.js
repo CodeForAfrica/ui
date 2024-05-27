@@ -48,12 +48,12 @@ exports[`<Hero /> renders unchanged 1`] = `
                   class="MuiBox-root css-187jlgp"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-po1nsg-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-po1nsg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeSmall css-cstir9-MuiButton-startIcon"
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-cstir9-MuiButton-startIcon"
                     >
                       <figure
                         class="MuiBox-root css-zmiex6"
@@ -72,12 +72,12 @@ exports[`<Hero /> renders unchanged 1`] = `
                     Explore software
                   </button>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-po1nsg-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-po1nsg-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeSmall css-cstir9-MuiButton-startIcon"
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-cstir9-MuiButton-startIcon"
                     >
                       <figure
                         class="MuiBox-root css-zmiex6"
