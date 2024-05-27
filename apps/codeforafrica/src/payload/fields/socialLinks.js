@@ -1,5 +1,5 @@
 import { deepmerge } from "@mui/utils";
-import { array } from "payload/dist/fields/validations";
+import { select } from "payload/dist/fields/validations";
 
 import url from "./url";
 
@@ -12,7 +12,7 @@ export const socialMediaOptions = [
   "Slack",
 ];
 
-function socialLinks(overrides) {
+function socialLinks(overrides = {}) {
   const defaults = {
     name: "links",
     type: "array",
@@ -51,12 +51,21 @@ function socialLinks(overrides) {
         label: "Platform",
         options: socialMediaOptions,
         required: true,
-        validate: (val, options) => {
-          const { data } = options || {};
-          if (data?.links?.filter((l) => l.platform === val)?.length > 1) {
-            return "Please select a unique platform";
+        validate: (val, args) => {
+          const { data, t } = args || {};
+          const { name: linksName = "links" } = overrides;
+          if (
+            data?.[linksName]?.filter((l) => l.platform === val)?.length > 1
+          ) {
+            return t("codeforafrica.validation:uniquePlatforms");
           }
-          return array(val, options);
+
+          const {
+            hasMany,
+            options = socialMediaOptions,
+            required = true,
+          } = args;
+          return select(val, { hasMany, options, required, t });
         },
       },
       url({
