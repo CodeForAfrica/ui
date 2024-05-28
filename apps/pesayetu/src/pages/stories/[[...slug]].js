@@ -108,7 +108,15 @@ Index.defaultProps = {
 };
 
 export async function getStaticPaths() {
-  return getPostTypeStaticPaths(postType);
+  const { paths: allPaths = [] } =
+    (await getPostTypeStaticPaths(postType)) || {};
+  // Generate static pages for main stories pages i.e. stories/news and stories/insights
+  const paths = allPaths.filter(({ params }) => params?.slug?.length === 1);
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
 }
 
 export async function getStaticProps({ params, preview, previewData }) {
