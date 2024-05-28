@@ -34,11 +34,11 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         Article
       </div>
       <div
-        class="MuiToggleButtonGroup-root css-h89xvq-MuiToggleButtonGroup-root"
+        class="MuiToggleButtonGroup-root css-10sq1fj-MuiToggleButtonGroup-root"
         role="group"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-z7fpuu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-z7fpuu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
           href="/tag1?tag=tag2"
           tabindex="0"
           value="tag2"

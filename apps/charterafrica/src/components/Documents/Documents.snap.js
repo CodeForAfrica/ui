@@ -60,7 +60,7 @@ exports[`<Documents /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
             >
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1qogv20-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
               >
                 <div
                   class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-rwdu3q-MuiFormControl-root-MuiTextField-root"
@@ -82,7 +82,7 @@ exports[`<Documents /> renders unchanged 1`] = `
                       value="Sort"
                     />
                     <div
-                      class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
+                      class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
                     >
                       <button
                         aria-label="Clear"
@@ -144,14 +144,14 @@ exports[`<Documents /> renders unchanged 1`] = `
                 :
               </p>
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-17xaaej-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-17xaaej-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="/datasets"
                 tabindex="0"
               >
                 Datasets
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1sbqixe-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1sbqixe-MuiButtonBase-root-MuiButton-root"
                 disabled=""
                 tabindex="-1"
                 type="button"

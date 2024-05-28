@@ -42,7 +42,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
               class="MuiSwitch-root MuiSwitch-sizeMedium css-b208sr-MuiSwitch-root"
             >
               <span
-                class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-159eovs-MuiButtonBase-root-MuiSwitch-switchBase"
+                class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1sd4tst-MuiButtonBase-root-MuiSwitch-switchBase"
               >
                 <input
                   class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
@@ -91,7 +91,7 @@ exports[`<Ecosystem /> renders unchanged 1`] = `
                 class="MuiSwitch-root MuiSwitch-sizeMedium css-b208sr-MuiSwitch-root"
               >
                 <span
-                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-159eovs-MuiButtonBase-root-MuiSwitch-switchBase"
+                  class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1sd4tst-MuiButtonBase-root-MuiSwitch-switchBase"
                 >
                   <input
                     class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"

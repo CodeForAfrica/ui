@@ -52,7 +52,7 @@ exports[`FeaturedPostCard should render 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardActions-root MuiCardActions-spacing css-ozhbbr-MuiCardActions-root"
+            class="MuiCardActions-root MuiCardActions-spacing css-i48nla-MuiCardActions-root"
           >
             <a
               class="MuiTypography-root MuiTypography-p3 MuiLink-root MuiLink-underlineAlways css-c45nw1-MuiTypography-root-MuiLink-root"

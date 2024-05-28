@@ -53,11 +53,11 @@ exports[`<Opportunities /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiToggleButtonGroup-root css-yajo80-MuiToggleButtonGroup-root"
+          class="MuiToggleButtonGroup-root css-czr1qx-MuiToggleButtonGroup-root"
           role="group"
         >
           <div
-            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+            class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-12piyyp-MuiButtonBase-root-MuiChip-root"
             role="button"
             tabindex="0"
             value="All"

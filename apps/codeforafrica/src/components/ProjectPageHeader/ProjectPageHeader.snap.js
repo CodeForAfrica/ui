@@ -106,10 +106,10 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1to78gr-MuiCardActions-root"
+            class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary active css-1wyu7kr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium active css-1wyu7kr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://codeforafrica.org"
               rel="noreferrer noopener"
               tabindex="0"
@@ -117,7 +117,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
             >
               Launch Project
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
+                class="MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
               >
                 <div
                   aria-hidden="true"

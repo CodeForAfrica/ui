@@ -39,10 +39,10 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         </section>
       </div>
       <div
-        class="MuiCardActions-root MuiCardActions-spacing css-1u29npa-MuiCardActions-root"
+        class="MuiCardActions-root MuiCardActions-spacing css-14r9scr-MuiCardActions-root"
       >
         <div
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-8zqic2-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium css-12i2l1x-MuiButtonBase-root-MuiButton-root"
           role="button"
           tabindex="0"
         >

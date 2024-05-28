@@ -64,11 +64,11 @@ exports[`<Articles /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiToggleButtonGroup-root css-yajo80-MuiToggleButtonGroup-root"
+              class="MuiToggleButtonGroup-root css-czr1qx-MuiToggleButtonGroup-root"
               role="group"
             >
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorPrimary MuiChip-clickable MuiChip-clickableColorPrimary MuiChip-filledPrimary MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-12piyyp-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="All"
@@ -80,7 +80,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-4r2hgb-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag1"
@@ -92,7 +92,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault MuiToggleButtonGroup-grouped MuiToggleButtonGroup-groupedHorizontal css-4r2hgb-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag2"
@@ -146,7 +146,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                       Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
                     </p>
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1it8s17-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1it8s17-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -174,7 +174,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                         Battle for gender equality in African media continues
                       </h1>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-exvu7h-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge css-18nvokw-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -245,7 +245,7 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1ahypso-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1ahypso-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

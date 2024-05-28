@@ -18,7 +18,7 @@ exports[`<OpportunityCardHeader /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 css-hj0fj-MuiGrid-root"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-11705ea-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-11705ea-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >

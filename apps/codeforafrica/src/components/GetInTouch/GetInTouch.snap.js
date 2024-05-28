@@ -22,12 +22,12 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
           We'd love to hear more.
         </div>
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-1bvv08-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge css-1bvv08-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/contact"
           tabindex="0"
         >
           <span
-            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeLarge css-vpap0f-MuiButton-startIcon"
+            class="MuiButton-startIcon MuiButton-iconSizeLarge css-vpap0f-MuiButton-startIcon"
           >
             <div
               aria-hidden="true"

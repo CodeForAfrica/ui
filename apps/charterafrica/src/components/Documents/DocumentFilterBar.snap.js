@@ -51,7 +51,7 @@ exports[`<DocumentFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1qogv20-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-rwdu3q-MuiFormControl-root-MuiTextField-root"
@@ -73,7 +73,7 @@ exports[`<DocumentFilterBar /> renders unchanged 1`] = `
                 value="Sort"
               />
               <div
-                class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
+                class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
               >
                 <button
                   aria-label="Clear"
