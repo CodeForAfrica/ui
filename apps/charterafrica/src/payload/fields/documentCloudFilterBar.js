@@ -1,17 +1,11 @@
 import { deepmerge } from "@mui/utils";
-import { array } from "payload/dist/fields/validations";
 
 import defaultValue from "../utils/defaultValues";
+import validateUniqueArrayFieldSelect from "../utils/validateUniqueArrayFieldSelect";
 
 import filterBar from "./filterBar";
 
-const documentSortOptions = [
-  "created_at",
-  "score",
-  "title",
-  "page_count",
-  "source",
-];
+const sortOptions = ["created_at", "score", "title", "page_count", "source"];
 
 function documentCloudFilterBar({ overrides } = {}) {
   const generatedDocumentCloudFilterBar = filterBar({
@@ -81,16 +75,13 @@ function documentCloudFilterBar({ overrides } = {}) {
                   name: "value",
                   type: "select",
                   required: true,
-                  options: documentSortOptions,
-                  validate: (val, options) => {
-                    const { data, t } = options || {};
-                    if (
-                      data?.options?.filter((l) => l.value === val)?.length > 1
-                    ) {
-                      return t("charterafrica.site:uniqueSortOptions");
-                    }
-                    return array(val, options);
-                  },
+                  options: sortOptions,
+                  validate: validateUniqueArrayFieldSelect(
+                    "options",
+                    "value",
+                    sortOptions,
+                    "charterafrica.site:uniqueSortOptions",
+                  ),
                 },
                 {
                   name: "label",

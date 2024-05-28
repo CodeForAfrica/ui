@@ -1,13 +1,13 @@
 import * as Sentry from "@sentry/nextjs";
 
-import { countriesByContinent } from "@/charterafrica/lib/data/json/countries";
+import { locationsByContinent } from "@/charterafrica/lib/data/json/locations";
 import fetchJson from "@/charterafrica/utils/fetchJson";
 
 const OPEN_AFRICA_URL = "https://open.africa/";
 const OPEN_AFRICA_BASE_API_URL = `${OPEN_AFRICA_URL}api/3/action/`;
 const PAGE_SIZE = 10;
 const AFRICA_COUNTRIES_BY_LOCALE = ["en", "fr", "pt"].reduce((acc, cur) => {
-  acc[cur] = countriesByContinent("Africa").map(({ label, value }) => ({
+  acc[cur] = locationsByContinent("Africa").map(({ label, value }) => ({
     value: value.toLowerCase(),
     label: label[cur],
   }));

@@ -1961,12 +1961,26 @@ const countries = [
   },
 ];
 
-export const countriesByContinent = (continent) => {
-  return countries
+const regions = [
+  {
+    name: "Africa",
+    label: {
+      pt: "África",
+      en: "Africa",
+      fr: "Afrique",
+    },
+    value: "Africa",
+    continent: "Africa",
+  },
+];
+const locations = [...countries, ...regions];
+const toOptions = ({ label, value }) => ({ label, value });
+
+export const locationsByContinent = (continent) => {
+  return locations
     .filter((country) => continent === country.continent)
-    .map(({ continent: cntnt, name, ...c }) => c);
+    .map(toOptions);
 };
 
-export const allCountries = countries.map(
-  ({ continent: cntnt, name, ...c }) => c,
-);
+export const allCountries = countries.map(toOptions);
+export const allLocations = locations.map(toOptions);

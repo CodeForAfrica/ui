@@ -1,7 +1,7 @@
 import {
-  allCountries,
-  countriesByContinent,
-} from "../../lib/data/json/countries";
+  allLocations,
+  locationsByContinent,
+} from "../../lib/data/json/locations";
 import avatarUrl from "../fields/avatarUrl";
 import dateField from "../fields/dateField";
 import slug from "../fields/slug";
@@ -93,7 +93,7 @@ const Tools = {
     {
       name: "operatingCountries",
       type: "select",
-      options: countriesByContinent("Africa"),
+      options: locationsByContinent("Africa"),
       label: {
         en: "Operating Countries",
         fr: "Pays opérationnels",
@@ -272,7 +272,7 @@ const Tools = {
     {
       name: "homeCountry",
       type: "select",
-      options: allCountries,
+      options: allLocations,
       label: { en: "Home Country", fr: "Pays natal", pt: "País natal" },
       admin: {
         readOnly: true,
