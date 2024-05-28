@@ -1,8 +1,7 @@
-import { array } from "payload/dist/fields/validations";
-
 import filterBar from "../fields/filterBar";
 import linkGroup from "../fields/linkGroup";
 import defaultValue from "../utils/defaultValues";
+import validateUniqueArrayFieldSelect from "../utils/validateUniqueArrayFieldSelect";
 
 const sortOptions = [
   "metadata_created desc",
@@ -130,16 +129,12 @@ const Datasets = {
                         type: "select",
                         required: true,
                         options: sortOptions,
-                        validate: (val, options) => {
-                          const { data, t } = options || {};
-                          if (
-                            data?.options?.filter((l) => l.value === val)
-                              ?.length > 1
-                          ) {
-                            return t("charterafrica.site:uniqueSortOptions");
-                          }
-                          return array(val, options);
-                        },
+                        validate: validateUniqueArrayFieldSelect(
+                          "options",
+                          "value",
+                          sortOptions,
+                          "charterafrica.site:uniqueSortOptions",
+                        ),
                       },
                       {
                         name: "label",
