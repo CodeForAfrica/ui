@@ -1,6 +1,5 @@
-import TreeItem from "@mui/lab/TreeItem";
-import MuiTreeView from "@mui/lab/TreeView";
 import { Typography } from "@mui/material";
+import { SimpleTreeView as MuiTreeView, TreeItem } from "@mui/x-tree-view";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -37,16 +36,18 @@ function TreeView({ items, onLabelClick, ...props }) {
           return (
             <TreeItem
               key={itemId}
-              nodeId={itemId}
+              itemId={itemId}
               label={
-                <>
-                  <Typography data-id={itemId} data-expand variant="caption">
-                    {item.title}
-                  </Typography>
+                <Typography
+                  variant="caption"
+                  data-id={itemId}
+                  data-expand
+                  onClick={handleLabelClick}
+                >
+                  {item.title}
                   <CheckIcon className={classes.icon} />
-                </>
+                </Typography>
               }
-              onLabelClick={handleLabelClick}
               classes={{
                 root: classes.tree,
                 expanded: classes.expanded,
@@ -54,18 +55,22 @@ function TreeView({ items, onLabelClick, ...props }) {
               }}
             >
               {item.children.map((child) => {
-                const childId = slugify(`${itemId}-${child.title}`);
+                const childId = `${itemId}-${slugify(child.title)}`;
 
                 return (
                   <TreeItem
                     key={childId}
-                    nodeId={childId}
+                    itemId={childId}
                     label={
-                      <Typography data-id={childId} variant="caption">
+                      <Typography
+                        data-id={childId}
+                        onClick={handleLabelClick}
+                        variant="caption"
+                        width="100%"
+                      >
                         {child.title}
                       </Typography>
                     }
-                    onLabelClick={handleLabelClick}
                     classes={{
                       label: clsx(classes.label, classes.childLabel),
                     }}
