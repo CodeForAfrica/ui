@@ -52,6 +52,13 @@ services:
     ports:
       - 3000:3000
 
+  robots-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile.robots-generator
+    ports:
+      - 3000:3000
+
   mongodb:
     image: mongo:6.0.13
     environment:
