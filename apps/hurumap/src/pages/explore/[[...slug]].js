@@ -190,11 +190,11 @@ export async function getStaticProps({ params }) {
   const [originalCode] = params?.slug || [""];
   const code = originalCode.trim().toLowerCase();
 
-  // /explore -> /explore/dz
+  // /explore -> /explore/dj
   if (!code) {
     return {
       redirect: {
-        destination: `/explore/dz`,
+        destination: `/explore/dj`,
         permanent: true,
       },
     };
