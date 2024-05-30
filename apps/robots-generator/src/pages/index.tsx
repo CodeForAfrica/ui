@@ -28,7 +28,7 @@ const steps = [
     component: CommonSettings,
   },
   {
-    label: "Platfrom Specific Settings",
+    label: "Platform Specific Settings",
     description: `You can set platform specific settings for the robots you want to generate.`,
     component: PlatformSettings,
   },
@@ -38,16 +38,31 @@ const steps = [
     component: CommonBots,
   },
   {
-    label: "Review & Edit",
-    description: `You can review and edit the robots you have generated.`,
-    component: () => <Typography>Review & Edit</Typography>,
-  },
-  {
-    label: "Generate Robots",
-    description: `You can generate robots by clicking the button below.`,
-    component: () => <Typography>Generate Robots</Typography>,
+    label: "Download",
+    description: `You can download the robots you have generated.`,
+    component: () => null,
   },
 ];
+
+const code = `
+User-agent: *
+Disallow: /search
+Allow: /search/about
+Allow: /search/static
+
+User-agent: Googlebot
+Disallow: /private
+Allow: /public
+
+User-agent: Bingbot
+Disallow: /private
+
+User-agent: GPT Bot
+Disallow: /
+
+User-agent: Anthropic AI
+Disallow: /
+`;
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
@@ -72,11 +87,14 @@ export default function Home() {
             {steps.map((step, index) => (
               <Step key={step.label}>
                 <StepLabel
-                  optional={
-                    index === 2 ? (
-                      <Typography variant="caption">Last step</Typography>
-                    ) : null
-                  }
+                  sx={{
+                    "& .MuiStepLabel-label": {
+                      color:
+                        index === activeStep
+                          ? "primary.main"
+                          : "secondary.main",
+                    },
+                  }}
                 >
                   {step.label}
                 </StepLabel>
@@ -120,7 +138,13 @@ export default function Home() {
           )}
         </Box>
         <Box sx={{ py: 3, width: "40%" }}>
-          <Code />
+          <Code
+            code={code}
+            onCopy={() => {}}
+            onDownload={() => {}}
+            onReset={() => {}}
+            showButtons={activeStep === steps.length}
+          />
         </Box>
       </Stack>
     </Section>
@@ -142,12 +166,7 @@ export async function getStaticProps() {
           url: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
           src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
         },
-        menus: [
-          // {
-          //   label: "Our Work",
-          //   href: "/",
-          // },
-        ],
+        menus: [],
         socialLinks: [
           {
             platform: "Github",

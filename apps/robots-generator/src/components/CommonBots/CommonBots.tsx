@@ -4,6 +4,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Stack,
+  Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
@@ -83,13 +84,14 @@ export default function CommonBots() {
             {category}
           </AccordionSummary>
           <AccordionDetails>
-            <Stack
-              direction="row"
-              spacing={1}
-              flexWrap="wrap"
-              alignItems="center"
-            >
-              <FormGroup sx={{ width: "100%", bgcolor: "red" }}>
+            <FormGroup sx={{ width: "100%" }}>
+              <Stack
+                direction="row"
+                spacing={1}
+                flexWrap="wrap"
+                alignItems="center"
+                justifyContent="flex-start"
+              >
                 {groupedRobots[category].map((robot) => (
                   <FormControlLabel
                     key={robot.name}
@@ -101,22 +103,18 @@ export default function CommonBots() {
                           "&.Mui-checked": {
                             color: "primary.main",
                           },
-                          bgcolor: "blue",
                         }}
                       />
                     }
-                    label={robot.label}
+                    label={<Typography>{robot.label}</Typography>}
                     sx={{
-                      margin: 0,
-                      "&.MuiTypography-root": {
-                        marginTop: 0,
-                      },
-                      bgcolor: "green",
+                      width: "fit-content",
+                      marginLeft: "0 !important",
                     }}
                   />
                 ))}
-              </FormGroup>
-            </Stack>
+              </Stack>
+            </FormGroup>
           </AccordionDetails>
         </Accordion>
       ))}
