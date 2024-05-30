@@ -7,7 +7,6 @@ import createEmotionCache from "@/robots-generator/utils/createEmotionCache";
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Page from "@/robots-generator/components/Page";
-
 const clientSideEmotionCache = createEmotionCache();
 
 function getDefaultLayout(page: ReactNode, pageProps: any) {
