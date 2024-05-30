@@ -7,7 +7,7 @@ const apiUrl = process.env.HURUMAP_API_URL || hurumap?.api?.url;
 
 export async function fetchProfile() {
   const { configuration } = await fetchJson(
-    new URL("/api/v1/profiles/5/?format=json", apiUrl),
+    new URL("/api/v1/profiles/1/?format=json", apiUrl),
   );
 
   const locations = configuration?.featured_locations?.map(
@@ -84,7 +84,7 @@ export async function fetchProfileGeography(geoCode) {
   // HURUmap codes are uppercased in the API
   const json = await fetchJson(
     new URL(
-      `/api/v1/all_details/profile/5/geography/${geoCode.toUpperCase()}/?format=json`,
+      `/api/v1/all_details/profile/1/geography/${geoCode.toUpperCase()}/?version=Climate`,
       apiUrl,
     ),
   );
@@ -130,7 +130,7 @@ export async function fetchProfileGeography(geoCode) {
   if (parentCode) {
     const parentJson = await fetchJson(
       new URL(
-        `/api/v1/all_details/profile/5/geography/${parentCode.toUpperCase()}/?format=json`,
+        `/api/v1/all_details/profile/1/geography/${parentCode.toUpperCase()}/?version=Climate`,
         apiUrl,
       ),
     );
