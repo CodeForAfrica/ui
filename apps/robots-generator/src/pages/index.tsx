@@ -154,7 +154,16 @@ export default function Home() {
             </Paper>
           )}
         </Box>
-        <Box sx={{ py: 3, width: "40%" }}>
+        <Box
+          sx={{
+            py: 3,
+            width: "40%",
+            position: "sticky",
+            top: "100px",
+            alignSelf: "flex-start",
+            overflowY: "auto",
+          }}
+        >
           <Code
             code={code}
             onCopy={() => {}}

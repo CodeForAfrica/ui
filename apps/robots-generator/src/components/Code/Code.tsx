@@ -15,7 +15,6 @@ export default function Code(props: CodeProps) {
     <Box
       sx={{
         width: "100%",
-        height: "500px",
       }}
     >
       <TextareaAutosize
@@ -23,7 +22,7 @@ export default function Code(props: CodeProps) {
         minRows={10}
         style={{
           width: "100%",
-          height: "100%",
+          height: "500px",
           fontFamily:
             "Fira Code, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace",
           whiteSpace: "pre-wrap",
