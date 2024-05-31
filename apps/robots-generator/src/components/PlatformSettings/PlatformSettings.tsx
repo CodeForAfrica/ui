@@ -7,6 +7,9 @@ import {
   Stack,
 } from "@mui/material";
 import { useState, useEffect } from "react";
+import InfoIcon from "@mui/icons-material/Info";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 interface PlatformSettingsProps {
   onStepValid: (valid: boolean) => void;
@@ -76,6 +79,11 @@ export default function PlatformSettings({
           }}
         >
           Select platform
+          <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
+            <IconButton size="small">
+              <InfoIcon />
+            </IconButton>
+          </Tooltip>
         </InputLabel>
         <Select
           sx={{

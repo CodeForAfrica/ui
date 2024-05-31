@@ -97,8 +97,26 @@ export default function Home() {
 
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-      <Stack direction="row" justifyContent="space-between" height="100%">
-        <Box sx={{ p: 3, width: "60%" }}>
+      <Stack
+        direction={{
+          xs: "column",
+          md: "row",
+        }}
+        justifyContent="space-between"
+        height="100%"
+      >
+        <Box
+          sx={{
+            p: {
+              xs: 2,
+              md: 3,
+            },
+            width: {
+              xs: "100%",
+              md: "60%",
+            },
+          }}
+        >
           <Stepper activeStep={activeStep} orientation="vertical">
             {stepsState.map((step, index) => (
               <Step key={step.label}>
@@ -110,12 +128,27 @@ export default function Home() {
                           ? "primary.main"
                           : "secondary.main",
                     },
+                    fontSize: {
+                      xs: "1rem",
+                      md: "1.2rem",
+                    },
+                    fontWeight: { xs: 500, md: 600 },
                   }}
                 >
                   {step.label}
                 </StepLabel>
                 <StepContent>
-                  <Typography>{step.description}</Typography>
+                  <Typography
+                    sx={{
+                      mb: 2,
+                      fontSize: {
+                        xs: "0.875rem",
+                        md: "1rem",
+                      },
+                    }}
+                  >
+                    {step.description}
+                  </Typography>
                   <Box sx={{ mb: 2 }}>
                     <step.component onStepValid={handleStepValid} />
                   </Box>
@@ -157,7 +190,10 @@ export default function Home() {
         <Box
           sx={{
             py: 3,
-            width: "40%",
+            width: {
+              xs: "100%",
+              md: "40%",
+            },
             position: "sticky",
             top: "100px",
             alignSelf: "flex-start",

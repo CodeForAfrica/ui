@@ -10,6 +10,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import InfoIcon from "@mui/icons-material/Info";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 export default function CommonBots() {
   const robots = [
     {
@@ -130,7 +133,18 @@ export default function CommonBots() {
                         }}
                       />
                     }
-                    label={<Typography>{robot.label}</Typography>}
+                    label={
+                      <Typography>
+                        {robot.label}
+                        <Tooltip
+                          title={`Select if you want to allow ${robot.label} to crawl your website.`}
+                        >
+                          <IconButton size="small">
+                            <InfoIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </Typography>
+                    }
                     sx={{
                       width: "fit-content",
                       marginLeft: "0 !important",

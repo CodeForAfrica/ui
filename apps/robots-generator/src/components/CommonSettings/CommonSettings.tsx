@@ -8,6 +8,9 @@ import {
 } from "@mui/material";
 import Input from "@/robots-generator/components/Input";
 import { startOfToday } from "date-fns";
+import InfoIcon from "@mui/icons-material/Info";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
 
 import { useState, useEffect } from "react";
 import Timepicker from "@/robots-generator/components/Timepicker";
@@ -81,9 +84,15 @@ export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
               color: "text.primary",
               fontSize: "16px",
               width: "100%",
+              whiteSpace: "break-spaces",
             }}
           >
             Default access for robots
+            <Tooltip title="This directive specifies the default access policy for robots that visit your site.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
           </InputLabel>
           <Select
             sx={{
@@ -112,6 +121,11 @@ export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
             }}
           >
             Crawl delay
+            <Tooltip title="The crawl delay directive specifies the minimum time between requests to your server from a bot.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
           </InputLabel>
           <Input
             onChange={handleCrawlDelayChange}
@@ -134,6 +148,11 @@ export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
             }}
           >
             Cache delay
+            <Tooltip title="The cache delay directive specifies the time that a cached copy of a page should be considered fresh.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
           </InputLabel>
           <Input
             onChange={handleCacheDelayChange}
@@ -156,6 +175,11 @@ export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
             }}
           >
             Visit time
+            <Tooltip title="The visit time directive specifies the time of day when a bot should visit your site.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
           </InputLabel>
           <Timepicker value={visitTime} onChange={handleVisitTimeChange} />
         </Stack>
@@ -174,6 +198,11 @@ export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
             }}
           >
             Sitemaps
+            <Tooltip title="The sitemap directive specifies the location of your sitemap.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
           </InputLabel>
           <TextArea
             placeholder="Enter sitemap URLs, each URL on a new line"
@@ -198,9 +227,14 @@ export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
             }}
           >
             Disallowed paths
+            <Tooltip title="The disallowed paths directive specifies the paths that a bot should not visit.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
           </InputLabel>
           <TextArea
-            placeholder="Enter disallowed paths, each path on a new line"
+            placeholder="Enter disallowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
             onChange={handleDisallowedPathsChange}
             value={disallowedPaths.join("\n")}
             minRows={5}

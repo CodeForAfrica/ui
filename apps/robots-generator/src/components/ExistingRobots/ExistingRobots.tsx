@@ -69,7 +69,14 @@ export default function ExistingRobots({ onStepValid }: ExistingRobotsProps) {
         <Alert
           severity="error"
           sx={{
-            mt: 2,
+            mt: {
+              xs: 2,
+              md: 3,
+            },
+            fontSize: {
+              xs: "0.875rem",
+              md: "1rem",
+            },
           }}
         >
           Please enter a valid URL. A valid URL should start with http:// or
