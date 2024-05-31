@@ -18,29 +18,34 @@ import Code from "@/robots-generator/components/Code";
 const steps = [
   {
     label: "Fetch existing robots",
-    description: `You can fetch existing robots by entering the URL of the website you want to fetch robots from.`,
+    description: `Start by fetching the robots.txt file of the website you want to generate robots for.`,
     component: ExistingRobots,
+    stepValid: false,
   },
   {
     label: "Common Settings",
     description:
       "You can set common settings for the robots you want to generate.",
     component: CommonSettings,
+    stepValid: true,
   },
   {
     label: "Platform Specific Settings",
     description: `You can set platform specific settings for the robots you want to generate.`,
     component: PlatformSettings,
+    stepValid: true,
   },
   {
     label: "Common Bots",
-    description: `You can set common bots for the robots you want to generate.`,
+    description: `You can set the allow status for common bots.`,
     component: CommonBots,
+    stepValid: true,
   },
   {
     label: "Download",
     description: `You can download the robots you have generated.`,
     component: () => null,
+    stepValid: true,
   },
 ];
 
@@ -65,6 +70,7 @@ Disallow: /
 `;
 
 export default function Home() {
+  const [stepsState, setSteps] = useState(steps);
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -79,12 +85,22 @@ export default function Home() {
     setActiveStep(0);
   };
 
+  const handleStepValid = (isValid: boolean) => {
+    const newSteps = stepsState.map((step, index) => {
+      if (index === activeStep) {
+        return { ...step, stepValid: isValid };
+      }
+      return step;
+    });
+    setSteps(newSteps);
+  };
+
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
       <Stack direction="row" justifyContent="space-between" height="100%">
         <Box sx={{ p: 3, width: "60%" }}>
           <Stepper activeStep={activeStep} orientation="vertical">
-            {steps.map((step, index) => (
+            {stepsState.map((step, index) => (
               <Step key={step.label}>
                 <StepLabel
                   sx={{
@@ -101,7 +117,7 @@ export default function Home() {
                 <StepContent>
                   <Typography>{step.description}</Typography>
                   <Box sx={{ mb: 2 }}>
-                    <step.component />
+                    <step.component onStepValid={handleStepValid} />
                   </Box>
                   <Box sx={{ mb: 2 }}>
                     <div>
@@ -109,7 +125,7 @@ export default function Home() {
                         variant="contained"
                         onClick={handleNext}
                         sx={{ mt: 1, mr: 1 }}
-                        // disabled={!isValid}
+                        disabled={!step.stepValid}
                       >
                         {index === steps.length - 1 ? "Finish" : "Continue"}
                       </Button>
@@ -129,10 +145,11 @@ export default function Home() {
           {activeStep === steps.length && (
             <Paper square elevation={0} sx={{ p: 3 }}>
               <Typography>
-                All steps completed - you&apos;re finished
+                Your robots.txt file has been generated successfully. You can
+                now copy the code or download the file.
               </Typography>
               <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                Reset
+                Restart
               </Button>
             </Paper>
           )}

@@ -9,10 +9,15 @@ import {
 import Input from "@/robots-generator/components/Input";
 import { startOfToday } from "date-fns";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Timepicker from "@/robots-generator/components/Timepicker";
 import TextArea from "@/robots-generator/components/TextArea";
-export default function CommonSettings() {
+
+interface CommonSettingsProps {
+  onStepValid: (valid: boolean) => void;
+}
+
+export default function CommonSettings({ onStepValid }: CommonSettingsProps) {
   const [defaultAccess, setDefaultAccess] = useState("disallowed");
   const [crawlDelay, setCrawlDelay] = useState(10);
   const [cachedDelay, setCachedDelay] = useState(10);
@@ -47,11 +52,20 @@ export default function CommonSettings() {
     setDisallowedPaths(value.split("\n"));
   };
 
+  useEffect(() => {
+    onStepValid(true);
+    // if (defaultAccess === "disallowed") {
+    //   onStepValid(true);
+    // } else {
+    //   onStepValid(sitemaps.length > 0);
+    // }
+  }, [defaultAccess, sitemaps, crawlDelay]);
+
   return (
     <Box
       sx={{
         width: "100%",
-        padding: "20px",
+        py: 2,
       }}
     >
       <Stack spacing={2} alignItems="center">

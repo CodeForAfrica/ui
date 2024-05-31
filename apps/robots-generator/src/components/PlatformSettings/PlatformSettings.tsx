@@ -6,10 +6,20 @@ import {
   SelectChangeEvent,
   Stack,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function PlatformSettings() {
+interface PlatformSettingsProps {
+  onStepValid: (valid: boolean) => void;
+}
+
+export default function PlatformSettings({
+  onStepValid,
+}: PlatformSettingsProps) {
   const platforms = [
+    {
+      name: "none",
+      label: "None",
+    },
     {
       name: "wordpress",
       label: "WordPress",
@@ -40,14 +50,18 @@ export default function PlatformSettings() {
     },
   ];
 
-  const [platform, setPlatform] = useState("");
+  const [platform, setPlatform] = useState("none");
 
   const handlePlatformChange = (event: SelectChangeEvent) => {
     setPlatform(event.target.value as string);
   };
 
+  useEffect(() => {
+    onStepValid(true);
+  }, [platform]);
+
   return (
-    <Box>
+    <Box sx={{ py: 2 }}>
       <Stack
         spacing={2}
         direction="row"
@@ -72,7 +86,9 @@ export default function PlatformSettings() {
           autoWidth
         >
           {platforms.map((platform) => (
-            <MenuItem value={platform.name}>{platform.label}</MenuItem>
+            <MenuItem value={platform.name} key={platform.name}>
+              {platform.label}
+            </MenuItem>
           ))}
         </Select>
       </Stack>

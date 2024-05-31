@@ -22,6 +22,7 @@ export default function App(props: AppProps | any) {
       <CacheProvider value={emotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
+          <title>Robots Generator</title>
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />

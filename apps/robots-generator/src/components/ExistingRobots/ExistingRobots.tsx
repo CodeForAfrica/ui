@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import Input from "@/robots-generator/components/Input";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { validateUrl } from "@/robots-generator/utils/validateUrl";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Alert from "@mui/material/Alert";
 
-export default function ExistingRobots() {
+interface ExistingRobotsProps {
+  onStepValid: (valid: boolean) => void;
+}
+
+export default function ExistingRobots({ onStepValid }: ExistingRobotsProps) {
   const [url, setUrl] = useState("");
   const [isValid, setIsValid] = useState(false);
+  const [shouldFetch, setShouldFetch] = useState(true);
 
   const onInputChange = (e: string) => {
-    console.log(e);
     const isValid = validateUrl(e);
     if (isValid) {
       setIsValid(true);
@@ -18,13 +26,56 @@ export default function ExistingRobots() {
     }
   };
 
+  useEffect(() => {
+    if (shouldFetch) {
+      onStepValid(isValid);
+    } else {
+      onStepValid(true);
+    }
+  }, [isValid, shouldFetch]);
+
   return (
-    <Box>
+    <Box sx={{ py: 2 }}>
+      <FormGroup
+        sx={{
+          mb: 2,
+        }}
+      >
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={shouldFetch}
+              onChange={(e) => setShouldFetch(e.target.checked)}
+              name="fetch"
+              sx={{
+                color: "primary.main",
+                "&.Mui-checked": {
+                  color: "primary.main",
+                },
+              }}
+            />
+          }
+          label={<Typography>Fetch existing robots.txt</Typography>}
+        />
+      </FormGroup>
       <Input
         label="Enter URL"
         onChange={onInputChange}
         placeholder="https://example.com"
+        sx={{ width: "100%" }}
+        disabled={!shouldFetch}
       />
+      {!isValid && (
+        <Alert
+          severity="error"
+          sx={{
+            mt: 2,
+          }}
+        >
+          Please enter a valid URL. A valid URL should start with http:// or
+          https://
+        </Alert>
+      )}
     </Box>
   );
 }

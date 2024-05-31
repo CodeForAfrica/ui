@@ -8,11 +8,12 @@ interface InputProps {
   onChange?: (value: string) => void;
   placeholder?: string;
   sx?: React.CSSProperties;
+  disabled?: boolean;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   function Input(props, ref) {
-    const { onChange, initialValue = "", ...other } = props;
+    const { onChange, initialValue = "", disabled = false, ...other } = props;
 
     const [value, setValue] = useState(initialValue);
 
@@ -23,7 +24,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     useDebouncedValue(value, 500, onChange);
 
     return (
-      <TextField value={value} onChange={handleChange} {...other} ref={ref} />
+      <TextField
+        value={value}
+        onChange={handleChange}
+        {...other}
+        ref={ref}
+        disabled={disabled}
+      />
     );
   },
 );

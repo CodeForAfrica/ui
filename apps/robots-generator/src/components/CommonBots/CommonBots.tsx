@@ -16,51 +16,73 @@ export default function CommonBots() {
       name: "googlebot",
       label: "Googlebot",
       category: "Search Engine",
+      allow: true,
     },
     {
       name: "bingbot",
       label: "Bingbot",
       category: "Search Engine",
+      allow: true,
     },
     {
       name: "yandexbot",
       label: "Yandexbot",
       category: "Search Engine",
+      allow: true,
     },
     {
       name: "baiduspider",
       label: "Baiduspider",
       category: "Search Engine",
+      allow: true,
     },
     {
       name: "duckduckbot",
       label: "DuckDuckBot",
       category: "Search Engine",
+      allow: true,
+    },
+    {
+      name: "sogou",
+      label: "Sogou Spider",
+      category: "Search Engine",
+      allow: true,
+    },
+    {
+      name: "exabot",
+      label: "Exabot",
+      category: "Search Engine",
+      allow: true,
     },
     {
       name: "gpt-bot",
       label: "GPT Bot",
       category: "AI Bot",
+      allow: false,
     },
     {
       name: "googleExtended",
       label: "Google Extended",
       category: "AI Bot",
+      allow: false,
     },
     {
       name: "anthropic-ai",
       label: "Anthropic AI",
       category: "AI Bot",
+      allow: false,
     },
     {
       name: "openai",
       label: "OpenAI",
       category: "AI Bot",
+      allow: false,
     },
     {
       name: "ClaudeBot",
       label: "ClaudeBot",
       category: "AI Bot",
+      allow: false,
     },
   ];
 
@@ -77,7 +99,7 @@ export default function CommonBots() {
   );
 
   return (
-    <Box>
+    <Box sx={{ py: 2 }}>
       {Object.keys(groupedRobots).map((category) => (
         <Accordion key={category} defaultExpanded>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -98,6 +120,8 @@ export default function CommonBots() {
                     control={
                       <Checkbox
                         value={robot.name}
+                        checked={robot.allow}
+                        name={robot.name}
                         sx={{
                           color: "primary.main",
                           "&.Mui-checked": {
