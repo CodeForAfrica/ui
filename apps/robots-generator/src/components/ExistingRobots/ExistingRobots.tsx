@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Input from "@/robots-generator/components/Input";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { validateUrl } from "@/robots-generator/utils/validateUrl";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -15,6 +15,7 @@ export default function ExistingRobots({ onStepValid }: ExistingRobotsProps) {
   const [url, setUrl] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [shouldFetch, setShouldFetch] = useState(true);
+  const [robots, setRobots] = useState("");
 
   const onInputChange = (e: string) => {
     const isValid = validateUrl(e);
@@ -26,13 +27,23 @@ export default function ExistingRobots({ onStepValid }: ExistingRobotsProps) {
     }
   };
 
-  useEffect(() => {
-    if (shouldFetch) {
-      onStepValid(isValid);
-    } else {
-      onStepValid(true);
-    }
-  }, [isValid, shouldFetch]);
+  const fetchRobots = async () => {
+    const res = await fetch("/api/fetch_robots", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ url }),
+    });
+    const data = await res.json();
+    console.log({ data });
+    return data.robots;
+  };
+
+  const fetchData = async () => {
+    const robots = await fetchRobots();
+    setRobots(robots);
+  };
 
   return (
     <Box sx={{ py: 2 }}>
@@ -58,13 +69,24 @@ export default function ExistingRobots({ onStepValid }: ExistingRobotsProps) {
           label={<Typography>Fetch existing robots.txt</Typography>}
         />
       </FormGroup>
-      <Input
-        label="Enter URL"
-        onChange={onInputChange}
-        placeholder="https://example.com"
-        sx={{ width: "100%" }}
-        disabled={!shouldFetch}
-      />
+      <Stack spacing={2} direction="row">
+        <Input
+          label="Enter URL"
+          onChange={onInputChange}
+          placeholder="https://example.com"
+          sx={{ width: "100%" }}
+          disabled={!shouldFetch}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{}}
+          disabled={!shouldFetch || !isValid}
+          onClick={fetchData}
+        >
+          Fetch
+        </Button>
+      </Stack>
       {!isValid && (
         <Alert
           severity="error"

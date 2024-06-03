@@ -25,6 +25,7 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "robots-parser": "^3.0.1",
     "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0"
   },
