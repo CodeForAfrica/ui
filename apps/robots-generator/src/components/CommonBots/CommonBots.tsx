@@ -15,6 +15,8 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import { Robot, categorisedRobots } from "@/robots-generator/lib/robots";
+import { useState } from "react";
 
 interface CommonBotsProps {
   handleNext: (data: any) => void;
@@ -27,100 +29,30 @@ export default function CommonBots({
   handleBack,
   lastStep,
 }: CommonBotsProps) {
-  const robots = [
-    {
-      name: "googlebot",
-      label: "Googlebot",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "bingbot",
-      label: "Bingbot",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "yandexbot",
-      label: "Yandexbot",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "baiduspider",
-      label: "Baiduspider",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "duckduckbot",
-      label: "DuckDuckBot",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "sogou",
-      label: "Sogou Spider",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "exabot",
-      label: "Exabot",
-      category: "Search Engine",
-      allow: true,
-    },
-    {
-      name: "gpt-bot",
-      label: "GPT Bot",
-      category: "AI Bot",
-      allow: false,
-    },
-    {
-      name: "googleExtended",
-      label: "Google Extended",
-      category: "AI Bot",
-      allow: false,
-    },
-    {
-      name: "anthropic-ai",
-      label: "Anthropic AI",
-      category: "AI Bot",
-      allow: false,
-    },
-    {
-      name: "openai",
-      label: "OpenAI",
-      category: "AI Bot",
-      allow: false,
-    },
-    {
-      name: "ClaudeBot",
-      label: "ClaudeBot",
-      category: "AI Bot",
-      allow: false,
-    },
-  ];
   const { state } = useGlobalState();
-  const groupedRobots = robots.reduce(
-    (acc: { [key: string]: any[] }, robot) => {
-      if (!acc[robot.category]) {
-        acc[robot.category] = [];
-      }
-      acc[robot.category].push(robot);
-      return acc;
-    },
-    {},
-  );
+
+  const [selectedBots, setSelectedBots] = useState(state.bots);
+
+  const isSelected = (robot: Robot) => {
+    return selectedBots.find((bot) => bot.robot.name === robot.name)?.allow;
+  };
+
+  const toggleBot = (robot: Robot) => {
+    setSelectedBots((prev) =>
+      prev.map((bot) =>
+        bot.robot.name === robot.name ? { ...bot, allow: !bot.allow } : bot,
+      ),
+    );
+  };
 
   const next = () => {
-    handleNext({ bots: robots.map((robot) => robot.name) });
+    handleNext({ bots: selectedBots });
   };
 
   return (
     <>
       <Box sx={{ py: 2 }}>
-        {Object.keys(groupedRobots).map((category) => (
+        {Object.keys(categorisedRobots).map((category) => (
           <Accordion key={category} defaultExpanded>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               {category}
@@ -134,14 +66,15 @@ export default function CommonBots({
                   alignItems="center"
                   justifyContent="flex-start"
                 >
-                  {groupedRobots[category].map((robot) => (
+                  {categorisedRobots[category].map((robot) => (
                     <FormControlLabel
                       key={robot.name}
                       control={
                         <Checkbox
                           value={robot.name}
-                          checked={robot.allow}
+                          checked={isSelected(robot)}
                           name={robot.name}
+                          onChange={() => toggleBot(robot)}
                           sx={{
                             color: "primary.main",
                             "&.Mui-checked": {

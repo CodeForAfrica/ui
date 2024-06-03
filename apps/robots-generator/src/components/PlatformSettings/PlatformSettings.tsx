@@ -12,6 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import StepperNav from "../StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import { platforms } from "@/robots-generator/lib/config";
 interface PlatformSettingsProps {
   handleNext: (data: any) => void;
   handleBack: () => void;
@@ -24,40 +25,6 @@ export default function PlatformSettings({
   lastStep,
 }: PlatformSettingsProps) {
   const { state } = useGlobalState();
-  const platforms = [
-    {
-      name: "none",
-      label: "None",
-    },
-    {
-      name: "wordpress",
-      label: "WordPress",
-    },
-    {
-      name: "squarespace",
-      label: "Squarespace",
-    },
-    {
-      name: "wix",
-      label: "Wix",
-    },
-    {
-      name: "weebly",
-      label: "Weebly",
-    },
-    {
-      name: "joomla",
-      label: "Joomla",
-    },
-    {
-      name: "drupal",
-      label: "Drupal",
-    },
-    {
-      name: "webflow",
-      label: "Webflow",
-    },
-  ];
 
   const [platform, setPlatform] = useState(state.platform);
 

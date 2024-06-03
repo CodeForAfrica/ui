@@ -15,8 +15,9 @@ import PlatformSettings from "@/robots-generator/components/PlatformSettings";
 import CommonBots from "@/robots-generator/components/CommonBots";
 import Code from "@/robots-generator/components/Code";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
-import Download from "@/robots-generator/components/Download";
-import { init } from "next/dist/compiled/webpack/webpack";
+import Finish from "@/robots-generator/components/Finish";
+import { generateRobots } from "@/robots-generator/lib/robots";
+import { useEffect } from "react";
 
 interface Step {
   label: string;
@@ -27,6 +28,7 @@ interface Step {
 export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
+  const [code, setCode] = useState(state.robots || "");
 
   const steps: Step[] = [
     {
@@ -51,31 +53,11 @@ export default function Home() {
       component: CommonBots,
     },
     {
-      label: "Download",
+      label: "Finish",
       description: `You can download the robots you have generated.`,
-      component: Download,
+      component: Finish,
     },
   ];
-
-  const code = `
-    User-agent: *
-    Disallow: /search
-    Allow: /search/about
-    Allow: /search/static
-
-    User-agent: Googlebot
-    Disallow: /private
-    Allow: /public
-
-    User-agent: Bingbot
-    Disallow: /private
-
-    User-agent: GPT Bot
-    Disallow: /
-
-    User-agent: Anthropic AI
-    Disallow: /
-`;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -94,6 +76,15 @@ export default function Home() {
     setState(newState);
     handleNext();
   };
+
+  useEffect(() => {
+    const generateRobotsFile = async () => {
+      const robots = await generateRobots(state);
+      setCode(robots);
+    };
+
+    generateRobotsFile();
+  }, [state]);
 
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 } }}>

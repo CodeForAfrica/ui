@@ -1,7 +1,17 @@
 import React, { createContext, useState, useContext } from "react";
 import { startOfToday } from "date-fns";
+import {
+  Robot,
+  allowedCategories,
+  robots,
+} from "@/robots-generator/lib/robots";
 
-interface GlobalState {
+export interface RobotRule {
+  robot: Robot;
+  allow: boolean;
+}
+
+export interface GlobalState {
   url?: string;
   robots?: string;
   defaultAccess?: string;
@@ -11,7 +21,7 @@ interface GlobalState {
   sitemaps: string[];
   disallowedPaths: string[];
   platform: string;
-  bots: string[];
+  bots: RobotRule[];
 }
 
 const defaultState: GlobalState = {
@@ -24,7 +34,10 @@ const defaultState: GlobalState = {
   sitemaps: [],
   disallowedPaths: [],
   platform: "none",
-  bots: [],
+  bots: robots.map((robot) => ({
+    robot,
+    allow: allowedCategories.includes(robot.category),
+  })),
 };
 
 const GlobalContext = createContext<{
