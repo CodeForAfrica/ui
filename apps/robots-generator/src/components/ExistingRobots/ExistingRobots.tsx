@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Input from "@/robots-generator/components/Input";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { validateUrl } from "@/robots-generator/utils/validateUrl";
@@ -25,6 +25,7 @@ export default function ExistingRobots({
   const [isValid, setIsValid] = useState(false);
   const [shouldFetch, setShouldFetch] = useState(true);
   const [robots, setRobots] = useState(state.robots);
+  const [allowNextStep, setAllowNextStep] = useState(false);
 
   const onInputChange = (e: string) => {
     const isValid = validateUrl(e);
@@ -45,17 +46,17 @@ export default function ExistingRobots({
       body: JSON.stringify({ url }),
     });
     const data = await res.json();
-    // console.log({ data });
     return data.robots;
   };
 
   const fetchData = async () => {
     const robots = await fetchRobots();
+    // TODO: Add validation for robots.txt
     setRobots(robots);
+    setAllowNextStep(true);
   };
 
   const next = () => {
-    // onStepValid(isValid);
     handleNext({
       url,
       robots,
@@ -128,7 +129,7 @@ export default function ExistingRobots({
       <StepperNav
         next={next}
         handleBack={handleBack}
-        isValid={isValid}
+        isValid={allowNextStep || !shouldFetch}
         lastStep={lastStep}
         back={true}
       />

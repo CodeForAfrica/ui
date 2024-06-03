@@ -111,14 +111,23 @@ export async function generateRobots(state: GlobalState) {
   }
 
   if (state.sitemaps.length > 0) {
-    robots += `Sitemap: ${state.sitemaps.join("\nSitemap: ")}\n\n`;
+    const validSitemaps = state.sitemaps.filter(
+      (sitemap) => sitemap.trim() !== "",
+    );
+    if (validSitemaps.length > 0) {
+      robots += `Sitemap: ${validSitemaps.join("\nSitemap: ")}\n\n`;
+    }
   }
 
   if (state.disallowedPaths.length > 0) {
-    robots += `User-agent: *\nDisallow: ${state.disallowedPaths.join(
-      "\nDisallow: ",
-    )}
-    \n\n`;
+    const validDisallowedPaths = state.disallowedPaths.filter(
+      (path) => path.trim() !== "",
+    );
+    if (validDisallowedPaths.length > 0) {
+      robots += `User-agent: *\nDisallow: ${validDisallowedPaths.join(
+        "\nDisallow: ",
+      )}\n\n`;
+    }
   }
 
   if (state.platform !== "none") {
