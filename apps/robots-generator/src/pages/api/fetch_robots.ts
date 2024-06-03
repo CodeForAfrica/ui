@@ -31,7 +31,6 @@ export default async function handler(
   if (req.method !== "POST") {
     throw new Error("Method not allowed");
   }
-  console.log(req.body);
   const { url } = req.body;
   if (!url) {
     res.status(400).json({ error: "Missing URL" });
