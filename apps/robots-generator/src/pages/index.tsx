@@ -14,10 +14,14 @@ import CommonSettings from "@/robots-generator/components/CommonSettings";
 import PlatformSettings from "@/robots-generator/components/PlatformSettings";
 import CommonBots from "@/robots-generator/components/CommonBots";
 import Code from "@/robots-generator/components/Code";
-import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import {
+  useGlobalState,
+  defaultState,
+} from "@/robots-generator/context/GlobalContext";
 import Finish from "@/robots-generator/components/Finish";
 import { generateRobots } from "@/robots-generator/lib/robots";
 import { useEffect } from "react";
+import { downloadFile } from "../utils/file";
 
 interface Step {
   label: string;
@@ -68,6 +72,7 @@ export default function Home() {
   };
 
   const handleReset = () => {
+    setState(defaultState);
     setActiveStep(0);
   };
 
@@ -75,6 +80,15 @@ export default function Home() {
     const newState = { ...state, ...data };
     setState(newState);
     handleNext();
+  };
+
+  const handleDownload = async () => {
+    const filename = "robots.txt";
+    await downloadFile(filename, code);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
   };
 
   useEffect(() => {
@@ -178,9 +192,9 @@ export default function Home() {
         >
           <Code
             code={code}
-            onCopy={() => {}}
-            onDownload={() => {}}
-            onReset={() => {}}
+            onCopy={handleCopy}
+            onDownload={handleDownload}
+            onReset={handleReset}
             showButtons={activeStep === steps.length}
           />
         </Box>

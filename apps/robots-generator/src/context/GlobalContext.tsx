@@ -24,7 +24,7 @@ export interface GlobalState {
   bots: RobotRule[];
 }
 
-const defaultState: GlobalState = {
+export const defaultState: GlobalState = {
   url: "",
   robots: "",
   defaultAccess: "disallowed",

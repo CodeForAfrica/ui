@@ -43,7 +43,7 @@ export default async function handler(
   console.log(req.body);
   const { data } = req.body;
   if (!data) {
-    res.status(400).json({ error: "No Data provides" });
+    res.status(400).json({ error: "No Data provided" });
     return;
   }
 
