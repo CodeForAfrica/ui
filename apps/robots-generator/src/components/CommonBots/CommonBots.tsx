@@ -13,7 +13,20 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-export default function CommonBots() {
+import StepperNav from "@/robots-generator/components/StepperNav";
+import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+
+interface CommonBotsProps {
+  handleNext: (data: any) => void;
+  handleBack: () => void;
+  lastStep: boolean;
+}
+
+export default function CommonBots({
+  handleNext,
+  handleBack,
+  lastStep,
+}: CommonBotsProps) {
   const robots = [
     {
       name: "googlebot",
@@ -88,8 +101,7 @@ export default function CommonBots() {
       allow: false,
     },
   ];
-
-  // group by category
+  const { state } = useGlobalState();
   const groupedRobots = robots.reduce(
     (acc: { [key: string]: any[] }, robot) => {
       if (!acc[robot.category]) {
@@ -101,61 +113,74 @@ export default function CommonBots() {
     {},
   );
 
+  const next = () => {
+    handleNext({ bots: robots.map((robot) => robot.name) });
+  };
+
   return (
-    <Box sx={{ py: 2 }}>
-      {Object.keys(groupedRobots).map((category) => (
-        <Accordion key={category} defaultExpanded>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            {category}
-          </AccordionSummary>
-          <AccordionDetails>
-            <FormGroup sx={{ width: "100%" }}>
-              <Stack
-                direction="row"
-                spacing={1}
-                flexWrap="wrap"
-                alignItems="center"
-                justifyContent="flex-start"
-              >
-                {groupedRobots[category].map((robot) => (
-                  <FormControlLabel
-                    key={robot.name}
-                    control={
-                      <Checkbox
-                        value={robot.name}
-                        checked={robot.allow}
-                        name={robot.name}
-                        sx={{
-                          color: "primary.main",
-                          "&.Mui-checked": {
+    <>
+      <Box sx={{ py: 2 }}>
+        {Object.keys(groupedRobots).map((category) => (
+          <Accordion key={category} defaultExpanded>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              {category}
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormGroup sx={{ width: "100%" }}>
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  flexWrap="wrap"
+                  alignItems="center"
+                  justifyContent="flex-start"
+                >
+                  {groupedRobots[category].map((robot) => (
+                    <FormControlLabel
+                      key={robot.name}
+                      control={
+                        <Checkbox
+                          value={robot.name}
+                          checked={robot.allow}
+                          name={robot.name}
+                          sx={{
                             color: "primary.main",
-                          },
-                        }}
-                      />
-                    }
-                    label={
-                      <Typography>
-                        {robot.label}
-                        <Tooltip
-                          title={`Select if you want to allow ${robot.label} to crawl your website.`}
-                        >
-                          <IconButton size="small">
-                            <InfoIcon />
-                          </IconButton>
-                        </Tooltip>
-                      </Typography>
-                    }
-                    sx={{
-                      width: "fit-content",
-                      marginLeft: "0 !important",
-                    }}
-                  />
-                ))}
-              </Stack>
-            </FormGroup>
-          </AccordionDetails>
-        </Accordion>
-      ))}
-    </Box>
+                            "&.Mui-checked": {
+                              color: "primary.main",
+                            },
+                          }}
+                        />
+                      }
+                      label={
+                        <Typography>
+                          {robot.label}
+                          <Tooltip
+                            title={`Select if you want to allow ${robot.label} to crawl your website.`}
+                          >
+                            <IconButton size="small">
+                              <InfoIcon />
+                            </IconButton>
+                          </Tooltip>
+                        </Typography>
+                      }
+                      sx={{
+                        width: "fit-content",
+                        marginLeft: "0 !important",
+                      }}
+                    />
+                  ))}
+                </Stack>
+              </FormGroup>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Box>
+      <StepperNav
+        next={next}
+        handleBack={handleBack}
+        isValid={true}
+        lastStep={lastStep}
+        back={false}
+      />
+    </>
   );
 }

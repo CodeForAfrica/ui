@@ -14,64 +14,68 @@ import CommonSettings from "@/robots-generator/components/CommonSettings";
 import PlatformSettings from "@/robots-generator/components/PlatformSettings";
 import CommonBots from "@/robots-generator/components/CommonBots";
 import Code from "@/robots-generator/components/Code";
+import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import Download from "@/robots-generator/components/Download";
+import { init } from "next/dist/compiled/webpack/webpack";
 
-const steps = [
-  {
-    label: "Fetch existing robots",
-    description: `Start by fetching the robots.txt file of the website you want to generate robots for.`,
-    component: ExistingRobots,
-    stepValid: false,
-  },
-  {
-    label: "Common Settings",
-    description:
-      "You can set common settings for the robots you want to generate.",
-    component: CommonSettings,
-    stepValid: true,
-  },
-  {
-    label: "Platform Specific Settings",
-    description: `You can set platform specific settings for the robots you want to generate.`,
-    component: PlatformSettings,
-    stepValid: true,
-  },
-  {
-    label: "Common Bots",
-    description: `You can set the allow status for common bots.`,
-    component: CommonBots,
-    stepValid: true,
-  },
-  {
-    label: "Download",
-    description: `You can download the robots you have generated.`,
-    component: () => null,
-    stepValid: true,
-  },
-];
-
-const code = `
-User-agent: *
-Disallow: /search
-Allow: /search/about
-Allow: /search/static
-
-User-agent: Googlebot
-Disallow: /private
-Allow: /public
-
-User-agent: Bingbot
-Disallow: /private
-
-User-agent: GPT Bot
-Disallow: /
-
-User-agent: Anthropic AI
-Disallow: /
-`;
+interface Step {
+  label: string;
+  description: string;
+  component: React.FC<any>;
+}
 
 export default function Home() {
-  const [stepsState, setSteps] = useState(steps);
   const [activeStep, setActiveStep] = useState(0);
+  const { state, setState } = useGlobalState();
+
+  const steps: Step[] = [
+    {
+      label: "Fetch existing robots",
+      description: `Start by fetching the robots.txt file of the website you want to generate robots for.`,
+      component: ExistingRobots,
+    },
+    {
+      label: "Common Settings",
+      description:
+        "You can set common settings for the robots you want to generate.",
+      component: CommonSettings,
+    },
+    {
+      label: "Platform Specific Settings",
+      description: `You can set platform specific settings for the robots you want to generate.`,
+      component: PlatformSettings,
+    },
+    {
+      label: "Common Bots",
+      description: `You can set the allow status for common bots.`,
+      component: CommonBots,
+    },
+    {
+      label: "Download",
+      description: `You can download the robots you have generated.`,
+      component: Download,
+    },
+  ];
+
+  const code = `
+    User-agent: *
+    Disallow: /search
+    Allow: /search/about
+    Allow: /search/static
+
+    User-agent: Googlebot
+    Disallow: /private
+    Allow: /public
+
+    User-agent: Bingbot
+    Disallow: /private
+
+    User-agent: GPT Bot
+    Disallow: /
+
+    User-agent: Anthropic AI
+    Disallow: /
+`;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -85,14 +89,10 @@ export default function Home() {
     setActiveStep(0);
   };
 
-  const handleStepValid = (isValid: boolean) => {
-    const newSteps = stepsState.map((step, index) => {
-      if (index === activeStep) {
-        return { ...step, stepValid: isValid };
-      }
-      return step;
-    });
-    setSteps(newSteps);
+  const handleNextStep = (data: any) => {
+    const newState = { ...state, ...data };
+    setState(newState);
+    handleNext();
   };
 
   return (
@@ -118,7 +118,7 @@ export default function Home() {
           }}
         >
           <Stepper activeStep={activeStep} orientation="vertical">
-            {stepsState.map((step, index) => (
+            {steps.map((step, index) => (
               <Step key={step.label}>
                 <StepLabel
                   sx={{
@@ -150,26 +150,11 @@ export default function Home() {
                     {step.description}
                   </Typography>
                   <Box sx={{ mb: 2 }}>
-                    <step.component onStepValid={handleStepValid} />
-                  </Box>
-                  <Box sx={{ mb: 2 }}>
-                    <div>
-                      <Button
-                        variant="contained"
-                        onClick={handleNext}
-                        sx={{ mt: 1, mr: 1 }}
-                        disabled={!step.stepValid}
-                      >
-                        {index === steps.length - 1 ? "Finish" : "Continue"}
-                      </Button>
-                      <Button
-                        disabled={index === 0}
-                        onClick={handleBack}
-                        sx={{ mt: 1, mr: 1 }}
-                      >
-                        Back
-                      </Button>
-                    </div>
+                    <step.component
+                      handleNext={handleNextStep}
+                      handleBack={handleBack}
+                      lastStep={index === steps.length - 1}
+                    />
                   </Box>
                 </StepContent>
               </Step>
