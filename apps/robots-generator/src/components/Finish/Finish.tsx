@@ -1,4 +1,5 @@
 import StepperNav from "@/robots-generator/components/StepperNav";
+import { useGlobalState } from "@/robots-generator/context/GlobalContext";
 
 interface FinishProps {
   handleNext: (data: any) => void;
@@ -11,8 +12,16 @@ export default function Finish({
   handleBack,
   lastStep,
 }: FinishProps) {
+  const { state } = useGlobalState();
+
   async function saveData() {
-    // TODO: Save data to db
+    await fetch("/api/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data: state }),
+    });
   }
 
   const next = async () => {

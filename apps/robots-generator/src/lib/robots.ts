@@ -1,7 +1,7 @@
 import { GlobalState } from "@/robots-generator/context/GlobalContext";
 import { platforms } from "@/robots-generator/lib/config";
 
-function formatTime(date: Date) {
+export function formatTime(date: Date) {
   let hours = date.getUTCHours();
   let minutes = date.getUTCMinutes();
   return `${hours < 10 ? "0" + hours : hours}${
