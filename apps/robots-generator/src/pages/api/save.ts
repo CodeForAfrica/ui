@@ -40,7 +40,6 @@ export default async function handler(
   if (req.method !== "POST") {
     throw new Error("Method not allowed");
   }
-  console.log(req.body);
   const { data } = req.body;
   if (!data) {
     res.status(400).json({ error: "No Data provided" });

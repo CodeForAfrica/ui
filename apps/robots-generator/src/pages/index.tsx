@@ -22,6 +22,7 @@ import Finish from "@/robots-generator/components/Finish";
 import { generateRobots } from "@/robots-generator/lib/robots";
 import { useEffect } from "react";
 import { downloadFile } from "../utils/file";
+import { Snackbar } from "@mui/material";
 
 interface Step {
   label: string;
@@ -33,6 +34,7 @@ export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const steps: Step[] = [
     {
@@ -89,6 +91,7 @@ export default function Home() {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
+    setShowSnackbar(true);
   };
 
   useEffect(() => {
@@ -196,6 +199,12 @@ export default function Home() {
             onDownload={handleDownload}
             onReset={handleReset}
             showButtons={activeStep === steps.length}
+          />
+          <Snackbar
+            open={showSnackbar}
+            autoHideDuration={5000}
+            onClose={() => setShowSnackbar(false)}
+            message="Copied to clipboard"
           />
         </Box>
       </Stack>
