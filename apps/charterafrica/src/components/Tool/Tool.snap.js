@@ -186,7 +186,7 @@ exports[`<Tool /> renders unchanged 1`] = `
             class="MuiBox-root css-11uk14q"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-qy1l2s-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-qy1l2s-MuiButtonBase-root-MuiButton-root"
               href=""
               tabindex="0"
               target="_blank"
@@ -225,12 +225,12 @@ exports[`<Tool /> renders unchanged 1`] = `
                 class="MuiAvatarGroup-root css-1qcltu-MuiAvatarGroup-root"
               >
                 <div
-                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-19wzxzv-MuiAvatar-root-MuiAvatarGroup-avatar"
+                  class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar css-x2fwd7-MuiAvatar-root"
                 >
                   +26
                 </div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -246,7 +246,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -262,7 +262,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -278,7 +278,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-6bqc4m-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -383,7 +383,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         A JavaScript library for building user interfaces
                       </div>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1qxgac-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1qxgac-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       />
@@ -470,7 +470,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         A JavaScript runtime built on Chrome's V8 JavaScript engine.
                       </div>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1qxgac-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1qxgac-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       />
