@@ -88,7 +88,7 @@
     "@storybook/components": "^7.6.4",
     "@storybook/core-events": "^7.6.4",
     "@storybook/react": "^7.6.4",
-    "@storybook/theming": "^7.6.4",
+    "@storybook/theming": "^8.1.5",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^18.19.3",
     "@types/react": "^18.2.43",
