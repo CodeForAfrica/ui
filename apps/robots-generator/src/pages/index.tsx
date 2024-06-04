@@ -60,7 +60,7 @@ export default function Home() {
     },
     {
       label: "Finish",
-      description: `You can download the robots you have generated.`,
+      description: `Your robots.txt file has been generated successfully. You can now copy the code or download the file in the next step.`,
       component: Finish,
     },
   ];
