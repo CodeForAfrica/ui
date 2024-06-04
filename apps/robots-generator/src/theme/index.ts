@@ -169,6 +169,9 @@ const theme = createTheme({
           "&:hover": {
             boxShadow: "none",
           },
+          "&.Mui-disabled": {
+            borderColor: "transparent"
+          },
         },
         containedPrimary: {
           border: `1px solid ${palette.primary.main}`,
