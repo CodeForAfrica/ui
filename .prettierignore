@@ -3,5 +3,8 @@ build
 dist
 node_modules
 
+# Auto-generated files
+pnpm-lock.yaml
+
 # AGA infographic
 apps/charterafrica/public/infographic

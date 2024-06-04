@@ -3,7 +3,7 @@
 exports[`<Accordion /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-vnp0of-MuiPaper-root-MuiAccordion-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
   >
     <div
       aria-controls="panel-63f388c3ebe92a85650e8051-content"
@@ -96,7 +96,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-vnp0of-MuiPaper-root-MuiAccordion-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
   >
     <div
       aria-controls="panel-63f388e0ebe92a85650e8052-content"
@@ -189,7 +189,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-vnp0of-MuiPaper-root-MuiAccordion-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
   >
     <div
       aria-controls="panel-63f388f9ebe92a85650e8053-content"
@@ -282,7 +282,7 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
     </div>
   </div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-vnp0of-MuiPaper-root-MuiAccordion-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
   >
     <div
       aria-controls="panel-63f38902ebe92a85650e8054-content"

@@ -86,6 +86,6 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   }
 }

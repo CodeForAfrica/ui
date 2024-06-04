@@ -43,10 +43,10 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiCardActions-root MuiCardActions-spacing css-1jzc3k6-MuiCardActions-root"
+          class="MuiCardActions-root MuiCardActions-spacing css-1to78gr-MuiCardActions-root"
         >
           <div
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium css-9lbve9-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-1witir2-MuiButtonBase-root-MuiButton-root"
             role="button"
             tabindex="0"
           >
