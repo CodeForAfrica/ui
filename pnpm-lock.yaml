@@ -501,8 +501,8 @@ importers:
         specifier: ^7.6.4
         version: 7.6.19
       '@storybook/addon-links':
-        specifier: ^7.6.4
-        version: 7.6.19(react@18.3.1)
+        specifier: ^8.1.5
+        version: 8.1.5(react@18.3.1)
       '@storybook/blocks':
         specifier: ^7.6.4
         version: 7.6.19(@types/react-dom@18.3.0)(@types/react@18.3.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -700,8 +700,8 @@ importers:
         specifier: ^7.6.4
         version: 7.6.19(@types/react-dom@18.3.0)(@types/react@18.3.3)(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/addon-links':
-        specifier: ^7.6.4
-        version: 7.6.19(react@18.3.1)
+        specifier: ^8.1.5
+        version: 8.1.5(react@18.3.1)
       '@storybook/addons':
         specifier: ^7.6.4
         version: 7.6.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4260,10 +4260,10 @@ packages:
   '@storybook/addon-interactions@7.6.19':
     resolution: {integrity: sha512-lMQDu6JT2LXDWcRnIGvrKRk/W+67zOtUNpDKwoVuvM5eHVJcza5SPV6v8yXDLCHLOt7RZ15h6LT2uXabfKpcww==}
 
-  '@storybook/addon-links@7.6.19':
-    resolution: {integrity: sha512-qMIFfcsMf4olxhYUHUV2ZJhxphh6Xpf1DMd0lxKqAibfxl/sX1m0rJkyiqWSBxbCmAy/pwdgqEOJ1lpDUsJ33w==}
+  '@storybook/addon-links@8.1.5':
+    resolution: {integrity: sha512-cRarzAI27K1JijDmFtNqr7khyg/l1JyOLXvLUDZRI6NBFGQo2oA42iHuR8jzje4tlUEh/8svGz52YR4TUvsDtQ==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
     peerDependenciesMeta:
       react:
         optional: true
@@ -4770,6 +4770,7 @@ packages:
 
   '@swc/register@0.1.10':
     resolution: {integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==}
+    deprecated: Use @swc-node/register instead
     hasBin: true
     peerDependencies:
       '@swc/core': ^1.0.46
@@ -16730,7 +16731,7 @@ snapshots:
       polished: 4.3.1
       ts-dedent: 2.2.0
 
-  '@storybook/addon-links@7.6.19(react@18.3.1)':
+  '@storybook/addon-links@8.1.5(react@18.3.1)':
     dependencies:
       '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
