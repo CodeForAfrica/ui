@@ -93,22 +93,22 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
       "@payloadcms/bundler-webpack":
         specifier: ^1.0.6
-        version: 1.0.6(@swc/core@1.3.100)(payload@2.16.1)
+        version: 1.0.6(@swc/core@1.3.100)(payload@2.19.0)
       "@payloadcms/db-mongodb":
         specifier: ^1.5.1
-        version: 1.5.1(payload@2.16.1)
+        version: 1.5.1(payload@2.19.0)
       "@payloadcms/plugin-cloud-storage":
         specifier: ^1.1.2
-        version: 1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1)
+        version: 1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.19.0)
       "@payloadcms/plugin-nested-docs":
         specifier: ^1.0.12
-        version: 1.0.12(payload@2.16.1)
+        version: 1.0.12(payload@2.19.0)
       "@payloadcms/plugin-seo":
         specifier: ^2.3.2
-        version: 2.3.2(payload@2.16.1)(react@18.2.0)
+        version: 2.3.2(payload@2.19.0)(react@18.2.0)
       "@payloadcms/richtext-slate":
         specifier: ^1.5.2
-        version: 1.5.2(payload@2.16.1)(react-dom@18.2.0)(react@18.2.0)
+        version: 1.5.2(payload@2.19.0)(react-dom@18.2.0)(react@18.2.0)
       "@react-spring/web":
         specifier: ^9.7.3
         version: 9.7.3(react-dom@18.2.0)(react@18.2.0)
@@ -143,8 +143,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       payload:
-        specifier: ^2.16.1
-        version: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+        specifier: ^2.18.3
+        version: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -301,22 +301,22 @@ importers:
         version: 14.0.4
       "@payloadcms/bundler-webpack":
         specifier: ^1.0.6
-        version: 1.0.6(@swc/core@1.3.96)(payload@2.16.1)
+        version: 1.0.6(@swc/core@1.3.96)(payload@2.19.0)
       "@payloadcms/db-mongodb":
         specifier: ^1.4.0
-        version: 1.4.0(payload@2.16.1)
+        version: 1.4.0(payload@2.19.0)
       "@payloadcms/plugin-cloud-storage":
         specifier: ^1.1.1
-        version: 1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1)
+        version: 1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.19.0)
       "@payloadcms/plugin-nested-docs":
         specifier: ^1.0.9
         version: 1.0.9
       "@payloadcms/plugin-seo":
         specifier: ^1.0.15
-        version: 1.0.15(payload@2.16.1)(react@18.2.0)
+        version: 1.0.15(payload@2.19.0)(react@18.2.0)
       "@payloadcms/richtext-slate":
         specifier: ^1.4.0
-        version: 1.4.0(payload@2.16.1)(react-dom@18.2.0)
+        version: 1.4.0(payload@2.19.0)(react-dom@18.2.0)
       camelcase-keys:
         specifier: ^9.1.2
         version: 9.1.2
@@ -348,8 +348,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       payload:
-        specifier: ^2.16.1
-        version: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+        specifier: ^2.18.3
+        version: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -7665,7 +7665,7 @@ packages:
       }
     dev: false
 
-  /@payloadcms/bundler-webpack@1.0.6(@swc/core@1.3.100)(payload@2.16.1):
+  /@payloadcms/bundler-webpack@1.0.6(@swc/core@1.3.100)(payload@2.19.0):
     resolution:
       {
         integrity: sha512-hKnRqF2IhYCqNwb8FjKNnjR9fKCXVK2PJgPu3R89dvFhvMnwkbkbj86LMCC4dLmQ9RXmmh/drw4Q5acQ/Xec8g==,
@@ -7683,7 +7683,7 @@ packages:
       md5: 2.3.0
       mini-css-extract-plugin: 1.6.2(webpack@5.89.0)
       path-browserify: 1.0.1
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       postcss: 8.4.31
       postcss-loader: 6.2.1(postcss@8.4.31)(webpack@5.89.0)
       postcss-preset-env: 9.0.0(postcss@8.4.31)
@@ -7720,7 +7720,7 @@ packages:
       - webpack-dev-server
     dev: false
 
-  /@payloadcms/bundler-webpack@1.0.6(@swc/core@1.3.96)(payload@2.16.1):
+  /@payloadcms/bundler-webpack@1.0.6(@swc/core@1.3.96)(payload@2.19.0):
     resolution:
       {
         integrity: sha512-hKnRqF2IhYCqNwb8FjKNnjR9fKCXVK2PJgPu3R89dvFhvMnwkbkbj86LMCC4dLmQ9RXmmh/drw4Q5acQ/Xec8g==,
@@ -7738,7 +7738,7 @@ packages:
       md5: 2.3.0
       mini-css-extract-plugin: 1.6.2(webpack@5.89.0)
       path-browserify: 1.0.1
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       postcss: 8.4.31
       postcss-loader: 6.2.1(postcss@8.4.31)(webpack@5.89.0)
       postcss-preset-env: 9.0.0(postcss@8.4.31)
@@ -7775,7 +7775,7 @@ packages:
       - webpack-dev-server
     dev: false
 
-  /@payloadcms/db-mongodb@1.4.0(payload@2.16.1):
+  /@payloadcms/db-mongodb@1.4.0(payload@2.19.0):
     resolution:
       {
         integrity: sha512-9DVazhkV5+T2+NpIvIDMZ3AmJScjkj7r8OPwrz3BBvXXKid2NUDewTKFQSVtqWK6Ed5ArlvCAlk9J6zO3Q0+cA==,
@@ -7790,7 +7790,7 @@ packages:
       mongoose: 6.12.3
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -7798,7 +7798,7 @@ packages:
       - supports-color
     dev: false
 
-  /@payloadcms/db-mongodb@1.5.1(payload@2.16.1):
+  /@payloadcms/db-mongodb@1.5.1(payload@2.19.0):
     resolution:
       {
         integrity: sha512-llaVGLqHkBaRvMuPG0hNdXUQ0UBfzCxujAc2N9ZtNGru7+PIyxsjVbhvgflcybuFHX12BDgOD1uvTUWfa/MgiA==,
@@ -7813,7 +7813,7 @@ packages:
       mongoose: 6.12.3
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -7821,7 +7821,7 @@ packages:
       - supports-color
     dev: false
 
-  /@payloadcms/plugin-cloud-storage@1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1):
+  /@payloadcms/plugin-cloud-storage@1.1.1(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.19.0):
     resolution:
       {
         integrity: sha512-WFqfZcT7R1LD+FfKKKYNsJPDRE+0VlYEMxzGuPKeUQn9w9sqTy2UD01YCEl0Zcyuq8fD9mRUjeLitSo1aAUimQ==,
@@ -7844,11 +7844,11 @@ packages:
     dependencies:
       "@aws-sdk/client-s3": 3.472.0
       "@aws-sdk/lib-storage": 3.472.0(@aws-sdk/client-s3@3.472.0)
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       range-parser: 1.2.1
     dev: false
 
-  /@payloadcms/plugin-cloud-storage@1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.16.1):
+  /@payloadcms/plugin-cloud-storage@1.1.2(@aws-sdk/client-s3@3.472.0)(@aws-sdk/lib-storage@3.472.0)(payload@2.19.0):
     resolution:
       {
         integrity: sha512-wBpEWv4VdfltBqEi5ECSrKQ/TtNvmBWT4DLCrTCOhpNuD8dYD2rp+0Eoj7cF8f6wU7DpS5rvdQ/8gxlqh0Armw==,
@@ -7875,11 +7875,11 @@ packages:
       "@aws-sdk/client-s3": 3.472.0
       "@aws-sdk/lib-storage": 3.472.0(@aws-sdk/client-s3@3.472.0)
       find-node-modules: 2.1.3
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       range-parser: 1.2.1
     dev: false
 
-  /@payloadcms/plugin-nested-docs@1.0.12(payload@2.16.1):
+  /@payloadcms/plugin-nested-docs@1.0.12(payload@2.19.0):
     resolution:
       {
         integrity: sha512-CZcfGjN3nUtlAHHlbjgnmiB+lPCw3X7CNN2t2IL5+n94OH98Kwfnu+qhPV/ALm1JAWMY0sQ46kRIwWHij016Nw==,
@@ -7887,7 +7887,7 @@ packages:
     peerDependencies:
       payload: ^0.18.5 || ^1.0.0 || ^2.0.0
     dependencies:
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
     dev: false
 
   /@payloadcms/plugin-nested-docs@1.0.9:
@@ -7897,7 +7897,7 @@ packages:
       }
     dev: false
 
-  /@payloadcms/plugin-seo@1.0.15(payload@2.16.1)(react@18.2.0):
+  /@payloadcms/plugin-seo@1.0.15(payload@2.19.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-7nU0DD3UZOOHsV2UIkOWL2JNCX+u1WNbEvZOiGpO6lB6YekuVIMqxHKbTdVR73UeW44lApvS9LTgif3XLQ5HDA==,
@@ -7906,11 +7906,11 @@ packages:
       payload: ^0.18.5 || ^1.0.0 || ^2.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
     dev: false
 
-  /@payloadcms/plugin-seo@2.3.2(payload@2.16.1)(react@18.2.0):
+  /@payloadcms/plugin-seo@2.3.2(payload@2.19.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-wlYxY36CRDQQBSgpdvfNlovqw7qYp0jo5ORbkWZl7eeAliUl58ng7SEapRiihYWfqfPQ+eQOs2yL7CNz0GAvLg==,
@@ -7919,11 +7919,11 @@ packages:
       payload: ^2.7.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
     dev: false
 
-  /@payloadcms/richtext-slate@1.4.0(payload@2.16.1)(react-dom@18.2.0):
+  /@payloadcms/richtext-slate@1.4.0(payload@2.19.0)(react-dom@18.2.0):
     resolution:
       {
         integrity: sha512-nIQmo/q5ZeRylSXuUEn6DHgDXgye/SjMZ3HNPKhyEDe1ziiCvqpgb9CJ9m1DgPg1eDqh2OYxCUHipC21k0X0jw==,
@@ -7934,7 +7934,7 @@ packages:
       "@faceless-ui/modal": 2.0.1(react-dom@18.2.0)(react@18.2.0)
       i18next: 22.5.1
       is-hotkey: 0.2.0
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
       react-i18next: 11.18.6(i18next@22.5.1)(react-dom@18.2.0)(react@18.2.0)
       slate: 0.91.4
@@ -7946,7 +7946,7 @@ packages:
       - react-native
     dev: false
 
-  /@payloadcms/richtext-slate@1.5.2(payload@2.16.1)(react-dom@18.2.0)(react@18.2.0):
+  /@payloadcms/richtext-slate@1.5.2(payload@2.19.0)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-0rq9zgOhpPHO5kcFlajld3h5beww6jjYwHZH5sxgtuen3bz6pepIr3agg650R/aE1+sfez0NdpwoB0gb7FX03g==,
@@ -7958,7 +7958,7 @@ packages:
       "@faceless-ui/modal": 2.0.1(react-dom@18.2.0)(react@18.2.0)
       i18next: 22.5.1
       is-hotkey: 0.2.0
-      payload: 2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
+      payload: 2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
       react-i18next: 11.18.6(i18next@22.5.1)(react-dom@18.2.0)(react@18.2.0)
       slate: 0.91.4
@@ -11606,7 +11606,7 @@ packages:
       "@swc/helpers":
         optional: true
     dependencies:
-      "@swc/counter": 0.1.2
+      "@swc/counter": 0.1.3
       "@swc/types": 0.1.5
     optionalDependencies:
       "@swc/core-darwin-arm64": 1.3.107
@@ -11658,7 +11658,6 @@ packages:
       {
         integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==,
       }
-    dev: false
 
   /@swc/helpers@0.5.2:
     resolution:
@@ -11683,6 +11682,7 @@ packages:
       {
         integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==,
       }
+    deprecated: Use @swc-node/register instead
     hasBin: true
     peerDependencies:
       "@swc/core": ^1.0.46
@@ -17643,7 +17643,7 @@ packages:
       lodash: 4.17.21
       resolve: 2.0.0-next.5
       semver: 5.7.2
-      webpack: 5.89.0
+      webpack: 5.89.0(@swc/core@1.3.100)(webpack-cli@4.10.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -24963,10 +24963,10 @@ packages:
       }
     dev: false
 
-  /payload@2.16.1(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0):
+  /payload@2.19.0(@types/react@18.2.45)(typescript@5.3.3)(webpack@5.89.0):
     resolution:
       {
-        integrity: sha512-ZrmTXkqZxN+mdPdii61vm3yMs/+qNQXPx6BfpJ4sER5GwyGz4I174vUJ9EcaBWt3aYvquW8IEZCzTsCqdjo8WA==,
+        integrity: sha512-oCiymfTSn9Wq0PBzA9qrQio1dD2Yq07nOlN8UTj4OBkE9lIsGU+Kh+aGiLET/u65XKmjTmWYq2uZ9mbgJ/eGdQ==,
       }
     engines: { node: ">=14" }
     hasBin: true
