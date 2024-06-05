@@ -8,7 +8,7 @@ const items = [
 ];
 
 export default {
-  title: "Components/Tabs",
+  title: "PesaYetu/Components/Tabs",
 };
 
 function Template({ ...args }) {

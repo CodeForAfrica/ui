@@ -4,7 +4,7 @@ import React from "react";
 import Section from ".";
 
 export default {
-  title: "Components/Section",
+  title: "PesaYetu/Components/Section",
   component: Section,
   argTypes: {
     fixed: {

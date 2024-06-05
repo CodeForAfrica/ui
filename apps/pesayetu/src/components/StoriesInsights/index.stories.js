@@ -4,7 +4,7 @@ import React from "react";
 import StoriesInsights from "@/pesayetu/components/StoriesInsights";
 
 export default {
-  title: "Sections/StoriesInsights",
+  title: "PesaYetu/Sections/StoriesInsights",
   argTypes: {},
 };
 

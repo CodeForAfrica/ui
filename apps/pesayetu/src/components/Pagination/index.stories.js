@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Pagination from ".";
 
 export default {
-  title: "Components/Pagination",
+  title: "PesaYetu/Components/Pagination",
   argTypes: {},
 };
 

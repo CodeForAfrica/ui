@@ -4,7 +4,7 @@ import Group4658 from "@/pesayetu/assets/icons/Group 4658-white.svg";
 import CategoryHeader from "@/pesayetu/components/HURUmap/CategoryHeader";
 
 export default {
-  title: "Components/HURUmap/CategoryHeader",
+  title: "HURUmap/Components/CategoryHeader",
   argTypes: {},
 };
 

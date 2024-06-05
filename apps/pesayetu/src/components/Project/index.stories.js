@@ -3,7 +3,7 @@ import React from "react";
 import Project from ".";
 
 export default {
-  title: "Sections/Project",
+  title: "PesaYetu/Sections/Project",
 };
 
 function Template({ ...args }) {
@@ -16,44 +16,16 @@ Default.args = {
   mainPartner: {
     name: "Code for Africa",
     description: "This site is a Code for Africa project.",
-    logo: {
-      alt: "",
-      title: "Group 4462",
-      caption: "",
-      description: "",
-      id: 115,
-      link: "https://cms.dev.codeforafrica.org/pesayetu/group-4462/",
-      url: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/07/Group-4462.svg",
-      sizes: {
-        thumbnail: {
-          height: 150,
-          width: 150,
-          url: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/07/Group-4462.svg",
-          orientation: "landscape",
-        },
-        medium: {
-          height: 300,
-          width: 300,
-          url: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/07/Group-4462.svg",
-          orientation: "landscape",
-        },
-        large: {
-          height: 1024,
-          width: 1024,
-          url: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/07/Group-4462.svg",
-          orientation: "landscape",
-        },
-        full: {
-          url: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/07/Group-4462.svg",
-          height: 123,
-          width: 212,
-          orientation: "landscape",
-        },
-      },
-    },
-    link: "https://codeforafrica.org",
     lazyblock: {
       slug: "lazyblock/main-partner",
+    },
+    link: "https://codeforafrica.org",
+    logo: {
+      url: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/07/Group-4462.svg",
+    },
+    logoProps: {
+      alt: "Group 4462",
+      fill: true,
     },
     align: "",
     anchor: "",

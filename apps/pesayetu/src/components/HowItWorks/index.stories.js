@@ -3,7 +3,7 @@ import React from "react";
 import HowItWorks from ".";
 
 export default {
-  title: "Sections/HowItWorks",
+  title: "PesaYetu/Sections/HowItWorks",
   argTypes: {
     title: {
       control: {

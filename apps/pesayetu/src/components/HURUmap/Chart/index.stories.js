@@ -4,7 +4,7 @@ import React from "react";
 import Chart from "@/pesayetu/components/HURUmap/Chart";
 
 export default {
-  title: "Components/HURUmap/Chart",
+  title: "HURUmap/Components/Chart",
 };
 
 function Template({ ...args }) {

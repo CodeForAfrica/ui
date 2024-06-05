@@ -5,7 +5,7 @@ import FeaturedStoryCard from ".";
 import cardImage from "@/pesayetu/assets/images/stephen-dawson-qwtCeJ5cLYs-unsplash.png";
 
 export default {
-  title: "Components/FeaturedStoryCard",
+  title: "PesaYetu/Components/FeaturedStoryCard",
   argTypes: {
     ctaText: {
       control: {

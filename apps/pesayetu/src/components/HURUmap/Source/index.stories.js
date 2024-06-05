@@ -3,7 +3,7 @@ import React from "react";
 import Source from ".";
 
 export default {
-  title: "Components/Source",
+  title: "HURUmap/Components/Source",
   argTypes: {},
 };
 

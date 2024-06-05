@@ -5,7 +5,7 @@ import PanelButtonGroup from ".";
 import { panelArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Components/HURUmap/PanelButtonGroup",
+  title: "HURUmap/Components/PanelButtonGroup",
   argTypes: {},
 };
 
