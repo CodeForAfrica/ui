@@ -5,7 +5,7 @@ import SocialMediaIcons from ".";
 import { navigationArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Components/SocialMediaIcons",
+  title: "PesaYetu/Components/SocialMediaIcons",
   argTypes: {
     socialLinks: {
       control: {

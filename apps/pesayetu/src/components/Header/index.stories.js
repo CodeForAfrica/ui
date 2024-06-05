@@ -4,7 +4,7 @@ import React from "react";
 import Header from ".";
 
 export default {
-  title: "Components/Header",
+  title: "PesaYetu/Components/Header",
 };
 
 function Template({ title, ...args }) {

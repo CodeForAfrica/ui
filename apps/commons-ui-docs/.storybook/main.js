@@ -6,9 +6,6 @@ const config = {
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@storybook/addon-interactions"),
   ],
-  docs: {
-    autodocs: "tag",
-  },
   framework: {
     name: getAbsolutePath("@storybook/nextjs"),
     options: {},

@@ -105,6 +105,9 @@ const Profile = forwardRef(function Profile(
     geoCode = `${geoCode}-vs-${secondaryProfile?.geography?.code}`;
   }
 
+  if (!categories?.length) {
+    return null;
+  }
   return (
     <div className={classes.profile} ref={ref}>
       {isLoading && <Loading />}

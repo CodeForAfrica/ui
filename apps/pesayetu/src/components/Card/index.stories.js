@@ -8,7 +8,7 @@ const [insightItem] = insightData.items;
 const [teamItem] = aboutTeam.items;
 
 export default {
-  title: "Components/Card",
+  title: "PesaYetu/Components/Card",
   argTypes: {
     card: {
       control: {

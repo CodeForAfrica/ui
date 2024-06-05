@@ -6,7 +6,7 @@ import DataIndicators from ".";
 import { dataIndicator } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/DataIndicators",
+  title: "PesaYetu/Sections/DataIndicators",
 };
 
 function Template({ ...args }) {

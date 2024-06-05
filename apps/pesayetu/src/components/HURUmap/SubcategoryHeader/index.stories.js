@@ -3,7 +3,7 @@ import React from "react";
 import SubcategoryHeader from "@/pesayetu/components/HURUmap/SubcategoryHeader";
 
 export default {
-  title: "Components/HURUmap/SubcategoryHeader",
+  title: "HURUmap/Components/SubcategoryHeader",
   argTypes: {},
 };
 

@@ -3,7 +3,7 @@ import React from "react";
 import ChartTooltip from "@/pesayetu/components/HURUmap/ChartTooltip";
 
 export default {
-  title: "Components/HURUmap/ChartTooltip",
+  title: "HURUmap/Components/ChartTooltip",
   argTypes: {
     title: {
       control: {

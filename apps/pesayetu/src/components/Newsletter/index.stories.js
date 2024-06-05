@@ -3,7 +3,7 @@ import React from "react";
 import Newsletter from ".";
 
 export default {
-  title: "Components/Newsletter",
+  title: "PesaYetu/Components/Newsletter",
   argTypes: {
     title: {
       control: {

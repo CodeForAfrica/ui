@@ -5,7 +5,7 @@ import AboutTeam from ".";
 import { aboutTeam } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/AboutTeam",
+  title: "PesaYetu/Sections/AboutTeam",
 };
 
 function Template({ ...args }) {

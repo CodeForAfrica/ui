@@ -5,7 +5,7 @@ import Navigation from ".";
 import { navigationArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/Navigation",
+  title: "PesaYetu/Sections/Navigation",
   argTypes: {},
 };
 

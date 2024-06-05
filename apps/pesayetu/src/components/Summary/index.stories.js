@@ -3,7 +3,7 @@ import React from "react";
 import Summary from ".";
 
 export default {
-  title: "Components/CMSContent",
+  title: "PesaYetu/Components/CMSContent",
   argTypes: {
     content: {
       control: {

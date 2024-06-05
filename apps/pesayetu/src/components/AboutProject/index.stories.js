@@ -3,7 +3,7 @@ import React from "react";
 import AboutProject from ".";
 
 export default {
-  title: "Sections/AboutProject",
+  title: "PesaYetu/Sections/AboutProject",
 };
 
 function Template({ ...args }) {

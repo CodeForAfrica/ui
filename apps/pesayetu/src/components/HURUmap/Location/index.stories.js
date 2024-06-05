@@ -7,7 +7,7 @@ import { hurumapArgs } from "@/pesayetu/config";
 const { location } = hurumapArgs;
 
 export default {
-  title: "Components/HURUmap/Location",
+  title: "HURUmap/Components/Location",
 };
 
 function Template(args) {

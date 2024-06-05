@@ -3,7 +3,7 @@ import React from "react";
 import DataSources from ".";
 
 export default {
-  title: "Sections/DataSources",
+  title: "PesaYetu/Sections/DataSources",
 };
 
 function Template(args) {

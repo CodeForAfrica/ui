@@ -4,7 +4,7 @@ import OurCourses from "@/pesayetu/components/OurCourses";
 import { ourCourses } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/OurCourses",
+  title: "PesaYetu/Sections/OurCourses",
   argTypes: {},
 };
 

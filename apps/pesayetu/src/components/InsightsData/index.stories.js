@@ -5,7 +5,7 @@ import InsightsData from "@/pesayetu/components/InsightsData";
 import { insightData } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/InsightsData",
+  title: "PesaYetu/Sections/InsightsData",
   argTypes: {},
 };
 

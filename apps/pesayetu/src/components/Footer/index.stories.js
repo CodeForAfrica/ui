@@ -6,7 +6,7 @@ import Footer from ".";
 import { footerArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/Footer",
+  title: "PesaYetu/Sections/Footer",
   argTypes: {
     title: {
       control: {
@@ -54,8 +54,10 @@ function Template({ ...args }) {
 export const Default = Template.bind({});
 
 Default.parameters = {
-  nextRouter: {
-    pathname: "/?path=/story/sections-footer--default",
+  nextjs: {
+    router: {
+      pathname: "/?path=/story/sections-footer--default",
+    },
   },
 };
 

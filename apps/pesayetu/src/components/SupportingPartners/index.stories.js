@@ -3,7 +3,7 @@ import React from "react";
 import SupportingPartners from ".";
 
 export default {
-  title: "Sections/SupportingPartners",
+  title: "PesaYetu/Sections/SupportingPartners",
   argTypes: {
     title: {
       control: {

@@ -1,10 +1,9 @@
 import { ThemeProvider } from "@mui/material/styles";
-import { createTheme } from "@commons-ui/core";
+import theme from "@/pesayetu/theme";
 // import createTheme from "@commons-ui/core/styles/createTheme";
 
 import "./styles.css";
 
-const theme = createTheme();
 const withThemeProvider = (Story, context) => {
   return (
     <ThemeProvider theme={theme}>
@@ -17,38 +16,17 @@ const withThemeProvider = (Story, context) => {
  * https://mui.com/material-ui/customization/breakpoints/#main-content
  */
 const viewports = {
-  xs: {
-    name: "Extra Small",
-    styles: {
-      width: "444px",
-      height: "800px",
-    },
-  },
-  sm: {
-    name: "Small",
-    styles: {
-      width: "600px",
-      height: "800px",
-    },
-  },
   md: {
     name: "Medium",
     styles: {
-      width: "900px",
+      width: "608px",
       height: "800px",
     },
   },
   lg: {
     name: "Large",
     styles: {
-      width: "1200px",
-      height: "800px",
-    },
-  },
-  xl: {
-    name: "Extra Large",
-    styles: {
-      width: "1536px",
+      width: "1160px",
       height: "800px",
     },
   },

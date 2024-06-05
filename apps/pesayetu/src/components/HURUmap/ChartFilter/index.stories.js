@@ -3,7 +3,7 @@ import React from "react";
 import ChartFilter from "@/pesayetu/components/HURUmap/ChartFilter";
 
 export default {
-  title: "Components/HURUmap/ChartFilter",
+  title: "HURUmap/Components/ChartFilter",
   argTypes: {},
 };
 
