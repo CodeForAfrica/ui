@@ -65,6 +65,10 @@ const preview = {
         date: /Date$/,
       },
     },
+    docs: {
+      toc: true,
+    },
+    tags: ["autodocs"],
     viewport: { viewports },
   },
 };
