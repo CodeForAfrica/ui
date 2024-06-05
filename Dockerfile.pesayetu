@@ -1,4 +1,4 @@
-FROM node:18.20.3-alpine as node
+FROM node:20.14-alpine as node
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
@@ -22,7 +22,7 @@ WORKDIR /workspace
 # ===================================================
 FROM base as pnpm-base
 
-ARG PNPM_VERSION=8.5.0
+ARG PNPM_VERSION=9.1.4
 
 RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 

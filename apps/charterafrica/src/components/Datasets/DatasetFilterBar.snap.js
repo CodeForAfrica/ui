@@ -51,7 +51,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-s0xw5o-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1qogv20-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-rwdu3q-MuiFormControl-root-MuiTextField-root"
@@ -73,7 +73,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 value="Sort"
               />
               <div
-                class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
               >
                 <button
                   aria-label="Clear"
@@ -130,7 +130,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-15uuqmm-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-bt7qu9-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
@@ -157,7 +157,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 value=""
               />
               <div
-                class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
               >
                 <button
                   aria-label="Clear"
@@ -214,7 +214,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-2 css-s0xw5o-MuiGrid-root"
       >
         <div
-          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-1ihsbt3-MuiAutocomplete-root"
+          class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-bt7qu9-MuiAutocomplete-root"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-hcvzns-MuiFormControl-root-MuiTextField-root"
@@ -241,7 +241,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 value=""
               />
               <div
-                class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
               >
                 <button
                   aria-label="Clear"
@@ -304,7 +304,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
           :
         </p>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-2vhkfv-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-2vhkfv-MuiButtonBase-root-MuiButton-root"
           disabled=""
           tabindex="-1"
           type="button"
@@ -312,7 +312,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
           Datasets
         </button>
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zehdzx-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zehdzx-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/documents"
           tabindex="0"
         >
