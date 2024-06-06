@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import parse from "robots-txt-parse";
 
 type Data = {
-  name?: string;
   error?: string;
   robots?: string;
 };
@@ -20,7 +19,12 @@ function getRobotsUrl(url: string) {
 }
 
 async function fetchRobots(robotsUrl: string) {
-  const res = await fetch(robotsUrl);
+  const res = await fetch(robotsUrl, {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+    },
+  });
   const data = await res.text();
   return data;
 }
@@ -44,10 +48,9 @@ export default async function handler(
   }
 
   const robotsFile = await fetchRobots(robotsUrl);
-  const parsedRobotsFile = await parse(robotsFile);
+  const parsedRobots = await parse(robotsFile);
 
-  res.status(200).json(
-    parsedRobotsFile,
-  );
-
+  res.status(200).json({
+    robots: parsedRobots,
+  });
 }
