@@ -7,7 +7,7 @@ import { hurumapArgs, panelArgs } from "@/pesayetu/config";
 const { locations } = hurumapArgs;
 
 export default {
-  title: "Components/HURUmap/Panel",
+  title: "HURUmap/Components/Panel",
   argTypes: {},
 };
 

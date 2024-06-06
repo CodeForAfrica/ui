@@ -5,7 +5,7 @@ import DropdownSearch from ".";
 import { searchArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Components/DropdownSearch",
+  title: "PesaYetu/Components/DropdownSearch",
   argTypes: {
     title: {
       control: {

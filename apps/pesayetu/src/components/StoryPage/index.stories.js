@@ -5,7 +5,7 @@ import StoryPage from ".";
 import storyImage from "@/pesayetu/assets/images/stephen-dawson-qwtCeJ5cLYs-unsplash.png";
 
 export default {
-  title: "Sections/StoryPage",
+  title: "PesaYetu/Sections/StoryPage",
   argTypes: {},
 };
 

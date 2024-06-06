@@ -3,7 +3,7 @@ import React from "react";
 import ShareBar from ".";
 
 export default {
-  title: "Components/ShareBar",
+  title: "PesaYetu/Components/ShareBar",
   argTypes: {
     title: {
       control: {

@@ -3,7 +3,7 @@ import React from "react";
 import AboutHero from ".";
 
 export default {
-  title: "Sections/AboutHero",
+  title: "PesaYetu/Sections/AboutHero",
 };
 
 function Template({ ...args }) {

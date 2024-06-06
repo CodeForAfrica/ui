@@ -4,7 +4,7 @@ import Print from "@/pesayetu/assets/icons/print.svg";
 import LocationHeader from "@/pesayetu/components/HURUmap/LocationHeader";
 
 export default {
-  title: "Components/HURUmap/LocationHeader",
+  title: "HURUmap/Components/LocationHeader",
   argTypes: {},
 };
 

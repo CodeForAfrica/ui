@@ -4,7 +4,7 @@ import React from "react";
 import SourcesFilter from ".";
 
 export default {
-  title: "Components/SourcesFilter",
+  title: "PesaYetu/Components/SourcesFilter",
 };
 
 function Template({ ...args }) {

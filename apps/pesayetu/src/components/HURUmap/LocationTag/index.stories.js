@@ -8,7 +8,7 @@ const {
 } = hurumapArgs;
 
 export default {
-  title: "Components/HURUmap/LocationTag",
+  title: "HURUmap/Components/LocationTag",
   argTypes: {
     variant: {
       control: {

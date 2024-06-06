@@ -5,7 +5,7 @@ import Hero from ".";
 import { searchArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/Hero",
+  title: "PesaYetu/Sections/Hero",
   argTypes: {
     title: {
       control: {

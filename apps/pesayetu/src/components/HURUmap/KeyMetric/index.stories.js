@@ -3,7 +3,7 @@ import React from "react";
 import KeyMetric from "@/pesayetu/components/HURUmap/KeyMetric";
 
 export default {
-  title: "Components/HURUmap/KeyMetric",
+  title: "HURUmap/Components/KeyMetric",
 };
 
 function Template({ ...args }) {

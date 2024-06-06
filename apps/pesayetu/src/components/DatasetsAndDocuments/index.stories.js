@@ -5,7 +5,7 @@ import DatasetsAndDocuments from ".";
 import { documentsAndDatasetsArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/DatasetsAndDocuments",
+  title: "PesaYetu/Sections/DatasetsAndDocuments",
   argTypes: {
     activeType: {
       control: {

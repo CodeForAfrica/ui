@@ -3,7 +3,7 @@ import React from "react";
 import StartLearning from ".";
 
 export default {
-  title: "Sections/StartLearning",
+  title: "PesaYetu/Sections/StartLearning",
   argTypes: {
     title: {
       control: {

@@ -7,7 +7,7 @@ import { hurumapArgs } from "@/pesayetu/config";
 const { tutorial } = hurumapArgs;
 
 export default {
-  title: "Components/HURUmap/Tutorial",
+  title: "HURUmap/Components/Tutorial",
   argTypes: {},
 };
 
