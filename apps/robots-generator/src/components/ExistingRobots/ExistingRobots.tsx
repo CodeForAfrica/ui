@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Input from "@/robots-generator/components/Input";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Snackbar, Stack, Typography } from "@mui/material";
 import { validateUrl } from "@/robots-generator/utils/validateUrl";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -26,6 +26,7 @@ export default function ExistingRobots({
   const [shouldFetch, setShouldFetch] = useState(state.shouldFetch);
   const [robots, setRobots] = useState(state.robots);
   const [allowNextStep, setAllowNextStep] = useState(false);
+  const [robotsError, setRobotsError] = useState(false);
 
   const onInputChange = (e: string) => {
     const isValid = validateUrl(e);
@@ -46,11 +47,15 @@ export default function ExistingRobots({
       body: JSON.stringify({ url }),
     });
     const data = await res.json();
-    return data.robots;
+    return data;
   };
 
   const fetchData = async () => {
-    const robots = await fetchRobots();
+    const { robots, error } = await fetchRobots();
+    if (error) {
+      setRobotsError(true);
+      return;
+    }
     setRobots(robots);
     setAllowNextStep(true);
   };
@@ -132,6 +137,12 @@ export default function ExistingRobots({
         isValid={allowNextStep || !shouldFetch}
         lastStep={lastStep}
         back={true}
+      />
+      <Snackbar
+        open={robotsError}
+        autoHideDuration={5000}
+        onClose={() => setRobotsError(false)}
+        message="Error fetching robots.txt file. Please try again."
       />
     </>
   );

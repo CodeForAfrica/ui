@@ -19,6 +19,11 @@ function getRobotsUrl(url: string) {
   }
 }
 
+function validateRobots(robots: string) {
+  const regex = /^(User-agent: |Disallow: |Allow: )/gm;
+  return regex.test(robots);
+}
+
 async function fetchRobots(robotsUrl: string) {
   // TODO: investigate why sometimes the fetch fails. i.e we get access denied
   const res = await fetch(robotsUrl, {
@@ -50,6 +55,14 @@ export default async function handler(
   }
 
   const robotsFile = await fetchRobots(robotsUrl);
+
+  if (!validateRobots(robotsFile)) {
+    res
+      .status(400)
+      .json({ error: "Invalid robots.txt file", robots: robotsFile });
+    return;
+  }
+
   const parsedRobots = await parse(robotsFile);
 
   const formatedRobots = formatRobots(parsedRobots);

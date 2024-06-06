@@ -237,10 +237,16 @@ export default function CommonSettings({
               value={sitemaps.join("\n")}
               minRows={5}
               style={{
+                maxHeight: "300px",
                 width: "96%",
                 border: "1px solid #C4C4C4",
                 borderRadius: "5px",
                 padding: "2%",
+                resize: "none",
+                overflow: "scroll",
+                whiteSpace: "pre",
+                overflowWrap: "normal",
+                lineHeight: "1.5rem",
               }}
             />
           </Stack>
@@ -271,10 +277,16 @@ export default function CommonSettings({
               value={disallowedPaths.join("\n")}
               minRows={5}
               style={{
+                maxHeight: "300px",
                 width: "96%",
                 border: "1px solid #C4C4C4",
                 borderRadius: "5px",
                 padding: "2%",
+                resize: "none",
+                overflow: "scroll",
+                whiteSpace: "pre",
+                overflowWrap: "normal",
+                lineHeight: "1.5rem",
               }}
             />
           </Stack>

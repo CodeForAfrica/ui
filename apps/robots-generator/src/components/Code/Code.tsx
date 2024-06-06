@@ -29,8 +29,11 @@ export default function Code(props: CodeProps) {
           borderRadius: "5px",
           fontFamily:
             "Fira Code, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace",
-          whiteSpace: "pre-wrap",
+          whiteSpace: "pre",
+          overflowWrap: "normal",
           resize: "none",
+          overflow: "scroll",
+          lineHeight: "1.5rem",
         }}
       />
 
