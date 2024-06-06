@@ -34,13 +34,13 @@ export default function CommonBots({
   const [selectedBots, setSelectedBots] = useState(state.bots);
 
   const isSelected = (robot: Robot) => {
-    return selectedBots.find((bot) => bot.robot.name === robot.name)?.allow;
+    return selectedBots.find((bot) => bot.name === robot.name)?.allow;
   };
 
   const toggleBot = (robot: Robot) => {
     setSelectedBots((prev) =>
       prev.map((bot) =>
-        bot.robot.name === robot.name ? { ...bot, allow: !bot.allow } : bot,
+        bot.name === robot.name ? { ...bot, allow: !bot.allow } : bot,
       ),
     );
   };

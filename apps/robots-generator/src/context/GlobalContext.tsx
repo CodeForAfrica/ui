@@ -6,25 +6,22 @@ import {
   robots,
 } from "@/robots-generator/lib/robots";
 
-export interface RobotRule {
-  robot: Robot;
-  allow: boolean;
-}
-
 export interface GlobalState {
+  shouldFetch: boolean;
   url?: string;
-  robots?: string;
+  robots?: any;
   defaultAccess?: string;
-  crawlDelay: number;
-  cachedDelay: number;
+  crawlDelay: number | null;
+  cachedDelay: number | null;
   visitTime: Date;
   sitemaps: string[];
   disallowedPaths: string[];
   platform: string;
-  bots: RobotRule[];
+  bots: Robot[];
 }
 
 export const defaultState: GlobalState = {
+  shouldFetch: false,
   url: "",
   robots: "",
   defaultAccess: "disallowed",
@@ -35,7 +32,7 @@ export const defaultState: GlobalState = {
   disallowedPaths: [],
   platform: "none",
   bots: robots.map((robot) => ({
-    robot,
+    ...robot,
     allow: allowedCategories.includes(robot.category),
   })),
 };

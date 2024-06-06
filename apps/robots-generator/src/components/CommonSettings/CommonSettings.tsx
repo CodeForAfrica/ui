@@ -32,8 +32,8 @@ export default function CommonSettings({
   const { state } = useGlobalState();
 
   const [defaultAccess, setDefaultAccess] = useState(state.defaultAccess);
-  const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);
-  const [cachedDelay, setCachedDelay] = useState(state.cachedDelay);
+  const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay ?? 0);
+  const [cachedDelay, setCachedDelay] = useState(state.cachedDelay ?? 0);
   const [visitTime, setVisitTime] = useState(state.visitTime);
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
   const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);

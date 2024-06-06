@@ -1,3 +1,6 @@
+import parse from "robots-txt-parse";
+import { Robot } from "./robots";
+
 export const formatRobots = (robots: any) => {
   const sitemaps = robots.extensions
     .filter((ext: any) => ext.extension === "sitemap")
@@ -36,21 +39,17 @@ export const formatRobots = (robots: any) => {
       .map((rule: any) => rule.path);
   }
 
-  // TODO: improve this to handler individual user agents
-  const otherUserAgents = robots.groups
+  const individualBots: Robot[] = robots.groups
     .filter((group: any) => !group.agents.includes("*"))
     .filter((group: any) => group.agents.length > 0)
-    .map((group: any) => {
-      return {
-        agents: group.agents,
-        disallowedPaths: group.rules
-          .filter((rule: any) => rule.rule === "disallow")
-          .map((rule: any) => rule.path),
-        allowedPaths: group.rules
-          .filter((rule: any) => rule.rule === "allow")
-          .map((rule: any) => rule.path),
-      };
-    });
+    .flatMap((group: any) =>
+      group.agents.map((agent: string) => ({
+        name: agent,
+        allow: !group.rules.some((rule: any) => rule.rule === "disallow"),
+        category: "unknown",
+        label: agent,
+      })),
+    );
 
   return {
     sitemaps,
@@ -59,6 +58,6 @@ export const formatRobots = (robots: any) => {
     visitTime,
     disallowedPaths,
     allowedPaths,
-    bots: otherUserAgents,
+    bots: individualBots,
   };
 };

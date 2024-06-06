@@ -23,7 +23,7 @@ export default function ExistingRobots({
   const { state } = useGlobalState();
   const [url, setUrl] = useState(state.url);
   const [isValid, setIsValid] = useState(false);
-  const [shouldFetch, setShouldFetch] = useState(false);
+  const [shouldFetch, setShouldFetch] = useState(state.shouldFetch);
   const [robots, setRobots] = useState(state.robots);
   const [allowNextStep, setAllowNextStep] = useState(false);
 
@@ -51,7 +51,6 @@ export default function ExistingRobots({
 
   const fetchData = async () => {
     const robots = await fetchRobots();
-    // TODO: Add validation for robots.txt
     setRobots(robots);
     setAllowNextStep(true);
   };
@@ -59,7 +58,8 @@ export default function ExistingRobots({
   const next = () => {
     handleNext({
       url,
-      robots,
+      shouldFetch,
+      ...robots,
     });
   };
 

@@ -14,6 +14,7 @@ export interface Robot {
   name: string;
   label: string;
   category: string;
+  allow?: boolean;
 }
 export const robots: Robot[] = [
   {
@@ -98,11 +99,11 @@ export async function generateRobots(state: GlobalState) {
     robots += `User-agent: *\nAllow: /\n\n`;
   }
 
-  if (state.crawlDelay > 0) {
+  if (state.crawlDelay && state.crawlDelay > 0) {
     robots += `Crawl-delay: ${state.crawlDelay}\n\n`;
   }
 
-  if (state.cachedDelay > 0) {
+  if (state.cachedDelay && state.cachedDelay > 0) {
     robots += `Cache-delay: ${state.cachedDelay}\n\n`;
   }
 
@@ -139,9 +140,9 @@ export async function generateRobots(state: GlobalState) {
 
   state.bots.forEach((bot) => {
     if (bot.allow) {
-      robots += `User-agent: ${bot.robot.name}\nAllow: /\n\n`;
+      robots += `User-agent: ${bot.name}\nAllow: /\n\n`;
     } else {
-      robots += `User-agent: ${bot.robot.name}\nDisallow: /\n\n`;
+      robots += `User-agent: ${bot.name}\nDisallow: /\n\n`;
     }
   });
 
