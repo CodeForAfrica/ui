@@ -1,10 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { formatRobots } from "@/robots-generator/lib/format-robots";
 import type { NextApiRequest, NextApiResponse } from "next";
 import parse from "robots-txt-parse";
 
 type Data = {
   error?: string;
-  robots?: string;
+  robots?: any;
 };
 
 function getRobotsUrl(url: string) {
@@ -19,6 +20,7 @@ function getRobotsUrl(url: string) {
 }
 
 async function fetchRobots(robotsUrl: string) {
+  // TODO: investigate why sometimes the fetch fails. i.e we get access denied
   const res = await fetch(robotsUrl, {
     headers: {
       "User-Agent":
@@ -50,7 +52,9 @@ export default async function handler(
   const robotsFile = await fetchRobots(robotsUrl);
   const parsedRobots = await parse(robotsFile);
 
+  const formatedRobots = formatRobots(parsedRobots);
+
   res.status(200).json({
-    robots: parsedRobots,
+    robots: formatedRobots,
   });
 }
