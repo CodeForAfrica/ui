@@ -97,6 +97,6 @@
     "webpack": "^5.89.0"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   }
 }

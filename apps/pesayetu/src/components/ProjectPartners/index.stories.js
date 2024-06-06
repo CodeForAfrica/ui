@@ -3,7 +3,7 @@ import React from "react";
 import ProjectPartners from ".";
 
 export default {
-  title: "Components/ProjectPartners",
+  title: "PesaYetu/Components/ProjectPartners",
   argTypes: {
     title: {
       control: {

@@ -3,7 +3,7 @@ import React from "react";
 import Loading from ".";
 
 export default {
-  title: "Components/Loading",
+  title: "PesaYetu/Components/Loading",
   argTypes: {},
 };
 

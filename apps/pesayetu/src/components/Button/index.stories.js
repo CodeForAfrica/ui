@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import React from "react";
 
 export default {
-  title: "Components/Button",
+  title: "PesaYetu/Components/Button",
   argTypes: {
     color: {
       control: {

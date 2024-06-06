@@ -3,7 +3,7 @@ import React from "react";
 import TooltipBanner from ".";
 
 export default {
-  title: "Components/TooltipBanner",
+  title: "PesaYetu/Components/TooltipBanner",
   argTypes: {
     tagline: {
       control: {

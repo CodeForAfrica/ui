@@ -20,13 +20,13 @@ function RichData({ primaryProfile, ...props }) {
   return (
     <>
       <TreeView
-        items={primaryProfile.items}
+        items={primaryProfile?.items}
         onLabelClick={handleLabelClick}
         classes={{ root: classes.treeView }}
       />
       <Profile
         {...props}
-        categories={primaryProfile.items}
+        categories={primaryProfile?.items}
         primaryProfile={primaryProfile}
         ref={profileRef}
       />

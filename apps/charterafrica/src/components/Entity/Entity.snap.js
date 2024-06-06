@@ -121,7 +121,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -157,7 +157,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -193,7 +193,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary active css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -478,7 +478,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                         React
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zewu4j-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -567,7 +567,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                         Node.js
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zewu4j-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >

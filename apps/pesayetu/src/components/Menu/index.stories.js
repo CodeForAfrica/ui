@@ -5,7 +5,7 @@ import Menu from ".";
 import { navigationArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Components/Menu",
+  title: "PesaYetu/Components/Menu",
   argTypes: {
     links: {
       control: {

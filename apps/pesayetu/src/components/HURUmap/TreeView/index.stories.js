@@ -4,7 +4,7 @@ import TreeView from "@/pesayetu/components/HURUmap/TreeView";
 import { treeViewArgs } from "@/pesayetu/config";
 
 export default {
-  title: "Components/HURUmap/TreeView",
+  title: "HURUmap/Components/TreeView",
   argTypes: {},
 };
 

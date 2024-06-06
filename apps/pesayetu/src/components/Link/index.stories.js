@@ -3,7 +3,7 @@ import React from "react";
 import Link from ".";
 
 export default {
-  title: "Components/Link",
+  title: "PesaYetu/Components/Link",
   argTypes: {
     color: {
       control: {

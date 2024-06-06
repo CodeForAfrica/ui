@@ -25,7 +25,7 @@ function PanelButtons({
   const { isOpen: tutorialOpen } = useTour();
 
   useEffect(() => {
-    if (primaryProfile.items.length || secondaryProfile?.items?.length) {
+    if (primaryProfile?.items?.length || secondaryProfile?.items?.length) {
       const timeoutId = setTimeout(() => setValue("rich-data"), 200);
 
       return () => {
@@ -64,7 +64,7 @@ function PanelButtons({
       }
     }
     setPanelItems(pItems);
-  }, [isCompare, panelItemsProp, primaryProfile.items]);
+  }, [isCompare, panelItemsProp, primaryProfile?.items]);
 
   useEffect(() => {
     if (isPinning || isCompare) {

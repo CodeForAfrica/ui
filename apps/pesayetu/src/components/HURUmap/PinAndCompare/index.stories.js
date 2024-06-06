@@ -7,7 +7,7 @@ import { hurumapArgs } from "@/pesayetu/config";
 const { pinAndCompare } = hurumapArgs;
 
 export default {
-  title: "Components/HURUmap/PinAndCompare",
+  title: "HURUmap/Components/PinAndCompare",
 };
 
 function Template({ ...args }) {

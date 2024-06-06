@@ -10,7 +10,7 @@ const {
   },
 } = hurumapArgs;
 export default {
-  title: "Components/HURUmap/LocationHighlight",
+  title: "HURUmap/Components/LocationHighlight",
 };
 
 function Template(args) {

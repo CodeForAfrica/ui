@@ -6,7 +6,7 @@ import ExploreOtherTools from ".";
 import { exploreTools } from "@/pesayetu/config";
 
 export default {
-  title: "Sections/ExploreOtherTools",
+  title: "PesaYetu/Sections/ExploreOtherTools",
 };
 
 function Template({ ...args }) {

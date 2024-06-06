@@ -3,7 +3,7 @@ import React from "react";
 import Map from "@/pesayetu/components/HURUmap/Map";
 
 export default {
-  title: "Components/HURUmap/Map",
+  title: "HURUmap/Components/Map",
   argTypes: {
     geography: {
       control: {
