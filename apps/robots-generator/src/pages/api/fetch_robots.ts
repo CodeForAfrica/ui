@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import parse from "robots-txt-parse";
 
 type Data = {
   name?: string;
@@ -42,9 +43,11 @@ export default async function handler(
     return;
   }
 
-  const robots = await fetchRobots(robotsUrl);
+  const robotsFile = await fetchRobots(robotsUrl);
+  const parsedRobotsFile = await parse(robotsFile);
 
-  res.status(200).json({
-    robots,
-  });
+  res.status(200).json(
+    parsedRobotsFile,
+  );
+
 }

@@ -23,6 +23,10 @@ export default function Code(props: CodeProps) {
         style={{
           width: "100%",
           height: "500px",
+          padding: "16px",
+          border: "1px solid #C4C4C4", 
+          marginBottom: "10px",
+          borderRadius: "5px", 
           fontFamily:
             "Fira Code, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace",
           whiteSpace: "pre-wrap",

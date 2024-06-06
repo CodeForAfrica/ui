@@ -25,7 +25,7 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "robots-parser": "^3.0.1",
+    "robots-txt-parse": "^2.0.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
     "tsc-alias": "^1.8.8",
