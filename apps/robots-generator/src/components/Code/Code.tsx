@@ -23,6 +23,7 @@ export default function Code(props: CodeProps) {
         style={{
           width: "100%",
           height: "500px",
+          maxHeight: "500px",
           padding: "16px",
           border: "1px solid #C4C4C4",
           marginBottom: "10px",
@@ -33,7 +34,6 @@ export default function Code(props: CodeProps) {
           overflowWrap: "normal",
           resize: "none",
           overflow: "scroll",
-          lineHeight: "1.5rem",
         }}
       />
 

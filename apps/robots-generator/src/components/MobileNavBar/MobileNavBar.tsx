@@ -45,8 +45,8 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-const Transition: FC<SlideProps> = React.forwardRef(function Transition(
-  { children, ...props },
+const Transition = React.forwardRef(function Transition(
+  { children, ...props }: SlideProps,
   ref,
 ) {
   return (
@@ -56,8 +56,8 @@ const Transition: FC<SlideProps> = React.forwardRef(function Transition(
   );
 });
 
-const MobileNavBar: FC<Props> = React.forwardRef(function MobileNavBar(
-  props,
+const MobileNavBar = React.forwardRef(function MobileNavBar(
+  props: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   const { logo, menus, socialLinks, sx } = props;
