@@ -170,7 +170,7 @@ const theme = createTheme({
             boxShadow: "none",
           },
           "&.Mui-disabled": {
-            borderColor: "transparent"
+            borderColor: "transparent",
           },
         },
         containedPrimary: {

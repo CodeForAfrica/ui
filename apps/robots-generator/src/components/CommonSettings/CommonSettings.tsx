@@ -236,11 +236,11 @@ export default function CommonSettings({
               onChange={handleSitemapChange}
               value={sitemaps.join("\n")}
               minRows={5}
-              style={{ 
-                width: "96%", 
-                border: "1px solid #C4C4C4", 
-                borderRadius: "5px", 
-                padding: "2%"
+              style={{
+                width: "96%",
+                border: "1px solid #C4C4C4",
+                borderRadius: "5px",
+                padding: "2%",
               }}
             />
           </Stack>
@@ -270,11 +270,11 @@ export default function CommonSettings({
               onChange={handleDisallowedPathsChange}
               value={disallowedPaths.join("\n")}
               minRows={5}
-              style={{ 
+              style={{
                 width: "96%",
-                border: "1px solid #C4C4C4", 
-                borderRadius: "5px", 
-                padding: "2%"
+                border: "1px solid #C4C4C4",
+                borderRadius: "5px",
+                padding: "2%",
               }}
             />
           </Stack>
