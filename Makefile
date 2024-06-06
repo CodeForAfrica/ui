@@ -23,4 +23,4 @@ pesayetu:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
 
 robots-generator:
-	BUILDKIT_PROGRESS=plain docker compose --env-file apps/robots-generator/.env.local up robots-generator --build
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/robots-generator/.env.local up robots-generator --build
