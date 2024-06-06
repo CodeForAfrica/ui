@@ -243,10 +243,10 @@ export default function CommonSettings({
                 borderRadius: "5px",
                 padding: "2%",
                 resize: "none",
-                overflow: "scroll",
                 whiteSpace: "pre",
                 overflowWrap: "normal",
                 lineHeight: "1.5rem",
+                overflow: "scroll",
               }}
             />
           </Stack>
@@ -283,10 +283,10 @@ export default function CommonSettings({
                 borderRadius: "5px",
                 padding: "2%",
                 resize: "none",
-                overflow: "scroll",
                 whiteSpace: "pre",
                 overflowWrap: "normal",
                 lineHeight: "1.5rem",
+                overflow: "scroll",
               }}
             />
           </Stack>
