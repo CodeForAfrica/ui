@@ -1,6 +1,5 @@
 import { GlobalState } from "@/robots-generator/context/GlobalContext";
 import { platforms } from "@/robots-generator/lib/config";
-
 export interface Robot {
   name: string;
   label: string;
@@ -56,6 +55,20 @@ export const robots: Robot[] = [
   },
 ];
 
+const mergeAndSortBots = (existingBots: Robot[], newBots: Robot[]) => {
+  const updatedBots = existingBots.map((bot) => {
+    const newBot = newBots.find((b) => b.name === bot.name);
+    return newBot ? newBot : bot;
+  });
+
+  const uniqueNewBots = newBots.filter(
+    (newBot) => !existingBots.some((bot) => bot.name === newBot.name),
+  );
+
+  const mergedBots = [...updatedBots, ...uniqueNewBots];
+  return mergedBots.sort((a, b) => a.name.localeCompare(b.name));
+};
+
 export async function generateRobots(state: GlobalState) {
   let robots = ``;
 
@@ -107,6 +120,30 @@ export async function generateRobots(state: GlobalState) {
   state.bots.forEach((bot) => {
     if (!bot.allow) {
       robots += `User-agent: ${bot.name}\nDisallow: /\n\n`;
+    } else {
+      if (bot.rules) {
+        if (bot.rules.disallowedPaths.length > 0) {
+          const validDisallowedPaths = bot.rules.disallowedPaths.filter(
+            (path) => path.trim() !== "",
+          );
+          if (validDisallowedPaths.length > 0) {
+            robots += `User-agent: ${bot.name}\nDisallow: ${validDisallowedPaths.join(
+              "\nDisallow: ",
+            )}\n\n`;
+          }
+        }
+
+        if (bot.rules.allowedPaths.length > 0) {
+          const validAllowedPaths = bot.rules.allowedPaths.filter(
+            (path) => path.trim() !== "",
+          );
+          if (validAllowedPaths.length > 0) {
+            robots += `User-agent: ${bot.name}\nAllow: ${validAllowedPaths.join(
+              "\nAllow: ",
+            )}\n\n`;
+          }
+        }
+      }
     }
   });
 
@@ -127,27 +164,27 @@ export const validateRobots = (robots: string) => {
   return regex.test(robots);
 };
 
-export const formatRobots = (robots: any) => {
-  const sitemaps = robots.extensions
+export const formatRobots = (parsedRobots: any) => {
+  const sitemaps = parsedRobots.extensions
     .filter((ext: any) => ext.extension === "sitemap")
     .map((ext: any) => ext.value);
 
-  const cacheDelayExtension = robots.extensions.find(
+  const cacheDelayExtension = parsedRobots.extensions.find(
     (ext: any) => ext.extension === "cache-delay",
   );
   const cacheDelay = cacheDelayExtension ? cacheDelayExtension.value : null;
 
-  const crawlDelayExtension = robots.extensions.find(
+  const crawlDelayExtension = parsedRobots.extensions.find(
     (ext: any) => ext.extension === "crawl-delay",
   );
   const crawlDelay = crawlDelayExtension ? crawlDelayExtension.value : null;
 
-  const visitTimeExtension = robots.extensions.find(
+  const visitTimeExtension = parsedRobots.extensions.find(
     (ext: any) => ext.extension === "visit-time",
   );
   const visitTime = visitTimeExtension ? visitTimeExtension.value : null;
 
-  const allrobots = robots.groups.find((group: any) =>
+  const allrobots = parsedRobots.groups.find((group: any) =>
     group.agents.includes("*"),
   );
 
@@ -165,17 +202,29 @@ export const formatRobots = (robots: any) => {
       .map((rule: any) => rule.path);
   }
 
-  const individualBots: Robot[] = robots.groups
-    .filter((group: any) => !group.agents.includes("*"))
-    .filter((group: any) => group.agents.length > 0)
-    .flatMap((group: any) =>
-      group.agents.map((agent: string) => ({
-        name: agent,
-        allow: !group.rules.some((rule: any) => rule.rule === "disallow"),
-        category: "unknown",
-        label: agent,
-      })),
-    );
+  const otherBots: Robot[] = parsedRobots.groups.filter(
+    (group: any) => !group.agents.includes("*"),
+  );
+
+  const parsedBots = otherBots.flatMap((group: any) => {
+    return group.agents.map((agent: string) => ({
+      name: agent,
+      allow: !group.rules.some(
+        (rule: any) => rule.rule === "disallow" && rule.path === "/",
+      ),
+      label: agent,
+      rules: {
+        allowedPaths: group.rules
+          .filter((rule: any) => rule.rule === "allow")
+          .map((rule: any) => rule.path),
+        disallowedPaths: group.rules
+          .filter((rule: any) => rule.rule === "disallow")
+          .map((rule: any) => rule.path),
+      },
+    }));
+  });
+
+  const parsedBotsWithDefaults = mergeAndSortBots(robots, parsedBots);
 
   return {
     sitemaps,
@@ -184,6 +233,6 @@ export const formatRobots = (robots: any) => {
     visitTime,
     disallowedPaths,
     allowedPaths,
-    bots: individualBots,
+    bots: parsedBotsWithDefaults,
   };
 };
