@@ -1,4 +1,3 @@
-import parse from "robots-txt-parse";
 import { Robot } from "./robots";
 
 export const formatRobots = (robots: any) => {

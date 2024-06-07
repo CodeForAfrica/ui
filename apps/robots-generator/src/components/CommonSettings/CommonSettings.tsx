@@ -5,6 +5,7 @@ import {
   InputLabel,
   MenuItem,
   SelectChangeEvent,
+  TextareaAutosize,
 } from "@mui/material";
 import Input from "@/robots-generator/components/Input";
 import { startOfToday } from "date-fns";
@@ -12,7 +13,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Timepicker from "@/robots-generator/components/Timepicker";
 import TextArea from "@/robots-generator/components/TextArea";
 import StepperNav from "@/robots-generator/components/StepperNav";
@@ -57,12 +58,16 @@ export default function CommonSettings({
     setVisitTime(value);
   };
 
-  const handleSitemapChange = (value: string) => {
-    setSitemaps(value.split("\n"));
+  const handleSitemapChange = (value: ChangeEvent<HTMLTextAreaElement>) => {
+    const data = value.target.value;
+    setSitemaps(data.split("\n"));
   };
 
-  const handleDisallowedPathsChange = (value: string) => {
-    setDisallowedPaths(value.split("\n"));
+  const handleDisallowedPathsChange = (
+    value: ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const data = value.target.value;
+    setDisallowedPaths(data.split("\n"));
   };
 
   const next = () => {
@@ -231,22 +236,23 @@ export default function CommonSettings({
                 </IconButton>
               </Tooltip>
             </InputLabel>
-            <TextArea
+            <TextareaAutosize
               placeholder="Enter sitemap URLs, each URL on a new line"
               onChange={handleSitemapChange}
               value={sitemaps.join("\n")}
               minRows={5}
               style={{
                 maxHeight: "300px",
+                height: "300px",
                 width: "96%",
                 border: "1px solid #C4C4C4",
                 borderRadius: "5px",
                 padding: "2%",
                 resize: "none",
                 whiteSpace: "pre",
-                overflowWrap: "normal",
                 lineHeight: "1.5rem",
-                overflow: "scroll",
+                overflowWrap: "normal",
+                overflow: "scroll !important",
               }}
             />
           </Stack>
@@ -271,22 +277,23 @@ export default function CommonSettings({
                 </IconButton>
               </Tooltip>
             </InputLabel>
-            <TextArea
+            <TextareaAutosize
               placeholder="Enter disallowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
               onChange={handleDisallowedPathsChange}
               value={disallowedPaths.join("\n")}
               minRows={5}
               style={{
                 maxHeight: "300px",
+                height: "300px",
                 width: "96%",
                 border: "1px solid #C4C4C4",
                 borderRadius: "5px",
                 padding: "2%",
                 resize: "none",
                 whiteSpace: "pre",
-                overflowWrap: "normal",
                 lineHeight: "1.5rem",
-                overflow: "scroll",
+                overflowWrap: "normal",
+                overflow: "scroll !important",
               }}
             />
           </Stack>
