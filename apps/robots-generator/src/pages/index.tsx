@@ -84,14 +84,24 @@ export default function Home() {
     handleNext();
   };
 
+  const getCopyMetadata = () => {
+    const date = new Date().toISOString();
+    const url = window.location.href;
+    return `${code}\n\n\n# Generated on: ${date}\n# URL: ${url}\n\n`;
+  };
+
   const handleDownload = async () => {
     const filename = "robots.txt";
-    await downloadFile(filename, code);
+    await downloadFile(filename, getCopyMetadata());
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(getCopyMetadata());
     setShowSnackbar(true);
+  };
+
+  const handleCodeChange = (newCode: string) => {
+    setCode(newCode);
   };
 
   useEffect(() => {
@@ -202,6 +212,7 @@ export default function Home() {
             onDownload={handleDownload}
             onReset={handleReset}
             showButtons={activeStep === steps.length}
+            onCodeChange={handleCodeChange}
           />
           <Snackbar
             open={showSnackbar}

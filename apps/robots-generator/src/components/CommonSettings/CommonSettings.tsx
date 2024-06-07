@@ -32,7 +32,6 @@ export default function CommonSettings({
 }: CommonSettingsProps) {
   const { state } = useGlobalState();
 
-  const [defaultAccess, setDefaultAccess] = useState(state.defaultAccess);
   const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);
   const [cachedDelay, setCachedDelay] = useState(state.cachedDelay);
   const [visitTimeFrom, setVisitTime] = useState(state.visitTimeFrom);
@@ -40,10 +39,6 @@ export default function CommonSettings({
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
   const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);
   const [allowedPaths, setAllowedPaths] = useState(state.allowedPaths);
-
-  const handleDefaultAccessChange = (event: SelectChangeEvent) => {
-    setDefaultAccess(event.target.value as string);
-  };
 
   const handleCrawlDelayChange = (value: string) => {
     setCrawlDelay(parseInt(value));
@@ -88,7 +83,6 @@ export default function CommonSettings({
 
   const next = () => {
     handleNext({
-      defaultAccess,
       crawlDelay,
       cachedDelay,
       visitTimeFrom,
@@ -108,54 +102,6 @@ export default function CommonSettings({
         }}
       >
         <Stack spacing={2} alignItems="center">
-          {/* Default Access */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
-          >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-                whiteSpace: "break-spaces",
-              }}
-            >
-              Default access for robots
-              <Tooltip title="This directive specifies the default access policy for robots that visit your site.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <Select
-              sx={{
-                width: "100%",
-              }}
-              value={defaultAccess}
-              onChange={handleDefaultAccessChange}
-              autoWidth
-            >
-              <MenuItem
-                value="allowed"
-                sx={{
-                  marginTop: 0,
-                }}
-              >
-                Allowed
-              </MenuItem>
-              <MenuItem
-                value="disallowed"
-                sx={{
-                  marginTop: 0,
-                }}
-              >
-                Refused
-              </MenuItem>
-            </Select>
-          </Stack>
           {/* Crawl delay */}
           <Stack
             spacing={2}

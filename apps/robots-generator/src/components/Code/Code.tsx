@@ -1,7 +1,9 @@
 import { Box, Button, Stack, TextareaAutosize } from "@mui/material";
+import CodeEditor from "./CodeEditor";
 
 interface CodeProps {
   code: string;
+  onCodeChange: (newCode: string) => void;
   onCopy: () => void;
   onDownload: () => void;
   onReset: () => void;
@@ -9,7 +11,18 @@ interface CodeProps {
 }
 
 export default function Code(props: CodeProps) {
-  const { code, onCopy, onDownload, onReset, showButtons = false } = props;
+  const {
+    code,
+    onCopy,
+    onDownload,
+    onReset,
+    onCodeChange,
+    showButtons = false,
+  } = props;
+
+  const handleCodeChange = (newCode: string) => {
+    onCodeChange(newCode);
+  };
 
   return (
     <Box
@@ -17,25 +30,7 @@ export default function Code(props: CodeProps) {
         width: "100%",
       }}
     >
-      <TextareaAutosize
-        value={code}
-        minRows={10}
-        style={{
-          width: "100%",
-          height: "500px",
-          maxHeight: "500px",
-          padding: "16px",
-          border: "1px solid #C4C4C4",
-          marginBottom: "10px",
-          borderRadius: "5px",
-          fontFamily:
-            "Fira Code, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace",
-          whiteSpace: "pre",
-          overflowWrap: "normal",
-          resize: "none",
-          overflow: "scroll",
-        }}
-      />
+      <CodeEditor code={code} setCode={handleCodeChange} />
 
       <Stack direction="row" justifyContent="space-between" spacing={2}>
         <Button

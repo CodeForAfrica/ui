@@ -6,7 +6,6 @@ export interface GlobalState {
   shouldFetch: boolean;
   url?: string;
   robots?: any;
-  defaultAccess?: string;
   crawlDelay: number | null;
   cachedDelay: number | null;
   visitTimeFrom: Date;
@@ -22,13 +21,12 @@ export const defaultState: GlobalState = {
   shouldFetch: false,
   url: "",
   robots: "",
-  defaultAccess: "disallowed",
   crawlDelay: null,
   cachedDelay: null,
   visitTimeFrom: startOfToday(),
   visitTimeTo: addMinutes(startOfToday(), 30),
   sitemaps: [],
-  disallowedPaths: [],
+  disallowedPaths: ["/"],
   allowedPaths: [],
   platform: "none",
   bots: robots,

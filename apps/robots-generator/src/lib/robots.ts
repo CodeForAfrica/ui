@@ -1,5 +1,14 @@
 import { GlobalState } from "@/robots-generator/context/GlobalContext";
-import { platforms } from "@/robots-generator/lib/config";
+import {
+  configureAllowPaths,
+  configureCacheDelay,
+  configureCrawlDelay,
+  configureDisallowPaths,
+  configurePlatform,
+  configureSitemaps,
+  configureVisitTime,
+  configureBot,
+} from "@/robots-generator/lib/config";
 export interface Robot {
   name: string;
   label: string;
@@ -10,14 +19,6 @@ export interface Robot {
 export interface BotRule {
   allowedPaths: string[];
   disallowedPaths: string[];
-}
-
-export function formatTime(date: Date) {
-  let hours = date.getUTCHours();
-  let minutes = date.getUTCMinutes();
-  return `${hours < 10 ? "0" + hours : hours}${
-    minutes < 10 ? "0" + minutes : minutes
-  }`;
 }
 
 export const allowedCategories = ["Search Engine"];
@@ -72,22 +73,16 @@ const mergeAndSortBots = (existingBots: Robot[], newBots: Robot[]) => {
 export async function generateRobots(state: GlobalState) {
   let robots = ``;
 
-  if (state.defaultAccess === "disallowed") {
-    robots += `User-agent: *\nDisallow: /\n\n`;
-  } else {
-    robots += `User-agent: *\nAllow: /\n\n`;
-  }
-
   if (state.crawlDelay && state.crawlDelay > 0) {
-    robots += `Crawl-delay: ${state.crawlDelay}\n\n`;
+    robots += configureCrawlDelay(state.crawlDelay);
   }
 
   if (state.cachedDelay && state.cachedDelay > 0) {
-    robots += `Cache-delay: ${state.cachedDelay}\n\n`;
+    robots += configureCacheDelay(state.cachedDelay);
   }
 
   if (state.visitTimeFrom && state.visitTimeTo) {
-    robots += `Visit-time: ${formatTime(new Date(state.visitTimeFrom))}-${formatTime(new Date(state.visitTimeTo))}\n\n`;
+    robots += configureVisitTime(state.visitTimeFrom, state.visitTimeTo);
   }
 
   if (state.disallowedPaths.length > 0) {
@@ -95,9 +90,7 @@ export async function generateRobots(state: GlobalState) {
       (path) => path.trim() !== "",
     );
     if (validDisallowedPaths.length > 0) {
-      robots += `User-agent: *\nDisallow: ${validDisallowedPaths.join(
-        "\nDisallow: ",
-      )}\n\n`;
+      robots += configureDisallowPaths(validDisallowedPaths);
     }
   }
 
@@ -106,45 +99,16 @@ export async function generateRobots(state: GlobalState) {
       (path) => path.trim() !== "",
     );
     if (validAllowedPaths.length > 0) {
-      robots += `User-agent: *\nAllow: ${validAllowedPaths.join("\nAllow: ")}\n\n`;
+      robots += configureAllowPaths(validAllowedPaths);
     }
   }
 
   if (state.platform !== "none") {
-    const platform = platforms.find((p) => p.name === state.platform);
-    if (platform) {
-      robots += `User-agent: *\n${platform.code.trim()}\n\n`;
-    }
+    robots += configurePlatform(state.platform);
   }
 
-  state.bots.forEach((bot) => {
-    if (!bot.allow) {
-      robots += `User-agent: ${bot.name}\nDisallow: /\n\n`;
-    } else {
-      if (bot.rules) {
-        if (bot.rules.disallowedPaths.length > 0) {
-          const validDisallowedPaths = bot.rules.disallowedPaths.filter(
-            (path) => path.trim() !== "",
-          );
-          if (validDisallowedPaths.length > 0) {
-            robots += `User-agent: ${bot.name}\nDisallow: ${validDisallowedPaths.join(
-              "\nDisallow: ",
-            )}\n\n`;
-          }
-        }
-
-        if (bot.rules.allowedPaths.length > 0) {
-          const validAllowedPaths = bot.rules.allowedPaths.filter(
-            (path) => path.trim() !== "",
-          );
-          if (validAllowedPaths.length > 0) {
-            robots += `User-agent: ${bot.name}\nAllow: ${validAllowedPaths.join(
-              "\nAllow: ",
-            )}\n\n`;
-          }
-        }
-      }
-    }
+  state.bots.map((bot) => {
+    robots += configureBot(bot);
   });
 
   if (state.sitemaps.length > 0) {
@@ -152,7 +116,7 @@ export async function generateRobots(state: GlobalState) {
       (sitemap) => sitemap.trim() !== "",
     );
     if (validSitemaps.length > 0) {
-      robots += `Sitemap: ${validSitemaps.join("\nSitemap: ")}\n\n`;
+      robots += configureSitemaps(validSitemaps);
     }
   }
 

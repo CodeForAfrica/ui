@@ -23,6 +23,7 @@ export default function ExistingRobots({
   const { state } = useGlobalState();
   const [url, setUrl] = useState(state.url);
   const [isValid, setIsValid] = useState(false);
+  const [showURLError, setShowURLError] = useState(false);
   const [shouldFetch, setShouldFetch] = useState(state.shouldFetch);
   const [robots, setRobots] = useState(state.robots);
   const [allowNextStep, setAllowNextStep] = useState(false);
@@ -51,13 +52,19 @@ export default function ExistingRobots({
   };
 
   const fetchData = async () => {
-    const { robots, error } = await fetchRobots();
-    if (error) {
-      setRobotsError(true);
+    if (!isValid) {
+      setShowURLError(true);
       return;
+    } else {
+      setShowURLError(false);
+      const { robots, error } = await fetchRobots();
+      if (error) {
+        setRobotsError(true);
+        return;
+      }
+      setRobots(robots);
+      setAllowNextStep(true);
     }
-    setRobots(robots);
-    setAllowNextStep(true);
   };
 
   const next = () => {
@@ -106,13 +113,13 @@ export default function ExistingRobots({
             variant="contained"
             color="primary"
             sx={{}}
-            disabled={!shouldFetch || !isValid}
+            disabled={!shouldFetch}
             onClick={fetchData}
           >
             Fetch
           </Button>
         </Stack>
-        {!isValid && shouldFetch && (
+        {showURLError && (
           <Alert
             severity="error"
             sx={{
