@@ -33,9 +33,10 @@ export default function CommonSettings({
   const { state } = useGlobalState();
 
   const [defaultAccess, setDefaultAccess] = useState(state.defaultAccess);
-  const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay ?? 0);
-  const [cachedDelay, setCachedDelay] = useState(state.cachedDelay ?? 0);
-  const [visitTime, setVisitTime] = useState(state.visitTime);
+  const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);
+  const [cachedDelay, setCachedDelay] = useState(state.cachedDelay);
+  const [visitTimeFrom, setVisitTime] = useState(state.visitTimeFrom);
+  const [visitTimeTo, setVisitTimeTo] = useState(state.visitTimeTo);
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
   const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);
 
@@ -58,6 +59,13 @@ export default function CommonSettings({
     setVisitTime(value);
   };
 
+  const handleVisitTimeToChange = (value: Date | null) => {
+    if (value === null) {
+      return;
+    }
+    setVisitTimeTo(value);
+  };
+
   const handleSitemapChange = (value: ChangeEvent<HTMLTextAreaElement>) => {
     const data = value.target.value;
     setSitemaps(data.split("\n"));
@@ -75,7 +83,8 @@ export default function CommonSettings({
       defaultAccess,
       crawlDelay,
       cachedDelay,
-      visitTime,
+      visitTimeFrom,
+      visitTimeTo,
       sitemaps,
       disallowedPaths,
     });
@@ -161,7 +170,7 @@ export default function CommonSettings({
             </InputLabel>
             <Input
               onChange={handleCrawlDelayChange}
-              initialValue={crawlDelay.toString()}
+              initialValue={crawlDelay ? crawlDelay.toString() : ""}
               sx={{ width: "100%" }}
             />
           </Stack>
@@ -188,7 +197,7 @@ export default function CommonSettings({
             </InputLabel>
             <Input
               onChange={handleCacheDelayChange}
-              initialValue={cachedDelay.toString()}
+              initialValue={cachedDelay ? cachedDelay.toString() : ""}
               sx={{ width: "100%" }}
             />
           </Stack>
@@ -213,7 +222,26 @@ export default function CommonSettings({
                 </IconButton>
               </Tooltip>
             </InputLabel>
-            <Timepicker value={visitTime} onChange={handleVisitTimeChange} />
+            <Stack
+              spacing={1}
+              direction="row"
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <Timepicker
+                value={visitTimeFrom}
+                onChange={handleVisitTimeChange}
+                label="From"
+              />
+              <Timepicker
+                label="To"
+                value={visitTimeTo}
+                onChange={handleVisitTimeToChange}
+              />
+            </Stack>
           </Stack>
           {/* Sitemaps */}
           <Stack

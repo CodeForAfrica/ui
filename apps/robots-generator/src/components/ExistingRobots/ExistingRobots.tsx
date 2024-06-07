@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Input from "@/robots-generator/components/Input";
 import { Box, Button, Snackbar, Stack, Typography } from "@mui/material";
-import { validateUrl } from "@/robots-generator/utils/validateUrl";
+import { validateUrl } from "@/robots-generator/utils/urls";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";

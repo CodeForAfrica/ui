@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
-import { startOfToday } from "date-fns";
+import { startOfToday, addMinutes } from "date-fns";
 import {
   Robot,
   allowedCategories,
@@ -13,7 +13,8 @@ export interface GlobalState {
   defaultAccess?: string;
   crawlDelay: number | null;
   cachedDelay: number | null;
-  visitTime: Date;
+  visitTimeFrom: Date;
+  visitTimeTo: Date;
   sitemaps: string[];
   disallowedPaths: string[];
   platform: string;
@@ -25,9 +26,10 @@ export const defaultState: GlobalState = {
   url: "",
   robots: "",
   defaultAccess: "disallowed",
-  crawlDelay: 10,
-  cachedDelay: 10,
-  visitTime: startOfToday(),
+  crawlDelay: null,
+  cachedDelay: null,
+  visitTimeFrom: startOfToday(),
+  visitTimeTo: addMinutes(startOfToday(), 30),
   sitemaps: [],
   disallowedPaths: [],
   platform: "none",

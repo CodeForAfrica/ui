@@ -5,9 +5,14 @@ import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 interface TimepickerProps {
   value: Date;
   onChange: (newValue: Date | null) => void;
+  label: string;
 }
 
-export default function Timepicker({ value, onChange }: TimepickerProps) {
+export default function Timepicker({
+  value,
+  onChange,
+  label,
+}: TimepickerProps) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <TimePicker
@@ -16,6 +21,7 @@ export default function Timepicker({ value, onChange }: TimepickerProps) {
           width: "100%",
         }}
         onChange={onChange}
+        label={label}
       />
     </LocalizationProvider>
   );

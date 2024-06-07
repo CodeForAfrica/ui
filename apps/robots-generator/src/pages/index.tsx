@@ -45,7 +45,7 @@ export default function Home() {
     {
       label: "Common Settings",
       description:
-        "You can set common settings for the robots you want to generate.",
+        "You can set common settings for the robots you want to generate. These settings will be applied to all robots.",
       component: CommonSettings,
     },
     {
@@ -118,6 +118,9 @@ export default function Home() {
             p: {
               xs: 2,
               md: 3,
+            },
+            pl: {
+              md: 0,
             },
             width: {
               xs: "100%",

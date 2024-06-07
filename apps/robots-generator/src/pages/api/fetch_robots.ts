@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { formatRobots } from "@/robots-generator/lib/format-robots";
+import { validateRobots, formatRobots } from "@/robots-generator/lib/robots";
+import { getRobotsUrl } from "@/robots-generator/utils/urls";
 import type { NextApiRequest, NextApiResponse } from "next";
 import parse from "robots-txt-parse";
 
@@ -8,24 +9,7 @@ type Data = {
   robots?: any;
 };
 
-function getRobotsUrl(url: string) {
-  try {
-    const parsedUrl = new URL(url);
-    const robotsUrl = `${parsedUrl.protocol}//${parsedUrl.hostname}/robots.txt`;
-    return robotsUrl;
-  } catch (e) {
-    console.error("Invalid URL:", e);
-    return null;
-  }
-}
-
-function validateRobots(robots: string) {
-  const regex = /^(User-agent: |Disallow: |Allow: )/gm;
-  return regex.test(robots);
-}
-
 async function fetchRobots(robotsUrl: string) {
-  // TODO: investigate why sometimes the fetch fails. i.e we get access denied
   const res = await fetch(robotsUrl, {
     headers: {
       "User-Agent":
