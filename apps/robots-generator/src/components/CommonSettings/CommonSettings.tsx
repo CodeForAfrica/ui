@@ -39,6 +39,7 @@ export default function CommonSettings({
   const [visitTimeTo, setVisitTimeTo] = useState(state.visitTimeTo);
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
   const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);
+  const [allowedPaths, setAllowedPaths] = useState(state.allowedPaths);
 
   const handleDefaultAccessChange = (event: SelectChangeEvent) => {
     setDefaultAccess(event.target.value as string);
@@ -78,6 +79,13 @@ export default function CommonSettings({
     setDisallowedPaths(data.split("\n"));
   };
 
+  const handleAllowedPathsChange = (
+    value: ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const data = value.target.value;
+    setAllowedPaths(data.split("\n"));
+  };
+
   const next = () => {
     handleNext({
       defaultAccess,
@@ -87,6 +95,7 @@ export default function CommonSettings({
       visitTimeTo,
       sitemaps,
       disallowedPaths,
+      allowedPaths,
     });
   };
 
@@ -243,47 +252,6 @@ export default function CommonSettings({
               />
             </Stack>
           </Stack>
-          {/* Sitemaps */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
-          >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-              }}
-            >
-              Sitemaps
-              <Tooltip title="The sitemap directive specifies the location of your sitemap.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <TextareaAutosize
-              placeholder="Enter sitemap URLs, each URL on a new line"
-              onChange={handleSitemapChange}
-              value={sitemaps.join("\n")}
-              minRows={5}
-              style={{
-                maxHeight: "300px",
-                height: "300px",
-                width: "96%",
-                border: "1px solid #C4C4C4",
-                borderRadius: "5px",
-                padding: "2%",
-                resize: "none",
-                whiteSpace: "pre",
-                lineHeight: "1.5rem",
-                overflowWrap: "normal",
-                overflow: "scroll !important",
-              }}
-            />
-          </Stack>
           {/* Disallowed paths */}
           <Stack
             spacing={2}
@@ -309,6 +277,88 @@ export default function CommonSettings({
               placeholder="Enter disallowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
               onChange={handleDisallowedPathsChange}
               value={disallowedPaths.join("\n")}
+              minRows={5}
+              style={{
+                maxHeight: "300px",
+                height: "300px",
+                width: "96%",
+                border: "1px solid #C4C4C4",
+                borderRadius: "5px",
+                padding: "2%",
+                resize: "none",
+                whiteSpace: "pre",
+                lineHeight: "1.5rem",
+                overflowWrap: "normal",
+                overflow: "scroll !important",
+              }}
+            />
+          </Stack>
+          {/* Allowed paths */}
+          <Stack
+            spacing={2}
+            direction="row"
+            alignItems="center"
+            sx={{ width: "100%" }}
+          >
+            <InputLabel
+              sx={{
+                color: "text.primary",
+                fontSize: "16px",
+                width: "100%",
+              }}
+            >
+              Allowed paths
+              <Tooltip title="The allowed paths directive specifies the paths that a bot should visit.">
+                <IconButton>
+                  <InfoIcon />
+                </IconButton>
+              </Tooltip>
+            </InputLabel>
+            <TextareaAutosize
+              placeholder="Enter allowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
+              onChange={handleAllowedPathsChange}
+              value={allowedPaths.join("\n")}
+              minRows={5}
+              style={{
+                maxHeight: "300px",
+                height: "300px",
+                width: "96%",
+                border: "1px solid #C4C4C4",
+                borderRadius: "5px",
+                padding: "2%",
+                resize: "none",
+                whiteSpace: "pre",
+                lineHeight: "1.5rem",
+                overflowWrap: "normal",
+                overflow: "scroll !important",
+              }}
+            />
+          </Stack>
+          {/* Sitemaps */}
+          <Stack
+            spacing={2}
+            direction="row"
+            alignItems="center"
+            sx={{ width: "100%" }}
+          >
+            <InputLabel
+              sx={{
+                color: "text.primary",
+                fontSize: "16px",
+                width: "100%",
+              }}
+            >
+              Sitemaps
+              <Tooltip title="The sitemap directive specifies the location of your sitemap.">
+                <IconButton>
+                  <InfoIcon />
+                </IconButton>
+              </Tooltip>
+            </InputLabel>
+            <TextareaAutosize
+              placeholder="Enter sitemap URLs, each URL on a new line"
+              onChange={handleSitemapChange}
+              value={sitemaps.join("\n")}
               minRows={5}
               style={{
                 maxHeight: "300px",

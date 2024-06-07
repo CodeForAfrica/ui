@@ -17,6 +17,7 @@ export interface GlobalState {
   visitTimeTo: Date;
   sitemaps: string[];
   disallowedPaths: string[];
+  allowedPaths: string[];
   platform: string;
   bots: Robot[];
 }
@@ -32,6 +33,7 @@ export const defaultState: GlobalState = {
   visitTimeTo: addMinutes(startOfToday(), 30),
   sitemaps: [],
   disallowedPaths: [],
+  allowedPaths: [],
   platform: "none",
   bots: robots.map((robot) => ({
     ...robot,

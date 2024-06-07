@@ -113,15 +113,6 @@ export async function generateRobots(state: GlobalState) {
     robots += `Visit-time: ${formatTime(new Date(state.visitTimeFrom))}-${formatTime(new Date(state.visitTimeTo))}\n\n`;
   }
 
-  if (state.sitemaps.length > 0) {
-    const validSitemaps = state.sitemaps.filter(
-      (sitemap) => sitemap.trim() !== "",
-    );
-    if (validSitemaps.length > 0) {
-      robots += `Sitemap: ${validSitemaps.join("\nSitemap: ")}\n\n`;
-    }
-  }
-
   if (state.disallowedPaths.length > 0) {
     const validDisallowedPaths = state.disallowedPaths.filter(
       (path) => path.trim() !== "",
@@ -130,6 +121,15 @@ export async function generateRobots(state: GlobalState) {
       robots += `User-agent: *\nDisallow: ${validDisallowedPaths.join(
         "\nDisallow: ",
       )}\n\n`;
+    }
+  }
+
+  if (state.allowedPaths.length > 0) {
+    const validAllowedPaths = state.allowedPaths.filter(
+      (path) => path.trim() !== "",
+    );
+    if (validAllowedPaths.length > 0) {
+      robots += `User-agent: *\nAllow: ${validAllowedPaths.join("\nAllow: ")}\n\n`;
     }
   }
 
@@ -147,6 +147,15 @@ export async function generateRobots(state: GlobalState) {
       robots += `User-agent: ${bot.name}\nDisallow: /\n\n`;
     }
   });
+
+  if (state.sitemaps.length > 0) {
+    const validSitemaps = state.sitemaps.filter(
+      (sitemap) => sitemap.trim() !== "",
+    );
+    if (validSitemaps.length > 0) {
+      robots += `Sitemap: ${validSitemaps.join("\nSitemap: ")}\n\n`;
+    }
+  }
 
   return robots;
 }
