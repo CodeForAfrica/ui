@@ -54,8 +54,8 @@ export default function Home() {
       component: PlatformSettings,
     },
     {
-      label: "Common Bots",
-      description: `You can set the allow status for common bots.`,
+      label: "Block AI Bots",
+      description: `Select AI bots you want to block from crawling your website.`,
       component: CommonBots,
     },
     {

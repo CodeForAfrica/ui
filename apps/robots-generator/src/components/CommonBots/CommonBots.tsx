@@ -15,7 +15,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
-import { Robot, categorisedRobots } from "@/robots-generator/lib/robots";
+import { Robot, robots } from "@/robots-generator/lib/robots";
 import { useState } from "react";
 
 interface CommonBotsProps {
@@ -52,60 +52,42 @@ export default function CommonBots({
   return (
     <>
       <Box sx={{ py: 2 }}>
-        {Object.keys(categorisedRobots).map((category) => (
-          <Accordion key={category} defaultExpanded>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              {category}
-            </AccordionSummary>
-            <AccordionDetails>
-              <FormGroup sx={{ width: "100%" }}>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  flexWrap="wrap"
-                  alignItems="center"
-                  justifyContent="flex-start"
-                >
-                  {categorisedRobots[category].map((robot) => (
-                    <FormControlLabel
-                      key={robot.name}
-                      control={
-                        <Checkbox
-                          value={robot.name}
-                          checked={isSelected(robot)}
-                          name={robot.name}
-                          onChange={() => toggleBot(robot)}
-                          sx={{
-                            color: "primary.main",
-                            "&.Mui-checked": {
-                              color: "primary.main",
-                            },
-                          }}
-                        />
-                      }
-                      label={
-                        <Typography>
-                          {robot.label}
-                          <Tooltip
-                            title={`Select if you want to allow ${robot.label} to crawl your website.`}
-                          >
-                            <IconButton size="small">
-                              <InfoIcon />
-                            </IconButton>
-                          </Tooltip>
-                        </Typography>
-                      }
+        {
+          <FormGroup sx={{ width: "100%" }}>
+            <Stack
+              direction="row"
+              spacing={1}
+              flexWrap="wrap"
+              alignItems="center"
+              justifyContent="flex-start"
+            >
+              {robots.map((robot) => (
+                <FormControlLabel
+                  key={robot.name}
+                  control={
+                    <Checkbox
+                      value={robot.name}
+                      checked={!isSelected(robot)}
+                      name={robot.name}
+                      onChange={() => toggleBot(robot)}
                       sx={{
-                        width: "fit-content",
-                        marginLeft: "0 !important",
+                        color: "primary.main",
+                        "&.Mui-checked": {
+                          color: "primary.main",
+                        },
                       }}
                     />
-                  ))}
-                </Stack>
-              </FormGroup>
-            </AccordionDetails>
-          </Accordion>
-        ))}
+                  }
+                  label={<Typography>{robot.label}</Typography>}
+                  sx={{
+                    width: "fit-content",
+                    marginLeft: "0 !important",
+                  }}
+                />
+              ))}
+            </Stack>
+          </FormGroup>
+        }
       </Box>
       <StepperNav
         next={next}

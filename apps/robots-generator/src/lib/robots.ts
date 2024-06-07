@@ -4,8 +4,13 @@ import { platforms } from "@/robots-generator/lib/config";
 export interface Robot {
   name: string;
   label: string;
-  category: string;
   allow?: boolean;
+  rules?: BotRule;
+}
+
+export interface BotRule {
+  allowedPaths: string[];
+  disallowedPaths: string[];
 }
 
 export function formatTime(date: Date) {
@@ -20,77 +25,36 @@ export const allowedCategories = ["Search Engine"];
 
 export const robots: Robot[] = [
   {
-    name: "googlebot",
-    label: "Googlebot",
-    category: "Search Engine",
-  },
-  {
-    name: "bingbot",
-    label: "Bingbot",
-    category: "Search Engine",
-  },
-  {
-    name: "yandexbot",
-    label: "Yandexbot",
-    category: "Search Engine",
-  },
-  {
-    name: "baiduspider",
-    label: "Baiduspider",
-    category: "Search Engine",
-  },
-  {
-    name: "duckduckbot",
-    label: "DuckDuckBot",
-    category: "Search Engine",
-  },
-  {
-    name: "sogou",
-    label: "Sogou Spider",
-    category: "Search Engine",
-  },
-  {
     name: "exabot",
     label: "Exabot",
-    category: "Search Engine",
+    allow: true,
   },
   {
     name: "gpt-bot",
     label: "GPT Bot",
-    category: "AI Bot",
+    allow: true,
   },
   {
     name: "googleExtended",
     label: "Google Extended",
-    category: "AI Bot",
+    allow: true,
   },
   {
     name: "anthropic-ai",
     label: "Anthropic AI",
-    category: "AI Bot",
+    allow: true,
   },
   {
     name: "openai",
     label: "OpenAI",
-    category: "AI Bot",
+    allow: true,
   },
   {
     name: "ClaudeBot",
     label: "ClaudeBot",
-    category: "AI Bot",
+    allow: true,
   },
 ];
-
-export const categorisedRobots = robots.reduce(
-  (acc: { [key: string]: any[] }, robot) => {
-    if (!acc[robot.category]) {
-      acc[robot.category] = [];
-    }
-    acc[robot.category].push(robot);
-    return acc;
-  },
-  {},
-);
 
 export async function generateRobots(state: GlobalState) {
   let robots = ``;
@@ -141,9 +105,7 @@ export async function generateRobots(state: GlobalState) {
   }
 
   state.bots.forEach((bot) => {
-    if (bot.allow) {
-      robots += `User-agent: ${bot.name}\nAllow: /\n\n`;
-    } else {
+    if (!bot.allow) {
       robots += `User-agent: ${bot.name}\nDisallow: /\n\n`;
     }
   });

@@ -1,10 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import { startOfToday, addMinutes } from "date-fns";
-import {
-  Robot,
-  allowedCategories,
-  robots,
-} from "@/robots-generator/lib/robots";
+import { Robot, robots } from "@/robots-generator/lib/robots";
 
 export interface GlobalState {
   shouldFetch: boolean;
@@ -35,10 +31,7 @@ export const defaultState: GlobalState = {
   disallowedPaths: [],
   allowedPaths: [],
   platform: "none",
-  bots: robots.map((robot) => ({
-    ...robot,
-    allow: allowedCategories.includes(robot.category),
-  })),
+  bots: robots,
 };
 
 const GlobalContext = createContext<{
