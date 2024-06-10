@@ -23,6 +23,7 @@ import { generateRobots } from "@/robots-generator/lib/robots";
 import { useEffect } from "react";
 import { downloadFile } from "../utils/file";
 import { Snackbar } from "@mui/material";
+import Hero from "../components/Hero";
 
 interface Step {
   label: string;
@@ -114,7 +115,9 @@ export default function Home() {
   }, [state]);
 
   return (
-    <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
+    <>
+    <Hero />
+    <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10  }}>      
       <Stack
         direction={{
           xs: "column",
@@ -223,6 +226,7 @@ export default function Home() {
         </Box>
       </Stack>
     </Section>
+    </>
   );
 }
 
@@ -241,7 +245,11 @@ export async function getStaticProps() {
           url: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
           src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
         },
-        menus: [],
+        menus: [
+          {'label':'HOME','href':'/'},
+          {'label':'FAQ','href':'#'},
+          {'label':'ABOUT','href':'#'},
+        ],
         socialLinks: [
           {
             platform: "Github",

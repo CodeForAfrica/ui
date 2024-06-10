@@ -383,6 +383,12 @@ deepmerge(
       fontWeight: 600,
       lineHeight: 17 / 14,
     },
+    body1Bold: {
+      ...theme.typography.body1,
+      fontSize: pxToRem(14),
+      fontWeight: 800,
+      lineHeight: 17 / 14,
+    },
     body1Underline: {
       ...theme.typography.body1,
       fontSize: pxToRem(14),

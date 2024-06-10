@@ -20,7 +20,7 @@ interface Props {
 }
 function NavBar({ logo, menus, socialLinks }: Props) {
   return (
-    <NavigationBar sx={{ py: { xs: "10px", md: "15.5" } }}>
+    <NavigationBar sx={{ py: { xs: "10px", md: "20px" } }}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar
           logo={logo}

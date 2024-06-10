@@ -53,7 +53,7 @@ const NavBarNavList: FC<Props> = React.forwardRef(
               {...NavListItemProps}
               href={item.href}
               sx={{
-                typography: { md: "body3" },
+                typography: { md: "body1Bold" },
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
                   color: { xs: "inherit", md: "primary.main" },
