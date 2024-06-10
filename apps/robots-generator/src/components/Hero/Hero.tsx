@@ -73,13 +73,24 @@ const Hero = () => {
             color: "#FFFFFF",
           }}
         >
-          Generate a robots.txt file tailored to the platform you use to post
-          your content that blocks AI bots
+          Generate a robots.txt file tailored to the platform you use to publish
+          your content online and blocks AI bots
         </Typography>
         <Button
-          variant="contained"
-          color="primary"
-          sx={{ mt: 2, mb: 4, zIndex: 10 }}
+          variant="outlined"
+          sx={{ 
+            mt: 2,
+            mb: 4, 
+            zIndex: 10, 
+            color:'#FFFFFF', 
+            border:"2px solid #FFFFFF",
+            '&:hover': {
+              border: "2px solid #FFFFFF",
+              background: "#FFFFFF",
+              color:"#0C1A81"
+            }
+          
+          }}
         >
           Get Started
         </Button>
