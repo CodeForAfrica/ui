@@ -27,12 +27,12 @@ function PanelButtons({
   useEffect(() => {
     if (primaryProfile.items.length || secondaryProfile?.items?.length) {
       const timeoutId = setTimeout(() => setValue("rich-data"), 200);
-
       return () => {
         clearTimeout(timeoutId);
       };
     }
-    return null;
+    // useEffect requires a return statement
+    return () => {};
   }, [primaryProfile.items, secondaryProfile?.items]);
 
   useEffect(() => {
@@ -49,7 +49,6 @@ function PanelButtons({
         }
         return x;
       }) ?? [];
-
     if (isCompare) {
       const foundCompare = pItems?.find(
         (item) => item.value === "secondaryPin",

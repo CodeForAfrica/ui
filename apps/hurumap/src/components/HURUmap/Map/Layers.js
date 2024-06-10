@@ -129,7 +129,13 @@ function Layers({
         isPinOrCompare && feature.properties.code === secondaryGeography?.code
           ? secondaryGeoStyles
           : primaryGeoStyles;
-      if (!locationCodes?.includes(feature.properties.code)) {
+      const normalizedLocationCodes = locationCodes?.map((code) =>
+        code.toLowerCase(),
+      );
+      const isCodeIncluded = normalizedLocationCodes?.includes(
+        feature.properties.code.toLowerCase(),
+      );
+      if (!isCodeIncluded) {
         layer.setStyle(geoStyles.inactive);
       } else {
         const popUpContent = (level, name) =>
