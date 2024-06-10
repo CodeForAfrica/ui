@@ -1,9 +1,9 @@
-import { CenterFocusStrong } from "@mui/icons-material";
 import Box from "@mui/material/Box/Box";
 import Button from "@mui/material/Button";
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
+import ReactRotatingText from "react-rotating-text";
+
 
 const Hero = () => {
   return (
@@ -60,7 +60,11 @@ const Hero = () => {
               padding: "6px 20px",
             }}
           >
-            website
+            <ReactRotatingText 
+            items={['website', 'blog', 'content']} 
+            cursor={ false }
+            eraseMode="overwrite"
+            />
           </Box>{" "}
           against AI Bots
         </Typography>
