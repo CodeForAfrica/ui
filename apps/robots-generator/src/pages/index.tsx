@@ -116,116 +116,116 @@ export default function Home() {
 
   return (
     <>
-    <Hero />
-    <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10  }}>      
-      <Stack
-        direction={{
-          xs: "column",
-          md: "row",
-        }}
-        justifyContent="space-between"
-        height="100%"
-      >
-        <Box
-          sx={{
-            p: {
-              xs: 2,
-              md: 3,
-            },
-            pl: {
-              md: 0,
-            },
-            width: {
-              xs: "100%",
-              md: "60%",
-            },
+      <Hero />
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}>
+        <Stack
+          direction={{
+            xs: "column",
+            md: "row",
           }}
+          justifyContent="space-between"
+          height="100%"
         >
-          <Stepper activeStep={activeStep} orientation="vertical">
-            {steps.map((step, index) => (
-              <Step key={step.label}>
-                <StepLabel
-                  sx={{
-                    "& .MuiStepLabel-label": {
-                      color:
-                        index === activeStep
-                          ? "primary.main"
-                          : "secondary.main",
-                    },
-                    fontSize: {
-                      xs: "1rem",
-                      md: "1.2rem",
-                    },
-                    fontWeight: { xs: 500, md: 600 },
-                  }}
-                >
-                  {step.label}
-                </StepLabel>
-                <StepContent>
-                  <Typography
+          <Box
+            sx={{
+              p: {
+                xs: 2,
+                md: 3,
+              },
+              pl: {
+                md: 0,
+              },
+              width: {
+                xs: "100%",
+                md: "60%",
+              },
+            }}
+          >
+            <Stepper activeStep={activeStep} orientation="vertical">
+              {steps.map((step, index) => (
+                <Step key={step.label}>
+                  <StepLabel
                     sx={{
-                      mb: 2,
-                      fontSize: {
-                        xs: "0.875rem",
-                        md: "1rem",
+                      "& .MuiStepLabel-label": {
+                        color:
+                          index === activeStep
+                            ? "primary.main"
+                            : "secondary.main",
                       },
+                      fontSize: {
+                        xs: "1rem",
+                        md: "1.2rem",
+                      },
+                      fontWeight: { xs: 500, md: 600 },
                     }}
                   >
-                    {step.description}
-                  </Typography>
-                  <Box sx={{ mb: 2 }}>
-                    <step.component
-                      handleNext={handleNextStep}
-                      handleBack={handleBack}
-                      lastStep={index === steps.length - 1}
-                    />
-                  </Box>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === steps.length && (
-            <Paper square elevation={0} sx={{ p: 3 }}>
-              <Typography>
-                Your robots.txt file has been generated successfully. You can
-                now copy the code or download the file.
-              </Typography>
-              <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                Restart
-              </Button>
-            </Paper>
-          )}
-        </Box>
-        <Box
-          sx={{
-            py: 3,
-            width: {
-              xs: "100%",
-              md: "40%",
-            },
-            position: "sticky",
-            top: "100px",
-            alignSelf: "flex-start",
-            overflowY: "auto",
-          }}
-        >
-          <Code
-            code={code}
-            onCopy={handleCopy}
-            onDownload={handleDownload}
-            onReset={handleReset}
-            showButtons={activeStep === steps.length}
-            onCodeChange={handleCodeChange}
-          />
-          <Snackbar
-            open={showSnackbar}
-            autoHideDuration={5000}
-            onClose={() => setShowSnackbar(false)}
-            message="Copied to clipboard"
-          />
-        </Box>
-      </Stack>
-    </Section>
+                    {step.label}
+                  </StepLabel>
+                  <StepContent>
+                    <Typography
+                      sx={{
+                        mb: 2,
+                        fontSize: {
+                          xs: "0.875rem",
+                          md: "1rem",
+                        },
+                      }}
+                    >
+                      {step.description}
+                    </Typography>
+                    <Box sx={{ mb: 2 }}>
+                      <step.component
+                        handleNext={handleNextStep}
+                        handleBack={handleBack}
+                        lastStep={index === steps.length - 1}
+                      />
+                    </Box>
+                  </StepContent>
+                </Step>
+              ))}
+            </Stepper>
+            {activeStep === steps.length && (
+              <Paper square elevation={0} sx={{ p: 3 }}>
+                <Typography>
+                  Your robots.txt file has been generated successfully. You can
+                  now copy the code or download the file.
+                </Typography>
+                <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+                  Restart
+                </Button>
+              </Paper>
+            )}
+          </Box>
+          <Box
+            sx={{
+              py: 3,
+              width: {
+                xs: "100%",
+                md: "40%",
+              },
+              position: "sticky",
+              top: "100px",
+              alignSelf: "flex-start",
+              overflowY: "auto",
+            }}
+          >
+            <Code
+              code={code}
+              onCopy={handleCopy}
+              onDownload={handleDownload}
+              onReset={handleReset}
+              showButtons={activeStep === steps.length}
+              onCodeChange={handleCodeChange}
+            />
+            <Snackbar
+              open={showSnackbar}
+              autoHideDuration={5000}
+              onClose={() => setShowSnackbar(false)}
+              message="Copied to clipboard"
+            />
+          </Box>
+        </Stack>
+      </Section>
     </>
   );
 }
@@ -246,9 +246,9 @@ export async function getStaticProps() {
           src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
         },
         menus: [
-          {'label':'HOME','href':'/'},
-          {'label':'FAQ','href':'#'},
-          {'label':'ABOUT','href':'#'},
+          { label: "HOME", href: "/" },
+          { label: "FAQ", href: "#" },
+          { label: "ABOUT", href: "#" },
         ],
         socialLinks: [
           {
