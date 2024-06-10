@@ -12,28 +12,27 @@ const Hero = () => {
       sx={{
         textAlign: "center",
         height: "600px",
-        backgroundColor: "#f7f9fa",
-        backgroundImage: "url(./bg-shape-7.svg)",
+        backgroundColor: "#0C1A81",
+        backgroundImage: "url(./bg-shape-8.svg)",
         backgroundSize: "cover",
-        background:
-          "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E",
-        paddingTop: "100px",
+        paddingTop: "170px",
       }}
     >
       <Box
         sx={{
-          height: "150px",
-          width: "150px",
           margin: "auto",
-          p: "10px 10px",
         }}
       >
-        <Image
-          src="/robot.svg"
-          width={4}
-          height={4}
-          alt="Picture of AI Robot"
-        />
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            py: "8px",
+            color: "#FFFFFF",
+          }}
+        >
+          HOW IT WORKS
+        </Typography>
       </Box>
 
       <Box
@@ -47,13 +46,35 @@ const Hero = () => {
           gutterBottom
           sx={{
             py: "8px",
+            color: "#FFFFFF",
           }}
         >
           Protect your{" "}
-          <Box component="div" sx={{ display: "inline", color: "#1120E1" }}>
+          <Box
+            component="div"
+            sx={{
+              display: "inline-block",
+              color: "#FFFFF",
+              backgroundColor: "red",
+              margin: "0 8px",
+              padding: "6px 20px",
+            }}
+          >
             website
           </Box>{" "}
           against AI Bots
+        </Typography>
+
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            py: "8px",
+            color: "#FFFFFF",
+          }}
+        >
+          Generate a robots.txt file tailored to the platform you use to post
+          your content that blocks AI bots
         </Typography>
         <Button
           variant="contained"
