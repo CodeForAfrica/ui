@@ -4,7 +4,6 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import ReactRotatingText from "react-rotating-text";
 
-
 const Hero = () => {
   return (
     <Box
@@ -60,10 +59,10 @@ const Hero = () => {
               padding: "6px 20px",
             }}
           >
-            <ReactRotatingText 
-            items={['website', 'blog', 'content']} 
-            cursor={ false }
-            eraseMode="overwrite"
+            <ReactRotatingText
+              items={["website", "blog", "content"]}
+              cursor={false}
+              eraseMode="overwrite"
             />
           </Box>{" "}
           against AI Bots
@@ -82,18 +81,17 @@ const Hero = () => {
         </Typography>
         <Button
           variant="outlined"
-          sx={{ 
+          sx={{
             mt: 2,
-            mb: 4, 
-            zIndex: 10, 
-            color:'#FFFFFF', 
-            border:"2px solid #FFFFFF",
-            '&:hover': {
+            mb: 4,
+            zIndex: 10,
+            color: "#FFFFFF",
+            border: "2px solid #FFFFFF",
+            "&:hover": {
               border: "2px solid #FFFFFF",
               background: "#FFFFFF",
-              color:"#0C1A81"
-            }
-          
+              color: "#0C1A81",
+            },
           }}
         >
           Get Started
