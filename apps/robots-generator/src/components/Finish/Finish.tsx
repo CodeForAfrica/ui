@@ -1,23 +1,22 @@
-import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
-import { Box } from "@mui/material";
-import { useState } from "react";
+import { Box, Snackbar } from "@mui/material";
+import { useEffect, useState } from "react";
 import Code from "../Code";
 import { downloadFile } from "@/robots-generator/utils/file";
+import { generateRobots } from "@/robots-generator/lib/robots";
 
 interface FinishProps {
   handleNext: (data: any) => void;
   handleBack: () => void;
+  handleReset: () => void;
   lastStep: boolean;
 }
 
-export default function Finish({
-  handleNext,
-  handleBack,
-  lastStep,
-}: FinishProps) {
+export default function Finish({ handleReset }: FinishProps) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
+  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   async function saveData() {
     await fetch("/api/save", {
@@ -29,11 +28,6 @@ export default function Finish({
     });
   }
 
-  const next = async () => {
-    await saveData();
-    handleNext({});
-  };
-
   const getCopyMetadata = () => {
     const date = new Date().toISOString();
     const url = window.location.href;
@@ -42,17 +36,34 @@ export default function Finish({
 
   const handleDownload = async () => {
     const filename = "robots.txt";
+    if (!saved) {
+      await saveData();
+      setSaved(true);
+    }
     await downloadFile(filename, getCopyMetadata());
   };
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
+    if (!saved) {
+      await saveData();
+      setSaved(true);
+    }
     navigator.clipboard.writeText(getCopyMetadata());
-    // setShowSnackbar(true);
+    setShowSnackbar(true);
   };
 
   const handleCodeChange = (newCode: string) => {
     setCode(newCode);
   };
+
+  useEffect(() => {
+    const generateRobotsFile = async () => {
+      const robots = await generateRobots(state);
+      setCode(robots);
+    };
+
+    generateRobotsFile();
+  }, [state]);
 
   return (
     <>
@@ -70,18 +81,17 @@ export default function Finish({
           code={code}
           onCopy={handleCopy}
           onDownload={handleDownload}
-          onReset={() => setCode(state.robots || "")}
+          onReset={handleReset}
           showButtons={true}
           onCodeChange={handleCodeChange}
         />
       </Box>
-      {/* <StepperNav
-        next={next}
-        handleBack={handleBack}
-        isValid={true}
-        lastStep={lastStep}
-        back={false}
-      /> */}
+      <Snackbar
+        open={showSnackbar}
+        autoHideDuration={5000}
+        onClose={() => setShowSnackbar(false)}
+        message="Copied to clipboard"
+      />
     </>
   );
 }

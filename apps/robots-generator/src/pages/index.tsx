@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Section } from "@commons-ui/core";
@@ -12,7 +11,6 @@ import ExistingRobots from "@/robots-generator/components/ExistingRobots";
 import CommonSettings from "@/robots-generator/components/CommonSettings";
 import PlatformSettings from "@/robots-generator/components/PlatformSettings";
 import CommonBots from "@/robots-generator/components/CommonBots";
-import Code from "@/robots-generator/components/Code";
 import {
   useGlobalState,
   defaultState,
@@ -20,9 +18,6 @@ import {
 import Finish from "@/robots-generator/components/Finish";
 import { generateRobots } from "@/robots-generator/lib/robots";
 import { useEffect } from "react";
-import { downloadFile } from "../utils/file";
-import { Snackbar } from "@mui/material";
-import Hero from "../components/Hero";
 import React from "react";
 
 interface Step {
@@ -35,7 +30,6 @@ export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
-  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const steps: Step[] = [
     {
@@ -83,26 +77,6 @@ export default function Home() {
     const newState = { ...state, ...data };
     setState(newState);
     handleNext();
-  };
-
-  const getCopyMetadata = () => {
-    const date = new Date().toISOString();
-    const url = window.location.href;
-    return `${code}\n\n\n# Generated on: ${date}\n# URL: ${url}\n\n`;
-  };
-
-  const handleDownload = async () => {
-    const filename = "robots.txt";
-    await downloadFile(filename, getCopyMetadata());
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(getCopyMetadata());
-    setShowSnackbar(true);
-  };
-
-  const handleCodeChange = (newCode: string) => {
-    setCode(newCode);
   };
 
   useEffect(() => {
@@ -177,16 +151,11 @@ export default function Home() {
                   handleNext={handleNextStep}
                   handleBack={handleBack}
                   lastStep={activeStep === steps.length - 1}
+                  handleReset={handleReset}
                 />
               </Paper>
             )}
           </Box>
-          <Snackbar
-            open={showSnackbar}
-            autoHideDuration={5000}
-            onClose={() => setShowSnackbar(false)}
-            message="Copied to clipboard"
-          />
         </Stack>
       </Section>
     </>
