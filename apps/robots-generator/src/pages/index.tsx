@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }} id="robots-generator">
         <Stack
           direction={{
             xs: "column",

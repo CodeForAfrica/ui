@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import ReactRotatingText from "react-rotating-text";
+import { Link } from "@commons-ui/next";
 
 const Hero = () => {
   return (
@@ -81,12 +82,15 @@ const Hero = () => {
         </Typography>
         <Button
           variant="outlined"
+          component={Link}
+          href="#robots-generator"
           sx={{
             mt: 2,
             mb: 4,
             zIndex: 10,
             color: "#FFFFFF",
             border: "2px solid #FFFFFF",
+            transition: "all 0.3s ease-in-out",
             "&:hover": {
               border: "2px solid #FFFFFF",
               background: "#FFFFFF",
