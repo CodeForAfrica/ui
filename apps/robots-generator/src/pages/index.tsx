@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -163,34 +162,23 @@ export default function Home() {
                 </Step>
               ))}
             </Stepper>
-            {activeStep === steps.length - 1 ? (
-              <Box
+            {ActiveComponent && (
+              <Paper
                 sx={{
-                  py: 3,
-                  width: "100%",
-                  position: "sticky",
-                  top: "100px",
-                  alignSelf: "flex-start",
-                  overflowY: "auto",
+                  p: 3,
+                  mt: 3,
+                  boxShadow: 1,
                 }}
               >
-                <Code
-                  code={code}
-                  onCopy={handleCopy}
-                  onDownload={handleDownload}
-                  onReset={handleReset}
-                  showButtons={activeStep === steps.length - 1}
-                  onCodeChange={handleCodeChange}
-                />
-              </Box>
-            ) : (
-              <Box sx={{ mb: 2 }}>
+                <Typography variant="body1">
+                  {steps[activeStep].description}
+                </Typography>
                 <ActiveComponent
                   handleNext={handleNextStep}
                   handleBack={handleBack}
                   lastStep={activeStep === steps.length - 1}
                 />
-              </Box>
+              </Paper>
             )}
           </Box>
           <Snackbar
