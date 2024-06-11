@@ -1,9 +1,8 @@
-import { CenterFocusStrong } from "@mui/icons-material";
 import Box from "@mui/material/Box/Box";
 import Button from "@mui/material/Button";
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
+import ReactRotatingText from "react-rotating-text";
 
 const Hero = () => {
   return (
@@ -12,28 +11,27 @@ const Hero = () => {
       sx={{
         textAlign: "center",
         height: "600px",
-        backgroundColor: "#f7f9fa",
-        backgroundImage: "url(./bg-shape-7.svg)",
+        backgroundColor: "#0C1A81",
+        backgroundImage: "url(./bg-shape-8.svg)",
         backgroundSize: "cover",
-        background:
-          "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E",
-        paddingTop: "100px",
+        paddingTop: "170px",
       }}
     >
       <Box
         sx={{
-          height: "150px",
-          width: "150px",
           margin: "auto",
-          p: "10px 10px",
         }}
       >
-        <Image
-          src="/robot.svg"
-          width={4}
-          height={4}
-          alt="Picture of AI Robot"
-        />
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            py: "8px",
+            color: "#FFFFFF",
+          }}
+        >
+          HOW IT WORKS
+        </Typography>
       </Box>
 
       <Box
@@ -47,18 +45,54 @@ const Hero = () => {
           gutterBottom
           sx={{
             py: "8px",
+            color: "#FFFFFF",
           }}
         >
           Protect your{" "}
-          <Box component="div" sx={{ display: "inline", color: "#1120E1" }}>
-            website
+          <Box
+            component="div"
+            sx={{
+              display: "inline-block",
+              color: "#FFFFF",
+              backgroundColor: "red",
+              margin: "0 8px",
+              padding: "6px 20px",
+            }}
+          >
+            <ReactRotatingText
+              items={["website", "blog", "content"]}
+              cursor={false}
+              eraseMode="overwrite"
+            />
           </Box>{" "}
           against AI Bots
         </Typography>
+
+        <Typography
+          variant="h6"
+          gutterBottom
+          sx={{
+            py: "8px",
+            color: "#FFFFFF",
+          }}
+        >
+          Generate a robots.txt file tailored to the platform you use to publish
+          your content online and blocks AI bots
+        </Typography>
         <Button
-          variant="contained"
-          color="primary"
-          sx={{ mt: 2, mb: 4, zIndex: 10 }}
+          variant="outlined"
+          sx={{
+            mt: 2,
+            mb: 4,
+            zIndex: 10,
+            color: "#FFFFFF",
+            border: "2px solid #FFFFFF",
+            "&:hover": {
+              border: "2px solid #FFFFFF",
+              background: "#FFFFFF",
+              color: "#0C1A81",
+            },
+          }}
         >
           Get Started
         </Button>
