@@ -20,6 +20,7 @@ import { generateRobots } from "@/robots-generator/lib/robots";
 import { useEffect } from "react";
 import React from "react";
 import Sitemaps from "../components/Sitemaps";
+import Delays from "../components/Delays";
 
 interface Step {
   label: string;
@@ -37,6 +38,11 @@ export default function Home() {
       label: "Fetch existing robots",
       description: `Start by fetching the robots.txt file of the website you want to generate robots for.`,
       component: ExistingRobots,
+    },
+    {
+      label: "Delays",
+      description: `You can set bot delays for the robots you want to generate.`,
+      component: Delays,
     },
     {
       label: "Common Settings",

@@ -1,11 +1,9 @@
 import { Box, Stack, InputLabel, TextareaAutosize } from "@mui/material";
-import Input from "@/robots-generator/components/Input";
 import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
 import { ChangeEvent, useState } from "react";
-import Timepicker from "@/robots-generator/components/Timepicker";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
 
@@ -22,34 +20,8 @@ export default function CommonSettings({
 }: CommonSettingsProps) {
   const { state } = useGlobalState();
 
-  const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);
-  const [cachedDelay, setCachedDelay] = useState(state.cachedDelay);
-  const [visitTimeFrom, setVisitTime] = useState(state.visitTimeFrom);
-  const [visitTimeTo, setVisitTimeTo] = useState(state.visitTimeTo);
   const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);
   const [allowedPaths, setAllowedPaths] = useState(state.allowedPaths);
-
-  const handleCrawlDelayChange = (value: string) => {
-    setCrawlDelay(parseInt(value));
-  };
-
-  const handleCacheDelayChange = (value: string) => {
-    setCachedDelay(parseInt(value));
-  };
-
-  const handleVisitTimeChange = (value: Date | null) => {
-    if (value === null) {
-      return;
-    }
-    setVisitTime(value);
-  };
-
-  const handleVisitTimeToChange = (value: Date | null) => {
-    if (value === null) {
-      return;
-    }
-    setVisitTimeTo(value);
-  };
 
   const handleDisallowedPathsChange = (
     value: ChangeEvent<HTMLTextAreaElement>,
@@ -67,10 +39,6 @@ export default function CommonSettings({
 
   const next = () => {
     handleNext({
-      crawlDelay,
-      cachedDelay,
-      visitTimeFrom,
-      visitTimeTo,
       disallowedPaths,
       allowedPaths,
     });
@@ -85,102 +53,6 @@ export default function CommonSettings({
         }}
       >
         <Stack spacing={2} alignItems="center">
-          {/* Crawl delay */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
-          >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-              }}
-            >
-              Crawl delay
-              <Tooltip title="The crawl delay directive specifies the minimum time between requests to your server from a bot.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <Input
-              onChange={handleCrawlDelayChange}
-              initialValue={crawlDelay ? crawlDelay.toString() : ""}
-              sx={{ width: "100%" }}
-            />
-          </Stack>
-          {/* Cache delay */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
-          >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-              }}
-            >
-              Cache delay
-              <Tooltip title="The cache delay directive specifies the time that a cached copy of a page should be considered fresh.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <Input
-              onChange={handleCacheDelayChange}
-              initialValue={cachedDelay ? cachedDelay.toString() : ""}
-              sx={{ width: "100%" }}
-            />
-          </Stack>
-          {/* Visit time */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
-          >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-              }}
-            >
-              Visit time
-              <Tooltip title="The visit time directive specifies the time of day when a bot should visit your site.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <Stack
-              spacing={1}
-              direction="row"
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <Timepicker
-                value={visitTimeFrom}
-                onChange={handleVisitTimeChange}
-                label="From"
-              />
-              <Timepicker
-                label="To"
-                value={visitTimeTo}
-                onChange={handleVisitTimeToChange}
-              />
-            </Stack>
-          </Stack>
           {/* Disallowed paths */}
           <Stack
             spacing={2}
@@ -208,8 +80,8 @@ export default function CommonSettings({
               value={disallowedPaths.join("\n")}
               minRows={5}
               style={{
-                maxHeight: "300px",
-                height: "300px",
+                maxHeight: "200px",
+                height: "200px",
                 width: "96%",
                 border: "1px solid #C4C4C4",
                 borderRadius: "5px",
@@ -249,8 +121,8 @@ export default function CommonSettings({
               value={allowedPaths.join("\n")}
               minRows={5}
               style={{
-                maxHeight: "300px",
-                height: "300px",
+                maxHeight: "200px",
+                height: "200px",
                 width: "96%",
                 border: "1px solid #C4C4C4",
                 borderRadius: "5px",
