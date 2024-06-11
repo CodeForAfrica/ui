@@ -5,7 +5,11 @@ import Typography from "@mui/material/Typography";
 import ReactRotatingText from "react-rotating-text";
 import { Link } from "@commons-ui/next";
 
-const Hero = () => {
+interface props {
+  scrolRef: React.RefObject<HTMLDivElement>;
+}
+
+const Hero = ( {scrolRef}: props) => {
   return (
     <Box
       component="section"
@@ -82,8 +86,12 @@ const Hero = () => {
         </Typography>
         <Button
           variant="outlined"
-          component={Link}
-          href="#robots-generator"
+          onClick={() => {
+            scrolRef.current?.scrollIntoView({
+              behavior: 'smooth'
+            })
+          }}
+          
           sx={{
             mt: 2,
             mb: 4,

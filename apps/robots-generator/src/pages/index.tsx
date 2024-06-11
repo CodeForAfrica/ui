@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -34,6 +34,7 @@ export default function Home() {
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
+  const scrolRef = useRef<HTMLDivElement | null>(null);
 
   const steps: Step[] = [
     {
@@ -101,8 +102,8 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }} id="robots-generator">
+      <Hero scrolRef={scrolRef} />
+      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }} ref={scrolRef} id="robots-generator">
         <Stack
           direction={{
             xs: "column",
