@@ -21,6 +21,7 @@ import React from "react";
 import Sitemaps from "../components/Sitemaps";
 import Delays from "../components/Delays";
 import Hero from "../components/Hero";
+import Grid from "@mui/material/Grid";
 
 interface Step {
   label: string;
@@ -35,7 +36,7 @@ export default function Home() {
 
   const steps: Step[] = [
     {
-      label: "Fetch existing robots",
+      label: "Existing robots",
       description: `Start by fetching the robots.txt file of the website you want to generate robots for.`,
       component: ExistingRobots,
     },
@@ -111,58 +112,100 @@ export default function Home() {
         >
           <Box
             sx={{
-              p: {
-                xs: 2,
-                md: 3,
-              },
-              pl: {
-                md: 0,
-              },
+              p: 1,
               width: "100%",
+              background:
+                "linear-gradient(180deg, rgba(243, 246, 253, 0.7) 0%, rgba(243, 246, 253, 0) 86.26%);",
+              borderRadius: 2,
+              my: 0,
             }}
           >
-            <Stepper activeStep={activeStep}>
-              {steps.map((step, index) => (
-                <Step key={step.label}>
-                  <StepLabel
-                    sx={{
-                      "& .MuiStepLabel-label": {
-                        color:
-                          index === activeStep
-                            ? "primary.main"
-                            : "secondary.main",
-                      },
-                      fontSize: {
-                        xs: "1rem",
-                        md: "1.2rem",
-                      },
-                      fontWeight: { xs: 500, md: 600 },
-                    }}
-                  >
-                    {step.label}
-                  </StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-            {ActiveComponent && (
-              <Paper
+            <Box
+              sx={{
+                width: "100%",
+                border: "1px solid rgb(19 81 216 / 10%);",
+                p: 6,
+                borderRadius: 2,
+                background:
+                  "linear-gradient(0deg, rgba(19, 81, 216, 0.01), rgba(19, 81, 216, 0.01)), linear-gradient(0deg, rgba(19, 81, 216, 0.05), rgba(19, 81, 216, 0.05));",
+              }}
+            >
+              <Box
                 sx={{
-                  p: 3,
-                  mt: 3,
-                  boxShadow: 1,
+                  width: "100%",
+                  px: 6,
+                  py: 8,
+                  background: "#FFFFFF",
+                  borderRadius: 2,
                 }}
               >
-                <Typography variant="body1">
-                  {steps[activeStep].description}
-                </Typography>
-                <ActiveComponent
-                  handleNext={handleNextStep}
-                  handleBack={handleBack}
-                  lastStep={activeStep === steps.length - 1}
-                  handleReset={handleReset}
-                />
-              </Paper>
-            )}
+                <Grid container spacing={2} columns={16}>
+                  <Grid
+                    item
+                    xs={8}
+                    sx={{
+                      backgroundImage: "url('./coloured-buttons.png')",
+                      backgroundRepeat: "no-repeat",
+                      marginBottom: "20px",
+                      height: "50px",
+                    }}
+                  ></Grid>
+                  <Grid
+                    item
+                    xs={8}
+                    sx={{
+                      backgroundImage: "url('./gray-buttons.png')",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPositionX: "100%",
+                      marginBottom: "20px",
+                      height: "50px",
+                    }}
+                  ></Grid>
+                </Grid>
+                <Stepper activeStep={activeStep}>
+                  {steps.map((step, index) => (
+                    <Step key={step.label}>
+                      <StepLabel
+                        sx={{
+                          "& .MuiStepLabel-label": {
+                            color:
+                              index === activeStep
+                                ? "primary.main"
+                                : "secondary.main",
+                          },
+                          fontSize: {
+                            xs: "1rem",
+                            md: "1.2rem",
+                          },
+                          fontWeight: { xs: 500, md: 600 },
+                        }}
+                      >
+                        {step.label}
+                      </StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+                {ActiveComponent && (
+                  <Paper
+                    sx={{
+                      p: 3,
+                      mt: 3,
+                      boxShadow: 0,
+                    }}
+                  >
+                    <Typography variant="body1">
+                      {steps[activeStep].description}
+                    </Typography>
+                    <ActiveComponent
+                      handleNext={handleNextStep}
+                      handleBack={handleBack}
+                      lastStep={activeStep === steps.length - 1}
+                      handleReset={handleReset}
+                    />
+                  </Paper>
+                )}
+              </Box>
+            </Box>
           </Box>
         </Stack>
       </Section>
