@@ -140,29 +140,6 @@ export default function Home() {
                   borderRadius: 2,
                 }}
               >
-                <Grid container spacing={2} columns={16}>
-                  <Grid
-                    item
-                    xs={8}
-                    sx={{
-                      backgroundImage: "url('./coloured-buttons.png')",
-                      backgroundRepeat: "no-repeat",
-                      marginBottom: "20px",
-                      height: "50px",
-                    }}
-                  ></Grid>
-                  <Grid
-                    item
-                    xs={8}
-                    sx={{
-                      backgroundImage: "url('./gray-buttons.png')",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPositionX: "100%",
-                      marginBottom: "20px",
-                      height: "50px",
-                    }}
-                  ></Grid>
-                </Grid>
                 <Stepper activeStep={activeStep}>
                   {steps.map((step, index) => (
                     <Step key={step.label}>
