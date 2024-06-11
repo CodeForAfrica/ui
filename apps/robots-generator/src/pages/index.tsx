@@ -20,6 +20,7 @@ import { useEffect } from "react";
 import React from "react";
 import Sitemaps from "../components/Sitemaps";
 import Delays from "../components/Delays";
+import Hero from "../components/Hero";
 
 interface Step {
   label: string;
@@ -98,6 +99,7 @@ export default function Home() {
 
   return (
     <>
+      <Hero />
       <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}>
         <Stack
           direction={{
