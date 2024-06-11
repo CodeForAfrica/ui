@@ -77,7 +77,7 @@ export default function CommonSettings({
           >
             Disallowed paths
             <Tooltip title="The disallowed paths directive specifies the paths that a bot should not visit.">
-              <IconButton>
+              <IconButton color="info">
                 <InfoIcon />
               </IconButton>
             </Tooltip>
@@ -112,7 +112,7 @@ export default function CommonSettings({
           >
             Allowed paths
             <Tooltip title="The allowed paths directive specifies the paths that a bot should visit.">
-              <IconButton>
+              <IconButton color="info">
                 <InfoIcon />
               </IconButton>
             </Tooltip>
@@ -148,7 +148,7 @@ export default function CommonSettings({
           >
             Select platform
             <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
-              <IconButton size="small">
+              <IconButton size="small" color="info">
                 <InfoIcon />
               </IconButton>
             </Tooltip>

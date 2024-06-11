@@ -13,6 +13,7 @@ function CodeEditor({ code, setCode }: { code: string; setCode: any }) {
       name="code-editor"
       editorProps={{ $blockScrolling: true }}
       showGutter={false}
+      showPrintMargin={false}
       value={code}
       style={{
         width: "100%",

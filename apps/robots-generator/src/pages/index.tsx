@@ -22,6 +22,7 @@ import Sitemaps from "../components/Sitemaps";
 import Delays from "../components/Delays";
 import Hero from "../components/Hero";
 import Grid from "@mui/material/Grid";
+import Alert from "@mui/material/Alert";
 
 interface Step {
   label: string;
@@ -63,7 +64,7 @@ export default function Home() {
     },
     {
       label: "Finish",
-      description: `Your robots.txt file has been generated successfully. You can now copy the code or download the file in the next step.`,
+      description: `Your robots.txt file has been generated successfully. You can now copy the code or download the file.`,
       component: Finish,
     },
   ];
@@ -193,9 +194,9 @@ export default function Home() {
                       boxShadow: 0,
                     }}
                   >
-                    <Typography variant="body1">
+                    <Alert severity="info">
                       {steps[activeStep].description}
-                    </Typography>
+                    </Alert>
                     <ActiveComponent
                       handleNext={handleNextStep}
                       handleBack={handleBack}

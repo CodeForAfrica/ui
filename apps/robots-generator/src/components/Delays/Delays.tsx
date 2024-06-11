@@ -71,7 +71,7 @@ export default function Delays({
           >
             Crawl delay
             <Tooltip title="The crawl delay directive specifies the minimum time between requests to your server from a bot.">
-              <IconButton>
+              <IconButton color="info">
                 <InfoIcon />
               </IconButton>
             </Tooltip>
@@ -92,7 +92,7 @@ export default function Delays({
           >
             Cache delay
             <Tooltip title="The cache delay directive specifies the time that a cached copy of a page should be considered fresh.">
-              <IconButton>
+              <IconButton color="info">
                 <InfoIcon />
               </IconButton>
             </Tooltip>
@@ -113,7 +113,7 @@ export default function Delays({
           >
             Visit time
             <Tooltip title="The visit time directive specifies the time of day when a bot should visit your site.">
-              <IconButton>
+              <IconButton color="info">
                 <InfoIcon />
               </IconButton>
             </Tooltip>
