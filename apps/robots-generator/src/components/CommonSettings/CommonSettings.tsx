@@ -1,4 +1,12 @@
-import { Box, Stack, InputLabel, TextareaAutosize } from "@mui/material";
+import {
+  Box,
+  Stack,
+  InputLabel,
+  TextareaAutosize,
+  SelectChangeEvent,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
@@ -6,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { ChangeEvent, useState } from "react";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import { platforms } from "@/robots-generator/lib/config";
 
 interface CommonSettingsProps {
   handleNext: (data: any) => void;
@@ -22,6 +31,7 @@ export default function CommonSettings({
 
   const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);
   const [allowedPaths, setAllowedPaths] = useState(state.allowedPaths);
+  const [platform, setPlatform] = useState(state.platform);
 
   const handleDisallowedPathsChange = (
     value: ChangeEvent<HTMLTextAreaElement>,
@@ -36,11 +46,15 @@ export default function CommonSettings({
     const data = value.target.value;
     setAllowedPaths(data.split("\n"));
   };
+  const handlePlatformChange = (event: SelectChangeEvent) => {
+    setPlatform(event.target.value as string);
+  };
 
   const next = () => {
     handleNext({
       disallowedPaths,
       allowedPaths,
+      platform,
     });
   };
 
@@ -52,89 +66,113 @@ export default function CommonSettings({
           py: 2,
         }}
       >
-        <Stack spacing={2} alignItems="center">
-          {/* Disallowed paths */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
+        {/* Disallowed paths */}
+        <Stack spacing={2} alignItems="center" sx={{ width: "100%", mb: 2 }}>
+          <InputLabel
+            sx={{
+              color: "text.primary",
+              fontSize: "16px",
+              width: "100%",
+            }}
           >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-              }}
-            >
-              Disallowed paths
-              <Tooltip title="The disallowed paths directive specifies the paths that a bot should not visit.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <TextareaAutosize
-              placeholder="Enter disallowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
-              onChange={handleDisallowedPathsChange}
-              value={disallowedPaths.join("\n")}
-              minRows={5}
-              style={{
-                maxHeight: "200px",
-                height: "200px",
-                width: "96%",
-                border: "1px solid #C4C4C4",
-                borderRadius: "5px",
-                padding: "2%",
-                resize: "none",
-                whiteSpace: "pre",
-                lineHeight: "1.5rem",
-                overflowWrap: "normal",
-                overflow: "scroll !important",
-              }}
-            />
-          </Stack>
-          {/* Allowed paths */}
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            sx={{ width: "100%" }}
+            Disallowed paths
+            <Tooltip title="The disallowed paths directive specifies the paths that a bot should not visit.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </InputLabel>
+          <TextareaAutosize
+            placeholder="Enter disallowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
+            onChange={handleDisallowedPathsChange}
+            value={disallowedPaths.join("\n")}
+            minRows={5}
+            style={{
+              maxHeight: "200px",
+              height: "200px",
+              width: "100%",
+              border: "1px solid #C4C4C4",
+              borderRadius: "5px",
+              padding: "2%",
+              resize: "none",
+              whiteSpace: "pre",
+              lineHeight: "1.5rem",
+              overflowWrap: "normal",
+              overflow: "scroll !important",
+            }}
+          />
+        </Stack>
+        <Stack spacing={2} alignItems="center" sx={{ width: "100%", mb: 2 }}>
+          <InputLabel
+            sx={{
+              color: "text.primary",
+              fontSize: "16px",
+              width: "100%",
+            }}
           >
-            <InputLabel
-              sx={{
-                color: "text.primary",
-                fontSize: "16px",
-                width: "100%",
-              }}
-            >
-              Allowed paths
-              <Tooltip title="The allowed paths directive specifies the paths that a bot should visit.">
-                <IconButton>
-                  <InfoIcon />
-                </IconButton>
-              </Tooltip>
-            </InputLabel>
-            <TextareaAutosize
-              placeholder="Enter allowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
-              onChange={handleAllowedPathsChange}
-              value={allowedPaths.join("\n")}
-              minRows={5}
-              style={{
-                maxHeight: "200px",
-                height: "200px",
-                width: "96%",
-                border: "1px solid #C4C4C4",
-                borderRadius: "5px",
-                padding: "2%",
-                resize: "none",
-                whiteSpace: "pre",
-                lineHeight: "1.5rem",
-                overflowWrap: "normal",
-                overflow: "scroll !important",
-              }}
-            />
-          </Stack>
+            Allowed paths
+            <Tooltip title="The allowed paths directive specifies the paths that a bot should visit.">
+              <IconButton>
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </InputLabel>
+          <TextareaAutosize
+            placeholder="Enter allowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
+            onChange={handleAllowedPathsChange}
+            value={allowedPaths.join("\n")}
+            minRows={5}
+            style={{
+              maxHeight: "200px",
+              height: "200px",
+              width: "100%",
+              border: "1px solid #C4C4C4",
+              borderRadius: "5px",
+              padding: "2%",
+              resize: "none",
+              whiteSpace: "pre",
+              lineHeight: "1.5rem",
+              overflowWrap: "normal",
+              overflow: "scroll !important",
+            }}
+          />
+        </Stack>
+        {/* Platform */}
+        <Stack spacing={2} alignItems="center" sx={{ width: "100%", mb: 2 }}>
+          <InputLabel
+            sx={{
+              color: "text.primary",
+              fontSize: "16px",
+              width: "100%",
+            }}
+          >
+            Select platform
+            <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
+              <IconButton size="small">
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </InputLabel>
+          <Select
+            sx={{
+              width: "100%",
+            }}
+            value={platform}
+            onChange={handlePlatformChange}
+            autoWidth
+          >
+            {platforms.map((platform) => (
+              <MenuItem
+                value={platform.name}
+                key={platform.name}
+                sx={{
+                  marginTop: 0,
+                }}
+              >
+                {platform.label}
+              </MenuItem>
+            ))}
+          </Select>
         </Stack>
       </Box>
       <StepperNav

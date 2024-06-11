@@ -9,7 +9,6 @@ import { Section } from "@commons-ui/core";
 import Stack from "@mui/material/Stack";
 import ExistingRobots from "@/robots-generator/components/ExistingRobots";
 import CommonSettings from "@/robots-generator/components/CommonSettings";
-import PlatformSettings from "@/robots-generator/components/PlatformSettings";
 import CommonBots from "@/robots-generator/components/CommonBots";
 import {
   useGlobalState,
@@ -45,15 +44,10 @@ export default function Home() {
       component: Delays,
     },
     {
-      label: "Common Settings",
+      label: "Paths",
       description:
-        "You can set common settings for the robots you want to generate. These settings will be applied to all robots.",
+        "You can set disallowed and allowed paths for the robots you want to generate.",
       component: CommonSettings,
-    },
-    {
-      label: "Platform Specific Settings",
-      description: `You can set platform specific settings for the robots you want to generate.`,
-      component: PlatformSettings,
     },
     {
       label: "Block AI Bots",
