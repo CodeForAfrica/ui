@@ -103,9 +103,9 @@ export async function generateRobots(state: GlobalState) {
     }
   }
 
-  if (state.platform !== "none") {
-    robots += configurePlatform(state.platform);
-  }
+  // if (state.platform !== "none") {
+  //   robots += configurePlatform(state.platform);
+  // }
 
   state.bots.map((bot) => {
     robots += configureBot(bot);

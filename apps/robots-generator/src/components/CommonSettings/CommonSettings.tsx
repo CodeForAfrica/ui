@@ -47,6 +47,14 @@ export default function CommonSettings({
     setAllowedPaths(data.split("\n"));
   };
   const handlePlatformChange = (event: SelectChangeEvent) => {
+    if (event.target.value !== "none") {
+      const selectedPlatform = platforms.find(
+        (platform) => platform.name === event.target.value,
+      );
+      setDisallowedPaths([selectedPlatform?.code || "/"]);
+    } else {
+      setDisallowedPaths(["/"]);
+    }
     setPlatform(event.target.value as string);
   };
 
