@@ -24,6 +24,7 @@ import { useEffect } from "react";
 import { downloadFile } from "../utils/file";
 import { Snackbar } from "@mui/material";
 import Hero from "../components/Hero";
+import React from "react";
 
 interface Step {
   label: string;
@@ -114,9 +115,10 @@ export default function Home() {
     generateRobotsFile();
   }, [state]);
 
+  const ActiveComponent = steps[activeStep]?.component ?? null;
+
   return (
     <>
-      <Hero />
       <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}>
         <Stack
           direction={{
@@ -135,13 +137,10 @@ export default function Home() {
               pl: {
                 md: 0,
               },
-              width: {
-                xs: "100%",
-                md: "60%",
-              },
+              width: "100%",
             }}
           >
-            <Stepper activeStep={activeStep} orientation="vertical">
+            <Stepper activeStep={activeStep}>
               {steps.map((step, index) => (
                 <Step key={step.label}>
                   <StepLabel
@@ -161,69 +160,45 @@ export default function Home() {
                   >
                     {step.label}
                   </StepLabel>
-                  <StepContent>
-                    <Typography
-                      sx={{
-                        mb: 2,
-                        fontSize: {
-                          xs: "0.875rem",
-                          md: "1rem",
-                        },
-                      }}
-                    >
-                      {step.description}
-                    </Typography>
-                    <Box sx={{ mb: 2 }}>
-                      <step.component
-                        handleNext={handleNextStep}
-                        handleBack={handleBack}
-                        lastStep={index === steps.length - 1}
-                      />
-                    </Box>
-                  </StepContent>
                 </Step>
               ))}
             </Stepper>
-            {activeStep === steps.length && (
-              <Paper square elevation={0} sx={{ p: 3 }}>
-                <Typography>
-                  Your robots.txt file has been generated successfully. You can
-                  now copy the code or download the file.
-                </Typography>
-                <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                  Restart
-                </Button>
-              </Paper>
+            {activeStep === steps.length - 1 ? (
+              <Box
+                sx={{
+                  py: 3,
+                  width: "100%",
+                  position: "sticky",
+                  top: "100px",
+                  alignSelf: "flex-start",
+                  overflowY: "auto",
+                }}
+              >
+                <Code
+                  code={code}
+                  onCopy={handleCopy}
+                  onDownload={handleDownload}
+                  onReset={handleReset}
+                  showButtons={activeStep === steps.length - 1}
+                  onCodeChange={handleCodeChange}
+                />
+              </Box>
+            ) : (
+              <Box sx={{ mb: 2 }}>
+                <ActiveComponent
+                  handleNext={handleNextStep}
+                  handleBack={handleBack}
+                  lastStep={activeStep === steps.length - 1}
+                />
+              </Box>
             )}
           </Box>
-          <Box
-            sx={{
-              py: 3,
-              width: {
-                xs: "100%",
-                md: "40%",
-              },
-              position: "sticky",
-              top: "100px",
-              alignSelf: "flex-start",
-              overflowY: "auto",
-            }}
-          >
-            <Code
-              code={code}
-              onCopy={handleCopy}
-              onDownload={handleDownload}
-              onReset={handleReset}
-              showButtons={activeStep === steps.length}
-              onCodeChange={handleCodeChange}
-            />
-            <Snackbar
-              open={showSnackbar}
-              autoHideDuration={5000}
-              onClose={() => setShowSnackbar(false)}
-              message="Copied to clipboard"
-            />
-          </Box>
+          <Snackbar
+            open={showSnackbar}
+            autoHideDuration={5000}
+            onClose={() => setShowSnackbar(false)}
+            message="Copied to clipboard"
+          />
         </Stack>
       </Section>
     </>
