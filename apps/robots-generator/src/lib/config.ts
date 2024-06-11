@@ -45,13 +45,13 @@ export const platforms = [
 
 export const configureCrawlDelay = (delay: number) => {
   const comment =
-    "#Crawl-delay Specifies the minimum interval (in seconds) for a robot to wait after loading one page, before starting to load another.\n";
+    "#Crawl-delay Specifies the minimum interval (in seconds)\n#for a robot to wait after loading one page, before starting to load another.\n";
   return `${comment}Crawl-delay: ${delay}\n\n`;
 };
 
 export const configureCacheDelay = (delay: number) => {
   const comment =
-    "# Cache-delay specifies the minimum interval (in seconds) for a robot to wait after caching one page, before starting to cache another.\n";
+    "# Cache-delay specifies the minimum interval (in seconds)\n#for a robot to wait after caching one page, before starting to cache another.\n";
   return `${comment}Cache-delay: ${delay}\n\n`;
 };
 

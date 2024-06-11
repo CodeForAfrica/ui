@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Code from "../Code";
 import { downloadFile } from "@/robots-generator/utils/file";
 import { generateRobots } from "@/robots-generator/lib/robots";
+import StepperNav from "../StepperNav";
 
 interface FinishProps {
   handleNext: (data: any) => void;
@@ -12,7 +13,11 @@ interface FinishProps {
   lastStep: boolean;
 }
 
-export default function Finish({ handleReset }: FinishProps) {
+export default function Finish({
+  handleReset,
+  handleBack,
+  handleNext,
+}: FinishProps) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -71,10 +76,7 @@ export default function Finish({ handleReset }: FinishProps) {
         sx={{
           py: 3,
           width: "100%",
-          position: "sticky",
-          top: "100px",
           alignSelf: "flex-start",
-          overflowY: "auto",
         }}
       >
         <Code
@@ -86,6 +88,13 @@ export default function Finish({ handleReset }: FinishProps) {
           onCodeChange={handleCodeChange}
         />
       </Box>
+      <StepperNav
+        next={() => {}}
+        handleBack={handleBack}
+        isValid={true}
+        lastStep={true}
+        back={false}
+      />
       <Snackbar
         open={showSnackbar}
         autoHideDuration={5000}

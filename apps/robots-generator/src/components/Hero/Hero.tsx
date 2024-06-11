@@ -49,7 +49,7 @@ const Hero = () => {
             color: "#FFFFFF",
           }}
         >
-          Protect your{" "}
+          Guard your{" "}
           <Box
             component="div"
             sx={{

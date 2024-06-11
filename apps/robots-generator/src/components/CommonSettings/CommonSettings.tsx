@@ -66,6 +66,43 @@ export default function CommonSettings({
           py: 2,
         }}
       >
+        {/* Platform */}
+        <Stack spacing={2} alignItems="center" sx={{ width: "100%", mb: 2 }}>
+          <InputLabel
+            sx={{
+              color: "text.primary",
+              fontSize: "16px",
+              width: "100%",
+            }}
+          >
+            Select platform
+            <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
+              <IconButton size="small" color="info">
+                <InfoIcon />
+              </IconButton>
+            </Tooltip>
+          </InputLabel>
+          <Select
+            sx={{
+              width: "100%",
+            }}
+            value={platform}
+            onChange={handlePlatformChange}
+            autoWidth
+          >
+            {platforms.map((platform) => (
+              <MenuItem
+                value={platform.name}
+                key={platform.name}
+                sx={{
+                  marginTop: 0,
+                }}
+              >
+                {platform.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </Stack>
         {/* Disallowed paths */}
         <Stack spacing={2} alignItems="center" sx={{ width: "100%", mb: 2 }}>
           <InputLabel
@@ -136,43 +173,6 @@ export default function CommonSettings({
               overflow: "scroll !important",
             }}
           />
-        </Stack>
-        {/* Platform */}
-        <Stack spacing={2} alignItems="center" sx={{ width: "100%", mb: 2 }}>
-          <InputLabel
-            sx={{
-              color: "text.primary",
-              fontSize: "16px",
-              width: "100%",
-            }}
-          >
-            Select platform
-            <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
-              <IconButton size="small" color="info">
-                <InfoIcon />
-              </IconButton>
-            </Tooltip>
-          </InputLabel>
-          <Select
-            sx={{
-              width: "100%",
-            }}
-            value={platform}
-            onChange={handlePlatformChange}
-            autoWidth
-          >
-            {platforms.map((platform) => (
-              <MenuItem
-                value={platform.name}
-                key={platform.name}
-                sx={{
-                  marginTop: 0,
-                }}
-              >
-                {platform.label}
-              </MenuItem>
-            ))}
-          </Select>
         </Stack>
       </Box>
       <StepperNav
