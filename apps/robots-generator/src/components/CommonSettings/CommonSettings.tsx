@@ -83,7 +83,7 @@ export default function CommonSettings({
             </Tooltip>
           </InputLabel>
           <TextareaAutosize
-            placeholder="Enter disallowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
+            placeholder="Enter disallowed paths, each path on a new line."
             onChange={handleDisallowedPathsChange}
             value={disallowedPaths.join("\n")}
             minRows={5}
@@ -118,7 +118,7 @@ export default function CommonSettings({
             </Tooltip>
           </InputLabel>
           <TextareaAutosize
-            placeholder="Enter allowed paths, each path on a new line. They should be relative to the root of your site and end with a /."
+            placeholder="Enter allowed paths, each path on a new line."
             onChange={handleAllowedPathsChange}
             value={allowedPaths.join("\n")}
             minRows={5}

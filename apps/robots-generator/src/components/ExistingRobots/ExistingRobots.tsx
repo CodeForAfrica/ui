@@ -102,9 +102,8 @@ export default function ExistingRobots({
         </FormGroup>
         <Stack spacing={2} direction="row">
           <Input
-            label="Enter URL"
             onChange={onInputChange}
-            placeholder="https://example.com"
+            placeholder="Enter site URL e.g. https://example.com"
             sx={{ width: "100%" }}
             disabled={!shouldFetch}
             initialValue={url}

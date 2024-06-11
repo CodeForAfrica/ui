@@ -32,7 +32,7 @@ export default function Code(props: CodeProps) {
     >
       <CodeEditor code={code} setCode={handleCodeChange} />
 
-      <Stack direction="row" justifyContent="space-between" spacing={2}>
+      <Stack direction="row" spacing={2}>
         <Button
           variant="contained"
           color="primary"

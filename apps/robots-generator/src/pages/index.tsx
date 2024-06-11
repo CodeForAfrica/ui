@@ -48,7 +48,7 @@ export default function Home() {
     {
       label: "Paths",
       description:
-        "You can set disallowed and allowed paths for the robots you want to generate.",
+        "You can set disallowed and allowed paths for the robots you want to generate. All paths should be relative to the root of your site and end with a /",
       component: CommonSettings,
     },
     {
