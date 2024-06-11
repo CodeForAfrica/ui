@@ -19,6 +19,7 @@ import Finish from "@/robots-generator/components/Finish";
 import { generateRobots } from "@/robots-generator/lib/robots";
 import { useEffect } from "react";
 import React from "react";
+import Sitemaps from "../components/Sitemaps";
 
 interface Step {
   label: string;
@@ -52,6 +53,11 @@ export default function Home() {
       label: "Block AI Bots",
       description: `Select AI bots you want to block from crawling your website.`,
       component: CommonBots,
+    },
+    {
+      label: "Site Maps",
+      description: `You can add sitemap URLs to your robots.txt file.`,
+      component: Sitemaps,
     },
     {
       label: "Finish",
