@@ -9,7 +9,7 @@ interface props {
   scrolRef: React.RefObject<HTMLDivElement>;
 }
 
-const Hero = ( {scrolRef}: props) => {
+const Hero = ({ scrolRef }: props) => {
   return (
     <Box
       component="section"
@@ -88,10 +88,9 @@ const Hero = ( {scrolRef}: props) => {
           variant="outlined"
           onClick={() => {
             scrolRef.current?.scrollIntoView({
-              behavior: 'smooth'
-            })
+              behavior: "smooth",
+            });
           }}
-          
           sx={{
             mt: 2,
             mb: 4,

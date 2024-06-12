@@ -103,7 +103,11 @@ export default function Home() {
   return (
     <>
       <Hero scrolRef={scrolRef} />
-      <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }} ref={scrolRef} id="robots-generator">
+      <Section
+        sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}
+        ref={scrolRef}
+        id="robots-generator"
+      >
         <Stack
           direction={{
             xs: "column",
