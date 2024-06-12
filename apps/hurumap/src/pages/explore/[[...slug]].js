@@ -194,7 +194,7 @@ export async function getStaticProps({ params }) {
   if (!code) {
     return {
       redirect: {
-        destination: `/explore/dj`,
+        destination: `/explore/af`,
         permanent: true,
       },
     };

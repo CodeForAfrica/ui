@@ -78,7 +78,7 @@ function reducer(state, action) {
       return state;
     }
     case "pin":
-      if (state.primary.geography.code.toLowerCase() !== "dj") {
+      if (state.primary.geography.code.toLowerCase() !== "af") {
         return { ...state, isPinning: true };
       }
       return { ...state, isPinning: false };

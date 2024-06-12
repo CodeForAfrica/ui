@@ -50,12 +50,12 @@ module.exports = {
     return [
       {
         source: "/",
-        destination: "/explore/dj",
+        destination: "/explore/af",
         permanent: true,
       },
       {
         source: "/explore",
-        destination: "/explore/dj",
+        destination: "/explore/af",
         permanent: true,
       },
     ];
