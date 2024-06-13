@@ -131,17 +131,24 @@ function Chart({
       );
       setCSpec(spec);
       if (chartRef?.current) {
-        try {
-          const newView = await embed(chartRef.current, spec, {
-            renderer: "canvas",
-            actions: false,
-            tooltip: handler,
-          });
+        const newView = await embed(chartRef.current, spec, {
+          renderer: "canvas",
+          actions: false,
+          tooltip: handler,
+        });
 
-          setView(newView.view);
-        } catch (e) {
-          console.error("Error rendering chart: ", e);
-        }
+        setView(newView.view);
+        // try {
+        //   const newView = await embed(chartRef.current, spec, {
+        //     renderer: "canvas",
+        //     actions: false,
+        //     tooltip: handler,
+        //   });
+
+        //   setView(newView.view);
+        // } catch (e) {
+        //   console.error("Error rendering chart: ", e);
+        // }
       }
     }
     renderChart();
