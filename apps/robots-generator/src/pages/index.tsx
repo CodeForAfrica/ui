@@ -130,7 +130,7 @@ export default function Home() {
               sx={{
                 width: "100%",
                 border: "1px solid rgb(19 81 216 / 10%);",
-                p: 6,
+                p: { md: 6 },
                 borderRadius: 2,
                 background:
                   "linear-gradient(0deg, rgba(19, 81, 216, 0.01), rgba(19, 81, 216, 0.01)), linear-gradient(0deg, rgba(19, 81, 216, 0.05), rgba(19, 81, 216, 0.05));",
@@ -139,7 +139,7 @@ export default function Home() {
               <Box
                 sx={{
                   width: "100%",
-                  px: 6,
+                  px: { md: 6 },
                   py: 8,
                   background: "#FFFFFF",
                   borderRadius: 2,
@@ -155,6 +155,7 @@ export default function Home() {
                               index === activeStep
                                 ? "primary.main"
                                 : "secondary.main",
+                            display: { xs: "none", md: "block" },
                           },
                           fontSize: {
                             xs: "1rem",
