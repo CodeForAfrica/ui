@@ -55,7 +55,8 @@ export default function BarChartScope(
               signal: "data('secondary').length > 1 ? width/2 - 30 : width",
             },
           ],
-          nice: { signal: "primaryXTickCount" },
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
+          // nice: { signal: "primaryXTickCount" },
           zero: true,
           domain: {
             data: "primary_formatted",
@@ -71,7 +72,7 @@ export default function BarChartScope(
               signal: "data('secondary').length > 1 ? width/2 - 30 : 0",
             },
           ],
-          nice: { signal: "secondaryXTickCount" },
+          // nice: { signal: "secondaryXTickCount" },
           zero: true,
           domain: {
             data: "secondary_formatted",
