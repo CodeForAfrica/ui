@@ -41,8 +41,6 @@ Explore.defaultProps = {
   blocks: undefined,
 };
 
-// const postType = "page";
-
 export async function getStaticPaths() {
   const { locations } = await fetchProfile();
   const paths = locations.map(({ code: locationCode }) => ({
