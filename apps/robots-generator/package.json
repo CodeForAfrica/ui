@@ -21,6 +21,7 @@
     "@mui/x-date-pickers": "^7.6.2",
     "@next/env": "^14.2.3",
     "ace-builds": "^1.34.2",
+    "crawler-user-agents": "^1.0.142",
     "date-fns": "^3.6.0",
     "next": "14.2.3",
     "react": "^18.3.1",

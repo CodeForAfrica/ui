@@ -1003,6 +1003,9 @@ importers:
       ace-builds:
         specifier: ^1.34.2
         version: 1.34.2
+      crawler-user-agents:
+        specifier: ^1.0.142
+        version: 1.0.142
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
@@ -6298,6 +6301,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  crawler-user-agents@1.0.142:
+    resolution: {integrity: sha512-GoM7l9ziziXGcgtH9auDDrPclTs44towIHCj+JX/YiMs1lkk08Bw0MV6pCvA0EprdvVn+WAdDpu6H7eCLtv+DQ==}
 
   crc-32@1.2.2:
     resolution: {integrity: sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==}
@@ -19726,6 +19732,8 @@ snapshots:
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.4.5
+
+  crawler-user-agents@1.0.142: {}
 
   crc-32@1.2.2: {}
 

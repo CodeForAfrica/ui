@@ -54,8 +54,8 @@ export default function Home() {
       component: CommonSettings,
     },
     {
-      label: "Block AI Bots",
-      description: `Select AI bots you want to block from crawling your website.`,
+      label: "Block Bots",
+      description: `Select bots you want to block from crawling your website.`,
       component: CommonBots,
     },
     {

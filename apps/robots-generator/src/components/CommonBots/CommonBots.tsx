@@ -5,18 +5,24 @@ import {
   AccordionDetails,
   Stack,
   Typography,
+  Switch,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import InfoIcon from "@mui/icons-material/Info";
+import WarningIcon from "@mui/icons-material/Warning";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
-import { Robot, robots } from "@/robots-generator/lib/robots";
 import { useState } from "react";
+import {
+  Robot,
+  getBotType,
+  groupedRobots,
+} from "@/robots-generator/lib/robots-data";
 
 interface CommonBotsProps {
   handleNext: (data: any) => void;
@@ -45,6 +51,16 @@ export default function CommonBots({
     );
   };
 
+  const bulkToggle = (robots: Robot[], allow: boolean) => {
+    setSelectedBots((prev) =>
+      prev.map((bot) =>
+        robots.some((robot) => robot.name === bot.name)
+          ? { ...bot, allow: !allow }
+          : bot,
+      ),
+    );
+  };
+
   const next = () => {
     handleNext({ bots: selectedBots });
   };
@@ -60,30 +76,109 @@ export default function CommonBots({
               flexWrap="wrap"
               alignItems="center"
               justifyContent="flex-start"
+              gap={1}
             >
-              {robots.map((robot) => (
-                <FormControlLabel
-                  key={robot.name}
-                  control={
-                    <Checkbox
-                      value={robot.name}
-                      checked={!isSelected(robot)}
-                      name={robot.name}
-                      onChange={() => toggleBot(robot)}
-                      sx={{
-                        color: "primary.main",
-                        "&.Mui-checked": {
-                          color: "primary.main",
+              {Object.entries(groupedRobots).map(([type, robots]) => (
+                <Accordion
+                  key={type}
+                  sx={{ width: "100%", marginLeft: "0 !important" }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{
+                      "&.MuiAccordionSummary-root .MuiAccordionSummary-content":
+                        {
+                          justifyContent: "space-between",
                         },
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        whiteSpace: "nowrap",
                       }}
+                    >
+                      {type}
+                      <Tooltip title={`${getBotType(type).blockReason}`}>
+                        <IconButton
+                          size="small"
+                          color={
+                            getBotType(type).shouldBlock ? "error" : "info"
+                          }
+                        >
+                          {getBotType(type).shouldBlock ? (
+                            <WarningIcon />
+                          ) : (
+                            <InfoIcon />
+                          )}
+                        </IconButton>
+                      </Tooltip>
+                    </Typography>
+                    <FormControlLabel
+                      control={
+                        <Switch
+                          checked={robots.every((robot) => !isSelected(robot))}
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            bulkToggle(robots, e.target.checked);
+                          }}
+                          inputProps={{ "aria-label": "controlled" }}
+                        />
+                      }
+                      label={<Typography>Block all</Typography>}
+                      onClick={(e) => e.stopPropagation()}
                     />
-                  }
-                  label={<Typography>{robot.label}</Typography>}
-                  sx={{
-                    width: "fit-content",
-                    marginLeft: "0 !important",
-                  }}
-                />
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Stack
+                      direction="row"
+                      spacing={1}
+                      flexWrap="wrap"
+                      alignItems="center"
+                      justifyContent="space-between"
+                      gap={1}
+                    >
+                      {robots.map((robot) => (
+                        <FormControlLabel
+                          key={robot.name}
+                          control={
+                            <Checkbox
+                              value={robot.name}
+                              checked={!isSelected(robot)}
+                              name={robot.name}
+                              onChange={() => toggleBot(robot)}
+                              sx={{
+                                color: "primary.main",
+                                "&.Mui-checked": {
+                                  color: "primary.main",
+                                },
+                              }}
+                            />
+                          }
+                          label={
+                            <Typography
+                              sx={{
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {robot.name}
+                              <Tooltip title={robot.about}>
+                                <IconButton size="small" color="info">
+                                  <InfoIcon />
+                                </IconButton>
+                              </Tooltip>
+                            </Typography>
+                          }
+                          sx={{
+                            width: "20%",
+                            marginLeft: "0 !important",
+                          }}
+                        />
+                      ))}
+                    </Stack>
+                  </AccordionDetails>
+                </Accordion>
               ))}
             </Stack>
           </FormGroup>

@@ -8,57 +8,15 @@ import {
   configureVisitTime,
   configureBot,
 } from "@/robots-generator/lib/config";
-export interface Robot {
-  name: string;
-  label: string;
-  allow?: boolean;
-  rules?: BotRule;
-}
-
-export interface BotRule {
-  allowedPaths: string[];
-  disallowedPaths: string[];
-}
-
-export const allowedCategories = ["Search Engine"];
-
-export const robots: Robot[] = [
-  {
-    name: "exabot",
-    label: "Exabot",
-    allow: true,
-  },
-  {
-    name: "gpt-bot",
-    label: "GPT Bot",
-    allow: true,
-  },
-  {
-    name: "googleExtended",
-    label: "Google Extended",
-    allow: true,
-  },
-  {
-    name: "anthropic-ai",
-    label: "Anthropic AI",
-    allow: true,
-  },
-  {
-    name: "openai",
-    label: "OpenAI",
-    allow: true,
-  },
-  {
-    name: "ClaudeBot",
-    label: "ClaudeBot",
-    allow: true,
-  },
-];
+import { Robot, robots } from "./robots-data";
 
 const mergeAndSortBots = (existingBots: Robot[], newBots: Robot[]) => {
   const updatedBots = existingBots.map((bot) => {
     const newBot = newBots.find((b) => b.name === bot.name);
-    return newBot ? newBot : bot;
+    return {
+      ...bot,
+      ...(newBot && { allow: newBot.allow, rules: newBot.rules }),
+    };
   });
 
   const uniqueNewBots = newBots.filter(
@@ -165,13 +123,16 @@ export const formatRobots = (parsedRobots: any) => {
     (group: any) => !group.agents.includes("*"),
   );
 
-  const parsedBots = otherBots.flatMap((group: any) => {
+  const parsedBots: Robot[] = otherBots.flatMap((group: any) => {
     return group.agents.map((agent: string) => ({
       name: agent,
+      userAgent: agent,
+      about: "",
+      website: "",
+      type: "other",
       allow: !group.rules.some(
         (rule: any) => rule.rule === "disallow" && rule.path === "/",
       ),
-      label: agent,
       rules: {
         allowedPaths: group.rules
           .filter((rule: any) => rule.rule === "allow")

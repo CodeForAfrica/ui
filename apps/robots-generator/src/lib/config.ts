@@ -1,4 +1,4 @@
-import { Robot } from "./robots";
+import { Robot } from "./robots-data";
 
 interface Platform {
   name: string;
@@ -127,17 +127,17 @@ export const configureSitemaps = (sitemaps: string[]) => {
 export const configureBot = (bot: Robot) => {
   let robots = ``;
   if (!bot.allow) {
-    robots = `# ${bot.label}\n`;
-    robots += `User-agent: ${bot.name}\nDisallow: /\n\n`;
+    robots = `# ${bot.name}\n`;
+    robots += `User-agent: ${bot.userAgent}\nDisallow: /\n\n`;
   } else {
     if (bot.rules) {
-      robots = `# ${bot.label}\n`;
+      robots = `# ${bot.name}\n`;
       if (bot.rules.disallowedPaths.length > 0) {
         const validDisallowedPaths = bot.rules.disallowedPaths.filter(
           (path) => path.trim() !== "",
         );
         if (validDisallowedPaths.length > 0) {
-          robots += `User-agent: ${bot.name}\nDisallow: ${validDisallowedPaths.join(
+          robots += `User-agent: ${bot.userAgent}\nDisallow: ${validDisallowedPaths.join(
             "\nDisallow: ",
           )}\n\n`;
         }
@@ -148,7 +148,7 @@ export const configureBot = (bot: Robot) => {
           (path) => path.trim() !== "",
         );
         if (validAllowedPaths.length > 0) {
-          robots += `User-agent: ${bot.name}\nAllow: ${validAllowedPaths.join(
+          robots += `User-agent: ${bot.userAgent}\nAllow: ${validAllowedPaths.join(
             "\nAllow: ",
           )}\n\n`;
         }
