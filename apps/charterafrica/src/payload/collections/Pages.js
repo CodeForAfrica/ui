@@ -10,6 +10,7 @@ import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
+import FeaturedVideos from "../blocks/FeaturedVideos";
 import FlourishChart from "../blocks/FlourishChart";
 import Global from "../blocks/Global";
 import Grantees from "../blocks/Grantees";
@@ -32,63 +33,64 @@ import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Pages = {
-  slug: "pages",
-  admin: {
-    defaultColumns: ["fullTitle", "updatedAt"],
-    preview: (doc, options) => formatDraftUrl("pages", doc, options),
-    useAsTitle: "title",
-  },
-  access: {
-    read: () => true, // Everyone can read Pages
-  },
-  fields: [
-    {
-      name: "title",
-      type: "text",
-      localized: true,
-      required: true,
+    slug: "pages",
+    admin: {
+        defaultColumns: ["fullTitle", "updatedAt"],
+        preview: (doc, options) => formatDraftUrl("pages", doc, options),
+        useAsTitle: "title"
     },
-    fullTitle(),
-    slug(),
-    {
-      name: "blocks",
-      type: "blocks",
-      blocks: [
-        AgaInfographic,
-        CommunityPlatforms,
-        Contributors,
-        Datasets,
-        DemocracyHelpdeskContent,
-        Documents,
-        Ecosystem,
-        EmbeddedDocuments,
-        EmbeddedPlaylist,
-        Error,
-        FAQ,
-        FeaturedPost,
-        FlourishChart,
-        Global,
-        GuidingPrincipals,
-        Grantees,
-        Hero,
-        Impressum,
-        LongForm,
-        Mooc,
-        Opportunities,
-        Organisations,
-        PageDescription,
-        PageHeader,
-        PageInfo,
-        Partners,
-        Resources,
-        Spotlight,
-        Tools,
-      ],
-      admin: {
-        initCollapsed: true,
-      },
+    access: {
+        read: () => true // Everyone can read Pages
     },
-  ],
+    fields: [
+        {
+            name: "title",
+            type: "text",
+            localized: true,
+            required: true
+        },
+        fullTitle(),
+        slug(),
+        {
+            name: "blocks",
+            type: "blocks",
+            blocks: [
+                AgaInfographic,
+                CommunityPlatforms,
+                Contributors,
+                Datasets,
+                DemocracyHelpdeskContent,
+                Documents,
+                Ecosystem,
+                EmbeddedDocuments,
+                EmbeddedPlaylist,
+                Error,
+                FAQ,
+                FeaturedPost,
+                FlourishChart,
+                Global,
+                GuidingPrincipals,
+                Grantees,
+                Hero,
+                Impressum,
+                LongForm,
+                Mooc,
+                Opportunities,
+                Organisations,
+                PageDescription,
+                PageHeader,
+                PageInfo,
+                Partners,
+                Resources,
+                Spotlight,
+                Tools,
+                FeaturedVideos
+            ],
+            admin: {
+                initCollapsed: true
+            }
+        }
+    ]
 };
 
 export default Pages;
