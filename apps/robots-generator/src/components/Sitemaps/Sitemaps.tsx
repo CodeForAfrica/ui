@@ -1,9 +1,12 @@
-import { useGlobalState } from "@/robots-generator/context/GlobalContext";
 import { Box, TextareaAutosize } from "@mui/material";
 import { ChangeEvent, useState } from "react";
+
 import StepperNav from "../StepperNav";
 
+import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+
 interface SitemapsProps {
+  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

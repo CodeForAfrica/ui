@@ -1,7 +1,7 @@
-import Box from "@mui/material/Box/Box";
+import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
-import React from "react";
 import Typography from "@mui/material/Typography";
+import React from "react";
 import ReactRotatingText from "react-rotating-text";
 
 interface props {

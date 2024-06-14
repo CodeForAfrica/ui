@@ -1,10 +1,10 @@
+import { NavList } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
+import { LinkProps, SvgIcon } from "@mui/material";
 import React, { ElementType, FC } from "react";
 
 import GitHubIcon from "@/robots-generator/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import NavListItem from "@/robots-generator/components/NavListItem";
-import { NavList } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
-import { LinkProps, SvgIcon } from "@mui/material";
 
 const platformToIconMap: {
   [key: string]: ElementType<any>;

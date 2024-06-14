@@ -1,9 +1,3 @@
-import React, { FC, ForwardedRef } from "react";
-
-import menuIcon from "@/robots-generator/assets/icons/menu-icon.svg";
-import CloseIcon from "@/robots-generator/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
-import NavBarNavList from "@/robots-generator/components/NavBarNavList";
-import NextImageButton from "@/robots-generator/components/NextImageButton";
 import {
   Dialog,
   DialogContent,
@@ -15,6 +9,12 @@ import {
   SvgIcon,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import React, { ForwardedRef } from "react";
+
+import menuIcon from "@/robots-generator/assets/icons/menu-icon.svg";
+import CloseIcon from "@/robots-generator/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import NavBarNavList from "@/robots-generator/components/NavBarNavList";
+import NextImageButton from "@/robots-generator/components/NextImageButton";
 
 interface SocialLinks {
   platform: string;

@@ -1,23 +1,22 @@
-import { useGlobalState } from "@/robots-generator/context/GlobalContext";
 import { Box, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
+
 import Code from "../Code";
-import { downloadFile } from "@/robots-generator/utils/file";
-import { generateRobots } from "@/robots-generator/lib/robots";
 import StepperNav from "../StepperNav";
 
+import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import { generateRobots } from "@/robots-generator/lib/robots";
+import { downloadFile } from "@/robots-generator/utils/file";
+
 interface FinishProps {
+  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   handleReset: () => void;
   lastStep: boolean;
 }
 
-export default function Finish({
-  handleReset,
-  handleBack,
-  handleNext,
-}: FinishProps) {
+export default function Finish({ handleReset, handleBack }: FinishProps) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const [showSnackbar, setShowSnackbar] = useState(false);

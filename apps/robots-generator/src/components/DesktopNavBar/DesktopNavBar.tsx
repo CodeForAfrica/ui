@@ -1,8 +1,8 @@
-import React, { FC, ForwardedRef } from "react";
+import { Box, Grid, Grid2Props } from "@mui/material";
+import React, { ForwardedRef } from "react";
 
 import NavBarNavList from "@/robots-generator/components/NavBarNavList";
 import NextImageButton from "@/robots-generator/components/NextImageButton";
-import { Box, Grid, Grid2Props } from "@mui/material";
 
 interface SocialLinks {
   platform: string;

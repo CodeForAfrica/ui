@@ -1,9 +1,11 @@
-import { useDebouncedValue } from "@/robots-generator/utils/useDebounce";
 import { TextareaAutosize } from "@mui/material";
 import { useState } from "react";
 
+import { useDebouncedValue } from "@/robots-generator/utils/useDebounce";
+
 interface TextAreaProps {
   value: string;
+  // eslint-disable-next-line no-unused-vars
   onChange: (newValue: string) => void;
   minRows?: number;
   maxRows?: number;

@@ -1,35 +1,37 @@
-import { useRef, useState } from "react";
-import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import Paper from "@mui/material/Paper";
 import { Section } from "@commons-ui/core";
-import Stack from "@mui/material/Stack";
-import ExistingRobots from "@/robots-generator/components/ExistingRobots";
-import CommonSettings from "@/robots-generator/components/CommonSettings";
+import CloseIcon from "@mui/icons-material/Close";
+import CodeIcon from "@mui/icons-material/Code";
+import {
+  IconButton,
+  Alert,
+  Box,
+  Dialog,
+  DialogContent,
+  Paper,
+  Stack,
+  Step,
+  StepButton,
+  Stepper,
+  Tooltip,
+} from "@mui/material";
+import { useEffect } from "react";
+import React from "react";
+import { useRef, useState } from "react";
+
+import CodeEditor from "../components/Code/CodeEditor";
+import Delays from "../components/Delays";
+import Hero from "../components/Hero";
+import Sitemaps from "../components/Sitemaps";
+
 import CommonBots from "@/robots-generator/components/CommonBots";
+import CommonSettings from "@/robots-generator/components/CommonSettings";
+import ExistingRobots from "@/robots-generator/components/ExistingRobots";
+import Finish from "@/robots-generator/components/Finish";
 import {
   useGlobalState,
   defaultState,
 } from "@/robots-generator/context/GlobalContext";
-import Finish from "@/robots-generator/components/Finish";
 import { generateRobots } from "@/robots-generator/lib/robots";
-import { useEffect } from "react";
-import React from "react";
-import Sitemaps from "../components/Sitemaps";
-import Delays from "../components/Delays";
-import Hero from "../components/Hero";
-import Alert from "@mui/material/Alert";
-import StepButton from "@mui/material/StepButton";
-import CodeIcon from "@mui/icons-material/Code";
-import CloseIcon from "@mui/icons-material/Close";
-import Tooltip from "@mui/material/Tooltip";
-import { Button, IconButton } from "@mui/material";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import CodeEditor from "../components/Code/CodeEditor";
 
 interface Step {
   label: string;

@@ -1,8 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { validateRobots, formatRobots } from "@/robots-generator/lib/robots";
-import { getRobotsUrl } from "@/robots-generator/utils/urls";
 import type { NextApiRequest, NextApiResponse } from "next";
 import parse from "robots-txt-parse";
+
+import { validateRobots, formatRobots } from "@/robots-generator/lib/robots";
+import { getRobotsUrl } from "@/robots-generator/utils/urls";
 
 type Data = {
   error?: string;

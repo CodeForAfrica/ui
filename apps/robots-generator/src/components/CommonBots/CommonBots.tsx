@@ -1,3 +1,6 @@
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import InfoIcon from "@mui/icons-material/Info";
+import WarningIcon from "@mui/icons-material/Warning";
 import {
   Box,
   Accordion,
@@ -7,25 +10,24 @@ import {
   Typography,
   Switch,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import InfoIcon from "@mui/icons-material/Info";
-import WarningIcon from "@mui/icons-material/Warning";
+import FormGroup from "@mui/material/FormGroup";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import { useCallback, useState } from "react";
+import { useMemo, memo } from "react";
+
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
-import { useCallback, useState } from "react";
 import {
   Robot,
   getBotType,
   groupedRobots,
 } from "@/robots-generator/lib/robots-data";
-import { useMemo, memo } from "react";
 
 interface CommonBotsProps {
+  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

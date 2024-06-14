@@ -1,3 +1,4 @@
+import InfoIcon from "@mui/icons-material/Info";
 import {
   Box,
   Stack,
@@ -7,16 +8,16 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-
 import { ChangeEvent, useState } from "react";
+
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
 import { platforms } from "@/robots-generator/lib/config";
 
 interface CommonSettingsProps {
+  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

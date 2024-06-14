@@ -1,3 +1,5 @@
+import { Robot, robots } from "./robots-data";
+
 import { GlobalState } from "@/robots-generator/context/GlobalContext";
 import {
   configureAllowPaths,
@@ -8,7 +10,6 @@ import {
   configureVisitTime,
   configureBot,
 } from "@/robots-generator/lib/config";
-import { Robot, robots } from "./robots-data";
 
 const mergeAndSortBots = (existingBots: Robot[], newBots: Robot[]) => {
   const updatedBots = existingBots.map((bot) => {

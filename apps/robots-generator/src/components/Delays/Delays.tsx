@@ -1,12 +1,15 @@
-import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import InfoIcon from "@mui/icons-material/Info";
 import { Box, IconButton, InputLabel, Stack, Tooltip } from "@mui/material";
 import { useState } from "react";
-import Timepicker from "../Timepicker";
-import InfoIcon from "@mui/icons-material/Info";
+
 import StepperNav from "../StepperNav";
+import Timepicker from "../Timepicker";
+
 import Input from "@/robots-generator/components/Input";
+import { useGlobalState } from "@/robots-generator/context/GlobalContext";
 
 interface DelaysProps {
+  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

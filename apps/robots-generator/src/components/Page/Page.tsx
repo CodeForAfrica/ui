@@ -1,7 +1,8 @@
 import React from "react";
 
-import NavBar from "@/robots-generator/components/NavBar";
 import Footer from "../Footer";
+
+import NavBar from "@/robots-generator/components/NavBar";
 
 interface SocialLinks {
   platform: string;

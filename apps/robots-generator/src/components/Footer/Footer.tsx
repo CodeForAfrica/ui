@@ -1,8 +1,9 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid, Typography } from "@mui/material";
-import FooterDescription from "./FooterDescription";
-import { styled } from "@mui/material/styles";
 import { Figure, Link } from "@commons-ui/next";
+import { Box, Grid, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+import FooterDescription from "./FooterDescription";
 
 interface FooterProps {
   logo: any;

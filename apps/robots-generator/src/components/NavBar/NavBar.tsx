@@ -1,8 +1,8 @@
+import { NavBar as NavigationBar, Section } from "@commons-ui/core";
 import React from "react";
 
 import DesktopNavBar from "@/robots-generator/components/DesktopNavBar";
 import MobileNavBar from "@/robots-generator/components/MobileNavBar";
-import { NavBar as NavigationBar, Section } from "@commons-ui/core";
 
 interface SocialLinks {
   platform: string;

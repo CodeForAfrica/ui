@@ -1,15 +1,17 @@
-import { useState } from "react";
-import Input from "@/robots-generator/components/Input";
 import { Box, Button, Snackbar, Stack, Typography } from "@mui/material";
-import { validateUrl } from "@/robots-generator/utils/urls";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Alert from "@mui/material/Alert";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import { useState } from "react";
+
+import Input from "@/robots-generator/components/Input";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
+import { validateUrl } from "@/robots-generator/utils/urls";
 
 interface ExistingRobotsProps {
+  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

@@ -1,7 +1,7 @@
-import { Merriweather, Open_Sans } from "next/font/google";
 
 import { createTheme, ThemeOptions } from "@mui/material";
 import { deepmerge } from "@mui/utils";
+import { Merriweather, Open_Sans } from "next/font/google";
 
 const openSans = Open_Sans({
   weight: ["300", "400", "600", "700"],

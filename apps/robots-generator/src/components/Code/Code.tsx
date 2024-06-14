@@ -1,8 +1,10 @@
-import { Box, Button, Stack, TextareaAutosize } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
+
 import CodeEditor from "./CodeEditor";
 
 interface CodeProps {
   code: string;
+  // eslint-disable-next-line no-unused-vars
   onCodeChange: (newCode: string) => void;
   onCopy: () => void;
   onDownload: () => void;
