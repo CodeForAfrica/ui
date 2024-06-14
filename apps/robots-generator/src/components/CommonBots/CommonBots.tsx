@@ -144,7 +144,7 @@ export default function CommonBots({
                       spacing={1}
                       flexWrap="wrap"
                       alignItems="center"
-                      justifyContent="space-between"
+                      justifyContent="flex-start"
                       gap={1}
                     >
                       {robots.map((robot) => (
@@ -179,7 +179,6 @@ export default function CommonBots({
                             </Typography>
                           }
                           sx={{
-                            width: "20%",
                             marginLeft: "0 !important",
                           }}
                         />
