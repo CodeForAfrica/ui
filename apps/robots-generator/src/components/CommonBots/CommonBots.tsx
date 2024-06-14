@@ -17,12 +17,13 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import StepperNav from "@/robots-generator/components/StepperNav";
 import { useGlobalState } from "@/robots-generator/context/GlobalContext";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   Robot,
   getBotType,
   groupedRobots,
 } from "@/robots-generator/lib/robots-data";
+import { useMemo, memo } from "react";
 
 interface CommonBotsProps {
   handleNext: (data: any) => void;
@@ -39,26 +40,33 @@ export default function CommonBots({
 
   const [selectedBots, setSelectedBots] = useState(state.bots);
 
+  const MemoizedFormControlLabel = memo(FormControlLabel);
+  const robotsGroupedByType = useMemo(() => Object.entries(groupedRobots), []);
+
   const isSelected = (robot: Robot) => {
     return selectedBots.find((bot) => bot.name === robot.name)?.allow;
   };
 
-  const toggleBot = (robot: Robot) => {
+  const toggleBot = useCallback((robot: Robot) => {
     setSelectedBots((prev) =>
       prev.map((bot) =>
         bot.name === robot.name ? { ...bot, allow: !bot.allow } : bot,
       ),
     );
-  };
+  }, []);
 
-  const bulkToggle = (robots: Robot[], allow: boolean) => {
+  const bulkToggle = useCallback((robots: Robot[], allow: boolean) => {
+    const robotNames = new Set(robots.map((robot) => robot.name));
+
     setSelectedBots((prev) =>
       prev.map((bot) =>
-        robots.some((robot) => robot.name === bot.name)
-          ? { ...bot, allow: !allow }
-          : bot,
+        robotNames.has(bot.name) ? { ...bot, allow: !allow } : bot,
       ),
     );
+  }, []);
+
+  const isSwitchChecked = (robots: Robot[]) => {
+    return robots.every((robot) => !isSelected(robot));
   };
 
   const next = () => {
@@ -78,7 +86,7 @@ export default function CommonBots({
               justifyContent="flex-start"
               gap={1}
             >
-              {Object.entries(groupedRobots).map(([type, robots]) => (
+              {robotsGroupedByType.map(([type, robots]) => (
                 <Accordion
                   key={type}
                   sx={{ width: "100%", marginLeft: "0 !important" }}
@@ -115,10 +123,10 @@ export default function CommonBots({
                         </IconButton>
                       </Tooltip>
                     </Typography>
-                    <FormControlLabel
+                    <MemoizedFormControlLabel
                       control={
                         <Switch
-                          checked={robots.every((robot) => !isSelected(robot))}
+                          checked={isSwitchChecked(robots)}
                           onChange={(e) => {
                             e.stopPropagation();
                             bulkToggle(robots, e.target.checked);
@@ -140,7 +148,7 @@ export default function CommonBots({
                       gap={1}
                     >
                       {robots.map((robot) => (
-                        <FormControlLabel
+                        <MemoizedFormControlLabel
                           key={robot.name}
                           control={
                             <Checkbox
