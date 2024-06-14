@@ -4,7 +4,15 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-textmate";
 
-function CodeEditor({ code, setCode }: { code: string; setCode: any }) {
+function CodeEditor({
+  code,
+  setCode,
+  readOnly,
+}: {
+  code: string;
+  setCode: any;
+  readOnly: boolean;
+}) {
   return (
     <AceEditor
       mode="python"
@@ -14,6 +22,7 @@ function CodeEditor({ code, setCode }: { code: string; setCode: any }) {
       editorProps={{ $blockScrolling: true }}
       showGutter={false}
       showPrintMargin={false}
+      readOnly={readOnly}
       value={code}
       style={{
         width: "100%",

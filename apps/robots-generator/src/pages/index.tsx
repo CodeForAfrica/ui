@@ -2,9 +2,7 @@ import { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import { Section } from "@commons-ui/core";
 import Stack from "@mui/material/Stack";
 import ExistingRobots from "@/robots-generator/components/ExistingRobots";
@@ -21,10 +19,17 @@ import React from "react";
 import Sitemaps from "../components/Sitemaps";
 import Delays from "../components/Delays";
 import Hero from "../components/Hero";
-import Grid from "@mui/material/Grid";
 import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
 import StepButton from "@mui/material/StepButton";
+import CodeIcon from "@mui/icons-material/Code";
+import CloseIcon from "@mui/icons-material/Close";
+import Tooltip from "@mui/material/Tooltip";
+import { Button, IconButton } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import CodeEditor from "../components/Code/CodeEditor";
 
 interface Step {
   label: string;
@@ -37,6 +42,15 @@ export default function Home() {
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const scrolRef = useRef<HTMLDivElement | null>(null);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const steps: Step[] = [
     {
@@ -152,6 +166,31 @@ export default function Home() {
                   borderRadius: 2,
                 }}
               >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row-reverse",
+                    px: { xs: 2, md: 0 },
+                    mb: 5,
+                  }}
+                >
+                  <Tooltip title="View current robots.txt file">
+                    <IconButton
+                      onClick={handleClickOpen}
+                      sx={{
+                        background: "#1120E1",
+                        color: "#FFFFFF",
+                        border: "1px solid #1120E1",
+                        "&:hover": {
+                          color: "#1120E1",
+                        },
+                      }}
+                    >
+                      <CodeIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+
                 <Stepper nonLinear activeStep={activeStep}>
                   {steps.map((step, index) => (
                     <Step key={step.label}>
@@ -209,6 +248,43 @@ export default function Home() {
               </Box>
             </Box>
           </Box>
+
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            fullWidth={true}
+            maxWidth="md"
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row-reverse",
+                  mb: 2,
+                }}
+              >
+                <Tooltip title="Exit preview">
+                  <IconButton
+                    onClick={handleClose}
+                    sx={{
+                      background: "#1120E1",
+                      color: "#FFFFFF",
+                      border: "1px solid #1120E1",
+                      "&:hover": {
+                        color: "#1120E1",
+                      },
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+
+              <CodeEditor code={code} setCode={() => {}} readOnly={true} />
+            </DialogContent>
+          </Dialog>
         </Stack>
       </Section>
     </>

@@ -30,7 +30,7 @@ export default function Code(props: CodeProps) {
         width: "100%",
       }}
     >
-      <CodeEditor code={code} setCode={handleCodeChange} />
+      <CodeEditor code={code} setCode={handleCodeChange} readOnly={false} />
 
       <Stack direction="row" spacing={2}>
         <Button
