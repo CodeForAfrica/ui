@@ -319,6 +319,44 @@ export async function getStaticProps() {
           },
         ],
       },
+      footer: {
+        logo: {
+          alt: "CfA logo",
+          prefix: "media",
+          filename: "cfalogobw.svg",
+          mimeType: "image/svg+xml",
+          url: "https://cfa.dev.codeforafrica.org/media/cfalogobw.svg",
+          src: "https://cfa.dev.codeforafrica.org/media/cfalogobw.svg",
+        },
+        description:
+          "This site is an open source code built by Code for Africa, the continent's largest network of civic technology and data journalism labs. All content is released under a Creative Commons 4 Attribution License. Reuse it to help empower your own community.",
+        partners: [
+          {
+            name: "DW Africa",
+            url: "https://www.dw.com/africa",
+            logo: {
+              alt: "DW Africa",
+              prefix: "media",
+              filename: "dw-africa.svg",
+              mimeType: "image/svg+xml",
+              url: "/images/dw.svg",
+              src: "/images/dw.svg",
+            },
+          },
+          {
+            name: "Civic Signal",
+            url: "https://civicsignal.africa/",
+            logo: {
+              alt: "Civic Signal",
+              prefix: "media",
+              filename: "civic-signal.png",
+              mimeType: "image/png",
+              url: "/images/civic-signal.png",
+              src: "/images/civic-signal.png",
+            },
+          },
+        ],
+      },
     },
   };
 }
