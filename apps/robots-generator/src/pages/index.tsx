@@ -23,6 +23,8 @@ import Delays from "../components/Delays";
 import Hero from "../components/Hero";
 import Grid from "@mui/material/Grid";
 import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
+import StepButton from "@mui/material/StepButton";
 
 interface Step {
   label: string;
@@ -89,6 +91,10 @@ export default function Home() {
     handleNext();
   };
 
+  const handleStep = (step: number) => () => {
+    setActiveStep(step);
+  };
+
   useEffect(() => {
     const generateRobotsFile = async () => {
       const robots = await generateRobots(state);
@@ -140,15 +146,18 @@ export default function Home() {
                 sx={{
                   width: "100%",
                   px: { md: 6 },
-                  py: 8,
+                  paddingBottom: 8,
+                  paddingTop: 4,
                   background: "#FFFFFF",
                   borderRadius: 2,
                 }}
               >
-                <Stepper activeStep={activeStep}>
+                <Stepper nonLinear activeStep={activeStep}>
                   {steps.map((step, index) => (
                     <Step key={step.label}>
-                      <StepLabel
+                      <StepButton
+                        color="inherit"
+                        onClick={handleStep(index)}
                         sx={{
                           "& .MuiStepLabel-label": {
                             color:
@@ -165,7 +174,7 @@ export default function Home() {
                         }}
                       >
                         {step.label}
-                      </StepLabel>
+                      </StepButton>
                     </Step>
                   ))}
                 </Stepper>
