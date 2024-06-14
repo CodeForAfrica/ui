@@ -4,7 +4,6 @@ import {
   configureCacheDelay,
   configureCrawlDelay,
   configureDisallowPaths,
-  configurePlatform,
   configureSitemaps,
   configureVisitTime,
   configureBot,
@@ -102,10 +101,6 @@ export async function generateRobots(state: GlobalState) {
       robots += configureAllowPaths(validAllowedPaths);
     }
   }
-
-  // if (state.platform !== "none") {
-  //   robots += configurePlatform(state.platform);
-  // }
 
   state.bots.map((bot) => {
     robots += configureBot(bot);

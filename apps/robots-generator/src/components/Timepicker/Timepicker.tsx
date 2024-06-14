@@ -3,7 +3,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 
 interface TimepickerProps {
-  value: Date;
+  value: Date | null;
   onChange: (newValue: Date | null) => void;
   label: string;
 }

@@ -29,8 +29,12 @@ export default function CommonSettings({
 }: CommonSettingsProps) {
   const { state } = useGlobalState();
 
-  const [disallowedPaths, setDisallowedPaths] = useState(state.disallowedPaths);
-  const [allowedPaths, setAllowedPaths] = useState(state.allowedPaths);
+  const [disallowedPaths, setDisallowedPaths] = useState<string[]>(
+    state.disallowedPaths,
+  );
+  const [allowedPaths, setAllowedPaths] = useState<string[]>(
+    state.allowedPaths,
+  );
   const [platform, setPlatform] = useState(state.platform);
 
   const handleDisallowedPathsChange = (
@@ -47,13 +51,12 @@ export default function CommonSettings({
     setAllowedPaths(data.split("\n"));
   };
   const handlePlatformChange = (event: SelectChangeEvent) => {
-    if (event.target.value !== "none") {
-      const selectedPlatform = platforms.find(
-        (platform) => platform.name === event.target.value,
-      );
-      setDisallowedPaths([selectedPlatform?.code || "/"]);
-    } else {
-      setDisallowedPaths(["/"]);
+    const selectedPlatform = platforms.find(
+      (platform) => platform.name === event.target.value,
+    );
+    if (selectedPlatform) {
+      setDisallowedPaths(selectedPlatform?.disallowedPaths);
+      setAllowedPaths(selectedPlatform?.allowedPaths);
     }
     setPlatform(event.target.value as string);
   };

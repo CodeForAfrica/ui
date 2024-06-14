@@ -1,45 +1,85 @@
 import { Robot } from "./robots";
 
-export const platforms = [
+interface Platform {
+  name: string;
+  label: string;
+  allowedPaths: string[];
+  disallowedPaths: string[];
+}
+
+export const platforms: Platform[] = [
   {
     name: "none",
-    label: "None",
-    code: "",
+    label: "Custom",
+    allowedPaths: [],
+    disallowedPaths: ["/"],
   },
   {
     name: "wordpress",
     label: "WordPress",
-    code: `Disallow: /wp-admin/\nDisallow: /wp-includes/\nAllow: /wp-admin/admin-ajax.php`,
+    allowedPaths: ["/wp-admin/admin-ajax.php"],
+    disallowedPaths: ["/wp-admin/", "/wp-includes/"],
   },
   {
     name: "squarespace",
     label: "Squarespace",
-    code: `Disallow: /api/\nDisallow: /config/`,
+    allowedPaths: [],
+    disallowedPaths: ["/api/", "/config/"],
   },
   {
     name: "wix",
     label: "Wix",
-    code: `Disallow: /_api/\nDisallow: /files/\nDisallow: /site-assets/\nDisallow: /_partials/`,
+    allowedPaths: [],
+    disallowedPaths: ["/_api/", "/files/", "/site-assets/", "/_partials/"],
   },
   {
     name: "weebly",
     label: "Weebly",
-    code: `Disallow: /ajax/\nDisallow: /api/`,
+    allowedPaths: [],
+    disallowedPaths: ["/ajax/", "/api/"],
   },
   {
     name: "joomla",
     label: "Joomla",
-    code: `Disallow: /administrator/\nDisallow: /bin/\nDisallow: /cache/\nDisallow: /cli/\nDisallow: /components/\nDisallow: /includes/\nDisallow: /installation/\nDisallow: /language/\nDisallow: /layouts/\nDisallow: /libraries/\nDisallow: /logs/\nDisallow: /modules/\nDisallow: /plugins/\nDisallow: /tmp/`,
+    allowedPaths: [],
+    disallowedPaths: [
+      "/administrator/",
+      "/bin/",
+      "/cache/",
+      "/cli/",
+      "/components/",
+      "/includes/",
+      "/installation/",
+      "/language/",
+      "/layouts/",
+      "/libraries/",
+      "/logs/",
+      "/modules/",
+      "/plugins/",
+      "/tmp/",
+    ],
   },
   {
     name: "drupal",
     label: "Drupal",
-    code: `Disallow: /core/\nDisallow: /includes/\nDisallow: /misc/\nDisallow: /modules/\nDisallow: /profiles/\nDisallow: /scripts/\nDisallow: /themes/\nDisallow: /update.php\nDisallow: /xmlrpc.php`,
+    allowedPaths: [],
+    disallowedPaths: [
+      "/core/",
+      "/includes/",
+      "/misc/",
+      "/modules/",
+      "/profiles/",
+      "/scripts/",
+      "/themes/",
+      "/update.php",
+      "/xmlrpc.php",
+    ],
   },
   {
     name: "webflow",
     label: "Webflow",
-    code: `Disallow: /api/\nDisallow: /collections/\nDisallow: /editor/`,
+    allowedPaths: [],
+    disallowedPaths: ["/api/", "/collections/", "/editor/"],
   },
 ];
 
@@ -70,20 +110,13 @@ export const configureVisitTime = (from: Date, to: Date) => {
 export const configureDisallowPaths = (paths: string[]) => {
   const comment =
     "# Disallow specifies the paths that are not allowed to be crawled by the robot.\n";
-  return `${comment}Disallow: ${paths.join("\nDisallow: ")}\n\n`;
+  return `${comment}User-agent: *\nDisallow: ${paths.join("\nDisallow: ")}\n\n`;
 };
 
 export const configureAllowPaths = (paths: string[]) => {
   const comment =
     "# Allow specifies the paths that are allowed to be crawled by the robot.\n";
   return `${comment}Allow: ${paths.join("\nAllow: ")}\n\n`;
-};
-
-export const configurePlatform = (platform: string) => {
-  const selectedPlatform = platforms.find((p) => p.name === platform);
-  return selectedPlatform
-    ? `# Platform: ${selectedPlatform.label}\n${selectedPlatform.code}\n\n`
-    : "";
 };
 
 export const configureSitemaps = (sitemaps: string[]) => {

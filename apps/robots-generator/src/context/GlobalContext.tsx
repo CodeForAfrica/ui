@@ -1,5 +1,4 @@
 import React, { createContext, useState, useContext } from "react";
-import { startOfToday, addMinutes } from "date-fns";
 import { Robot, robots } from "@/robots-generator/lib/robots";
 
 export interface GlobalState {
@@ -8,8 +7,8 @@ export interface GlobalState {
   robots?: any;
   crawlDelay: number | null;
   cachedDelay: number | null;
-  visitTimeFrom: Date;
-  visitTimeTo: Date;
+  visitTimeFrom: Date | null;
+  visitTimeTo: Date | null;
   sitemaps: string[];
   disallowedPaths: string[];
   allowedPaths: string[];
@@ -23,8 +22,8 @@ export const defaultState: GlobalState = {
   robots: "",
   crawlDelay: null,
   cachedDelay: null,
-  visitTimeFrom: startOfToday(),
-  visitTimeTo: addMinutes(startOfToday(), 30),
+  visitTimeFrom: null,
+  visitTimeTo: null,
   sitemaps: [],
   disallowedPaths: ["/"],
   allowedPaths: [],

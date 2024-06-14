@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import ReactRotatingText from "react-rotating-text";
-import { Link } from "@commons-ui/next";
 
 interface props {
   scrolRef: React.RefObject<HTMLDivElement>;
@@ -20,6 +19,7 @@ const Hero = ({ scrolRef }: props) => {
         backgroundImage: "url(./bg-shape-8.svg)",
         backgroundSize: "cover",
         paddingTop: "170px",
+        px: { xs: 2.5, sm: 0 },
       }}
     >
       <Box

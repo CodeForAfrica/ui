@@ -177,7 +177,16 @@ export default function Home() {
                       boxShadow: 0,
                     }}
                   >
-                    <Alert severity="info">
+                    <Alert
+                      severity="info"
+                      sx={{
+                        alignItems: "center",
+                        fontSize: {
+                          xs: "0.8rem",
+                          md: "1rem",
+                        },
+                      }}
+                    >
                       {steps[activeStep].description}
                     </Alert>
                     <ActiveComponent
