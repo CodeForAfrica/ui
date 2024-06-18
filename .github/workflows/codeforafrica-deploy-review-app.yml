@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     steps:
-      - name: Destroy review app
+      - name: Destroy the review app
         uses: dokku/github-action@master
         with:
           command: review-apps:destroy
