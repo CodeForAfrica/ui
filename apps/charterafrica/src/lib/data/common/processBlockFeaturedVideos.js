@@ -38,7 +38,7 @@ async function getFeaturedVideos(featured, playlistItems) {
       (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
     );
     if (sortedItems?.length) {
-      return sortedItems.slice(0, 1);
+      return sortedItems.slice(0, 3);
     }
     return null;
   }
@@ -69,7 +69,7 @@ async function featuredVideos(unProcessedPage, locale) {
     const block = {
       ...blocks[featuredVideosIndex]?.playlist,
       slug: "featured-videos",
-      items: featured,
+      items: featured ?? [],
       airedOnText: airedOnText[locale],
     };
     page.blocks[featuredVideosIndex] = block;
