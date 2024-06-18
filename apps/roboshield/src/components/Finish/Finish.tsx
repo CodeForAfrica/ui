@@ -6,16 +6,13 @@ import StepperNav from "../StepperNav";
 
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
+import { StepComponent } from "@/roboshield/types/stepComponent";
 import { downloadFile } from "@/roboshield/utils/file";
 
-interface FinishProps {
-  handleNext: (data: any) => void;
-  handleBack: () => void;
-  handleReset: () => void;
-  lastStep: boolean;
-}
-
-export default function Finish({ handleReset, handleBack }: FinishProps) {
+export default function Finish({
+  handleReset,
+  handleBack,
+}: StepComponent & { handleReset: () => void }) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const [showSnackbar, setShowSnackbar] = useState(false);

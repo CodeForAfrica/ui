@@ -21,18 +21,13 @@ import { useMemo, memo } from "react";
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { Robot, getBotType, groupedRobots } from "@/roboshield/lib/robots-data";
-
-interface CommonBotsProps {
-  handleNext: (data: any) => void;
-  handleBack: () => void;
-  lastStep: boolean;
-}
+import { StepComponent } from "@/roboshield/types/stepComponent";
 
 export default function CommonBots({
   handleNext,
   handleBack,
   lastStep,
-}: CommonBotsProps) {
+}: StepComponent) {
   const { state } = useGlobalState();
 
   const [selectedBots, setSelectedBots] = useState(state.bots);

@@ -7,17 +7,13 @@ import Timepicker from "../Timepicker";
 
 import Input from "@/roboshield/components/Input";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
+import { StepComponent } from "@/roboshield/types/stepComponent";
 
-interface DelaysProps {
-  handleNext: (data: any) => void;
-  handleBack: () => void;
-  lastStep: boolean;
-}
 export default function Delays({
   handleNext,
   handleBack,
   lastStep,
-}: DelaysProps) {
+}: StepComponent) {
   const { state } = useGlobalState();
 
   const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);

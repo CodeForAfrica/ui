@@ -8,19 +8,14 @@ import { useState } from "react";
 import Input from "@/roboshield/components/Input";
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
+import { StepComponent } from "@/roboshield/types/stepComponent";
 import { validateUrl } from "@/roboshield/utils/urls";
-
-interface ExistingRobotsProps {
-  handleNext: (data: any) => void;
-  handleBack: () => void;
-  lastStep: boolean;
-}
 
 export default function ExistingRobots({
   handleNext,
   handleBack,
   lastStep,
-}: ExistingRobotsProps) {
+}: StepComponent) {
   const { state } = useGlobalState();
   const [url, setUrl] = useState(state.url);
   const [isValid, setIsValid] = useState(false);

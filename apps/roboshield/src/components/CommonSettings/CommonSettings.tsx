@@ -15,18 +15,13 @@ import { ChangeEvent, useState } from "react";
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { platforms } from "@/roboshield/lib/config";
-
-interface CommonSettingsProps {
-  handleNext: (data: any) => void;
-  handleBack: () => void;
-  lastStep: boolean;
-}
+import { StepComponent } from "@/roboshield/types/stepComponent";
 
 export default function CommonSettings({
   handleNext,
   handleBack,
   lastStep,
-}: CommonSettingsProps) {
+}: StepComponent) {
   const { state } = useGlobalState();
 
   const [disallowedPaths, setDisallowedPaths] = useState<string[]>(

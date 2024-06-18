@@ -4,17 +4,13 @@ import { ChangeEvent, useState } from "react";
 import StepperNav from "../StepperNav";
 
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
+import { StepComponent } from "@/roboshield/types/stepComponent";
 
-interface SitemapsProps {
-  handleNext: (data: any) => void;
-  handleBack: () => void;
-  lastStep: boolean;
-}
 export default function Sitemaps({
   handleNext,
   handleBack,
   lastStep,
-}: SitemapsProps) {
+}: StepComponent) {
   const { state } = useGlobalState();
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
 
