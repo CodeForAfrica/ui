@@ -67,6 +67,8 @@ COPY --from=deps /workspace/apps/roboshield/node_modules ./apps/roboshield/node_
 
 # Next.js lints when doing production build
 COPY packages/eslint-config-commons-ui ./packages/eslint-config-commons-ui
+COPY packages/commons-ui-core ./packages/commons-ui-core
+COPY packages/commons-ui-next ./packages/commons-ui-next
 COPY apps/roboshield ./apps/roboshield
 
 RUN pnpm --filter "./apps/roboshield" build

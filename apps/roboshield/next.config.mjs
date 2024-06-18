@@ -2,6 +2,7 @@
 const nextConfig = {
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   reactStrictMode: false,
+  output: "standalone",
   webpack: (config) => {
     config.module.rules.push(
       {
