@@ -29,13 +29,21 @@ export default function Footer({ logo, description, partners }: FooterProps) {
   return (
     <FooterRoot component="footer">
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-        <Grid container columns={24} justifyContent="space-between">
+        <Grid
+          container
+          columns={24}
+          justifyContent="space-between"
+          gap={{
+            xs: 3,
+            md: 0,
+          }}
+        >
           <Grid
             item
             xs={24}
-            md={9}
+            md={8}
             sx={{
-              order: { xs: 1, md: 0 },
+              order: { xs: 2, md: 0 },
             }}
           >
             <Grid container justifyContent="space-between">
@@ -60,15 +68,14 @@ export default function Footer({ logo, description, partners }: FooterProps) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={24} md={15} sx={{ order: { xs: 0, md: 1 } }}>
+          <Grid item xs={24} md={8} sx={{ order: { xs: 0, md: 1 } }}>
             <Grid
               container
               direction="column"
-              gap={2}
+              gap={3}
               sx={{
                 height: "100%",
               }}
-              justifyContent="center"
             >
               <Typography sx={{ color: "text.secondary" }} variant="h6">
                 In partnership with:
@@ -76,12 +83,23 @@ export default function Footer({ logo, description, partners }: FooterProps) {
               <Grid
                 container
                 spacing={2}
-                wrap="nowrap"
+                wrap="wrap"
                 alignItems="center"
                 gap={2}
+                sx={{
+                  "&.MuiGrid-root .MuiGrid-item": {
+                    p: 0,
+                  },
+                }}
               >
                 {partners.map((partner: any) => (
-                  <Grid item key={partner.name}>
+                  <Grid
+                    item
+                    key={partner.name}
+                    sx={{
+                      p: 0,
+                    }}
+                  >
                     <Link href={partner.url} target="_blank">
                       <Figure
                         ImageProps={partner.logo}
@@ -90,14 +108,35 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                             sm: "block",
                           },
                           filter: "grayscale(100%)",
-                          height: { xs: "113px", md: "113px", lg: "113px" },
-                          width: { xs: "251px", md: "251px", lg: "251px" },
+                          height: "113px",
+                          width: "170px",
                         }}
                       />
                     </Link>
                   </Grid>
                 ))}
               </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={24} md={8} sx={{ order: { xs: 1, md: 2 } }}>
+            <Grid container justifyContent="flex-end">
+              <Typography>
+                This project was insipred by a{" "}
+                <Link
+                  href="https://reutersinstitute.politics.ox.ac.uk/how-many-news-websites-block-ai-crawlers"
+                  target="blank"
+                >
+                  survey conducted{" "}
+                </Link>
+                by the Reutures Instititue in the Minority World
+              </Typography>
+              <Typography>
+                The Audit data used in this project was based on{" "}
+                <Link href="https://civicsignal.africa" target="blank">
+                  Civic Signals{" "}
+                </Link>
+                MediaData DB
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
