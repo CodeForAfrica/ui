@@ -1,0 +1,50 @@
+{
+  "name": "robo_shield",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.19",
+    "@mui/material": "^5.15.19",
+    "@mui/utils": "^5.15.14",
+    "@mui/x-date-pickers": "^7.6.2",
+    "@next/env": "^14.2.3",
+    "ace-builds": "^1.34.2",
+    "crawler-user-agents": "^1.0.142",
+    "date-fns": "^3.6.0",
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-ace": "^11.0.1",
+    "react-dom": "^18.3.1",
+    "react-rotating-text": "^1.4.1",
+    "robots-txt-parse": "^2.0.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
+    "@commons-ui/testing-library": "workspace:*",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-commons-ui": "workspace:*",
+    "eslint-config-next": "14.2.3",
+    "eslint-import-resolver-webpack": "^0.13.8",
+    "eslint-plugin-import": "^2.29.1",
+    "typescript": "^5.4.5"
+  }
+}

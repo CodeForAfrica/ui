@@ -22,5 +22,5 @@ mongodb-keyfile:
 pesayetu:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
 
-robots-generator:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/robots-generator/.env.local up robots-generator --build
+roboshield:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/roboshield/.env.local up roboshield --build

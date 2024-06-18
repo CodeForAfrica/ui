@@ -52,10 +52,10 @@ services:
     ports:
       - 3000:3000
 
-  robots-generator:
+  roboshield:
     build:
       context: .
-      dockerfile: Dockerfile.robots-generator
+      dockerfile: Dockerfile.roboshield
     ports:
       - 3000:3000
 
