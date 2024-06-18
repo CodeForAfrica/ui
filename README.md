@@ -2,11 +2,11 @@
 
 ## Applications
 
-| Name                                            | Description                                  |
-| ----------------------------------------------- | -------------------------------------------- |
-| [**charterAFRICA**](./apps/charterafrica/README.md) | The largest digital database for communities |
-| [**Code for Africa**](./apps/codeforafrica/README.md) | Africa's largest network of civic tech and open data labs |
-| [**PesaYetu**](./apps/codeforafrica/README.md) | Data to hold your government accountable |
+| Name                                         | Description                                               |
+| -------------------------------------------- | --------------------------------------------------------- |
+| [**charterAFRICA**](./apps/charterafrica/)   | The largest digital database for communities              |
+| [**Code for Africa**](./apps/codeforafrica/) | Africa's largest network of civic tech and open data labs |
+| [**PesaYetu**](./apps/pesayetu/)             | Data to hold your government accountable                  |
 
 ## Get started
 
