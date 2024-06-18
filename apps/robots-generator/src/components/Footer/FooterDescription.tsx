@@ -14,7 +14,12 @@ function FooterDescription({ description, logo, sx }: FooterDescriptionProps) {
   }
   return (
     <Stack alignItems={{ xs: "center", md: "flex-start" }} sx={sx}>
-      <Link href="/">
+      <Link
+        href="/"
+        sx={{
+          color: "text.secondary",
+        }}
+      >
         <Figure
           ImageProps={logo}
           sx={{

@@ -76,6 +76,10 @@ export default function Footer({ logo, description, partners }: FooterProps) {
               sx={{
                 height: "100%",
               }}
+              alignItems={{
+                xs: "center",
+                md: "flex-start",
+              }}
             >
               <Typography sx={{ color: "text.secondary" }} variant="h6">
                 In partnership with:
@@ -85,7 +89,10 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                 spacing={2}
                 wrap="wrap"
                 alignItems="center"
-                gap={2}
+                gap={{
+                  xs: 1,
+                  md: 2,
+                }}
                 sx={{
                   "&.MuiGrid-root .MuiGrid-item": {
                     p: 0,
@@ -125,6 +132,10 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                 <Link
                   href="https://reutersinstitute.politics.ox.ac.uk/how-many-news-websites-block-ai-crawlers"
                   target="blank"
+                  sx={{
+                    color: "text.secondary",
+                    textDecoration: "underline",
+                  }}
                 >
                   survey conducted{" "}
                 </Link>
@@ -132,7 +143,14 @@ export default function Footer({ logo, description, partners }: FooterProps) {
               </Typography>
               <Typography>
                 The Audit data used in this project was based on{" "}
-                <Link href="https://civicsignal.africa" target="blank">
+                <Link
+                  href="https://civicsignal.africa"
+                  target="blank"
+                  sx={{
+                    color: "text.secondary",
+                    textDecoration: "underline",
+                  }}
+                >
                   Civic Signals{" "}
                 </Link>
                 MediaData DB
