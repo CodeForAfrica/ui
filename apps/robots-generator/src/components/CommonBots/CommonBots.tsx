@@ -87,22 +87,29 @@ export default function CommonBots({
               alignItems="center"
               justifyContent="flex-start"
               gap={1}
-              width={"100%"}
             >
               {robotsGroupedByType.map(([type, robots]) => (
                 <Accordion
                   key={type}
-                  sx={{ width: "100%", marginLeft: "0 !important" }}
+                  elevation={0}
+                  sx={{
+                    width: "100%",
+                    marginLeft: "0 !important",
+                    "&.MuiPaper-elevation": {
+                      position: "unset",
+                    },
+                  }}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                     sx={{
+                      background: "#E9EEFB",
+                      border: "1px solid #D6DFF8",
                       "&.MuiAccordionSummary-root .MuiAccordionSummary-content":
                         {
                           justifyContent: "space-between",
-                          flexWrap: "wrap",
                         },
                     }}
                   >
@@ -142,7 +149,12 @@ export default function CommonBots({
                       onClick={(e) => e.stopPropagation()}
                     />
                   </AccordionSummary>
-                  <AccordionDetails>
+                  <AccordionDetails
+                    sx={{
+                      border: "1px solid #D6DFF8",
+                      borderTop: "0",
+                    }}
+                  >
                     <Stack
                       direction="row"
                       spacing={1}
