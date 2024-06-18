@@ -339,10 +339,10 @@ export async function getStaticProps() {
             logo: {
               alt: "DW Africa",
               prefix: "media",
-              filename: "dw-africa.svg",
-              mimeType: "image/svg+xml",
-              url: "/images/dw.svg",
-              src: "/images/dw.svg",
+              filename: "dw-africa.png",
+              mimeType: "image/png",
+              url: "/images/DW.png",
+              src: "/images/DW.png",
             },
           },
           {

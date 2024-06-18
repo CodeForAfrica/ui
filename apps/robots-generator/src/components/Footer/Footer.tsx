@@ -117,6 +117,9 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                           filter: "grayscale(100%)",
                           height: "113px",
                           width: "170px",
+                          "&:hover": {
+                            filter: "grayscale(0%)",
+                          },
                         }}
                       />
                     </Link>
