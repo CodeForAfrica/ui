@@ -19,7 +19,7 @@ const FeaturedVideos = forwardRef(function FeaturedVideos(props, ref) {
           {title}
         </RichTypography>
         <Grid container spacing={3}>
-          {items.map((item) => (
+          {items?.map((item) => (
             <Grid xs={12} sm={6} md={4} item key={item.id}>
               <FeaturedVideoCard {...item} airedOnText={airedOnText} />
             </Grid>
