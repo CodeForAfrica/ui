@@ -1,3 +1,5 @@
+import processFeaturedVideos from "./processBlockFeaturedVideos";
+
 const processHero = (page) => {
   const { blocks } = page;
   const heroIndex = blocks.findIndex((block) => block.slug === "hero");
@@ -88,8 +90,8 @@ async function processPageIndex(page, api, context) {
   processHero(page);
   processMooc(page);
   processSpotlight(page, api, context);
-
-  return page;
+  const processedPage = await processFeaturedVideos(page, context.locale);
+  return processedPage;
 }
 
 export default processPageIndex;

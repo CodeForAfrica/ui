@@ -14,6 +14,7 @@ import Entity from "@/charterafrica/components/Entity";
 import Explainers from "@/charterafrica/components/Explainers";
 import FAQ from "@/charterafrica/components/FAQ";
 import FeaturedPostCard from "@/charterafrica/components/FeaturedPostCard";
+import FeaturedVideos from "@/charterafrica/components/FeaturedVideos";
 import FlourishChart from "@/charterafrica/components/FlourishChart";
 import FocalCountries from "@/charterafrica/components/FocalCountries";
 import Grantees from "@/charterafrica/components/Grantees";
@@ -51,6 +52,7 @@ const componentsBySlugs = {
   explainers: Explainers,
   faq: FAQ,
   "featured-post": FeaturedPostCard,
+  "featured-videos": FeaturedVideos,
   "fellowships-and-grants-header": OpportunityHeader,
   "flourish-chart": FlourishChart,
   "focal-countries": FocalCountries,

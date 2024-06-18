@@ -33,64 +33,64 @@ import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Pages = {
-    slug: "pages",
-    admin: {
-        defaultColumns: ["fullTitle", "updatedAt"],
-        preview: (doc, options) => formatDraftUrl("pages", doc, options),
-        useAsTitle: "title"
+  slug: "pages",
+  admin: {
+    defaultColumns: ["fullTitle", "updatedAt"],
+    preview: (doc, options) => formatDraftUrl("pages", doc, options),
+    useAsTitle: "title",
+  },
+  access: {
+    read: () => true, // Everyone can read Pages
+  },
+  fields: [
+    {
+      name: "title",
+      type: "text",
+      localized: true,
+      required: true,
     },
-    access: {
-        read: () => true // Everyone can read Pages
+    fullTitle(),
+    slug(),
+    {
+      name: "blocks",
+      type: "blocks",
+      blocks: [
+        AgaInfographic,
+        CommunityPlatforms,
+        Contributors,
+        Datasets,
+        DemocracyHelpdeskContent,
+        Documents,
+        Ecosystem,
+        EmbeddedDocuments,
+        EmbeddedPlaylist,
+        Error,
+        FAQ,
+        FeaturedPost,
+        FlourishChart,
+        Global,
+        GuidingPrincipals,
+        Grantees,
+        Hero,
+        Impressum,
+        LongForm,
+        Mooc,
+        Opportunities,
+        Organisations,
+        PageDescription,
+        PageHeader,
+        PageInfo,
+        Partners,
+        Resources,
+        Spotlight,
+        Tools,
+        FeaturedVideos,
+      ],
+      admin: {
+        initCollapsed: true,
+      },
     },
-    fields: [
-        {
-            name: "title",
-            type: "text",
-            localized: true,
-            required: true
-        },
-        fullTitle(),
-        slug(),
-        {
-            name: "blocks",
-            type: "blocks",
-            blocks: [
-                AgaInfographic,
-                CommunityPlatforms,
-                Contributors,
-                Datasets,
-                DemocracyHelpdeskContent,
-                Documents,
-                Ecosystem,
-                EmbeddedDocuments,
-                EmbeddedPlaylist,
-                Error,
-                FAQ,
-                FeaturedPost,
-                FlourishChart,
-                Global,
-                GuidingPrincipals,
-                Grantees,
-                Hero,
-                Impressum,
-                LongForm,
-                Mooc,
-                Opportunities,
-                Organisations,
-                PageDescription,
-                PageHeader,
-                PageInfo,
-                Partners,
-                Resources,
-                Spotlight,
-                Tools,
-                FeaturedVideos
-            ],
-            admin: {
-                initCollapsed: true
-            }
-        }
-    ]
+  ],
 };
 
 export default Pages;
