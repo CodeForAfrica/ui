@@ -17,7 +17,6 @@ import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { platforms } from "@/roboshield/lib/config";
 
 interface CommonSettingsProps {
-  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

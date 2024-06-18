@@ -6,7 +6,7 @@ import { useDebouncedValue } from "@/roboshield/utils/useDebounce";
 interface InputProps {
   initialValue?: string;
   label?: string;
-  // eslint-disable-next-line no-unused-vars
+
   onChange?: (value: string) => void;
   placeholder?: string;
   sx?: React.CSSProperties;

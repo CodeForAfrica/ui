@@ -9,7 +9,6 @@ import Input from "@/roboshield/components/Input";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 
 interface DelaysProps {
-  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

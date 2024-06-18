@@ -23,7 +23,6 @@ import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { Robot, getBotType, groupedRobots } from "@/roboshield/lib/robots-data";
 
 interface CommonBotsProps {
-  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   reactStrictMode: false,
   webpack: (config) => {
     config.module.rules.push(

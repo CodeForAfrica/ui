@@ -5,7 +5,7 @@ import { useDebouncedValue } from "@/roboshield/utils/useDebounce";
 
 interface TextAreaProps {
   value: string;
-  // eslint-disable-next-line no-unused-vars
+
   onChange: (newValue: string) => void;
   minRows?: number;
   maxRows?: number;

@@ -11,7 +11,6 @@ import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { validateUrl } from "@/roboshield/utils/urls";
 
 interface ExistingRobotsProps {
-  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   lastStep: boolean;

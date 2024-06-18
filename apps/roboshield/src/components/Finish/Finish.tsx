@@ -9,7 +9,6 @@ import { generateRobots } from "@/roboshield/lib/robots";
 import { downloadFile } from "@/roboshield/utils/file";
 
 interface FinishProps {
-  // eslint-disable-next-line no-unused-vars
   handleNext: (data: any) => void;
   handleBack: () => void;
   handleReset: () => void;
@@ -23,7 +22,7 @@ export default function Finish({ handleReset, handleBack }: FinishProps) {
   const [saved, setSaved] = useState(false);
 
   async function saveData() {
-    await fetch("/api/save", {
+    await fetch("/api/save_robots", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

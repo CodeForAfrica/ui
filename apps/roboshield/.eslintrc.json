@@ -27,7 +27,6 @@
       {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
-    ],
-    "no-unused-vars": "error"
+    ]
   }
 }

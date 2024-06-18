@@ -4,7 +4,6 @@ import CodeEditor from "./CodeEditor";
 
 interface CodeProps {
   code: string;
-  // eslint-disable-next-line no-unused-vars
   onCodeChange: (newCode: string) => void;
   onCopy: () => void;
   onDownload: () => void;
