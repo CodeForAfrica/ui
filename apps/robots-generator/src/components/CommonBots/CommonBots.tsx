@@ -87,6 +87,7 @@ export default function CommonBots({
               alignItems="center"
               justifyContent="flex-start"
               gap={1}
+              width={"100%"}
             >
               {robotsGroupedByType.map(([type, robots]) => (
                 <Accordion
@@ -101,6 +102,7 @@ export default function CommonBots({
                       "&.MuiAccordionSummary-root .MuiAccordionSummary-content":
                         {
                           justifyContent: "space-between",
+                          flexWrap: "wrap",
                         },
                     }}
                   >

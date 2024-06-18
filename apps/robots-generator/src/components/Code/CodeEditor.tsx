@@ -28,11 +28,11 @@ function CodeEditor({
         width: "100%",
         height: "500px",
         border: readOnly
-        ? "1px solid rgb(19 81 216 / 10%)"
-        : "1px solid #C4C4C4",
-      background: readOnly
-        ? "linear-gradient(0deg, rgba(19, 81, 216, 0.01), rgba(19, 81, 216, 0.01)), linear-gradient(0deg, rgba(19, 81, 216, 0.05), rgba(19, 81, 216, 0.05))"
-        : "#FFFFFF",
+          ? "1px solid rgb(19 81 216 / 10%)"
+          : "1px solid #C4C4C4",
+        background: readOnly
+          ? "linear-gradient(0deg, rgba(19, 81, 216, 0.01), rgba(19, 81, 216, 0.01)), linear-gradient(0deg, rgba(19, 81, 216, 0.05), rgba(19, 81, 216, 0.05))"
+          : "#FFFFFF",
 
         marginBottom: "10px",
         borderRadius: "5px",

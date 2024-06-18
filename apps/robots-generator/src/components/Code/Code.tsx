@@ -34,7 +34,13 @@ export default function Code(props: CodeProps) {
     >
       <CodeEditor code={code} setCode={handleCodeChange} readOnly={false} />
 
-      <Stack direction="row" spacing={2}>
+      <Stack
+        direction={{
+          xs: "column",
+          sm: "row",
+        }}
+        spacing={2}
+      >
         <Button
           variant="contained"
           color="primary"
