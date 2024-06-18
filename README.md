@@ -1,4 +1,12 @@
-# ui
+# COMMONS UI
+
+## Applications
+
+| Name                                         | Description                                               |
+| -------------------------------------------- | --------------------------------------------------------- |
+| [**charterAFRICA**](./apps/charterafrica/)   | The largest digital database for communities              |
+| [**Code for Africa**](./apps/codeforafrica/) | Africa's largest network of civic tech and open data labs |
+| [**PesaYetu**](./apps/pesayetu/)             | Data to hold your government accountable                  |
 
 ## Get started
 
