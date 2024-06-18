@@ -86,7 +86,7 @@ jobs:
             |-------|--------|
             | ${{ env.APP_NAME }}  | [Visit](https://${{ env.APP_NAME }}.dev.codeforafrica.org)  |
 
-  destroy_review_app4:
+  destroy_review_app:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     steps:
