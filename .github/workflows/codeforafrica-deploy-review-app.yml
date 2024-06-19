@@ -6,6 +6,7 @@ on:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
       - ".github/workflows/codeforafrica-deploy-review.yml"
+    types: [opened, reopened, edited, closed, synchronize]
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: false
