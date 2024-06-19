@@ -6,7 +6,8 @@ on:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
       - ".github/workflows/codeforafrica-deploy-review-app.yml"
-    types: [opened, reopened, edited, closed, synchronize]
+      # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened. We need to add closed to the list of activity types to ensure that the workflow runs when a pull request is closed.
+    types: [opened, reopened, closed, synchronize]
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: false
