@@ -5,7 +5,9 @@ on:
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
-      - ".github/workflows/codeforafrica-deploy-review.yml"
+      - ".github/workflows/codeforafrica-deploy-review-app.yml"
+      # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened.
+    types: [opened, reopened, closed, synchronize]
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: false
