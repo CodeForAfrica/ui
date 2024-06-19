@@ -1,3 +1,5 @@
+import processFeaturedVideos from "./processBlockFeaturedVideos";
+
 async function processPageAbout(page, api, { locale }) {
   const { blocks } = page;
   const foundIndex = blocks.findIndex(({ slug }) => slug === "our-grantees");
@@ -15,7 +17,8 @@ async function processPageAbout(page, api, { locale }) {
     };
   }
 
-  return page;
+  const processedPage = await processFeaturedVideos(page, locale);
+  return processedPage;
 }
 
 export default processPageAbout;
