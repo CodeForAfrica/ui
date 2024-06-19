@@ -4,11 +4,10 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import ShareThisPage from "@/charterafrica/components/ShareThisPage";
-import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const DescriptionAndShare = React.forwardRef(
   function DescriptionAndShare(props, ref) {
-    const { sx, description, lastActive } = props;
+    const { sx, description, lastActive, activeText } = props;
     return (
       <Box sx={sx} ref={ref}>
         <RichTypography
@@ -22,12 +21,14 @@ const DescriptionAndShare = React.forwardRef(
         <RichTypography
           textAlign="left"
           color="neutral.dark"
-          sx={{ mt: 3.75, textAlign: { xs: "center", sm: "left" } }}
-          variant="p1"
+          sx={{
+            mt: 3.75,
+            textTransform: "none",
+            textAlign: { xs: "center", sm: "left" },
+          }}
+          variant="captionCap"
         >
-          {formatDateTime(lastActive, {
-            includeTime: true,
-          })}
+          {activeText} {lastActive}
         </RichTypography>
         <Box
           display="flex"

@@ -23,7 +23,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     theme,
     operatingCountries,
     description,
-    lastCommit,
+    lastActive,
     goToRepo,
     techSkills,
     contributors,
@@ -36,6 +36,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     toolsTitle,
     externalLink,
     classification,
+    activeText,
+    collectionText,
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
@@ -97,7 +99,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               />
               <DescriptionAndShare
                 description={description}
-                lastActive={lastCommit?.committedDate}
+                lastActive={lastActive}
+                activeText={activeText}
                 sx={{ mb: 6.75 }}
               />
             </Grid>
@@ -150,8 +153,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               sx={{ mt: 3.75 }}
             />
             <Box sx={{ mt: 3.75 }}>
-              <RichTypography variant="p3" color="neutral.dark">
-                Collection
+              <RichTypography variant="p3SemiBold" color="neutral.dark">
+                {collectionText}
               </RichTypography>
               <RichTypography sx={{ mt: 1 }} variant="p3">
                 {classification}

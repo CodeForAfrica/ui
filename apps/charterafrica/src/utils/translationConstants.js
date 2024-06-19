@@ -1,5 +1,6 @@
 const labelsPerLocale = {
   en: {
+    activeText: "Last Active",
     topic: "Topic A-Z",
     "-topic": "Topic Z-A",
     views: "Views Ascending",
@@ -34,6 +35,7 @@ const labelsPerLocale = {
     classification: "Classification",
   },
   fr: {
+    activeText: "Dernier actif",
     topic: "Sujet A-Z",
     "-topic": "Sujet Z-A",
     views: "Vues ascendantes",
@@ -68,6 +70,7 @@ const labelsPerLocale = {
     classification: "Classification",
   },
   pt: {
+    activeText: "ativo pela última vez",
     topic: "Tópico A-Z",
     "-topic": "Tópico Z-A",
     views: "Visualizações ascendentes",
