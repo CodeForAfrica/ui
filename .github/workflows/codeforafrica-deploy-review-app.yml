@@ -71,7 +71,6 @@ jobs:
         with:
           command: review-apps:create
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
-          # specify a name for the review app
           review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
@@ -88,15 +87,12 @@ jobs:
 
   destroy_review_app:
     runs-on: ubuntu-latest
-    # only run when a pull request is closed
-    if: github.event.action == 'closed'
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
     steps:
-      - name: Destroy the review app
+      - name: Destroy review app
         uses: dokku/github-action@master
         with:
-          # destroy a review app
           command: review-apps:destroy
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
-          # specify a name for the review app
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/codeforafrica-ui
           review_app_name: ${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
