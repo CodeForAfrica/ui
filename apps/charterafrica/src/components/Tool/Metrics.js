@@ -23,7 +23,7 @@ const Metrics = React.forwardRef(function Metrics(props, ref) {
   } = props;
   return (
     <Box display="flex" sx={sx} ref={ref} flexWrap="wrap" alignItems="center">
-      <Box display="flex" alignItems="center" sx={{ mb: 2, ml: 2 }}>
+      <Box display="flex" alignItems="center" sx={{ mb: 2, mr: 2 }}>
         <SvgIcon
           inheritViewBox
           component={ViewsIcon}
