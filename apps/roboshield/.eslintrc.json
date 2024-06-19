@@ -12,13 +12,6 @@
         "newlines-between": "always"
       }
     ],
-    // https://mui.com/guides/minimizing-bundle-size/#option-1
-    "no-restricted-imports": [
-      "error",
-      {
-        "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
-      }
-    ],
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
