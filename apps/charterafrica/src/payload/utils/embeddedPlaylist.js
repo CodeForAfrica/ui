@@ -27,8 +27,8 @@ function getEmbeddedPlaylistFromBlock(block) {
   return { playlistId, queryString };
 }
 
-export function getEmbeddedPlaylist(documents = {}) {
+export function getEmbeddedPlaylist(documents = {}, blockSlug = BLOCK_SLUG) {
   const { blocks } = documents;
-  const block = blocks?.find((b) => b?.blockType === BLOCK_SLUG);
+  const block = blocks?.find((b) => b?.blockType === blockSlug);
   return getEmbeddedPlaylistFromBlock(block);
 }
