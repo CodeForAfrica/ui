@@ -309,14 +309,12 @@ export async function getStaticProps() {
           src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
         },
         menus: [
-          { label: "HOME", href: "/" },
-          { label: "FAQ", href: "#" },
           { label: "ABOUT", href: "#" },
         ],
         socialLinks: [
           {
             platform: "Github",
-            url: "https://github.com/CodeForAfrica",
+            url: "https://github.com/CodeForAfrica/ui",
             id: "1",
           },
         ],
