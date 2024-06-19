@@ -64,7 +64,6 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 flex={1}
               >
                 <LineClampedRichTypography
-                  lineClamp={1}
                   color="neutral.dark"
                   variant="h2SemiBold"
                 >
