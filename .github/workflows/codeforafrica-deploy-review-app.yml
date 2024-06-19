@@ -6,7 +6,7 @@ on:
       - "apps/codeforafrica/**"
       - "Dockerfile.codeforafrica"
       - ".github/workflows/codeforafrica-deploy-review-app.yml"
-      # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened. We need to add closed to the list of activity types to ensure that the workflow runs when a pull request is closed.
+      # By default, a workflow only runs when a pull_request event's activity type is opened, synchronize, or reopened.
     types: [opened, reopened, closed, synchronize]
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
@@ -89,7 +89,7 @@ jobs:
 
   destroy_review_app:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && (github.event.action == 'closed' || github.event.action == 'merged')
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
     steps:
       - name: Destroy review app
         uses: dokku/github-action@master
