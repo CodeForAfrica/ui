@@ -1,5 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
+import processFeaturedVideos from "./processBlockFeaturedVideos";
+
 import formatDateTime from "@/charterafrica/utils/formatDate";
 
 function processOpportunity(opportunity, pageUrl, api, context) {
@@ -171,7 +173,8 @@ const fetchOpportunitiesCollectionFunctionMap = {
   grants: fetchGrants,
 };
 
-async function processPageOpportunities(page, api, context) {
+async function processPageOpportunities(unProcessedPage, api, context) {
+  const page = await processFeaturedVideos(unProcessedPage, context.locale);
   const { blocks, breadcrumbs = [] } = page;
   const pageUrl = breadcrumbs[breadcrumbs.length - 1].url;
   const opportunitiesBlocks = await Promise.all(
