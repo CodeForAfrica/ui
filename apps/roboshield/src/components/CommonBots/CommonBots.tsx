@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
   Switch,
+  Grid,
 } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -147,51 +148,45 @@ export default function CommonBots({
                       borderTop: "0",
                     }}
                   >
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      flexWrap="wrap"
-                      alignItems="center"
-                      justifyContent="flex-start"
-                      gap={1}
-                    >
+                    <Grid container spacing={2}>
                       {robots.map((robot) => (
-                        <MemoizedFormControlLabel
-                          key={robot.name}
-                          control={
-                            <Checkbox
-                              value={robot.name}
-                              checked={!isSelected(robot)}
-                              name={robot.name}
-                              onChange={() => toggleBot(robot)}
-                              sx={{
-                                color: "primary.main",
-                                "&.Mui-checked": {
+                        <Grid item xs={12} md={4} key={robot.name}>
+                          <MemoizedFormControlLabel
+                            control={
+                              <Checkbox
+                                value={robot.name}
+                                checked={!isSelected(robot)}
+                                name={robot.name}
+                                onChange={() => toggleBot(robot)}
+                                sx={{
                                   color: "primary.main",
-                                },
-                              }}
-                            />
-                          }
-                          label={
-                            <Typography
-                              sx={{
-                                whiteSpace: "nowrap",
-                              }}
-                            >
-                              {robot.name}
-                              <Tooltip title={robot.about}>
-                                <IconButton size="small" color="info">
-                                  <InfoIcon />
-                                </IconButton>
-                              </Tooltip>
-                            </Typography>
-                          }
-                          sx={{
-                            marginLeft: "0 !important",
-                          }}
-                        />
+                                  "&.Mui-checked": {
+                                    color: "primary.main",
+                                  },
+                                }}
+                              />
+                            }
+                            label={
+                              <Typography
+                                sx={{
+                                  whiteSpace: "nowrap",
+                                }}
+                              >
+                                {robot.name}
+                                <Tooltip title={robot.about}>
+                                  <IconButton size="small" color="info">
+                                    <InfoIcon />
+                                  </IconButton>
+                                </Tooltip>
+                              </Typography>
+                            }
+                            sx={{
+                              marginLeft: "0 !important",
+                            }}
+                          />
+                        </Grid>
                       ))}
-                    </Stack>
+                    </Grid>
                   </AccordionDetails>
                 </Accordion>
               ))}
