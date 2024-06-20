@@ -170,8 +170,6 @@ COPY --from=pesayetu-deps /workspace/packages/commons-ui-next/node_modules ./pac
 COPY --from=pesayetu-deps /workspace/packages/eslint-config-commons-ui/node_modules ./packages/eslint-config-commons-ui/node_modules
 COPY --from=pesayetu-deps /workspace/apps/pesayetu/node_modules ./apps/pesayetu/node_modules
 
-COPY packages ./packages
-
 COPY apps/pesayetu ./apps/pesayetu
 
 RUN pnpm --filter "./apps/pesayetu" build
