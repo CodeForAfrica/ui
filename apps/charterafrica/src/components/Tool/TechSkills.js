@@ -10,7 +10,7 @@ const TechSkills = React.forwardRef(function TechSkills(props, ref) {
   }
   return (
     <Box sx={sx} ref={ref}>
-      <RichTypography variant="p3" color="neutral.dark">
+      <RichTypography variant="p3SemiBold" color="neutral.dark">
         {title}
       </RichTypography>
       <br />

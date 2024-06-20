@@ -6,6 +6,7 @@ import React from "react";
 
 import ExternalLink from "@/charterafrica/assets/icons/Type=external-link, Size=24, Color=CurrentColor.svg";
 import GithubIcon from "@/charterafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
+import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import Contributors from "@/charterafrica/components/Tool/Contributors";
 import DescriptionAndShare from "@/charterafrica/components/Tool/DescriptionAndShare";
 import Metrics from "@/charterafrica/components/Tool/Metrics";
@@ -22,7 +23,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     theme,
     operatingCountries,
     description,
-    lastCommit,
+    lastActive,
     goToRepo,
     techSkills,
     contributors,
@@ -35,12 +36,14 @@ const Tool = React.forwardRef(function Tool(props, ref) {
     toolsTitle,
     externalLink,
     classification,
+    activeText,
+    collectionText,
   } = props;
   return (
     <Box bgcolor="common.white" ref={ref}>
       <Section sx={{ pb: { xs: 10 } }}>
         <Grid sx={{ py: { sm: 10 } }} container ref={ref}>
-          <Grid container item sm={6} sx={{ pr: { sm: 6.25 } }}>
+          <Grid container item sm={7} sx={{ pr: { sm: 6.25 } }}>
             <Grid item>
               <CardMedia
                 component="img"
@@ -52,7 +55,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 }}
               />
             </Grid>
-            <Grid xs={12} item>
+            <Grid sx={{ px: { xs: 2, sm: 0 } }} xs={12} item>
               <Box
                 sx={{ width: "100%", mt: 3.75 }}
                 display="flex"
@@ -60,9 +63,12 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 alignItems="center"
                 flex={1}
               >
-                <RichTypography color="neutral.dark" variant="h2SemiBold">
+                <LineClampedRichTypography
+                  color="neutral.dark"
+                  variant="h2SemiBold"
+                >
                   {name}
-                </RichTypography>
+                </LineClampedRichTypography>
                 {externalLink?.href ? (
                   <Link href={externalLink.href}>
                     <SvgIcon
@@ -79,7 +85,7 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 ) : null}
               </Box>
             </Grid>
-            <Grid item>
+            <Grid sx={{ px: { xs: 2, sm: 0 } }} item>
               <OrgThemeAndOperatingCountries
                 sx={{ mt: 3.75, textAlign: "left" }}
                 organisation={organisation}
@@ -92,7 +98,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               />
               <DescriptionAndShare
                 description={description}
-                lastActive={lastCommit?.committedDate}
+                lastActive={lastActive}
+                activeText={activeText}
                 sx={{ mb: 6.75 }}
               />
             </Grid>
@@ -100,16 +107,19 @@ const Tool = React.forwardRef(function Tool(props, ref) {
           <Grid
             item
             xs={12}
-            sm={6}
+            sm={5}
             sx={() => ({
               borderLeft: `1px solid rgba(0, 0, 0, 0.1)`,
               textAlign: { sm: "right", xs: "center" },
-              pl: { sm: 6.25 },
+              px: { sm: 6.25, xs: 2 },
             })}
           >
             <Box
               ref={ref}
-              sx={{ width: { xs: "100%", sm: "fit-content" }, ml: "auto" }}
+              sx={{
+                width: { xs: "100%", sm: "fit-content" },
+                ml: "auto",
+              }}
             >
               <Button
                 component={goToRepo?.href ? Link : undefined}
@@ -142,8 +152,8 @@ const Tool = React.forwardRef(function Tool(props, ref) {
               sx={{ mt: 3.75 }}
             />
             <Box sx={{ mt: 3.75 }}>
-              <RichTypography variant="p3" color="neutral.dark">
-                Collection
+              <RichTypography variant="p3SemiBold" color="neutral.dark">
+                {collectionText}
               </RichTypography>
               <RichTypography sx={{ mt: 1 }} variant="p3">
                 {classification}

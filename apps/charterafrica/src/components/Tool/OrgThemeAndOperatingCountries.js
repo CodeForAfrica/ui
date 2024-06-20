@@ -13,34 +13,70 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
     }
     return (
       <Box sx={sx} ref={ref}>
-        <Figure
-          ImageProps={{
-            alt: organisation.name,
-            src: organisation.avatarUrl,
-          }}
+        <Box
+          display="flex"
           sx={{
-            height: 50,
-            width: "auto",
+            justifyContent: {
+              xs: "center",
+              sm: "left",
+              display: "flex",
+            },
           }}
-        />
-        <Link
-          href={organisation?.link?.href || "#"}
-          textAlign="left"
-          color="neutral.dark"
-          sx={{ textDecoration: "none" }}
-          variant="h3Small"
         >
-          {organisation.name}
-        </Link>
-        {theme ? (
-          <Button
-            variant="contained"
-            component="div"
-            sx={{ backgroundColor: "success.main", color: "neutral.dark" }}
+          <Figure
+            ImageProps={{
+              alt: organisation.name,
+              src: organisation.avatarUrl,
+            }}
+            sx={{
+              height: 50,
+              width: 150,
+            }}
+          />
+        </Box>
+        <Box
+          display="flex"
+          sx={{
+            justifyContent: {
+              xs: "center",
+              sm: "left",
+              display: "flex",
+            },
+          }}
+        >
+          <Link
+            href={organisation?.link?.href || "#"}
+            textAlign="left"
+            color="neutral.dark"
+            sx={{ textDecoration: "none", fontWeight: 400 }}
+            variant="h4"
           >
-            {theme}
-          </Button>
-        ) : null}
+            {organisation.name}
+          </Link>
+        </Box>
+        <Box
+          sx={{
+            justifyContent: {
+              xs: "center",
+              sm: "left",
+              display: "flex",
+            },
+          }}
+        >
+          {theme ? (
+            <Button
+              variant="contained"
+              component="div"
+              sx={{
+                backgroundColor: "success.main",
+                color: "neutral.dark",
+                mt: 3.75,
+              }}
+            >
+              {theme}
+            </Button>
+          ) : null}
+        </Box>
         <RichTypography color="neutral.dark" variant="p3" sx={{ mt: 3.75 }}>
           {countries}
         </RichTypography>
