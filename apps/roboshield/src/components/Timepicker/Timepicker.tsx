@@ -1,22 +1,22 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { TimePicker as MuiTimePicker } from "@mui/x-date-pickers/TimePicker";
 
-interface TimepickerProps {
+interface TimePickerProps {
   value: Date | null;
 
   onChange: (newValue: Date | null) => void;
   label: string;
 }
 
-export default function Timepicker({
+export default function TimePicker({
   value,
   onChange,
   label,
-}: TimepickerProps) {
+}: TimePickerProps) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <TimePicker
+      <MuiTimePicker
         value={value}
         sx={{
           width: "100%",

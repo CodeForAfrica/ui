@@ -2,8 +2,8 @@ import InfoIcon from "@mui/icons-material/Info";
 import { Box, IconButton, InputLabel, Stack, Tooltip } from "@mui/material";
 import { useState } from "react";
 
-import StepperNav from "../StepperNav";
-import Timepicker from "../Timepicker";
+import StepperNav from "@/roboshield/components/StepperNav";
+import TimePicker from "@/roboshield/components/TimePicker";
 
 import Input from "@/roboshield/components/Input";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
@@ -137,12 +137,12 @@ export default function Delays({
               mb: 2,
             }}
           >
-            <Timepicker
+            <TimePicker
               value={visitTimeFrom}
               onChange={handleVisitTimeChange}
               label="From"
             />
-            <Timepicker
+            <TimePicker
               label="To"
               value={visitTimeTo}
               onChange={handleVisitTimeToChange}

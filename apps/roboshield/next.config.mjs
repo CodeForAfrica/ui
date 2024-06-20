@@ -8,7 +8,7 @@ const outputFileTracingRoot = PROJECT_ROOT
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
-  reactStrictMode: false,
+  reactStrictMode: true,
   output: "standalone",
   experimental: {
     outputFileTracingRoot,
