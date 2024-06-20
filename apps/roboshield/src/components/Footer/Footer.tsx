@@ -62,7 +62,7 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                   <FooterDescription
                     description={description}
                     logo={logo}
-                    sx={{ mt: { xs: 10, md: 0 } }}
+                    sx={{ mt: { xs: 5, md: 0 } }}
                   />
                 </Grid>
               </Grid>
@@ -81,7 +81,10 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                 md: "flex-start",
               }}
             >
-              <Typography sx={{ color: "text.secondary" }} variant="h6">
+              <Typography
+                sx={{ color: "text.secondary", mb: "10px" }}
+                variant="h6"
+              >
                 In partnership with:
               </Typography>
               <Grid
@@ -94,6 +97,8 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                   md: 2,
                 }}
                 sx={{
+                  alignItems: "center",
+                  justifyContent: { xs: "center", md: "left" },
                   "&.MuiGrid-root .MuiGrid-item": {
                     p: 0,
                   },
@@ -115,7 +120,7 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                             sm: "block",
                           },
                           filter: "grayscale(100%)",
-                          height: "113px",
+                          height: "60px",
                           width: "170px",
                           "&:hover": {
                             filter: "grayscale(0%)",
@@ -129,8 +134,8 @@ export default function Footer({ logo, description, partners }: FooterProps) {
             </Grid>
           </Grid>
           <Grid item xs={24} md={8} sx={{ order: { xs: 1, md: 2 } }}>
-            <Grid container justifyContent="flex-end">
-              <Typography>
+            <Grid container justifyContent="center">
+              <Typography sx={{ textAlign: { xs: "center", md: "left" } }}>
                 This project was insipred by a{" "}
                 <Link
                   href="https://reutersinstitute.politics.ox.ac.uk/how-many-news-websites-block-ai-crawlers"
@@ -144,7 +149,7 @@ export default function Footer({ logo, description, partners }: FooterProps) {
                 </Link>
                 by the Reutures Instititue in the Minority World
               </Typography>
-              <Typography>
+              <Typography sx={{ textAlign: { xs: "center", md: "left" } }}>
                 The Audit data used in this project was based on{" "}
                 <Link
                   href="https://civicsignal.africa"
