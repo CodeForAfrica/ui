@@ -5,7 +5,11 @@ on:
     paths:
       - "apps/codeforafrica/**"
       - "codeforafrica.Dockerfile"
-      - ".github/workflows/codeforafrica-deploy-review.yml"
+      - ".github/workflows/codeforafrica-deploy-review-app.yml"
+      # By default, a workflow only runs when a pull_request event's activity
+      # type is opened, synchronize, or reopened. We need at least closed to
+      # be able to destroy preview app
+    types: [opened, reopened, closed, synchronize]
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: false
@@ -20,7 +24,7 @@ env:
   APP_NAME: codeforafrica-ui-pr-${{ github.event.pull_request.number }}
 
 jobs:
-  review_app:
+  deploy_review_app:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
