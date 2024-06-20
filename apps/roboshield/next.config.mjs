@@ -16,10 +16,6 @@ const nextConfig = {
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
         use: ["@svgr/webpack"],
       },
-      {
-        test: /\.md$/,
-        loader: "frontmatter-markdown-loader",
-      },
     );
     config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;
