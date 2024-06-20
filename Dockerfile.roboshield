@@ -38,8 +38,6 @@ RUN pnpm fetch
 COPY *.yaml *.json ./
 COPY packages/commons-ui-core/package.json ./packages/commons-ui-core/package.json
 COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.json
-# Next.js lints when doing production build
-COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
 COPY apps/roboshield/package.json ./apps/roboshield/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
@@ -61,12 +59,9 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
 
 COPY --from=deps /workspace/node_modules ./node_modules
 COPY --from=deps /workspace/packages/commons-ui-core/node_modules ./packages/commons-ui-core/node_modules
-COPY --from=deps /workspace/packages/eslint-config-commons-ui/node_modules ./packages/eslint-config-commons-ui/node_modules
 COPY --from=deps /workspace/packages/commons-ui-next/node_modules ./packages/commons-ui-next/node_modules
 COPY --from=deps /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
 
-# Next.js lints when doing production build
-COPY packages/eslint-config-commons-ui ./packages/eslint-config-commons-ui
 COPY packages/commons-ui-core ./packages/commons-ui-core
 COPY packages/commons-ui-next ./packages/commons-ui-next
 COPY apps/roboshield ./apps/roboshield
