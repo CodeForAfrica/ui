@@ -2,7 +2,7 @@ name: RoboShield | Deploy | DEV
 
 on:
   push:
-    branches: [ft/robots-generator]
+    branches: [main]
     paths:
       - "apps/roboshield/**"
       - "Dockerfile.roboshield"
