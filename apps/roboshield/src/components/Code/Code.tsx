@@ -54,11 +54,11 @@ export default function Code(props: CodeProps) {
           variant="contained"
           sx={{
             mt: 2,
-            background: "#009688",
-            border: "1px solid #009688",
+            background: "#000000",
+            border: "1px solid #000000",
             "&:hover": {
               background: "none",
-              color: "#009688",
+              color: "#000000",
             },
           }}
           onClick={onDownload}
@@ -70,11 +70,11 @@ export default function Code(props: CodeProps) {
           variant="contained"
           sx={{
             mt: 2,
-            background: "#b28704",
-            border: "1px solid #b28704",
+            background: "#FE2500",
+            border: "1px solid #FE2500",
             "&:hover": {
               background: "none",
-              color: "#b28704",
+              color: "#FE2500",
             },
           }}
           onClick={onReset}
@@ -83,15 +83,13 @@ export default function Code(props: CodeProps) {
           Reset
         </Button>
         <Button
-          variant="contained"
-          color="secondary"
+          variant="outlined"
+          color="primary"
           sx={{
             mt: 2,
-            background: "#000000",
-            border: "1px solid #000000",
+            border: "none",
             "&:hover": {
-              background: "none",
-              color: "#000000",
+              border: "none",
             },
           }}
           onClick={onBack}
