@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - "apps/codeforafrica/**"
-      - "Dockerfile.codeforafrica"
+      - "codeforafrica.Dockerfile"
       - ".github/workflows/codeforafrica-deploy-review.yml"
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
@@ -62,7 +62,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: ./Dockerfile.codeforafrica
+          file: ./codeforafrica.Dockerfile
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
