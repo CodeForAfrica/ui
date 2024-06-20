@@ -67,6 +67,17 @@ export default function Code(props: CodeProps) {
           Download
         </Button>
         <Button
+          variant="outlined"
+          color="primary"
+          sx={{
+            mt: 2,
+          }}
+          onClick={onBack}
+          disabled={!showButtons}
+        >
+          Back
+        </Button>
+        <Button
           variant="contained"
           sx={{
             mt: 2,
@@ -81,21 +92,6 @@ export default function Code(props: CodeProps) {
           disabled={!showButtons}
         >
           Reset
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          sx={{
-            mt: 2,
-            border: "none",
-            "&:hover": {
-              border: "none",
-            },
-          }}
-          onClick={onBack}
-          disabled={!showButtons}
-        >
-          Back
         </Button>
       </Stack>
     </Box>
