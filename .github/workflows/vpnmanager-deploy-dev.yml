@@ -60,7 +60,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: ./Dockerfile.vpnmanager
+          target: vpnmanager-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
