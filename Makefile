@@ -6,10 +6,10 @@ COMPOSE_BUILD_ENV=BUILDKIT_PROGRESS=plain
 .PHONY: charterafrica codeforafrica mongodb mongodb-keyfile vpnmanager
 
 charterafrica:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env.local up charterafrica --build -d
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env.local up charterafrica --build
 
 vpnmanager:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/vpnmanager/.env.local up vpnmanager --build -d
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/vpnmanager/.env.local up vpnmanager --build
 
 mongodb:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env.local up --wait mongodb
@@ -20,3 +20,6 @@ mongodb-keyfile:
 
 pesayetu:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
+
+down:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) down --volumes
