@@ -21,7 +21,11 @@ import { useMemo, memo } from "react";
 
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
-import { Robot, getBotType, groupedRobots } from "@/roboshield/lib/robots-data";
+import {
+  Robot,
+  getBotType,
+  groupAndSortRobots,
+} from "@/roboshield/lib/robots-data";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 
 export default function CommonBots({
@@ -34,7 +38,10 @@ export default function CommonBots({
   const [selectedBots, setSelectedBots] = useState(state.bots);
 
   const MemoizedFormControlLabel = memo(FormControlLabel);
-  const robotsGroupedByType = useMemo(() => Object.entries(groupedRobots), []);
+  const robotsGroupedByType = useMemo(
+    () => Object.entries(groupAndSortRobots()),
+    [],
+  );
 
   const isSelected = (robot: Robot) => {
     return selectedBots.find((bot) => bot.name === robot.name)?.allow;

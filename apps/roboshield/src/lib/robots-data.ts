@@ -39,11 +39,38 @@ export const botTypes: BotType[] = [
 
 export const robots: Robot[] = [
   {
-    name: "Applebot-Extended",
-    userAgent: "Applebot-Extended",
+    name: "ChatGPT-User",
+    userAgent: "ChatGPT-User",
     about:
-      "Apple-Extended is used to train Apple's foundation LLM models powering generative AI features across Apple products, including Apple Intelligence, Services, and Developer Tools.",
+      "ChatGPT-User is dispatched by OpenAI's ChatGPT in response to user prompts. Its answers will usually contain a summary of the content on the website, along with a reference link.",
+    website: "https://openai.com/bot",
+    type: "AI Web Crawlers",
+    allow: true,
+  },
+  {
+    name: "Amazonbot",
+    userAgent: "Amazonbot",
+    about:
+      "Amazonbot is a web crawler used by Amazon to index search results that allow the Alexa AI Assistant to answer user questions. Alexa's answers normally contain references to the website.",
+    website: "https://developer.amazon.com/support/amazonbot",
+    type: "AI Web Crawlers",
+    allow: true,
+  },
+  {
+    name: "Applebot",
+    userAgent: "Applebot",
+    about:
+      "Applebot is a web crawler used by Apple to index search results that allow the Siri AI Assistant to answer user questions. Siri's answers normally contain references to the website.",
     website: "http://apple.com/go/applebot",
+    type: "AI Web Crawlers",
+    allow: true,
+  },
+  {
+    name: "PerplexityBot",
+    userAgent: "PerplexityBot",
+    about:
+      "PerplexityBot is a web crawler used by Perplexity to index search results that allow their AI Assistant to answer user questions. The assistant's answers normally contain references to the website as inline sources.",
+    website: "https://docs.perplexity.ai/docs/perplexitybot",
     type: "AI Web Crawlers",
     allow: true,
   },
@@ -111,6 +138,15 @@ export const robots: Robot[] = [
     allow: true,
   },
   {
+    name: "Applebot-Extended",
+    userAgent: "Applebot-Extended",
+    about:
+      "Apple-Extended is used to train Apple's foundation LLM models powering generative AI features across Apple products, including Apple Intelligence, Services, and Developer Tools.",
+    website: "http://apple.com/go/applebot",
+    type: "AI Web Crawlers",
+    allow: true,
+  },
+  {
     name: "omgili",
     userAgent: "omgili",
     about:
@@ -120,30 +156,30 @@ export const robots: Robot[] = [
     allow: true,
   },
   {
-    name: "Amazonbot",
-    userAgent: "Amazonbot",
+    name: "anthropic-ai",
+    userAgent: "anthropic-ai",
     about:
-      "Amazonbot is a web crawler used by Amazon to index search results that allow the Alexa AI Assistant to answer user questions. Alexa's answers normally contain references to the website.",
-    website: "https://developer.amazon.com/support/amazonbot",
-    type: "Search Engine Crawlers",
+      "anthropic-ai is a unconfirmed agent possibly used by Anthropic to download training data for its LLMs (Large Language Models) that power AI products like Claude.",
+    website: "",
+    type: "AI Web Crawlers",
     allow: true,
   },
   {
-    name: "Applebot",
-    userAgent: "Applebot",
+    name: "Claude-Web",
+    userAgent: "Claude-Web",
     about:
-      "Applebot is a web crawler used by Apple to index search results that allow the Siri AI Assistant to answer user questions. Siri's answers normally contain references to the website.",
-    website: "http://apple.com/go/applebot",
-    type: "Search Engine Crawlers",
+      "Claude-Web is an AI-related agent operated by Anthropic. It's currently unclear exactly what it's used for, since there's no official documentation.",
+    website: "",
+    type: "AI Web Crawlers",
     allow: true,
   },
   {
-    name: "PerplexityBot",
-    userAgent: "PerplexityBot",
+    name: "cohere-ai",
+    userAgent: "cohere-ai",
     about:
-      "PerplexityBot is a web crawler used by Perplexity to index search results that allow their AI Assistant to answer user questions. The assistant's answers normally contain references to the website as inline sources.",
-    website: "https://docs.perplexity.ai/docs/perplexitybot",
-    type: "Search Engine Crawlers",
+      "cohere-ai is an unconfirmed agent possibly dispatched by Cohere's AI chat products in response to user prompts when it needs to retrieve content on the internet.",
+    website: "",
+    type: "AI Web Crawlers",
     allow: true,
   },
   {
@@ -483,14 +519,22 @@ export const getBotType = (name: string): BotType => {
   );
 };
 
-export const groupedRobots: { [key: string]: Robot[] } = robots.reduce(
-  (acc, robot) => {
-    const type = robot.type;
-    if (!acc[type]) {
-      acc[type] = [];
-    }
-    acc[type].push(robot);
-    return acc;
-  },
-  {} as { [key: string]: Robot[] },
-);
+export const groupAndSortRobots = (): { [key: string]: Robot[] } => {
+  const grouped = robots.reduce(
+    (acc, robot) => {
+      const type = robot.type;
+      if (!acc[type]) {
+        acc[type] = [];
+      }
+      acc[type].push(robot);
+      return acc;
+    },
+    {} as { [key: string]: Robot[] },
+  );
+
+  Object.keys(grouped).forEach((type) => {
+    grouped[type].sort((a, b) => a.name.localeCompare(b.name));
+  });
+
+  return grouped;
+};

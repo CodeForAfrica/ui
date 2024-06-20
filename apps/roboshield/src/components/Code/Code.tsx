@@ -26,7 +26,6 @@ export default function Code(props: CodeProps) {
   const handleCodeChange = (newCode: string) => {
     onCodeChange(newCode);
   };
-  console.log(onBack);
   return (
     <Box
       sx={{
