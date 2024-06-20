@@ -79,6 +79,7 @@ export default function Finish({
           onCopy={handleCopy}
           onDownload={handleDownload}
           onReset={handleReset}
+          onBack={handleBack}
           showButtons={true}
           onCodeChange={handleCodeChange}
         />

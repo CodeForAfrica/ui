@@ -19,18 +19,20 @@ export default function StepperNav({
     <Box sx={{ my: 2 }}>
       <div>
         {!lastStep && (
-          <Button
-            variant="contained"
-            onClick={next}
-            sx={{ mt: 1, mr: 1 }}
-            disabled={!isValid}
-          >
-            Continue
-          </Button>
+          <>
+            <Button
+              variant="contained"
+              onClick={next}
+              sx={{ mt: 1, mr: 1 }}
+              disabled={!isValid}
+            >
+              Continue
+            </Button>
+            <Button disabled={back} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
+              Back
+            </Button>
+          </>
         )}
-        <Button disabled={back} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
-          Back
-        </Button>
       </div>
     </Box>
   );

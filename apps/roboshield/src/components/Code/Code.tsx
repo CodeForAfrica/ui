@@ -8,6 +8,7 @@ interface CodeProps {
   onCopy: () => void;
   onDownload: () => void;
   onReset: () => void;
+  onBack: () => void;
   showButtons?: boolean;
 }
 
@@ -18,13 +19,14 @@ export default function Code(props: CodeProps) {
     onDownload,
     onReset,
     onCodeChange,
+    onBack,
     showButtons = false,
   } = props;
 
   const handleCodeChange = (newCode: string) => {
     onCodeChange(newCode);
   };
-
+  console.log(onBack);
   return (
     <Box
       sx={{
@@ -51,8 +53,15 @@ export default function Code(props: CodeProps) {
         </Button>
         <Button
           variant="contained"
-          color="secondary"
-          sx={{ mt: 2 }}
+          sx={{
+            mt: 2,
+            background: "#009688",
+            border: "1px solid #009688",
+            "&:hover": {
+              background: "none",
+              color: "#009688",
+            },
+          }}
           onClick={onDownload}
           disabled={!showButtons}
         >
@@ -60,12 +69,36 @@ export default function Code(props: CodeProps) {
         </Button>
         <Button
           variant="contained"
-          color="secondary"
-          sx={{ mt: 2 }}
+          sx={{
+            mt: 2,
+            background: "#b28704",
+            border: "1px solid #b28704",
+            "&:hover": {
+              background: "none",
+              color: "#b28704",
+            },
+          }}
           onClick={onReset}
           disabled={!showButtons}
         >
           Reset
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          sx={{
+            mt: 2,
+            background: "#000000",
+            border: "1px solid #000000",
+            "&:hover": {
+              background: "none",
+              color: "#000000",
+            },
+          }}
+          onClick={onBack}
+          disabled={!showButtons}
+        >
+          Back
         </Button>
       </Stack>
     </Box>
