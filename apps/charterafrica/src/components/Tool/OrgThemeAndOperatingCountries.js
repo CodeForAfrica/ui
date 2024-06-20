@@ -8,7 +8,7 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
   function OrgThemeAndOperatingCountries(props, ref) {
     const { sx, organisation, theme, operatingCountries } = props;
     const countries = operatingCountries?.join(", ");
-    if (!organisation) {
+    if (!organisation && !theme) {
       return null;
     }
     return (
@@ -25,8 +25,8 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
         >
           <Figure
             ImageProps={{
-              alt: organisation.name,
-              src: organisation.avatarUrl,
+              alt: organisation?.name,
+              src: organisation?.avatarUrl,
             }}
             sx={{
               height: 50,
@@ -51,7 +51,7 @@ const OrgThemeAndOperatingCountries = React.forwardRef(
             sx={{ textDecoration: "none", fontWeight: 400 }}
             variant="h4"
           >
-            {organisation.name}
+            {organisation?.name}
           </Link>
         </Box>
         <Box

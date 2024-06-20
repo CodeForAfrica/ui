@@ -18,18 +18,20 @@ const DescriptionAndShare = React.forwardRef(
         >
           {description}
         </RichTypography>
-        <RichTypography
-          textAlign="left"
-          color="neutral.dark"
-          sx={{
-            mt: 3.75,
-            textTransform: "none",
-            textAlign: { xs: "center", sm: "left" },
-          }}
-          variant="captionCap"
-        >
-          {activeText} {lastActive}
-        </RichTypography>
+        {lastActive ? (
+          <RichTypography
+            textAlign="left"
+            color="neutral.dark"
+            sx={{
+              mt: 3.75,
+              textTransform: "none",
+              textAlign: { xs: "center", sm: "left" },
+            }}
+            variant="captionCap"
+          >
+            {activeText} {lastActive}
+          </RichTypography>
+        ) : null}
         <Box
           display="flex"
           sx={{

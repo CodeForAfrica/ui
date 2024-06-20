@@ -11,15 +11,18 @@ import ViewsIcon from "@/charterafrica/assets/icons/Type=views, Size=24, Color=C
 const Metrics = React.forwardRef(function Metrics(props, ref) {
   const {
     sx,
-    stars = "0",
+    stars,
     starsText,
     commitText,
     forksText,
     contributorsText,
     lastCommit,
-    forks = "0",
+    forks,
     contributors,
   } = props;
+  if (!contributors?.length && !stars && !forks && !lastCommit.committedDate) {
+    return null;
+  }
   return (
     <Box display="flex" sx={sx} ref={ref} flexWrap="wrap" alignItems="center">
       <Box display="flex" alignItems="center" sx={{ mb: 2, mr: 2 }}>
