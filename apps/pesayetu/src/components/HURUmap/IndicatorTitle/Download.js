@@ -6,7 +6,7 @@ import Papa from "papaparse";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import * as vega from "vega";
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 
 import useStyles from "./useStyles";
 

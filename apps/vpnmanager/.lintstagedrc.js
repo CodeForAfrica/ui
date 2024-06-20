@@ -5,7 +5,6 @@ const buildEslintCommand = (filenames) =>
     .map((f) => path.relative(process.cwd(), f))
     .join(" --file ")}`;
 
-
 module.exports = {
   // Since we don't have eslint json/md plugins installed in this app, we can't
   // use the eslint to lint json,md here

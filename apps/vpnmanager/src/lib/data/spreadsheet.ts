@@ -106,8 +106,10 @@ export async function updateSheet(toUpdate: Partial<SheetRow>[]) {
   });
 }
 
-export default {
+const spreadsheet = {
   fetchRange,
   newUsers,
   updateSheet,
 };
+
+export default spreadsheet;
