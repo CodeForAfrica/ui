@@ -1,7 +1,7 @@
 import {
-  useAllFormFields,
-  Select,
   getSiblingData,
+  Select,
+  useAllFormFields,
 } from "payload/components/forms";
 import { createElement, useMemo } from "react";
 import useSWR from "swr";
@@ -10,11 +10,11 @@ import { getEmbeddedPlaylist } from "../../utils/embeddedPlaylist";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function YouTubeSelect(props) {
+function YouTubeSelect({ slug, ...props }) {
   const [fields] = useAllFormFields();
 
   const document = getSiblingData(fields, "blocks");
-  const { playlistId, queryString } = getEmbeddedPlaylist(document);
+  const { playlistId, queryString } = getEmbeddedPlaylist(document, slug);
   const { data } = useSWR(
     playlistId
       ? `/api/v1/opportunities/consultation/multimedia?${queryString}`

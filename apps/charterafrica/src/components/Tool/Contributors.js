@@ -12,7 +12,7 @@ const Contributors = React.forwardRef(function Contributors(props, ref) {
   return (
     <Box ref={ref} sx={sx}>
       <Box sx={{ p: 2 }}>
-        <RichTypography color="neutral.dark" variant="h4Small">
+        <RichTypography color="neutral.dark" variant="p3SemiBold">
           {title}
         </RichTypography>
         <AvatarGroup sx={{ justifyContent: { xs: "center", sm: "right" } }}>

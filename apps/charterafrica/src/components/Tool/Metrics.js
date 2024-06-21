@@ -7,7 +7,6 @@ import CommitIcon from "@/charterafrica/assets/icons/Type=commit, Size=24, Color
 import ForksIcon from "@/charterafrica/assets/icons/Type=forks, Size=24, Color=CurrentColor.svg";
 import StarsIcon from "@/charterafrica/assets/icons/Type=stars, Size=24, Color=CurrentColor.svg";
 import ViewsIcon from "@/charterafrica/assets/icons/Type=views, Size=24, Color=CurrentColor.svg";
-import formatDateTime from "@/charterafrica/utils/formatDate";
 
 const Metrics = React.forwardRef(function Metrics(props, ref) {
   const {
@@ -23,7 +22,7 @@ const Metrics = React.forwardRef(function Metrics(props, ref) {
   } = props;
   return (
     <Box display="flex" sx={sx} ref={ref} flexWrap="wrap" alignItems="center">
-      <Box display="flex" alignItems="center" sx={{ mb: 2, ml: 2 }}>
+      <Box display="flex" alignItems="center" sx={{ mb: 2, mr: 2 }}>
         <SvgIcon
           inheritViewBox
           component={ViewsIcon}
@@ -56,11 +55,7 @@ const Metrics = React.forwardRef(function Metrics(props, ref) {
         />
         <Box sx={{ ml: 1 }}>
           <RichTypography color="neutral.dark">
-            {lastCommit.committedDate
-              ? formatDateTime(lastCommit.committedDate, {
-                  includeTime: false,
-                })
-              : "-"}
+            {lastCommit.committedDate || "-"}
           </RichTypography>
           <RichTypography color="neutral.dark">{commitText}</RichTypography>
         </Box>

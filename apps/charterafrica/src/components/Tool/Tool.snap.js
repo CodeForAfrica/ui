@@ -12,7 +12,7 @@ exports[`<Tool /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-xgaee2-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-6 css-1gxhccb-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-sm-7 css-kt7nt3-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -24,26 +24,26 @@ exports[`<Tool /> renders unchanged 1`] = `
             />
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-rwq5je-MuiGrid-root"
           >
             <div
               class="MuiBox-root css-kpcj8u"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-lknjzb-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-gegt74-MuiTypography-root"
               >
                 Tool Name
               </div>
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-2yidix-MuiGrid-root"
           >
             <div
               class="MuiBox-root css-1bzzis0"
             >
               <div
-                class="MuiBox-root css-33u6ly"
+                class="MuiBox-root css-c7rfuk"
               >
                 <div
                   aria-hidden="true"
@@ -124,6 +124,12 @@ exports[`<Tool /> renders unchanged 1`] = `
                 Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu. Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu.
               </div>
               <div
+                class="MuiTypography-root MuiTypography-captionCap css-hr3rav-MuiTypography-root"
+              >
+                 
+                6 Months ago
+              </div>
+              <div
                 class="MuiBox-root css-oqyb22"
               >
                 <div
@@ -180,7 +186,7 @@ exports[`<Tool /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-17qpvru-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5 css-8zm4nk-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-11uk14q"
@@ -203,13 +209,7 @@ exports[`<Tool /> renders unchanged 1`] = `
           </div>
           <div
             class="MuiBox-root css-46b038"
-          >
-            <div
-              class="MuiTypography-root MuiTypography-p3 css-1lspiuz-MuiTypography-root"
-            >
-              Collection
-            </div>
-          </div>
+          />
           <div
             class="MuiBox-root css-46b038"
           >
@@ -217,7 +217,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               class="MuiBox-root css-19midj6"
             >
               <div
-                class="MuiTypography-root MuiTypography-h4Small css-4noust-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p3SemiBold css-3w2o4y-MuiTypography-root"
               >
                 Contributors
               </div>

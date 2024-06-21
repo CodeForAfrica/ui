@@ -10,6 +10,7 @@ import EmbeddedPlaylist from "../blocks/EmbeddedPlaylist";
 import Error from "../blocks/Error";
 import FAQ from "../blocks/FAQ";
 import FeaturedPost from "../blocks/FeaturedPost";
+import FeaturedVideos from "../blocks/FeaturedVideos";
 import FlourishChart from "../blocks/FlourishChart";
 import Global from "../blocks/Global";
 import Grantees from "../blocks/Grantees";
@@ -83,6 +84,7 @@ const Pages = {
         Resources,
         Spotlight,
         Tools,
+        FeaturedVideos,
       ],
       admin: {
         initCollapsed: true,
