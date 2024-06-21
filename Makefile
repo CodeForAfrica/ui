@@ -18,5 +18,9 @@ mongodb-keyfile:
 	openssl rand -base64 741 > ./mongo-keyfile
 	chmod 600 ./mongo-keyfile
 
+
 pesayetu:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
+
+roboshield:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/roboshield/.env.local up roboshield --build
