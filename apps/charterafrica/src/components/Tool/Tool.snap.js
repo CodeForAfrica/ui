@@ -114,8 +114,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               <div
                 class="MuiTypography-root MuiTypography-captionCap css-hr3rav-MuiTypography-root"
               >
-                 
-                6 Months ago
+                undefined 6 Months ago
               </div>
               <div
                 class="MuiBox-root css-oqyb22"
