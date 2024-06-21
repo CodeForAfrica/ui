@@ -132,8 +132,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0)))
       monaco-editor:
-        specifier: ^0.44.0
-        version: 0.44.0
+        specifier: ^0.50.0
+        version: 0.50.0
       next:
         specifier: ^14.1.1
         version: 14.2.4(@babel/core@7.24.7)(@playwright/test@1.44.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
@@ -4843,6 +4843,7 @@ packages:
 
   '@swc/register@0.1.10':
     resolution: {integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==}
+    deprecated: Use @swc-node/register instead
     hasBin: true
     peerDependencies:
       '@swc/core': ^1.0.46
@@ -9369,8 +9370,8 @@ packages:
   monaco-editor@0.38.0:
     resolution: {integrity: sha512-11Fkh6yzEmwx7O0YoLxeae0qEGFwmyPRlVxpg7oF9czOOCB/iCjdJrG5I67da5WiXK3YJCxoz9TJFE8Tfq/v9A==}
 
-  monaco-editor@0.44.0:
-    resolution: {integrity: sha512-5SmjNStN6bSuSE5WPT2ZV+iYn1/yI9sd4Igtk23ChvqB7kDk9lZbB9F5frsuvpB+2njdIeGGFf2G4gbE6rCC9Q==}
+  monaco-editor@0.50.0:
+    resolution: {integrity: sha512-8CclLCmrRRh+sul7C08BmPBP3P8wVWfBHomsTcndxg5NRCEPfu/mc2AGU8k37ajjDVXcXFc12ORAMUkmk+lkFA==}
 
   mongodb-connection-string-url@2.6.0:
     resolution: {integrity: sha512-WvTZlI9ab0QYtTYnuMLgobULWhokRjtC7db9LtcVfJ+Hsnyr5eo6ZtNAt3Ly24XZScGMelOcGtm7lSn0332tPQ==}
@@ -24009,7 +24010,7 @@ snapshots:
 
   monaco-editor@0.38.0: {}
 
-  monaco-editor@0.44.0: {}
+  monaco-editor@0.50.0: {}
 
   mongodb-connection-string-url@2.6.0:
     dependencies:
