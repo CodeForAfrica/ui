@@ -15,10 +15,10 @@ PromiseTracker is a SSG [Next](https://nextjs.org/) web app deployable to [Verce
 Run the following to get started locally:
 
 ```sh
-  cp .env.template .env
-  # Edit the .env file
-  yarn
-  yarn dev
+cp .env.template .env
+# Edit the .env file
+yarn
+yarn dev
 ```
 
 **Note:** Reach out to the project champion for directions on how to receive the [Check](https://checkmedia.org) and [Sentry](https://sentry.io) tokens
