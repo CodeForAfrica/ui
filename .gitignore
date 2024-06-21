@@ -60,3 +60,7 @@ credentials.json
 
 # Sentry Config File
 .sentryclirc
+
+# SQLite files
+**.db
+**.sqlite
