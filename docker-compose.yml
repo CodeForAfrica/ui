@@ -55,7 +55,7 @@ services:
   roboshield:
     build:
       context: .
-      dockerfile: Dockerfile.roboshield
+      dockerfile: roboshield.Dockerfile
     ports:
       - 3000:3000
 
