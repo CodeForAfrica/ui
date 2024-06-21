@@ -91,8 +91,8 @@ async function processPageSingleTool(page, api, context) {
         toolsTitle: filterLabels.tools,
         donorsTitle: filterLabels.donors,
         contributorsTitle: filterLabels.contributors,
-        lastActive: tool.lastActive
-          ? formatDateTime(tool.lastActive, {})
+        lastActive: tool.lastCommit?.committedDate
+          ? formatDateTime(tool.lastCommit.committedDate, { locale })
           : null,
         organisationName: tool.organisation?.name ?? null,
         twitter: tool.organisation?.twitter ?? null,
@@ -108,9 +108,17 @@ async function processPageSingleTool(page, api, context) {
         commitText: filterLabels.lastCommit,
         forksText: filterLabels.forks,
         starsText: filterLabels.stars,
+        collectionText: filterLabels.collection,
+        activeText: filterLabels.activeText,
         collection: tool.classification,
         externalLink: {
           href: tool.docLink ?? null,
+        },
+        lastCommit: {
+          ...tool.lastCommit,
+          committedDate: tool.lastCommit?.committedDate
+            ? formatDateTime(tool.lastCommit.committedDate, { locale })
+            : null,
         },
       },
     ],

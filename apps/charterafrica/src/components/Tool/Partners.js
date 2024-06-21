@@ -14,7 +14,7 @@ const Partners = React.forwardRef(function Partners(props, ref) {
   return (
     <Box sx={sx} ref={ref}>
       <Box sx={{ p: 2 }}>
-        <RichTypography color="neutral.dark" variant="h4Small">
+        <RichTypography color="neutral.dark" variant="p3SemiBold">
           {title}
         </RichTypography>
         <Box

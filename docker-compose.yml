@@ -52,6 +52,13 @@ services:
     ports:
       - 3000:3000
 
+  roboshield:
+    build:
+      context: .
+      dockerfile: Dockerfile.roboshield
+    ports:
+      - 3000:3000
+
   mongodb:
     image: mongo:6.0.13
     environment:

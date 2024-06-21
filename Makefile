@@ -21,5 +21,8 @@ mongodb-keyfile:
 pesayetu:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
 
+roboshield:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/roboshield/.env.local up roboshield --build
+
 down:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) down --volumes
