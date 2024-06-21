@@ -1,4 +1,10 @@
-import React, { FC, ForwardedRef } from "react";
+import React, {
+  FC,
+  ForwardedRef,
+  ForwardRefExoticComponent,
+  RefAttributes,
+  ReactNode,
+} from "react";
 
 import menuIcon from "@/vpnmanager/assets/icons/menu-icon.svg";
 import CloseIcon from "@/vpnmanager/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
@@ -45,9 +51,12 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-const Transition: FC<SlideProps> = React.forwardRef(function Transition(
+const Transition: ForwardRefExoticComponent<
+  Omit<SlideProps, "ref"> & RefAttributes<HTMLDivElement>
+> = React.forwardRef(function Transition<D extends React.ElementType>(
+  // @ts-expect-error: Let's ignore a compile on children for now
   { children, ...props },
-  ref,
+  ref: React.Ref<HTMLDivElement> | undefined,
 ) {
   return (
     <Slide direction="down" ref={ref} {...props}>
@@ -56,7 +65,9 @@ const Transition: FC<SlideProps> = React.forwardRef(function Transition(
   );
 });
 
-const MobileNavBar: FC<Props> = React.forwardRef(function MobileNavBar(
+const MobileNavBar: ForwardRefExoticComponent<
+  Omit<Props, "ref"> & RefAttributes<HTMLDivElement>
+> = React.forwardRef(function MobileNavBar(
   props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {

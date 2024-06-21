@@ -5,7 +5,7 @@ services:
         condition: service_healthy
     build:
       context: .
-      dockerfile: Dockerfile.charterafrica
+      dockerfile: charterafrica.Dockerfile
       args:
         MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
         PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
@@ -30,14 +30,14 @@ services:
   pesayetu:
     build:
       context: .
-      dockerfile: Dockerfile.pesayetu
+      target: pesayetu-runner
       args:
-        WORDPRESS_URL: ${WORDPRESS_URL}
-        WORDPRESS_PREVIEW_SECRET: ${WORDPRESS_PREVIEW_SECRET}
-        WORDPRESS_APPLICATION_USERNAME: ${WORDPRESS_APPLICATION_USERNAME}
-        WORDPRESS_APPLICATION_PASSWORD: ${WORDPRESS_APPLICATION_PASSWORD}
-        JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-        HURUMAP_API_URL: ${HURUMAP_API_URL}
+        - WORDPRESS_URL
+        - WORDPRESS_PREVIEW_SECRET
+        - WORDPRESS_APPLICATION_USERNAME
+        - WORDPRESS_APPLICATION_PASSWORD
+        - JWT_SECRET_KEY
+        - HURUMAP_API_URL
     environment:
       WORDPRESS_URL: ${WORDPRESS_URL}
       WORDPRESS_PREVIEW_SECRET: ${WORDPRESS_PREVIEW_SECRET}
@@ -55,7 +55,7 @@ services:
   roboshield:
     build:
       context: .
-      dockerfile: Dockerfile.roboshield
+      dockerfile: roboshield.Dockerfile
     ports:
       - 3000:3000
 
@@ -80,16 +80,17 @@ services:
       retries: 30
     command:
       ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
+
   vpnmanager:
     build:
       context: .
-      dockerfile: Dockerfile.vpnmanager
+      target: vpnmanager-runner
       args:
-        SENTRY_ORG: ${SENTRY_ORG}
-        SENTRY_PROJECT: ${SENTRY_PROJECT}
-        SENTRY_DSN: ${SENTRY_DSN}
+        - SENTRY_ORG
+        - SENTRY_PROJECT
+        - SENTRY_DSN
     environment:
-      - NODE_ENV=production
+      NODE_ENV: ${NODE_ENV:-production}
     ports:
       - ${VPN_MANAGER_PORT:-3000}:3000
 volumes:

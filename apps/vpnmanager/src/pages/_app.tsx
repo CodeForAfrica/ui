@@ -1,13 +1,12 @@
-import React, { ReactNode } from "react";
-
+import { CacheProvider } from "@emotion/react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import React, { ReactNode } from "react";
 
 import Page from "@/vpnmanager/components/Page";
 import theme from "@/vpnmanager/theme";
 import createEmotionCache from "@/vpnmanager/utils/createEmotionCache";
-import { CacheProvider } from "@emotion/react";
-import { CssBaseline, ThemeProvider } from "@mui/material";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -20,17 +19,15 @@ function MyApp(props: AppProps | any) {
   const getLayout = Component.getLayout || getDefaultLayout;
 
   return (
-    <>
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {getLayout(<Component {...pageProps} />, pageProps)}
-        </ThemeProvider>
-      </CacheProvider>
-    </>
+    <CacheProvider value={emotionCache}>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {getLayout(<Component {...pageProps} />, pageProps)}
+      </ThemeProvider>
+    </CacheProvider>
   );
 }
 

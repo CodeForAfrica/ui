@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm run build-ts && next build",
+    "build": "next build",
     "start": "next start",
-    "build-ts": "tsc --project tsconfig.server.json && tsc-alias -p tsconfig.server.json",
+    "lint-check": "TIMING=1 next lint './'",
+    "lint": "TIMING=1 next lint --fix './'",
+    "clean": "rm -rf .next .turbo node_modules",
+    "jest": "jest --passWithNoTests",
+    "playwright": "npx playwright test",
     "process-spreadsheet": "node dist/scripts/processGsheet.js"
   },
   "dependencies": {
@@ -39,9 +43,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8.55.0",
-    "eslint-config-commons-ui": "workspace:*",
-    "eslint-import-resolver-webpack": "^0.13.8",
-    "eslint-plugin-import": "^2.29.0",
+    "eslint-config-next": "^14.2.4",
+    "eslint-config-prettier": "^9.1.0",
     "typescript": "^5"
   }
 }
