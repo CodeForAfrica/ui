@@ -70,6 +70,12 @@ export function processTool(item, config, { partnersData }) {
   } = config;
   const data = { ...item.fields, id: item.id };
   const externalId = getValue(data, toolTableColumns.slug)?.trim();
+  const toolName = getValue(data, toolTableColumns.name)?.trim();
+  if (!toolName) {
+    const message = `Missing name for Tool ${data.id}. Skipping`;
+    Sentry.captureMessage(message);
+    return null;
+  }
 
   const locales = localized ? ["en", "fr", "pt"] : ["en"];
   const foundTheme = locales.reduce((acc, curr) => {
