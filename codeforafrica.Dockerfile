@@ -33,7 +33,13 @@ RUN pnpm install --recursive --offline --frozen-lockfile
 ARG PORT=3000 \
     MONGODB_URL \
     PAYLOAD_SECRET \
-    NEXT_PUBLIC_APP_URL=http://localhost:3000
+    NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+    NEXT_PUBLIC_SENTRY_DSN="" \
+    # Sentry config for source maps upload (needed at build time only)
+    SENTRY_AUTH_TOKEN="" \
+    SENTRY_ENV="" \
+    SENTRY_ORG="" \
+    SENTRY_PROJECT=""
 
 RUN pnpm build-next --filter=codeforafrica
 
@@ -52,17 +58,21 @@ ARG NEXT_PUBLIC_APP_NAME \
     PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
     PAYLOAD_PUBLIC_APP_URL \
     NEXT_PUBLIC_APP_LOGO_URL \
-    PORT
+    NEXT_PUBLIC_SENTRY_DSN \
+    PORT \
+    SENTRY_ENV
 
 ENV NODE_ENV=production \
     PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-    PORT=${PORT} \ 
+    PORT=${PORT} \
     PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_SECRET=${PAYLOAD_SECRET} \
     MONGODB_URL=${MONGODB_URL} \
     NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
     NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
-    NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+    NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
+    NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
+    SENTRY_ENV=${SENTRY_ENV}
 
 WORKDIR /workspace/apps/codeforafrica
 
