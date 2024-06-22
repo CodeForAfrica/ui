@@ -37,7 +37,7 @@ ARG PORT=3000 \
     NEXT_PUBLIC_SENTRY_DSN="" \
     # Sentry config for source maps upload (needed at build time only)
     SENTRY_AUTH_TOKEN="" \
-    SENTRY_ENV="" \
+    SENTRY_ENVIRONMENT="" \
     SENTRY_ORG="" \
     SENTRY_PROJECT=""
 
@@ -72,7 +72,7 @@ ENV NODE_ENV=production \
     NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
     NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
-    SENTRY_ENV=${SENTRY_ENV}
+    SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
 
 WORKDIR /workspace/apps/codeforafrica
 

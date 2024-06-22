@@ -19,7 +19,7 @@ env:
   IMAGE_NAME: "codeforafrica/pesayetu-ui"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NEXT_PUBLIC_APP_URL: "https://pesayetu-ui.dev.codeforafrica.org"
-  SENTRY_ENV: "development"
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy:
@@ -63,7 +63,7 @@ jobs:
             JWT_SECRET_KEY=${{ secrets.PESAYETU_JWT_SECRET_KEY }}
             HURUMAP_API_URL=${{ secrets.PESAYETU_HURUMAP_API_URL }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.PESAYETU_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
