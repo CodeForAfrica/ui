@@ -1,8 +1,11 @@
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { Section } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
+
+import SmartToyOutlinedIcon from "@mui/icons-material/SmartToyOutlined";
+import BotIcon from "@/roboshield/assets/icons/Type=robot, Size=24, Color=CurrentColor.svg";
 
 interface props {
   scrolRef: React.RefObject<HTMLDivElement>;
@@ -14,54 +17,52 @@ const Hero = ({ scrolRef }: props) => {
       component="section"
       sx={{
         textAlign: "center",
-        height: "600px",
-        backgroundColor: "#0C1A81",
-        backgroundImage: "url(./bg-shape-8.svg)",
+        backgroundColor: "primary.dark",
+        backgroundImage: "url('/bg-shape-8.svg')",
         backgroundSize: "cover",
-        paddingTop: "170px",
         px: { xs: 2.5, sm: 0 },
+        py: { xs: 8, md: 13 },
       }}
     >
-      <Box
-        sx={{
-          margin: "auto",
-        }}
-      >
+      <Section>
         <Typography
-          variant="h6"
+          typography="h6"
+          variant="h2"
           gutterBottom
           sx={{
             py: "8px",
             color: "#FFFFFF",
           }}
         >
-          HOW IT WORKS
+          CONTROL YOUR DATA
         </Typography>
-      </Box>
 
-      <Box
-        sx={{
-          zIndex: "50",
-          height: 300,
-        }}
-      >
         <Typography
-          variant="h1"
+          color="text.secondary"
           gutterBottom
+          textAlign="center"
+          variant="h1"
           sx={{
-            py: "8px",
-            color: "#FFFFFF",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            py: 1,
           }}
         >
-          Guard your{" "}
+          Guard Your
           <Box
-            component="div"
+            component="span"
             sx={{
-              display: "inline-block",
-              color: "#FFFFF",
               backgroundColor: "red",
-              margin: "0 8px",
-              padding: "6px 20px",
+              color: "#FFFFF",
+              maxWidth: "fit-content",
+              my: {
+                xs: 0.5,
+                md: 1,
+              },
+              p: "6px 20px",
+              textTransform: "capitalize",
             }}
           >
             <ReactRotatingText
@@ -69,45 +70,54 @@ const Hero = ({ scrolRef }: props) => {
               cursor={false}
               eraseMode="overwrite"
             />
-          </Box>{" "}
-          against AI Bots
+          </Box>
+          Against AI Bots
         </Typography>
 
-        <Typography
-          variant="h6"
-          gutterBottom
+        <RichTypography
+          LinkProps={{
+            color: "text.secondary",
+          }}
+          color="text.secondary"
+          typography="h6"
+          variant="h3"
           sx={{
-            py: "8px",
-            color: "#FFFFFF",
+            "& .robots": {
+              textDecoration: "none",
+              borderColor: "text.secondary",
+              border: 1,
+              p: 0.5,
+            },
+            "& .robots:before": {
+              fill: "white",
+              content: "url('/icons/smarttoy-24-white.svg')",
+              display: "inline-block",
+              pr: 0.5,
+              height: "26.95px", // line-height of typography (h6)
+              verticalAlign: "middle",
+            },
           }}
         >
-          Generate a robots.txt file tailored to the platform you use to publish
-          your content online and blocks AI bots
-        </Typography>
+          {`Generate a <a href="https://en.wikipedia.org/wiki/Robots.txt" class="robots">robots.txt</a> file tailored to the platform you use to publish your content online and blocks AI bots`}
+        </RichTypography>
         <Button
-          variant="outlined"
           onClick={() => {
             scrolRef.current?.scrollIntoView({
               behavior: "smooth",
             });
           }}
+          size="large"
+          variant="contained"
           sx={{
-            mt: 2,
-            mb: 4,
-            zIndex: 10,
-            color: "#FFFFFF",
-            border: "2px solid #FFFFFF",
-            transition: "all 0.3s ease-in-out",
-            "&:hover": {
-              border: "2px solid #FFFFFF",
-              background: "#FFFFFF",
-              color: "#0C1A81",
+            mt: {
+              xs: 4,
+              md: 6,
             },
           }}
         >
           Get Started
         </Button>
-      </Box>
+      </Section>
     </Box>
   );
 };
