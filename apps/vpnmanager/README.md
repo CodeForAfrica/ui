@@ -9,7 +9,7 @@ This is the cfa Outline VPN Manager
 First create `.env.local` file in the root directory of the project.
 
 ```bash
-cp  env.template .env.local
+cp env.template .env.local
 ```
 
 and modify the `.env.local` file according to your needs.
@@ -21,7 +21,7 @@ The default `.env` file is for the 'Publicly' visible environment variables.
 ## Script
 
 ```bash
- pnpm process-new-hires
+pnpm process-new-hires
 ```
 
 ## Web
@@ -29,13 +29,13 @@ The default `.env` file is for the 'Publicly' visible environment variables.
 Run the development server:
 
 ```bash
-pnpm  dev
+pnpm dev
 ```
 
 ### Deployment.
 
 ```bash
- docker-compose up --build vpnmanager
+docker-compose up --build vpnmanager
 ```
 
 or
