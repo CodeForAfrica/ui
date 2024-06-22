@@ -53,9 +53,15 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     # Needed by Next.js at build time
     NEXT_PUBLIC_APP_NAME=RoboShield \
     NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+    NEXT_PUBLIC_SENTRY_DSN="" \
     NEXT_PUBLIC_SEO_DISABLED="true" \
     # Needed by Next.js and server.ts at build time
-    PORT=3000
+    PORT=3000 \
+    # Sentry config for source maps upload (needed at build time only)
+    SENTRY_AUTH_TOKEN="" \
+    SENTRY_ENV="" \
+    SENTRY_ORG="" \
+    SENTRY_PROJECT=""
 
 COPY --from=deps /workspace/node_modules ./node_modules
 COPY --from=deps /workspace/packages/commons-ui-core/node_modules ./packages/commons-ui-core/node_modules
@@ -77,12 +83,16 @@ FROM base as runner
 ARG NEXT_TELEMETRY_DISABLED \
     NEXT_PUBLIC_APP_NAME \
     NEXT_PUBLIC_APP_URL \
-    PORT
+    NEXT_PUBLIC_SENTRY_DSN \
+    PORT \
+    SENTRY_ENV
 
 ENV NODE_ENV=production \
     NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
     NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-    PORT=${PORT}
+    NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
+    PORT=${PORT} \
+    SENTRY_ENV=${SENTRY_ENV}
 
 RUN set -ex \
     # Create a non-root user

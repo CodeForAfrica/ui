@@ -13,12 +13,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  APP_NAME: pesayetu-ui
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/pesayetu-ui"
-  NEXT_PUBLIC_APP_URL: "https://pesayetu-ui.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: pesayetu-ui
+  NEXT_PUBLIC_APP_URL: "https://pesayetu-ui.dev.codeforafrica.org"
+  SENTRY_ENV: "development"
 
 jobs:
   deploy:
@@ -61,6 +62,10 @@ jobs:
             WORDPRESS_APPLICATION_PASSWORD=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}
             JWT_SECRET_KEY=${{ secrets.PESAYETU_JWT_SECRET_KEY }}
             HURUMAP_API_URL=${{ secrets.PESAYETU_HURUMAP_API_URL }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.PESAYETU_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .

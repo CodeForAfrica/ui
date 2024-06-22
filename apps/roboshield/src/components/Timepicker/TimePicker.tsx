@@ -18,11 +18,11 @@ export default function TimePicker({
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <MuiTimePicker
         value={value}
+        onChange={onChange}
+        label={label}
         sx={{
           width: "100%",
         }}
-        onChange={onChange}
-        label={label}
       />
     </LocalizationProvider>
   );
