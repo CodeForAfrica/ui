@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 
-import { Robot, robots } from "../lib/robots-data";
+import { Robot, robots } from "@/roboshield/lib/robots-data";
 
 export interface GlobalState {
   shouldFetch: boolean;

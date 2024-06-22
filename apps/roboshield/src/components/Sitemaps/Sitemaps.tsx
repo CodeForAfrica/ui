@@ -1,7 +1,7 @@
 import { Box, TextareaAutosize } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 
-import StepperNav from "../StepperNav";
+import StepperNav from "@/roboshield/components/StepperNav";
 
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
