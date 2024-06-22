@@ -13,12 +13,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  APP_NAME: roboshield-ui
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
   NEXT_PUBLIC_APP_URL: "https://roboshield-ui.dev.codeforafrica.org"
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: roboshield-ui
+  SENTRY_ENV: "development"
 
 jobs:
   deploy:
@@ -53,6 +54,15 @@ jobs:
       - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
+          build-args: |
+            MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
+            PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
