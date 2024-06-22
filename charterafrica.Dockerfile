@@ -49,7 +49,7 @@ ARG NEXT_TELEMETRY_DISABLED=1 \
     PORT=3000 \
     # Sentry config for source maps upload (needed at build time only)
     SENTRY_AUTH_TOKEN="" \
-    SENTRY_ENV="" \
+    SENTRY_ENVIRONMENT="" \
     SENTRY_ORG="" \
     SENTRY_PROJECT="" \
     # Needed by Payload at Next.js build time (see below for Payload's own
@@ -99,7 +99,7 @@ ENV NODE_ENV=production \
     PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
     PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
     PORT=${PORT} \
-    SENTRY_ENV=${SENTRY_ENV}
+    SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
 
 WORKDIR /workspace/apps/charterafrica
 

@@ -18,10 +18,10 @@ import { useEffect } from "react";
 import React from "react";
 import { useRef, useState } from "react";
 
-import CodeEditor from "../components/Code/CodeEditor";
-import Delays from "../components/Delays";
-import Hero from "../components/Hero";
-import Sitemaps from "../components/Sitemaps";
+import CodeEditor from "@/roboshield/components/Code/CodeEditor";
+import Delays from "@/roboshield/components/Delays";
+import Hero from "@/roboshield/components/Hero";
+import Sitemaps from "@/roboshield/components/Sitemaps";
 
 import CommonBots from "@/roboshield/components/CommonBots";
 import CommonSettings from "@/roboshield/components/CommonSettings";

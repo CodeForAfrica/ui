@@ -7,7 +7,7 @@ import NewsletterSubscription from "@/roboshield/components/NewsletterSubscripti
 import StayInTouch from "@/roboshield/components/StayInTouch";
 import FooterDescription from "./FooterDescription";
 
-interface FooterProps {
+export interface FooterProps {
   connect: {
     links: { url: string; platform: string }[];
     title: string;

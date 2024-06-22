@@ -1,6 +1,7 @@
 import React from "react";
 
-import Footer from "../Footer";
+import type { FooterProps } from "@/roboshield/components/Footer";
+import Footer from "@/roboshield/components/Footer";
 
 import NavBar from "@/roboshield/components/NavBar";
 
@@ -33,7 +34,7 @@ interface Footer {
 interface Props {
   children?: React.ReactNode;
   navbar?: Navbar;
-  footer?: Footer;
+  footer?: FooterProps;
 }
 function Page({ children, navbar, footer }: Props) {
   return (
