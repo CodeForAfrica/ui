@@ -79,7 +79,11 @@ const NewsletterSubscription = React.forwardRef(function NewsletterSubscription(
       }}
       ref={ref}
     >
-      <RichTypography variant="h5SemiBold" sx={{ mb: "30px" }}>
+      <RichTypography
+        mb="30px"
+        textAlign={{ xs: "center", md: "left" }}
+        variant="h5SemiBold"
+      >
         {title}
       </RichTypography>
       <NewsletterSubscriptionRoot>{children}</NewsletterSubscriptionRoot>

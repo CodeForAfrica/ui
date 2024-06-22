@@ -4,9 +4,6 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
 
-import SmartToyOutlinedIcon from "@mui/icons-material/SmartToyOutlined";
-import BotIcon from "@/roboshield/assets/icons/Type=robot, Size=24, Color=CurrentColor.svg";
-
 interface props {
   scrolRef: React.RefObject<HTMLDivElement>;
 }
@@ -26,13 +23,10 @@ const Hero = ({ scrolRef }: props) => {
     >
       <Section>
         <Typography
+          color="text.secondary"
+          gutterBottom
           typography="h6"
           variant="h2"
-          gutterBottom
-          sx={{
-            py: "8px",
-            color: "#FFFFFF",
-          }}
         >
           CONTROL YOUR DATA
         </Typography>
@@ -40,6 +34,10 @@ const Hero = ({ scrolRef }: props) => {
         <Typography
           color="text.secondary"
           gutterBottom
+          my={{
+            xs: 3,
+            md: 5,
+          }}
           textAlign="center"
           variant="h1"
           sx={{
@@ -47,7 +45,6 @@ const Hero = ({ scrolRef }: props) => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            py: 1,
           }}
         >
           Guard Your
@@ -55,7 +52,7 @@ const Hero = ({ scrolRef }: props) => {
             component="span"
             sx={{
               backgroundColor: "red",
-              color: "#FFFFF",
+              color: "text.secondary",
               maxWidth: "fit-content",
               my: {
                 xs: 0.5,
