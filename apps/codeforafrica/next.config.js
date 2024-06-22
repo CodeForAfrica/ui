@@ -1,11 +1,13 @@
 const path = require("path");
 
+const { withSentryConfig } = require("@sentry/nextjs");
+
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)
   : undefined;
 
-module.exports = {
+const nextConfig = {
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())
@@ -49,3 +51,11 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withSentryConfig(nextConfig, {
+  silent: true,
+  hideSourceMaps: true,
+  org: process.env.SENTRY_ORG,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  project: process.env.SENTRY_PROJECT,
+});

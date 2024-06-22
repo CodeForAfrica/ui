@@ -7,7 +7,7 @@ This is the official cfa site
 First create `.env.local` file in the root directory of the project.
 
 ```bash
-cp  env.template .env.local
+cp env.template .env.local
 ```
 
 and modify the `.env.local` file according to your needs.
@@ -19,7 +19,7 @@ The default `.env` file is for the 'Publicly' visible environment variables.
 Then run the development server:
 
 ```bash
-pnpm  dev
+pnpm dev
 ```
 
 ## Debugging

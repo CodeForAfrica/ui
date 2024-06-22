@@ -34,4 +34,9 @@ jest.mock("next/router", () => ({
   })),
 }));
 
+jest.mock("@sentry/nextjs", () => ({
+  captureException: jest.fn(),
+  captureMessage: jest.fn(),
+}));
+
 module.exports = require("@commons-ui/testing-library/jest.setup");
