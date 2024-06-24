@@ -1,7 +1,11 @@
 import { deepmerge } from "@mui/utils";
+import { Field } from "payload/types";
 
-function image({ overrides = undefined } = {}) {
-  const imageResult = {
+interface Args {
+  overrides?: Partial<Field>;
+}
+function image({ overrides = undefined }: Args = {}) {
+  const imageResult: Field = {
     name: "image",
     type: "upload",
     relationTo: "media",

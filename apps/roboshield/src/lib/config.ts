@@ -137,9 +137,9 @@ export const configureBot = (bot: Robot) => {
           (path) => path.trim() !== "",
         );
         if (validDisallowedPaths.length > 0) {
-          robots += `User-agent: ${bot.userAgent}\nDisallow: ${validDisallowedPaths.join(
-            "\nDisallow: ",
-          )}\n\n`;
+          robots += `User-agent: ${
+            bot.userAgent
+          }\nDisallow: ${validDisallowedPaths.join("\nDisallow: ")}\n\n`;
         }
       }
 
@@ -148,9 +148,9 @@ export const configureBot = (bot: Robot) => {
           (path) => path.trim() !== "",
         );
         if (validAllowedPaths.length > 0) {
-          robots += `User-agent: ${bot.userAgent}\nAllow: ${validAllowedPaths.join(
-            "\nAllow: ",
-          )}\n\n`;
+          robots += `User-agent: ${
+            bot.userAgent
+          }\nAllow: ${validAllowedPaths.join("\nAllow: ")}\n\n`;
         }
       }
     }

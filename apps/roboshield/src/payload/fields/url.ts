@@ -1,8 +1,12 @@
 import { deepmerge } from "@mui/utils";
 import { text } from "payload/dist/fields/validations";
+import { Field } from "payload/types";
 
-function url({ overrides = undefined } = {}) {
-  const urlResult = {
+interface Args {
+  overrides?: Partial<Field>;
+}
+function url({ overrides = undefined }: Args = {}): Field {
+  const urlResult: Field = {
     name: "url",
     type: "text",
     label: "URL",

@@ -1,8 +1,11 @@
-export function imageFromMedia({ alt = null, url = null }) {
+import { Api, MediaData, Settings } from "../payload.types";
+import { AppContext } from "next/app";
+
+export function imageFromMedia({ alt = null, url = null }: Partial<MediaData>) {
   return { alt, src: url };
 }
 
-function getNavBar(settings) {
+function getNavBar(settings: Settings) {
   const {
     connect: { links = [] },
     primaryLogo: media,
@@ -18,7 +21,7 @@ function getNavBar(settings) {
   };
 }
 
-function getFooter(settings) {
+function getFooter(settings: Settings) {
   const {
     primaryLogo,
     primaryNavigation,
@@ -37,8 +40,10 @@ function getFooter(settings) {
   };
 }
 
-export async function getPageProps(api, context) {
-  const siteSettings = await api.findGlobal("settings-site");
+export async function getPageProps(api: Api, context: AppContext) {
+  const siteSettings: Settings = (await api.findGlobal(
+    "settings-site",
+  )) as Settings;
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
 

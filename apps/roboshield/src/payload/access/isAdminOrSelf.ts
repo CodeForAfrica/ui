@@ -1,6 +1,7 @@
+import { PayloadRequest } from "payload/types";
 import { ROLE_ADMIN } from "./roles";
 
-export const isAdminOrSelf = ({ req: { user } }) => {
+export const isAdminOrSelf = ({ req: { user } }: { req: PayloadRequest }) => {
   // Need to be logged in
   if (user) {
     // If user has role of 'admin'
@@ -19,6 +20,12 @@ export const isAdminOrSelf = ({ req: { user } }) => {
   return false;
 };
 
-export const isAdminOrSelfFieldLevel = ({ id, req: { user } }) => {
+export const isAdminOrSelfFieldLevel = ({
+  id,
+  req: { user },
+}: {
+  id: string;
+  req: PayloadRequest;
+}) => {
   return user?.roles?.includes(ROLE_ADMIN) || id === user?.id;
 };

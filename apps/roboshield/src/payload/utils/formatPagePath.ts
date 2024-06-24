@@ -1,4 +1,17 @@
-function fullSlugFromParents(doc) {
+import { Breadcrumbs } from "@mui/material";
+
+interface BreadCrumbs {
+  doc: string;
+  url: string;
+  label: string;
+  id: string;
+}
+interface Doc {
+  slug: string;
+  parent?: Doc;
+  breadcrumbs: BreadCrumbs[];
+}
+function fullSlugFromParents(doc: Doc): string {
   const { slug, parent } = doc;
   if (!parent) {
     return slug;
@@ -6,12 +19,13 @@ function fullSlugFromParents(doc) {
   return `${fullSlugFromParents(parent)}/${slug}`;
 }
 
-function fullSlugFromBreadcrumbs({ breadcrumbs } = {}) {
-  const fullSlug = breadcrumbs?.[breadcrumbs.length - 1]?.url?.slice(1);
+function fullSlugFromBreadcrumbs(doc: Doc) {
+  const fullSlug =
+    doc?.breadcrumbs?.[doc?.breadcrumbs.length - 1]?.url?.slice(1);
   return fullSlug;
 }
 
-function formatPagePath(collection, doc) {
+function formatPagePath(collection: string, doc: Doc) {
   let pageSlug = fullSlugFromBreadcrumbs(doc) || fullSlugFromParents(doc) || "";
   if (pageSlug === "index") {
     pageSlug = "";

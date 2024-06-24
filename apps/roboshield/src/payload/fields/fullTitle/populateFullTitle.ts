@@ -1,4 +1,6 @@
-export function generateFullTitle(breadcrumbs) {
+import { FieldHookArgs } from "payload/types";
+
+export function generateFullTitle(breadcrumbs: any) {
   if (Array.isArray(breadcrumbs)) {
     return breadcrumbs.reduce((title, breadcrumb, i) => {
       if (i === 0) {
@@ -10,7 +12,7 @@ export function generateFullTitle(breadcrumbs) {
   return undefined;
 }
 
-async function populateFullTitle({ data, originalDoc }) {
+async function populateFullTitle({ data, originalDoc }: FieldHookArgs) {
   return generateFullTitle(data?.breadcrumbs || originalDoc?.breadcrumbs);
 }
 

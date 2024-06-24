@@ -2,6 +2,7 @@ import { deepmerge } from "@mui/utils";
 import { select } from "payload/dist/fields/validations";
 
 import url from "./url";
+import { Field } from "payload/types";
 
 export const socialMediaOptions = [
   "Facebook",
@@ -12,8 +13,12 @@ export const socialMediaOptions = [
   "Slack",
 ];
 
-function socialLinks(overrides = {}) {
-  const defaults = {
+type Overrides = {
+  name: string;
+} & Partial<Field>;
+
+function socialLinks(overrides: Overrides = { name: "links" }) {
+  const defaults: Field = {
     name: "links",
     type: "array",
     labels: {
@@ -28,7 +33,14 @@ function socialLinks(overrides = {}) {
     admin: {
       className: "array-field-nested",
       components: {
-        RowLabel: ({ data, index }) => {
+        // @ts-ignore
+        RowLabel: ({
+          data,
+          index,
+        }: {
+          index: number;
+          data: { platform: string; url: string };
+        }) => {
           let label = "";
           if (data.platform) {
             label = data.platform;
@@ -53,9 +65,10 @@ function socialLinks(overrides = {}) {
         required: true,
         validate: (val, args) => {
           const { data, t } = args || {};
-          const { name: linksName = "links" } = overrides;
+          const { name: linksName = "links" } = overrides as Overrides;
           if (
-            data?.[linksName]?.filter((l) => l.platform === val)?.length > 1
+            data?.[linksName]?.filter((l: any) => l.platform === val)?.length >
+            1
           ) {
             return t("codeforafrica.validation:uniquePlatforms");
           }

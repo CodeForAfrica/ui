@@ -1,7 +1,8 @@
+import { CollectionConfig } from "payload/types";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 
-const Pages = {
+const Pages: CollectionConfig = {
   slug: "pages",
   access: {
     read: () => true,

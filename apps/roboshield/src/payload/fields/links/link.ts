@@ -1,11 +1,27 @@
 import { deepmerge } from "@mui/utils";
 
 import mapLinkTypeToHref from "../../utils/mapLinkTypeToHref";
+import {
+  RowField,
+  SanitizedCollectionConfig,
+  PayloadRequest,
+  Condition,
+} from "payload/types";
+
+interface CollectionBeforeReadHookArgs {
+  collection: SanitizedCollectionConfig;
+  siblingData: any;
+  doc: any;
+  query: {
+    [key: string]: any;
+  };
+  req: PayloadRequest;
+}
 
 export async function mapLinkToHrefBeforeValidate({
   siblingData,
   req: { payload },
-}) {
+}: CollectionBeforeReadHookArgs) {
   // Don't modify original doc.
   const doc = { ...siblingData.doc };
   if (typeof doc.value === "string") {
@@ -32,7 +48,7 @@ const link = ({
   overrides = {},
   required = true,
 } = {}) => {
-  const linkResult = {
+  const linkResult: RowField = {
     type: "row",
     fields: [
       {
@@ -76,7 +92,8 @@ const link = ({
           required,
           maxDepth: 1,
           admin: {
-            condition: (_, siblingData) => siblingData?.linkType === "internal",
+            condition: ((_, siblingData) =>
+              siblingData?.linkType === "internal") as Condition,
           },
         },
         {
@@ -89,7 +106,8 @@ const link = ({
           type: "text",
           required,
           admin: {
-            condition: (_, siblingData) => siblingData?.linkType === "custom",
+            condition: ((_, siblingData) =>
+              siblingData?.linkType === "custom") as Condition,
           },
         },
         {
@@ -106,7 +124,7 @@ const link = ({
       ],
     },
   ];
-  let labelFields = [];
+  let labelFields: any = [];
   if (!disableLabel) {
     labelFields = [
       {

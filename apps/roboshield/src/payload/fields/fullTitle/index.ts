@@ -1,8 +1,13 @@
 import { deepmerge } from "@mui/utils";
 
 import populateFullTitle from "./populateFullTitle";
+import { Field } from "payload/types";
 
-function fullTitle({ overrides = undefined } = {}) {
+interface Args {
+  overrides?: Partial<Field>;
+}
+function fullTitle(args: Args): Field {
+  const { overrides = undefined } = args ?? {};
   const fullTitleResult = {
     name: "fullTitle",
     type: "text",
@@ -16,7 +21,7 @@ function fullTitle({ overrides = undefined } = {}) {
     },
   };
 
-  return deepmerge(fullTitleResult, overrides);
+  return deepmerge(fullTitleResult, overrides) as Field;
 }
 
 export default fullTitle;

@@ -1,18 +1,24 @@
-const format = (val) =>
+import { FieldHook, FieldHookArgs } from "payload/types";
+
+interface FieldArgs extends Partial<FieldHookArgs<any, any, any>> {
+  fallback: string[];
+}
+const format = (val: string) =>
   val
     .replace(/ /g, "-")
     .replace(/[^\w-]+/g, "")
     .toLowerCase();
 
-const getFallbackData = ({ fallback, originalDoc, data }) => {
+const getFallbackData = ({ fallback, originalDoc, data }: FieldArgs) => {
   const fallbackValues = fallback.map(
-    (value) => (data && data[value]) || (originalDoc && originalDoc[value]),
+    (value: string) =>
+      (data && data[value]) || (originalDoc && originalDoc[value]),
   );
   return fallbackValues.join("-");
 };
 
 const formatSlug =
-  (fallback) =>
+  (fallback: string): FieldHook =>
   ({ value, originalDoc, data }) => {
     if (value && typeof value === "string") {
       return format(value);

@@ -1,4 +1,6 @@
-const Media = {
+import { CollectionConfig } from "payload/types";
+
+const Media: CollectionConfig = {
   slug: "media",
   admin: {
     defaultColumns: ["alt", "updatedAt"],

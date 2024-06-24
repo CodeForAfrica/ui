@@ -1,6 +1,11 @@
+import { PayloadRequest } from "payload/types";
 import { ROLE_ADMIN } from "./roles";
 
-export const isAdminOrPublished = ({ req: { user } }) => {
+export const isAdminOrPublished = ({
+  req: { user },
+}: {
+  req: PayloadRequest;
+}) => {
   if (user?.roles?.includes(ROLE_ADMIN)) {
     return true;
   }
