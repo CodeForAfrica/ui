@@ -1,0 +1,29 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build", "build-next", "build-payload"]
+    },
+    "build-next": {
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": []
+    },
+    "build-payload": {
+      "outputs": ["build/**"],
+      "env": [
+        "MONGODB_URL",
+        "NEXT_PUBLIC_APP_URL",
+        "PAYLOAD_SECRET",
+        "PAYLOAD_PUBLIC_APP_URL",
+        "SENDGRID_FROM_NAME",
+        "SENDGRID_FROM_EMAIL",
+        "S3_ACCESS_KEY_ID",
+        "S3_SECRET_ACCESS_KEY",
+        "S3_BUCKET",
+        "S3_REGION",
+        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
+        "PAYLOAD_PUBLIC_LOCALES"
+      ]
+    }
+  }
+}
