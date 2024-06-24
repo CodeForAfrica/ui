@@ -33,7 +33,7 @@ services:
         condition: service_healthy
     build:
       context: .
-      dockerfile: codeforafrica.Dockerfile
+      target: codeforafrica-runner
       args:
         - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
         - PAYLOAD_SECRET
