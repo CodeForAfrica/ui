@@ -120,8 +120,8 @@ EXPOSE ${PORT}
 # ============================================================================
 
 #
-# codeforafrica-desp: image with all pesayetu dependencies
-# --------------------------------------------------------
+# codeforafrica-desp: image with all codeforafrica dependencies
+# -------------------------------------------------------------
 
 FROM base-deps as codeforafrica-deps
 
@@ -157,7 +157,6 @@ ARG NEXT_TELEMETRY_DISABLED \
 COPY --from=codeforafrica-deps /workspace/node_modules ./node_modules
 
 # TODO(kilemensi): Investigate why we need @commons-ui sources.
-#                  Could it be TS related? We don't need this in PesaYetu.
 COPY packages ./packages
 
 COPY --from=codeforafrica-deps /workspace/packages/commons-ui-core/node_modules ./packages/commons-ui-core/node_modules
@@ -170,7 +169,6 @@ COPY apps/codeforafrica ./apps/codeforafrica/
 
 RUN pnpm --filter "./apps/codeforafrica/" build-next
 
-# Since we're using another arg to initialise this, it must be a separate ARG
 ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
 
 RUN pnpm --filter "./apps/codeforafrica/" build-payload
@@ -208,13 +206,14 @@ RUN set -ex \
 # symlink some dependencies
 COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
+# Since we can't use output: "standalone", copy all app's dependencies
 COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
 
 # Next.js
 # Public assets
 COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/public ./apps/codeforafrica/public
 
-# Since we can't use output: "standalone", lets copy .next folder
+# Since we can't use output: "standalone", copy the whole app's .next folder
 # TODO(kilemensi): Figure out which files in .next folder are not needed
 COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/.next ./apps/codeforafrica/.next
 
@@ -222,7 +221,7 @@ COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codefora
 COPY --from=codeforafrica-builder /workspace/apps/codeforafrica/dist ./apps/codeforafrica/dist
 COPY --from=codeforafrica-builder /workspace/apps/codeforafrica/build ./apps/codeforafrica/build
 
-# Since we're can't use output: "standalone", switch to specific app folder
+# Since we can't use output: "standalone", switch to specific app's folder
 WORKDIR /workspace/apps/codeforafrica
 
 USER nextjs
