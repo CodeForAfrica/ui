@@ -17,7 +17,7 @@ env:
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   VERSION_FILE_NAME: "./apps/codeforafrica/package.json"
   NEXT_PUBLIC_APP_URL: "https://cfa.dev.codeforafrica.org"
-  SENTRY_ENV: "production"
+  SENTRY_ENVIRONMENT: "production"
 
 jobs:
   deploy:
@@ -82,7 +82,7 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache

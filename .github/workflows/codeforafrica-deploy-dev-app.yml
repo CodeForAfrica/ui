@@ -19,7 +19,7 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui.dev.codeforafrica.org"
-  SENTRY_ENV: "development"
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy:
@@ -61,7 +61,7 @@ jobs:
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache

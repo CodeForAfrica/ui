@@ -19,7 +19,7 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
   NEXT_PUBLIC_APP_URL: "https://roboshield-ui.dev.codeforafrica.org"
-  SENTRY_ENV: "development"
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy:
@@ -60,7 +60,7 @@ jobs:
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache

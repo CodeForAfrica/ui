@@ -2,7 +2,7 @@ import { Box, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import Code from "../Code";
-import StepperNav from "../StepperNav";
+import StepperNav from "@/roboshield/components/StepperNav";
 
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";

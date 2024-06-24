@@ -1,5 +1,5 @@
-import { Figure, Link } from "@commons-ui/next";
-import { Stack, Typography } from "@mui/material";
+import { Figure, Link, RichTypography } from "@commons-ui/next";
+import { Stack } from "@mui/material";
 import React from "react";
 
 interface FooterDescriptionProps {
@@ -32,16 +32,18 @@ function FooterDescription({ description, logo, sx }: FooterDescriptionProps) {
           }}
         />
       </Link>
-      <Typography
+      <RichTypography
+        LinkProps={{
+          color: "text.secondary",
+          sx: { textDecorationColor: "text.secondary" },
+        }}
         sx={{
           color: "text.secondary",
-          textAlign: { xs: "center", md: "left" },
-          typography: "footer",
           mt: "52px !important",
         }}
       >
         {description}
-      </Typography>
+      </RichTypography>
     </Stack>
   );
 }

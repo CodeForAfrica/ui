@@ -7,8 +7,8 @@
     "clean": "rm -rf .next .turbo node_modules",
     "dev": "next dev",
     "jest": "jest --passWithNoTests",
-    "lint": "TIMING=1 eslint --fix './'",
-    "lint-check": "TIMING=1 eslint './'",
+    "lint-check": "TIMING=1 next lint './'",
+    "lint": "TIMING=1 next lint --fix './'",
     "start": "next start"
   },
   "dependencies": {
