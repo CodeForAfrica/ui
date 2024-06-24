@@ -5,10 +5,14 @@ import StepperNav from "@/roboshield/components/StepperNav";
 
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
 export default function Sitemaps({
   handleNext,
   handleBack,
+  handleSkipToLast,
+  hint,
   lastStep,
 }: StepComponent) {
   const { state } = useGlobalState();
@@ -25,8 +29,16 @@ export default function Sitemaps({
     });
   };
 
+  const skipToLast = () => {
+    handleSkipToLast({
+      sitemaps,
+    });
+  };
+
   return (
     <>
+      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <StepHint hint={hint} />
       <Box
         sx={{
           width: "100%",
@@ -41,7 +53,7 @@ export default function Sitemaps({
           style={{
             maxHeight: "300px",
             height: "300px",
-            width: "96%",
+            width: "100%",
             border: "1px solid #C4C4C4",
             borderRadius: "5px",
             padding: "2%",

@@ -1,5 +1,4 @@
 import { Section } from "@commons-ui/core";
-import CodeIcon from "@mui/icons-material/Code";
 import {
   IconButton,
   Alert,
@@ -94,6 +93,12 @@ export default function Home() {
     handleNext();
   };
 
+  const handleSkipToLast = (data: any) => {
+    const newState = { ...state, ...data };
+    setState(newState);
+    setActiveStep(steps.length - 1);
+  };
+
   const handleStep = (step: number) => () => {
     setActiveStep(step);
   };
@@ -157,35 +162,11 @@ export default function Home() {
               >
                 <Box
                   sx={{
-                    display: "flex",
-                    flexDirection: "row-reverse",
                     px: { xs: 2, md: 0 },
+                    py: "10px",
                     mb: 5,
                   }}
-                >
-                  <Tooltip title="View current robots.txt file">
-                    <IconButton
-                      onClick={handleStep(steps.length - 1)}
-                      sx={{
-                        color:
-                          activeStep === steps.length - 1
-                            ? "#FFFFFF"
-                            : "#1120E1",
-                        backgroundColor:
-                          activeStep === steps.length - 1
-                            ? "#1120E1"
-                            : "#FFFFFF",
-                        border: "1px solid #1120E1",
-                        " :hover": {
-                          backgroundColor: "#1120E1",
-                          color: "#FFFFFF",
-                        },
-                      }}
-                    >
-                      <CodeIcon />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
+                ></Box>
 
                 <Stepper nonLinear activeStep={activeStep}>
                   {steps.map((step, index) => (
@@ -221,21 +202,11 @@ export default function Home() {
                       boxShadow: 0,
                     }}
                   >
-                    <Alert
-                      severity="info"
-                      sx={{
-                        alignItems: "center",
-                        fontSize: {
-                          xs: "0.8rem",
-                          md: "1rem",
-                        },
-                      }}
-                    >
-                      {steps[activeStep].description}
-                    </Alert>
                     <ActiveComponent
+                      hint={steps[activeStep].description}
                       handleNext={handleNextStep}
                       handleBack={handleBack}
+                      handleSkipToLast={handleSkipToLast}
                       lastStep={activeStep === steps.length - 1}
                       handleReset={handleReset}
                     />
