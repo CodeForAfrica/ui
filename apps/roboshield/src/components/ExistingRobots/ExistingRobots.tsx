@@ -10,10 +10,14 @@ import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import { validateUrl } from "@/roboshield/utils/urls";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
 export default function ExistingRobots({
   handleNext,
   handleBack,
+  handleSkipToLast,
+  hint,
   lastStep,
 }: StepComponent) {
   const { state } = useGlobalState();
@@ -71,8 +75,18 @@ export default function ExistingRobots({
     });
   };
 
+  const skipToLast = () => {
+    handleSkipToLast({
+      url,
+      shouldFetch,
+      ...robots,
+    });
+  };
+
   return (
     <>
+      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <StepHint hint={hint} />
       <Box sx={{ py: 2 }}>
         <FormGroup
           sx={{
@@ -133,7 +147,6 @@ export default function ExistingRobots({
           </Alert>
         )}
       </Box>
-
       <StepperNav
         next={next}
         handleBack={handleBack}

@@ -8,10 +8,14 @@ import TimePicker from "@/roboshield/components/TimePicker";
 import Input from "@/roboshield/components/Input";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
 export default function Delays({
   handleNext,
   handleBack,
+  handleSkipToLast,
+  hint,
   lastStep,
 }: StepComponent) {
   const { state } = useGlobalState();
@@ -51,8 +55,20 @@ export default function Delays({
       visitTimeTo,
     });
   };
+
+  const skipToLast = () => {
+    handleSkipToLast({
+      crawlDelay,
+      cachedDelay,
+      visitTimeFrom,
+      visitTimeTo,
+    });
+  };
+
   return (
     <>
+      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <StepHint hint={hint} />
       <Box
         sx={{
           width: "100%",

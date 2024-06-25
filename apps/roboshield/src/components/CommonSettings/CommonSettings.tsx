@@ -16,10 +16,14 @@ import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { platforms } from "@/roboshield/lib/config";
 import { StepComponent } from "@/roboshield/types/stepComponent";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
 export default function CommonSettings({
   handleNext,
   handleBack,
+  handleSkipToLast,
+  hint,
   lastStep,
 }: StepComponent) {
   const { state } = useGlobalState();
@@ -64,8 +68,18 @@ export default function CommonSettings({
     });
   };
 
+  const skipToLast = () => {
+    handleSkipToLast({
+      disallowedPaths,
+      allowedPaths,
+      platform,
+    });
+  };
+
   return (
     <>
+      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <StepHint hint={hint} />
       <Box
         sx={{
           width: "100%",
