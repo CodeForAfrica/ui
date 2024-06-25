@@ -230,6 +230,96 @@ USER nextjs
 CMD ["node", "dist/server.js"]
 
 # ============================================================================
+# Roboshield
+# ============================================================================
+FROM base-deps as roboshield-deps
+
+COPY apps/roboshield/package.json ./apps/roboshield/package.json
+
+RUN pnpm --filter "./apps/roboshield/" install --offline --frozen-lockfile
+FROM base-builder as roboshield-builder
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="RoboShield" \
+  NEXT_PUBLIC_APP_URL=http://localhost:3000 \
+  NEXT_PUBLIC_SENTRY_DSN="" \
+  # Payload (runtime)
+  MONGO_URL \
+  PAYLOAD_SECRET \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG="" \
+  SENTRY_PROJECT=""
+
+COPY --from=roboshield-deps /workspace/node_modules ./node_modules
+
+COPY packages ./packages
+
+COPY --from=roboshield-deps /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
+
+COPY apps/roboshield ./apps/roboshield/
+
+RUN pnpm --filter "./apps/roboshield/" build-next
+
+ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+
+RUN pnpm --filter "./apps/roboshield/" build-payload
+
+#
+# roboshield-runner: final deployable image
+# --------------------------------------------
+  FROM base-runner as roboshield-runner
+
+  ARG MONGO_URL \
+    NEXT_PUBLIC_APP_LOGO_URL \
+    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+    PAYLOAD_PUBLIC_APP_URL
+  
+  ENV MONGO_URL=${MONGO_URL} \
+    # TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
+    #              - GA_MEASUREMENT_ID (charterafrica, roboshield)
+    #              - GOOGLE_ANALYTICS (pesayetu, vpnmanager)
+    #              This is only needed at runtime
+    NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
+    PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
+    PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
+    PAYLOAD_SECRET=${PAYLOAD_SECRET}
+  
+  RUN set -ex \
+    # Create nextjs cache dir w/ correct permissions
+    && mkdir -p ./apps/roboshield//.next \
+    && chown nextjs:nodejs ./apps/roboshield/.next
+  
+  # PNPM
+  # symlink some dependencies
+  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+  
+  # Since we can't use output: "standalone", copy all app's dependencies
+  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
+  
+  # Next.js
+  # Public assets
+  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
+  
+  # Since we can't use output: "standalone", copy the whole app's .next folder
+  # TODO(kilemensi): Figure out which files in .next folder are not needed
+  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next ./apps/roboshield/.next
+  
+  # Payload
+  COPY --from=roboshield-builder /workspace/apps/roboshield/dist ./apps/roboshield/dist
+  COPY --from=roboshield-builder /workspace/apps/roboshield/build ./apps/roboshield/build
+  
+  # Since we can't use output: "standalone", switch to specific app's folder
+  WORKDIR /workspace/apps/roboshield
+  
+  USER nextjs
+  
+  # Custom server to run Payload and Next.js in the same app
+  CMD ["node", "dist/server.js"]
+# ============================================================================
 # PesaYetu
 # ============================================================================
 
