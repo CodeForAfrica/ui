@@ -27,6 +27,7 @@ import {
   defaultState,
 } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
+import { getPageServerSideProps } from "@/roboshield/lib/data";
 
 interface Step {
   label: string;
@@ -221,76 +222,16 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context: any) {
+  const { props } = await getPageServerSideProps(context);
   return {
     props: {
-      navbar: {
-        logo: {
-          alt: "CfA logo",
-          prefix: "media",
-          filename: "cfa-logo.svg",
-          mimeType: "image/svg+xml",
-          filesize: 6029,
-          width: 136,
-          height: 61,
-          url: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
-          src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
-        },
-        menus: [{ label: "ABOUT", href: "#" }],
-        socialLinks: [
-          {
-            platform: "Twitter",
-            url: "https://twitter.com/Code4Africa",
-            id: "651e88dbc938b817cab85671",
-          },
-        ],
-      },
+      ...props,
       footer: {
-        logo: {
-          alt: "CfA logo",
-          prefix: "media",
-          filename: "cfalogobw.svg",
-          priority: "true",
-          url: "https://cfa.dev.codeforafrica.org/media/cfalogobw.svg",
-          src: "https://cfa.dev.codeforafrica.org/media/cfalogobw.svg",
-        },
+        logo: props?.footer?.logo,
+        newsletter: props?.footer?.newsletter,
         description: `This site is an <a href="https://github.com/CodeForAfrica/ui/tree/main/apps/roboshield">open source code</a> built by <a href="https://codeforafrica.org">Code for Africa</a>, the continent's largest network of civic technology and data journalism labs. All content is released under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons 4 Attribution</a> License. Reuse it to help empower your own community.`,
-        connect: {
-          title: "STAY IN TOUCH:",
-          links: [
-            {
-              platform: "Twitter",
-              url: "https://twitter.com/Code4Africa",
-              id: "651e88dbc938b817cab85671",
-            },
-            {
-              platform: "Slack",
-              url: "https://code4africa.slack.com/",
-              id: "651e8995c938b817cab85672",
-            },
-            {
-              platform: "Linkedin",
-              url: "https://www.linkedin.com/company/code-for-africa/",
-              id: "651e89a5c938b817cab85673",
-            },
-            {
-              platform: "Facebook",
-              url: "https://www.facebook.com/CodeForAfrica/",
-              id: "651e89afc938b817cab85674",
-            },
-            {
-              platform: "Instagram",
-              url: "https://www.instagram.com/code4africa__/",
-              id: "651e89c3c938b817cab85675",
-            },
-
-            {
-              platform: "Github",
-              url: "https://github.com/CodeForAfrica",
-              id: "651e89dec938b817cab85676",
-            },
-          ],
-        },
+        connect: props?.footer?.connect,
         partners: [
           {
             name: "DW Africa",
@@ -324,11 +265,6 @@ export async function getStaticProps() {
                   <a href="https://civicsignal.africa" rel="noreferrer noopener" target="blank">CivicSignal</a>
                   MediaData database.
                   `,
-        newsletter: {
-          title: "Subscribe to our Newsletter",
-          embedCode:
-            '<!-- Begin Mailchimp Signup Form -->\n\n<div id="mc_embed_signup">\n <form action="https://twitter.us6.list-manage.com/subscribe/post?u=65e5825507b3cec760f272e79&amp;id=c2ff751541" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>\n <div id="mc_embed_signup_scroll">\n <label for="MERGE1">Name</label>\n <input type="text" name="MERGE1" id="MERGE1" size="25" value="" placeholder="Your name">\n <label for="mce-EMAIL">Email</label>\n <input type="email" value="" placeholder="example@email.com" name="EMAIL" class="email" id="mce-EMAIL" required>\n <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->\n <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_65e5825507b3cec760f272e79_c2ff751541" tabindex="-1" value=""></div>\n <div class="clear"><input type="submit" value="Sign up" id="mc-embedded-subscribe" class="button"></div>\n </div>\n </form>\n</div>\n\n<!--End mc_embed_signup-->',
-        },
       },
     },
   };
