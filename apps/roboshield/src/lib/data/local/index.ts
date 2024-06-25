@@ -7,7 +7,6 @@ export async function getPageServerSideProps(context: AppContext) {
   if (!props) {
     return { notFound: true };
   }
-
   return {
     props,
   };
