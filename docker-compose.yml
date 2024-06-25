@@ -1,17 +1,14 @@
 services:
   charterafrica:
-    depends_on:
-      mongodb:
-        condition: service_healthy
     build:
       context: .
-      dockerfile: charterafrica.Dockerfile
+      target: charterafrica-runner
       args:
         - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
         - PAYLOAD_SECRET_KEY
         - SENTRY_AUTH_TOKEN
+        - SENTRY_ENVIRONMENT
         - SENTRY_ORG
-        - SENTRY_ENV
         - SENTRY_PROJECT
     environment:
       S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
@@ -35,18 +32,18 @@ services:
       context: .
       target: codeforafrica-runner
       args:
-        - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
+        - MONGODB_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
         - PAYLOAD_SECRET
         - SENTRY_AUTH_TOKEN
+        - SENTRY_ENVIRONMENT
         - SENTRY_ORG
-        - SENTRY_ENV
         - SENTRY_PROJECT
     environment:
       S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
       S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
       S3_BUCKET: ${S3_BUCKET}
       S3_REGION: ${S3_REGION}
-      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
+      MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
