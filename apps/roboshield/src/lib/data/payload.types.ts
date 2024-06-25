@@ -57,6 +57,11 @@ export interface MediaData {
   src: string | null;
 }
 
+export interface Partner {
+  logo: MediaData;
+  name: string;
+  url: string;
+}
 export interface Settings {
   title: string;
   description: TextNode;
@@ -74,6 +79,8 @@ export interface Settings {
     title: string;
     embedCode: string;
   };
+  partners: Partner[];
+  partnerHeaderTitle: string;
 }
 
 export interface CollectionQuery {

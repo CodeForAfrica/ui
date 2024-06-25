@@ -1,10 +1,11 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
 import { Box, Grid, Stack } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Theme, styled } from "@mui/material/styles";
 
 import NewsletterSubscription from "@/roboshield/components/NewsletterSubscription";
 import StayInTouch from "@/roboshield/components/StayInTouch";
+import RichText from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
 
 export interface FooterProps {
@@ -21,7 +22,8 @@ export interface FooterProps {
     title: string;
   };
   partners: any[];
-  project: string;
+  projectDescription: string;
+  partnerHeaderTitle: string;
 }
 
 const FooterRoot = styled(Box)(
@@ -43,8 +45,9 @@ export default function Footer({
   description,
   logo,
   partners,
-  project,
+  projectDescription,
   newsletter,
+  partnerHeaderTitle,
 }: FooterProps) {
   return (
     <FooterRoot component="footer">
@@ -91,8 +94,9 @@ export default function Footer({
                     variant="h6"
                     sx={{ color: "text.secondary", mb: "0" }}
                   >
-                    In Partnership with:
+                    {partnerHeaderTitle}
                   </RichTypography>
+                  <RichText />
                   <Stack alignItems="center" direction="row" spacing={0.5}>
                     {partners.map((partner: any) => (
                       <Link
@@ -101,7 +105,10 @@ export default function Footer({
                         target="_blank"
                       >
                         <Figure
-                          ImageProps={partner.logo}
+                          ImageProps={{
+                            src: partner?.logo?.src,
+                            alt: partner?.logo?.alt,
+                          }}
                           sx={{
                             display: "flex",
                             filter: "grayscale(100%)",
@@ -116,20 +123,30 @@ export default function Footer({
                     ))}
                   </Stack>
                 </Stack>
-                <RichTypography
-                  LinkProps={{
-                    color: "text.secondary",
-                    sx: { textDecorationColor: "text.secondary" },
+                <RichText
+                  variant="footer"
+                  typographyProps={{
+                    sx: {
+                      mt: {
+                        md: 6.5,
+                      },
+                    },
+                    LinkProps: {
+                      color: "text.secondary",
+                      sx: { textDecorationColor: "text.secondary" },
+                    },
                   }}
-                  mt={{
-                    md: 6.5,
-                  }}
-                  sx={{
-                    color: "text.secondary",
-                  }}
-                >
-                  {project}
-                </RichTypography>
+                  sx={(theme: Theme) => ({
+                    a: {
+                      color: theme.palette.text.secondary,
+                      textDecorationColor: theme.palette.text.secondary,
+                    },
+                    mt: "52px",
+                    textAlign: { xs: "center", md: "left" },
+                    typography: "footer",
+                  })}
+                  elements={projectDescription}
+                />
               </Grid>
             </Grid>
           </Grid>

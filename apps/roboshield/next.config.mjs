@@ -31,6 +31,16 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 export default withSentryConfig(nextConfig, {
