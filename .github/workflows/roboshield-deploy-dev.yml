@@ -6,7 +6,7 @@ on:
     paths:
       - "apps/roboshield/**"
       - "Dockerfile"
-      - ".github/workflows/roboshield-dev.yml"
+      - ".github/workflows/roboshield-deploy-dev.yml"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
