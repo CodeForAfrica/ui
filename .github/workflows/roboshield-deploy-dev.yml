@@ -58,7 +58,7 @@ jobs:
             MONGO_URL=${{ secrets.ROBOSHIELD_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.ROBOSHIELD_SENTRY_DSN }}
-            PAYLOAD_SECRET_KEY=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET_KEY }}
+            PAYLOAD_SECRET=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET_KEY }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
