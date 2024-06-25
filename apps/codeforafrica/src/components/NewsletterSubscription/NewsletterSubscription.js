@@ -19,6 +19,7 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
         borderRadius: 0,
         display: "flex",
         height: typography.pxToRem(36),
+        marginTop: 0,
         marginBottom: typography.pxToRem(30),
         outline: "none",
         padding: `0 ${typography.pxToRem(12)}`,
@@ -38,10 +39,15 @@ const NewsletterSubscriptionRoot = styled(RichTypography)(
     "& #mc_embed_signup input[type=submit]": {
       ...typography.subtitle1,
       background: "none",
-      border: "none",
+      border: `1px solid ${palette.text.secondary}`,
       color: "inherit",
-      padding: 0,
-      textDecoration: "underline",
+      padding: `${typography.pxToRem(6)} ${typography.pxToRem(12)}`,
+      textDecoration: "none",
+    },
+    "& #mc_embed_signup input[type=submit]:hover": {
+      cursor: "pointer",
+      background: `${palette.text.secondary}`,
+      color: `${palette.text.primary}`,
     },
   }),
 );
