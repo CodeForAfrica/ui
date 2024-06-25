@@ -8,5 +8,11 @@
     "outDir": "./dist",
     "rootDir": "./"
   },
-  "include": ["src/lib/**/*.ts", "src/utils/**/*.ts", "scripts/**/*.ts"]
+  "include": [
+    "src/lib/**/*.ts",
+    "src/utils/**/*.ts",
+    "scripts/**/*.ts",
+    "payload.config.ts",
+    "server.ts"
+  ]
 }
