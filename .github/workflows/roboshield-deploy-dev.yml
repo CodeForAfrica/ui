@@ -2,7 +2,7 @@ name: RoboShield | Deploy | DEV
 
 on:
   push:
-    branches: [roboshield/workflow-build]
+    branches: [main]
     paths:
       - "apps/roboshield/**"
       - "Dockerfile"
