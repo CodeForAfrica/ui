@@ -83,7 +83,7 @@ export interface Settings {
     partners: Partner[];
     title: string;
     description: TextNode;
-  }
+  };
 }
 
 export interface CollectionQuery {
