@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "apps/codeforafrica/**"
-      - "codeforafrica.Dockerfile"
+      - "Dockerfile"
       - ".github/workflows/codeforafrica-deploy-dev-app.yml"
 
 concurrency:
@@ -67,7 +67,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: ./codeforafrica.Dockerfile
+          target: codeforafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 

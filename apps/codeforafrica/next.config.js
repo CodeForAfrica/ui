@@ -1,11 +1,4 @@
-const path = require("path");
-
 const { withSentryConfig } = require("@sentry/nextjs");
-
-const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
-const outputFileTracingRoot = PROJECT_ROOT
-  ? path.resolve(__dirname, PROJECT_ROOT)
-  : undefined;
 
 const nextConfig = {
   images: {
@@ -16,16 +9,12 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
       "true",
   },
-  experimental: {
-    outputFileTracingRoot,
-  },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.
     "@mui/material^": {
       transform: "@mui/material/{{member}}",
     },
   },
-  output: "standalone",
   pageExtensions: ["page.js"],
   reactStrictMode: true,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
