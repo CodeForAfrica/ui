@@ -21,9 +21,15 @@ export interface FooterProps {
     sx: any;
     title: string;
   };
-  partners: any[];
-  projectDescription: string;
-  partnerHeaderTitle: string;
+  initiative: {
+    partners: {
+      logo: any;
+      url: string;
+      name: string;
+    }[];
+    title: string;
+    description: string;
+  };
 }
 
 const FooterRoot = styled(Box)(
@@ -44,10 +50,8 @@ export default function Footer({
   connect,
   description,
   logo,
-  partners,
-  projectDescription,
   newsletter,
-  partnerHeaderTitle,
+  initiative,
 }: FooterProps) {
   return (
     <FooterRoot component="footer">
@@ -94,11 +98,11 @@ export default function Footer({
                     variant="h6"
                     sx={{ color: "text.secondary", mb: "0" }}
                   >
-                    {partnerHeaderTitle}
+                    {initiative?.title}
                   </RichTypography>
                   <RichText />
                   <Stack alignItems="center" direction="row" spacing={0.5}>
-                    {partners.map((partner: any) => (
+                    {initiative?.partners?.map((partner: any) => (
                       <Link
                         key={partner.name}
                         href={partner.url}
@@ -145,7 +149,7 @@ export default function Footer({
                     textAlign: { xs: "center", md: "left" },
                     typography: "footer",
                   })}
-                  elements={projectDescription}
+                  elements={initiative?.description}
                 />
               </Grid>
             </Grid>

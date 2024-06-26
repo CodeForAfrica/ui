@@ -1,7 +1,7 @@
 import EngagementTab from "./EngagementTab";
 import GeneralTab from "./GeneralTab";
 import NavigationTab from "./NavigationTab";
-import PartnersTab from "./PartnersTab";
+import InitiativeTab from "./InitiativeTab";
 
 const Site = {
   slug: "settings-site",
@@ -15,7 +15,7 @@ const Site = {
   fields: [
     {
       type: "tabs",
-      tabs: [GeneralTab, NavigationTab, EngagementTab, PartnersTab],
+      tabs: [GeneralTab, NavigationTab, EngagementTab, InitiativeTab],
     },
   ],
 };

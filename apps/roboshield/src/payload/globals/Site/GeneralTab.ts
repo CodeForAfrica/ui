@@ -19,11 +19,6 @@ const GeneralTab = {
           required: true,
           localized: true,
         }),
-        richText({
-          name: "projectDescription",
-          required: true,
-          localized: true,
-        }),
       ],
     },
     {
