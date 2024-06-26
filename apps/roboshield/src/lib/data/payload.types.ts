@@ -79,8 +79,11 @@ export interface Settings {
     title: string;
     embedCode: string;
   };
-  partners: Partner[];
-  partnerHeaderTitle: string;
+  initiative: {
+    partners: Partner[];
+    title: string;
+    description: TextNode;
+  }
 }
 
 export interface CollectionQuery {

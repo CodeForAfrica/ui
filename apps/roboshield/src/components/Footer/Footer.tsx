@@ -143,7 +143,6 @@ export default function Footer({
                       textDecorationColor: theme.palette.text.secondary,
                     },
                     mt: "52px",
-                    textAlign: { xs: "center", md: "left" },
                     typography: "footer",
                   })}
                   elements={initiative?.description}

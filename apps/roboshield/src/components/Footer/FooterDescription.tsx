@@ -47,7 +47,6 @@ function FooterDescription({ description, logo, sx }: FooterDescriptionProps) {
             textDecorationColor: theme.palette.text.secondary,
           },
           mt: "52px",
-          textAlign: { xs: "center", md: "left" },
           typography: "footer",
         })}
         elements={description}
