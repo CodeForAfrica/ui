@@ -7,6 +7,7 @@ import NewsletterSubscription from "@/roboshield/components/NewsletterSubscripti
 import StayInTouch from "@/roboshield/components/StayInTouch";
 import RichText from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
+import { Partner } from "@/roboshield/lib/data/payload.types";
 
 export interface FooterProps {
   connect: {
@@ -22,11 +23,7 @@ export interface FooterProps {
     title: string;
   };
   initiative: {
-    partners: {
-      logo: any;
-      url: string;
-      name: string;
-    }[];
+    partners: Partner[];
     title: string;
     description: string;
   };
