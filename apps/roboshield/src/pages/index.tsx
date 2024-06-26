@@ -1,12 +1,8 @@
 import { Section } from "@commons-ui/core";
-import CloseIcon from "@mui/icons-material/Close";
-import CodeIcon from "@mui/icons-material/Code";
 import {
   IconButton,
   Alert,
   Box,
-  Dialog,
-  DialogContent,
   Paper,
   Stack,
   Step,
@@ -18,7 +14,6 @@ import { useEffect } from "react";
 import React from "react";
 import { useRef, useState } from "react";
 
-import CodeEditor from "@/roboshield/components/Code/CodeEditor";
 import Delays from "@/roboshield/components/Delays";
 import Hero from "@/roboshield/components/Hero";
 import Sitemaps from "@/roboshield/components/Sitemaps";
@@ -45,15 +40,6 @@ export default function Home() {
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const scrolRef = useRef<HTMLDivElement | null>(null);
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const steps: Step[] = [
     {
@@ -106,6 +92,12 @@ export default function Home() {
     const newState = { ...state, ...data };
     setState(newState);
     handleNext();
+  };
+
+  const handleSkipToLast = (data: any) => {
+    const newState = { ...state, ...data };
+    setState(newState);
+    setActiveStep(steps.length - 1);
   };
 
   const handleStep = (step: number) => () => {
@@ -171,28 +163,11 @@ export default function Home() {
               >
                 <Box
                   sx={{
-                    display: "flex",
-                    flexDirection: "row-reverse",
                     px: { xs: 2, md: 0 },
+                    py: "10px",
                     mb: 5,
                   }}
-                >
-                  <Tooltip title="View current robots.txt file">
-                    <IconButton
-                      onClick={handleClickOpen}
-                      sx={{
-                        background: "#1120E1",
-                        color: "#FFFFFF",
-                        border: "1px solid #1120E1",
-                        "&:hover": {
-                          color: "#1120E1",
-                        },
-                      }}
-                    >
-                      <CodeIcon />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
+                ></Box>
 
                 <Stepper nonLinear activeStep={activeStep}>
                   {steps.map((step, index) => (
@@ -228,21 +203,11 @@ export default function Home() {
                       boxShadow: 0,
                     }}
                   >
-                    <Alert
-                      severity="info"
-                      sx={{
-                        alignItems: "center",
-                        fontSize: {
-                          xs: "0.8rem",
-                          md: "1rem",
-                        },
-                      }}
-                    >
-                      {steps[activeStep].description}
-                    </Alert>
                     <ActiveComponent
+                      hint={steps[activeStep].description}
                       handleNext={handleNextStep}
                       handleBack={handleBack}
+                      handleSkipToLast={handleSkipToLast}
                       lastStep={activeStep === steps.length - 1}
                       handleReset={handleReset}
                     />
@@ -251,43 +216,6 @@ export default function Home() {
               </Box>
             </Box>
           </Box>
-
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            fullWidth={true}
-            maxWidth="md"
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogContent>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row-reverse",
-                  mb: 2,
-                }}
-              >
-                <Tooltip title="Exit preview">
-                  <IconButton
-                    onClick={handleClose}
-                    sx={{
-                      background: "#1120E1",
-                      color: "#FFFFFF",
-                      border: "1px solid #1120E1",
-                      "&:hover": {
-                        color: "#1120E1",
-                      },
-                    }}
-                  >
-                    <CloseIcon />
-                  </IconButton>
-                </Tooltip>
-              </Box>
-
-              <CodeEditor code={code} setCode={() => {}} readOnly={true} />
-            </DialogContent>
-          </Dialog>
         </Stack>
       </Section>
     </>

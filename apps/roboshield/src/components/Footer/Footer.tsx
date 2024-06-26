@@ -92,7 +92,7 @@ export default function Footer({
                   sx={{ height: "113px", mt: { xs: "52px", md: 0 } }}
                 >
                   <RichTypography
-                    variant="h6"
+                    variant="h5SemiBold"
                     sx={{ color: "text.secondary", mb: "0" }}
                   >
                     {initiative?.title}
