@@ -5,7 +5,7 @@ const HeroTab = {
   label: "Hero",
   fields: [
     {
-      name: "hero_headers",
+      name: "heroHeaders",
       type: "array",
       label: "Hero Components",
       minRows: 3,
@@ -16,22 +16,22 @@ const HeroTab = {
       },
       fields: [
         {
-          name: "heading_type",
+          name: "headingType",
           label: "Heading Type",
           type: "select",
           hasMany: false,
           options: [
             {
               label: "Large Heading",
-              value: "large_heading",
+              value: "largeHeading",
             },
             {
               label: "Sub Heading",
-              value: "sub_heading",
+              value: "subHeading",
             },
             {
-              label: "Heading with rotating text (comma separated)",
-              value: "rotating_text",
+              label: "Heading with rotating text",
+              value: "rotatingText",
             },
           ],
         },
@@ -50,12 +50,12 @@ const HeroTab = {
       },
     },
     richText({
-      name: "heading_line_4",
+      name: "heroDescriptiveText",
       required: true,
       label: "Descriptive Text",
     }),
     {
-      name: "button",
+      name: "heroButtonText",
       type: "text",
       label: "Call to Action Button Text",
     },
