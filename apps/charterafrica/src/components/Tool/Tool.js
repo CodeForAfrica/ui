@@ -121,44 +121,48 @@ const Tool = React.forwardRef(function Tool(props, ref) {
                 ml: "auto",
               }}
             >
-              <Button
-                component={goToRepo?.href ? Link : undefined}
-                href={goToRepo?.href}
-                variant="contained"
-                target="_blank"
-                sx={{
-                  mt: 1.25,
-                  width: "100%",
-                  height: 50,
-                }}
-              >
-                <SvgIcon
-                  component={GithubIcon}
+              {goToRepo?.href ? (
+                <Button
+                  component={Link}
+                  href={goToRepo?.href}
+                  variant="contained"
+                  target="_blank"
                   sx={{
-                    color: "text.secondary",
-                    display: "inline-flex",
-                    fill: "none",
-                    width: 16,
-                    height: 16,
-                    mr: 1,
+                    mt: 1.25,
+                    width: "100%",
+                    height: 50,
                   }}
-                />
-                {goToRepo?.label}
-              </Button>
+                >
+                  <SvgIcon
+                    component={GithubIcon}
+                    sx={{
+                      color: "text.secondary",
+                      display: "inline-flex",
+                      fill: "none",
+                      width: 16,
+                      height: 16,
+                      mr: 1,
+                    }}
+                  />
+                  {goToRepo?.label}
+                </Button>
+              ) : null}
             </Box>
             <TechSkills
               list={techSkills}
               title="Skills Needed"
               sx={{ mt: 3.75 }}
             />
-            <Box sx={{ mt: 3.75 }}>
-              <RichTypography variant="p3SemiBold" color="neutral.dark">
-                {collectionText}
-              </RichTypography>
-              <RichTypography sx={{ mt: 1 }} variant="p3">
-                {classification}
-              </RichTypography>
-            </Box>
+            {classification ? (
+              <Box sx={{ mt: 3.75 }}>
+                <RichTypography variant="p3SemiBold" color="neutral.dark">
+                  {collectionText}
+                </RichTypography>
+                <RichTypography sx={{ mt: 1 }} variant="p3">
+                  {classification}
+                </RichTypography>
+              </Box>
+            ) : null}
             <Contributors
               sx={{ mt: 3.75 }}
               list={contributors}

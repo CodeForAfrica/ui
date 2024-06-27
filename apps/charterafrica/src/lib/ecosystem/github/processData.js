@@ -80,6 +80,9 @@ function fetchUserQuery(username) {
 }
 
 export async function fetchTool({ externalId }) {
+  if (!externalId) {
+    return null;
+  }
   let [repositoryOwner, repositoryName] = externalId
     .replace(/^https?:\/\/github\.com\//, "")
     .replace(/\/$/, "")
