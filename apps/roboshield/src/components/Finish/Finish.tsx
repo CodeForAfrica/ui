@@ -8,10 +8,14 @@ import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import { downloadFile } from "@/roboshield/utils/file";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
 export default function Finish({
   handleReset,
   handleBack,
+  hint,
+  lastStep,
 }: StepComponent & { handleReset: () => void }) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
@@ -67,6 +71,8 @@ export default function Finish({
 
   return (
     <>
+      <SkipToLastStep handleSkipToLast={() => {}} lastStep={lastStep} />
+      <StepHint hint={hint} />
       <Box
         sx={{
           py: 3,
