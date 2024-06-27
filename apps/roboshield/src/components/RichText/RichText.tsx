@@ -1,21 +1,28 @@
 /* eslint-disable react/no-array-index-key */
 import { Link, RichTypography } from "@commons-ui/next";
 import { Box } from "@mui/material";
+import type { BoxProps, TypographyProps } from "@mui/material";
 import React, { Fragment, ReactNode, forwardRef } from "react";
-import { Node, Text } from "slate";
+import { Text } from "slate";
 
 const DEFAULT_PROPS = {
   html: false,
 };
 
-interface NodeProps {
-  children?: Node[];
+// eslint-disable-next-line no-use-before-define
+type Children = Leaf[];
+
+interface Leaf {
+  children?: Children;
   type?: string;
-  href?: string;
   bold?: boolean;
   code?: boolean;
+  href?: string;
   italic?: boolean;
+  strikethrough?: boolean;
   text?: ReactNode;
+  underline?: boolean;
+  [key: string]: unknown;
 }
 
 interface SerializeProps {
@@ -23,13 +30,17 @@ interface SerializeProps {
   [key: string]: any;
 }
 
-const serialize = (
-  children: NodeProps[] | undefined,
+function serialize(
+  children: Children | undefined,
   props?: SerializeProps,
-): ReactNode[] | null =>
-  children?.map((node, i) => {
+): ReactNode | null {
+  if (!children) {
+    return null;
+  }
+  return children.map((node, i) => {
     if (Text.isText(node)) {
-      let { text } = node;
+      let text = <span dangerouslySetInnerHTML={{ __html: node.text }} />;
+      // let { text } = node;
       if (node.bold) {
         text = <strong key={i}>{text}</strong>;
       }
@@ -38,6 +49,20 @@ const serialize = (
       }
       if (node.italic) {
         text = <em key={i}>{text}</em>;
+      }
+      if (node.underline) {
+        text = (
+          <span style={{ textDecoration: "underline" }} key={i}>
+            {text}
+          </span>
+        );
+      }
+      if (node.strikethrough) {
+        text = (
+          <span style={{ textDecoration: "line-through" }} key={i}>
+            {text}
+          </span>
+        );
       }
       return <Fragment key={i}>{text}</Fragment>;
     }
@@ -105,18 +130,17 @@ const serialize = (
           </RichTypography>
         );
     }
-  }) || null;
-
-interface RichTextProps {
-  elements: NodeProps[];
-  variant?: string;
-  typographyProps?: SerializeProps;
-  [key: string]: any;
+  });
 }
 
-const RichText = forwardRef<HTMLDivElement, RichTextProps>(
+interface RichTextProps extends BoxProps {
+  elements?: Children;
+  typographyProps?: SerializeProps;
+}
+
+const RichText = forwardRef<BoxProps, RichTextProps>(
   function RichText(props, ref) {
-    const { elements, variant, typographyProps, ...other } = props;
+    const { elements, typographyProps, ...other } = props;
 
     if (!elements?.length) {
       return null;
@@ -129,4 +153,5 @@ const RichText = forwardRef<HTMLDivElement, RichTextProps>(
   },
 );
 
+export type { Children };
 export default RichText;
