@@ -20,6 +20,16 @@ function getSourceType(link) {
   return "github";
 }
 
+function checkFields(obj) {
+  const emptyFields = Object.keys(obj)
+    .map((field) => (!obj[field] ? field : null))
+    .filter(Boolean);
+  if (emptyFields.length > 0) {
+    return `The following fields are missing ${emptyFields.join(", ")}`;
+  }
+  return null;
+}
+
 function getRepoLink(source = "github", slug = "") {
   if (source === "github" && slug) {
     return `https://github.com/${slug}`;
@@ -70,8 +80,8 @@ export function processTool(item, config, { partnersData }) {
   } = config;
   const data = { ...item.fields, id: item.id };
   const externalId = getValue(data, toolTableColumns.slug)?.trim();
-  const toolName = getValue(data, toolTableColumns.name)?.trim();
-  if (!toolName) {
+  const name = getValue(data, toolTableColumns.name)?.trim();
+  if (!name) {
     const message = `Missing name for Tool ${data.id}. Skipping`;
     Sentry.captureMessage(message);
     return null;
@@ -116,12 +126,28 @@ export function processTool(item, config, { partnersData }) {
     data,
   );
   const source = getSourceType(getValue(data, toolTableColumns.source.url));
+  const avatarUrl =
+    getValue(data, toolTableColumns.avatarUrl)?.[0]?.url ?? null;
+  const fieldsToCheck = {
+    avatarUrl,
+    name,
+    description,
+    operatingCountries,
+    theme,
+  };
+  const missingFields = checkFields(fieldsToCheck);
+  if (missingFields) {
+    const message = `Tool ${name}: ${missingFields}`;
+    Sentry.captureMessage(message);
+    return null;
+  }
+
   return {
     airtableId: data.id,
-    avatarUrl: getValue(data, toolTableColumns.avatarUrl)?.[0]?.url ?? null,
+    avatarUrl,
     externalId,
     repoLink: getValue(data, toolTableColumns.source.url),
-    name: getValue(data, toolTableColumns.name),
+    name,
     link: getValue(data, toolTableColumns.url),
     operatingCountries,
     contributors: getValue(data, toolTableColumns.contributors),
