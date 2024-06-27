@@ -42,6 +42,17 @@ interface StayInTouchData {
   links: SocialMediaLink[];
 }
 
+interface HeroHeader {
+  headingType: string;
+  title: string;
+}
+
+export interface Hero {
+  headers: HeroHeader[];
+  descriptiveText: string;
+  callToActionText: string;
+}
+
 export interface MediaData {
   id: string;
   alt?: string | null;
@@ -84,6 +95,7 @@ export interface Settings {
     title: string;
     description: TextNode;
   };
+  hero: Hero;
 }
 
 export interface CollectionQuery {
