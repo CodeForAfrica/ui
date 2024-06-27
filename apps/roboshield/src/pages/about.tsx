@@ -2,6 +2,7 @@ import { getPageServerSideProps } from "@/roboshield/lib/data";
 import RichText from "@/roboshield/components/RichText";
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+import Statistics from "@/roboshield/components/Statistics";
 
 interface ContentType {
   title: string;
@@ -11,38 +12,53 @@ interface ContentType {
       text: string;
     }>;
   }>;
+  statistics: Array<{
+    name: string;
+    value: string;
+    label: string;
+    icon: string;
+    description: Array<{
+      type: string;
+      children: Array<{
+        text: string;
+      }>;
+    }>;
+  }>;
 }
 
-export default function About({ title, content }: ContentType) {
+export default function About({ title, content, statistics }: ContentType) {
   return (
-    <Section
-      component="section"
-      variant="body3"
-      sx={{
-        px: { xs: 2.5, sm: 0 },
-        my: 10,
-      }}
-    >
-      <RichTypography variant="h4" sx={{ mb: "30px" }}>
-        {title}
-      </RichTypography>
-      <RichText
-        elements={content}
-        sx={(theme: any) => ({
-          mb: "30px",
-          "& h2": {
-            typography: { xs: "h4", md: "h2" },
-          },
-          "& p,& a, & li": {
-            typography: { xs: "body1", md: "subheading" },
-            mb: 2,
-          },
-          "& a": {
-            textDecorationColor: theme.palette.primary.main,
-          },
-        })}
-      />
-    </Section>
+    <>
+      <Section
+        component="section"
+        variant="body3"
+        sx={{
+          px: { xs: 2.5, sm: 0 },
+          my: 10,
+        }}
+      >
+        <RichTypography variant="h4" sx={{ mb: "30px" }}>
+          {title}
+        </RichTypography>
+        <RichText
+          elements={content}
+          sx={(theme: any) => ({
+            mb: "30px",
+            "& h2": {
+              typography: { xs: "h4", md: "h2" },
+            },
+            "& p,& a, & li": {
+              typography: { xs: "body1", md: "subheading" },
+              mb: 2,
+            },
+            "& a": {
+              textDecorationColor: theme.palette.primary.main,
+            },
+          })}
+        />
+      </Section>
+      <Statistics title="Statistics" statistics={statistics} />
+    </>
   );
 }
 
@@ -139,6 +155,72 @@ export async function getServerSideProps(context: any) {
           children: [
             {
               text: "\n\n",
+            },
+          ],
+        },
+      ],
+      statistics: [
+        {
+          name: "botsTracked",
+          value: "30+",
+          label: "Bots Tracked",
+          icon: "/images/Type=layout,%20Size=32,%20Color=1020E1.svg",
+          description: [
+            {
+              type: "p",
+              children: [
+                {
+                  text: "We tracked more than 40 unique AI bots across all websites scanned.",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "websitesScanned",
+          value: "4000+",
+          label: "Websites Scanned",
+          icon: "/images/Type=layout,%20Size=32,%20Color=1020E1.svg",
+          description: [
+            {
+              type: "p",
+              children: [
+                {
+                  text: "We scanned 4626 websites across Africa.",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "websitesBlocking",
+          value: "203",
+          label: "Websites Blocking AI Bots",
+          icon: "/images/Type=layout,%20Size=32,%20Color=1020E1.svg",
+          description: [
+            {
+              type: "p",
+              children: [
+                {
+                  text: "Only 203 websites were blocking AI bots.",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "websitesWithRobots",
+          value: "2106",
+          label: "Websites With Robots.txt File",
+          icon: "/images/Type=layout,%20Size=32,%20Color=1020E1.svg",
+          description: [
+            {
+              type: "p",
+              children: [
+                {
+                  text: "Only 2106 websites had a robots.txt file.",
+                },
+              ],
             },
           ],
         },
