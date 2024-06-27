@@ -40,7 +40,6 @@ function serialize(
   return children.map((node, i) => {
     if (Text.isText(node)) {
       let text = <span dangerouslySetInnerHTML={{ __html: node.text }} />;
-      // let { text } = node;
       if (node.bold) {
         text = <strong key={i}>{text}</strong>;
       }
