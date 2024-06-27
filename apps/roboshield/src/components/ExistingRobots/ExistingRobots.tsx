@@ -19,6 +19,8 @@ export default function ExistingRobots({
   handleSkipToLast,
   hint,
   lastStep,
+  labels,
+  globalLabels,
 }: StepComponent) {
   const { state } = useGlobalState();
   const [url, setUrl] = useState(state.url);
@@ -107,13 +109,13 @@ export default function ExistingRobots({
                 }}
               />
             }
-            label={<Typography>Fetch existing robots.txt</Typography>}
+            label={<Typography>{labels?.existingRobotsTxt}</Typography>}
           />
         </FormGroup>
         <Stack spacing={2} direction="row">
           <Input
             onChange={onInputChange}
-            placeholder="Enter site URL e.g. https://example.com"
+            placeholder={labels?.placeholder}
             sx={{ width: "100%" }}
             disabled={!shouldFetch}
             initialValue={url}
@@ -125,7 +127,7 @@ export default function ExistingRobots({
             disabled={!shouldFetch}
             onClick={fetchData}
           >
-            Fetch
+            {globalLabels?.fetch}
           </Button>
         </Stack>
         {showURLError && (
@@ -153,6 +155,7 @@ export default function ExistingRobots({
         isValid={allowNextStep || !shouldFetch}
         lastStep={lastStep}
         back={true}
+        labels={globalLabels}
       />
       <Snackbar
         open={robotsError}

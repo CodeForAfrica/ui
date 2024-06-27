@@ -109,3 +109,68 @@ export interface Api {
   getCollection: (...args: any) => Promise<any>;
   updateCollection: (...args: any) => Promise<any>;
 }
+
+interface Description {
+  children: null | string;
+  text: string;
+}
+
+interface Labels {
+  existingRobotsTxt?: string;
+  placeholder?: string;
+  label?: string;
+  title?: string;
+}
+
+interface DelaysLabels {
+  crawlDelay: Labels;
+  cacheDelay: Labels;
+  visitTime: Labels;
+}
+
+interface PathsLabels {
+  selectPlatform: Labels;
+  disallowedPaths: Labels;
+  allowedPaths: Labels;
+}
+
+interface BlockBotsLabels {
+  aiWebCrawlers: Labels;
+  searchEngineCrawlers: Labels;
+}
+
+interface Section {
+  title: string;
+  description: Description[];
+  labels: Labels | DelaysLabels | PathsLabels | BlockBotsLabels;
+}
+
+interface FinishSection {
+  title: string;
+  description: Description[];
+  placeholder: string;
+}
+
+interface RoboForm {
+  existingRobots?: Section;
+  delays?: Section & { labels: DelaysLabels };
+  paths?: Section & { labels: PathsLabels };
+  blockBots?: Section & { labels: BlockBotsLabels };
+  siteMaps?: Section & { labels: any };
+  finish?: FinishSection;
+  fetch?: string;
+  continue?: string;
+  back?: string;
+  reset?: string;
+  download?: string;
+  copyToClipboard?: string;
+  id?: string;
+  blockType?: string;
+  slug?: string;
+  steps?: any[];
+}
+
+type BlockTypes = RoboForm;
+export interface Page {
+  blocks: BlockTypes[];
+}
