@@ -3,6 +3,7 @@ import RichText from "@/roboshield/components/RichText";
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import Statistics from "@/roboshield/components/Statistics";
+import type { Children } from "@/roboshield/components/RichText";
 
 interface ContentType {
   title: string;
@@ -17,12 +18,7 @@ interface ContentType {
     value: string;
     label: string;
     icon: string;
-    description: Array<{
-      type: string;
-      children: Array<{
-        text: string;
-      }>;
-    }>;
+    description: Children;
   }>;
 }
 

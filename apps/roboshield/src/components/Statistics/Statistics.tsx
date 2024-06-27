@@ -2,21 +2,18 @@ import { Box, Grid } from "@mui/material";
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import StatisticCard from "./StatisticCard";
+import type { Children } from "@/roboshield/components/RichText";
 
+export type Statistics = {
+  name: string;
+  value: string;
+  label: string;
+  icon: string;
+  description: Children;
+};
 export interface StatiscticsProps {
   title: string;
-  statistics: Array<{
-    name: string;
-    value: string;
-    label: string;
-    icon: string;
-    description: Array<{
-      type: string;
-      children: Array<{
-        text: string;
-      }>;
-    }>;
-  }>;
+  statistics: Statistics[];
 }
 
 export default function Statistics({ title, statistics }: StatiscticsProps) {

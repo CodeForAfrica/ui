@@ -2,8 +2,10 @@ import { Figure, RichTypography } from "@commons-ui/next";
 import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
+import type { Children } from "@/roboshield/components/RichText";
 
 import RichText from "@/roboshield/components/RichText";
+import { Statistics } from "./Statistics";
 
 const StatisticCardRoot = styled(Card, {
   slot: "Root",
@@ -18,11 +20,9 @@ const StatisticCardRoot = styled(Card, {
     width: "332px",
   },
 }));
-export default function StatisticCard(props: any) {
+export default function StatisticCard(props: Statistics) {
   const { icon, label, value, description } = props;
 
-  const imageSrc = icon?.src || icon?.url || icon;
-  const imageAlt = icon?.alt || label;
   return (
     <StatisticCardRoot>
       <CardContent
@@ -42,7 +42,7 @@ export default function StatisticCard(props: any) {
           }}
         >
           <Figure
-            ImageProps={{ alt: imageAlt, src: imageSrc }}
+            ImageProps={{ alt: "label", src: icon }}
             sx={{ height: "32px", width: "32px" }}
           />
           <RichTypography
