@@ -47,42 +47,13 @@ export interface Page {
   fullTitle?: string | null;
   slug?: string | null;
   blocks?:
-    | (
-        | {
-            content?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'content';
-          }
-        | {
-            title: string;
-            statistics?:
-              | {
-                  name: string;
-                  value: number;
-                  description: {
-                    [k: string]: unknown;
-                  }[];
-                  icon?: string | Media | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'statistics';
-          }
-        | {
-            title: string;
-            subtitle: string;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'page-header';
-          }
-      )[]
+    | {
+        title: string;
+        subtitle: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'page-header';
+      }[]
     | null;
   meta?: {
     title?: string | null;
