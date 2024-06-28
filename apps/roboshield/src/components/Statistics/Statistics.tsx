@@ -7,7 +7,6 @@ import type { Children } from "@/roboshield/components/RichText";
 export type Statistics = {
   name: string;
   value: string;
-  label: string;
   icon: string;
   description: Children;
 };

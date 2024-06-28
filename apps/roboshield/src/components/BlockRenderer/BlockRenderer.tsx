@@ -1,25 +1,24 @@
-import Content from "../Content";
+import Content from "@/roboshield/components/Content";
+import Statistics from "@/roboshield/components/Statistics";
+import { Page } from "@/roboshield/lib/data/generated-payload-types";
 
+type BlockType = Page["blocks"];
 interface BlockRendererProps {
-  blocks: any[];
+  blocks: BlockType;
 }
 
-interface ComponentMap {
-  content: React.ComponentType<any>;
-}
-interface Block {
-  slug: keyof ComponentMap;
-}
+const components = {
+  content: Content,
+  statistics: Statistics,
+};
+
+type BlockSlug = keyof typeof components;
 
 export default function BlockRenderer({ blocks }: BlockRendererProps) {
-  const components: ComponentMap = {
-    content: Content,
-  };
-
   return (
     <>
       {blocks?.map((block, index) => {
-        const Component = components[block.slug];
+        const Component = components[block.blockType as BlockSlug];
 
         if (Component) {
           return <Component key={index} {...block} />;

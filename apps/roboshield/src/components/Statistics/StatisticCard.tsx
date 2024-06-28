@@ -2,7 +2,6 @@ import { Figure, RichTypography } from "@commons-ui/next";
 import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
-import type { Children } from "@/roboshield/components/RichText";
 
 import RichText from "@/roboshield/components/RichText";
 import { Statistics } from "./Statistics";
@@ -21,7 +20,7 @@ const StatisticCardRoot = styled(Card, {
   },
 }));
 export default function StatisticCard(props: Statistics) {
-  const { icon, label, value, description } = props;
+  const { icon, name, value, description } = props;
 
   return (
     <StatisticCardRoot>
@@ -53,7 +52,7 @@ export default function StatisticCard(props: Statistics) {
               ml: "0.93rem",
             }}
           >
-            {label}
+            {name}
           </RichTypography>
         </Box>
 
