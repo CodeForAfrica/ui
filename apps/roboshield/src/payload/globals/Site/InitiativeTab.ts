@@ -1,8 +1,9 @@
+import { Tab } from "payload/types";
 import image from "../../fields/image";
 import link from "../../fields/links/link";
 import richText from "../../fields/richText";
 
-const PartnersTab = {
+const PartnersTab: Tab = {
   label: "Initiative",
   fields: [
     {
