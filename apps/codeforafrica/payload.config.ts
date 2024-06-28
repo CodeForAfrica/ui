@@ -147,4 +147,7 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  typescript: {
+    declare: false,
+  },
 });

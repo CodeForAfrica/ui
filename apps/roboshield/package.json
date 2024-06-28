@@ -71,6 +71,6 @@
     "jest-config-commons-ui": "workspace:*",
     "prettier": "3.1.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.2"
+    "typescript": "5.4.5"
   }
 }

@@ -12,7 +12,7 @@ type PageHeaderProps = ExtractBlockType<
 export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
     <>
-      <TwoToneBackground sx={{ backgroundColor: "background.main" }}>
+      <TwoToneBackground sx={{ backgroundColor: "background.default" }}>
         <Section
           sx={{
             px: { xs: 2.5, sm: 0 },
