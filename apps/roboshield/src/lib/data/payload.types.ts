@@ -1,3 +1,5 @@
+import { PaginatedDocs } from "payload/database";
+
 interface TextNode {
   children: TextNode | null;
   text?: string;
@@ -105,7 +107,7 @@ export interface Api {
   createCollection: (...args: any) => Promise<any>;
   deleteCollection: (...args: any) => Promise<any>;
   findGlobal: (...args: any) => Promise<any>;
-  findPage: (...args: any) => Promise<any>;
+  findPage: (...args: any) => Promise<PaginatedDocs>;
   getCollection: (...args: any) => Promise<any>;
   updateCollection: (...args: any) => Promise<any>;
 }

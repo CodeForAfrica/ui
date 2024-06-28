@@ -1,5 +1,4 @@
 import payload from "payload";
-import { CollectionQuery } from "../data/payload.types";
 import { ByIDOptions } from "payload/dist/collections/operations/local/update";
 
 async function findPage(slug: string, options: ByIDOptions<string>) {

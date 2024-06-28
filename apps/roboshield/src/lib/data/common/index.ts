@@ -1,5 +1,6 @@
+import { blockify } from "../blockify";
 import { Api, MediaData, Settings } from "../payload.types";
-import { AppContext } from "next/app";
+import { GetServerSidePropsContext } from "next";
 
 export function imageFromMedia({ alt = null, url = null }: Partial<MediaData>) {
   return { alt, src: url };
@@ -40,7 +41,22 @@ function getFooter(settings: Settings) {
   };
 }
 
-export async function getPageProps(api: Api, context: AppContext) {
+export async function getPageProps(
+  api: Api,
+  context: GetServerSidePropsContext,
+) {
+  const { resolvedUrl } = context;
+  const path = resolvedUrl.replace(/^\//, "");
+  const {
+    docs: [page],
+  } = await api.findPage(path);
+
+  if (!page) {
+    return null;
+  }
+
+  const blocks = await blockify(page.blocks, api);
+
   const siteSettings: Settings = (await api.findGlobal(
     "settings-site",
   )) as Settings;
@@ -48,7 +64,7 @@ export async function getPageProps(api: Api, context: AppContext) {
   const footer = getFooter(siteSettings);
 
   return {
-    blocks: [],
+    blocks,
     footer,
     navbar,
   };
