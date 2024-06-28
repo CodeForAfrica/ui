@@ -1,12 +1,17 @@
 import payload from "payload";
 import { ByIDOptions } from "payload/dist/collections/operations/local/update";
+import { Options } from "payload/dist/globals/operations/local/findOne";
+import { SettingsSite, Page, Config } from "../../../payload-types";
+import { PaginatedDocs } from "payload/database";
 
-async function findPage(slug: string, options: ByIDOptions<string>) {
+export type CollectionConfig = keyof Config["collections"];
+export type CollectionItemTypes = Config["collections"][CollectionConfig];
+export type GlobalConfig = keyof Config["globals"];
+
+async function findPage(slug: string): Promise<PaginatedDocs<Page>> {
   return payload.find({
-    ...options,
     collection: "pages",
     where: {
-      ...(options?.where || {}),
       slug: {
         equals: slug,
       },
@@ -15,9 +20,9 @@ async function findPage(slug: string, options: ByIDOptions<string>) {
 }
 
 async function getCollection(
-  collection: string,
-  options: Partial<ByIDOptions<string>>,
-) {
+  collection: CollectionConfig,
+  options?: Partial<ByIDOptions<CollectionConfig>>,
+): Promise<PaginatedDocs<CollectionItemTypes>> {
   return payload.find({
     limit: 0,
     ...options,
@@ -25,7 +30,10 @@ async function getCollection(
   });
 }
 
-async function findGlobal(slug: string, options: ByIDOptions<string>) {
+async function findGlobal(
+  slug: GlobalConfig,
+  options?: Partial<Options<GlobalConfig>>,
+): Promise<SettingsSite> {
   return payload.findGlobal({
     ...options,
     slug,
@@ -33,10 +41,10 @@ async function findGlobal(slug: string, options: ByIDOptions<string>) {
 }
 
 async function createCollection(
-  collection: string,
+  collection: CollectionConfig,
   data: any,
-  options: Partial<ByIDOptions<string>>,
-) {
+  options?: Partial<ByIDOptions<CollectionConfig>>,
+): Promise<CollectionItemTypes> {
   return payload.create({
     collection,
     data,
@@ -45,9 +53,9 @@ async function createCollection(
 }
 
 async function deleteCollection(
-  collection: string,
-  options: ByIDOptions<string>,
-) {
+  collection: CollectionConfig,
+  options: ByIDOptions<CollectionConfig>,
+): Promise<CollectionItemTypes> {
   return payload.delete({
     ...options,
     collection,
@@ -55,11 +63,11 @@ async function deleteCollection(
 }
 
 async function updateCollection(
-  collection: string,
+  collection: CollectionConfig,
   id: string,
   data: any,
-  options: ByIDOptions<string>,
-) {
+  options: ByIDOptions<CollectionConfig>,
+): Promise<CollectionItemTypes> {
   const args = {
     ...options,
     collection,
@@ -76,5 +84,7 @@ const api = {
   getCollection,
   updateCollection,
 };
+
+export type Api = typeof api;
 
 export default api;

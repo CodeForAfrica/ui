@@ -11,7 +11,8 @@
     "clean": "rm -rf .next .turbo node_modules",
     "jest": "jest --passWithNoTests",
     "lint-check": "TIMING=1 next lint './'",
-    "lint": "TIMING=1 next lint --fix './'"
+    "lint": "TIMING=1 next lint --fix './'",
+    "generate:types": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} payload generate:types"
   },
   "dependencies": {
     "@commons-ui/core": "workspace:*",

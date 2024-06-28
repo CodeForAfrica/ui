@@ -1,28 +1,32 @@
 import { blockify } from "../blockify";
-import { Api, MediaData, Settings } from "../payload.types";
 import { GetServerSidePropsContext } from "next";
+import { SettingsSite } from "../../../../payload-types";
+import { Api } from "../../payload";
 
-export function imageFromMedia({ alt = null, url = null }: Partial<MediaData>) {
+export function imageFromMedia(alt: string, url: string) {
   return { alt, src: url };
 }
 
-function getNavBar(settings: Settings) {
+function getNavBar(settings: SettingsSite) {
   const {
     connect: { links = [] },
-    primaryLogo: media,
-    primaryNavigation: { menus = null, connect },
+    primaryLogo,
+    primaryNavigation,
     title,
   } = settings;
-  const socialLinks = links.filter((link) => link.platform === connect);
-
+  const menus = primaryNavigation?.menus;
+  const connect = primaryNavigation?.connect;
+  const socialLinks = links?.filter((link) => link.platform === connect);
+  const primaryLogoUrl =
+    typeof primaryLogo === "string" ? null : primaryLogo.url;
   return {
-    logo: imageFromMedia({ alt: title, ...media }),
+    logo: imageFromMedia(title, primaryLogoUrl || ""),
     menus,
     socialLinks,
   };
 }
 
-function getFooter(settings: Settings) {
+function getFooter(settings: SettingsSite) {
   const {
     primaryLogo,
     primaryNavigation,
@@ -32,10 +36,11 @@ function getFooter(settings: Settings) {
     ...footer
   } = settings;
   const media = secondaryLogo || primaryLogo;
+  const footerLogoUrl = typeof media === "string" ? null : media.url;
 
   return {
     ...footer,
-    logo: imageFromMedia({ alt: title, ...media }),
+    logo: imageFromMedia(title, footerLogoUrl || ""),
     primaryMenus: primaryNavigation?.menus || null,
     secondaryMenus: secondaryNavigation?.menus || null,
   };
@@ -57,9 +62,7 @@ export async function getPageProps(
 
   const blocks = await blockify(page.blocks, api);
 
-  const siteSettings: Settings = (await api.findGlobal(
-    "settings-site",
-  )) as Settings;
+  const siteSettings = await api.findGlobal("settings-site");
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
 

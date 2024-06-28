@@ -1,4 +1,4 @@
-import { Api } from "../payload.types";
+import { Api } from "../../payload";
 
 type PropsifyBlockFunction = (block: any, api: Api) => Promise<any>;
 
@@ -16,8 +16,8 @@ const content: PropsifyBlockFunction = async (block: any) => {
 const propsifyBlockBySlug: PropsifyBlockBySlug = {
   content: content,
 };
-export const blockify = async (blocks: any[], api: Api) => {
-  const promises = blocks?.map(async (block) => {
+export const blockify = async (blocks: any, api: Api) => {
+  const promises = blocks?.map(async (block: any) => {
     const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
 
