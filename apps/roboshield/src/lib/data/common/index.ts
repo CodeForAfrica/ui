@@ -40,15 +40,24 @@ function getFooter(settings: Settings) {
   };
 }
 
+function getHero(settings: Settings) {
+  const { heroButtonText, heroDescriptiveText, heroHeaders } = settings;
+  return {
+    heroHeaders,
+    heroDescriptiveText,
+    heroButtonText,
+  };
+}
+
 export async function getPageProps(api: Api, context: AppContext) {
   const siteSettings: Settings = (await api.findGlobal(
     "settings-site",
   )) as Settings;
   const navbar = getNavBar(siteSettings);
+  const hero = getHero(siteSettings);
   const footer = getFooter(siteSettings);
-
   return {
-    blocks: [],
+    hero,
     footer,
     navbar,
   };

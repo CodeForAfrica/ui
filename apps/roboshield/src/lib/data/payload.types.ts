@@ -45,12 +45,7 @@ interface StayInTouchData {
 interface HeroHeader {
   headingType: string;
   title: string;
-}
-
-export interface Hero {
-  headers: HeroHeader[];
-  descriptiveText: string;
-  callToActionText: string;
+  id: string;
 }
 
 export interface MediaData {
@@ -95,7 +90,9 @@ export interface Settings {
     title: string;
     description: TextNode;
   };
-  hero: Hero;
+  heroButtonText: string;
+  heroDescriptiveText: string;
+  heroHeaders: HeroHeader[];
 }
 
 export interface CollectionQuery {
