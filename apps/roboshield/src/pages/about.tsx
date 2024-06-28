@@ -6,7 +6,11 @@ interface PageProps {
 }
 
 export default function About({ blocks }: PageProps) {
-  return <BlockRenderer blocks={blocks} />;
+  return (
+    <>
+      <BlockRenderer blocks={blocks} />
+    </>
+  );
 }
 
 export async function getServerSideProps(context: any) {

@@ -23,6 +23,11 @@ export const Statistics: Block = {
         singular: "Statistic",
         plural: "Statistics",
       },
+      admin: {
+        components: {
+          RowLabel: ({ data }: any) => data.name,
+        },
+      },
       fields: [
         {
           name: "name",
