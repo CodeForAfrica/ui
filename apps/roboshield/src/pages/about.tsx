@@ -1,8 +1,11 @@
 import { getPageServerSideProps } from "@/roboshield/lib/data";
 import BlockRenderer from "@/roboshield/components/BlockRenderer";
+import { Page } from "@/root/payload-types";
+
+type BlockType = Page["blocks"];
 
 interface PageProps {
-  blocks: any[];
+  blocks: BlockType;
 }
 
 export default function About({ blocks }: PageProps) {
