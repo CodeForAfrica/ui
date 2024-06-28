@@ -16,12 +16,12 @@ import {
   defaultState,
 } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
-import RichText from "@/roboshield/components/RichText";
+import RichText, { Children } from "@/roboshield/components/RichText";
 
 type Props = { [key: string]: string } & {
   steps: {
     title: string;
-    hint?: ReactNode;
+    hint?: Children;
   }[];
   labels: {
     back: string;

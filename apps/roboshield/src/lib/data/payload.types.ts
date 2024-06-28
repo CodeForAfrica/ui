@@ -1,7 +1,7 @@
 import { Node } from "slate";
 
 export interface LabelNode {
-  title: Node;
+  title: string;
   label: string;
 }
 

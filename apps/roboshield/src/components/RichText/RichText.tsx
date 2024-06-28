@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { Link, RichTypography } from "@commons-ui/next";
 import { Box } from "@mui/material";
-import type { BoxProps, TypographyProps } from "@mui/material";
+import type { BoxProps } from "@mui/material";
 import React, { Fragment, ReactNode, forwardRef } from "react";
 import { Text } from "slate";
 
