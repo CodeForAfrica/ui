@@ -16,7 +16,10 @@ export default function Finish({
   handleBack,
   hint,
   lastStep,
+  labels,
+  globalLabels,
 }: StepComponent & { handleReset: () => void }) {
+  console.log({ labels, globalLabels });
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -88,6 +91,7 @@ export default function Finish({
           onBack={handleBack}
           showButtons={true}
           onCodeChange={handleCodeChange}
+          labels={globalLabels}
         />
       </Box>
       <StepperNav
@@ -96,6 +100,7 @@ export default function Finish({
         isValid={true}
         lastStep={true}
         back={false}
+        labels={globalLabels}
       />
       <Snackbar
         open={showSnackbar}

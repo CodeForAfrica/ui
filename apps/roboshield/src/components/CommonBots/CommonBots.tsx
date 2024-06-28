@@ -36,6 +36,7 @@ export default function CommonBots({
   handleSkipToLast,
   hint,
   lastStep,
+  globalLabels,
 }: StepComponent) {
   const { state } = useGlobalState();
 
@@ -217,6 +218,7 @@ export default function CommonBots({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

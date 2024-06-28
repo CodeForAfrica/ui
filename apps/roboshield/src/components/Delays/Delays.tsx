@@ -17,6 +17,8 @@ export default function Delays({
   handleSkipToLast,
   hint,
   lastStep,
+  labels,
+  globalLabels,
 }: StepComponent) {
   const { state } = useGlobalState();
 
@@ -93,8 +95,8 @@ export default function Delays({
                 width: "100%",
               }}
             >
-              Crawl delay
-              <Tooltip title="The crawl delay directive specifies the minimum time between requests to your server from a bot.">
+              {labels?.crawlDelay?.label}
+              <Tooltip title={labels?.crawlDelay?.title}>
                 <IconButton color="info">
                   <InfoIcon />
                 </IconButton>
@@ -114,8 +116,8 @@ export default function Delays({
                 width: "100%",
               }}
             >
-              Cache delay
-              <Tooltip title="The cache delay directive specifies the time that a cached copy of a page should be considered fresh.">
+              {labels?.cacheDelay?.label}
+              <Tooltip title={labels?.cacheDelay?.title}>
                 <IconButton color="info">
                   <InfoIcon />
                 </IconButton>
@@ -136,8 +138,8 @@ export default function Delays({
               width: "100%",
             }}
           >
-            Visit time
-            <Tooltip title="The visit time directive specifies the time of day when a bot should visit your site.">
+            {labels?.visitTime?.label}
+            <Tooltip title={labels?.visitTime?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -172,6 +174,7 @@ export default function Delays({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

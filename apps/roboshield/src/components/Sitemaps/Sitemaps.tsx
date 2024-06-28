@@ -14,9 +14,12 @@ export default function Sitemaps({
   handleSkipToLast,
   hint,
   lastStep,
+  labels,
+  globalLabels,
 }: StepComponent) {
   const { state } = useGlobalState();
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
+  console.log(labels);
 
   const handleSitemapChange = (value: ChangeEvent<HTMLTextAreaElement>) => {
     const data = value.target.value;
@@ -46,7 +49,7 @@ export default function Sitemaps({
         }}
       >
         <TextareaAutosize
-          placeholder="Enter sitemap URLs, each URL on a new line"
+          placeholder={labels?.placeholder}
           onChange={handleSitemapChange}
           value={sitemaps.join("\n")}
           minRows={5}
@@ -71,6 +74,7 @@ export default function Sitemaps({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

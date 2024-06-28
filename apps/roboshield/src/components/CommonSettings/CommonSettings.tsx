@@ -25,6 +25,8 @@ export default function CommonSettings({
   handleSkipToLast,
   hint,
   lastStep,
+  labels,
+  globalLabels,
 }: StepComponent) {
   const { state } = useGlobalState();
 
@@ -95,8 +97,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            Select platform
-            <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
+            {labels?.selectPlatform?.label}
+            <Tooltip title={labels?.selectPlatform?.title}>
               <IconButton size="small" color="info">
                 <InfoIcon />
               </IconButton>
@@ -132,8 +134,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            Disallowed paths
-            <Tooltip title="The disallowed paths directive specifies the paths that a bot should not visit.">
+            {labels?.disallowedPaths?.label}
+            <Tooltip title={labels?.disallowedPaths?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -167,8 +169,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            Allowed paths
-            <Tooltip title="The allowed paths directive specifies the paths that a bot should visit.">
+            {labels?.allowedPaths?.label}
+            <Tooltip title={labels?.allowedPaths?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -201,6 +203,7 @@ export default function CommonSettings({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

@@ -333,10 +333,16 @@ const SiteMaps: Field = {
           ],
         }) as unknown as Field,
         {
-          name: "placeholder",
-          type: "text",
-          required: true,
-          defaultValue: "Enter sitemap URLs each URL on a new line",
+          type: "group",
+          name: "labels",
+          fields: [
+            {
+              name: "placeholder",
+              type: "text",
+              required: true,
+              defaultValue: "Enter sitemap URLs each URL on a new line",
+            },
+          ],
         },
       ],
     },
@@ -368,11 +374,17 @@ const Finish: Field = {
           ],
         }) as unknown as Field,
         {
-          name: "placeholder",
-          type: "text",
-          required: true,
-          defaultValue:
-            "# Disallow specifies the paths that are not allowed to be crawled by the robot.",
+          type: "group",
+          name: "labels",
+          fields: [
+            {
+              name: "placeholder",
+              type: "text",
+              required: true,
+              defaultValue:
+                "# Disallow specifies the paths that are not allowed to be crawled by the robot.",
+            },
+          ],
         },
       ],
     },
@@ -384,40 +396,46 @@ const Labels: Field = {
   label: "Labels",
   fields: [
     {
-      name: "fetch",
-      type: "text",
-      required: true,
-      defaultValue: "Fetch",
-    },
-    {
-      name: "continue",
-      type: "text",
-      required: true,
-      defaultValue: "Continue",
-    },
-    {
-      name: "back",
-      type: "text",
-      required: true,
-      defaultValue: "Back",
-    },
-    {
-      name: "reset",
-      type: "text",
-      required: true,
-      defaultValue: "Reset",
-    },
-    {
-      name: "download",
-      type: "text",
-      required: true,
-      defaultValue: "Download",
-    },
-    {
-      name: "copyToClipboard",
-      type: "text",
-      required: true,
-      defaultValue: "Back",
+      type: "group",
+      name: "labels",
+      fields: [
+        {
+          name: "fetch",
+          type: "text",
+          required: true,
+          defaultValue: "Fetch",
+        },
+        {
+          name: "continue",
+          type: "text",
+          required: true,
+          defaultValue: "Continue",
+        },
+        {
+          name: "back",
+          type: "text",
+          required: true,
+          defaultValue: "Back",
+        },
+        {
+          name: "reset",
+          type: "text",
+          required: true,
+          defaultValue: "Reset",
+        },
+        {
+          name: "download",
+          type: "text",
+          required: true,
+          defaultValue: "Download",
+        },
+        {
+          name: "copyToClipboard",
+          type: "text",
+          required: true,
+          defaultValue: "Copy to Clipboard",
+        },
+      ],
     },
   ],
 };

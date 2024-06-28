@@ -23,9 +23,17 @@ type Props = { [key: string]: string } & {
     title: string;
     description: ReactNode;
   }[];
+  labels: {
+    back: string;
+    continue: string;
+    copyToClipboard: string;
+    download: string;
+    fetch: string;
+    reset: string;
+  };
 };
 const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
-  const { steps } = props;
+  const { steps, labels } = props;
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
@@ -36,7 +44,6 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
     CommonSettings,
     CommonBots,
     Sitemaps,
-    CommonSettings,
     Finish,
   ];
 
@@ -177,7 +184,7 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
                       handleSkipToLast={handleSkipToLast}
                       lastStep={activeStep === steps.length - 1}
                       handleReset={handleReset}
-                      globalLabels={props}
+                      globalLabels={labels}
                       {...activeComponentProps}
                     />
                   </Paper>

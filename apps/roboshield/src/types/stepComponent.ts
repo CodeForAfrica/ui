@@ -6,6 +6,6 @@ export interface StepComponent {
   handleBack: () => void;
   hint: ReactNode;
   lastStep: boolean;
-  labels?: { [key: string]: string };
-  globalLabels?: { [key: string]: string };
+  labels?: { [key: string]: any };
+  globalLabels?: { [key: string]: any };
 }
