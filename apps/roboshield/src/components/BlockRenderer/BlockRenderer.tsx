@@ -1,5 +1,5 @@
 import PageHeader from "@/roboshield/components/PageHeader/PageHeader";
-import { Page } from "../../../payload-types";
+import { Page } from "@/root/payload-types";
 
 type BlockType = Page["blocks"];
 interface BlockRendererProps {

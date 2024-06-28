@@ -1,4 +1,4 @@
-import { Page } from "../../../../payload-types";
+import { Page } from "@/root/payload-types";
 import { ExtractBlockType } from "@/roboshield/utils/blocks";
 import { Api } from "../../payload";
 

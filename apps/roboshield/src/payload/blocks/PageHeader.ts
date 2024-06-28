@@ -1,5 +1,4 @@
 import { Block } from "payload/types";
-import { slateEditor } from "@payloadcms/richtext-slate";
 
 export const PageHeader: Block = {
   slug: "page-header",

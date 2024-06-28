@@ -8,7 +8,7 @@ import StayInTouch from "@/roboshield/components/StayInTouch";
 import RichText from "@/roboshield/components/RichText";
 import type { Children } from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
-import { SettingsSite } from "../../../payload-types";
+import { SettingsSite } from "@/root/payload-types";
 
 type Partner = SettingsSite["initiative"]["partners"];
 
