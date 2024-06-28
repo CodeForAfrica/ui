@@ -1,6 +1,6 @@
 import { blockify } from "../blockify";
 import { GetServerSidePropsContext } from "next";
-import { Api } from "../../payload";
+import { Api } from "@/roboshield/lib/payload";
 import { SettingsSite } from "@/root/payload-types";
 
 export function imageFromMedia(alt: string, url: string) {
