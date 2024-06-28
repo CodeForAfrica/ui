@@ -1,6 +1,8 @@
-interface TextNode {
-  children: TextNode | null;
-  text?: string;
+import { Node } from "slate";
+
+export interface LabelNode {
+  title: Node;
+  label: string;
 }
 
 interface BreadCrumbs {
@@ -64,7 +66,7 @@ export interface Partner {
 }
 export interface Settings {
   title: string;
-  description: TextNode;
+  description: Node;
   connect: StayInTouchData;
   primaryLogo: MediaData;
   secondaryLogo: MediaData;
@@ -82,7 +84,7 @@ export interface Settings {
   initiative: {
     partners: Partner[];
     title: string;
-    description: TextNode;
+    description: Node;
   };
 }
 

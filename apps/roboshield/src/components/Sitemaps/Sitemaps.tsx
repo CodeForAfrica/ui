@@ -8,18 +8,21 @@ import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
 
+interface Props extends StepComponent {
+  placeholder?: string;
+}
 export default function Sitemaps({
   handleNext,
   handleBack,
   handleSkipToLast,
   hint,
   lastStep,
-  labels,
   globalLabels,
-}: StepComponent) {
+  placeholder,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
-  console.log(labels);
 
   const handleSitemapChange = (value: ChangeEvent<HTMLTextAreaElement>) => {
     const data = value.target.value;
@@ -40,7 +43,11 @@ export default function Sitemaps({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{
@@ -49,7 +56,7 @@ export default function Sitemaps({
         }}
       >
         <TextareaAutosize
-          placeholder={labels?.placeholder}
+          placeholder={placeholder}
           onChange={handleSitemapChange}
           value={sitemaps.join("\n")}
           minRows={5}

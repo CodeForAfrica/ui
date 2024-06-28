@@ -11,15 +11,18 @@ import { downloadFile } from "@/roboshield/utils/file";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
 
+interface Props extends StepComponent {
+  handleReset: () => void;
+  placeholder?: string;
+}
 export default function Finish({
   handleReset,
   handleBack,
   hint,
   lastStep,
-  labels,
   globalLabels,
-}: StepComponent & { handleReset: () => void }) {
-  console.log({ labels, globalLabels });
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -74,7 +77,11 @@ export default function Finish({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={() => {}} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={() => {}}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{

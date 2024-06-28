@@ -18,6 +18,13 @@ import { platforms } from "@/roboshield/lib/config";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
+import { LabelNode } from "@/roboshield/lib/data/payload.types";
+
+interface Props extends StepComponent {
+  selectPlatform?: LabelNode;
+  allowedPaths?: LabelNode;
+  disallowedPaths?: LabelNode;
+}
 
 export default function CommonSettings({
   handleNext,
@@ -25,9 +32,12 @@ export default function CommonSettings({
   handleSkipToLast,
   hint,
   lastStep,
-  labels,
   globalLabels,
-}: StepComponent) {
+  selectPlatform,
+  allowedPaths: allowedPathsLabel,
+  disallowedPaths: disallowedPathsLabel,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
 
   const [disallowedPaths, setDisallowedPaths] = useState<string[]>(
@@ -80,7 +90,11 @@ export default function CommonSettings({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{
@@ -97,8 +111,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            {labels?.selectPlatform?.label}
-            <Tooltip title={labels?.selectPlatform?.title}>
+            {selectPlatform?.label}
+            <Tooltip title={selectPlatform?.title}>
               <IconButton size="small" color="info">
                 <InfoIcon />
               </IconButton>
@@ -134,8 +148,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            {labels?.disallowedPaths?.label}
-            <Tooltip title={labels?.disallowedPaths?.title}>
+            {disallowedPathsLabel?.label}
+            <Tooltip title={disallowedPathsLabel?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -169,8 +183,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            {labels?.allowedPaths?.label}
-            <Tooltip title={labels?.allowedPaths?.title}>
+            {allowedPathsLabel?.label}
+            <Tooltip title={allowedPathsLabel?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>

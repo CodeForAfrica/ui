@@ -21,7 +21,7 @@ import RichText from "@/roboshield/components/RichText";
 type Props = { [key: string]: string } & {
   steps: {
     title: string;
-    description: ReactNode;
+    hint?: ReactNode;
   }[];
   labels: {
     back: string;
@@ -31,9 +31,10 @@ type Props = { [key: string]: string } & {
     fetch: string;
     reset: string;
   };
+  toolTipText: string;
 };
 const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
-  const { steps, labels } = props;
+  const { steps, labels, toolTipText } = props;
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
@@ -86,8 +87,7 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
   }, [state]);
 
   const ActiveComponent = stepTitleComponentMap[activeStep] ?? null;
-  const activeComponentProps = steps[activeStep];
-
+  const { hint, ...activeComponentProps } = steps[activeStep] ?? {};
   return (
     <>
       <Section
@@ -142,7 +142,7 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
                 ></Box>
 
                 <Stepper nonLinear activeStep={activeStep}>
-                  {props.steps.map((step, index) => (
+                  {steps?.map((step, index) => (
                     <Step key={step.title}>
                       <StepButton
                         color="inherit"
@@ -162,7 +162,7 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
                           fontWeight: { xs: 500, md: 600 },
                         }}
                       >
-                        {step.title}
+                        {step?.title}
                       </StepButton>
                     </Step>
                   ))}
@@ -176,15 +176,14 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
                     }}
                   >
                     <ActiveComponent
-                      hint={
-                        <RichText elements={steps[activeStep].description} />
-                      }
+                      hint={<RichText elements={hint} />}
                       handleNext={handleNextStep}
                       handleBack={handleBack}
                       handleSkipToLast={handleSkipToLast}
                       lastStep={activeStep === steps.length - 1}
                       handleReset={handleReset}
                       globalLabels={labels}
+                      toolTipText={toolTipText}
                       {...activeComponentProps}
                     />
                   </Paper>

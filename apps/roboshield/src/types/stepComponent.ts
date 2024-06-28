@@ -8,4 +8,5 @@ export interface StepComponent {
   lastStep: boolean;
   labels?: { [key: string]: any };
   globalLabels?: { [key: string]: any };
+  toolTipText: string;
 }

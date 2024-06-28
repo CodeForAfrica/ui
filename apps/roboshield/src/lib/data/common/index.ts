@@ -1,6 +1,6 @@
 import { Api, MediaData, Settings } from "../payload.types";
 import { AppContext } from "next/app";
-import processPageIndex from "@/roboshield/lib/data/common/processPageIndex";
+import { blockify } from "../blockify";
 
 export function imageFromMedia({ alt = null, url = null }: Partial<MediaData>) {
   return { alt, src: url };
@@ -68,12 +68,11 @@ export async function getPageProps(
   }
 
   const [page] = pages;
+  const blocks = await blockify(page.blocks, api);
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
-  const processedPage = await processPageIndex(page, api, context);
-
   return {
-    ...processedPage,
+    blocks,
     footer,
     navbar,
   };

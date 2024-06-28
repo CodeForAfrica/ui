@@ -10,16 +10,25 @@ import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
+import { LabelNode } from "@/roboshield/lib/data/payload.types";
 
+interface Props extends StepComponent {
+  crawlDelay?: LabelNode;
+  cacheDelay?: LabelNode;
+  visitTime?: LabelNode;
+}
 export default function Delays({
   handleNext,
   handleBack,
   handleSkipToLast,
   hint,
   lastStep,
-  labels,
   globalLabels,
-}: StepComponent) {
+  cacheDelay: cachedDelayLabel,
+  crawlDelay: crawlDelayLabel,
+  visitTime: visitTimeLabel,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
 
   const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);
@@ -69,7 +78,11 @@ export default function Delays({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{
@@ -95,8 +108,8 @@ export default function Delays({
                 width: "100%",
               }}
             >
-              {labels?.crawlDelay?.label}
-              <Tooltip title={labels?.crawlDelay?.title}>
+              {crawlDelayLabel?.label}
+              <Tooltip title={crawlDelayLabel?.title}>
                 <IconButton color="info">
                   <InfoIcon />
                 </IconButton>
@@ -116,8 +129,8 @@ export default function Delays({
                 width: "100%",
               }}
             >
-              {labels?.cacheDelay?.label}
-              <Tooltip title={labels?.cacheDelay?.title}>
+              {cachedDelayLabel?.label}
+              <Tooltip title={cachedDelayLabel?.title}>
                 <IconButton color="info">
                   <InfoIcon />
                 </IconButton>
@@ -138,8 +151,8 @@ export default function Delays({
               width: "100%",
             }}
           >
-            {labels?.visitTime?.label}
-            <Tooltip title={labels?.visitTime?.title}>
+            {visitTimeLabel?.label}
+            <Tooltip title={visitTimeLabel?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
