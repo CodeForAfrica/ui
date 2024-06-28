@@ -53,12 +53,12 @@ export default buildConfig({
   globals: [Site] as GlobalConfig[],
   ...(locales?.length
     ? {
-        localization: {
-          locales,
-          defaultLocale,
-          fallback: true,
-        },
-      }
+      localization: {
+        locales,
+        defaultLocale,
+        fallback: true,
+      },
+    }
     : undefined),
   admin: {
     user: Users.slug,
@@ -114,4 +114,13 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  typescript: {
+    outputFile: path.resolve(
+      __dirname,
+      "src",
+      "lib",
+      "data",
+      "generated-payload-types.ts",
+    ),
+  },
 });

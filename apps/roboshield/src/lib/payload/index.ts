@@ -1,8 +1,8 @@
 import payload from "payload";
 import { ByIDOptions } from "payload/dist/collections/operations/local/update";
 import { Options } from "payload/dist/globals/operations/local/findOne";
-import { SettingsSite, Page, Config } from "../../../payload-types";
 import { PaginatedDocs } from "payload/database";
+import { Config, Page, SettingsSite } from "../data/generated-payload-types";
 
 export type CollectionConfig = keyof Config["collections"];
 export type CollectionItemTypes = Config["collections"][CollectionConfig];
