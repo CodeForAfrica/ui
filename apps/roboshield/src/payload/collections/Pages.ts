@@ -25,7 +25,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [],
+      blocks: [, PageHeader],
       localized: true,
       admin: {
         initCollapsed: true,
