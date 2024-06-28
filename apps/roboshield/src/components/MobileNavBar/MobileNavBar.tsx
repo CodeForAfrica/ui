@@ -15,11 +15,7 @@ import menuIcon from "@/roboshield/assets/icons/menu-icon.svg";
 import CloseIcon from "@/roboshield/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import NavBarNavList from "@/roboshield/components/NavBarNavList";
 import NextImageButton from "@/roboshield/components/NextImageButton";
-
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 interface Menu {
   label: string;
@@ -28,7 +24,7 @@ interface Menu {
 interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({

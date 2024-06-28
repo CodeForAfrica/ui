@@ -9,10 +9,11 @@ import RichText from "@/roboshield/components/RichText";
 import type { Children } from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
 import { Partner } from "@/roboshield/lib/data/payload.types";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 export interface FooterProps {
   connect: {
-    links: { url: string; platform: string }[];
+    links: SocialMediaLink[];
     title: string;
   };
   description: Children;
