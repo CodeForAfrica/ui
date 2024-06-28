@@ -1,5 +1,5 @@
+import { Page } from "../../../../payload-types";
 import { Api } from "../../payload";
-import { Page } from "../generated-payload-types";
 
 type PropsifyBlockFunction = (block: any, api: Api) => Promise<any>;
 

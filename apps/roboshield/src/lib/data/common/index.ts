@@ -1,7 +1,7 @@
 import { blockify } from "../blockify";
 import { GetServerSidePropsContext } from "next";
 import { Api } from "../../payload";
-import { SettingsSite } from "../generated-payload-types";
+import { SettingsSite } from "../../../../payload-types";
 
 export function imageFromMedia(alt: string, url: string) {
   return { alt, src: url };
