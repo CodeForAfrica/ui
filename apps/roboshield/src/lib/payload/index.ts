@@ -66,7 +66,7 @@ async function updateCollection(
   collection: CollectionConfig,
   id: string,
   data: any,
-  options: ByIDOptions<CollectionConfig>,
+  options?: ByIDOptions<CollectionConfig>,
 ): Promise<CollectionItemTypes> {
   const args = {
     ...options,

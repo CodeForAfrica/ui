@@ -1,13 +1,20 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import TwoToneBackground from "@/roboshield/components/TwoToneBackground";
+import { Page } from "../../../payload-types";
+import { ExtractBlockType } from "@/roboshield/utils/blocks";
 
 interface Props {
   title: string;
   subtitle: string;
 }
 
-export default function PageHeader({ title, subtitle }: Props) {
+type PageHeaderProps = ExtractBlockType<
+  NonNullable<Page["blocks"]>[number],
+  "page-header"
+>;
+
+export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
     <>
       <TwoToneBackground sx={{ backgroundColor: "background.main" }}>
