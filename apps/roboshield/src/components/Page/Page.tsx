@@ -1,14 +1,9 @@
 import React from "react";
 
-import type { FooterProps } from "@/roboshield/components/Footer";
 import Footer from "@/roboshield/components/Footer";
-
+import type { FooterProps } from "@/roboshield/components/Footer";
 import NavBar from "@/roboshield/components/NavBar";
-
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 interface Menu {
   label: string;
@@ -23,7 +18,7 @@ interface Menu {
 interface Navbar {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
 interface Footer {
   logo: any;
