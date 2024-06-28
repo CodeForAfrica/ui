@@ -51,7 +51,12 @@ export async function getPageProps(
   context: GetServerSidePropsContext,
 ) {
   const { resolvedUrl } = context;
-  const path = resolvedUrl.replace(/^\//, "");
+  let path;
+  if (resolvedUrl === "/" || resolvedUrl === "") {
+    path = "index";
+  } else {
+    path = resolvedUrl.replace(/^\//, "");
+  }
   const {
     docs: [page],
   } = await api.findPage(path);
