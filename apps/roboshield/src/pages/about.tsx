@@ -1,12 +1,7 @@
 import { getPageServerSideProps } from "@/roboshield/lib/data";
 import BlockRenderer from "@/roboshield/components/BlockRenderer";
-import { Page } from "@/root/payload-types";
-
-type BlockType = Page["blocks"];
-
-interface PageProps {
-  blocks: BlockType;
-}
+import { PageProps } from "@/roboshield/lib/data";
+import { GetServerSidePropsContext } from "next";
 
 export default function About({ blocks }: PageProps) {
   return (
@@ -16,7 +11,7 @@ export default function About({ blocks }: PageProps) {
   );
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { props } = await getPageServerSideProps(context);
   return {
     props: {
