@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload/types";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import { PageHeader } from "../blocks/PageHeader";
+import { PageHero } from "../blocks/PageHero";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -26,7 +27,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHeader],
+      blocks: [PageHeader, PageHero],
       localized: true,
       admin: {
         initCollapsed: true,
