@@ -22,7 +22,7 @@ const palette = {
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
   divider: "#DAD5D5",
-  background: { main: "#F6F5F5" },
+  background: { default: "#F6F5F5" },
   action: { hoverOpacity: 0, focusOpacity: 0 },
   highlight: { main: "#ED1C24" },
 };
@@ -212,7 +212,7 @@ const theme = createTheme({
           padding: 0,
           "&.MuiChip-clickable": {
             "&:hover": {
-              backgroundColor: palette.background.main,
+              backgroundColor: palette.background.default,
               ...(ownerState.variant === "filled" &&
                 ownerState.color === "primary" && {
                   backgroundColor: "#E0E2FC",
@@ -221,8 +221,8 @@ const theme = createTheme({
           },
         }),
         filled: ({ ownerState }: any) => ({
-          border: `1px solid ${palette.background.main}`,
-          backgroundColor: palette.background.main,
+          border: `1px solid ${palette.background.default}`,
+          backgroundColor: palette.background.default,
           color: palette.secondary.light,
           ...(ownerState.color === "primary" && {
             border: `1px solid ${palette.primary.main}`,
@@ -471,7 +471,7 @@ deepmerge(
     MuiCssBaseline: {
       styleOverrides: `
       blockquote {
-        background-color: ${palette.background.main};
+        background-color: ${palette.background.default};
         font-size: ${pxToRem(16)};
         line-height: ${26 / 16};
         margin: 20px 0;

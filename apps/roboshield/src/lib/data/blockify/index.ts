@@ -1,17 +1,41 @@
-import { Api, Page } from "../payload.types";
+import { Page } from "@/root/payload-types";
+import { ExtractBlockType } from "@/roboshield/utils/blocks";
+import { Api } from "@/roboshield/lib/payload";
 import processBlockRoboForm from "./processBlockRoboForm";
-type PropsifyBlockFunction = (block: any, api: Api) => Promise<any>;
 
-interface PropsifyBlockBySlug {
-  [key: string]: PropsifyBlockFunction;
-}
+type PropsifyBlockFunction<T> = (
+  block: T,
+  api: Api,
+) => Promise<T & { slug: string }>;
+
+type PropsifyBlockBySlug = {
+  [K in NonNullable<
+    Page["blocks"]
+  >[number]["blockType"]]?: PropsifyBlockFunction<
+    ExtractBlockType<NonNullable<Page["blocks"]>[number], K>
+  >;
+};
+
+const pageHeader: PropsifyBlockFunction<
+  ExtractBlockType<NonNullable<Page["blocks"]>[number], "page-header">
+> = async (block, api) => {
+  // some block specific computation, i.e using api
+  return {
+    ...block,
+    slug: "page-header",
+  };
+};
 
 const propsifyBlockBySlug: PropsifyBlockBySlug = {
+  "page-header": pageHeader,
   "robo-form": processBlockRoboForm,
 };
+
 export const blockify = async (blocks: Page["blocks"], api: Api) => {
   const promises = blocks?.map(async (block) => {
-    const slug = block.blockType ?? "";
+    const slug = block.blockType as NonNullable<
+      Page["blocks"]
+    >[number]["blockType"];
     const propsifyBlock = propsifyBlockBySlug[slug];
 
     if (propsifyBlock) {
