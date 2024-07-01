@@ -2,18 +2,15 @@ import { Box, Grid } from "@mui/material";
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import StatisticCard from "./StatisticCard";
-import type { Children } from "@/roboshield/components/RichText";
+import { Page } from "@/root/payload-types";
+import { ExtractBlockType } from "@/roboshield/utils/blocks";
 
-export type Statistics = {
-  name: string;
-  value: string;
-  icon: string;
-  description: Children;
-};
-export interface StatiscticsProps {
-  title: string;
-  statistics: Statistics[];
-}
+type StatiscticsProps = ExtractBlockType<
+  NonNullable<Page["blocks"]>[number],
+  "statistics"
+>;
+
+export type Statistics = NonNullable<StatiscticsProps["statistics"]>[number];
 
 export default function Statistics({ title, statistics }: StatiscticsProps) {
   return (
@@ -39,7 +36,7 @@ export default function Statistics({ title, statistics }: StatiscticsProps) {
           </RichTypography>
         )}
         <Grid container rowSpacing={10} justifyContent="space-between">
-          {statistics.map((statistic) => (
+          {statistics?.map((statistic) => (
             <Grid item key={statistic.name}>
               <StatisticCard {...statistic} />
             </Grid>
