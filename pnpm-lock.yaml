@@ -97,7 +97,7 @@ importers:
         version: 1.0.7(@swc/core@1.6.5(@swc/helpers@0.5.5))(ajv@8.16.0)(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: ^1.5.2
-        version: 1.5.2(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
+        version: 1.5.2(@aws-sdk/client-sso-oidc@3.600.0)(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-cloud-storage':
         specifier: ^1.1.3
         version: 1.1.3(@aws-sdk/client-s3@3.600.0)(@aws-sdk/lib-storage@3.600.0(@aws-sdk/client-s3@3.600.0))(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
@@ -133,7 +133,7 @@ importers:
         version: 1.9.4
       migrate-mongo:
         specifier: ^11.0.0
-        version: 11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0)))
+        version: 11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0))
       monaco-editor:
         specifier: ^0.50.0
         version: 0.50.0
@@ -308,7 +308,7 @@ importers:
         version: 1.0.7(@swc/core@1.6.5(@swc/helpers@0.5.5))(ajv@8.16.0)(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: ^1.5.2
-        version: 1.5.2(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))))
+        version: 1.5.2(@aws-sdk/client-sso-oidc@3.600.0)(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))))
       '@payloadcms/plugin-cloud-storage':
         specifier: ^1.1.3
         version: 1.1.3(@aws-sdk/client-s3@3.600.0)(@aws-sdk/lib-storage@3.600.0(@aws-sdk/client-s3@3.600.0))(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))))
@@ -565,7 +565,7 @@ importers:
     dependencies:
       '@apollo/client':
         specifier: ^3.10.7
-        version: 3.10.7(@types/react@18.3.3)(graphql@15.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.10.7(@types/react@18.3.3)(graphql@16.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@commons-ui/core':
         specifier: ^0.1.0
         version: 0.1.0(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/styles@5.15.20(@types/react@18.3.3)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(simplebar-react@3.2.6(react@18.3.1))
@@ -740,7 +740,7 @@ importers:
         version: 18.3.3
       apollo-link-rest:
         specifier: ^0.9.0
-        version: 0.9.0(@apollo/client@3.10.7(@types/react@18.3.3)(graphql@15.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(graphql@15.9.0)(qs@6.12.1)
+        version: 0.9.0(@apollo/client@3.10.7(@types/react@18.3.3)(graphql@16.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(graphql@16.9.0)(qs@6.12.1)
       babel-jest:
         specifier: ^29.7.0
         version: 29.7.0(@babel/core@7.24.7)
@@ -772,11 +772,11 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0
       graphql:
-        specifier: ^15.9.0
-        version: 15.9.0
+        specifier: ^16.9.0
+        version: 16.9.0
       graphql-anywhere:
         specifier: ^4.2.8
-        version: 4.2.8(graphql@15.9.0)
+        version: 4.2.8(graphql@16.9.0)
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -866,7 +866,7 @@ importers:
         version: 5.0.0-alpha.0(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(formik@2.4.6(react@18.3.1))(react@18.3.1)(tiny-warning@1.0.3)
       formik-mui-lab:
         specifier: ^1.0.0
-        version: 1.0.0(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/lab@5.0.0-alpha.155(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(formik@2.4.6(react@18.3.1))(react@18.3.1)(tiny-warning@1.0.3)
+        version: 1.0.0(au23chaimxrf4qlnsjncm6hkeu)
       jwt-decode:
         specifier: ^4.0.0
         version: 4.0.0
@@ -5036,6 +5036,7 @@ packages:
 
   '@swc/register@0.1.10':
     resolution: {integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==}
+    deprecated: Use @swc-node/register instead
     hasBin: true
     peerDependencies:
       '@swc/core': ^1.0.46
@@ -8140,12 +8141,12 @@ packages:
     peerDependencies:
       graphql: '>=0.8.0'
 
-  graphql@15.9.0:
-    resolution: {integrity: sha512-GCOQdvm7XxV1S4U4CGrsdlEN37245eC8P9zaYCMr6K1BG0IPGy5lUwmJsEOGyl1GD6HXjOtl2keCP9asRBwNvA==}
-    engines: {node: '>= 10.x'}
-
   graphql@16.8.1:
     resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  graphql@16.9.0:
+    resolution: {integrity: sha512-GGTKBX4SD7Wdb8mqeDLni2oaRGYQWjWHGKPQ24ZMnUtKfcsVoiv4uX8+LJr1K6U5VW2Lu1BwJnj7uiori0YtRw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   gray-matter@4.0.3:
@@ -12984,14 +12985,14 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@apollo/client@3.10.7(@types/react@18.3.3)(graphql@15.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@apollo/client@3.10.7(@types/react@18.3.3)(graphql@16.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@graphql-typed-document-node/core': 3.2.0(graphql@15.9.0)
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.9.0)
       '@wry/caches': 1.0.1
       '@wry/equality': 0.5.7
       '@wry/trie': 0.5.0
-      graphql: 15.9.0
-      graphql-tag: 2.12.6(graphql@15.9.0)
+      graphql: 16.9.0
+      graphql-tag: 2.12.6(graphql@16.9.0)
       hoist-non-react-statics: 3.3.2
       optimism: 0.18.0
       prop-types: 15.8.1
@@ -13068,10 +13069,10 @@ snapshots:
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
-      '@aws-sdk/client-sso-oidc': 3.600.0(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/client-sts': 3.600.0
+      '@aws-sdk/client-sso-oidc': 3.600.0
+      '@aws-sdk/client-sts': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)
       '@aws-sdk/core': 3.598.0
-      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
+      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)(@aws-sdk/client-sts@3.600.0)
       '@aws-sdk/middleware-host-header': 3.598.0
       '@aws-sdk/middleware-logger': 3.598.0
       '@aws-sdk/middleware-recursion-detection': 3.598.0
@@ -13116,10 +13117,10 @@ snapshots:
       '@aws-crypto/sha1-browser': 5.2.0
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
-      '@aws-sdk/client-sso-oidc': 3.600.0(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/client-sts': 3.600.0
+      '@aws-sdk/client-sso-oidc': 3.600.0
+      '@aws-sdk/client-sts': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)
       '@aws-sdk/core': 3.598.0
-      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
+      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)(@aws-sdk/client-sts@3.600.0)
       '@aws-sdk/middleware-bucket-endpoint': 3.598.0
       '@aws-sdk/middleware-expect-continue': 3.598.0
       '@aws-sdk/middleware-flexible-checksums': 3.598.0
@@ -13174,13 +13175,13 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0)':
+  '@aws-sdk/client-sso-oidc@3.600.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
-      '@aws-sdk/client-sts': 3.600.0
+      '@aws-sdk/client-sts': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)
       '@aws-sdk/core': 3.598.0
-      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
+      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)(@aws-sdk/client-sts@3.600.0)
       '@aws-sdk/middleware-host-header': 3.598.0
       '@aws-sdk/middleware-logger': 3.598.0
       '@aws-sdk/middleware-recursion-detection': 3.598.0
@@ -13217,7 +13218,6 @@ snapshots:
       '@smithy/util-utf8': 3.0.0
       tslib: 2.6.3
     transitivePeerDependencies:
-      - '@aws-sdk/client-sts'
       - aws-crt
 
   '@aws-sdk/client-sso@3.598.0':
@@ -13263,13 +13263,13 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-sts@3.600.0':
+  '@aws-sdk/client-sts@3.600.0(@aws-sdk/client-sso-oidc@3.600.0)':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
-      '@aws-sdk/client-sso-oidc': 3.600.0(@aws-sdk/client-sts@3.600.0)
+      '@aws-sdk/client-sso-oidc': 3.600.0
       '@aws-sdk/core': 3.598.0
-      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
+      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)(@aws-sdk/client-sts@3.600.0)
       '@aws-sdk/middleware-host-header': 3.598.0
       '@aws-sdk/middleware-logger': 3.598.0
       '@aws-sdk/middleware-recursion-detection': 3.598.0
@@ -13306,6 +13306,7 @@ snapshots:
       '@smithy/util-utf8': 3.0.0
       tslib: 2.6.3
     transitivePeerDependencies:
+      - '@aws-sdk/client-sso-oidc'
       - aws-crt
 
   '@aws-sdk/core@3.598.0':
@@ -13348,27 +13349,9 @@ snapshots:
       '@smithy/util-stream': 3.0.4
       tslib: 2.6.3
 
-  '@aws-sdk/credential-provider-ini@3.598.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)':
-    dependencies:
-      '@aws-sdk/client-sts': 3.600.0
-      '@aws-sdk/credential-provider-env': 3.598.0
-      '@aws-sdk/credential-provider-http': 3.598.0
-      '@aws-sdk/credential-provider-process': 3.598.0
-      '@aws-sdk/credential-provider-sso': 3.598.0(@aws-sdk/client-sso-oidc@3.600.0)
-      '@aws-sdk/credential-provider-web-identity': 3.598.0(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/types': 3.598.0
-      '@smithy/credential-provider-imds': 3.1.2
-      '@smithy/property-provider': 3.1.2
-      '@smithy/shared-ini-file-loader': 3.1.2
-      '@smithy/types': 3.2.0
-      tslib: 2.6.3
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-
   '@aws-sdk/credential-provider-ini@3.598.0(@aws-sdk/client-sso-oidc@3.600.0)(@aws-sdk/client-sts@3.600.0)':
     dependencies:
-      '@aws-sdk/client-sts': 3.600.0
+      '@aws-sdk/client-sts': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)
       '@aws-sdk/credential-provider-env': 3.598.0
       '@aws-sdk/credential-provider-http': 3.598.0
       '@aws-sdk/credential-provider-process': 3.598.0
@@ -13382,26 +13365,6 @@ snapshots:
       tslib: 2.6.3
     transitivePeerDependencies:
       - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-    optional: true
-
-  '@aws-sdk/credential-provider-node@3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)':
-    dependencies:
-      '@aws-sdk/credential-provider-env': 3.598.0
-      '@aws-sdk/credential-provider-http': 3.598.0
-      '@aws-sdk/credential-provider-ini': 3.598.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/credential-provider-process': 3.598.0
-      '@aws-sdk/credential-provider-sso': 3.598.0(@aws-sdk/client-sso-oidc@3.600.0)
-      '@aws-sdk/credential-provider-web-identity': 3.598.0(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/types': 3.598.0
-      '@smithy/credential-provider-imds': 3.1.2
-      '@smithy/property-provider': 3.1.2
-      '@smithy/shared-ini-file-loader': 3.1.2
-      '@smithy/types': 3.2.0
-      tslib: 2.6.3
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - '@aws-sdk/client-sts'
       - aws-crt
 
   '@aws-sdk/credential-provider-node@3.600.0(@aws-sdk/client-sso-oidc@3.600.0)(@aws-sdk/client-sts@3.600.0)':
@@ -13422,7 +13385,6 @@ snapshots:
       - '@aws-sdk/client-sso-oidc'
       - '@aws-sdk/client-sts'
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-process@3.598.0':
     dependencies:
@@ -13447,40 +13409,17 @@ snapshots:
 
   '@aws-sdk/credential-provider-web-identity@3.598.0(@aws-sdk/client-sts@3.600.0)':
     dependencies:
-      '@aws-sdk/client-sts': 3.600.0
+      '@aws-sdk/client-sts': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)
       '@aws-sdk/types': 3.598.0
       '@smithy/property-provider': 3.1.2
       '@smithy/types': 3.2.0
       tslib: 2.6.3
-
-  '@aws-sdk/credential-providers@3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))':
-    dependencies:
-      '@aws-sdk/client-cognito-identity': 3.600.0
-      '@aws-sdk/client-sso': 3.598.0
-      '@aws-sdk/client-sts': 3.600.0
-      '@aws-sdk/credential-provider-cognito-identity': 3.600.0
-      '@aws-sdk/credential-provider-env': 3.598.0
-      '@aws-sdk/credential-provider-http': 3.598.0
-      '@aws-sdk/credential-provider-ini': 3.598.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/credential-provider-node': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/credential-provider-process': 3.598.0
-      '@aws-sdk/credential-provider-sso': 3.598.0(@aws-sdk/client-sso-oidc@3.600.0)
-      '@aws-sdk/credential-provider-web-identity': 3.598.0(@aws-sdk/client-sts@3.600.0)
-      '@aws-sdk/types': 3.598.0
-      '@smithy/credential-provider-imds': 3.1.2
-      '@smithy/property-provider': 3.1.2
-      '@smithy/types': 3.2.0
-      tslib: 2.6.3
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-    optional: true
 
   '@aws-sdk/credential-providers@3.600.0(@aws-sdk/client-sso-oidc@3.600.0)':
     dependencies:
       '@aws-sdk/client-cognito-identity': 3.600.0
       '@aws-sdk/client-sso': 3.598.0
-      '@aws-sdk/client-sts': 3.600.0
+      '@aws-sdk/client-sts': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0)
       '@aws-sdk/credential-provider-cognito-identity': 3.600.0
       '@aws-sdk/credential-provider-env': 3.598.0
       '@aws-sdk/credential-provider-http': 3.598.0
@@ -13620,7 +13559,7 @@ snapshots:
 
   '@aws-sdk/token-providers@3.598.0(@aws-sdk/client-sso-oidc@3.600.0)':
     dependencies:
-      '@aws-sdk/client-sso-oidc': 3.600.0(@aws-sdk/client-sts@3.600.0)
+      '@aws-sdk/client-sso-oidc': 3.600.0
       '@aws-sdk/types': 3.598.0
       '@smithy/property-provider': 3.1.2
       '@smithy/shared-ini-file-loader': 3.1.2
@@ -15258,9 +15197,9 @@ snapshots:
       '@googlemaps/js-api-loader': 1.16.6
       react: 18.3.1
 
-  '@graphql-typed-document-node/core@3.2.0(graphql@15.9.0)':
+  '@graphql-typed-document-node/core@3.2.0(graphql@16.9.0)':
     dependencies:
-      graphql: 15.9.0
+      graphql: 16.9.0
 
   '@hapi/hoek@9.3.0': {}
 
@@ -16411,40 +16350,6 @@ snapshots:
       - utf-8-validate
       - webpack-dev-server
 
-  '@payloadcms/db-mongodb@1.5.2(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))':
-    dependencies:
-      bson-objectid: 2.0.4
-      deepmerge: 4.3.1
-      get-port: 5.1.1
-      http-status: 1.6.2
-      mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))
-      mongoose-aggregate-paginate-v2: 1.0.6
-      mongoose-paginate-v2: 1.7.22
-      payload: 2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
-      prompts: 2.4.2
-      uuid: 9.0.0
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-      - supports-color
-
-  '@payloadcms/db-mongodb@1.5.2(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))))':
-    dependencies:
-      bson-objectid: 2.0.4
-      deepmerge: 4.3.1
-      get-port: 5.1.1
-      http-status: 1.6.2
-      mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))
-      mongoose-aggregate-paginate-v2: 1.0.6
-      mongoose-paginate-v2: 1.7.22
-      payload: 2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5)))
-      prompts: 2.4.2
-      uuid: 9.0.0
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-      - supports-color
-
   '@payloadcms/db-mongodb@1.5.2(@aws-sdk/client-sso-oidc@3.600.0)(payload@2.22.0(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.4.5)(webpack@5.92.1(@swc/core@1.6.1(@swc/helpers@0.5.5))))':
     dependencies:
       bson-objectid: 2.0.4
@@ -16455,6 +16360,40 @@ snapshots:
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
       payload: 2.22.0(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.4.5)(webpack@5.92.1(@swc/core@1.6.1(@swc/helpers@0.5.5)))
+      prompts: 2.4.2
+      uuid: 9.0.0
+    transitivePeerDependencies:
+      - '@aws-sdk/client-sso-oidc'
+      - aws-crt
+      - supports-color
+
+  '@payloadcms/db-mongodb@1.5.2(@aws-sdk/client-sso-oidc@3.600.0)(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))':
+    dependencies:
+      bson-objectid: 2.0.4
+      deepmerge: 4.3.1
+      get-port: 5.1.1
+      http-status: 1.6.2
+      mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.600.0)
+      mongoose-aggregate-paginate-v2: 1.0.6
+      mongoose-paginate-v2: 1.7.22
+      payload: 2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
+      prompts: 2.4.2
+      uuid: 9.0.0
+    transitivePeerDependencies:
+      - '@aws-sdk/client-sso-oidc'
+      - aws-crt
+      - supports-color
+
+  '@payloadcms/db-mongodb@1.5.2(@aws-sdk/client-sso-oidc@3.600.0)(payload@2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5))))':
+    dependencies:
+      bson-objectid: 2.0.4
+      deepmerge: 4.3.1
+      get-port: 5.1.1
+      http-status: 1.6.2
+      mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.600.0)
+      mongoose-aggregate-paginate-v2: 1.0.6
+      mongoose-paginate-v2: 1.7.22
+      payload: 2.22.2(@swc/helpers@0.5.5)(@types/react@18.3.3)(encoding@0.1.13)(typescript@5.5.2)(webpack@5.92.1(@swc/core@1.6.5(@swc/helpers@0.5.5)))
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -18842,7 +18781,7 @@ snapshots:
     optionalDependencies:
       '@jest/globals': 29.7.0
       '@types/jest': 29.5.12
-      jest: 29.7.0(@types/node@20.14.9)(babel-plugin-macros@3.1.0)
+      jest: 29.7.0(@types/node@20.14.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.1(@swc/helpers@0.5.5))(@types/node@20.14.9)(typescript@5.4.5))
 
   '@testing-library/jest-dom@6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.9))':
     dependencies:
@@ -18872,7 +18811,7 @@ snapshots:
     optionalDependencies:
       '@jest/globals': 29.7.0
       '@types/jest': 29.5.12
-      jest: 29.7.0(babel-plugin-macros@3.1.0)
+      jest: 29.7.0(@types/node@20.14.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.1(@swc/helpers@0.5.5))(@types/node@20.14.9)(typescript@5.4.5))
 
   '@testing-library/react@14.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -19695,17 +19634,17 @@ snapshots:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
-  apollo-link-rest@0.9.0(@apollo/client@3.10.7(@types/react@18.3.3)(graphql@15.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(graphql@15.9.0)(qs@6.12.1):
+  apollo-link-rest@0.9.0(@apollo/client@3.10.7(@types/react@18.3.3)(graphql@16.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(graphql@16.9.0)(qs@6.12.1):
     dependencies:
-      '@apollo/client': 3.10.7(@types/react@18.3.3)(graphql@15.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      graphql: 15.9.0
+      '@apollo/client': 3.10.7(@types/react@18.3.3)(graphql@16.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      graphql: 16.9.0
       qs: 6.12.1
 
-  apollo-utilities@1.3.4(graphql@15.9.0):
+  apollo-utilities@1.3.4(graphql@16.9.0):
     dependencies:
       '@wry/equality': 0.1.11
       fast-json-stable-stringify: 2.1.0
-      graphql: 15.9.0
+      graphql: 16.9.0
       ts-invariant: 0.4.4
       tslib: 1.14.1
 
@@ -21895,7 +21834,7 @@ snapshots:
       '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.5.2)
       eslint: 8.57.0
     optionalDependencies:
-      jest: 29.7.0
+      jest: 29.7.0(@types/node@20.14.9)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -22484,8 +22423,8 @@ snapshots:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
-  ? formik-mui-lab@1.0.0(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/lab@5.0.0-alpha.155(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(formik@2.4.6(react@18.3.1))(react@18.3.1)(tiny-warning@1.0.3)
-  : dependencies:
+  formik-mui-lab@1.0.0(au23chaimxrf4qlnsjncm6hkeu):
+    dependencies:
       '@emotion/react': 11.11.4(@types/react@18.3.3)(react@18.3.1)
       '@emotion/styled': 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
       '@mui/lab': 5.0.0-alpha.155(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.15.20(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -22818,10 +22757,10 @@ snapshots:
 
   graphemer@1.4.0: {}
 
-  graphql-anywhere@4.2.8(graphql@15.9.0):
+  graphql-anywhere@4.2.8(graphql@16.9.0):
     dependencies:
-      apollo-utilities: 1.3.4(graphql@15.9.0)
-      graphql: 15.9.0
+      apollo-utilities: 1.3.4(graphql@16.9.0)
+      graphql: 16.9.0
       ts-invariant: 0.3.3
       tslib: 2.6.3
 
@@ -22848,18 +22787,18 @@ snapshots:
       graphql: 16.8.1
       tslib: 2.6.3
 
-  graphql-tag@2.12.6(graphql@15.9.0):
+  graphql-tag@2.12.6(graphql@16.9.0):
     dependencies:
-      graphql: 15.9.0
+      graphql: 16.9.0
       tslib: 2.6.3
 
   graphql-type-json@0.3.2(graphql@16.8.1):
     dependencies:
       graphql: 16.8.1
 
-  graphql@15.9.0: {}
-
   graphql@16.8.1: {}
+
+  graphql@16.9.0: {}
 
   gray-matter@4.0.3:
     dependencies:
@@ -24022,38 +23961,12 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0:
-    dependencies:
-      '@jest/core': 29.7.0
-      '@jest/types': 29.6.3
-      import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.14.9)
-    transitivePeerDependencies:
-      - '@types/node'
-      - babel-plugin-macros
-      - supports-color
-      - ts-node
-    optional: true
-
   jest@29.7.0(@types/node@20.14.9):
     dependencies:
       '@jest/core': 29.7.0
       '@jest/types': 29.6.3
       import-local: 3.1.0
       jest-cli: 29.7.0(@types/node@20.14.9)
-    transitivePeerDependencies:
-      - '@types/node'
-      - babel-plugin-macros
-      - supports-color
-      - ts-node
-    optional: true
-
-  jest@29.7.0(@types/node@20.14.9)(babel-plugin-macros@3.1.0):
-    dependencies:
-      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.1(@swc/helpers@0.5.5))(@types/node@20.14.9)(typescript@5.4.5))
-      '@jest/types': 29.6.3
-      import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.14.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.1(@swc/helpers@0.5.5))(@types/node@20.14.9)(typescript@5.4.5))
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -24084,19 +23997,6 @@ snapshots:
       - babel-plugin-macros
       - supports-color
       - ts-node
-
-  jest@29.7.0(babel-plugin-macros@3.1.0):
-    dependencies:
-      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.1(@swc/helpers@0.5.5))(@types/node@20.14.9)(typescript@5.4.5))
-      '@jest/types': 29.6.3
-      import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.14.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.1(@swc/helpers@0.5.5))(@types/node@20.14.9)(typescript@5.4.5))
-    transitivePeerDependencies:
-      - '@types/node'
-      - babel-plugin-macros
-      - supports-color
-      - ts-node
-    optional: true
 
   jiti@1.21.6: {}
 
@@ -24711,7 +24611,7 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  migrate-mongo@11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))):
+  migrate-mongo@11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0)):
     dependencies:
       cli-table3: 0.6.5
       commander: 9.5.0
@@ -24719,7 +24619,7 @@ snapshots:
       fn-args: 5.0.0
       fs-extra: 10.1.0
       lodash: 4.17.21
-      mongodb: 4.17.1(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))
+      mongodb: 4.17.1(@aws-sdk/client-sso-oidc@3.600.0)
       p-each-series: 2.2.0
 
   miller-rabin@4.0.1:
@@ -24848,18 +24748,6 @@ snapshots:
       '@types/whatwg-url': 8.2.2
       whatwg-url: 11.0.0
 
-  mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0)):
-    dependencies:
-      bson: 4.7.2
-      mongodb-connection-string-url: 2.6.0
-      socks: 2.8.3
-    optionalDependencies:
-      '@aws-sdk/credential-providers': 3.600.0(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))
-      '@mongodb-js/saslprep': 1.1.7
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-
   mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.600.0):
     dependencies:
       bson: 4.7.2
@@ -24875,20 +24763,6 @@ snapshots:
   mongoose-aggregate-paginate-v2@1.0.6: {}
 
   mongoose-paginate-v2@1.7.22: {}
-
-  mongoose@6.12.3(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0)):
-    dependencies:
-      bson: 4.7.2
-      kareem: 2.5.1
-      mongodb: 4.17.1(@aws-sdk/client-sso-oidc@3.600.0(@aws-sdk/client-sts@3.600.0))
-      mpath: 0.9.0
-      mquery: 4.0.3
-      ms: 2.1.3
-      sift: 16.0.1
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-      - supports-color
 
   mongoose@6.12.3(@aws-sdk/client-sso-oidc@3.600.0):
     dependencies:
