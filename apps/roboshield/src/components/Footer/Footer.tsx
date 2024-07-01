@@ -6,15 +6,19 @@ import { Theme, styled } from "@mui/material/styles";
 import NewsletterSubscription from "@/roboshield/components/NewsletterSubscription";
 import StayInTouch from "@/roboshield/components/StayInTouch";
 import RichText from "@/roboshield/components/RichText";
+import type { Children } from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
-import { Partner } from "@/roboshield/lib/data/payload.types";
+import { SettingsSite } from "@/root/payload-types";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
+
+type Partner = SettingsSite["initiative"]["partners"];
 
 export interface FooterProps {
   connect: {
-    links: { url: string; platform: string }[];
+    links: SocialMediaLink[];
     title: string;
   };
-  description: string;
+  description: Children;
   logo: any;
   newsletter: {
     children: React.ReactNode;
@@ -24,8 +28,8 @@ export interface FooterProps {
   };
   initiative: {
     partners: Partner[];
-    title: string;
-    description: string;
+    title: Children;
+    description: Children;
   };
 }
 
@@ -92,12 +96,13 @@ export default function Footer({
                   sx={{ height: "113px", mt: { xs: "52px", md: 0 } }}
                 >
                   <RichTypography
-                    variant="h5SemiBold"
+                    typographyProps={{
+                      variant: "h5SemiBold",
+                    }}
                     sx={{ color: "text.secondary", mb: "0" }}
                   >
                     {initiative?.title}
                   </RichTypography>
-                  <RichText />
                   <Stack alignItems="center" direction="row" spacing={0.5}>
                     {initiative?.partners?.map((partner: any) => (
                       <Link
@@ -125,16 +130,16 @@ export default function Footer({
                   </Stack>
                 </Stack>
                 <RichText
-                  variant="footer"
                   typographyProps={{
+                    LinkProps: {
+                      color: "text.secondary",
+                      sx: { textDecorationColor: "text.secondary" },
+                    },
+                    variant: "footer",
                     sx: {
                       mt: {
                         md: 6.5,
                       },
-                    },
-                    LinkProps: {
-                      color: "text.secondary",
-                      sx: { textDecorationColor: "text.secondary" },
                     },
                   }}
                   sx={(theme: Theme) => ({

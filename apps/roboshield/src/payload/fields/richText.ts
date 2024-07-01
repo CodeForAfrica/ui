@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import mapLinkTypeToHref, { NodeType } from "../utils/mapLinkTypeToHref";
-import { Field, PayloadRequest } from "payload/types";
+import { Field, FieldHook, PayloadRequest } from "payload/types";
 
 async function insertHref(nodes: NodeType[] | null, payload: PayloadRequest) {
   if (!nodes?.length) {
@@ -53,15 +53,17 @@ async function mapLinkToHrefAfterRead({
   return insertHref(value, payload);
 }
 
-function richText(overrides: Partial<Field>) {
-  const richTextResult = {
+function richText(overrides: Partial<Field>): Field {
+  const richTextResult: Partial<Field> = {
     type: "richText",
     hooks: {
-      afterRead: [mapLinkToHrefAfterRead],
+      afterRead: [
+        mapLinkToHrefAfterRead as unknown as FieldHook<any, any, any>,
+      ],
     },
   };
 
-  return deepmerge(richTextResult, overrides);
+  return deepmerge(richTextResult, overrides) as Field;
 }
 
 export default richText;

@@ -2,23 +2,11 @@ import { Link, RichTypography } from "@commons-ui/next";
 import { Grid, SvgIcon } from "@mui/material";
 import React from "react";
 
-import FacebookIcon from "@/roboshield/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
-import GitHubIcon from "@/roboshield/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
-import InstagramIcon from "@/roboshield/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
-import LinkedInIcon from "@/roboshield/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
-import SlackIcon from "@/roboshield/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
-import TwitterIcon from "@/roboshield/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
-
-const platformToIconMap = new Map<string, any>();
-platformToIconMap.set("Facebook", FacebookIcon);
-platformToIconMap.set("Twitter", TwitterIcon);
-platformToIconMap.set("Instagram", InstagramIcon);
-platformToIconMap.set("Linkedin", LinkedInIcon);
-platformToIconMap.set("Github", GitHubIcon);
-platformToIconMap.set("Slack", SlackIcon);
+import SocialMediaLinkIcon from "@/roboshield/components/SocialMediaLinkIcon";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 interface StayInTouchProps {
-  links: { url: string; platform: string }[];
+  links: SocialMediaLink[];
   sx: any;
   title: string;
 }
@@ -60,11 +48,6 @@ const StayInTouch = React.forwardRef(function StayInTouch(
         justifyContent={{ xs: "center", md: "flex-start" }}
       >
         {links.map(({ url, platform }) => {
-          const Icon = platformToIconMap.get(platform);
-
-          if (!(Icon || url)) {
-            return null;
-          }
           return (
             <Grid
               item
@@ -76,20 +59,20 @@ const StayInTouch = React.forwardRef(function StayInTouch(
                 },
               }}
             >
-              <Link
+              <SocialMediaLinkIcon
+                color="inherit"
+                url={url}
+                platform={platform}
+                IconProps={{
+                  fontSize: "inherit",
+                  sx: {
+                    fill: { xs: "none" },
+                  },
+                }}
                 sx={{
                   display: "block",
                 }}
-                color="inherit"
-                href={url}
-              >
-                <SvgIcon
-                  component={Icon}
-                  sx={{
-                    fill: { xs: "none" },
-                  }}
-                />
-              </Link>
+              />
             </Grid>
           );
         })}
