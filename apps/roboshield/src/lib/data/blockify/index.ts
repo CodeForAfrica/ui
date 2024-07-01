@@ -16,9 +16,11 @@ type PropsifyBlockBySlug = {
   >;
 };
 
-const pageHeader: PropsifyBlockFunction<
-  ExtractBlockType<NonNullable<Page["blocks"]>[number], "page-header">
-> = async (block, api) => {
+type BlockType = ExtractBlockType<
+  NonNullable<Page["blocks"]>[number],
+  "page-header"
+>;
+const pageHeader: PropsifyBlockFunction<BlockType> = async (block, api) => {
   // some block specific computation, i.e using api
   return {
     ...block,
@@ -36,7 +38,7 @@ export const blockify = async (blocks: Page["blocks"], api: Api) => {
     const slug = block.blockType as NonNullable<
       Page["blocks"]
     >[number]["blockType"];
-    const propsifyBlock = propsifyBlockBySlug[slug];
+    const propsifyBlock = propsifyBlockBySlug[slug] as any;
 
     if (propsifyBlock) {
       return propsifyBlock(block, api);

@@ -1,4 +1,11 @@
-import { Api } from "../payload.types";
+import { Page } from "@/root/payload-types";
+import { Api } from "@/roboshield/lib/payload";
+import { ExtractBlockType } from "@/roboshield/utils/blocks";
+
+type PropsifyBlockFunction<T> = (
+  block: T,
+  api: Api,
+) => Promise<T & { slug: string }>;
 
 function sortSteps(steps: any[]) {
   const stepOrder: string[] = [
@@ -14,7 +21,9 @@ function sortSteps(steps: any[]) {
   );
 }
 
-async function processBlockRoboForm(block: any, api: Api) {
+const processBlockRoboForm: PropsifyBlockFunction<
+  ExtractBlockType<NonNullable<Page["blocks"]>[number], "robo-form">
+> = async (block, api) => {
   const steps = sortSteps(block.steps ?? []);
 
   return {
@@ -22,6 +31,6 @@ async function processBlockRoboForm(block: any, api: Api) {
     slug: "robo-form",
     steps,
   };
-}
+};
 
 export default processBlockRoboForm;

@@ -2,7 +2,6 @@ import { getPageServerSideProps } from "@/roboshield/lib/data";
 import RoboForm from "@/roboshield/components/RoboForm";
 import Hero from "@/roboshield/components/Hero";
 import { useRef } from "react";
-import { Block } from "payload/types";
 
 export default function Index(props: any) {
   const scrolRef = useRef<HTMLDivElement | null>(null);

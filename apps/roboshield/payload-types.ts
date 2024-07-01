@@ -11,11 +11,11 @@ export interface Config {
     media: Media;
     pages: Page;
     users: User;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   globals: {
-    "settings-site": SettingsSite;
+    'settings-site': SettingsSite;
   };
 }
 /**
@@ -47,13 +47,137 @@ export interface Page {
   fullTitle?: string | null;
   slug?: string | null;
   blocks?:
-    | {
-        title: string;
-        subtitle: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "page-header";
-      }[]
+    | (
+        | {
+            title: string;
+            subtitle: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'page-header';
+          }
+        | {
+            toolTipText: string;
+            steps?:
+              | (
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      defaultFetchExistingRobots?: boolean | null;
+                      existingRobotsTxt: string;
+                      placeholder: string;
+                      urlValidationError: string;
+                      fetch: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'existing-robots';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      crawlDelay: {
+                        label: string;
+                        title: string;
+                      };
+                      cacheDelay: {
+                        label: string;
+                        title: string;
+                      };
+                      visitTime: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'delays';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      selectPlatform: {
+                        label: string;
+                        title: string;
+                      };
+                      disallowedPaths: {
+                        label: string;
+                        title: string;
+                      };
+                      allowedPaths: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'paths';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      aiWebCrawlers: {
+                        label: string;
+                        title: string;
+                      };
+                      searchEngineCrawlers: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'block-bots';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'site-maps';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'finish';
+                    }
+                )[]
+              | null;
+            labels: {
+              continue: string;
+              back: string;
+              reset: string;
+              download: string;
+              copyToClipboard: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'robo-form';
+          }
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -71,7 +195,7 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -81,7 +205,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles: ("admin" | "editor")[];
+  roles: ('admin' | 'editor')[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -102,7 +226,7 @@ export interface User {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: string | User;
   };
   key?: string | null;
@@ -145,9 +269,9 @@ export interface SettingsSite {
     menus?:
       | {
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -155,17 +279,15 @@ export interface SettingsSite {
           id?: string | null;
         }[]
       | null;
-    connect?:
-      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
-      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -178,13 +300,7 @@ export interface SettingsSite {
     title: string;
     links?:
       | {
-          platform:
-            | "Facebook"
-            | "Twitter"
-            | "Instagram"
-            | "Linkedin"
-            | "Github"
-            | "Slack";
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
           url: string;
           id?: string | null;
         }[]
@@ -204,9 +320,9 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -219,6 +335,7 @@ export interface SettingsSite {
   createdAt?: string | null;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }

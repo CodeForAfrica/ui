@@ -16,8 +16,11 @@ const ExistingRobots: Block = {
       label: "Hint",
       defaultValue: [
         {
-          children: null,
-          text: "Start by fetching the robots.txt file of the website you want to generate robots for.",
+          children: [
+            {
+              text: "Start by fetching the robots.txt file of the website you want to generate robots for.",
+            },
+          ],
         },
       ],
     }) as unknown as Field,
@@ -70,8 +73,11 @@ const Delays: Block = {
       label: "Hint",
       defaultValue: [
         {
-          children: null,
-          text: "You can set bot delays for the robots you want to generate.",
+          children: [
+            {
+              text: "You can set bot delays for the robots you want to generate.",
+            },
+          ],
         },
       ],
     }) as unknown as Field,
@@ -150,8 +156,11 @@ const Paths: Block = {
       label: "hint",
       defaultValue: [
         {
-          text: "You can set disallowed and allowed paths for the robots you want to generate. All paths should be relative to the root of your site and end with a /",
-          children: null,
+          children: [
+            {
+              text: "You can set disallowed and allowed paths for the robots you want to generate. All paths should be relative to the root of your site and end with a /",
+            },
+          ],
         },
       ],
     }) as unknown as Field,
@@ -230,8 +239,11 @@ const BlockBots: Block = {
       name: "hint",
       defaultValue: [
         {
-          text: "Select bots you want to block from crawling your website.",
-          children: null,
+          children: [
+            {
+              text: "Select bots you want to block from crawling your website.",
+            },
+          ],
         },
       ],
     }) as unknown as Field,
@@ -291,8 +303,9 @@ const SiteMaps: Block = {
       name: "hint",
       defaultValue: [
         {
-          text: "You can add sitemap URLs to your robots.txt file.",
-          children: null,
+          children: [
+            { text: "You can add sitemap URLs to your robots.txt file." },
+          ],
         },
       ],
     }) as unknown as Field,
@@ -319,8 +332,11 @@ const Finish: Block = {
       name: "hint",
       defaultValue: [
         {
-          children: null,
-          text: "Your robots.txt file has been generated successfully. You can now copy the code or download the file.",
+          children: [
+            {
+              text: "Your robots.txt file has been generated successfully. You can now copy the code or download the file.",
+            },
+          ],
         },
       ],
     }) as unknown as Field,

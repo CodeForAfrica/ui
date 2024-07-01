@@ -18,7 +18,11 @@ import { platforms } from "@/roboshield/lib/config";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
-import { LabelNode } from "@/roboshield/lib/data/payload.types";
+
+interface LabelNode {
+  title: string;
+  label: string;
+}
 
 interface Props extends StepComponent {
   selectPlatform?: LabelNode;
