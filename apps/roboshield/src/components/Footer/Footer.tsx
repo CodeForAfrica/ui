@@ -8,11 +8,14 @@ import StayInTouch from "@/roboshield/components/StayInTouch";
 import RichText from "@/roboshield/components/RichText";
 import type { Children } from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
-import { Partner } from "@/roboshield/lib/data/payload.types";
+import { SettingsSite } from "@/root/payload-types";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
+
+type Partner = SettingsSite["initiative"]["partners"];
 
 export interface FooterProps {
   connect: {
-    links: { url: string; platform: string }[];
+    links: SocialMediaLink[];
     title: string;
   };
   description: Children;

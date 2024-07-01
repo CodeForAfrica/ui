@@ -2,9 +2,9 @@ import EngagementTab from "./EngagementTab";
 import GeneralTab from "./GeneralTab";
 import NavigationTab from "./NavigationTab";
 import InitiativeTab from "./InitiativeTab";
-import HeroTab from "./HeroTab";
+import { GlobalConfig } from "payload/types";
 
-const Site = {
+const Site: GlobalConfig = {
   slug: "settings-site",
   label: "Site",
   access: {
@@ -16,7 +16,7 @@ const Site = {
   fields: [
     {
       type: "tabs",
-      tabs: [GeneralTab, NavigationTab, EngagementTab, InitiativeTab, HeroTab],
+      tabs: [GeneralTab, NavigationTab, EngagementTab, InitiativeTab],
     },
   ],
 };

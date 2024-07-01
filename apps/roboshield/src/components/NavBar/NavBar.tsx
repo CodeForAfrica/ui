@@ -3,11 +3,7 @@ import React from "react";
 
 import DesktopNavBar from "@/roboshield/components/DesktopNavBar";
 import MobileNavBar from "@/roboshield/components/MobileNavBar";
-
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 interface Menu {
   label: string;
@@ -16,7 +12,7 @@ interface Menu {
 interface Props {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
 function NavBar({ logo, menus, socialLinks }: Props) {
   return (

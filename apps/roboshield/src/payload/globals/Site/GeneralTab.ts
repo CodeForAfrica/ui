@@ -1,7 +1,8 @@
+import { Tab } from "payload/types";
 import image from "../../fields/image";
 import richText from "../../fields/richText";
 
-const GeneralTab = {
+const GeneralTab: Tab = {
   label: "General",
   fields: [
     {

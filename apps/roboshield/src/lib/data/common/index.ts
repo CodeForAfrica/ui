@@ -1,27 +1,32 @@
-import { Api, MediaData, Settings } from "../payload.types";
-import { AppContext } from "next/app";
+import { blockify } from "../blockify";
+import { GetServerSidePropsContext } from "next";
+import { Api } from "@/roboshield/lib/payload";
+import { SettingsSite } from "@/root/payload-types";
 
-export function imageFromMedia({ alt = null, url = null }: Partial<MediaData>) {
+export function imageFromMedia(alt: string, url: string) {
   return { alt, src: url };
 }
 
-function getNavBar(settings: Settings) {
+function getNavBar(settings: SettingsSite) {
   const {
     connect: { links = [] },
-    primaryLogo: media,
-    primaryNavigation: { menus = null, connect },
+    primaryLogo,
+    primaryNavigation,
     title,
   } = settings;
-  const socialLinks = links.filter((link) => link.platform === connect);
-
+  const menus = primaryNavigation?.menus;
+  const connect = primaryNavigation?.connect;
+  const socialLinks = links?.filter((link) => link.platform === connect);
+  const primaryLogoUrl =
+    typeof primaryLogo === "string" ? null : primaryLogo.url;
   return {
-    logo: imageFromMedia({ alt: title, ...media }),
+    logo: imageFromMedia(title, primaryLogoUrl || ""),
     menus,
     socialLinks,
   };
 }
 
-function getFooter(settings: Settings) {
+function getFooter(settings: SettingsSite) {
   const {
     primaryLogo,
     primaryNavigation,
@@ -31,33 +36,42 @@ function getFooter(settings: Settings) {
     ...footer
   } = settings;
   const media = secondaryLogo || primaryLogo;
+  const footerLogoUrl = typeof media === "string" ? null : media.url;
 
   return {
     ...footer,
-    logo: imageFromMedia({ alt: title, ...media }),
+    logo: imageFromMedia(title, footerLogoUrl || ""),
     primaryMenus: primaryNavigation?.menus || null,
     secondaryMenus: secondaryNavigation?.menus || null,
   };
 }
 
-function getHero(settings: Settings) {
-  const { heroButtonText, heroDescriptiveText, heroHeaders } = settings;
-  return {
-    heroHeaders,
-    heroDescriptiveText,
-    heroButtonText,
-  };
-}
+export async function getPageProps(
+  api: Api,
+  context: GetServerSidePropsContext,
+) {
+  const { resolvedUrl } = context;
+  let path;
+  if (resolvedUrl === "/" || resolvedUrl === "") {
+    path = "index";
+  } else {
+    path = resolvedUrl.replace(/^\//, "");
+  }
+  const {
+    docs: [page],
+  } = await api.findPage(path);
 
-export async function getPageProps(api: Api, context: AppContext) {
-  const siteSettings: Settings = (await api.findGlobal(
-    "settings-site",
-  )) as Settings;
+  if (!page) {
+    return null;
+  }
+
+  const blocks = await blockify(page.blocks, api);
+
+  const siteSettings = await api.findGlobal("settings-site");
   const navbar = getNavBar(siteSettings);
-  const hero = getHero(siteSettings);
   const footer = getFooter(siteSettings);
   return {
-    hero,
+    blocks,
     footer,
     navbar,
   };

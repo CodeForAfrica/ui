@@ -3,11 +3,7 @@ import React, { ForwardedRef } from "react";
 
 import NavBarNavList from "@/roboshield/components/NavBarNavList";
 import NextImageButton from "@/roboshield/components/NextImageButton";
-
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 interface Menu {
   label: string;
@@ -16,7 +12,7 @@ interface Menu {
 interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(
   props: Props,

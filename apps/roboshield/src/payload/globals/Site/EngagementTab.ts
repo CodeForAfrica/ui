@@ -1,6 +1,7 @@
+import { Tab } from "payload/types";
 import socialLinks from "../../fields/socialLinks";
 
-const EngagementTab = {
+const EngagementTab: Tab = {
   label: "Engagement",
   fields: [
     {
