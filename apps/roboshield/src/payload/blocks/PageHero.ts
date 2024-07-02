@@ -8,6 +8,7 @@ export const PageHero: Block = {
     singular: "Page Hero",
     plural: "Page Hero",
   },
+  interfaceName: "PageHero",
   fields: [
     {
       name: "heroHeaders",

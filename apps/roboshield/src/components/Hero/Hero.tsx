@@ -5,23 +5,9 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
 import { Theme } from "@mui/material";
+import { PageHero } from "@/root/payload-types";
 
-interface HeroHeader {
-  headingType: "subHeading" | "largeHeading" | "rotatingText";
-  title: string;
-  id: string;
-}
-
-interface HeroProps {
-  heroHeaders: HeroHeader[];
-  heroDescriptiveText: [];
-  heroButtonText: string;
-  id: string;
-  blockType: "page-hero";
-  slug: string;
-}
-
-const Hero = (props: HeroProps) => {
+const Hero = (props: PageHero) => {
   return (
     <Box
       component="section"
@@ -35,7 +21,7 @@ const Hero = (props: HeroProps) => {
       }}
     >
       <Section>
-        {props.heroHeaders.map((header) => (
+        {props.heroHeaders?.map((header) => (
           <div key={header.id}>
             {header.headingType === "subHeading" && (
               <Typography
@@ -88,7 +74,7 @@ const Hero = (props: HeroProps) => {
                   }}
                 >
                   <ReactRotatingText
-                    items={header.title.split(",").map((part) => part.trim())}
+                    items={header?.title?.split(",").map((part) => part.trim())}
                     cursor={false}
                     eraseMode="overwrite"
                   />
