@@ -70,7 +70,6 @@ export async function getPageProps(
   const siteSettings = await api.findGlobal("settings-site");
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
-
   return {
     blocks,
     footer,

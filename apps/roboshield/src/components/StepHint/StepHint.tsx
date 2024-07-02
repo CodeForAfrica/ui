@@ -1,8 +1,8 @@
 import { Alert } from "@mui/material";
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface StepHintProps {
-  hint: String;
+  hint: ReactNode;
 }
 
 const StepHint = ({ hint }: StepHintProps) => {

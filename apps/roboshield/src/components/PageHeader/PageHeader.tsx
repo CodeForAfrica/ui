@@ -9,7 +9,10 @@ type PageHeaderProps = ExtractBlockType<
   "page-header"
 >;
 
-export default function PageHeader({ title, subtitle }: PageHeaderProps) {
+export default function PageHeader({
+  title,
+  subtitle,
+}: PageHeaderProps): JSX.Element {
   return (
     <>
       <TwoToneBackground sx={{ backgroundColor: "background.default" }}>

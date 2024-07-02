@@ -6,6 +6,7 @@ interface StepperNavProps {
   isValid: boolean;
   lastStep: boolean;
   back?: boolean;
+  labels?: { [key: string]: string };
 }
 
 export default function StepperNav({
@@ -14,6 +15,7 @@ export default function StepperNav({
   isValid,
   lastStep,
   back = false,
+  labels,
 }: StepperNavProps) {
   return (
     <Box sx={{ my: 2 }}>
@@ -26,10 +28,10 @@ export default function StepperNav({
               sx={{ mt: 1, mr: 1 }}
               disabled={!isValid}
             >
-              Continue
+              {labels?.continue}
             </Button>
             <Button disabled={back} onClick={handleBack} sx={{ mt: 1, mr: 1 }}>
-              Back
+              {labels?.back}
             </Button>
           </>
         )}
