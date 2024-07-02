@@ -7,6 +7,7 @@ import {
 import LongFormRichText from "@/roboshield/components/LongFormRichText";
 import LongFormMedia from "@/roboshield/components/LongFormMedia";
 import LongFormExternalEmbed from "@/roboshield/components/LongFormExternalEmbed";
+import { FC } from "react";
 
 type ContentProps = ExtractBlockType<
   NonNullable<Page["blocks"]>[number],
@@ -29,10 +30,11 @@ export type MediaBlock = ExtractNestedBlockType<
 >;
 
 type ComponentMap = {
-  richtext: (props: RichTextBlock) => JSX.Element;
-  mediaBlock?: (props: MediaBlock) => JSX.Element;
-  externalEmbedd?: (props: ExternalEmbeddBlock) => JSX.Element;
+  richtext: React.FC<RichTextBlock>;
+  mediaBlock: React.FC<MediaBlock>;
+  externalEmbedd: React.FC<ExternalEmbeddBlock>;
 };
+
 export default function Content({ content }: ContentProps) {
   const COMPONENT_BY_CONTENT_TYPE: ComponentMap = {
     richtext: LongFormRichText,
@@ -50,7 +52,7 @@ export default function Content({ content }: ContentProps) {
       }}
     >
       {content?.map((child) => {
-        const Component = COMPONENT_BY_CONTENT_TYPE[child.blockType];
+        const Component: FC<any> = COMPONENT_BY_CONTENT_TYPE[child.blockType];
 
         if (Component) {
           return <Component key={child.id} {...child} />;
