@@ -35,7 +35,7 @@ export default function LongFormRichText({ content }: RichTextBlock) {
         "& h5": {
           mb: 1.25,
           mt: 5,
-          ...theme.typography.h5Small,
+          ...theme.typography.h5,
           [theme.breakpoints.up("md")]: {
             ...theme.typography.h5,
           },
@@ -49,14 +49,14 @@ export default function LongFormRichText({ content }: RichTextBlock) {
           ...theme.typography.body1,
           mb: 2,
           [theme.breakpoints.up("md")]: {
-            ...theme.typography.body3,
+            ...theme.typography.body2,
           },
         },
         "& a": {
           ...theme.typography.body1,
           mb: 2,
           [theme.breakpoints.up("md")]: {
-            ...theme.typography.body3,
+            ...theme.typography.body2,
           },
         },
         "& ul": {
@@ -66,7 +66,7 @@ export default function LongFormRichText({ content }: RichTextBlock) {
           ...theme.typography.body1,
           mt: 1,
           [theme.breakpoints.up("md")]: {
-            ...theme.typography.body3,
+            ...theme.typography.body2,
           },
         },
         "& :last-child": {
