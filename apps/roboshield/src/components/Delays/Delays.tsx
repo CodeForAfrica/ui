@@ -11,13 +11,28 @@ import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
 
+interface LabelNode {
+  title: string;
+  label: string;
+}
+
+interface Props extends StepComponent {
+  crawlDelay?: LabelNode;
+  cacheDelay?: LabelNode;
+  visitTime?: LabelNode;
+}
 export default function Delays({
   handleNext,
   handleBack,
   handleSkipToLast,
   hint,
   lastStep,
-}: StepComponent) {
+  globalLabels,
+  cacheDelay: cachedDelayLabel,
+  crawlDelay: crawlDelayLabel,
+  visitTime: visitTimeLabel,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
 
   const [crawlDelay, setCrawlDelay] = useState(state.crawlDelay);
@@ -67,7 +82,11 @@ export default function Delays({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{
@@ -93,8 +112,8 @@ export default function Delays({
                 width: "100%",
               }}
             >
-              Crawl delay
-              <Tooltip title="The crawl delay directive specifies the minimum time between requests to your server from a bot.">
+              {crawlDelayLabel?.label}
+              <Tooltip title={crawlDelayLabel?.title}>
                 <IconButton color="info">
                   <InfoIcon />
                 </IconButton>
@@ -114,8 +133,8 @@ export default function Delays({
                 width: "100%",
               }}
             >
-              Cache delay
-              <Tooltip title="The cache delay directive specifies the time that a cached copy of a page should be considered fresh.">
+              {cachedDelayLabel?.label}
+              <Tooltip title={cachedDelayLabel?.title}>
                 <IconButton color="info">
                   <InfoIcon />
                 </IconButton>
@@ -136,8 +155,8 @@ export default function Delays({
               width: "100%",
             }}
           >
-            Visit time
-            <Tooltip title="The visit time directive specifies the time of day when a bot should visit your site.">
+            {visitTimeLabel?.label}
+            <Tooltip title={visitTimeLabel?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -172,6 +191,7 @@ export default function Delays({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

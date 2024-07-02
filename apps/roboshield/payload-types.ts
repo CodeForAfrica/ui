@@ -71,6 +71,128 @@ export interface Page {
             blockName?: string | null;
             blockType: 'page-hero';
           }
+        | {
+            toolTipText: string;
+            steps?:
+              | (
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      defaultFetchExistingRobots?: boolean | null;
+                      existingRobotsTxt: string;
+                      placeholder: string;
+                      urlValidationError: string;
+                      fetch: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'existing-robots';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      crawlDelay: {
+                        label: string;
+                        title: string;
+                      };
+                      cacheDelay: {
+                        label: string;
+                        title: string;
+                      };
+                      visitTime: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'delays';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      selectPlatform: {
+                        label: string;
+                        title: string;
+                      };
+                      disallowedPaths: {
+                        label: string;
+                        title: string;
+                      };
+                      allowedPaths: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'paths';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      aiWebCrawlers: {
+                        label: string;
+                        title: string;
+                      };
+                      searchEngineCrawlers: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'block-bots';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'site-maps';
+                    }
+                  | {
+                      title: string;
+                      hint?:
+                        | {
+                            [k: string]: unknown;
+                          }[]
+                        | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'finish';
+                    }
+                )[]
+              | null;
+            labels: {
+              continue: string;
+              back: string;
+              reset: string;
+              download: string;
+              copyToClipboard: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'robo-form';
+          }
       )[]
     | null;
   meta?: {
