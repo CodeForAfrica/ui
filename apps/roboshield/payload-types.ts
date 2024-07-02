@@ -11,11 +11,11 @@ export interface Config {
     media: Media;
     pages: Page;
     users: User;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
+    "payload-preferences": PayloadPreference;
+    "payload-migrations": PayloadMigration;
   };
   globals: {
-    'settings-site': SettingsSite;
+    "settings-site": SettingsSite;
   };
 }
 /**
@@ -53,7 +53,7 @@ export interface Page {
             subtitle: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'page-header';
+            blockType: "page-header";
           }
         | PageHero
         | {
@@ -74,7 +74,7 @@ export interface Page {
                       fetch: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'existing-robots';
+                      blockType: "existing-robots";
                     }
                   | {
                       title: string;
@@ -97,7 +97,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'delays';
+                      blockType: "delays";
                     }
                   | {
                       title: string;
@@ -120,7 +120,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'paths';
+                      blockType: "paths";
                     }
                   | {
                       title: string;
@@ -139,7 +139,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'block-bots';
+                      blockType: "block-bots";
                     }
                   | {
                       title: string;
@@ -151,7 +151,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'site-maps';
+                      blockType: "site-maps";
                     }
                   | {
                       title: string;
@@ -163,7 +163,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'finish';
+                      blockType: "finish";
                     }
                 )[]
               | null;
@@ -176,7 +176,7 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: 'robo-form';
+            blockType: "robo-form";
           }
       )[]
     | null;
@@ -196,7 +196,7 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ('draft' | 'published') | null;
+  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -205,7 +205,7 @@ export interface Page {
 export interface PageHero {
   heroHeaders?:
     | {
-        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
+        headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
         title?: string | null;
         id?: string | null;
       }[]
@@ -216,7 +216,7 @@ export interface PageHero {
   heroButtonText?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'page-hero';
+  blockType: "page-hero";
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -226,7 +226,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles: ('admin' | 'editor')[];
+  roles: ("admin" | "editor")[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -247,7 +247,7 @@ export interface User {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: string | User;
   };
   key?: string | null;
@@ -290,9 +290,9 @@ export interface SettingsSite {
     menus?:
       | {
           label: string;
-          linkType?: ('custom' | 'internal') | null;
+          linkType?: ("custom" | "internal") | null;
           doc?: {
-            relationTo: 'pages';
+            relationTo: "pages";
             value: string | Page;
           } | null;
           url?: string | null;
@@ -300,15 +300,17 @@ export interface SettingsSite {
           id?: string | null;
         }[]
       | null;
-    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+    connect?:
+      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
+      | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
           label: string;
-          linkType?: ('custom' | 'internal') | null;
+          linkType?: ("custom" | "internal") | null;
           doc?: {
-            relationTo: 'pages';
+            relationTo: "pages";
             value: string | Page;
           } | null;
           url?: string | null;
@@ -321,7 +323,13 @@ export interface SettingsSite {
     title: string;
     links?:
       | {
-          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          platform:
+            | "Facebook"
+            | "Twitter"
+            | "Instagram"
+            | "Linkedin"
+            | "Github"
+            | "Slack";
           url: string;
           id?: string | null;
         }[]
@@ -341,9 +349,9 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           label: string;
-          linkType?: ('custom' | 'internal') | null;
+          linkType?: ("custom" | "internal") | null;
           doc?: {
-            relationTo: 'pages';
+            relationTo: "pages";
             value: string | Page;
           } | null;
           url?: string | null;
@@ -356,7 +364,6 @@ export interface SettingsSite {
   createdAt?: string | null;
 }
 
-
-declare module 'payload' {
+declare module "payload" {
   export interface GeneratedTypes extends Config {}
 }
