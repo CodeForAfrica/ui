@@ -1,6 +1,6 @@
 import PageHeader from "@/roboshield/components/PageHeader/PageHeader";
 import { Page } from "@/root/payload-types";
-import Hero from "../Hero";
+import Hero from "@/roboshield/components/Hero";
 
 interface BlockRendererProps extends Pick<Page, "blocks"> {}
 
