@@ -32,8 +32,8 @@ export const Statistics: Block = {
         },
         {
           name: "value",
-          type: "number",
-          label: "Number",
+          type: "text",
+          label: "Value",
           required: true,
         },
         {
