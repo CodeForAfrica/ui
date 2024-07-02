@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
+import RoboForm from "../blocks/RoboForm";
 import { PageHeader } from "../blocks/PageHeader";
 
 const Pages: CollectionConfig = {
@@ -26,7 +27,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHeader],
+      blocks: [PageHeader, RoboForm],
       localized: true,
       admin: {
         initCollapsed: true,

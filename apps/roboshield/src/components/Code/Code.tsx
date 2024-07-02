@@ -10,6 +10,7 @@ interface CodeProps {
   onReset: () => void;
   onBack: () => void;
   showButtons?: boolean;
+  labels?: { [key: string]: any };
 }
 
 export default function Code(props: CodeProps) {
@@ -21,6 +22,7 @@ export default function Code(props: CodeProps) {
     onCodeChange,
     onBack,
     showButtons = false,
+    labels,
   } = props;
 
   const handleCodeChange = (newCode: string) => {
@@ -49,7 +51,7 @@ export default function Code(props: CodeProps) {
               onClick={onCopy}
               disabled={!showButtons}
             >
-              Copy to Clipboard
+              {labels?.copyToClipboard}
             </Button>
             <Button
               variant="contained"
@@ -65,7 +67,7 @@ export default function Code(props: CodeProps) {
               onClick={onDownload}
               disabled={!showButtons}
             >
-              Download
+              {labels?.download}
             </Button>
             <Button
               variant="outlined"
@@ -76,7 +78,7 @@ export default function Code(props: CodeProps) {
               onClick={onBack}
               disabled={!showButtons}
             >
-              Back
+              {labels?.back}
             </Button>
           </Stack>
         </Grid>
@@ -104,7 +106,7 @@ export default function Code(props: CodeProps) {
               onClick={onReset}
               disabled={!showButtons}
             >
-              Reset
+              {labels?.reset}
             </Button>
           </Stack>
         </Grid>

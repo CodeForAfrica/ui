@@ -1,6 +1,7 @@
 import { Page } from "@/root/payload-types";
 import { ExtractBlockType } from "@/roboshield/utils/blocks";
 import { Api } from "@/roboshield/lib/payload";
+import processBlockRoboForm from "./processBlockRoboForm";
 
 type PropsifyBlockFunction<T> = (
   block: T,
@@ -15,9 +16,11 @@ type PropsifyBlockBySlug = {
   >;
 };
 
-const pageHeader: PropsifyBlockFunction<
-  ExtractBlockType<NonNullable<Page["blocks"]>[number], "page-header">
-> = async (block, api) => {
+type BlockType = ExtractBlockType<
+  NonNullable<Page["blocks"]>[number],
+  "page-header"
+>;
+const pageHeader: PropsifyBlockFunction<BlockType> = async (block, api) => {
   // some block specific computation, i.e using api
   return {
     ...block,
@@ -27,6 +30,7 @@ const pageHeader: PropsifyBlockFunction<
 
 const propsifyBlockBySlug: PropsifyBlockBySlug = {
   "page-header": pageHeader,
+  "robo-form": processBlockRoboForm,
 };
 
 export const blockify = async (blocks: Page["blocks"], api: Api) => {
@@ -34,7 +38,7 @@ export const blockify = async (blocks: Page["blocks"], api: Api) => {
     const slug = block.blockType as NonNullable<
       Page["blocks"]
     >[number]["blockType"];
-    const propsifyBlock = propsifyBlockBySlug[slug];
+    const propsifyBlock = propsifyBlockBySlug[slug] as any;
 
     if (propsifyBlock) {
       return propsifyBlock(block, api);
