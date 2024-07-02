@@ -1,5 +1,6 @@
 import { Block, Field } from "payload/types";
 import richText from "../fields/richText";
+import { blocks } from "payload/dist/fields/validations";
 
 const ExistingRobots: Block = {
   slug: "existing-robots",
@@ -403,6 +404,26 @@ const RoboForm: Block = {
       blocks: [ExistingRobots, Delays, Paths, BlockBots, SiteMaps, Finish],
       admin: {
         initCollapsed: true,
+      },
+      validate: (value, args) => {
+        const requiredSteps: string[] = [
+          "existing-robots",
+          "delays",
+          "paths",
+          "block-bots",
+          "site-maps",
+          "finish",
+        ];
+        const missingSteps = requiredSteps.filter(
+          (slug) =>
+            !value?.find(
+              ({ blockType }: { blockType: string }) => blockType === slug,
+            ),
+        );
+        if (missingSteps.length) {
+          return `The following steps are missing: ${missingSteps.join(", ")}`;
+        }
+        return blocks(value, args);
       },
     },
     Labels,
