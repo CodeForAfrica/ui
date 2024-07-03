@@ -57,6 +57,57 @@ export interface Page {
           }
         | PageHero
         | {
+            content?:
+              | (
+                  | {
+                      content: {
+                        [k: string]: unknown;
+                      }[];
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: "richtext";
+                    }
+                  | {
+                      image: string | Media;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: "mediaBlock";
+                    }
+                  | {
+                      externalEmbeddFields?: {
+                        embedType?: ("url" | "code") | null;
+                        url?: string | null;
+                        caption?: string | null;
+                        code?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: "externalEmbedd";
+                    }
+                )[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content";
+          }
+        | {
+            title: string;
+            statistics?:
+              | {
+                  name: string;
+                  value: string;
+                  description: {
+                    [k: string]: unknown;
+                  }[];
+                  icon?: string | Media | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "statistics";
+          }
+        | {
             toolTipText: string;
             steps?:
               | (

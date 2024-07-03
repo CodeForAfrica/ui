@@ -109,7 +109,12 @@ const Hero = (props: PageHero) => {
         />
 
         <Button
-          onClick={() => {}}
+          onClick={() => {
+            const element = document.getElementById("robots-generator");
+            element?.scrollIntoView({
+              behavior: "smooth",
+            });
+          }}
           size="large"
           variant="contained"
           sx={{

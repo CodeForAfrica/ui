@@ -8,6 +8,7 @@ import ShareThisPage from "@/charterafrica/components/ShareThisPage";
 const DescriptionAndShare = React.forwardRef(
   function DescriptionAndShare(props, ref) {
     const { sx, description, lastActive, activeText } = props;
+    const lastActiveText = lastActive ? `${activeText} ${lastActive}` : null;
     return (
       <Box sx={sx} ref={ref}>
         <RichTypography
@@ -28,7 +29,7 @@ const DescriptionAndShare = React.forwardRef(
           }}
           variant="captionCap"
         >
-          {activeText} {lastActive}
+          {lastActiveText}
         </RichTypography>
         <Box
           display="flex"
