@@ -8,19 +8,19 @@ import Page from "@/roboshield/components/Page";
 import { GlobalProvider } from "@/roboshield/context/GlobalContext";
 import theme from "@/roboshield/theme";
 import createEmotionCache from "@/roboshield/utils/createEmotionCache";
-const clientSideEmotionCache = createEmotionCache();
 
 function getDefaultLayout(page: ReactNode, pageProps: any) {
   return <Page {...pageProps}>{page}</Page>;
 }
 
 export default function App(props: AppProps | any) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const { Component, pageProps } = props;
   const getLayout = Component.getLayout || getDefaultLayout;
+  const clientSideEmotionCache = createEmotionCache();
 
   return (
     <>
-      <CacheProvider value={emotionCache}>
+      <CacheProvider value={clientSideEmotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
           <title>RoboShield</title>
