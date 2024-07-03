@@ -31,6 +31,14 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;
   },
+  images: {
+    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+      ?.map((d) => d.trim())
+      ?.filter((d) => d),
+    unoptimized:
+      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
+      "true",
+  },
 };
 
 export default withSentryConfig(nextConfig, {
