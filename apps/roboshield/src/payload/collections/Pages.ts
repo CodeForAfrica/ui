@@ -3,6 +3,7 @@ import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import RoboForm from "../blocks/RoboForm";
 import { PageHeader } from "../blocks/PageHeader";
+import { PageHero } from "../blocks/PageHero";
 import { Content } from "../blocks/Content";
 import { Statistics } from "../blocks/Statistics";
 
@@ -29,7 +30,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHeader, Content, Statistics, RoboForm],
+      blocks: [PageHeader, PageHero, Content, Statistics, RoboForm],
       localized: true,
       admin: {
         initCollapsed: true,

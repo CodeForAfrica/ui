@@ -1,14 +1,13 @@
+import RichText from "@/roboshield/components/RichText";
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
+import { Theme } from "@mui/material";
+import { PageHero } from "@/root/payload-types";
 
-interface props {
-  scrolRef: React.RefObject<HTMLDivElement>;
-}
-
-const Hero = ({ scrolRef }: props) => {
+const Hero = (props: PageHero) => {
   return (
     <Box
       component="section"
@@ -22,84 +21,97 @@ const Hero = ({ scrolRef }: props) => {
       }}
     >
       <Section>
-        <Typography
-          color="text.secondary"
-          gutterBottom
-          typography="h6"
-          variant="h2"
-        >
-          CONTROL YOUR DATA
-        </Typography>
+        {props.heroHeaders?.map((header) => (
+          <div key={header.id}>
+            {header.headingType === "subHeading" && (
+              <Typography
+                key={header.id}
+                color="text.secondary"
+                gutterBottom
+                typography="h6"
+                variant="h2"
+              >
+                {header.title}
+              </Typography>
+            )}
+            {header.headingType === "largeHeading" && (
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textAlign="center"
+                variant="h1"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {header.title}
+              </Typography>
+            )}
+            {header.headingType === "rotatingText" && (
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textAlign="center"
+                variant="h1"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Box
+                  component="span"
+                  sx={{
+                    backgroundColor: "red",
+                    color: "text.secondary",
+                    maxWidth: "fit-content",
+                    p: "6px 20px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  <ReactRotatingText
+                    items={header?.title?.split(",").map((part) => part.trim())}
+                    cursor={false}
+                    eraseMode="overwrite"
+                  />
+                </Box>
+              </Typography>
+            )}
+          </div>
+        ))}
 
-        <Typography
+        <RichText
           color="text.secondary"
-          gutterBottom
-          my={{
-            xs: 3,
-            md: 5,
-          }}
-          textAlign="center"
-          variant="h1"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          Guard Your
-          <Box
-            component="span"
-            sx={{
-              backgroundColor: "red",
+          typographyProps={{
+            LinkProps: {
               color: "text.secondary",
-              maxWidth: "fit-content",
-              my: {
-                xs: 0.5,
-                md: 1,
+              sx: {
+                textDecorationColor: "text.secondary",
               },
-              p: "6px 20px",
-              textTransform: "capitalize",
-            }}
-          >
-            <ReactRotatingText
-              items={["website", "blog", "content"]}
-              cursor={false}
-              eraseMode="overwrite"
-            />
-          </Box>
-          Against AI Bots
-        </Typography>
-
-        <RichTypography
-          LinkProps={{
-            color: "text.secondary",
+            },
+            variant: "h6",
           }}
-          color="text.secondary"
-          typography="h6"
-          variant="h3"
-          sx={{
-            "& .robots": {
+          sx={(theme: Theme) => ({
+            a: {
               textDecoration: "none",
+              padding: "0.5em",
+              margin: "0.5em",
+              border: "1px solid",
               borderColor: "text.secondary",
-              border: 1,
-              p: 0.5,
             },
-            "& .robots:before": {
-              fill: "white",
-              content: "url('/icons/smarttoy-24-white.svg')",
-              display: "inline-block",
-              pr: 0.5,
-              height: "26.95px", // line-height of typography (h6)
-              verticalAlign: "middle",
-            },
-          }}
-        >
-          {`Generate a <a href="https://en.wikipedia.org/wiki/Robots.txt" class="robots">robots.txt</a> file tailored to the platform you use to publish your content online and blocks AI bots`}
-        </RichTypography>
+            mt: "2.5em",
+          })}
+          elements={props.heroDescriptiveText}
+        />
+
         <Button
           onClick={() => {
-            scrolRef.current?.scrollIntoView({
+            const element = document.getElementById("robots-generator");
+            element?.scrollIntoView({
               behavior: "smooth",
             });
           }}
@@ -112,7 +124,7 @@ const Hero = ({ scrolRef }: props) => {
             },
           }}
         >
-          Get Started
+          {props.heroButtonText}
         </Button>
       </Section>
     </Box>

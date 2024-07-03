@@ -55,6 +55,7 @@ export interface Page {
             blockName?: string | null;
             blockType: "page-header";
           }
+        | PageHero
         | {
             content?:
               | (
@@ -247,6 +248,26 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PageHero".
+ */
+export interface PageHero {
+  heroHeaders?:
+    | {
+        headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
+        title?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  heroDescriptiveText: {
+    [k: string]: unknown;
+  }[];
+  heroButtonText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: "page-hero";
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
