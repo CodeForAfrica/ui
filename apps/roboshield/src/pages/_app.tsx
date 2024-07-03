@@ -7,7 +7,7 @@ import React, { ReactNode } from "react";
 import Page from "@/roboshield/components/Page";
 import { GlobalProvider } from "@/roboshield/context/GlobalContext";
 import theme from "@/roboshield/theme";
-import createEmotionCache from "@/roboshield/utils/createEmotionCache";
+import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 
 function getDefaultLayout(page: ReactNode, pageProps: any) {
   return <Page {...pageProps}>{page}</Page>;
@@ -16,11 +16,10 @@ function getDefaultLayout(page: ReactNode, pageProps: any) {
 export default function App(props: AppProps | any) {
   const { Component, pageProps } = props;
   const getLayout = Component.getLayout || getDefaultLayout;
-  const clientSideEmotionCache = createEmotionCache();
 
   return (
     <>
-      <CacheProvider value={clientSideEmotionCache}>
+      <AppCacheProvider {...props}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
           <title>RoboShield</title>
@@ -31,7 +30,7 @@ export default function App(props: AppProps | any) {
             {getLayout(<Component {...pageProps} />, pageProps)}
           </GlobalProvider>
         </ThemeProvider>
-      </CacheProvider>
+      </AppCacheProvider>
     </>
   );
 }
