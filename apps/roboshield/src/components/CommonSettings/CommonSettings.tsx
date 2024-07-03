@@ -19,13 +19,29 @@ import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
 
+interface LabelNode {
+  title: string;
+  label: string;
+}
+
+interface Props extends StepComponent {
+  selectPlatform?: LabelNode;
+  allowedPaths?: LabelNode;
+  disallowedPaths?: LabelNode;
+}
+
 export default function CommonSettings({
   handleNext,
   handleBack,
   handleSkipToLast,
   hint,
   lastStep,
-}: StepComponent) {
+  globalLabels,
+  selectPlatform,
+  allowedPaths: allowedPathsLabel,
+  disallowedPaths: disallowedPathsLabel,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
 
   const [disallowedPaths, setDisallowedPaths] = useState<string[]>(
@@ -78,7 +94,11 @@ export default function CommonSettings({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{
@@ -95,8 +115,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            Select platform
-            <Tooltip title="Select the platform your website is built on to generate the correct robots.txt file.">
+            {selectPlatform?.label}
+            <Tooltip title={selectPlatform?.title}>
               <IconButton size="small" color="info">
                 <InfoIcon />
               </IconButton>
@@ -132,8 +152,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            Disallowed paths
-            <Tooltip title="The disallowed paths directive specifies the paths that a bot should not visit.">
+            {disallowedPathsLabel?.label}
+            <Tooltip title={disallowedPathsLabel?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -167,8 +187,8 @@ export default function CommonSettings({
               width: "100%",
             }}
           >
-            Allowed paths
-            <Tooltip title="The allowed paths directive specifies the paths that a bot should visit.">
+            {allowedPathsLabel?.label}
+            <Tooltip title={allowedPathsLabel?.title}>
               <IconButton color="info">
                 <InfoIcon />
               </IconButton>
@@ -201,6 +221,7 @@ export default function CommonSettings({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

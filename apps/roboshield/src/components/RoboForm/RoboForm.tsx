@@ -1,21 +1,10 @@
 import { Section } from "@commons-ui/core";
-import {
-  IconButton,
-  Alert,
-  Box,
-  Paper,
-  Stack,
-  Step,
-  StepButton,
-  Stepper,
-  Tooltip,
-} from "@mui/material";
-import { useEffect } from "react";
+import { Box, Paper, Stack, Step, StepButton, Stepper } from "@mui/material";
+import { FC, ReactNode, useEffect } from "react";
 import React from "react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import Delays from "@/roboshield/components/Delays";
-import Hero from "@/roboshield/components/Hero";
 import Sitemaps from "@/roboshield/components/Sitemaps";
 
 import CommonBots from "@/roboshield/components/CommonBots";
@@ -27,52 +16,36 @@ import {
   defaultState,
 } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
-import { getPageServerSideProps } from "@/roboshield/lib/data";
+import RichText, { Children } from "@/roboshield/components/RichText";
 
-interface Step {
-  label: string;
-  description: string;
-  component: React.FC<any>;
-}
-
-export default function Home() {
+type Props = { [key: string]: string } & {
+  steps: {
+    title: string;
+    hint?: Children;
+  }[];
+  labels: {
+    back: string;
+    continue: string;
+    copyToClipboard: string;
+    download: string;
+    fetch: string;
+    reset: string;
+  };
+  toolTipText: string;
+};
+const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
+  const { steps, labels, toolTipText } = props;
   const [activeStep, setActiveStep] = useState(0);
   const { state, setState } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
-  const scrolRef = useRef<HTMLDivElement | null>(null);
 
-  const steps: Step[] = [
-    {
-      label: "Existing robots",
-      description: `Start by fetching the robots.txt file of the website you want to generate robots for.`,
-      component: ExistingRobots,
-    },
-    {
-      label: "Delays",
-      description: `You can set bot delays for the robots you want to generate.`,
-      component: Delays,
-    },
-    {
-      label: "Paths",
-      description:
-        "You can set disallowed and allowed paths for the robots you want to generate. All paths should be relative to the root of your site and end with a /",
-      component: CommonSettings,
-    },
-    {
-      label: "Block Bots",
-      description: `Select bots you want to block from crawling your website.`,
-      component: CommonBots,
-    },
-    {
-      label: "Site Maps",
-      description: `You can add sitemap URLs to your robots.txt file.`,
-      component: Sitemaps,
-    },
-    {
-      label: "Finish",
-      description: `Your robots.txt file has been generated successfully. You can now copy the code or download the file.`,
-      component: Finish,
-    },
+  const stepTitleComponentMap = [
+    ExistingRobots,
+    Delays,
+    CommonSettings,
+    CommonBots,
+    Sitemaps,
+    Finish,
   ];
 
   const handleNext = () => {
@@ -97,7 +70,7 @@ export default function Home() {
   const handleSkipToLast = (data: any) => {
     const newState = { ...state, ...data };
     setState(newState);
-    setActiveStep(steps.length - 1);
+    setActiveStep(props.steps.length - 1);
   };
 
   const handleStep = (step: number) => () => {
@@ -113,14 +86,13 @@ export default function Home() {
     generateRobotsFile();
   }, [state]);
 
-  const ActiveComponent = steps[activeStep]?.component ?? null;
-
+  const ActiveComponent = stepTitleComponentMap[activeStep] ?? null;
+  const { hint, ...activeComponentProps } = steps[activeStep] ?? {};
   return (
     <>
-      <Hero scrolRef={scrolRef} />
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}
-        ref={scrolRef}
+        ref={ref}
         id="robots-generator"
       >
         <Stack
@@ -170,8 +142,8 @@ export default function Home() {
                 ></Box>
 
                 <Stepper nonLinear activeStep={activeStep}>
-                  {steps.map((step, index) => (
-                    <Step key={step.label}>
+                  {steps?.map((step, index) => (
+                    <Step key={step.title}>
                       <StepButton
                         color="inherit"
                         onClick={handleStep(index)}
@@ -190,7 +162,7 @@ export default function Home() {
                           fontWeight: { xs: 500, md: 600 },
                         }}
                       >
-                        {step.label}
+                        {step?.title}
                       </StepButton>
                     </Step>
                   ))}
@@ -204,12 +176,15 @@ export default function Home() {
                     }}
                   >
                     <ActiveComponent
-                      hint={steps[activeStep].description}
+                      hint={<RichText elements={hint} />}
                       handleNext={handleNextStep}
                       handleBack={handleBack}
                       handleSkipToLast={handleSkipToLast}
                       lastStep={activeStep === steps.length - 1}
                       handleReset={handleReset}
+                      globalLabels={labels}
+                      toolTipText={toolTipText}
+                      {...activeComponentProps}
                     />
                   </Paper>
                 )}
@@ -220,52 +195,6 @@ export default function Home() {
       </Section>
     </>
   );
-}
+});
 
-export async function getServerSideProps(context: any) {
-  const { props } = await getPageServerSideProps(context);
-  return {
-    props: {
-      ...props,
-      footer: {
-        logo: props?.footer?.logo,
-        newsletter: props?.footer?.newsletter,
-        description: `This site is an <a href="https://github.com/CodeForAfrica/ui/tree/main/apps/roboshield">open source code</a> built by <a href="https://codeforafrica.org">Code for Africa</a>, the continent's largest network of civic technology and data journalism labs. All content is released under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons 4 Attribution</a> License. Reuse it to help empower your own community.`,
-        connect: props?.footer?.connect,
-        partners: [
-          {
-            name: "DW Africa",
-            url: "https://www.dw.com/africa",
-            logo: {
-              alt: "DW Africa",
-              prefix: "media",
-              filename: "dw-africa.png",
-              sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
-              url: "/images/DW.png",
-              src: "/images/DW.png",
-            },
-          },
-          {
-            name: "Civic Signal",
-            url: "https://civicsignal.africa/",
-            logo: {
-              alt: "Civic Signal",
-              prefix: "media",
-              filename: "civic-signal.png",
-              sizes: "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
-              url: "/images/civic-signal.png",
-              src: "/images/civic-signal.png",
-            },
-          },
-        ],
-        project: `This project was inspired by a
-                  <a href="https://reutersinstitute.politics.ox.ac.uk/how-many-news-websites-block-ai-crawlers" rel="noreferrer noopener" target="blank">survey conducted</a>
-                  by the Reutures Instititue in the Minority World. The Audit data used
-                  in this project was based on
-                  <a href="https://civicsignal.africa" rel="noreferrer noopener" target="blank">CivicSignal</a>
-                  MediaData database.
-                  `,
-      },
-    },
-  };
-}
+export default RoboForm;

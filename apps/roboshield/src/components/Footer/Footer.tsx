@@ -1,18 +1,24 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
 import { Box, Grid, Stack } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Theme, styled } from "@mui/material/styles";
 
 import NewsletterSubscription from "@/roboshield/components/NewsletterSubscription";
 import StayInTouch from "@/roboshield/components/StayInTouch";
+import RichText from "@/roboshield/components/RichText";
+import type { Children } from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
+import { SettingsSite } from "@/root/payload-types";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
+
+type Partner = SettingsSite["initiative"]["partners"];
 
 export interface FooterProps {
   connect: {
-    links: { url: string; platform: string }[];
+    links: SocialMediaLink[];
     title: string;
   };
-  description: string;
+  description: Children;
   logo: any;
   newsletter: {
     children: React.ReactNode;
@@ -20,8 +26,11 @@ export interface FooterProps {
     sx: any;
     title: string;
   };
-  partners: any[];
-  project: string;
+  initiative: {
+    partners: Partner[];
+    title: Children;
+    description: Children;
+  };
 }
 
 const FooterRoot = styled(Box)(
@@ -42,9 +51,8 @@ export default function Footer({
   connect,
   description,
   logo,
-  partners,
-  project,
   newsletter,
+  initiative,
 }: FooterProps) {
   return (
     <FooterRoot component="footer">
@@ -88,20 +96,25 @@ export default function Footer({
                   sx={{ height: "113px", mt: { xs: "52px", md: 0 } }}
                 >
                   <RichTypography
-                    variant="h5SemiBold"
+                    typographyProps={{
+                      variant: "h5SemiBold",
+                    }}
                     sx={{ color: "text.secondary", mb: "0" }}
                   >
-                    In Partnership with:
+                    {initiative?.title}
                   </RichTypography>
                   <Stack alignItems="center" direction="row" spacing={0.5}>
-                    {partners.map((partner: any) => (
+                    {initiative?.partners?.map((partner: any) => (
                       <Link
                         key={partner.name}
                         href={partner.url}
                         target="_blank"
                       >
                         <Figure
-                          ImageProps={partner.logo}
+                          ImageProps={{
+                            src: partner?.logo?.src,
+                            alt: partner?.logo?.alt,
+                          }}
                           sx={{
                             display: "flex",
                             filter: "grayscale(100%)",
@@ -116,20 +129,29 @@ export default function Footer({
                     ))}
                   </Stack>
                 </Stack>
-                <RichTypography
-                  LinkProps={{
-                    color: "text.secondary",
-                    sx: { textDecorationColor: "text.secondary" },
+                <RichText
+                  typographyProps={{
+                    LinkProps: {
+                      color: "text.secondary",
+                      sx: { textDecorationColor: "text.secondary" },
+                    },
+                    variant: "footer",
+                    sx: {
+                      mt: {
+                        md: 6.5,
+                      },
+                    },
                   }}
-                  mt={{
-                    md: 6.5,
-                  }}
-                  sx={{
-                    color: "text.secondary",
-                  }}
-                >
-                  {project}
-                </RichTypography>
+                  sx={(theme: Theme) => ({
+                    a: {
+                      color: theme.palette.text.secondary,
+                      textDecorationColor: theme.palette.text.secondary,
+                    },
+                    mt: "52px",
+                    typography: "footer",
+                  })}
+                  elements={initiative?.description}
+                />
               </Grid>
             </Grid>
           </Grid>

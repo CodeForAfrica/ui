@@ -4,7 +4,7 @@
 
 ARG \
   # Must match packageManager in package.json
-  PNPM_VERSION=9.1.4 \
+  PNPM_VERSION=9.4.0 \
   # Next.js / Payload (build time)
   PORT=3000 \
   # Next.js (runtime)
@@ -13,12 +13,11 @@ ARG \
   NEXT_PUBLIC_APP_URL=http://localhost:3000 \
   NEXT_PUBLIC_SENTRY_DSN="" \
   NEXT_PUBLIC_SEO_DISABLED="true" \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS="" \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT="" \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT="local" \
+  SENTRY_ORG="code-for-africa" \
+  SENTRY_PROJECT=""
 
 
 FROM node:20.14-alpine as node
@@ -69,6 +68,10 @@ COPY packages/commons-ui-core/package.json ./packages/commons-ui-core/package.js
 COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.json
 # Next.js lints when doing production build
 COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
+# TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica)
+COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
+
+RUN pnpm --filter "./packages/**" install --offline --frozen-lockfile
 
 #
 # base-builder: base image that will be used by application-specific builders
@@ -76,8 +79,11 @@ COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-com
 
 FROM pnpm-base as base-builder
 
-# Next.js lints when doing production build hence ensure eslintrc is present
-COPY packages/eslint-config-commons-ui ./packages/eslint-config-commons-ui
+COPY --from=base-deps /workspace/packages/ ./packages
+
+# TODO(kilemensi): Investigate why we need @commons-ui sources (charterafrica,
+#                  codeforafrica) when building final app
+COPY packages ./packages
 
 #
 # base-runner: base for final deployable image
@@ -98,9 +104,7 @@ ENV NODE_ENV=production \
   NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED} \
   NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME} \
   NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL} \
-  NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
   NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED} \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS=${NEXT_PUBLIC_GOOGLE_ANALYTICS} \
   PORT=${PORT} \
   SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT} \
   # set hostname to localhost
@@ -114,6 +118,109 @@ RUN set -ex \
   && rm -rf /var/cache/apk/*
 
 EXPOSE ${PORT}
+
+# ============================================================================
+# charterAFRICA
+# ============================================================================
+
+#
+# charterafrica-desp: image with all charterafrica dependencies
+# -------------------------------------------------------------
+
+FROM base-deps as charterafrica-deps
+
+COPY apps/charterafrica/package.json ./apps/charterafrica/package.json
+
+RUN pnpm --filter "./apps/charterafrica/" install --offline --frozen-lockfile
+
+#
+# charterafrica-builder: image that uses deps to build shippable output
+# ---------------------------------------------------------------------
+
+FROM base-builder as charterafrica-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="charterAFRICA" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  # Payload (runtime)
+  MONGO_URL \
+  # TODO(koech): Standadise naming of Payload Secret. Our options:
+  #              - PAYLOAD_SECRET (codeforafrica)
+  #              - PAYLOAD_SECRET_KEY (charterafrica)
+  PAYLOAD_SECRET_KEY \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=charterafrica-deps /workspace/node_modules ./node_modules
+
+COPY --from=charterafrica-deps /workspace/apps/charterafrica/node_modules ./apps/charterafrica/node_modules
+
+COPY apps/charterafrica ./apps/charterafrica/
+
+# When building Next.js app, Next.js needs to connect to local Payload
+ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
+RUN pnpm --filter "./apps/charterafrica/" build-next
+
+# When building Payload app, Payload needs to have final app URL
+ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+RUN pnpm --filter "./apps/charterafrica/" build-payload
+
+#
+# charterafrica-runner: final deployable image
+# --------------------------------------------
+
+FROM base-runner as charterafrica-runner
+
+ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+  PAYLOAD_PUBLIC_APP_URL
+
+# DO NOT initialise ENV vars using ARG for secrets!!!!
+# These include:
+#                i. Mongo DB URL
+#                ii. Payload Secret
+# ENV are persisted in the image & may lead to security issues
+ENV PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
+  PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/charterafrica//.next \
+  && chown nextjs:nodejs ./apps/charterafrica/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Since we can't use output: "standalone", copy all app's dependencies
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/node_modules ./apps/charterafrica/node_modules
+
+# Next.js
+# Public assets
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/public ./apps/charterafrica/public
+
+# Since we can't use output: "standalone", copy the whole app's .next folder
+# TODO(kilemensi): Figure out which files in .next folder are not needed
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/.next ./apps/charterafrica/.next
+
+# Payload
+COPY --from=charterafrica-builder /workspace/apps/charterafrica/dist ./apps/charterafrica/dist
+COPY --from=charterafrica-builder /workspace/apps/charterafrica/build ./apps/charterafrica/build
+
+# Since we can't use output: "standalone", switch to specific app's folder
+WORKDIR /workspace/apps/charterafrica
+
+USER nextjs
+
+# Custom server to run Payload and Next.js in the same app
+CMD ["node", "dist/server.js"]
 
 # ============================================================================
 # Code for Africa
@@ -143,34 +250,33 @@ ARG NEXT_TELEMETRY_DISABLED \
   PORT \
   # Next.js (runtime)
   NEXT_PUBLIC_APP_NAME="Code for Africa" \
-  NEXT_PUBLIC_APP_URL=http://localhost:3000 \
-  NEXT_PUBLIC_SENTRY_DSN="" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
   # Payload (runtime)
+  # TODO(koech): Standadise naming of Mongo DB URL. Our options:
+  #              - MONGODB_URL (codeforafrica)
+  #              - MONGO_URL (charterafrica, roboshield)
   MONGODB_URL \
   PAYLOAD_SECRET \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
-  SENTRY_ORG="" \
-  SENTRY_PROJECT=""
+  SENTRY_ORG \
+  SENTRY_PROJECT
 
+# This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=codeforafrica-deps /workspace/node_modules ./node_modules
 
-# TODO(kilemensi): Investigate why we need @commons-ui sources.
-COPY packages ./packages
-
-COPY --from=codeforafrica-deps /workspace/packages/commons-ui-core/node_modules ./packages/commons-ui-core/node_modules
-COPY --from=codeforafrica-deps /workspace/packages/commons-ui-next/node_modules ./packages/commons-ui-next/node_modules
-COPY --from=codeforafrica-deps /workspace/packages/commons-ui-testing-library/node_modules ./packages/commons-ui-testing-library/node_modules
-COPY --from=codeforafrica-deps /workspace/packages/eslint-config-commons-ui/node_modules ./packages/eslint-config-commons-ui/node_modules
 COPY --from=codeforafrica-deps /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
 
 COPY apps/codeforafrica ./apps/codeforafrica/
 
+# When building Next.js app, Next.js needs to connect to local Payload
+ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 RUN pnpm --filter "./apps/codeforafrica/" build-next
 
-ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-
+# When building Payload app, Payload needs to have final app URL
+ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
 RUN pnpm --filter "./apps/codeforafrica/" build-payload
 
 #
@@ -179,23 +285,17 @@ RUN pnpm --filter "./apps/codeforafrica/" build-payload
 
 FROM base-runner as codeforafrica-runner
 
-# TODO(koech): Standadise naming of Mongo DB URL. Our options:
-#              - MONGODB_URL (codeforafrica)
-#              - MONGO_URL (charterafrica)
-ARG MONGODB_URL \
-  NEXT_PUBLIC_APP_LOGO_URL \
+ARG NEXT_PUBLIC_APP_LOGO_URL \
   PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
   PAYLOAD_PUBLIC_APP_URL
 
-ENV MONGODB_URL=${MONGODB_URL} \
-  # TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
-  #              - GA_MEASUREMENT_ID (charterafrica, codeforafrica)
-  #              - GOOGLE_ANALYTICS (pesayetu, vpnmanager)
-  #              This is only needed at runtime
-  NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
+# TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
+#              - GA_MEASUREMENT_ID (charterafrica, codeforafrica, roboshield)
+#              - GOOGLE_ANALYTICS (pesayetu, vpnmanager)
+#              This is only needed at runtime
+ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
   PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
-  PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
-  PAYLOAD_SECRET=${PAYLOAD_SECRET}
+  PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH}
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
@@ -232,93 +332,97 @@ CMD ["node", "dist/server.js"]
 # ============================================================================
 # Roboshield
 # ============================================================================
+
+#
+# roboshield-desp: image with all roboshield dependencies
+# -------------------------------------------------------
+
 FROM base-deps as roboshield-deps
 
 COPY apps/roboshield/package.json ./apps/roboshield/package.json
 
 RUN pnpm --filter "./apps/roboshield/" install --offline --frozen-lockfile
+
+#
+# roboshield-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
 FROM base-builder as roboshield-builder
+
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
   PORT \
   # Next.js (runtime)
   NEXT_PUBLIC_APP_NAME="RoboShield" \
-  NEXT_PUBLIC_APP_URL=http://localhost:3000 \
-  NEXT_PUBLIC_SENTRY_DSN="" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
   # Payload (runtime)
   MONGO_URL \
   PAYLOAD_SECRET \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
-  SENTRY_ORG="" \
-  SENTRY_PROJECT=""
+  SENTRY_ORG \
+  SENTRY_PROJECT
 
+# This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=roboshield-deps /workspace/node_modules ./node_modules
-
-COPY packages ./packages
 
 COPY --from=roboshield-deps /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
 
 COPY apps/roboshield ./apps/roboshield/
 
+# When building Next.js app, Next.js needs to connect to local Payload
+ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 RUN pnpm --filter "./apps/roboshield/" build-next
 
-ARG PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-
+# When building Payload app, Payload needs to have final app URL
+ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
 RUN pnpm --filter "./apps/roboshield/" build-payload
 
 #
 # roboshield-runner: final deployable image
-# --------------------------------------------
-  FROM base-runner as roboshield-runner
+# -----------------------------------------
+FROM base-runner as roboshield-runner
 
-  ARG MONGO_URL \
-    NEXT_PUBLIC_APP_LOGO_URL \
-    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
-    PAYLOAD_PUBLIC_APP_URL
-  
-  ENV MONGO_URL=${MONGO_URL} \
-    # TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
-    #              - GA_MEASUREMENT_ID (charterafrica, roboshield)
-    #              - GOOGLE_ANALYTICS (pesayetu, vpnmanager)
-    #              This is only needed at runtime
-    NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
-    PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
-    PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
-    PAYLOAD_SECRET=${PAYLOAD_SECRET}
-  
-  RUN set -ex \
-    # Create nextjs cache dir w/ correct permissions
-    && mkdir -p ./apps/roboshield//.next \
-    && chown nextjs:nodejs ./apps/roboshield/.next
-  
-  # PNPM
-  # symlink some dependencies
-  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-  
-  # Since we can't use output: "standalone", copy all app's dependencies
-  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
-  
-  # Next.js
-  # Public assets
-  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
-  
-  # Since we can't use output: "standalone", copy the whole app's .next folder
-  # TODO(kilemensi): Figure out which files in .next folder are not needed
-  COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next ./apps/roboshield/.next
-  
-  # Payload
-  COPY --from=roboshield-builder /workspace/apps/roboshield/dist ./apps/roboshield/dist
-  COPY --from=roboshield-builder /workspace/apps/roboshield/build ./apps/roboshield/build
-  
-  # Since we can't use output: "standalone", switch to specific app's folder
-  WORKDIR /workspace/apps/roboshield
-  
-  USER nextjs
-  
-  # Custom server to run Payload and Next.js in the same app
-  CMD ["node", "dist/server.js"]
+ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+  PAYLOAD_PUBLIC_APP_URL
+
+ARG PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
+  PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/roboshield//.next \
+  && chown nextjs:nodejs ./apps/roboshield/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Since we can't use output: "standalone", copy all app's dependencies
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
+
+# Next.js
+# Public assets
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
+
+# Since we can't use output: "standalone", copy the whole app's .next folder
+# TODO(kilemensi): Figure out which files in .next folder are not needed
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next ./apps/roboshield/.next
+
+# Payload
+COPY --from=roboshield-builder /workspace/apps/roboshield/dist ./apps/roboshield/dist
+COPY --from=roboshield-builder /workspace/apps/roboshield/build ./apps/roboshield/build
+
+# Since we can't use output: "standalone", switch to specific app's folder
+WORKDIR /workspace/apps/roboshield
+
+USER nextjs
+
+# Custom server to run Payload and Next.js in the same app
+CMD ["node", "dist/server.js"]
+
 # ============================================================================
 # PesaYetu
 # ============================================================================
@@ -368,10 +472,9 @@ ARG NEXT_TELEMETRY_DISABLED \
   # Custom (runtime)
   HURUMAP_API_URL
 
+# This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=pesayetu-deps /workspace/node_modules ./node_modules
-COPY --from=pesayetu-deps /workspace/packages/commons-ui-core/node_modules ./packages/commons-ui-core/node_modules
-COPY --from=pesayetu-deps /workspace/packages/commons-ui-next/node_modules ./packages/commons-ui-next/node_modules
-COPY --from=pesayetu-deps /workspace/packages/eslint-config-commons-ui/node_modules ./packages/eslint-config-commons-ui/node_modules
+
 COPY --from=pesayetu-deps /workspace/apps/pesayetu/node_modules ./apps/pesayetu/node_modules
 
 COPY apps/pesayetu ./apps/pesayetu
@@ -399,9 +502,11 @@ RUN set -ex \
   && mkdir -p ./apps/pesayetu/.next \
   && chown nextjs:nodejs ./apps/pesayetu/.next
 
-# PNPM symlink some dependencies
+# PNPM
+# symlink some dependencies
 COPY --from=pesayetu-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
+# Next.js
 # Public assets
 COPY --from=pesayetu-builder --chown=nextjs:nodejs /workspace/apps/pesayetu/public ./apps/pesayetu/public
 
@@ -451,19 +556,12 @@ ARG NEXT_TELEMETRY_DISABLED \
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
   SENTRY_ORG \
-  SENTRY_PROJECT \
-  SENTRY_LOG_LEVEL="info"
+  SENTRY_PROJECT
 
-
+# This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=vpnmanager-deps /workspace/node_modules ./node_modules
-COPY --from=vpnmanager-deps /workspace/packages/commons-ui-core/node_modules ./packages/commons-ui-core/node_modules
-COPY --from=vpnmanager-deps /workspace/packages/commons-ui-next/node_modules ./packages/commons-ui-next/node_modules
-COPY --from=vpnmanager-deps /workspace/packages/eslint-config-commons-ui/node_modules ./packages/eslint-config-commons-ui/node_modules
-COPY --from=vpnmanager-deps /workspace/apps/vpnmanager/node_modules ./apps/vpnmanager/node_modules
 
-# TODO(kilemensi): Investigate why we need @commons-ui sources.
-#                  Could it be TS related? We don't need this in PesaYetu.
-COPY packages ./packages
+COPY --from=vpnmanager-deps /workspace/apps/vpnmanager/node_modules ./apps/vpnmanager/node_modules
 
 COPY apps/vpnmanager ./apps/vpnmanager
 
@@ -480,9 +578,11 @@ RUN set -ex \
   && mkdir -p ./apps/vpnmanager/.next \
   && chown nextjs:nodejs ./apps/vpnmanager/.next
 
-# PNPM symlink some dependencies
+# PNPM
+# symlink some dependencies
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
+# Next.js
 # Public assets
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/public ./apps/vpnmanager/public
 

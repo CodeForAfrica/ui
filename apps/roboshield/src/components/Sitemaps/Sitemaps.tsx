@@ -8,13 +8,19 @@ import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
 
+interface Props extends StepComponent {
+  placeholder?: string;
+}
 export default function Sitemaps({
   handleNext,
   handleBack,
   handleSkipToLast,
   hint,
   lastStep,
-}: StepComponent) {
+  globalLabels,
+  placeholder,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
 
@@ -37,7 +43,11 @@ export default function Sitemaps({
 
   return (
     <>
-      <SkipToLastStep handleSkipToLast={skipToLast} lastStep={lastStep} />
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
       <StepHint hint={hint} />
       <Box
         sx={{
@@ -46,7 +56,7 @@ export default function Sitemaps({
         }}
       >
         <TextareaAutosize
-          placeholder="Enter sitemap URLs, each URL on a new line"
+          placeholder={placeholder}
           onChange={handleSitemapChange}
           value={sitemaps.join("\n")}
           minRows={5}
@@ -71,6 +81,7 @@ export default function Sitemaps({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

@@ -1,11 +1,4 @@
-const path = require("path");
-
 const { withSentryConfig } = require("@sentry/nextjs");
-
-const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
-const outputFileTracingRoot = PROJECT_ROOT
-  ? path.resolve(__dirname, PROJECT_ROOT)
-  : undefined;
 
 const locales = (
   process.env.NEXT_PUBLIC_LOCALES || process.env.PAYLOAD_PUBLIC_LOCALES
@@ -20,9 +13,6 @@ const defaultLocale =
   )?.trim() || locales?.[0];
 
 const nextConfig = {
-  experimental: {
-    outputFileTracingRoot,
-  },
   ...(locales?.length
     ? {
         i18n: {

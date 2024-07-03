@@ -3,21 +3,11 @@ import { Link } from "@commons-ui/next";
 import { LinkProps, SvgIcon } from "@mui/material";
 import React, { ElementType, FC } from "react";
 
-import GitHubIcon from "@/roboshield/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
 import NavListItem from "@/roboshield/components/NavListItem";
-
-const platformToIconMap: {
-  [key: string]: ElementType<any>;
-} = {
-  Github: GitHubIcon,
-};
+import SocialMediaLinkIcon from "@/roboshield/components/SocialMediaLinkIcon";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
 interface NavListItemProps extends LinkProps {}
-
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
 
 interface Menu {
   label: string;
@@ -28,7 +18,7 @@ interface Props {
   NavListItemProps?: NavListItemProps;
   direction?: string;
   menus?: Menu[];
-  socialLinks?: SocialLinks[];
+  socialLinks?: SocialMediaLink[];
 }
 
 const NavBarNavList: FC<Props> = React.forwardRef(
@@ -53,7 +43,7 @@ const NavBarNavList: FC<Props> = React.forwardRef(
               {...NavListItemProps}
               href={item.href}
               sx={{
-                typography: { md: "body1Bold" },
+                typography: { md: "body3" },
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
                   color: { xs: "inherit", md: "primary.main" },
@@ -66,29 +56,24 @@ const NavBarNavList: FC<Props> = React.forwardRef(
           </NavListItem>
         ))}
         {socialLinks?.map(({ platform, url }) => {
-          const Icon = platformToIconMap[platform];
-          if (!Icon) {
-            return null;
-          }
           return (
             <NavListItem key={platform}>
-              <Link
-                href={url}
+              <SocialMediaLinkIcon
+                url={url}
+                platform={platform}
                 variant="h3"
+                IconProps={{
+                  fontSize: "inherit",
+                  sx: {
+                    fill: { xs: "none" },
+                    mt: direction === "column" ? 0 : 1,
+                  },
+                }}
                 sx={{
                   color: { xs: "inherit" },
                   typography: { md: "h5" },
                 }}
-              >
-                <SvgIcon
-                  component={Icon}
-                  fontSize="inherit"
-                  sx={{
-                    fill: { xs: "none" },
-                    mt: direction === "column" ? 0 : 1,
-                  }}
-                />
-              </Link>
+              />
             </NavListItem>
           );
         })}
