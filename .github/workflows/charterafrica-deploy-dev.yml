@@ -2,7 +2,7 @@ name: charterAFRICA | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches: [bugfix/charterafrica-build]
     paths:
       - "apps/charterafrica/**"
       - "Dockerfile"
