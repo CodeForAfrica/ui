@@ -1,6 +1,5 @@
 import RichText from "@/roboshield/components/RichText";
 import { Section } from "@commons-ui/core";
-import { RichTypography } from "@commons-ui/next";
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
@@ -99,7 +98,8 @@ const Hero = (props: PageHero) => {
             a: {
               textDecoration: "none",
               padding: "0.5em",
-              margin: "0.5em",
+              margin: { md: "0.5em", xs: "0.75em" },
+              display: "inline-block",
               border: "1px solid",
               borderColor: "text.secondary",
             },

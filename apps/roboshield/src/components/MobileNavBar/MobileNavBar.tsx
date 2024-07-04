@@ -91,7 +91,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(
             component={menuIcon}
             sx={{
               fill: { xs: "none" },
-              fontSize: 24,
+              fontSize: 32,
             }}
           />
         </IconButton>
