@@ -25,7 +25,7 @@ const queryBuilder = (query) => {
 
 export async function getContributors(page, api, context) {
   const {
-    locale,
+    locale = "en",
     query: { page: pageNumber = 1, limit = 12, sort = "fullName" } = {},
   } = context;
   const where = queryBuilder(context.query);
@@ -54,7 +54,7 @@ export async function getContributors(page, api, context) {
 }
 
 async function processPagePerson(page, api, context) {
-  const { params, locale } = context;
+  const { params, locale = "en" } = context;
   const { slug: collection, blocks } = page;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection(collection, {
@@ -134,7 +134,7 @@ async function processPagePerson(page, api, context) {
 
 async function processPageContributors(page, api, context) {
   const { blocks } = page;
-  const { locale, params } = context;
+  const { locale = "en", params } = context;
   if (params?.slugs?.length > 2) {
     return processPagePerson(page, api, context);
   }

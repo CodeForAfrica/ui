@@ -38,7 +38,7 @@ const queryBuilder = (query) => {
 };
 
 async function processPageSingleTool(page, api, context) {
-  const { params, locale } = context;
+  const { params, locale = "en" } = context;
   const { slug: collection } = page;
   const slug = params.slugs[2];
   const { docs } = await api.getCollection(collection, {
@@ -64,7 +64,7 @@ async function processPageSingleTool(page, api, context) {
     },
   });
   const tools = [];
-  const filterLabels = labelsPerLocale[locale ?? "en"];
+  const filterLabels = labelsPerLocale[locale];
   const organisation = orgDocs?.[0] ?? null;
 
   return {
@@ -128,7 +128,7 @@ async function processPageSingleTool(page, api, context) {
 
 export async function getTools(page, api, context) {
   const {
-    locale,
+    locale = "en",
     query: { page: pageNumber = 1, limit = 12, sort = "name" } = {},
   } = context;
   const where = queryBuilder(context.query);
@@ -155,7 +155,7 @@ export async function getTools(page, api, context) {
 
 async function processPageTools(page, api, context) {
   const { blocks } = page;
-  const { locale, params } = context;
+  const { locale = "en", params } = context;
   if (params.slugs.length > 2) {
     return processPageSingleTool(page, api, context);
   }
@@ -179,7 +179,7 @@ async function processPageTools(page, api, context) {
       label: value ?? null,
     }),
   );
-  const filterLabels = labelsPerLocale[locale || "en"];
+  const filterLabels = labelsPerLocale[locale];
   const filterOptions = filters.map((filter) => {
     if (filter === "sort") {
       return {
@@ -204,7 +204,7 @@ async function processPageTools(page, api, context) {
         label: filterLabels.location,
         options: allLocations.map((country) => ({
           value: country.value,
-          label: country.label?.[locale || "en"],
+          label: country.label?.[locale],
         })),
       };
     }
