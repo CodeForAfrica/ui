@@ -75,7 +75,7 @@ MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
   const {
     Component,
-    router: { defaultLocale, locale = "en", locales },
+    router: { defaultLocale, locale, locales },
     ctx: appCtx,
   } = appContext;
   let pageProps = {};
