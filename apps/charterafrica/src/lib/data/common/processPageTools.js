@@ -64,7 +64,7 @@ async function processPageSingleTool(page, api, context) {
     },
   });
   const tools = [];
-  const filterLabels = labelsPerLocale[locale];
+  const filterLabels = labelsPerLocale[locale ?? "en"];
   const organisation = orgDocs?.[0] ?? null;
 
   return {
