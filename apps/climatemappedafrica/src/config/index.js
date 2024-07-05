@@ -764,8 +764,7 @@ export const panelArgs = {
   ],
   scrollToTopLabel: "Back To Top",
   logo: {
-    image:
-      "https://wazimap-ng.s3.amazonaws.com/logos/youthexplorer.png?AWSAccessKeyId=AKIAYIFP5EK2I6PADW2R&Signature=63W%2F43NSETtdv3a9ZgTSfNh9%2FHA%3D&Expires=1632748980",
+    image: "https://wazimap-ng.s3.amazonaws.com/logos/youthexplorer.png",
     url: "https://youthexplorer.org.za",
   },
   primaryProfile: profile,
