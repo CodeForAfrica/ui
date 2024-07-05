@@ -50,8 +50,11 @@ export async function getStaticPaths() {
     params: { slug: [locationCode] },
   }));
 
+  // only first location to save on build time
+  const [firstLocation] = paths;
+
   return {
-    paths,
+    paths: [firstLocation],
     fallback: "blocking",
   };
 }
