@@ -62,7 +62,7 @@ export default function VerticalBarChartScope(
             },
             0,
           ],
-          nice: true,
+          // nice: true,
         },
         {
           name: "s_xscale",
@@ -85,7 +85,7 @@ export default function VerticalBarChartScope(
             },
             0,
           ],
-          nice: true,
+          // nice: true,
         },
         {
           name: "legend_primary_scale",

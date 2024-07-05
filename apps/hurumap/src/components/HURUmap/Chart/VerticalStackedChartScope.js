@@ -73,7 +73,7 @@ export default function VerticalStackedChartScope(
             0,
           ],
           zero: true,
-          nice: true,
+          // nice: true,
         },
         {
           name: "s_xscale",
@@ -96,7 +96,7 @@ export default function VerticalStackedChartScope(
             0,
           ],
           zero: true,
-          nice: true,
+          // nice: true,
         },
         {
           name: "secondary_color",

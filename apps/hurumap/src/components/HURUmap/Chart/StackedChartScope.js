@@ -88,7 +88,7 @@ export default function StackedChartScope(
           ],
           zero: true,
           clamp: true,
-          nice: { signal: "primaryXTickCount" },
+          // nice: { signal: "primaryXTickCount" },
         },
         {
           name: "s_xscale",
@@ -104,7 +104,7 @@ export default function StackedChartScope(
           ],
           zero: true,
           clamp: true,
-          nice: { signal: "secondaryXTickCount" },
+          // nice: { signal: "secondaryXTickCount" },
         },
         {
           name: "color",
