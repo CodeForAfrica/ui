@@ -11,7 +11,7 @@ import {
 import { styled } from "@mui/material/styles";
 import React, { ForwardedRef } from "react";
 
-import menuIcon from "@/roboshield/assets/icons/menu-icon.svg";
+import MenuIcon from "@/roboshield/assets/icons/Type=menu, Size=32, Color=CurrentColor.svg";
 import CloseIcon from "@/roboshield/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import NavBarNavList from "@/roboshield/components/NavBarNavList";
 import NextImageButton from "@/roboshield/components/NextImageButton";
