@@ -3,26 +3,27 @@ import site from "@/climatemapped-africa/utils/site";
 
 export default {
   titleTemplate: "%s",
-  defaultTitle: "Hurumap",
-  description: "County data to hold your government accountable",
+  defaultTitle: "Climate Mapped Africa",
+  description:
+    "Climate Mapped Africa is a platform that provides data and insights on climate change in Africa. It is a project by Code for Africa.",
   openGraph: {
     type: "website",
     url: site.environmentUrl,
     locale: "en",
-    site_name: "Hurumap",
+    site_name: "Climate Mapped Africa",
     images: [
       {
         url: `${site.environmentUrl}image.jpg`,
         width: 1600,
         height: 800,
-        alt: "Hurumap",
+        alt: "Climate Map Africa",
         type: "image/jpeg",
       },
     ],
   },
   twitter: {
-    handle: "@PesaCheck",
-    site: "@PesaCheck",
+    handle: "@Code4Africa",
+    site: "@Code4Africa",
     cardType: "summary_large_image",
   },
   additionalMetaTags: [

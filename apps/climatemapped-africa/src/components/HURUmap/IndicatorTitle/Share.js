@@ -42,7 +42,10 @@ function Share({
   ).toString();
 
   const shareData = [
-    { name: "Facebook", props: { quote: title, hashtag: "#PesaYetu" } },
+    {
+      name: "Facebook",
+      props: { quote: title, hashtag: "#ClimateMapped.Africa" },
+    },
     {
       name: "Twitter",
       props: { title, via: "Code4Africa", related: ["Code4Africa"] },
@@ -82,7 +85,7 @@ function Share({
         ? `@media (max-width: 1280px) {
       .${className} {
         padding-top: 160%;
-      } 
+      }
       @media (max-width: 620px) {
         .${className}  {
           padding-top: 200%;
@@ -103,8 +106,8 @@ function Share({
         }
       }`
     }
-</style> 
-<div class="${className}"><iframe class="frame" 
+</style>
+<div class="${className}"><iframe class="frame"
   src="${
     process.env.NEXT_PUBLIC_APP_URL
   }/embed/${geoCode.toLowerCase()}/${indicatorId}"></iframe></div></div>
