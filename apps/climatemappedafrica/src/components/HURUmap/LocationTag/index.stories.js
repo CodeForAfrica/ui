@@ -1,0 +1,33 @@
+import React from "react";
+
+import LocationTag from "@/climatemappedafrica/components/HURUmap/LocationTag";
+import { hurumapArgs } from "@/climatemappedafrica/config";
+
+const {
+  location: { tags },
+} = hurumapArgs;
+
+export default {
+  title: "Components/HURUmap/LocationTag",
+  argTypes: {
+    variant: {
+      control: {
+        type: "select",
+      },
+      options: ["default", "highlight"],
+    },
+  },
+};
+
+function Template({ ...args }) {
+  return <LocationTag {...args} />;
+}
+
+export const Default = Template.bind({});
+
+Default.args = {
+  active: true,
+  isLoading: false,
+  ...tags[1],
+  variant: "default",
+};

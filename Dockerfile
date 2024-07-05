@@ -604,21 +604,21 @@ CMD ["node", "apps/vpnmanager/server.js"]
 # ============================================================================
 
 #
-# climatemapped-africa-desp: image with all climatemapped-africa dependencies
+# climatemappedafrica-desp: image with all climatemappedafrica dependencies
 # ---------------------------------------------------
 
-  FROM base-deps as climatemapped-africa-deps
+  FROM base-deps as climatemappedafrica-deps
 
-  COPY apps/climatemapped-africa/package.json ./apps/climatemapped-africa/package.json
+  COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
 
   # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-  RUN pnpm --filter "./apps/climatemapped-africa" install --offline --frozen-lockfile
+  RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
 
   #
-  # climatemapped-africa-builder: image that uses deps to build shippable output
+  # climatemappedafrica-builder: image that uses deps to build shippable output
   # ----------------------------------------------------------------
 
-  FROM base-builder as climatemapped-africa-builder
+  FROM base-builder as climatemappedafrica-builder
 
   ARG NEXT_TELEMETRY_DISABLED \
     # Next.js / Payload (build time)
@@ -640,19 +640,19 @@ CMD ["node", "apps/vpnmanager/server.js"]
     HURUMAP_API_URL
 
   # This is in app-builder instead of base-builder just incase app-deps adds deps
-  COPY --from=climatemapped-africa-deps /workspace/node_modules ./node_modules
+  COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
 
-  COPY --from=climatemapped-africa-deps /workspace/apps/climatemapped-africa/node_modules ./apps/climatemapped-africa/node_modules
+  COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
 
-  COPY apps/climatemapped-africa ./apps/climatemapped-africa
+  COPY apps/climatemappedafrica ./apps/climatemappedafrica
 
-  RUN pnpm --filter "./apps/climatemapped-africa" build
+  RUN pnpm --filter "./apps/climatemappedafrica" build
 
   #
-  # climatemapped-africa-runner: final deployable image
+  # climatemappedafrica-runner: final deployable image
   # ---------------------------------------
 
-  FROM base-runner as climatemapped-africa-runner
+  FROM base-runner as climatemappedafrica-runner
 
   ARG NEXT_PUBLIC_IMAGE_DOMAINS \
     NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
@@ -666,24 +666,24 @@ CMD ["node", "apps/vpnmanager/server.js"]
 
   RUN set -ex \
     # Create nextjs cache dir w/ correct permissions
-    && mkdir -p ./apps/climatemapped-africa/.next \
-    && chown nextjs:nodejs ./apps/climatemapped-africa/.next
+    && mkdir -p ./apps/climatemappedafrica/.next \
+    && chown nextjs:nodejs ./apps/climatemappedafrica/.next
 
   # PNPM
   # symlink some dependencies
-  COPY --from=climatemapped-africa-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
   # Next.js
   # Public assets
-  COPY --from=climatemapped-africa-builder --chown=nextjs:nodejs /workspace/apps/climatemapped-africa/public ./apps/climatemapped-africa/public
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
 
   # Automatically leverage output traces to reduce image size
   # https://nextjs.org/docs/advanced-features/output-file-tracing
-  COPY --from=climatemapped-africa-builder --chown=nextjs:nodejs /workspace/apps/climatemapped-africa/.next/standalone ./apps/climatemapped-africa
-  COPY --from=climatemapped-africa-builder --chown=nextjs:nodejs /workspace/apps/climatemapped-africa/.next/static ./apps/climatemapped-africa/.next/static
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
 
   USER nextjs
 
   # server.js is created by next build from the standalone output
   # https://nextjs.org/docs/pages/api-reference/next-config-js/output
-  CMD ["node", "apps/climatemapped-africa/server.js"]
+  CMD ["node", "apps/climatemappedafrica/server.js"]
