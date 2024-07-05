@@ -87,7 +87,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(
       </Grid>
       <Grid item>
         <SvgIcon
-          component={menuIcon}
+          component={MenuIcon}
           viewBox="0 0 32 32"
           onClick={handleClickOpen}
         />
