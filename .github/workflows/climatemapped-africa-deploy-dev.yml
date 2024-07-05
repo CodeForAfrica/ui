@@ -1,12 +1,12 @@
-name: Hurumap | Deploy | DEV
+name: Climate Mapped Africa | Deploy | DEV
 
 on:
   push:
     branches: [ft/hurumap-setup]
     paths:
-      - "apps/hurumap/**"
-      - "Dockerfile.hurumap"
-      - ".github/workflows/hurumap-deploy-dev.yml"
+      - "apps/climatemapped-africa/**"
+      - "Dockerfile"
+      - ".github/workflows/climatemapped-africa-deploy-dev.yml"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
@@ -15,10 +15,10 @@ concurrency:
 env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
-  IMAGE_NAME: "codeforafrica/hurumap-ui"
-  NEXT_PUBLIC_APP_URL: "https://hurumap-ui.dev.codeforafrica.org"
+  IMAGE_NAME: "codeforafrica/climatemapped-africa-ui"
+  NEXT_PUBLIC_APP_URL: "https://climatemapped-africa-ui.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: hurumap-ui
+  APP_NAME: climatemapped-africa-ui
 
 jobs:
   deploy:
@@ -58,7 +58,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: Dockerfile.hurumap
+          target: climatemapped-africa-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
