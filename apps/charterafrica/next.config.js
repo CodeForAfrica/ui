@@ -18,7 +18,6 @@ const nextConfig = {
         i18n: {
           locales,
           defaultLocale,
-          localeDetection: true,
         },
       }
     : undefined),
