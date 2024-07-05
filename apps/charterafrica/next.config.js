@@ -12,6 +12,7 @@ const defaultLocale =
     process.env.PAYLOAD_PUBLIC_DEFAULT_LOCALE
   )?.trim() || locales?.[0];
 
+console.log("============>", { locales, defaultLocale });
 const nextConfig = {
   ...(locales?.length
     ? {

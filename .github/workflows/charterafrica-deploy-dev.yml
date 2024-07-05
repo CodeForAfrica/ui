@@ -5,7 +5,7 @@ on:
     branches: [charterafrica-build-test]
     paths:
       - "apps/charterafrica/**"
-      - "Dockerfile"
+      - "charterafrica.Dockerfile"
       - ".github/workflows/charterafrica-deploy-dev.yml"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
@@ -64,7 +64,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          target: charterafrica-runner
+          file: ./charterafrica.Dockerfile
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
