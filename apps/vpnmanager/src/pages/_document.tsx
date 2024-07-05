@@ -1,9 +1,8 @@
+import createEmotionServer from "@emotion/server/create-instance";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
 
-import Document, { Head, Html, Main, NextScript } from "next/document";
-
 import createEmotionCache from "@/vpnmanager/utils/createEmotionCache";
-import createEmotionServer from "@emotion/server/create-instance";
 
 class MyDocument extends Document<any> {
   render() {

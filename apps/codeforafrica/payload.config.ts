@@ -7,6 +7,7 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import dotenv from "dotenv";
+import { sentry } from "@payloadcms/plugin-sentry";
 import seo from "@payloadcms/plugin-seo";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
@@ -126,6 +127,9 @@ export default buildConfig({
           prefix: "media",
         },
       },
+    }),
+    sentry({
+      dsn: process?.env?.NEXT_PUBLIC_SENTRY_DSN,
     }),
     seo({
       collections: ["pages", "posts"],

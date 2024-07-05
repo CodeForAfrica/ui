@@ -1,9 +1,11 @@
 import { Figure, Link } from "@commons-ui/next";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Theme } from "@mui/material";
 import React from "react";
+import RichText from "@/roboshield/components/RichText";
+import type { Children } from "@/roboshield/components/RichText";
 
 interface FooterDescriptionProps {
-  description: any;
+  description: Children;
   logo: any;
   sx?: any;
 }
@@ -32,16 +34,24 @@ function FooterDescription({ description, logo, sx }: FooterDescriptionProps) {
           }}
         />
       </Link>
-      <Typography
-        sx={{
-          color: "text.secondary",
-          textAlign: { xs: "center", md: "left" },
-          typography: "footer",
-          mt: "52px !important",
+      <RichText
+        typographyProps={{
+          LinkProps: {
+            color: "text.secondary",
+            sx: { textDecorationColor: "text.secondary" },
+          },
+          variant: "footer",
         }}
-      >
-        {description}
-      </Typography>
+        sx={(theme: Theme) => ({
+          a: {
+            color: theme.palette.text.secondary,
+            textDecorationColor: theme.palette.text.secondary,
+          },
+          mt: "52px",
+          typography: "footer",
+        })}
+        elements={description}
+      />
     </Stack>
   );
 }

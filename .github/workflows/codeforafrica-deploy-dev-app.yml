@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "apps/codeforafrica/**"
-      - "Dockerfile.codeforafrica"
+      - "Dockerfile"
       - ".github/workflows/codeforafrica-deploy-dev-app.yml"
 
 concurrency:
@@ -13,12 +13,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  APP_NAME: codeforafrica-ui
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui.dev.codeforafrica.org"
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: codeforafrica-ui
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy:
@@ -59,10 +60,14 @@ jobs:
             PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: ./Dockerfile.codeforafrica
+          target: codeforafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 

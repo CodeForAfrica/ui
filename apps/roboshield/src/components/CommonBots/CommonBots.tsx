@@ -27,11 +27,17 @@ import {
   groupAndSortRobots,
 } from "@/roboshield/lib/robots-data";
 import { StepComponent } from "@/roboshield/types/stepComponent";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
 export default function CommonBots({
   handleNext,
   handleBack,
+  handleSkipToLast,
+  hint,
   lastStep,
+  globalLabels,
+  toolTipText,
 }: StepComponent) {
   const { state } = useGlobalState();
 
@@ -73,8 +79,18 @@ export default function CommonBots({
     handleNext({ bots: selectedBots });
   };
 
+  const skipToLast = () => {
+    handleSkipToLast({ bots: selectedBots });
+  };
+
   return (
     <>
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
+      <StepHint hint={hint} />
       <Box sx={{ py: 2 }}>
         {
           <FormGroup sx={{ width: "100%" }}>
@@ -207,6 +223,7 @@ export default function CommonBots({
         isValid={true}
         lastStep={lastStep}
         back={false}
+        labels={globalLabels}
       />
     </>
   );

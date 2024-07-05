@@ -5,6 +5,7 @@ import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import seo from "@payloadcms/plugin-seo";
 import dotenv from "dotenv";
+import { sentry } from "@payloadcms/plugin-sentry";
 import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
@@ -175,6 +176,9 @@ export default buildConfig({
           prefix: "media",
         },
       },
+    }),
+    sentry({
+      dsn: process?.env?.NEXT_PUBLIC_SENTRY_DSN,
     }),
     seo({
       collections: ["news", "pages", "research"],

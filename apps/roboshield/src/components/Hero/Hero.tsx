@@ -1,113 +1,132 @@
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import RichText from "@/roboshield/components/RichText";
+import { Section } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
+import { Theme } from "@mui/material";
+import { PageHero } from "@/root/payload-types";
 
-interface props {
-  scrolRef: React.RefObject<HTMLDivElement>;
-}
-
-const Hero = ({ scrolRef }: props) => {
+const Hero = (props: PageHero) => {
   return (
     <Box
       component="section"
       sx={{
         textAlign: "center",
-        height: "600px",
-        backgroundColor: "#0C1A81",
-        backgroundImage: "url(./bg-shape-8.svg)",
+        backgroundColor: "primary.dark",
+        backgroundImage: "url('/bg-shape-8.svg')",
         backgroundSize: "cover",
-        paddingTop: "170px",
         px: { xs: 2.5, sm: 0 },
+        py: { xs: 8, md: 13 },
       }}
     >
-      <Box
-        sx={{
-          margin: "auto",
-        }}
-      >
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{
-            py: "8px",
-            color: "#FFFFFF",
-          }}
-        >
-          HOW IT WORKS
-        </Typography>
-      </Box>
+      <Section>
+        {props.heroHeaders?.map((header) => (
+          <div key={header.id}>
+            {header.headingType === "subHeading" && (
+              <Typography
+                key={header.id}
+                color="text.secondary"
+                gutterBottom
+                typography="h6"
+                variant="h2"
+              >
+                {header.title}
+              </Typography>
+            )}
+            {header.headingType === "largeHeading" && (
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textAlign="center"
+                variant="h1"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {header.title}
+              </Typography>
+            )}
+            {header.headingType === "rotatingText" && (
+              <Typography
+                color="text.secondary"
+                gutterBottom
+                textAlign="center"
+                variant="h1"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Box
+                  component="span"
+                  sx={{
+                    backgroundColor: "red",
+                    color: "text.secondary",
+                    maxWidth: "fit-content",
+                    p: "6px 20px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  <ReactRotatingText
+                    items={header?.title?.split(",").map((part) => part.trim())}
+                    cursor={false}
+                    eraseMode="overwrite"
+                  />
+                </Box>
+              </Typography>
+            )}
+          </div>
+        ))}
 
-      <Box
-        sx={{
-          zIndex: "50",
-          height: 300,
-        }}
-      >
-        <Typography
-          variant="h1"
-          gutterBottom
-          sx={{
-            py: "8px",
-            color: "#FFFFFF",
+        <RichText
+          color="text.secondary"
+          typographyProps={{
+            LinkProps: {
+              color: "text.secondary",
+              sx: {
+                textDecorationColor: "text.secondary",
+              },
+            },
+            variant: "h6",
           }}
-        >
-          Guard your{" "}
-          <Box
-            component="div"
-            sx={{
-              display: "inline-block",
-              color: "#FFFFF",
-              backgroundColor: "red",
-              margin: "0 8px",
-              padding: "6px 20px",
-            }}
-          >
-            <ReactRotatingText
-              items={["website", "blog", "content"]}
-              cursor={false}
-              eraseMode="overwrite"
-            />
-          </Box>{" "}
-          against AI Bots
-        </Typography>
+          sx={(theme: Theme) => ({
+            a: {
+              textDecoration: "none",
+              padding: "0.5em",
+              margin: "0.5em",
+              border: "1px solid",
+              borderColor: "text.secondary",
+            },
+            mt: "2.5em",
+          })}
+          elements={props.heroDescriptiveText}
+        />
 
-        <Typography
-          variant="h6"
-          gutterBottom
-          sx={{
-            py: "8px",
-            color: "#FFFFFF",
-          }}
-        >
-          Generate a robots.txt file tailored to the platform you use to publish
-          your content online and blocks AI bots
-        </Typography>
         <Button
-          variant="outlined"
           onClick={() => {
-            scrolRef.current?.scrollIntoView({
+            const element = document.getElementById("robots-generator");
+            element?.scrollIntoView({
               behavior: "smooth",
             });
           }}
+          size="large"
+          variant="contained"
           sx={{
-            mt: 2,
-            mb: 4,
-            zIndex: 10,
-            color: "#FFFFFF",
-            border: "2px solid #FFFFFF",
-            transition: "all 0.3s ease-in-out",
-            "&:hover": {
-              border: "2px solid #FFFFFF",
-              background: "#FFFFFF",
-              color: "#0C1A81",
+            mt: {
+              xs: 4,
+              md: 6,
             },
           }}
         >
-          Get Started
+          {props.heroButtonText}
         </Button>
-      </Box>
+      </Section>
     </Box>
   );
 };

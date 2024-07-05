@@ -5,20 +5,21 @@ on:
     branches: [main]
     paths:
       - "apps/roboshield/**"
-      - "Dockerfile.roboshield"
-      - ".github/workflows/roboshield-dev.yml"
+      - "Dockerfile"
+      - ".github/workflows/roboshield-deploy-dev.yml"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: true
 
 env:
+  APP_NAME: roboshield-ui
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
   NEXT_PUBLIC_APP_URL: "https://roboshield-ui.dev.codeforafrica.org"
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  APP_NAME: roboshield-ui
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy:
@@ -53,10 +54,20 @@ jobs:
       - name: Build Docker image
         uses: docker/build-push-action@v3
         with:
+          build-args: |
+            MONGO_URL=${{ secrets.ROBOSHIELD_MONGO_URL }}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.ROBOSHIELD_SENTRY_DSN }}
+            PAYLOAD_SECRET=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: Dockerfile.roboshield
+          target: roboshield-runner
+          file: Dockerfile
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 

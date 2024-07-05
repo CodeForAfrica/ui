@@ -88,13 +88,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                 />
                 <div
                   class="MuiBox-root css-1isemmb"
-                >
-                  <div
-                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
-                  >
-                    0
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="MuiBox-root css-33u6ly"
@@ -106,13 +100,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                 />
                 <div
                   class="MuiBox-root css-1isemmb"
-                >
-                  <div
-                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
-                  >
-                    0
-                  </div>
-                </div>
+                />
               </div>
             </div>
             <div
@@ -126,8 +114,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               <div
                 class="MuiTypography-root MuiTypography-captionCap css-hr3rav-MuiTypography-root"
               >
-                 
-                6 Months ago
+                undefined 6 Months ago
               </div>
               <div
                 class="MuiBox-root css-oqyb22"
@@ -190,25 +177,6 @@ exports[`<Tool /> renders unchanged 1`] = `
         >
           <div
             class="MuiBox-root css-11uk14q"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-qy1l2s-MuiButtonBase-root-MuiButton-root"
-              href=""
-              tabindex="0"
-              target="_blank"
-              type="button"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bnrqzj-MuiSvgIcon-root"
-                focusable="false"
-                viewbox="0 0 24 24"
-              />
-              Go to Repo
-            </button>
-          </div>
-          <div
-            class="MuiBox-root css-46b038"
           />
           <div
             class="MuiBox-root css-46b038"

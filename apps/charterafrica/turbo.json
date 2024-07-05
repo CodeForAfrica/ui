@@ -1,6 +1,6 @@
 {
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build", "build-next", "build-payload"]
     },
@@ -19,6 +19,7 @@
         "NEXT_PUBLIC_LOCALES",
         "NEXT_PUBLIC_SENTRY_DSN",
         "NEXT_PUBLIC_SEO_DISABLED",
+        "NEXT_RUNTIME",
         "NODE_ENV",
         "NODE_OPTIONS",
         "PAYLOAD_CORS",
@@ -37,7 +38,9 @@
         "SENDGRID_API_KEY",
         "SENDGRID_FROM_EMAIL",
         "SENDGRID_FROM_NAME",
-        "SENTRY_DSN"
+        "SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT"
       ]
     },
     "build-payload": {

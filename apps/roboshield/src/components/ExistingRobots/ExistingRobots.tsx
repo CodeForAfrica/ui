@@ -10,17 +10,35 @@ import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import { validateUrl } from "@/roboshield/utils/urls";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
+interface Props extends StepComponent {
+  existingRobotsTxt?: string;
+  placeholder?: string;
+  fetch?: string;
+  urlValidationError?: string;
+  defaultFetchExistingRobots?: boolean;
+}
 export default function ExistingRobots({
+  existingRobotsTxt,
+  fetch: fetchLabel,
+  globalLabels,
   handleNext,
   handleBack,
+  handleSkipToLast,
+  hint,
   lastStep,
-}: StepComponent) {
+  placeholder,
+  urlValidationError,
+  defaultFetchExistingRobots,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
   const [url, setUrl] = useState(state.url);
   const [isValid, setIsValid] = useState(false);
   const [showURLError, setShowURLError] = useState(false);
-  const [shouldFetch, setShouldFetch] = useState(state.shouldFetch);
+  const [shouldFetch, setShouldFetch] = useState(defaultFetchExistingRobots);
   const [robots, setRobots] = useState(state.robots);
   const [allowNextStep, setAllowNextStep] = useState(false);
   const [robotsError, setRobotsError] = useState(false);
@@ -71,8 +89,22 @@ export default function ExistingRobots({
     });
   };
 
+  const skipToLast = () => {
+    handleSkipToLast({
+      url,
+      shouldFetch,
+      ...robots,
+    });
+  };
+
   return (
     <>
+      <SkipToLastStep
+        handleSkipToLast={skipToLast}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
+      <StepHint hint={hint} />
       <Box sx={{ py: 2 }}>
         <FormGroup
           sx={{
@@ -93,13 +125,13 @@ export default function ExistingRobots({
                 }}
               />
             }
-            label={<Typography>Fetch existing robots.txt</Typography>}
+            label={<Typography>{existingRobotsTxt}</Typography>}
           />
         </FormGroup>
         <Stack spacing={2} direction="row">
           <Input
             onChange={onInputChange}
-            placeholder="Enter site URL e.g. https://example.com"
+            placeholder={placeholder}
             sx={{ width: "100%" }}
             disabled={!shouldFetch}
             initialValue={url}
@@ -111,7 +143,7 @@ export default function ExistingRobots({
             disabled={!shouldFetch}
             onClick={fetchData}
           >
-            Fetch
+            {fetchLabel}
           </Button>
         </Stack>
         {showURLError && (
@@ -128,18 +160,17 @@ export default function ExistingRobots({
               },
             }}
           >
-            Please enter a valid URL. A valid URL should start with http:// or
-            https://
+            {urlValidationError}
           </Alert>
         )}
       </Box>
-
       <StepperNav
         next={next}
         handleBack={handleBack}
         isValid={allowNextStep || !shouldFetch}
         lastStep={lastStep}
         back={true}
+        labels={globalLabels}
       />
       <Snackbar
         open={robotsError}

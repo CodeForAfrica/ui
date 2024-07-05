@@ -1,18 +1,15 @@
 services:
   charterafrica:
-    depends_on:
-      mongodb:
-        condition: service_healthy
     build:
       context: .
-      dockerfile: Dockerfile.charterafrica
+      target: charterafrica-runner
       args:
-        MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
-        PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
-        SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
-        SENTRY_ORG: ${SENTRY_ORG}
-        SENTRY_ENV: ${SENTRY_ENV}
-        SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
+        - PAYLOAD_SECRET_KEY
+        - SENTRY_AUTH_TOKEN
+        - SENTRY_ENVIRONMENT
+        - SENTRY_ORG
+        - SENTRY_PROJECT
     environment:
       S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
       S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
@@ -22,7 +19,35 @@ services:
       PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
       SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENV: ${SENTRY_ENV}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
+      SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+
+  codeforafrica:
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    build:
+      context: .
+      target: codeforafrica-runner
+      args:
+        - MONGODB_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
+        - PAYLOAD_SECRET
+        - SENTRY_AUTH_TOKEN
+        - SENTRY_ENVIRONMENT
+        - SENTRY_ORG
+        - SENTRY_PROJECT
+    environment:
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      S3_BUCKET: ${S3_BUCKET}
+      S3_REGION: ${S3_REGION}
+      MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+      SENTRY_ORG: ${SENTRY_ORG}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
     ports:
       - 3000:3000
@@ -30,14 +55,14 @@ services:
   pesayetu:
     build:
       context: .
-      dockerfile: Dockerfile.pesayetu
+      target: pesayetu-runner
       args:
-        WORDPRESS_URL: ${WORDPRESS_URL}
-        WORDPRESS_PREVIEW_SECRET: ${WORDPRESS_PREVIEW_SECRET}
-        WORDPRESS_APPLICATION_USERNAME: ${WORDPRESS_APPLICATION_USERNAME}
-        WORDPRESS_APPLICATION_PASSWORD: ${WORDPRESS_APPLICATION_PASSWORD}
-        JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-        HURUMAP_API_URL: ${HURUMAP_API_URL}
+        - WORDPRESS_URL
+        - WORDPRESS_PREVIEW_SECRET
+        - WORDPRESS_APPLICATION_USERNAME
+        - WORDPRESS_APPLICATION_PASSWORD
+        - JWT_SECRET_KEY
+        - HURUMAP_API_URL
     environment:
       WORDPRESS_URL: ${WORDPRESS_URL}
       WORDPRESS_PREVIEW_SECRET: ${WORDPRESS_PREVIEW_SECRET}
@@ -55,7 +80,25 @@ services:
   roboshield:
     build:
       context: .
-      dockerfile: Dockerfile.roboshield
+      target: roboshield-runner
+      args:
+        - MONGO_URL
+        - PAYLOAD_SECRET
+        - SENTRY_AUTH_TOKEN
+        - SENTRY_ORG
+        - SENTRY_ENV
+        - SENTRY_PROJECT
+    environment:
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      S3_BUCKET: ${S3_BUCKET}
+      S3_REGION: ${S3_REGION}
+      MONGO_URL: ${MONGO_URL}
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+      SENTRY_ORG: ${SENTRY_ORG}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
+      SENTRY_PROJECT: ${SENTRY_PROJECT}
     ports:
       - 3000:3000
 
@@ -80,16 +123,17 @@ services:
       retries: 30
     command:
       ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
+
   vpnmanager:
     build:
       context: .
-      dockerfile: Dockerfile.vpnmanager
+      target: vpnmanager-runner
       args:
-        SENTRY_ORG: ${SENTRY_ORG}
-        SENTRY_PROJECT: ${SENTRY_PROJECT}
-        SENTRY_DSN: ${SENTRY_DSN}
+        - SENTRY_ORG
+        - SENTRY_PROJECT
+        - SENTRY_DSN
     environment:
-      - NODE_ENV=production
+      NODE_ENV: ${NODE_ENV:-production}
     ports:
       - ${VPN_MANAGER_PORT:-3000}:3000
 volumes:

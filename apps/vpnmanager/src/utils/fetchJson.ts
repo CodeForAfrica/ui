@@ -1,5 +1,6 @@
 class FetchError extends Error {
   statusCode: number;
+
   data: any;
 
   constructor(message: string, statusCode: number, data?: any) {
@@ -12,14 +13,15 @@ class FetchError extends Error {
     }
   }
 }
+
 async function processResponse(response: Response) {
   const res = await response.json();
   if (response.status >= 200 && response.status <= 399) {
     return res;
-  } else {
-    throw new FetchError(response.statusText, response.status, res);
   }
+  throw new FetchError(response.statusText, response.status, res);
 }
+
 async function get(url: string, options?: { params?: Record<string, string> }) {
   const query = options?.params
     ? `?${new URLSearchParams(options.params).toString()}`
@@ -31,7 +33,7 @@ async function get(url: string, options?: { params?: Record<string, string> }) {
   return processResponse(response);
 }
 
-async function _delete(
+async function fetchDelete(
   url: string,
   options?: { params?: Record<string, string> },
 ) {
@@ -80,4 +82,6 @@ async function put(
   return processResponse(response);
 }
 
-export default { get, post, put, delete: _delete };
+const fetchJson = { get, post, put, delete: fetchDelete };
+
+export default fetchJson;

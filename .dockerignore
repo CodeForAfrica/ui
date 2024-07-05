@@ -1,5 +1,5 @@
-# Include application-specific Dockerfiles e.g. Dockerfile.charterafrica
-Dockerfile*
+# Include application-specific Dockerfiles e.g. charterafrica.Dockerfile
+*Dockerfile
 .dockerignore
 **/node_modules
 npm-debug.log

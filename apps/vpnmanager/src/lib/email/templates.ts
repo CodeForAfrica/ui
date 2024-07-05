@@ -21,3 +21,5 @@ export function emailKeyTemplate(key: string, name: string) {
   <p>NOTE: The same key can be used for multiple devices.</p>
   </div>`;
 }
+
+export default emailKeyTemplate;

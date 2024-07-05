@@ -1,14 +1,36 @@
 import { Section } from "@commons-ui/core";
-import { Figure, Link } from "@commons-ui/next";
-import { Box, Grid, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Figure, Link, RichTypography } from "@commons-ui/next";
+import { Box, Grid, Stack } from "@mui/material";
+import { Theme, styled } from "@mui/material/styles";
 
+import NewsletterSubscription from "@/roboshield/components/NewsletterSubscription";
+import StayInTouch from "@/roboshield/components/StayInTouch";
+import RichText from "@/roboshield/components/RichText";
+import type { Children } from "@/roboshield/components/RichText";
 import FooterDescription from "./FooterDescription";
+import { SettingsSite } from "@/root/payload-types";
+import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
-interface FooterProps {
+type Partner = SettingsSite["initiative"]["partners"];
+
+export interface FooterProps {
+  connect: {
+    links: SocialMediaLink[];
+    title: string;
+  };
+  description: Children;
   logo: any;
-  partners: any[];
-  description: string;
+  newsletter: {
+    children: React.ReactNode;
+    embedCode: string;
+    sx: any;
+    title: string;
+  };
+  initiative: {
+    partners: Partner[];
+    title: Children;
+    description: Children;
+  };
 }
 
 const FooterRoot = styled(Box)(
@@ -25,145 +47,116 @@ const FooterRoot = styled(Box)(
   }),
 );
 
-export default function Footer({ logo, description, partners }: FooterProps) {
+export default function Footer({
+  connect,
+  description,
+  logo,
+  newsletter,
+  initiative,
+}: FooterProps) {
   return (
     <FooterRoot component="footer">
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-        <Grid
-          container
-          columns={24}
-          justifyContent="space-between"
-          gap={{
-            xs: 3,
-            md: 0,
-          }}
-        >
+        <Grid container columns={24} justifyContent="space-between">
           <Grid
             item
             xs={24}
-            md={8}
+            md={15}
+            lg={16}
             sx={{
-              order: { xs: 2, md: 0 },
+              order: { xs: 1, md: 0 },
             }}
           >
-            <Grid container justifyContent="space-between">
+            <Grid container columns={24} justifyContent="space-between">
               <Grid
                 item
-                xs={12}
+                xs={24}
                 md="auto"
                 container
                 direction="column"
                 sx={{
                   maxWidth: { xs: "none", md: "337px" },
                 }}
-                gap={2}
               >
                 <Grid item>
                   <FooterDescription
                     description={description}
                     logo={logo}
-                    sx={{ mt: { xs: 5, md: 0 } }}
+                    sx={{ mt: { xs: 10, md: 0 } }}
                   />
                 </Grid>
+                <Grid item>
+                  <StayInTouch {...connect} sx={{ mt: "52px" }} />
+                </Grid>
               </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={24} md={8} sx={{ order: { xs: 0, md: 1 } }}>
-            <Grid
-              container
-              direction="column"
-              gap={3}
-              sx={{
-                height: "100%",
-              }}
-              alignItems={{
-                xs: "center",
-                md: "flex-start",
-              }}
-            >
-              <Typography
-                sx={{ color: "text.secondary", mb: "10px" }}
-                variant="h6"
-              >
-                In partnership with:
-              </Typography>
-              <Grid
-                container
-                spacing={2}
-                wrap="wrap"
-                alignItems="center"
-                gap={{
-                  xs: 1,
-                  md: 2,
-                }}
-                sx={{
-                  alignItems: "center",
-                  justifyContent: { xs: "center", md: "left" },
-                  "&.MuiGrid-root .MuiGrid-item": {
-                    p: 0,
-                  },
-                }}
-              >
-                {partners.map((partner: any) => (
-                  <Grid
-                    item
-                    key={partner.name}
-                    sx={{
-                      p: 0,
+              <Grid item xs={24} md={11}>
+                <Stack
+                  alignItems="center"
+                  justifyContent="space-between"
+                  sx={{ height: "113px", mt: { xs: "52px", md: 0 } }}
+                >
+                  <RichTypography
+                    typographyProps={{
+                      variant: "h5SemiBold",
                     }}
+                    sx={{ color: "text.secondary", mb: "0" }}
                   >
-                    <Link href={partner.url} target="_blank">
-                      <Figure
-                        ImageProps={partner.logo}
-                        sx={{
-                          display: {
-                            sm: "block",
-                          },
-                          filter: "grayscale(100%)",
-                          height: "60px",
-                          width: "170px",
-                          "&:hover": {
-                            filter: "grayscale(0%)",
-                          },
-                        }}
-                      />
-                    </Link>
-                  </Grid>
-                ))}
+                    {initiative?.title}
+                  </RichTypography>
+                  <Stack alignItems="center" direction="row" spacing={0.5}>
+                    {initiative?.partners?.map((partner: any) => (
+                      <Link
+                        key={partner.name}
+                        href={partner.url}
+                        target="_blank"
+                      >
+                        <Figure
+                          ImageProps={{
+                            src: partner?.logo?.src,
+                            alt: partner?.logo?.alt,
+                          }}
+                          sx={{
+                            display: "flex",
+                            filter: "grayscale(100%)",
+                            height: "55px",
+                            width: "140px",
+                            "&:hover": {
+                              filter: "grayscale(0%)",
+                            },
+                          }}
+                        />
+                      </Link>
+                    ))}
+                  </Stack>
+                </Stack>
+                <RichText
+                  typographyProps={{
+                    LinkProps: {
+                      color: "text.secondary",
+                      sx: { textDecorationColor: "text.secondary" },
+                    },
+                    variant: "footer",
+                    sx: {
+                      mt: {
+                        md: 6.5,
+                      },
+                    },
+                  }}
+                  sx={(theme: Theme) => ({
+                    a: {
+                      color: theme.palette.text.secondary,
+                      textDecorationColor: theme.palette.text.secondary,
+                    },
+                    mt: "52px",
+                    typography: "footer",
+                  })}
+                  elements={initiative?.description}
+                />
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={24} md={8} sx={{ order: { xs: 1, md: 2 } }}>
-            <Grid container justifyContent="center">
-              <Typography sx={{ textAlign: { xs: "center", md: "left" } }}>
-                This project was insipred by a{" "}
-                <Link
-                  href="https://reutersinstitute.politics.ox.ac.uk/how-many-news-websites-block-ai-crawlers"
-                  target="blank"
-                  sx={{
-                    color: "text.secondary",
-                    textDecoration: "underline",
-                  }}
-                >
-                  survey conducted{" "}
-                </Link>
-                by the Reutures Instititue in the Minority World
-              </Typography>
-              <Typography sx={{ textAlign: { xs: "center", md: "left" } }}>
-                The Audit data used in this project was based on{" "}
-                <Link
-                  href="https://civicsignal.africa"
-                  target="blank"
-                  sx={{
-                    color: "text.secondary",
-                    textDecoration: "underline",
-                  }}
-                >
-                  Civic Signals{" "}
-                </Link>
-                MediaData DB
-              </Typography>
-            </Grid>
+          <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
+            <NewsletterSubscription {...newsletter} />
           </Grid>
         </Grid>
       </Section>

@@ -2,10 +2,9 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
+  reactStrictMode: true,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   webpack: (config) => {
     config.module.rules.push(
       {

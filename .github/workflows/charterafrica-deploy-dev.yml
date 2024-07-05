@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "apps/charterafrica/**"
-      - "Dockerfile.charterafrica"
+      - "Dockerfile"
       - ".github/workflows/charterafrica-deploy-dev.yml"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
@@ -17,7 +17,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://dokku@ui-1.dev.codeforafrica.org/charterafrica"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charterafrica.dev.codeforafrica.org"
-  SENTRY_ENV: "development"
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy:
@@ -58,13 +58,13 @@ jobs:
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            SENTRY_ENV=${{ env.SENTRY_ENV }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          file: ./Dockerfile.charterafrica
+          target: charterafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 

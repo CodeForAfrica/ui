@@ -2,17 +2,27 @@ import { Box, Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import Code from "../Code";
-import StepperNav from "../StepperNav";
+import StepperNav from "@/roboshield/components/StepperNav";
 
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import { downloadFile } from "@/roboshield/utils/file";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 
+interface Props extends StepComponent {
+  handleReset: () => void;
+  placeholder?: string;
+}
 export default function Finish({
   handleReset,
   handleBack,
-}: StepComponent & { handleReset: () => void }) {
+  hint,
+  lastStep,
+  globalLabels,
+  toolTipText,
+}: Props) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -67,6 +77,12 @@ export default function Finish({
 
   return (
     <>
+      <SkipToLastStep
+        handleSkipToLast={() => {}}
+        lastStep={lastStep}
+        toolTipText={toolTipText}
+      />
+      <StepHint hint={hint} />
       <Box
         sx={{
           py: 3,
@@ -82,6 +98,7 @@ export default function Finish({
           onBack={handleBack}
           showButtons={true}
           onCodeChange={handleCodeChange}
+          labels={globalLabels}
         />
       </Box>
       <StepperNav
@@ -90,6 +107,7 @@ export default function Finish({
         isValid={true}
         lastStep={true}
         back={false}
+        labels={globalLabels}
       />
       <Snackbar
         open={showSnackbar}
