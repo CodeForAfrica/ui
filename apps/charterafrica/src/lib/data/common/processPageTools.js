@@ -3,6 +3,7 @@ import {
   TOOL_COLLECTION,
   ORGANIZATION_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
+import { defaultLocale, locales } from "@/charterafrica/payload/utils/locales";
 import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
@@ -179,7 +180,7 @@ async function processPageTools(page, api, context) {
       label: value ?? null,
     }),
   );
-  console.log({ context: context.locale });
+  console.log({ locale: context.locale, locales, defaultLocale });
   const filterLabels = labelsPerLocale[locale];
   const filterOptions = filters.map((filter) => {
     if (filter === "sort") {
