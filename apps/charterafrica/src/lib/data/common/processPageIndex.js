@@ -87,6 +87,7 @@ const processMooc = (page) => {
 };
 
 async function processPageIndex(page, api, context) {
+  console.log({ context });
   processHero(page);
   processMooc(page);
   processSpotlight(page, api, context);
