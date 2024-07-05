@@ -3,10 +3,21 @@ import {
   TOOL_COLLECTION,
   ORGANIZATION_COLLECTION,
 } from "@/charterafrica/payload/utils/collections";
-import { defaultLocale, locales } from "@/charterafrica/payload/utils/locales";
 import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
+
+const locales = (
+  process.env.NEXT_PUBLIC_LOCALES || process.env.PAYLOAD_PUBLIC_LOCALES
+)
+  ?.split(",")
+  ?.map((l) => l.trim())
+  .filter(Boolean);
+const defaultLocale =
+  (
+    process.env.NEXT_PUBLIC_DEFAULT_LOCALE ||
+    process.env.PAYLOAD_PUBLIC_DEFAULT_LOCALE
+  )?.trim() || locales?.[0];
 
 const queryBuilder = (query) => {
   const { search, theme, homeCountry, classification } = query;
