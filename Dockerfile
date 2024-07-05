@@ -596,3 +596,94 @@ USER nextjs
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/vpnmanager/server.js"]
+
+
+
+# ============================================================================
+# Climate Mapped Africa
+# ============================================================================
+
+#
+# climatemappedafrica-desp: image with all climatemappedafrica dependencies
+# ---------------------------------------------------
+
+  FROM base-deps as climatemappedafrica-deps
+
+  COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
+
+  # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+  RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
+
+  #
+  # climatemappedafrica-builder: image that uses deps to build shippable output
+  # ----------------------------------------------------------------
+
+  FROM base-builder as climatemappedafrica-builder
+
+  ARG NEXT_TELEMETRY_DISABLED \
+    # Next.js / Payload (build time)
+    PORT \
+    # Next.js (runtime)
+    NEXT_PUBLIC_APP_NAME=Climate Mapped Africa \
+    NEXT_PUBLIC_APP_URL \
+    NEXT_PUBLIC_SENTRY_DSN \
+    NEXT_PUBLIC_SEO_DISABLED \
+    NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
+    NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
+    NEXT_PUBLIC_GOOGLE_ANALYTICS \
+    # Sentry (build time)
+    SENTRY_AUTH_TOKEN \
+    SENTRY_ENVIRONMENT \
+    SENTRY_ORG \
+    SENTRY_PROJECT \
+    # Custom (runtime)
+    HURUMAP_API_URL
+
+  # This is in app-builder instead of base-builder just incase app-deps adds deps
+  COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
+
+  COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
+
+  COPY apps/climatemappedafrica ./apps/climatemappedafrica
+
+  RUN pnpm --filter "./apps/climatemappedafrica" build
+
+  #
+  # climatemappedafrica-runner: final deployable image
+  # ---------------------------------------
+
+  FROM base-runner as climatemappedafrica-runner
+
+  ARG NEXT_PUBLIC_IMAGE_DOMAINS \
+    NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
+    NEXT_PUBLIC_OPENAFRICA_DOMAINS \
+    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS
+
+  ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
+    NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
+    NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
+    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
+
+  RUN set -ex \
+    # Create nextjs cache dir w/ correct permissions
+    && mkdir -p ./apps/climatemappedafrica/.next \
+    && chown nextjs:nodejs ./apps/climatemappedafrica/.next
+
+  # PNPM
+  # symlink some dependencies
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+  # Next.js
+  # Public assets
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
+
+  # Automatically leverage output traces to reduce image size
+  # https://nextjs.org/docs/advanced-features/output-file-tracing
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
+  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
+
+  USER nextjs
+
+  # server.js is created by next build from the standalone output
+  # https://nextjs.org/docs/pages/api-reference/next-config-js/output
+  CMD ["node", "apps/climatemappedafrica/server.js"]
