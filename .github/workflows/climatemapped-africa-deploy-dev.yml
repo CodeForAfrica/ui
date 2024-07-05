@@ -2,7 +2,7 @@ name: Climate Mapped Africa | Deploy | DEV
 
 on:
   push:
-    branches: [ft/hurumap-setup]
+    branches: [main]
     paths:
       - "apps/climatemapped-africa/**"
       - "Dockerfile"

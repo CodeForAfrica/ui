@@ -1,6 +1,6 @@
 {
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build", "build-next"]
     },
@@ -8,7 +8,6 @@
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "HURUMAP_API_URL",
-        "JWT_SECRET_KEY",
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_GOOGLE_ANALYTICS",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
@@ -23,12 +22,7 @@
         "S3_UPLOAD_KEY",
         "S3_UPLOAD_SECRET",
         "S3_UPLOAD_BUCKET",
-        "S3_UPLOAD_REGION",
-        "WORDPRESS_APPLICATION_PASSWORD",
-        "WORDPRESS_APPLICATION_USERNAME",
-        "WORDPRESS_PREVIEW_SECRET",
-        "WORDPRESS_MULTISITE_PREFIX",
-        "WORDPRESS_URL"
+        "S3_UPLOAD_REGION"
       ]
     }
   }
