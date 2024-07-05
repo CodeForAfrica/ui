@@ -179,6 +179,7 @@ async function processPageTools(page, api, context) {
       label: value ?? null,
     }),
   );
+  console.log({ context: context.locale });
   const filterLabels = labelsPerLocale[locale];
   const filterOptions = filters.map((filter) => {
     if (filter === "sort") {
