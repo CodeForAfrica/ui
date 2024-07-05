@@ -142,6 +142,9 @@ FROM base-builder as charterafrica-builder
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
   PORT \
+  PAYLOAD_PUBLIC_LOCALES="en, fr, pt" \
+  PAYLOAD_PUBLIC_DEFAULT_LOCALE="en" \
+  NEXT_PUBLIC_DEFAULT_LOCALE="en" \
   # Next.js (runtime)
   NEXT_PUBLIC_APP_NAME="charterAFRICA" \
   NEXT_PUBLIC_APP_URL \
@@ -167,6 +170,9 @@ COPY apps/charterafrica ./apps/charterafrica/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
+ENV NEXT_PUBLIC_DEFAULT_LOCALE=${NEXT_PUBLIC_DEFAULT_LOCALE}
+ENV PAYLOAD_PUBLIC_LOCALES=${PAYLOAD_PUBLIC_LOCALES}
+ENV PAYLOAD_PUBLIC_DEFAULT_LOCALE=${PAYLOAD_PUBLIC_DEFAULT_LOCALE}
 RUN pnpm --filter "./apps/charterafrica/" build-next
 
 # When building Payload app, Payload needs to have final app URL

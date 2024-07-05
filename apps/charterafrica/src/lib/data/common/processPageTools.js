@@ -7,18 +7,6 @@ import queryString from "@/charterafrica/utils/ecosystem/queryString";
 import formatDateTime from "@/charterafrica/utils/formatDate";
 import labelsPerLocale from "@/charterafrica/utils/translationConstants";
 
-const locales = (
-  process.env.NEXT_PUBLIC_LOCALES || process.env.PAYLOAD_PUBLIC_LOCALES
-)
-  ?.split(",")
-  ?.map((l) => l.trim())
-  .filter(Boolean);
-const defaultLocale =
-  (
-    process.env.NEXT_PUBLIC_DEFAULT_LOCALE ||
-    process.env.PAYLOAD_PUBLIC_DEFAULT_LOCALE
-  )?.trim() || locales?.[0];
-
 const queryBuilder = (query) => {
   const { search, theme, homeCountry, classification } = query;
   const where = {};
@@ -191,7 +179,7 @@ async function processPageTools(page, api, context) {
       label: value ?? null,
     }),
   );
-  console.log({ context, locales, defaultLocale });
+  console.log({ context });
   const filterLabels = labelsPerLocale[locale];
   const filterOptions = filters.map((filter) => {
     if (filter === "sort") {
