@@ -1,5 +1,5 @@
-import { withSentryConfig } from "@sentry/nextjs";
-import path from "path";
+const { withSentryConfig } = require("@sentry/nextjs");
+const path = require("path");
 
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT
@@ -41,7 +41,7 @@ const nextConfig = {
   },
 };
 
-export default withSentryConfig(nextConfig, {
+module.exports = withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
