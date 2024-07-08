@@ -201,7 +201,11 @@ COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/node_modules 
 
 # Since we can't use output: "standalone", copy all app's dependencies
 COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/node_modules ./apps/charterafrica/node_modules
-
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/next.config.js ./apps/charterafrica/next.config.js
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/.env ./apps/charterafrica/.env
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/migrations ./apps/charterafrica/migrations
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/app.json ./apps/charterafrica/app.json
+COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/scripts ./apps/charterafrica/scripts
 # Next.js
 # Public assets
 COPY --from=charterafrica-builder --chown=nextjs:nodejs /workspace/apps/charterafrica/public ./apps/charterafrica/public
