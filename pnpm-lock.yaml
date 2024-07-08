@@ -282,6 +282,9 @@ importers:
       '@emotion/styled':
         specifier: ^11.11.0
         version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
+      '@hurumap/next':
+        specifier: workspace:*
+        version: link:../../packages/hurumap-next
       '@mui/lab':
         specifier: 5.0.0-alpha.155
         version: 5.0.0-alpha.155(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.15.21(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1760,6 +1763,8 @@ importers:
       typescript:
         specifier: ^5.5.2
         version: 5.5.3
+
+  packages/hurumap-next: {}
 
   packages/jest-config-commons-ui:
     dependencies:

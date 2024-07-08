@@ -1,0 +1,18 @@
+{
+  "name": "@hurumap/next",
+  "version": "0.0.1",
+  "private": false,
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "",
+  "main": "./src/index.js",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "packages/commons-ui-core"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  }
+}
