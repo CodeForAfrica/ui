@@ -312,7 +312,9 @@ COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/node_modules 
 
 # Since we can't use output: "standalone", copy all app's dependencies
 COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
-
+COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/next.config.js ./apps/codeforafrica/next.config.js
+COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/.env ./apps/codeforafrica/.env
+COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/migrations ./apps/codeforafrica/migrations
 # Next.js
 # Public assets
 COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/public ./apps/codeforafrica/public
@@ -403,7 +405,8 @@ RUN set -ex \
 # PNPM
 # symlink some dependencies
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/next.config.js ./apps/roboshield/next.config.js
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.env ./apps/roboshield/.env
 # Since we can't use output: "standalone", copy all app's dependencies
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
 
