@@ -11,7 +11,7 @@ import {
 import { styled } from "@mui/material/styles";
 import React, { ForwardedRef } from "react";
 
-import menuIcon from "@/roboshield/assets/icons/menu-icon.svg?url";
+import MenuIcon from "@/roboshield/assets/icons/Type=menu, Size=32, Color=CurrentColor.svg";
 import CloseIcon from "@/roboshield/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import NavBarNavList from "@/roboshield/components/NavBarNavList";
 import NextImageButton from "@/roboshield/components/NextImageButton";
@@ -86,12 +86,10 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(
         />
       </Grid>
       <Grid item>
-        <NextImageButton
-          src={menuIcon}
-          alt="menu icon"
+        <SvgIcon
+          component={MenuIcon}
+          viewBox="0 0 32 32"
           onClick={handleClickOpen}
-          width={32}
-          height={32}
         />
         <DialogContainer
           fullScreen
