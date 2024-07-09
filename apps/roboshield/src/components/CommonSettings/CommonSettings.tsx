@@ -36,11 +36,10 @@ export default function CommonSettings({
   handleSkipToLast,
   hint,
   lastStep,
-  globalLabels,
+  actions,
   selectPlatform,
   allowedPaths: allowedPathsLabel,
   disallowedPaths: disallowedPathsLabel,
-  toolTipText,
 }: Props) {
   const { state } = useGlobalState();
 
@@ -97,7 +96,7 @@ export default function CommonSettings({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={toolTipText}
+        toolTipText={actions?.toolTipText}
       />
       <StepHint hint={hint} />
       <Box
@@ -221,7 +220,7 @@ export default function CommonSettings({
         isValid={true}
         lastStep={lastStep}
         back={false}
-        labels={globalLabels}
+        labels={actions}
       />
     </>
   );

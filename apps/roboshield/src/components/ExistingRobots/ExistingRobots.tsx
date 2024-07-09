@@ -23,7 +23,7 @@ interface Props extends StepComponent {
 export default function ExistingRobots({
   existingRobotsTxt,
   fetch: fetchLabel,
-  globalLabels,
+  actions,
   handleNext,
   handleBack,
   handleSkipToLast,
@@ -32,7 +32,6 @@ export default function ExistingRobots({
   placeholder,
   urlValidationError,
   defaultFetchExistingRobots,
-  toolTipText,
 }: Props) {
   const { state } = useGlobalState();
   const [url, setUrl] = useState(state.url);
@@ -102,7 +101,7 @@ export default function ExistingRobots({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={toolTipText}
+        toolTipText={actions?.toolTipText}
       />
       <StepHint hint={hint} />
       <Box sx={{ py: 2 }}>
@@ -170,7 +169,7 @@ export default function ExistingRobots({
         isValid={allowNextStep || !shouldFetch}
         lastStep={lastStep}
         back={true}
-        labels={globalLabels}
+        labels={actions}
       />
       <Snackbar
         open={robotsError}

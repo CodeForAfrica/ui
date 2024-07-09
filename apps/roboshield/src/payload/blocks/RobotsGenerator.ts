@@ -352,10 +352,16 @@ const Finish: Block = {
 };
 
 const Labels: Field = {
-  name: "labels",
-  label: "Labels",
+  name: "actions",
+  label: "Actions",
   type: "group",
   fields: [
+    {
+      name: "toolTipText",
+      type: "text",
+      required: true,
+      defaultValue: "View current robots.txt file",
+    },
     {
       name: "continue",
       type: "text",
@@ -388,16 +394,10 @@ const Labels: Field = {
     },
   ],
 };
-const RoboForm: Block = {
-  slug: "robo-form",
-  labels: { singular: "Robo Form", plural: "Robo Form" },
+const RobotsGenerator: Block = {
+  slug: "robots-generator",
+  labels: { singular: "Robots Generator", plural: "Robots Generator" },
   fields: [
-    {
-      name: "toolTipText",
-      type: "text",
-      required: true,
-      defaultValue: "View current robots.txt file",
-    },
     {
       type: "blocks",
       name: "steps",
@@ -406,14 +406,7 @@ const RoboForm: Block = {
         initCollapsed: true,
       },
       validate: (value, args) => {
-        const requiredSteps: string[] = [
-          "existing-robots",
-          "delays",
-          "paths",
-          "block-bots",
-          "site-maps",
-          "finish",
-        ];
+        const requiredSteps: string[] = ["finish"];
         const missingSteps = requiredSteps.filter(
           (slug) =>
             !value?.find(
@@ -430,4 +423,4 @@ const RoboForm: Block = {
   ],
 };
 
-export default RoboForm;
+export default RobotsGenerator;

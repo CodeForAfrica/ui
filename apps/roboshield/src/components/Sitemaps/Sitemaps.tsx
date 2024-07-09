@@ -17,9 +17,8 @@ export default function Sitemaps({
   handleSkipToLast,
   hint,
   lastStep,
-  globalLabels,
+  actions,
   placeholder,
-  toolTipText,
 }: Props) {
   const { state } = useGlobalState();
   const [sitemaps, setSitemaps] = useState(state.sitemaps);
@@ -46,7 +45,7 @@ export default function Sitemaps({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={toolTipText}
+        toolTipText={actions?.toolTipText}
       />
       <StepHint hint={hint} />
       <Box
@@ -81,7 +80,7 @@ export default function Sitemaps({
         isValid={true}
         lastStep={lastStep}
         back={false}
-        labels={globalLabels}
+        labels={actions}
       />
     </>
   );

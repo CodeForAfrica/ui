@@ -3,7 +3,7 @@ import Content from "@/roboshield/components/Content";
 import Statistics from "@/roboshield/components/Statistics";
 import { Page } from "@/root/payload-types";
 import Hero from "@/roboshield/components/Hero";
-import RoboForm from "@/roboshield/components/RoboForm";
+import RobotsGenerator from "@/roboshield/components/RobotsGenerator";
 import { FC } from "react";
 
 interface BlockRendererProps extends Pick<Page, "blocks"> {}
@@ -13,7 +13,7 @@ const components = {
   "page-hero": Hero,
   content: Content,
   statistics: Statistics,
-  "robo-form": RoboForm,
+  "robots-generator": RobotsGenerator,
 };
 
 export default function BlockRenderer({ blocks }: BlockRendererProps) {

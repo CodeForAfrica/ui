@@ -27,11 +27,10 @@ export default function Delays({
   handleSkipToLast,
   hint,
   lastStep,
-  globalLabels,
+  actions,
   cacheDelay: cachedDelayLabel,
   crawlDelay: crawlDelayLabel,
   visitTime: visitTimeLabel,
-  toolTipText,
 }: Props) {
   const { state } = useGlobalState();
 
@@ -85,7 +84,7 @@ export default function Delays({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={toolTipText}
+        toolTipText={actions?.toolTipText}
       />
       <StepHint hint={hint} />
       <Box
@@ -191,7 +190,7 @@ export default function Delays({
         isValid={true}
         lastStep={lastStep}
         back={false}
-        labels={globalLabels}
+        labels={actions}
       />
     </>
   );

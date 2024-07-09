@@ -227,7 +227,7 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "robo-form";
+            blockType: "robots-generator";
           }
       )[]
     | null;
