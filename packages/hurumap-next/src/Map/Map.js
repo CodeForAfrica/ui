@@ -34,6 +34,8 @@ export default function Map({
   tileLayers,
   zoom,
   isPinOrCompare,
+  primaryGeoStyles,
+  secondaryGeoStyles,
   ...props
 }) {
   const classes = useStyles(props);
@@ -120,6 +122,8 @@ export default function Map({
         parentsGeometries={geometries.parents}
         selectedBoundary={selectedBoundary}
         isPinOrCompare={isPinOrCompare}
+        primaryGeoStyles={primaryGeoStyles}
+        secondaryGeoStyles={secondaryGeoStyles}
       />
     </MapContainer>
   );
