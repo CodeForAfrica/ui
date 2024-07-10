@@ -125,7 +125,7 @@ export interface Page {
                       fetch: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "existing-robots";
+                      blockType: "existing-robots-txt";
                     }
                   | {
                       title: string;

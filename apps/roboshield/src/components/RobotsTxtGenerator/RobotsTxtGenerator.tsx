@@ -23,7 +23,7 @@ type Props = { [key: string]: string } & {
     title: string;
     hint?: Children;
     blockType:
-      | "existing-robots"
+      | "existing-robots-txt"
       | "delays"
       | "paths"
       | "block-bots"
@@ -42,7 +42,7 @@ type Props = { [key: string]: string } & {
 };
 
 const slugComponentsMap = {
-  "existing-robots": ExistingRobotsTxt,
+  "existing-robots-txt": ExistingRobotsTxt,
   delays: Delays,
   paths: CommonSettings,
   "block-bots": CommonBots,
@@ -95,7 +95,7 @@ const RobotsGenerator: FC<Props> = React.forwardRef(
     }, [state]);
 
     const activeStepSlug:
-      | "existing-robots"
+      | "existing-robots-txt"
       | "delays"
       | "paths"
       | "block-bots"

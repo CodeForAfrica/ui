@@ -13,6 +13,13 @@ const validateSteps: Validate = (value = [], args) => {
   if (missingSteps.length) {
     return `The following steps are missing: ${missingSteps.join(", ")}`;
   }
+  const robotsTxtBlockIndex = value.findIndex(
+    ({ blockType }: { blockType: string }) =>
+      blockType === "existing-robots-txt",
+  );
+  if (robotsTxtBlockIndex > 0) {
+    return "Existing Robots Txt step should appear first";
+  }
   const lastBlock = value[value.length - 1];
   if (lastBlock?.blockType !== "finish") {
     return "Finish Step should appear last";
@@ -21,8 +28,8 @@ const validateSteps: Validate = (value = [], args) => {
 };
 
 const ExistingRobots: Block = {
-  slug: "existing-robots",
-  labels: { singular: "Existing Robots", plural: "Existing Robots" },
+  slug: "existing-robots-txt",
+  labels: { singular: "Existing Robots Txt", plural: "Existing Robots Txt" },
   fields: [
     {
       name: "title",
