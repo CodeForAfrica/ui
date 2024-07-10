@@ -1,0 +1,295 @@
+import { StyledEngineProvider, useTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/styles";
+import makeStyles from "@mui/styles/makeStyles";
+import L from "leaflet";
+import React, { useCallback, useEffect, useRef } from "react";
+import ReactDOMServer from "react-dom/server";
+import { useMap, FeatureGroup, GeoJSON } from "react-leaflet";
+
+import LocationTag from "../LocationTag";
+export const CHART_PRIMARY_COLOR_SCHEME = [
+  "#0B2AEA",
+  "#7986D1",
+  "#DFDFDF",
+  "#666666",
+];
+export const CHART_SECONDARY_COLOR_SCHEME = [
+  "#FC0D1B",
+  "#F8A199",
+  "#DFDFDF",
+  "#666666",
+];
+const useStyles = makeStyles(() => ({
+  locationtag: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },
+}));
+
+const primaryGeoStyles = {
+  inactive: {
+    color: CHART_PRIMARY_COLOR_SCHEME[3],
+    fillColor: "#f8f8f8",
+    fillOpacity: 1,
+    weight: 1,
+  },
+  hoverOnly: {
+    out: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[2],
+      fillOpacity: 1,
+      weight: 1,
+    },
+    over: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
+      fillOpacity: 1,
+    },
+  },
+  selected: {
+    out: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
+      strokeWidth: 1,
+      opacity: 1,
+      fillOpacity: 1,
+      weight: 1.5,
+    },
+    over: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
+      opacity: 1,
+    },
+  },
+};
+
+const secondaryGeoStyles = {
+  ...primaryGeoStyles,
+  hoverOnly: {
+    out: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[2],
+      fillOpacity: 1,
+      weight: 1,
+    },
+    over: {
+      color: CHART_SECONDARY_COLOR_SCHEME[3],
+      fillColor: CHART_SECONDARY_COLOR_SCHEME[1],
+      fillOpacity: 1,
+      opacity: 1,
+    },
+  },
+  selected: {
+    out: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
+      strokeWidth: 1,
+      opacity: 1,
+      fillOpacity: 1,
+      weight: 1.5,
+    },
+    over: {
+      color: CHART_PRIMARY_COLOR_SCHEME[3],
+      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
+      opacity: 1,
+    },
+  },
+};
+
+function Layers({
+  geography,
+  isPinOrCompare,
+  locationCodes,
+  onClick,
+  onClickUnpin,
+  parentsGeometries,
+  secondaryGeography,
+  selectedBoundary,
+  ...props
+}) {
+  const map = useMap();
+  const groupRef = useRef();
+  const siblingRef = useRef();
+  const classes = useStyles(props);
+  const theme = useTheme();
+
+  const pinIcon = L.divIcon({
+    html: ReactDOMServer.renderToStaticMarkup(
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <LocationTag
+            level={geography?.level}
+            name={geography?.name?.toLowerCase()}
+            code={geography?.code}
+            classes={{ root: classes.locationtag }}
+            color="primary"
+            variant="marker"
+          />
+        </ThemeProvider>
+      </StyledEngineProvider>,
+    ),
+  });
+
+  const onEachFeature = useCallback(
+    (feature, layer) => {
+      let geoStyles =
+        isPinOrCompare && feature.properties.code === secondaryGeography?.code
+          ? secondaryGeoStyles
+          : primaryGeoStyles;
+      const normalizedLocationCodes = locationCodes?.map((code) =>
+        code.toLowerCase(),
+      );
+      const isCodeIncluded = normalizedLocationCodes?.includes(
+        feature.properties.code.toLowerCase(),
+      );
+      if (!isCodeIncluded) {
+        layer.setStyle(geoStyles.inactive);
+      } else {
+        const popUpContent = (level, name) =>
+          ReactDOMServer.renderToStaticMarkup(
+            <StyledEngineProvider injectFirst>
+              <ThemeProvider theme={theme}>
+                <LocationTag
+                  level={level}
+                  name={name.toLowerCase()}
+                  classes={{ root: classes.locationtag }}
+                  color={isPinOrCompare ? "secondary" : "primary"}
+                />
+              </ThemeProvider>
+            </StyledEngineProvider>,
+          );
+
+        if (!(isPinOrCompare && feature.properties.code === geography?.code)) {
+          layer
+            .bindTooltip(
+              popUpContent(feature.properties.level, feature.properties.name),
+              { direction: "top", opacity: 1, className: "tooltip" },
+            )
+            .openTooltip();
+        }
+
+        let style;
+        if (feature?.properties?.selected) {
+          style = geoStyles.selected.out;
+        } else if (
+          isPinOrCompare &&
+          feature.properties.code === secondaryGeography?.code
+        ) {
+          style = geoStyles.hoverOnly.over;
+        } else {
+          style = geoStyles.hoverOnly.out;
+        }
+        layer.setStyle(style);
+
+        layer.on("mouseover", () => {
+          geoStyles = isPinOrCompare ? secondaryGeoStyles : primaryGeoStyles;
+          layer.setStyle(
+            feature?.properties?.selected
+              ? geoStyles.selected.over
+              : geoStyles.hoverOnly.over,
+          );
+        });
+        layer.on("mouseout", () => {
+          geoStyles = isPinOrCompare ? secondaryGeoStyles : primaryGeoStyles;
+          let outStyle;
+          if (feature?.properties?.selected) {
+            outStyle = geoStyles.selected.out;
+          } else if (
+            isPinOrCompare &&
+            feature.properties.code === secondaryGeography?.code
+          ) {
+            outStyle = geoStyles.hoverOnly.over;
+          } else {
+            outStyle = geoStyles.hoverOnly.out;
+          }
+          layer.setStyle(outStyle);
+        });
+        if (onClick) {
+          layer.on("click", (e) => {
+            const { code: featureCode } = feature.properties;
+            const { code: geoCode } = geography || {};
+            if (featureCode !== geoCode) {
+              onClick(e, feature);
+            }
+          });
+        }
+      }
+    },
+    [
+      classes.locationtag,
+      geography,
+      isPinOrCompare,
+      secondaryGeography,
+      locationCodes,
+      onClick,
+    ],
+  );
+
+  useEffect(() => {
+    const layer = groupRef.current;
+    const otherLayers = siblingRef.current;
+    if (otherLayers) {
+      otherLayers.clearLayers();
+      const siblings = new L.GeoJSON(parentsGeometries, {
+        onEachFeature,
+      });
+      otherLayers.addLayer(siblings);
+      if (isPinOrCompare && otherLayers.getBounds().isValid()) {
+        map.fitBounds(otherLayers.getBounds(), {
+          animate: true,
+          duration: 0.5, // in seconds
+        });
+      }
+    }
+
+    if (layer) {
+      layer.clearLayers();
+      const featuredGeo = new L.GeoJSON(selectedBoundary, {
+        onEachFeature,
+      });
+      layer.addLayer(featuredGeo);
+      if (!isPinOrCompare) {
+        const bounds = layer.getBounds();
+        if (bounds.isValid()) {
+          map.fitBounds(layer.getBounds(), {
+            animate: true,
+            duration: 0.5, // in seconds
+          });
+        }
+      } else {
+        const mark = new L.Marker(layer.getBounds().getCenter(), {
+          icon: pinIcon,
+        });
+        mark.on("click", () => {
+          onClickUnpin(geography.code);
+        });
+        mark.addTo(layer);
+      }
+    }
+  }, [
+    groupRef,
+    siblingRef,
+    onClickUnpin,
+    geography.code,
+    pinIcon,
+    selectedBoundary,
+    map,
+    onEachFeature,
+    parentsGeometries,
+    isPinOrCompare,
+  ]);
+
+  return (
+    <>
+      <FeatureGroup ref={siblingRef}>
+        <GeoJSON data={parentsGeometries} onEachFeature={onEachFeature} />
+      </FeatureGroup>
+      <FeatureGroup ref={groupRef}>
+        <GeoJSON data={selectedBoundary} onEachFeature={onEachFeature} />
+      </FeatureGroup>
+    </>
+  );
+}
+
+export default Layers;

@@ -14,5 +14,13 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/codeforafrica/ui/issues"
+  },
+  "dependencies": {
+    "@mui/material": "^5.16.0",
+    "clsx": "^2.1.1",
+    "leaflet": "^1.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1"
   }
 }
