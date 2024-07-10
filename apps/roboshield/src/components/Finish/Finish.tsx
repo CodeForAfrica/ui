@@ -20,8 +20,7 @@ export default function Finish({
   handleBack,
   hint,
   lastStep,
-  globalLabels,
-  toolTipText,
+  actions,
 }: Props) {
   const { state } = useGlobalState();
   const [code, setCode] = useState(state.robots || "");
@@ -80,7 +79,7 @@ export default function Finish({
       <SkipToLastStep
         handleSkipToLast={() => {}}
         lastStep={lastStep}
-        toolTipText={toolTipText}
+        showRobotsTxt={actions?.showRobotsTxt}
       />
       <StepHint hint={hint} />
       <Box
@@ -98,7 +97,7 @@ export default function Finish({
           onBack={handleBack}
           showButtons={true}
           onCodeChange={handleCodeChange}
-          labels={globalLabels}
+          labels={actions}
         />
       </Box>
       <StepperNav
@@ -107,7 +106,7 @@ export default function Finish({
         isValid={true}
         lastStep={true}
         back={false}
-        labels={globalLabels}
+        labels={actions}
       />
       <Snackbar
         open={showSnackbar}

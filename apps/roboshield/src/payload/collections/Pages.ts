@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
-import RoboForm from "../blocks/RoboForm";
+import RobotsTxtGenerator from "../blocks/RobotsTxtGenerator";
 import { PageHeader } from "../blocks/PageHeader";
 import { PageHero } from "../blocks/PageHero";
 import { Content } from "../blocks/Content";
@@ -30,7 +30,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHeader, PageHero, Content, Statistics, RoboForm],
+      blocks: [PageHeader, PageHero, Content, Statistics, RobotsTxtGenerator],
       localized: true,
       admin: {
         initCollapsed: true,

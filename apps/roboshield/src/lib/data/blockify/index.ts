@@ -1,7 +1,6 @@
 import { Page } from "@/root/payload-types";
 import { ExtractBlockType } from "@/roboshield/utils/blocks";
 import { Api } from "@/roboshield/lib/payload";
-import processBlockRoboForm from "./processBlockRoboForm";
 
 type PropsifyBlockFunction<T> = (
   block: T,
@@ -30,7 +29,6 @@ const pageHeader: PropsifyBlockFunction<BlockType> = async (block, api) => {
 
 const propsifyBlockBySlug: PropsifyBlockBySlug = {
   "page-header": pageHeader,
-  "robo-form": processBlockRoboForm,
 };
 
 export const blockify = async (blocks: Page["blocks"], api: Api) => {

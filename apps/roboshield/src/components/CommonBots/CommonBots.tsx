@@ -36,8 +36,7 @@ export default function CommonBots({
   handleSkipToLast,
   hint,
   lastStep,
-  globalLabels,
-  toolTipText,
+  actions,
 }: StepComponent) {
   const { state } = useGlobalState();
 
@@ -88,7 +87,7 @@ export default function CommonBots({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={toolTipText}
+        showRobotsTxt={actions?.showRobotsTxt}
       />
       <StepHint hint={hint} />
       <Box sx={{ py: 2 }}>
@@ -223,7 +222,7 @@ export default function CommonBots({
         isValid={true}
         lastStep={lastStep}
         back={false}
-        labels={globalLabels}
+        labels={actions}
       />
     </>
   );

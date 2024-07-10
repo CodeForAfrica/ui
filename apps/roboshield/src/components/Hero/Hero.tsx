@@ -110,7 +110,7 @@ const Hero = (props: PageHero) => {
 
         <Button
           onClick={() => {
-            const element = document.getElementById("robots-generator");
+            const element = document.getElementById("robots-txt-generator");
             element?.scrollIntoView({
               behavior: "smooth",
             });
