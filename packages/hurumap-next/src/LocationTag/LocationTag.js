@@ -5,7 +5,7 @@ import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import React from "react";
 
-// import { ReactComponent as CancelIcon } from "@/pesayetu/assets/icons/Component108-4.svg";
+import { ReactComponent as CancelIcon } from "../assets/icons/cancel.svg";
 
 const useStyles = makeStyles((theme) => {
   const { palette, typography } = theme;
@@ -115,8 +115,7 @@ function LocationTag({
     >
       {variant === "marker" ? (
         <IconButton className={classes.cancelBtn} size="large">
-          {/* <CancelIcon /> */}
-          Cancel
+          <CancelIcon />
         </IconButton>
       ) : null}
       {isLoading ? (
