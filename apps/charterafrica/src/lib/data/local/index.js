@@ -25,11 +25,7 @@ export async function getServerSideTags(collection, context) {
   return getTags(collection, api, context);
 }
 
-export async function getPageServerSideProps({
-  locale = "en",
-  ...contextWithoutLocale
-}) {
-  const context = { ...contextWithoutLocale, locale };
+export async function getPageServerSideProps(context) {
   const props = await getPageProps(api, context);
 
   if (!props) {
