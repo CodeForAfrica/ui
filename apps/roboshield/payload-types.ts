@@ -108,7 +108,7 @@ export interface Page {
             blockType: "statistics";
           }
         | {
-            toolTipText: string;
+            showRobotsTxt: string;
             steps?:
               | (
                   | {
@@ -227,7 +227,7 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "robots-generator";
+            blockType: "robots-txt-generator";
           }
       )[]
     | null;

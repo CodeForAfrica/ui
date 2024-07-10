@@ -84,7 +84,7 @@ export default function Delays({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={actions?.toolTipText}
+        showRobotsTxt={actions?.showRobotsTxt}
       />
       <StepHint hint={hint} />
       <Box

@@ -79,7 +79,7 @@ export default function Finish({
       <SkipToLastStep
         handleSkipToLast={() => {}}
         lastStep={lastStep}
-        toolTipText={actions?.toolTipText}
+        showRobotsTxt={actions?.showRobotsTxt}
       />
       <StepHint hint={hint} />
       <Box

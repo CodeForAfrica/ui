@@ -5,13 +5,13 @@ import CodeIcon from "@mui/icons-material/Code";
 interface SkipToLastStepProps {
   handleSkipToLast: () => void;
   lastStep: boolean;
-  toolTipText: string;
+  showRobotsTxt: string;
 }
 
 const SkipToLastStep = ({
   handleSkipToLast,
   lastStep,
-  toolTipText,
+  showRobotsTxt,
 }: SkipToLastStepProps) => {
   return (
     <Box
@@ -24,7 +24,7 @@ const SkipToLastStep = ({
         top: "-150px",
       }}
     >
-      <Tooltip title={toolTipText}>
+      <Tooltip title={showRobotsTxt}>
         <IconButton
           onClick={handleSkipToLast}
           sx={{

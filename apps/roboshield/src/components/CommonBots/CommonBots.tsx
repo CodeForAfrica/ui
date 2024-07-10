@@ -87,7 +87,7 @@ export default function CommonBots({
       <SkipToLastStep
         handleSkipToLast={skipToLast}
         lastStep={lastStep}
-        toolTipText={actions?.toolTipText}
+        showRobotsTxt={actions?.showRobotsTxt}
       />
       <StepHint hint={hint} />
       <Box sx={{ py: 2 }}>

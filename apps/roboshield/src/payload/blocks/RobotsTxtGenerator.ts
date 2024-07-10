@@ -1,6 +1,24 @@
-import { Block, Field } from "payload/types";
+import { Block, Field, Validate } from "payload/types";
 import richText from "../fields/richText";
 import { blocks } from "payload/dist/fields/validations";
+
+const validateSteps: Validate = (value = [], args) => {
+  const requiredSteps: string[] = ["finish"];
+  const missingSteps = requiredSteps.filter(
+    (slug) =>
+      !value?.find(
+        ({ blockType }: { blockType: string }) => blockType === slug,
+      ),
+  );
+  if (missingSteps.length) {
+    return `The following steps are missing: ${missingSteps.join(", ")}`;
+  }
+  const lastBlock = value[value.length - 1];
+  if (lastBlock?.blockType !== "finish") {
+    return "Finish Step should appear last";
+  }
+  return blocks(value, args);
+};
 
 const ExistingRobots: Block = {
   slug: "existing-robots",
@@ -357,7 +375,7 @@ const Labels: Field = {
   type: "group",
   fields: [
     {
-      name: "toolTipText",
+      name: "showRobotsTxt",
       type: "text",
       required: true,
       defaultValue: "View current robots.txt file",
@@ -394,9 +412,9 @@ const Labels: Field = {
     },
   ],
 };
-const RobotsGenerator: Block = {
-  slug: "robots-generator",
-  labels: { singular: "Robots Generator", plural: "Robots Generator" },
+const RobotsTxtGenerator: Block = {
+  slug: "robots-txt-generator",
+  labels: { singular: "robots.txt Generator", plural: "robots.txt Generator" },
   fields: [
     {
       type: "blocks",
@@ -405,22 +423,10 @@ const RobotsGenerator: Block = {
       admin: {
         initCollapsed: true,
       },
-      validate: (value, args) => {
-        const requiredSteps: string[] = ["finish"];
-        const missingSteps = requiredSteps.filter(
-          (slug) =>
-            !value?.find(
-              ({ blockType }: { blockType: string }) => blockType === slug,
-            ),
-        );
-        if (missingSteps.length) {
-          return `The following steps are missing: ${missingSteps.join(", ")}`;
-        }
-        return blocks(value, args);
-      },
+      validate: validateSteps,
     },
     Labels,
   ],
 };
 
-export default RobotsGenerator;
+export default RobotsTxtGenerator;
