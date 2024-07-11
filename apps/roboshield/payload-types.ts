@@ -74,7 +74,7 @@ export interface Page {
                       blockType: "mediaBlock";
                     }
                   | {
-                      externalEmbeddFields?: {
+                      externalEmbedFields?: {
                         embedType?: ("url" | "code") | null;
                         url?: string | null;
                         caption?: string | null;
@@ -82,7 +82,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "externalEmbedd";
+                      blockType: "externalEmbed";
                     }
                 )[]
               | null;

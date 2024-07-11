@@ -6,6 +6,8 @@ export const PageHeader: Block = {
     singular: "Page Header",
     plural: "Page Header",
   },
+  imageURL: "/images/cms/blocks/pageHeader.png",
+  imageAltText: "Used in About page.",
   fields: [
     {
       name: "title",
