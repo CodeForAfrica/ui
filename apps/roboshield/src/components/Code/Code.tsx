@@ -132,9 +132,9 @@ export default function Code(props: CodeProps) {
                   }}
                 />
               }
-              sx={(theme: Theme) => ({
-                background: theme.palette.error.main,
-                borderColor: theme.palette.error.main,
+              sx={{
+                background: "error.main",
+                borderColor: "error.main",
                 "&:hover": {
                   color: "error.main",
                 },
