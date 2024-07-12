@@ -3,6 +3,7 @@ import { Document } from "payload/types";
 
 const payloadUrl =
   process.env.PAYLOAD_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_APP_URL;
+
 function formatDraftUrl(collection: string, doc: Document) {
   const pagePath = formatPagePath(collection, doc);
   if (pagePath) {
