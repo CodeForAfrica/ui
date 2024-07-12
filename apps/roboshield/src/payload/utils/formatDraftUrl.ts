@@ -1,12 +1,14 @@
 import formatPagePath from "./formatPagePath";
 import { Document } from "payload/types";
+
+const payloadUrl = process.env.PAYLOAD_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_APP_URL;
 function formatDraftUrl(collection: string, doc: Document) {
   const pagePath = formatPagePath(collection, doc);
   if (pagePath) {
     const slug = pagePath;
     const url = new URL(
       `/api/draft?slug=${slug}`,
-      process.env.PAYLOAD_PUBLIC_APP_URL,
+      payloadUrl,
     );
     return url.href;
   }
