@@ -1,3 +1,4 @@
+import { LocationTag } from "@hurumap/core";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
 import L from "leaflet";
@@ -6,7 +7,7 @@ import React, { useCallback, useEffect, useRef } from "react";
 import ReactDOMServer from "react-dom/server";
 import { useMap, FeatureGroup, GeoJSON } from "react-leaflet";
 
-import LocationTag from "@/pesayetu/components/HURUmap/LocationTag";
+import { ReactComponent as CancelIcon } from "@/pesayetu/assets/icons/Component108-4.svg";
 import theme, {
   CHART_PRIMARY_COLOR_SCHEME,
   CHART_SECONDARY_COLOR_SCHEME,
@@ -111,6 +112,9 @@ function Layers({
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <LocationTag
+            IconButtonProps={{
+              children: <CancelIcon />,
+            }}
             level={geography?.level}
             name={geography?.name?.toLowerCase()}
             code={geography?.code}
