@@ -82,8 +82,8 @@ export default function Code(props: CodeProps) {
                 />
               }
               sx={(theme: Theme) => ({
-                background: theme.palette.text.primary,
-                borderColor: theme.palette.text.primary,
+                bgcolor: "text.primary",
+                borderColor: "text.primary",
                 "&:hover": {
                   color: "text.primary",
                 },
@@ -133,12 +133,12 @@ export default function Code(props: CodeProps) {
                 />
               }
               sx={{
-                background: "error.main",
+                bgcolor: "error.main",
                 borderColor: "error.main",
                 "&:hover": {
                   color: "error.main",
                 },
-              })}
+              }}
               onClick={onReset}
               disabled={!showButtons}
             >
