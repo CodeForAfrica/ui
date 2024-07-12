@@ -12,9 +12,11 @@ import useStyles from "./useStyles";
 import Location from "@/climatemappedafrica/components/HURUmap/Location";
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-const DynamicMap = dynamic(
-  () => import("@hurumap/next").then((mod) => mod.Map),
-  { ssr: false },
+const Map = dynamic(
+  () => import("@/climatemappedafrica/components/HURUmap/Map"),
+  {
+    ssr: false,
+  },
 );
 
 function initialState(profiles, onClick) {
@@ -123,7 +125,7 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
         }}
       >
         <div className={classes.root}>
-          <DynamicMap
+          <Map
             center={[0.3051933453207569, 37.908818734483155]}
             geography={geography}
             secondaryGeography={state.secondary?.geography}
