@@ -14,9 +14,9 @@ type ContentProps = ExtractBlockType<
   "content"
 >;
 
-export type ExternalEmbeddBlock = ExtractNestedBlockType<
+export type ExternalEmbedBlock = ExtractNestedBlockType<
   NonNullable<ContentProps["content"]>[number],
-  "externalEmbedd"
+  "externalEmbed"
 >;
 
 export type RichTextBlock = ExtractNestedBlockType<
@@ -32,14 +32,14 @@ export type MediaBlock = ExtractNestedBlockType<
 type ComponentMap = {
   richtext: React.FC<RichTextBlock>;
   mediaBlock: React.FC<MediaBlock>;
-  externalEmbedd: React.FC<ExternalEmbeddBlock>;
+  externalEmbed: React.FC<ExternalEmbedBlock>;
 };
 
 export default function Content({ content }: ContentProps) {
   const COMPONENT_BY_CONTENT_TYPE: ComponentMap = {
     richtext: LongFormRichText,
     mediaBlock: LongFormMedia,
-    externalEmbedd: LongFormExternalEmbed,
+    externalEmbed: LongFormExternalEmbed,
   };
 
   return (

@@ -1,4 +1,9 @@
-import { Box, Button, Grid, Stack } from "@mui/material";
+import { Box, Button, Grid, Stack, SvgIcon } from "@mui/material";
+import { Theme } from "@mui/material";
+import CopyIcon from "@/roboshield/assets/icons/Type=copy, Size=24, Color=CurrentColor.svg";
+import SaveIcon from "@/roboshield/assets/icons/Type=save, Size=24, Color=CurrentColor.svg";
+import BackIcon from "@/roboshield/assets/icons/Type=back, Size=24, Color=CurrentColor.svg";
+import ResetIcon from "@/roboshield/assets/icons/Type=reset, Size=24, Color=CurrentColor.svg";
 
 import CodeEditor from "./CodeEditor";
 
@@ -28,6 +33,7 @@ export default function Code(props: CodeProps) {
   const handleCodeChange = (newCode: string) => {
     onCodeChange(newCode);
   };
+
   return (
     <Box
       sx={{
@@ -47,7 +53,19 @@ export default function Code(props: CodeProps) {
             <Button
               variant="contained"
               color="primary"
-              sx={{ mt: 2 }}
+              sx={(theme: Theme) => ({
+                "&:hover": {
+                  color: "primary",
+                },
+              })}
+              startIcon={
+                <SvgIcon
+                  component={CopyIcon}
+                  sx={{
+                    fill: "transparent",
+                  }}
+                />
+              }
               onClick={onCopy}
               disabled={!showButtons}
             >
@@ -55,15 +73,21 @@ export default function Code(props: CodeProps) {
             </Button>
             <Button
               variant="contained"
-              sx={{
-                mt: 2,
-                background: "#000000",
-                border: "1px solid #000000",
+              startIcon={
+                <SvgIcon
+                  component={SaveIcon}
+                  sx={{
+                    fill: "transparent",
+                  }}
+                />
+              }
+              sx={(theme: Theme) => ({
+                bgcolor: "text.primary",
+                borderColor: "text.primary",
                 "&:hover": {
-                  background: "none",
-                  color: "#000000",
+                  color: "text.primary",
                 },
-              }}
+              })}
               onClick={onDownload}
               disabled={!showButtons}
             >
@@ -71,10 +95,16 @@ export default function Code(props: CodeProps) {
             </Button>
             <Button
               variant="outlined"
+              startIcon={
+                <SvgIcon
+                  component={BackIcon}
+                  sx={{
+                    color: "primary",
+                    fill: "transparent",
+                  }}
+                />
+              }
               color="primary"
-              sx={{
-                mt: 2,
-              }}
               onClick={onBack}
               disabled={!showButtons}
             >
@@ -94,13 +124,19 @@ export default function Code(props: CodeProps) {
           >
             <Button
               variant="contained"
+              startIcon={
+                <SvgIcon
+                  component={ResetIcon}
+                  sx={{
+                    fill: "transparent",
+                  }}
+                />
+              }
               sx={{
-                display: "inline-block",
-                background: "#FE2500",
-                border: "1px solid #FE2500",
+                bgcolor: "error.main",
+                borderColor: "error.main",
                 "&:hover": {
-                  background: "none",
-                  color: "#FE2500",
+                  color: "error.main",
                 },
               }}
               onClick={onReset}

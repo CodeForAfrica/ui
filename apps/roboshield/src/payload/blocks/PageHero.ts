@@ -4,6 +4,8 @@ import { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types
 
 export const PageHero: Block = {
   slug: "page-hero",
+  imageURL: "/images/cms/blocks/hero.png",
+  imageAltText: "Used in homepage",
   labels: {
     singular: "Page Hero",
     plural: "Page Hero",

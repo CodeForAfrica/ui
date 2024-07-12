@@ -7,6 +7,5 @@ export interface StepComponent {
   hint: ReactNode;
   lastStep: boolean;
   labels?: { [key: string]: any };
-  globalLabels?: { [key: string]: any };
-  toolTipText: string;
+  actions?: { [key: string]: any };
 }

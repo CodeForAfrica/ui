@@ -7,6 +7,8 @@ export const Statistics: Block = {
     singular: "Statistics",
     plural: "Statistics",
   },
+  imageURL: "/images/cms/blocks/statistics.png",
+  imageAltText: "Used in About page.",
   fields: [
     {
       name: "title",

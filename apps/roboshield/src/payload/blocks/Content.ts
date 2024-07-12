@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 import { RichText } from "./RichText";
 import { MediaBlock } from "./MediaBlock";
-import { ExternalEmbedd } from "./ExternalEmbedd";
+import { ExternalEmbed } from "./ExternalEmbed";
 
 export const Content: Block = {
   slug: "content",
@@ -9,11 +9,13 @@ export const Content: Block = {
     singular: "Content",
     plural: "Content",
   },
+  imageURL: "/images/cms/blocks/blog.png",
+  imageAltText: "Used in About page. Allows addition of blog like content",
   fields: [
     {
       type: "blocks",
       name: "content",
-      blocks: [RichText, MediaBlock, ExternalEmbedd],
+      blocks: [RichText, MediaBlock, ExternalEmbed],
     },
   ],
 };

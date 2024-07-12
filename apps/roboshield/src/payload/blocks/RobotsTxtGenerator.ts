@@ -1,10 +1,37 @@
-import { Block, Field } from "payload/types";
+import { Block, Field, Validate } from "payload/types";
 import richText from "../fields/richText";
 import { blocks } from "payload/dist/fields/validations";
 
+const validateSteps: Validate = (value = [], args) => {
+  const requiredSteps: string[] = ["finish"];
+  const missingSteps = requiredSteps.filter(
+    (slug) =>
+      !value?.find(
+        ({ blockType }: { blockType: string }) => blockType === slug,
+      ),
+  );
+  if (missingSteps.length) {
+    return `The following steps are missing: ${missingSteps.join(", ")}`;
+  }
+  const robotsTxtBlockIndex = value.findIndex(
+    ({ blockType }: { blockType: string }) =>
+      blockType === "existing-robots-txt",
+  );
+  if (robotsTxtBlockIndex > 0) {
+    return "Existing Robots Txt step should appear first";
+  }
+  const lastBlock = value[value.length - 1];
+  if (lastBlock?.blockType !== "finish") {
+    return "Finish Step should appear last";
+  }
+  return blocks(value, args);
+};
+
 const ExistingRobots: Block = {
-  slug: "existing-robots",
-  labels: { singular: "Existing Robots", plural: "Existing Robots" },
+  slug: "existing-robots-txt",
+  labels: { singular: "Existing Robots Txt", plural: "Existing Robots Txt" },
+  imageURL: "/images/cms/blocks/existingRobots.png",
+  imageAltText: "Fetch existing robots.txt",
   fields: [
     {
       name: "title",
@@ -62,6 +89,8 @@ const ExistingRobots: Block = {
 const Delays: Block = {
   slug: "delays",
   labels: { singular: "Delays", plural: "Delays" },
+  imageURL: "/images/cms/blocks/delays.png",
+  imageAltText: "Set bot delays for the robots you want to generate.",
   fields: [
     {
       name: "title",
@@ -145,6 +174,9 @@ const Delays: Block = {
 const Paths: Block = {
   slug: "paths",
   labels: { singular: "Paths", plural: "Paths" },
+  imageURL: "/images/cms/blocks/paths.png",
+  imageAltText:
+    "Set disallowed and allowed paths for the robots you want to generate.",
   fields: [
     {
       name: "title",
@@ -229,6 +261,8 @@ const Paths: Block = {
 const BlockBots: Block = {
   slug: "block-bots",
   labels: { singular: "Block Bots", plural: "Block Bots" },
+  imageURL: "/images/cms/blocks/blockBots.png",
+  imageAltText: "Select bots you want to block from crawling your website.",
   fields: [
     {
       name: "title",
@@ -293,6 +327,8 @@ const BlockBots: Block = {
 const SiteMaps: Block = {
   slug: "site-maps",
   labels: { singular: "Site Maps", plural: "Site Maps" },
+  imageURL: "/images/cms/blocks/siteMaps.png",
+  imageAltText: "Add sitemap URLs to your robots.txt file.",
   fields: [
     {
       name: "title",
@@ -322,6 +358,8 @@ const SiteMaps: Block = {
 const Finish: Block = {
   slug: "finish",
   labels: { singular: "Finish", plural: "Finish" },
+  imageURL: "/images/cms/blocks/finish.png",
+  imageAltText: "Completes robots generation process",
   fields: [
     {
       name: "title",
@@ -351,11 +389,17 @@ const Finish: Block = {
   ],
 };
 
-const Labels: Field = {
-  name: "labels",
-  label: "Labels",
+const Actions: Field = {
+  name: "actions",
+  label: "Actions",
   type: "group",
   fields: [
+    {
+      name: "showRobotsTxt",
+      type: "text",
+      required: true,
+      defaultValue: "View current robots.txt file",
+    },
     {
       name: "continue",
       type: "text",
@@ -388,16 +432,12 @@ const Labels: Field = {
     },
   ],
 };
-const RoboForm: Block = {
-  slug: "robo-form",
-  labels: { singular: "Robo Form", plural: "Robo Form" },
+const RobotsTxtGenerator: Block = {
+  slug: "robots-txt-generator",
+  labels: { singular: "robots.txt Generator", plural: "robots.txt Generator" },
+  imageURL: "/images/cms/blocks/robotsGenerator.png",
+  imageAltText: "Set action labels and content for robots.txt generator.",
   fields: [
-    {
-      name: "toolTipText",
-      type: "text",
-      required: true,
-      defaultValue: "View current robots.txt file",
-    },
     {
       type: "blocks",
       name: "steps",
@@ -405,29 +445,10 @@ const RoboForm: Block = {
       admin: {
         initCollapsed: true,
       },
-      validate: (value, args) => {
-        const requiredSteps: string[] = [
-          "existing-robots",
-          "delays",
-          "paths",
-          "block-bots",
-          "site-maps",
-          "finish",
-        ];
-        const missingSteps = requiredSteps.filter(
-          (slug) =>
-            !value?.find(
-              ({ blockType }: { blockType: string }) => blockType === slug,
-            ),
-        );
-        if (missingSteps.length) {
-          return `The following steps are missing: ${missingSteps.join(", ")}`;
-        }
-        return blocks(value, args);
-      },
+      validate: validateSteps,
     },
-    Labels,
+    Actions,
   ],
 };
 
-export default RoboForm;
+export default RobotsTxtGenerator;

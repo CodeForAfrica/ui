@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Box, Paper, Stack, Step, StepButton, Stepper } from "@mui/material";
-import { FC, ReactNode, useEffect } from "react";
+import { FC, useEffect } from "react";
 import React from "react";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ import Sitemaps from "@/roboshield/components/Sitemaps";
 
 import CommonBots from "@/roboshield/components/CommonBots";
 import CommonSettings from "@/roboshield/components/CommonSettings";
-import ExistingRobots from "@/roboshield/components/ExistingRobots";
+import ExistingRobotsTxt from "@/roboshield/components/ExistingRobotsTxt";
 import Finish from "@/roboshield/components/Finish";
 import {
   useGlobalState,
@@ -22,8 +22,16 @@ type Props = { [key: string]: string } & {
   steps: {
     title: string;
     hint?: Children;
+    blockType:
+      | "existing-robots-txt"
+      | "delays"
+      | "paths"
+      | "block-bots"
+      | "site-maps"
+      | "finish";
   }[];
-  labels: {
+  actions: {
+    showRobotsTxt: string;
     back: string;
     continue: string;
     copyToClipboard: string;
@@ -31,69 +39,75 @@ type Props = { [key: string]: string } & {
     fetch: string;
     reset: string;
   };
-  toolTipText: string;
 };
-const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
-  const { steps, labels, toolTipText } = props;
-  const [activeStep, setActiveStep] = useState(0);
-  const { state, setState } = useGlobalState();
-  const [code, setCode] = useState(state.robots || "");
 
-  const stepTitleComponentMap = [
-    ExistingRobots,
-    Delays,
-    CommonSettings,
-    CommonBots,
-    Sitemaps,
-    Finish,
-  ];
+const slugComponentsMap = {
+  "existing-robots-txt": ExistingRobotsTxt,
+  delays: Delays,
+  paths: CommonSettings,
+  "block-bots": CommonBots,
+  "site-maps": Sitemaps,
+  finish: Finish,
+};
+const RobotsGenerator: FC<Props> = React.forwardRef(
+  function RobotsGenerator(props, ref) {
+    const { steps, actions } = props;
+    const [activeStep, setActiveStep] = useState(0);
+    const { state, setState } = useGlobalState();
+    const [code, setCode] = useState(state.robots || "");
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setState(defaultState);
-    setActiveStep(0);
-  };
-
-  const handleNextStep = (data: any) => {
-    const newState = { ...state, ...data };
-    setState(newState);
-    handleNext();
-  };
-
-  const handleSkipToLast = (data: any) => {
-    const newState = { ...state, ...data };
-    setState(newState);
-    setActiveStep(props.steps.length - 1);
-  };
-
-  const handleStep = (step: number) => () => {
-    setActiveStep(step);
-  };
-
-  useEffect(() => {
-    const generateRobotsFile = async () => {
-      const robots = await generateRobots(state);
-      setCode(robots);
+    const handleNext = () => {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
-    generateRobotsFile();
-  }, [state]);
+    const handleBack = () => {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
 
-  const ActiveComponent = stepTitleComponentMap[activeStep] ?? null;
-  const { hint, ...activeComponentProps } = steps[activeStep] ?? {};
-  return (
-    <>
+    const handleReset = () => {
+      setState(defaultState);
+      setActiveStep(0);
+    };
+
+    const handleNextStep = (data: any) => {
+      const newState = { ...state, ...data };
+      setState(newState);
+      handleNext();
+    };
+
+    const handleSkipToLast = (data: any) => {
+      const newState = { ...state, ...data };
+      setState(newState);
+      setActiveStep(props.steps.length - 1);
+    };
+
+    const handleStep = (step: number) => () => {
+      setActiveStep(step);
+    };
+
+    useEffect(() => {
+      const generateRobotsFile = async () => {
+        const robots = await generateRobots(state);
+        setCode(robots);
+      };
+
+      generateRobotsFile();
+    }, [state]);
+
+    const activeStepSlug:
+      | "existing-robots-txt"
+      | "delays"
+      | "paths"
+      | "block-bots"
+      | "site-maps"
+      | "finish" = steps[activeStep]?.blockType;
+    const ActiveComponent = slugComponentsMap[activeStepSlug] ?? null;
+    const { hint, ...activeComponentProps } = steps[activeStep] ?? {};
+    return (
       <Section
         sx={{ px: { xs: 2.5, sm: 0 }, py: 10 }}
         ref={ref}
-        id="robots-generator"
+        id="robots-txt-generator"
       >
         <Stack
           direction={{
@@ -182,8 +196,7 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
                       handleSkipToLast={handleSkipToLast}
                       lastStep={activeStep === steps.length - 1}
                       handleReset={handleReset}
-                      globalLabels={labels}
-                      toolTipText={toolTipText}
+                      actions={actions}
                       {...activeComponentProps}
                     />
                   </Paper>
@@ -193,8 +206,8 @@ const RoboForm: FC<Props> = React.forwardRef(function RoboForm(props, ref) {
           </Box>
         </Stack>
       </Section>
-    </>
-  );
-});
+    );
+  },
+);
 
-export default RoboForm;
+export default RobotsGenerator;

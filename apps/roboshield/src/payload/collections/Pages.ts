@@ -1,11 +1,12 @@
 import { CollectionConfig } from "payload/types";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
-import RoboForm from "../blocks/RoboForm";
+import RobotsTxtGenerator from "../blocks/RobotsTxtGenerator";
 import { PageHeader } from "../blocks/PageHeader";
 import { PageHero } from "../blocks/PageHero";
 import { Content } from "../blocks/Content";
 import { Statistics } from "../blocks/Statistics";
+import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -15,8 +16,10 @@ const Pages: CollectionConfig = {
     update: () => true,
   },
   admin: {
+    defaultColumns: ["fullTitle", "slug", "updatedAt"],
     group: "Publication",
     useAsTitle: "title",
+    preview: (doc) => formatDraftUrl("pages", doc),
   },
   fields: [
     {
@@ -30,7 +33,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHeader, PageHero, Content, Statistics, RoboForm],
+      blocks: [PageHeader, PageHero, Content, Statistics, RobotsTxtGenerator],
       localized: true,
       admin: {
         initCollapsed: true,

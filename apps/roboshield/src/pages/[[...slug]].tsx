@@ -4,11 +4,7 @@ import { PageProps } from "@/roboshield/lib/data";
 import { GetServerSidePropsContext } from "next";
 
 export default function Page({ blocks }: PageProps) {
-  return (
-    <>
-      <BlockRenderer blocks={blocks} />
-    </>
-  );
+  return <BlockRenderer blocks={blocks} />;
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

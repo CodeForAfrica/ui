@@ -37,7 +37,7 @@ export default function Statistics({ title, statistics }: StatiscticsProps) {
         )}
         <Grid container rowSpacing={10} justifyContent="space-between">
           {statistics?.map((statistic) => (
-            <Grid item key={statistic.name}>
+            <Grid item key={statistic.name} xs={12} md={4}>
               <StatisticCard {...statistic} />
             </Grid>
           ))}
