@@ -1,14 +1,14 @@
 import { Block } from "payload/types";
 
-export const ExternalEmbedd: Block = {
-  slug: "externalEmbedd",
+export const ExternalEmbed: Block = {
+  slug: "externalEmbed",
   labels: {
-    singular: "External Embedd",
-    plural: "External Embedd",
+    singular: "External Embed",
+    plural: "External Embed",
   },
   fields: [
     {
-      name: "externalEmbeddFields",
+      name: "externalEmbedFields",
       type: "group",
       fields: [
         {

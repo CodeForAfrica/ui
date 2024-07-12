@@ -1,5 +1,3 @@
-import path from "path";
-
 import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
@@ -99,7 +97,7 @@ export default buildConfig({
       },
     }),
     seo({
-      collections: ["pages", "posts"],
+      collections: ["pages"],
       globals: [],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,

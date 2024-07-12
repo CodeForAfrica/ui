@@ -6,6 +6,7 @@ import { PageHeader } from "../blocks/PageHeader";
 import { PageHero } from "../blocks/PageHero";
 import { Content } from "../blocks/Content";
 import { Statistics } from "../blocks/Statistics";
+import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -15,8 +16,10 @@ const Pages: CollectionConfig = {
     update: () => true,
   },
   admin: {
+    defaultColumns: ["fullTitle", "slug", "updatedAt"],
     group: "Publication",
     useAsTitle: "title",
+    preview: (doc) => formatDraftUrl("pages", doc),
   },
   fields: [
     {

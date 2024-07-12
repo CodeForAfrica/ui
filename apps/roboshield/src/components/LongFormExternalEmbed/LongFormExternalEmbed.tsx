@@ -1,10 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
-import { ExternalEmbeddBlock } from "@/roboshield/components/Content/Content";
+import { ExternalEmbedBlock } from "@/roboshield/components/Content/Content";
 
-export default function LongFormExternalEmbed(props: ExternalEmbeddBlock) {
-  const { externalEmbeddFields: { code = "", caption = "", url = "" } = {} } =
+export default function LongFormExternalEmbed(props: ExternalEmbedBlock) {
+  const { externalEmbedFields: { code = "", caption = "", url = "" } = {} } =
     props;
 
   return (
