@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Stack, SvgIcon } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Theme } from "@mui/material";
 import CopyIcon from "@/roboshield/assets/icons/Type=copy, Size=24, Color=CurrentColor.svg";
 import SaveIcon from "@/roboshield/assets/icons/Type=save, Size=24, Color=CurrentColor.svg";
 import BackIcon from "@/roboshield/assets/icons/Type=back, Size=24, Color=CurrentColor.svg";
@@ -33,7 +33,6 @@ export default function Code(props: CodeProps) {
   const handleCodeChange = (newCode: string) => {
     onCodeChange(newCode);
   };
-  const theme = useTheme();
 
   return (
     <Box
@@ -54,12 +53,11 @@ export default function Code(props: CodeProps) {
             <Button
               variant="contained"
               color="primary"
-              sx={{
-                mt: 2,
-                "&:hover .MuiSvgIcon-root path": {
-                  stroke: theme.palette.primary.main,
+              sx={(theme: Theme) => ({
+                "&:hover": {
+                  color: "primary",
                 },
-              }}
+              })}
               startIcon={
                 <SvgIcon
                   component={CopyIcon}
@@ -83,18 +81,13 @@ export default function Code(props: CodeProps) {
                   }}
                 />
               }
-              sx={{
-                mt: 2,
-                background: "#000000",
-                border: "1px solid #000000",
+              sx={(theme: Theme) => ({
+                background: theme.palette.text.primary,
+                borderColor: theme.palette.text.primary,
                 "&:hover": {
-                  background: "none",
-                  color: "#000000",
+                  color: "text.primary",
                 },
-                "&:hover .MuiSvgIcon-root path": {
-                  stroke: theme.palette.text.primary,
-                },
-              }}
+              })}
               onClick={onDownload}
               disabled={!showButtons}
             >
@@ -106,17 +99,12 @@ export default function Code(props: CodeProps) {
                 <SvgIcon
                   component={BackIcon}
                   sx={{
-                    stroke: "red",
-                    fill: "white",
-                    color: "red",
-                    transition: "stroke 0.3s, fill 0.3s",
+                    color: "primary",
+                    fill: "transparent",
                   }}
                 />
               }
               color="primary"
-              sx={{
-                mt: 2,
-              }}
               onClick={onBack}
               disabled={!showButtons}
             >
@@ -144,18 +132,13 @@ export default function Code(props: CodeProps) {
                   }}
                 />
               }
-              sx={{
-                mt: 2,
+              sx={(theme: Theme) => ({
                 background: theme.palette.error.main,
-                border: `1px solid ${theme.palette.error.main}`,
+                borderColor: theme.palette.error.main,
                 "&:hover": {
-                  background: "none",
-                  color: theme.palette.error.main,
+                  color: "error.main",
                 },
-                "&:hover .MuiSvgIcon-root path": {
-                  stroke: theme.palette.error.main,
-                },
-              }}
+              })}
               onClick={onReset}
               disabled={!showButtons}
             >
