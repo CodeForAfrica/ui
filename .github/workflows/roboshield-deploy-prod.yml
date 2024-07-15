@@ -18,7 +18,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.prod.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
-  NEXT_PUBLIC_APP_URL: "https://roboshield-ui.prod.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://roboshield-ui.ui-1.prod.codeforafrica.org"
   SENTRY_ENVIRONMENT: "development"
   VERSION_FILE_NAME: "./apps/roboshield/package.json"
 
@@ -96,4 +96,4 @@ jobs:
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
