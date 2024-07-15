@@ -55,7 +55,7 @@ export interface Page {
             blockName?: string | null;
             blockType: "page-header";
           }
-        | PageHero
+        | SiteHero
         | {
             content?:
               | (
@@ -108,7 +108,6 @@ export interface Page {
             blockType: "statistics";
           }
         | {
-            showRobotsTxt: string;
             steps?:
               | (
                   | {
@@ -218,7 +217,8 @@ export interface Page {
                     }
                 )[]
               | null;
-            labels: {
+            actions: {
+              showRobotsTxt: string;
               continue: string;
               back: string;
               reset: string;
@@ -251,9 +251,9 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PageHero".
+ * via the `definition` "SiteHero".
  */
-export interface PageHero {
+export interface SiteHero {
   heroHeaders?:
     | {
         headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
@@ -261,10 +261,10 @@ export interface PageHero {
         id?: string | null;
       }[]
     | null;
-  heroDescriptiveText: {
+  heroDescription: {
     [k: string]: unknown;
   }[];
-  heroButtonText?: string | null;
+  heroCallToAction?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: "page-hero";

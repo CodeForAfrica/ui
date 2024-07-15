@@ -60,6 +60,16 @@ export default buildConfig({
     : undefined),
   admin: {
     user: Users.slug,
+    livePreview: {
+      breakpoints: [
+        {
+          label: "Mobile",
+          name: "mobile",
+          width: 375,
+          height: 667,
+        },
+      ],
+    },
     webpack: (config) => ({
       ...config,
       resolve: {
