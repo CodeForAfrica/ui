@@ -18,7 +18,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.prod.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
-  NEXT_PUBLIC_APP_URL: "https://roboshield-ui.ui-1.prod.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://roboshield-ui.prod.codeforafrica.org"
   SENTRY_ENVIRONMENT: "development"
   VERSION_FILE_NAME: "./apps/roboshield/package.json"
 
