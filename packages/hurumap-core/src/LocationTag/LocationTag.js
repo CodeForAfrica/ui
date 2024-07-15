@@ -1,15 +1,11 @@
-import {
-  Box,
-  LinearProgress as MuiLinearProgress,
-  Typography,
-  IconButton,
-  styled,
-} from "@mui/material";
+import { Box, IconButton, LinearProgress, styled } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import { typographyClasses } from "@mui/material/Typography";
 import React from "react";
 
-const LocationTagRoot = styled(Box)(({ active, theme, variant }) => {
+const LocationTagRoot = styled(Box, {
+  shouldForwardProp: (prop) =>
+    !["active", "highlight", "variant"].includes(prop),
+})(({ active, theme, variant }) => {
   const { palette, typography } = theme;
   let color = palette.text.primary;
   let backgroundColor = palette.background.default;
@@ -29,7 +25,7 @@ const LocationTagRoot = styled(Box)(({ active, theme, variant }) => {
   };
 });
 
-const LinearProgress = styled(MuiLinearProgress)(({ theme }) => {
+const LoadingLinearProgress = styled(LinearProgress)(({ theme }) => {
   const { typography } = theme;
 
   return {
@@ -41,36 +37,49 @@ const LinearProgress = styled(MuiLinearProgress)(({ theme }) => {
   };
 });
 
-const LevelTypography = styled(Typography)(({ theme }) => {
+const LevelTypography = styled("h6", {
+  // component color and not Typoegraphy color
+  shouldForwardProp: (prop) => !["color"].includes(prop),
+})(({ color, theme }) => {
   const { palette, typography } = theme;
+  const backgroundColor = palette[color]?.main;
+
   return {
+    backgroundColor,
     borderRadius: typography.pxToRem(4),
     color: palette.text.secondary,
-    fontWeight: "bold",
     fontSize: typography.pxToRem(7),
+    fontWeight: "bold",
     letterSpacing: "0.56px",
     lineHeight: 10 / 7,
+    margin: 0,
     padding: `${typography.pxToRem(4)} ${typography.pxToRem(12)}`,
     position: "absolute",
     textAlign: "center",
     textTransform: "uppercase",
     top: typography.pxToRem(-8),
-    [`&.${typographyClasses.colorPrimary}`]: {
-      backgroundColor: palette.primary.main,
-    },
-    [`&.${typographyClasses.colorSecondary}`]: {
-      backgroundColor: palette.secondary.main,
-    },
+  };
+});
+
+const NameTypography = styled("span")(({ theme }) => {
+  return {
+    fontSize: theme.typography.pxToRem(9),
+    fontWeight: "bold",
+    lineHeight: 13 / 9,
+    margin: "auto",
+    textTransform: "capitalize",
   };
 });
 
 const LocationTag = React.forwardRef(function LocationTag(
   {
-    IconButtonProps,
     LevelTypographyProps,
+    LoadingLinearProgressProps,
+    MarkerProps,
     NameTypographyProps,
     active,
     code,
+    color,
     isLoading,
     level,
     name: nameProp,
@@ -92,51 +101,41 @@ const LocationTag = React.forwardRef(function LocationTag(
   const name = isLoading ? "…" : nameProp;
   return (
     <LocationTagRoot
-      onClick={handleClick}
+      active={active}
+      alignItems="center"
       display="inline-flex"
       flexDirection="column"
-      alignItems="center"
+      onClick={handleClick}
+      variant={variant}
       {...props}
       ref={ref}
     >
       {variant === "marker" ? (
         <IconButton
           size="large"
+          {...MarkerProps}
           sx={(theme) => ({
+            color: "#ebebeb",
             position: "absolute",
             top: -68,
-            color: "#ebebeb",
             "&:hover": {
               color: "#666666",
               "& .Component108-4_svg__b": {
                 stroke: theme.palette.text?.secondary,
               },
             },
-            ...IconButtonProps?.sx,
+            ...MarkerProps?.sx,
           })}
         />
       ) : null}
       {isLoading ? (
-        <LinearProgress />
+        <LoadingLinearProgress {...LoadingLinearProgress} />
       ) : (
-        <LevelTypography component="h6" {...LevelTypographyProps}>
+        <LevelTypography color={color} {...LevelTypographyProps}>
           {level}
         </LevelTypography>
       )}
-      <Typography
-        component="span"
-        {...NameTypographyProps}
-        sx={(theme) => ({
-          fontSize: theme.typography.pxToRem(9),
-          fontWeight: "bold",
-          lineHeight: 13 / 9,
-          margin: "auto",
-          textTransform: "capitalize",
-          ...NameTypographyProps?.sx,
-        })}
-      >
-        {name}
-      </Typography>
+      <NameTypography {...NameTypographyProps}>{name}</NameTypography>
     </LocationTagRoot>
   );
 });
