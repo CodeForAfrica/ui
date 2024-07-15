@@ -1,14 +1,21 @@
+import { LocationTag } from "@hurumap/core";
 import React from "react";
 
-import LocationTag from "@/climatemappedafrica/components/HURUmap/LocationTag";
-import { hurumapArgs } from "@/climatemappedafrica/config";
-
-const {
-  location: { tags },
-} = hurumapArgs;
+const tags = [
+  {
+    href: "/explore",
+    level: "Country",
+    name: "Kenya",
+  },
+  {
+    href: "/explore/county-11",
+    level: "County",
+    name: "Isiolo",
+  },
+];
 
 export default {
-  title: "Components/HURUmap/LocationTag",
+  title: "@hurumap/core/LocationTag",
   argTypes: {
     variant: {
       control: {

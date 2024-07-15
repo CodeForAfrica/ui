@@ -621,14 +621,14 @@ exports[`FeaturedVideoCard should render 1`] = `
                 >
                   <label
                     class="vjs-label"
-                    for="vjs_select_535"
+                    for="vjs_select_536"
                     id="captions-foreground-color-vjs_video_3_component_509"
                   >
                     Color
                   </label>
                   <select
                     aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-color-vjs_video_3_component_509"
-                    id="vjs_select_535"
+                    id="vjs_select_536"
                   >
                     <option
                       aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-color-vjs_video_3_component_509 captions-foreground-color-vjs_video_3_component_509-White"
@@ -693,14 +693,14 @@ exports[`FeaturedVideoCard should render 1`] = `
                 >
                   <label
                     class="vjs-label"
-                    for="vjs_select_536"
+                    for="vjs_select_541"
                     id="captions-foreground-opacity-vjs_video_3_component_509"
                   >
                     Opacity
                   </label>
                   <select
                     aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-opacity-vjs_video_3_component_509"
-                    id="vjs_select_536"
+                    id="vjs_select_541"
                   >
                     <option
                       aria-labelledby="captions-text-legend-vjs_video_3_component_509 captions-foreground-opacity-vjs_video_3_component_509 captions-foreground-opacity-vjs_video_3_component_509-Opaque"
@@ -732,14 +732,14 @@ exports[`FeaturedVideoCard should render 1`] = `
                 >
                   <label
                     class="vjs-label"
-                    for="vjs_select_537"
+                    for="vjs_select_551"
                     id="captions-background-color-vjs_video_3_component_509"
                   >
                     Color
                   </label>
                   <select
                     aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-color-vjs_video_3_component_509"
-                    id="vjs_select_537"
+                    id="vjs_select_551"
                   >
                     <option
                       aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-color-vjs_video_3_component_509 captions-background-color-vjs_video_3_component_509-Black"
@@ -804,14 +804,14 @@ exports[`FeaturedVideoCard should render 1`] = `
                 >
                   <label
                     class="vjs-label"
-                    for="vjs_select_538"
+                    for="vjs_select_556"
                     id="captions-background-opacity-vjs_video_3_component_509"
                   >
                     Opacity
                   </label>
                   <select
                     aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-opacity-vjs_video_3_component_509"
-                    id="vjs_select_538"
+                    id="vjs_select_556"
                   >
                     <option
                       aria-labelledby="captions-background-vjs_video_3_component_509 captions-background-opacity-vjs_video_3_component_509 captions-background-opacity-vjs_video_3_component_509-Opaque"
@@ -850,14 +850,14 @@ exports[`FeaturedVideoCard should render 1`] = `
                 >
                   <label
                     class="vjs-label"
-                    for="vjs_select_539"
+                    for="vjs_select_566"
                     id="captions-window-color-vjs_video_3_component_509"
                   >
                     Color
                   </label>
                   <select
                     aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-color-vjs_video_3_component_509"
-                    id="vjs_select_539"
+                    id="vjs_select_566"
                   >
                     <option
                       aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-color-vjs_video_3_component_509 captions-window-color-vjs_video_3_component_509-Black"
@@ -922,14 +922,14 @@ exports[`FeaturedVideoCard should render 1`] = `
                 >
                   <label
                     class="vjs-label"
-                    for="vjs_select_540"
+                    for="vjs_select_571"
                     id="captions-window-opacity-vjs_video_3_component_509"
                   >
                     Opacity
                   </label>
                   <select
                     aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-opacity-vjs_video_3_component_509"
-                    id="vjs_select_540"
+                    id="vjs_select_571"
                   >
                     <option
                       aria-labelledby="captions-window-vjs_video_3_component_509 captions-window-opacity-vjs_video_3_component_509 captions-window-opacity-vjs_video_3_component_509-Transparent"
@@ -969,67 +969,67 @@ exports[`FeaturedVideoCard should render 1`] = `
                 </legend>
                 <select
                   aria-labelledby="captions-font-size-vjs_video_3_component_509"
-                  id="vjs_select_541"
+                  id="vjs_select_586"
                 >
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-50"
-                    id="captions-font-size-vjs_video_3_component_509-50"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-587-50"
+                    id="vjs-track-option-587-50"
                     value="0.50"
                   >
                     50%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-75"
-                    id="captions-font-size-vjs_video_3_component_509-75"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-588-75"
+                    id="vjs-track-option-588-75"
                     value="0.75"
                   >
                     75%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-100"
-                    id="captions-font-size-vjs_video_3_component_509-100"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-589-100"
+                    id="vjs-track-option-589-100"
                     value="1.00"
                   >
                     100%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-125"
-                    id="captions-font-size-vjs_video_3_component_509-125"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-590-125"
+                    id="vjs-track-option-590-125"
                     value="1.25"
                   >
                     125%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-150"
-                    id="captions-font-size-vjs_video_3_component_509-150"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-591-150"
+                    id="vjs-track-option-591-150"
                     value="1.50"
                   >
                     150%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-175"
-                    id="captions-font-size-vjs_video_3_component_509-175"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-592-175"
+                    id="vjs-track-option-592-175"
                     value="1.75"
                   >
                     175%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-200"
-                    id="captions-font-size-vjs_video_3_component_509-200"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-593-200"
+                    id="vjs-track-option-593-200"
                     value="2.00"
                   >
                     200%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-300"
-                    id="captions-font-size-vjs_video_3_component_509-300"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-594-300"
+                    id="vjs-track-option-594-300"
                     value="3.00"
                   >
                     300%
                   </option>
                   <option
-                    aria-labelledby="captions-font-size-vjs_video_3_component_509 captions-font-size-vjs_video_3_component_509-400"
-                    id="captions-font-size-vjs_video_3_component_509-400"
+                    aria-labelledby="captions-font-size-vjs_video_3_component_509 vjs-track-option-595-400"
+                    id="vjs-track-option-595-400"
                     value="4.00"
                   >
                     400%
@@ -1040,45 +1040,45 @@ exports[`FeaturedVideoCard should render 1`] = `
                 class="vjs-edge-style vjs-track-setting"
               >
                 <legend
-                  id="vjs_video_3_component_509"
+                  id="captions-edge-style-vjs_video_3_component_509"
                 >
                   Text Edge Style
                 </legend>
                 <select
-                  aria-labelledby="vjs_video_3_component_509"
-                  id="vjs_select_542"
+                  aria-labelledby="captions-edge-style-vjs_video_3_component_509"
+                  id="vjs_select_605"
                 >
                   <option
-                    aria-labelledby="vjs_video_3_component_509 vjs_video_3_component_509-None"
-                    id="vjs_video_3_component_509-None"
+                    aria-labelledby="captions-edge-style-vjs_video_3_component_509 vjs-track-option-606-None"
+                    id="vjs-track-option-606-None"
                     value="none"
                   >
                     None
                   </option>
                   <option
-                    aria-labelledby="vjs_video_3_component_509 vjs_video_3_component_509-Raised"
-                    id="vjs_video_3_component_509-Raised"
+                    aria-labelledby="captions-edge-style-vjs_video_3_component_509 vjs-track-option-607-Raised"
+                    id="vjs-track-option-607-Raised"
                     value="raised"
                   >
                     Raised
                   </option>
                   <option
-                    aria-labelledby="vjs_video_3_component_509 vjs_video_3_component_509-Depressed"
-                    id="vjs_video_3_component_509-Depressed"
+                    aria-labelledby="captions-edge-style-vjs_video_3_component_509 vjs-track-option-608-Depressed"
+                    id="vjs-track-option-608-Depressed"
                     value="depressed"
                   >
                     Depressed
                   </option>
                   <option
-                    aria-labelledby="vjs_video_3_component_509 vjs_video_3_component_509-Uniform"
-                    id="vjs_video_3_component_509-Uniform"
+                    aria-labelledby="captions-edge-style-vjs_video_3_component_509 vjs-track-option-609-Uniform"
+                    id="vjs-track-option-609-Uniform"
                     value="uniform"
                   >
                     Uniform
                   </option>
                   <option
-                    aria-labelledby="vjs_video_3_component_509 vjs_video_3_component_509-Dropshadow"
-                    id="vjs_video_3_component_509-Dropshadow"
+                    aria-labelledby="captions-edge-style-vjs_video_3_component_509 vjs-track-option-610-Dropshadow"
+                    id="vjs-track-option-610-Dropshadow"
                     value="dropshadow"
                   >
                     Drop shadow
@@ -1095,53 +1095,53 @@ exports[`FeaturedVideoCard should render 1`] = `
                 </legend>
                 <select
                   aria-labelledby="captions-font-family-vjs_video_3_component_509"
-                  id="vjs_select_543"
+                  id="vjs_select_620"
                 >
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-ProportionalSansSerif"
-                    id="captions-font-family-vjs_video_3_component_509-ProportionalSansSerif"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-621-ProportionalSansSerif"
+                    id="vjs-track-option-621-ProportionalSansSerif"
                     value="proportionalSansSerif"
                   >
                     Proportional Sans-Serif
                   </option>
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-MonospaceSansSerif"
-                    id="captions-font-family-vjs_video_3_component_509-MonospaceSansSerif"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-622-MonospaceSansSerif"
+                    id="vjs-track-option-622-MonospaceSansSerif"
                     value="monospaceSansSerif"
                   >
                     Monospace Sans-Serif
                   </option>
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-ProportionalSerif"
-                    id="captions-font-family-vjs_video_3_component_509-ProportionalSerif"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-623-ProportionalSerif"
+                    id="vjs-track-option-623-ProportionalSerif"
                     value="proportionalSerif"
                   >
                     Proportional Serif
                   </option>
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-MonospaceSerif"
-                    id="captions-font-family-vjs_video_3_component_509-MonospaceSerif"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-624-MonospaceSerif"
+                    id="vjs-track-option-624-MonospaceSerif"
                     value="monospaceSerif"
                   >
                     Monospace Serif
                   </option>
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-Casual"
-                    id="captions-font-family-vjs_video_3_component_509-Casual"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-625-Casual"
+                    id="vjs-track-option-625-Casual"
                     value="casual"
                   >
                     Casual
                   </option>
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-Script"
-                    id="captions-font-family-vjs_video_3_component_509-Script"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-626-Script"
+                    id="vjs-track-option-626-Script"
                     value="script"
                   >
                     Script
                   </option>
                   <option
-                    aria-labelledby="captions-font-family-vjs_video_3_component_509 captions-font-family-vjs_video_3_component_509-SmallCaps"
-                    id="captions-font-family-vjs_video_3_component_509-SmallCaps"
+                    aria-labelledby="captions-font-family-vjs_video_3_component_509 vjs-track-option-627-SmallCaps"
+                    id="vjs-track-option-627-SmallCaps"
                     value="small-caps"
                   >
                     Small Caps
@@ -1153,19 +1153,17 @@ exports[`FeaturedVideoCard should render 1`] = `
               class="vjs-track-settings-controls"
             >
               <button
+                aria-disabled="false"
                 class="vjs-default-button"
                 title="restore all settings to the default values"
                 type="button"
               >
                 Reset
-                <span
-                  class="vjs-control-text"
-                >
-                   restore all settings to the default values
-                </span>
               </button>
               <button
+                aria-disabled="false"
                 class="vjs-done-button"
+                title="restore all settings to the default values"
                 type="button"
               >
                 Done

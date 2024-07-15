@@ -1,24 +1,16 @@
+import { LocationTag } from "@hurumap/core";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
-import makeStyles from "@mui/styles/makeStyles";
 import L from "leaflet";
 import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useRef } from "react";
 import ReactDOMServer from "react-dom/server";
 import { useMap, FeatureGroup, GeoJSON } from "react-leaflet";
 
-import LocationTag from "@/pesayetu/components/HURUmap/LocationTag";
+import { ReactComponent as CancelIcon } from "@/pesayetu/assets/icons/Component108-4.svg";
 import theme, {
   CHART_PRIMARY_COLOR_SCHEME,
   CHART_SECONDARY_COLOR_SCHEME,
 } from "@/pesayetu/theme";
-
-const useStyles = makeStyles(() => ({
-  locationtag: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-  },
-}));
 
 const primaryGeoStyles = {
   inactive: {
@@ -99,24 +91,37 @@ function Layers({
   parentsGeometries,
   secondaryGeography,
   selectedBoundary,
-  ...props
 }) {
   const map = useMap();
   const groupRef = useRef();
   const siblingRef = useRef();
-  const classes = useStyles(props);
 
   const pinIcon = L.divIcon({
     html: ReactDOMServer.renderToStaticMarkup(
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <LocationTag
+            MarkerProps={{
+              children: <CancelIcon sx={{ fill: "currentColor" }} />,
+              sx: {
+                "&:hover": {
+                  color: "#666666",
+                  "& .Component108-4_svg__b": {
+                    stroke: theme.palette.text?.secondary,
+                  },
+                },
+              },
+            }}
             level={geography?.level}
             name={geography?.name?.toLowerCase()}
             code={geography?.code}
-            classes={{ root: classes.locationtag }}
             color="primary"
             variant="marker"
+            sx={{
+              left: 0,
+              position: "absolute",
+              top: 0,
+            }}
           />
         </ThemeProvider>
       </StyledEngineProvider>,
@@ -137,10 +142,14 @@ function Layers({
             <StyledEngineProvider injectFirst>
               <ThemeProvider theme={theme}>
                 <LocationTag
+                  color={isPinOrCompare ? "secondary" : "primary"}
                   level={level}
                   name={name.toLowerCase()}
-                  classes={{ root: classes.locationtag }}
-                  color={isPinOrCompare ? "secondary" : "primary"}
+                  sx={{
+                    left: 0,
+                    position: "absolute",
+                    top: 0,
+                  }}
                 />
               </ThemeProvider>
             </StyledEngineProvider>,
@@ -202,14 +211,7 @@ function Layers({
         }
       }
     },
-    [
-      classes.locationtag,
-      geography,
-      isPinOrCompare,
-      secondaryGeography,
-      locationCodes,
-      onClick,
-    ],
+    [geography, isPinOrCompare, secondaryGeography, locationCodes, onClick],
   );
 
   useEffect(() => {
