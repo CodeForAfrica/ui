@@ -12,13 +12,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     )} ${typography.pxToRem(12)} ${typography.pxToRem(21)}`,
     width: typography.pxToRem(600),
   },
-  tag: {
-    "&:not(:first-of-type)": {
-      marginLeft: typography.pxToRem(10),
-    },
-  },
-  tagLevel: {},
-  tagName: {},
   highlights: {
     borderTop: `1px solid ${palette.grey.main}`,
     marginTop: 4.5,

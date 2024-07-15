@@ -1,12 +1,11 @@
+import { LocationTag } from "@hurumap/core";
 import { Box } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import React from "react";
 
 import useStyles from "./useStyles";
 
 import LocationHighlight from "@/climatemappedafrica/components/HURUmap/LocationHighlight";
-import LocationTag from "@/climatemappedafrica/components/HURUmap/LocationTag";
 
 function Location({ className, highlights, isLoading, tags, ...props }) {
   const classes = useStyles(props);
@@ -29,16 +28,16 @@ function Location({ className, highlights, isLoading, tags, ...props }) {
       >
         {tags.map((tag, index) => (
           <LocationTag
-            key={`${tag.level}-${tag.name}`}
-            isLoading={isLoading}
             {...tag}
             active={index === tags.length - 1}
+            key={`${tag.level}-${tag.name}`}
+            isLoading={isLoading}
             variant="highlight"
-            classes={{
-              root: classes.tag,
-              level: classes.tagLevel,
-              name: classes.tagName,
-            }}
+            sx={(theme) => ({
+              "&:not(:first-of-type)": {
+                marginLeft: theme.typography.pxToRem(10),
+              },
+            })}
           />
         ))}
       </Box>
