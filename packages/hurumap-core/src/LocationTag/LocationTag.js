@@ -38,7 +38,7 @@ const LoadingLinearProgress = styled(LinearProgress)(({ theme }) => {
 });
 
 const LevelTypography = styled("h6", {
-  // component color and not Typoegraphy color
+  // component color and not Typography color
   shouldForwardProp: (prop) => !["color"].includes(prop),
 })(({ color, theme }) => {
   const { palette, typography } = theme;
