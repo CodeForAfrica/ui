@@ -20,6 +20,10 @@ const Pages: CollectionConfig = {
     group: "Publication",
     useAsTitle: "title",
     preview: (doc) => formatDraftUrl("pages", doc),
+    livePreview: {
+      url: ({ data }) =>
+        `${process.env.PAYLOAD_PUBLIC_APP_URL}${data.slug !== "home" ? `/${data.slug}` : ""}`,
+    },
   },
   fields: [
     {
