@@ -11,11 +11,11 @@ export interface Config {
     media: Media;
     pages: Page;
     users: User;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   globals: {
-    "settings-site": SettingsSite;
+    'settings-site': SettingsSite;
   };
 }
 /**
@@ -53,9 +53,9 @@ export interface Page {
             subtitle: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "page-header";
+            blockType: 'page-header';
           }
-        | PageHero
+        | SiteHero
         | {
             content?:
               | (
@@ -65,30 +65,30 @@ export interface Page {
                       }[];
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "richtext";
+                      blockType: 'richtext';
                     }
                   | {
                       image: string | Media;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "mediaBlock";
+                      blockType: 'mediaBlock';
                     }
                   | {
                       externalEmbedFields?: {
-                        embedType?: ("url" | "code") | null;
+                        embedType?: ('url' | 'code') | null;
                         url?: string | null;
                         caption?: string | null;
                         code?: string | null;
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "externalEmbed";
+                      blockType: 'externalEmbed';
                     }
                 )[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "content";
+            blockType: 'content';
           }
         | {
             title: string;
@@ -105,10 +105,9 @@ export interface Page {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "statistics";
+            blockType: 'statistics';
           }
         | {
-            showRobotsTxt: string;
             steps?:
               | (
                   | {
@@ -125,7 +124,7 @@ export interface Page {
                       fetch: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "existing-robots-txt";
+                      blockType: 'existing-robots-txt';
                     }
                   | {
                       title: string;
@@ -148,7 +147,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "delays";
+                      blockType: 'delays';
                     }
                   | {
                       title: string;
@@ -171,7 +170,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "paths";
+                      blockType: 'paths';
                     }
                   | {
                       title: string;
@@ -190,7 +189,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "block-bots";
+                      blockType: 'block-bots';
                     }
                   | {
                       title: string;
@@ -202,7 +201,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "site-maps";
+                      blockType: 'site-maps';
                     }
                   | {
                       title: string;
@@ -214,11 +213,12 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "finish";
+                      blockType: 'finish';
                     }
                 )[]
               | null;
-            labels: {
+            actions: {
+              showRobotsTxt: string;
               continue: string;
               back: string;
               reset: string;
@@ -227,7 +227,7 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "robots-txt-generator";
+            blockType: 'robots-txt-generator';
           }
       )[]
     | null;
@@ -247,27 +247,27 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "PageHero".
+ * via the `definition` "SiteHero".
  */
-export interface PageHero {
+export interface SiteHero {
   heroHeaders?:
     | {
-        headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
+        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
         title?: string | null;
         id?: string | null;
       }[]
     | null;
-  heroDescriptiveText: {
+  heroDescription: {
     [k: string]: unknown;
   }[];
-  heroButtonText?: string | null;
+  heroCallToAction?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "page-hero";
+  blockType: 'page-hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -277,7 +277,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles: ("admin" | "editor")[];
+  roles: ('admin' | 'editor')[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -298,7 +298,7 @@ export interface User {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: string | User;
   };
   key?: string | null;
@@ -341,9 +341,9 @@ export interface SettingsSite {
     menus?:
       | {
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -351,17 +351,15 @@ export interface SettingsSite {
           id?: string | null;
         }[]
       | null;
-    connect?:
-      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
-      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -374,13 +372,7 @@ export interface SettingsSite {
     title: string;
     links?:
       | {
-          platform:
-            | "Facebook"
-            | "Twitter"
-            | "Instagram"
-            | "Linkedin"
-            | "Github"
-            | "Slack";
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
           url: string;
           id?: string | null;
         }[]
@@ -400,9 +392,9 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -415,6 +407,7 @@ export interface SettingsSite {
   createdAt?: string | null;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }

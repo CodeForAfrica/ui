@@ -3,10 +3,10 @@ import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import RobotsTxtGenerator from "../blocks/RobotsTxtGenerator";
 import { PageHeader } from "../blocks/PageHeader";
-import { PageHero } from "../blocks/PageHero";
 import { Content } from "../blocks/Content";
 import { Statistics } from "../blocks/Statistics";
 import formatDraftUrl from "../utils/formatDraftUrl";
+import { SiteHero } from "../blocks/SiteHero";
 
 const Pages: CollectionConfig = {
   slug: "pages",
@@ -33,7 +33,7 @@ const Pages: CollectionConfig = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHeader, PageHero, Content, Statistics, RobotsTxtGenerator],
+      blocks: [PageHeader, SiteHero, Content, Statistics, RobotsTxtGenerator],
       localized: true,
       admin: {
         initCollapsed: true,

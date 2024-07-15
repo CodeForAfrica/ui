@@ -2,15 +2,15 @@ import { Block } from "payload/types";
 import richText from "../fields/richText";
 import { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types";
 
-export const PageHero: Block = {
+export const SiteHero: Block = {
   slug: "page-hero",
   imageURL: "/images/cms/blocks/hero.png",
   imageAltText: "Used in homepage",
   labels: {
-    singular: "Page Hero",
-    plural: "Page Hero",
+    singular: "Site Hero",
+    plural: "Site Hero",
   },
-  interfaceName: "PageHero",
+  interfaceName: "SiteHero",
   fields: [
     {
       name: "heroHeaders",
@@ -58,14 +58,14 @@ export const PageHero: Block = {
       },
     },
     richText({
-      name: "heroDescriptiveText",
+      name: "heroDescription",
       required: true,
-      label: "Descriptive Text",
+      label: "Description",
     }),
     {
-      name: "heroButtonText",
+      name: "heroCallToAction",
       type: "text",
-      label: "Call to Action Button Text",
+      label: "Call to Action",
     },
   ],
 };
