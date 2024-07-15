@@ -3,15 +3,15 @@
 exports[`LocationTag renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1bgydsl"
+    class="MuiBox-root css-1v93i1i"
   >
     <h6
-      class="MuiTypography-root MuiTypography-body1 css-om53h0-MuiTypography-root"
+      class="css-pxh4k6"
     >
       region
     </h6>
     <span
-      class="MuiTypography-root MuiTypography-body1 css-4oe9v9-MuiTypography-root"
+      class="css-k6p9om"
     >
       Region
     </span>
