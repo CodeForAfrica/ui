@@ -2,7 +2,7 @@ name: RoboShield | Deploy | PROD
 
 on:
   push:
-    branches: [roboshield/push-to-prod]
+    branches: [main]
     paths:
       - "apps/roboshield/**"
       - "Dockerfile"
