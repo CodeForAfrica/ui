@@ -4,9 +4,9 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
 import { Theme } from "@mui/material";
-import { PageHero } from "@/root/payload-types";
+import { SiteHero } from "@/root/payload-types";
 
-const Hero = (props: PageHero) => {
+const Hero = (props: SiteHero) => {
   return (
     <Box
       component="section"
@@ -105,7 +105,7 @@ const Hero = (props: PageHero) => {
             },
             mt: "2.5em",
           })}
-          elements={props.heroDescriptiveText}
+          elements={props.heroDescription}
         />
 
         <Button
@@ -124,7 +124,7 @@ const Hero = (props: PageHero) => {
             },
           }}
         >
-          {props.heroButtonText}
+          {props.heroCallToAction}
         </Button>
       </Section>
     </Box>
