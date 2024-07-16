@@ -19,6 +19,14 @@ const Media = {
       required: true,
     },
   ],
+  hooks: {
+    afterRead: [
+      ({ doc }) => ({
+        ...doc,
+        alt: doc.alt || doc.filename,
+      }),
+    ],
+  },
 };
 
 export default Media;
