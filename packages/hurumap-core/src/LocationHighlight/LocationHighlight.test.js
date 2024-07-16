@@ -1,5 +1,5 @@
 import { render } from "@commons-ui/testing-library";
-import * as React from "react";
+import React from "react";
 
 import LocationHighlight from "./LocationHighlight";
 
