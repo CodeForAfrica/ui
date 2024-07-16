@@ -23,7 +23,7 @@ const Media = {
     afterRead: [
       ({ doc }) => ({
         ...doc,
-        alt: doc.alt || doc.filename,
+        alt: doc.alt ?? null,
       }),
     ],
   },
