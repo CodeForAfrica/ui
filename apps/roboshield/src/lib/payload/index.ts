@@ -16,7 +16,7 @@ async function findPage(slug: string): Promise<PaginatedDocs<Page>> {
         equals: slug,
       },
     },
-  });
+  }) as any;
 }
 
 async function getCollection(
@@ -27,7 +27,7 @@ async function getCollection(
     limit: 0,
     ...options,
     collection,
-  });
+  }) as any;
 }
 
 async function findGlobal(
@@ -37,7 +37,7 @@ async function findGlobal(
   return payload.findGlobal({
     ...options,
     slug,
-  });
+  }) as any;
 }
 
 async function createCollection(
@@ -49,7 +49,7 @@ async function createCollection(
     collection,
     data,
     ...options,
-  });
+  }) as any;
 }
 
 async function deleteCollection(
@@ -59,7 +59,7 @@ async function deleteCollection(
   return payload.delete({
     ...options,
     collection,
-  });
+  }) as any;
 }
 
 async function updateCollection(
@@ -74,7 +74,7 @@ async function updateCollection(
     id,
     data,
   };
-  return payload.update(args);
+  return payload.update(args) as any;
 }
 const api = {
   createCollection,

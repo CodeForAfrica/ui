@@ -416,5 +416,6 @@ export interface SettingsSite {
 }
 
 declare module "payload" {
+  // @ts-ignore
   export interface GeneratedTypes extends Config {}
 }

@@ -2,7 +2,7 @@ name: RoboShield | Deploy | PROD
 
 on:
   push:
-    branches: [main]
+    branches: [feature/fix-roboshield-failing-build]
     paths:
       - "apps/roboshield/**"
       - "Dockerfile"
@@ -18,7 +18,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.prod.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
-  NEXT_PUBLIC_APP_URL: "https://roboshield-ui.prod.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://roboshield.trustlab.africa"
   SENTRY_ENVIRONMENT: "production"
   VERSION_FILE_NAME: "./apps/roboshield/package.json"
 
