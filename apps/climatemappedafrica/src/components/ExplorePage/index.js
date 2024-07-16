@@ -1,4 +1,6 @@
+import { LocationTag, LocationHighlight } from "@hurumap/core";
 import { Box } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
@@ -9,7 +11,6 @@ import { primaryGeoStyles, secondaryGeoStyles } from "./useLayerStyles";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
-import Location from "@/climatemappedafrica/components/HURUmap/Location";
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
 const Map = dynamic(
@@ -140,12 +141,73 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             {...props}
             className={classes.map}
           />
-          <Location
-            highlights={highlights}
-            isLoading={isLoading}
-            tags={tags}
-            className={classes.location}
-          />
+          <Box
+            sx={(theme) => ({
+              display: "none",
+              [theme.breakpoints.up("md")]: {
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              },
+              left: 0,
+              margin: "0 auto",
+              position: "absolute",
+              right: 0,
+              top: theme.typography.pxToRem(52),
+              zIndex: theme.zIndex.appBar,
+              background: alpha("#FFFFFF", 0.9), // #FFFFFFE6
+              borderRadius: theme.typography.pxToRem(5),
+              bottom: "auto",
+              boxShadow: `0px 3px 6px ${alpha("#000000", 0.16)}`, // #00000029
+              padding: `${theme.typography.pxToRem(4.12)} ${theme.typography.pxToRem(
+                19,
+              )} ${theme.typography.pxToRem(12)} ${theme.typography.pxToRem(21)}`,
+              width: theme.typography.pxToRem(600),
+            })}
+          >
+            <Box display="flex" flexWrap="nowrap" justifyContent="center">
+              {tags.map((tag, index) => (
+                <LocationTag
+                  key={`${tag.level}-${tag.name}`}
+                  isLoading={isLoading}
+                  {...tag}
+                  active={index === tags.length - 1}
+                  variant="highlight"
+                  sx={(theme) => ({
+                    "&:not(:first-of-type)": {
+                      marginLeft: theme.typography.pxToRem(10),
+                    },
+                  })}
+                />
+              ))}
+            </Box>
+            {highlights?.length > 0 ? (
+              <Box
+                display="flex"
+                flexWrap="nowrap"
+                justifyContent="center"
+                sx={(theme) => ({
+                  borderTop: `1px solid ${theme.palette.grey.main}`,
+                  marginTop: "4.5px",
+                  width: "100%",
+                })}
+              >
+                {highlights.map((highlight) => (
+                  <LocationHighlight
+                    key={highlight.title}
+                    isLoading={isLoading}
+                    {...highlight}
+                    sx={(theme) => ({
+                      paddingTop: "4.5px",
+                      "&:not(:first-of-type)": {
+                        borderLeft: `1px solid ${theme.palette.grey.main}`,
+                      },
+                    })}
+                  />
+                ))}
+              </Box>
+            ) : null}
+          </Box>
         </div>
       </Box>
       <Panel

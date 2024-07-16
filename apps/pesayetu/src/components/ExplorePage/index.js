@@ -136,9 +136,6 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             className={classes.map}
           />
           <Box
-            highlights={highlights}
-            isLoading={isLoading}
-            tags={tags}
             sx={(theme) => ({
               display: "none",
               [theme.breakpoints.up("md")]: {
