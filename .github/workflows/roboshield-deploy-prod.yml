@@ -19,7 +19,7 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/roboshield"
   NEXT_PUBLIC_APP_URL: "https://roboshield-ui.prod.codeforafrica.org"
-  SENTRY_ENVIRONMENT: "development"
+  SENTRY_ENVIRONMENT: "production"
   VERSION_FILE_NAME: "./apps/roboshield/package.json"
 
 jobs:
