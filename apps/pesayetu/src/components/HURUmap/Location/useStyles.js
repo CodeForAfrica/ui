@@ -17,14 +17,6 @@ const useStyles = makeStyles(({ palette, typography }) => ({
     marginTop: 4.5,
     width: "100%",
   },
-  highlight: {
-    paddingTop: 4.5,
-    "&:not(:first-of-type)": {
-      borderLeft: `1px solid ${palette.grey.main}`,
-    },
-  },
-  highlightTitle: {},
-  highlightValue: {},
 }));
 
 export default useStyles;

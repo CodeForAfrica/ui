@@ -1,11 +1,9 @@
-import { LocationTag } from "@hurumap/core";
+import { LocationTag, LocationHighlight } from "@hurumap/core";
 import { Box } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 
 import useStyles from "./useStyles";
-
-import LocationHighlight from "@/climatemappedafrica/components/HURUmap/LocationHighlight";
 
 function Location({ className, highlights, isLoading, tags, ...props }) {
   const classes = useStyles(props);
@@ -53,11 +51,12 @@ function Location({ className, highlights, isLoading, tags, ...props }) {
               key={highlight.title}
               isLoading={isLoading}
               {...highlight}
-              classes={{
-                root: classes.highlight,
-                title: classes.highlightTitle,
-                value: classes.highlightValue,
-              }}
+              sx={(theme) => ({
+                paddingTop: "4.5px",
+                "&:not(:first-of-type)": {
+                  borderLeft: `1px solid ${theme.palette.grey.main}`,
+                },
+              })}
             />
           ))}
         </Box>
