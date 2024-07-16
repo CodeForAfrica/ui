@@ -3,11 +3,11 @@ import React from "react";
 
 const LocationHighlight = React.forwardRef(function LocationHighlight(
   {
+    TitleTypographyProps,
+    ValueTypographyProps,
     title,
     value,
     isLoading,
-    TitleTypographyProps,
-    ValueTypographyProps,
     ...props
   },
   ref,
