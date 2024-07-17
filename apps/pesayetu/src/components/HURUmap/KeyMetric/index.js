@@ -1,11 +1,10 @@
+import { Source } from "@hurumap/core";
 import { Tooltip, Typography, LinearProgress } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
-
-import Source from "@/pesayetu/components/HURUmap/Source";
 
 function KeyMetric({
   className,
@@ -67,7 +66,12 @@ function KeyMetric({
           {parentValue}
         </Typography>
       )}
-      <Source href={url} classes={{ root: classes.source }}>
+      <Source
+        href={url}
+        sx={(theme) => ({
+          margin: `${theme.typography.pxToRem(20)} 0`,
+        })}
+      >
         {source}
       </Source>
     </div>
