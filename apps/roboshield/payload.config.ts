@@ -5,7 +5,6 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import Site from "./src/payload/globals/Site";
-import dotenv from "dotenv";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import seo from "@payloadcms/plugin-seo";
@@ -13,9 +12,10 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+import { loadEnvConfig } from "@next/env";
 
-dotenv.config();
-dotenv.config({ path: "./.env.local" });
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 
 const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
 
