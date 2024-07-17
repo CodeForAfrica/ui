@@ -1,4 +1,4 @@
-import { Source } from "@hurumap/core";
+import { Source } from "@hurumap/next";
 import { useMediaQuery } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";

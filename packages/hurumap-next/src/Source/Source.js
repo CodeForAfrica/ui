@@ -2,19 +2,22 @@ import { Link } from "@commons-ui/next";
 import { Typography } from "@mui/material";
 import React from "react";
 
-const Source = React.forwardRef(function Source({
-  children,
-  href,
-  title = "Source",
-  TitleTypographyProps,
-  LinkProps,
-  ...props
-}) {
+const Source = React.forwardRef(function Source(
+  {
+    children,
+    href,
+    title = "Source",
+    TitleTypographyProps,
+    LinkProps,
+    ...props
+  },
+  ref,
+) {
   if (!(href && children)) {
     return null;
   }
   return (
-    <div {...props}>
+    <div {...props} ref={ref}>
       <Typography
         {...TitleTypographyProps}
         sx={(theme) => ({

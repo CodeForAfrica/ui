@@ -1,8 +1,8 @@
-import { Source } from "@hurumap/core";
+import { Source } from "@hurumap/next";
 import React from "react";
 
 export default {
-  title: "@hurumap/core/Source",
+  title: "@hurumap/next/Source",
   argTypes: {
     children: {
       control: {
@@ -10,6 +10,11 @@ export default {
       },
     },
     href: {
+      control: {
+        type: "text",
+      },
+    },
+    title: {
       control: {
         type: "text",
       },
@@ -25,5 +30,6 @@ export const Default = Template.bind({});
 
 Default.args = {
   children: "Source Name",
-  href: "Source Url",
+  href: "https://example.com",
+  title: "Source",
 };

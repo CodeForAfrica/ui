@@ -1,4 +1,4 @@
-import { Source } from "@hurumap/core";
+import { Source } from "@hurumap/next";
 import { Tooltip, Typography, LinearProgress } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";

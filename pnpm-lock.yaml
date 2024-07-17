@@ -285,6 +285,9 @@ importers:
       '@hurumap/core':
         specifier: workspace:*
         version: link:../../packages/hurumap-core
+      '@hurumap/next':
+        specifier: workspace:*
+        version: link:../../packages/hurumap-next
       '@mui/lab':
         specifier: 5.0.0-alpha.155
         version: 5.0.0-alpha.155(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -716,6 +719,9 @@ importers:
       '@hurumap/core':
         specifier: workspace:*
         version: link:../../packages/hurumap-core
+      '@hurumap/next':
+        specifier: workspace:*
+        version: link:../../packages/hurumap-next
       '@mui/lab':
         specifier: 5.0.0-alpha.155
         version: 5.0.0-alpha.155(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@mui/material@5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1310,6 +1316,9 @@ importers:
       '@hurumap/core':
         specifier: workspace:*
         version: link:../../packages/hurumap-core
+      '@hurumap/next':
+        specifier: workspace:*
+        version: link:../../packages/hurumap-next
       '@mui/material':
         specifier: ^5.16.1
         version: 5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1825,6 +1834,67 @@ importers:
         specifier: ^4.2.1
         version: 4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-test-renderer:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      require-from-string:
+        specifier: ^2.0.2
+        version: 2.0.2
+      typescript:
+        specifier: ^5.5.3
+        version: 5.5.3
+      webpack:
+        specifier: ^5.93.0
+        version: 5.93.0
+
+  packages/hurumap-next:
+    dependencies:
+      '@commons-ui/next':
+        specifier: workspace:*
+        version: link:../commons-ui-next
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+    devDependencies:
+      '@babel/core':
+        specifier: ^7.24.8
+        version: 7.24.8
+      '@babel/preset-react':
+        specifier: ^7.24.7
+        version: 7.24.7(@babel/core@7.24.8)
+      '@commons-ui/core':
+        specifier: workspace:*
+        version: link:../commons-ui-core
+      '@commons-ui/testing-library':
+        specifier: workspace:*
+        version: link:../commons-ui-testing-library
+      '@mui/material':
+        specifier: ^5.16.1
+        version: 5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      babel-loader:
+        specifier: ^9.1.3
+        version: 9.1.3(@babel/core@7.24.8)(webpack@5.93.0)
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      eslint-config-commons-ui:
+        specifier: workspace:*
+        version: link:../eslint-config-commons-ui
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.6.13(@swc/helpers@0.5.5))(@types/node@20.14.10)(typescript@5.5.3))
+      jest-config-commons-ui:
+        specifier: workspace:*
+        version: link:../jest-config-commons-ui
+      next:
+        specifier: ^14.2.5
+        version: 14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
+      prop-types:
+        specifier: ^15.8.1
+        version: 15.8.1
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       require-from-string:
