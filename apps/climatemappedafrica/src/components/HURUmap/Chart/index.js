@@ -1,3 +1,4 @@
+import { Source } from "@hurumap/next";
 import { useMediaQuery } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
@@ -12,7 +13,6 @@ import { calculateTooltipPosition, idify } from "./utils";
 
 import ChartTooltip from "@/climatemappedafrica/components/HURUmap/ChartTooltip";
 import IndicatorTitle from "@/climatemappedafrica/components/HURUmap/IndicatorTitle";
-import { Source } from "@hurumap/next";
 import theme from "@/climatemappedafrica/theme";
 
 const useStyles = makeStyles(() => ({

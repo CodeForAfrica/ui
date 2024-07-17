@@ -1,11 +1,10 @@
+import { Source } from "@hurumap/next";
 import { Tooltip, Typography, LinearProgress } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
-
-import { Source } from "@hurumap/next";
 
 function KeyMetric({
   className,
