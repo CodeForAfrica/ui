@@ -1,3 +1,4 @@
+import { ChartTooltip } from "@hurumap/core";
 import { useMediaQuery } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
@@ -10,7 +11,6 @@ import configureScope from "./configureScope";
 import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
-import ChartTooltip from "@/climatemappedafrica/components/HURUmap/ChartTooltip";
 import IndicatorTitle from "@/climatemappedafrica/components/HURUmap/IndicatorTitle";
 import Source from "@/climatemappedafrica/components/HURUmap/Source";
 import theme from "@/climatemappedafrica/theme";

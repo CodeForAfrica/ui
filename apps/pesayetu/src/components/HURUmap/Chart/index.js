@@ -1,3 +1,4 @@
+import { ChartTooltip } from "@hurumap/core";
 import { useMediaQuery } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
@@ -10,7 +11,6 @@ import configureScope from "./configureScope";
 import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
-import ChartTooltip from "@/pesayetu/components/HURUmap/ChartTooltip";
 import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
 import Source from "@/pesayetu/components/HURUmap/Source";
 import theme from "@/pesayetu/theme";
