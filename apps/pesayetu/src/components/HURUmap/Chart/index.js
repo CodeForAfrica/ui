@@ -1,4 +1,5 @@
 import { ChartTooltip } from "@hurumap/core";
+import { Source } from "@hurumap/next";
 import { useMediaQuery } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
@@ -12,19 +13,15 @@ import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
 import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
-import Source from "@/pesayetu/components/HURUmap/Source";
 import theme from "@/pesayetu/theme";
 
-const useStyles = makeStyles(({ typography }) => ({
+const useStyles = makeStyles(() => ({
   root: {
     position: "relative",
     width: "100%",
   },
   chart: {
     width: "100%",
-  },
-  source: {
-    margin: `${typography.pxToRem(20)} 0`,
   },
 }));
 
@@ -239,7 +236,12 @@ function Chart({
         />
       )}
       <div ref={chartRef} className={classes.chart} />
-      <Source href={url} classes={{ root: classes.source }}>
+      <Source
+        href={url}
+        sx={({ typography }) => ({
+          margin: `${typography.pxToRem(20)} 0`,
+        })}
+      >
         {source}
       </Source>
     </div>

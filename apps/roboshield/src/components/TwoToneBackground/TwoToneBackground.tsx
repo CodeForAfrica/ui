@@ -45,10 +45,10 @@ interface Props {
   sx: any;
 }
 
-const TwoToneBackground = React.forwardRef(function TwoToneBackground({
-  children,
-  ...props
-}: Props) {
+const TwoToneBackground = React.forwardRef(function TwoToneBackground(
+  { children, ...props }: Props,
+  _ref,
+) {
   return <TwoToneBackgroundRoot {...props}>{children}</TwoToneBackgroundRoot>;
 });
 

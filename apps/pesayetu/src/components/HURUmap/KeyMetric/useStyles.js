@@ -19,9 +19,6 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   progressBarDeterminate: {
     backgroundColor: palette.grey.main,
   },
-  source: {
-    marginTop: typography.pxToRem(10),
-  },
   text: {
     fontSize: typography.pxToRem(11),
   },
