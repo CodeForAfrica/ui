@@ -1,18 +1,18 @@
 {
   "name": "roboshield",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "build-server": "tsc --project tsconfig.server.json",
     "build-next": "NEXT_BUILD=true pnpm build-server && NEXT_BUILD=true PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} node dist/server.js",
-    "build-payload": "PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} payload build",
+    "build-payload": "payload build",
     "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
     "dev": "NODE_OPTIONS='--inspect' ts-node --project tsconfig.server.json server.ts",
     "clean": "rm -rf .next .turbo node_modules",
     "jest": "jest --passWithNoTests",
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
-    "generate:types": "PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} payload generate:types"
+    "generate:types": "payload generate:types"
   },
   "dependencies": {
     "@commons-ui/core": "workspace:*",
