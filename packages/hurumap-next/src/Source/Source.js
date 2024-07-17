@@ -4,11 +4,11 @@ import React from "react";
 
 const Source = React.forwardRef(function Source(
   {
+    LinkProps,
+    TitleTypographyProps,
     children,
     href,
     title = "Source",
-    TitleTypographyProps,
-    LinkProps,
     ...props
   },
   ref,

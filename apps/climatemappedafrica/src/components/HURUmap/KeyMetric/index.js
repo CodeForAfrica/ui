@@ -69,7 +69,7 @@ function KeyMetric({
       <Source
         href={url}
         sx={(theme) => ({
-          margin: `${theme.typography.pxToRem(20)} 0`,
+          marginTop: theme.typography.pxToRem(10),
         })}
       >
         {source}

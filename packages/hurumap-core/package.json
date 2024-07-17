@@ -67,7 +67,6 @@
     "react-leaflet": "^4.2.1"
   },
   "dependencies": {
-    "prop-types": "^15.8.1",
-    "@commons-ui/next": "workspace:*"
+    "prop-types": "^15.8.1"
   }
 }

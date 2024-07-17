@@ -1769,9 +1769,6 @@ importers:
 
   packages/hurumap-core:
     dependencies:
-      '@commons-ui/next':
-        specifier: workspace:*
-        version: link:../commons-ui-next
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -1851,9 +1848,6 @@ importers:
       '@commons-ui/next':
         specifier: workspace:*
         version: link:../commons-ui-next
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
     devDependencies:
       '@babel/core':
         specifier: ^7.24.8
