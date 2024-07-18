@@ -20,7 +20,7 @@ ARG \
   SENTRY_PROJECT=""
 
 
-FROM node:20.14-alpine as node
+FROM node:22.4-alpine as node
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
