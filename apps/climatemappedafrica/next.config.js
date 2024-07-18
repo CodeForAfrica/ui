@@ -25,7 +25,12 @@ module.exports = {
   },
   output: "standalone",
   reactStrictMode: false,
-  transpilePackages: ["@commons-ui/core", "@commons-ui/next", "@hurumap/core"],
+  transpilePackages: [
+    "@commons-ui/core",
+    "@commons-ui/next",
+    "@hurumap/core",
+    "@hurumap/next",
+  ],
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
