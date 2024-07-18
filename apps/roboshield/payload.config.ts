@@ -13,6 +13,7 @@ import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import { loadEnvConfig } from "@next/env";
+import { Config } from "./payload-types";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -122,4 +123,11 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  typescript: {
+    declare: false, // defaults to true if not set
+  },
 });
+
+declare module "payload" {
+  export interface PayloadGeneratedTypes extends Config {}
+}
