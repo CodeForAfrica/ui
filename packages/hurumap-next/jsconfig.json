@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/hurumap/next/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
