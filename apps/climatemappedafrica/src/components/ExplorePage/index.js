@@ -1,3 +1,4 @@
+import { Location } from "@hurumap/core";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -9,8 +10,8 @@ import { primaryGeoStyles, secondaryGeoStyles } from "./useLayerStyles";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
-import Location from "@/climatemappedafrica/components/HURUmap/Location";
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
+import theme from "@/climatemappedafrica/theme";
 
 const Map = dynamic(
   () => import("@/climatemappedafrica/components/HURUmap/Map"),
@@ -144,7 +145,33 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             highlights={highlights}
             isLoading={isLoading}
             tags={tags}
-            className={classes.location}
+            LocationTagProps={{
+              sx: {
+                "&:not(:first-of-type)": {
+                  marginLeft: theme.typography.pxToRem(10),
+                },
+              },
+            }}
+            LocationHighlightProps={{
+              sx: {
+                paddingTop: "4.5px",
+                "&:not(:first-of-type)": {
+                  borderLeft: `1px solid ${theme.palette.grey.main}`,
+                },
+              },
+            }}
+            sx={{
+              display: "none",
+              [theme.breakpoints.up("md")]: {
+                display: "flex",
+                left: 0,
+                margin: "0 auto",
+                position: "absolute",
+                right: 0,
+                top: theme.typography.pxToRem(52),
+                zIndex: theme.zIndex.appBar,
+              },
+            }}
           />
         </div>
       </Box>

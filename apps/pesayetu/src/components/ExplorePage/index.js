@@ -1,3 +1,4 @@
+import { Location } from "@hurumap/core";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -8,8 +9,8 @@ import useExplore from "./useExplore";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
-import Location from "@/pesayetu/components/HURUmap/Location";
 import Panel from "@/pesayetu/components/HURUmap/Panel";
+import theme from "@/pesayetu/theme";
 
 const Map = dynamic(() => import("@/pesayetu/components/HURUmap/Map"), {
   ssr: false,
@@ -138,7 +139,33 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             highlights={highlights}
             isLoading={isLoading}
             tags={tags}
-            className={classes.location}
+            LocationTagProps={{
+              sx: {
+                "&:not(:first-of-type)": {
+                  marginLeft: theme.typography.pxToRem(10),
+                },
+              },
+            }}
+            LocationHighlightProps={{
+              sx: {
+                paddingTop: "4.5px",
+                "&:not(:first-of-type)": {
+                  borderLeft: `1px solid ${theme.palette.grey.main}`,
+                },
+              },
+            }}
+            sx={{
+              display: "none",
+              [theme.breakpoints.up("md")]: {
+                display: "flex",
+                left: 0,
+                margin: "0 auto",
+                position: "absolute",
+                right: 0,
+                top: theme.typography.pxToRem(52),
+                zIndex: theme.zIndex.appBar,
+              },
+            }}
           />
         </div>
       </Box>
