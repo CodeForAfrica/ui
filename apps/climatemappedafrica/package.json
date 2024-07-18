@@ -71,6 +71,7 @@
     "vega-tooltip": "^0.33.0",
     "video.js": "^8.16.1",
     "videojs-youtube": "^3.0.1",
+    "webpack": "^5.93.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -113,5 +114,8 @@
     "react-test-renderer": "^18.3.1",
     "svg-url-loader": "^8.0.0",
     "typescript": "^5.5.3"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
