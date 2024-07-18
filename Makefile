@@ -13,6 +13,7 @@ codeforafrica:
 
 climatemappedafrica:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/climatemappedafrica/.env.local up climatemappedafrica --build
+
 down:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) down --volumes
 

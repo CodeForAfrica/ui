@@ -66,8 +66,6 @@ RUN pnpm fetch
 COPY *.yaml *.json ./
 COPY packages/commons-ui-core/package.json ./packages/commons-ui-core/package.json
 COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.json
-COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
-COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
 # Next.js lints when doing production build
 COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
 # TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica)
@@ -442,6 +440,8 @@ CMD ["node", "dist/server.js"]
 
 FROM base-deps as pesayetu-deps
 
+COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
+COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
 COPY apps/pesayetu/package.json ./apps/pesayetu/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
@@ -618,6 +618,8 @@ CMD ["node", "apps/vpnmanager/server.js"]
 
   FROM base-deps as climatemappedafrica-deps
 
+  COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
+  COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
   COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
 
   # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
