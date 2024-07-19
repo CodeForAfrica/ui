@@ -2,7 +2,7 @@
   "name": "vpnmanager",
   "cron": [
     {
-      "command": "pnpm process-spreadsheet",
+      "command": "node apps/vpnmanager/dist/scripts/processGsheet.js",
       "schedule": "@hourly"
     }
   ]

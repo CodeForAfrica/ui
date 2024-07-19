@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && tsc --project tsconfig.server.json && tsc-alias -p tsconfig.server.json",
     "start": "next start",
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
     "clean": "rm -rf .next .turbo node_modules",
     "jest": "jest --passWithNoTests",
-    "playwright": "npx playwright test",
-    "process-spreadsheet": "node dist/scripts/processGsheet.js"
+    "playwright": "npx playwright test"
   },
   "dependencies": {
     "@babel/preset-react": "^7.24.7",

@@ -70,7 +70,8 @@ COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.js
 COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
 # TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica)
 COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
-
+COPY packages/playwright-config-commons-ui/package.json ./packages/playwright-config-commons-ui/package.json
+COPY packages/jest-config-commons-ui/package.json ./packages/jest-config-commons-ui/package.json
 RUN pnpm --filter "./packages/**" install --offline --frozen-lockfile
 
 #
@@ -590,7 +591,7 @@ RUN set -ex \
 # PNPM
 # symlink some dependencies
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/node_modules ./apps/vpnmanager/node_modules
 # Next.js
 # Public assets
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/public ./apps/vpnmanager/public
@@ -599,7 +600,8 @@ COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
-
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/dist ./apps/vpnmanager/dist
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/app.json ./app.json
 USER nextjs
 
 # server.js is created by next build from the standalone output
