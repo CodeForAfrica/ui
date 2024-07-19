@@ -52,6 +52,21 @@ services:
     ports:
       - 3000:3000
 
+  climatemappedafrica:
+    build:
+      context: .
+      target: climatemappedafrica-runner
+      args:
+        - HURUMAP_API_URL
+    environment:
+      HURUMAP_API_URL: ${HURUMAP_API_URL}
+      S3_UPLOAD_KEY: ${S3_UPLOAD_KEY}
+      S3_UPLOAD_SECRET: ${S3_UPLOAD_SECRET}
+      S3_UPLOAD_BUCKET: ${S3_UPLOAD_BUCKET}
+      S3_UPLOAD_REGION: ${S3_UPLOAD_REGION}
+    ports:
+      - 3000:3000
+
   pesayetu:
     build:
       context: .

@@ -387,6 +387,9 @@ importers:
       videojs-youtube:
         specifier: ^3.0.1
         version: 3.0.1(video.js@8.16.1)
+      webpack:
+        specifier: ^5.93.0
+        version: 5.93.0(esbuild@0.18.20)
       xlsx:
         specifier: ^0.18.5
         version: 0.18.5
