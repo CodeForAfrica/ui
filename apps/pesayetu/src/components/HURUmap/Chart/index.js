@@ -118,34 +118,36 @@ function Chart({
   );
 
   useEffect(() => {
+    const spec = configureScope(
+      indicator,
+      secondaryIndicator,
+      profileNames,
+      isCompare,
+      isMobile,
+    );
+    setCSpec(spec);
+  }, [indicator, isMobile, isCompare, profileNames, secondaryIndicator]);
+
+  useEffect(() => {
+    if (!(chartRef.current && cSpec)) {
+      return;
+    }
     async function renderChart() {
-      const spec = configureScope(
-        indicator,
-        secondaryIndicator,
-        profileNames,
-        isCompare,
-        isMobile,
-      );
-      setCSpec(spec);
-      if (chartRef?.current) {
-        const newView = await embed(chartRef.current, spec, {
+      try {
+        const newView = await embed(chartRef.current, cSpec, {
           renderer: "canvas",
           actions: false,
           tooltip: handler,
         });
 
         setView(newView.view);
+      } catch (e) {
+        console.error("Failed to renderChart ", cSpec);
+        console.error(e);
       }
     }
     renderChart();
-  }, [
-    indicator,
-    isMobile,
-    isCompare,
-    profileNames,
-    secondaryIndicator,
-    handler,
-  ]);
+  }, [cSpec, handler]);
 
   // apply default filter if defined
   const defaultFilters =

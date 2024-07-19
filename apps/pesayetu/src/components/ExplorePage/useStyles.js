@@ -42,12 +42,6 @@ const useStyles = makeStyles(
         },
       },
     },
-    map: {
-      display: "none",
-      [breakpoints.up("md")]: {
-        display: "block",
-      },
-    },
     location: {
       display: "none",
       [breakpoints.up("md")]: {
