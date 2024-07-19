@@ -101,7 +101,6 @@ function Chart({
           </ThemeProvider>
         </StyledEngineProvider>,
       );
-      console.log(el);
 
       el.classList.add("visible");
       const { x, y } = calculateTooltipPosition(
