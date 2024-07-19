@@ -45,8 +45,12 @@ module.exports = {
       },
     ],
     "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    // defaultProps on fuction components are deprecated.
+    // https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#deprecate-defaultprops-on-function-components
+    // Since we no longer use class components, we should switch off this rule
+    "react/require-default-props": "off",
   },
   settings: {
     "import/resolver": {
