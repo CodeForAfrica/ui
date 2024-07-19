@@ -70,8 +70,6 @@ COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.js
 COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
 # TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica)
 COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
-COPY packages/playwright-config-commons-ui/package.json ./packages/playwright-config-commons-ui/package.json
-COPY packages/jest-config-commons-ui/package.json ./packages/jest-config-commons-ui/package.json
 RUN pnpm --filter "./packages/**" install --offline --frozen-lockfile
 
 #
