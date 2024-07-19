@@ -35,6 +35,7 @@
     "@babel/preset-react": "^7.24.7",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
+    "@hurumap/core": "workspace:*",
     "@mui/material": "^5.16.1",
     "babel-loader": "^9.1.3",
     "eslint": "^8.57.0",
@@ -52,6 +53,7 @@
   "peerDependencies": {
     "@babel/core": "^7.22.9",
     "@commons-ui/core": "workspace:*",
+    "@hurumap/core": "workspace:*",
     "@mui/material": "^5.14.0",
     "next": "~13.4.11",
     "prop-types": "^15.8.1",
@@ -59,6 +61,8 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@commons-ui/next": "workspace:*"
+    "@commons-ui/next": "workspace:*",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1"
   }
 }

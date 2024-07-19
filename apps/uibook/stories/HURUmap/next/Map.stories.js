@@ -1,8 +1,8 @@
-import { Map } from "@hurumap/core";
+import { Map } from "@hurumap/next";
 import React from "react";
 
 export default {
-  title: "@hurumap/core/Map",
+  title: "@hurumap/next/Map",
   argTypes: {
     geography: {
       control: {
@@ -15,11 +15,6 @@ export default {
       },
     },
     tileLayers: {
-      control: {
-        type: "object",
-      },
-    },
-    styles: {
       control: {
         type: "object",
       },
