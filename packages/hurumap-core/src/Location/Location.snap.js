@@ -3,51 +3,47 @@
 exports[`Location renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container css-r0conc-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-i1hvcb-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-s2k0j8-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
+          class="MuiBox-root css-1gxyb0r"
+          href="/explore"
         >
-          <div
-            class="MuiBox-root css-1gxyb0r"
-            href="/explore"
+          <h6
+            class="css-pxh4k6"
           >
-            <h6
-              class="css-pxh4k6"
-            >
-              Country
-            </h6>
-            <span
-              class="css-k6p9om"
-            >
-              Kenya
-            </span>
-          </div>
+            Country
+          </h6>
+          <span
+            class="css-k6p9om"
+          >
+            Kenya
+          </span>
         </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
+      >
         <div
-          class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
+          class="MuiBox-root css-tv63qx"
+          href="/explore/county-11"
         >
-          <div
-            class="MuiBox-root css-tv63qx"
-            href="/explore/county-11"
+          <h6
+            class="css-pxh4k6"
           >
-            <h6
-              class="css-pxh4k6"
-            >
-              County
-            </h6>
-            <span
-              class="css-k6p9om"
-            >
-              Isiolo
-            </span>
-          </div>
+            County
+          </h6>
+          <span
+            class="css-k6p9om"
+          >
+            Isiolo
+          </span>
         </div>
       </div>
     </div>
@@ -55,7 +51,7 @@ exports[`Location renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-8eix93"
+        class="MuiBox-root css-143znge"
       >
         <div
           class="MuiBox-root css-w6ptp5"
