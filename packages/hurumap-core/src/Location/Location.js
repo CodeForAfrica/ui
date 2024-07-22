@@ -2,8 +2,8 @@ import { Box, styled } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import React from "react";
 
-import LocationHighlight from "../LocationHighlight";
-import LocationTag from "../LocationTag";
+import LocationHighlight from "@/hurumap/core/LocationHighlight";
+import LocationTag from "@/hurumap/core/LocationTag";
 
 const LocationRoot = styled(Box)(({ theme }) => {
   const { typography } = theme;
