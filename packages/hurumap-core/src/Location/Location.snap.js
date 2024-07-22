@@ -3,72 +3,88 @@
 exports[`Location renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-26n7os"
+    class="MuiGrid-root MuiGrid-container css-r0conc-MuiGrid-root"
   >
     <div
-      class="MuiBox-root css-eu23mh"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1gxyb0r"
-        href="/explore"
+        class="MuiGrid-root MuiGrid-container css-1lym95h-MuiGrid-root"
       >
-        <h6
-          class="css-pxh4k6"
+        <div
+          class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
         >
-          Country
-        </h6>
-        <span
-          class="css-k6p9om"
+          <div
+            class="MuiBox-root css-1gxyb0r"
+            href="/explore"
+          >
+            <h6
+              class="css-pxh4k6"
+            >
+              Country
+            </h6>
+            <span
+              class="css-k6p9om"
+            >
+              Kenya
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
         >
-          Kenya
-        </span>
-      </div>
-      <div
-        class="MuiBox-root css-tv63qx"
-        href="/explore/county-11"
-      >
-        <h6
-          class="css-pxh4k6"
-        >
-          County
-        </h6>
-        <span
-          class="css-k6p9om"
-        >
-          Isiolo
-        </span>
+          <div
+            class="MuiBox-root css-tv63qx"
+            href="/explore/county-11"
+          >
+            <h6
+              class="css-pxh4k6"
+            >
+              County
+            </h6>
+            <span
+              class="css-k6p9om"
+            >
+              Isiolo
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <div
-      class="MuiBox-root css-8eix93"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1s0xv82"
+        class="MuiBox-root css-8eix93"
       >
-        <h6
-          class="MuiTypography-root MuiTypography-subtitle1 css-luofes-MuiTypography-root"
+        <div
+          class="MuiBox-root css-w6ptp5"
         >
-          Population
-        </h6>
-        <p
-          class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle1 css-luofes-MuiTypography-root"
+          >
+            Population
+          </h6>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+          >
+            10,000,000
+          </p>
+        </div>
+        <div
+          class="MuiBox-root css-w6ptp5"
         >
-          10,000,000
-        </p>
-      </div>
-      <div
-        class="MuiBox-root css-1s0xv82"
-      >
-        <h6
-          class="MuiTypography-root MuiTypography-subtitle1 css-luofes-MuiTypography-root"
-        >
-          GDP
-        </h6>
-        <p
-          class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
-        >
-          10,000,000
-        </p>
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle1 css-luofes-MuiTypography-root"
+          >
+            GDP
+          </h6>
+          <p
+            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+          >
+            10,000,000
+          </p>
+        </div>
       </div>
     </div>
   </div>
