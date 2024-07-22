@@ -139,21 +139,6 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             highlights={highlights}
             isLoading={isLoading}
             tags={tags}
-            LocationTagProps={{
-              sx: {
-                "&:not(:first-of-type)": {
-                  marginLeft: theme.typography.pxToRem(10),
-                },
-              },
-            }}
-            LocationHighlightProps={{
-              sx: {
-                paddingTop: "4.5px",
-                "&:not(:first-of-type)": {
-                  borderLeft: `1px solid ${theme.palette.grey.main}`,
-                },
-              },
-            }}
             sx={{
               display: "none",
               [theme.breakpoints.up("md")]: {

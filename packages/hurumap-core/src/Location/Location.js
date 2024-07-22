@@ -1,11 +1,11 @@
-import { Box, styled } from "@mui/material";
+import { Box, Grid, styled, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import React from "react";
 
 import LocationHighlight from "@/hurumap/core/LocationHighlight";
 import LocationTag from "@/hurumap/core/LocationTag";
 
-const LocationRoot = styled(Box)(({ theme }) => {
+const LocationRoot = styled(Grid)(({ theme }) => {
   const { typography } = theme;
 
   return {
@@ -27,60 +27,57 @@ const HighlightRoot = styled(Box)(({ theme }) => {
 });
 
 const Location = React.forwardRef(function Location(
-  {
-    HighlightRootProps,
-    LocationHighlightProps,
-    LocationTagProps,
-    LocationTagRootProps,
-    highlights,
-    isLoading,
-    tags,
-    ...props
-  },
+  { highlights, isLoading, tags, ...props },
   ref,
 ) {
+  const theme = useTheme();
   return (
-    <LocationRoot
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      ref={ref}
-      {...props}
-    >
-      <Box
-        display="flex"
-        flexWrap="nowrap"
-        justifyContent="center"
-        {...LocationTagRootProps}
-      >
-        {tags.map((tag, index) => (
-          <LocationTag
-            key={`${tag.level}-${tag.name}`}
-            isLoading={isLoading}
-            {...tag}
-            active={index === tags.length - 1}
-            variant="highlight"
-            {...LocationTagProps}
-          />
-        ))}
-      </Box>
-      {highlights?.length > 0 ? (
-        <HighlightRoot
-          display="flex"
-          flexWrap="nowrap"
-          justifyContent="center"
-          {...HighlightRootProps}
-        >
-          {highlights.map((highlight) => (
-            <LocationHighlight
-              key={highlight.title}
-              isLoading={isLoading}
-              {...highlight}
-              {...LocationHighlightProps}
-            />
+    <LocationRoot container ref={ref} {...props}>
+      <Grid item xs={12}>
+        <Grid container justifyContent="center">
+          {tags.map((tag, index) => (
+            <Grid
+              item
+              key={`${tag.level}-${tag.name}`}
+              sx={{
+                "&:not(:first-of-type)": {
+                  marginLeft: theme.typography.pxToRem(10),
+                },
+              }}
+            >
+              <LocationTag
+                isLoading={isLoading}
+                {...tag}
+                active={index === tags.length - 1}
+                variant="highlight"
+              />
+            </Grid>
           ))}
-        </HighlightRoot>
-      ) : null}
+        </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        {highlights?.length > 0 ? (
+          <HighlightRoot
+            display="flex"
+            flexWrap="nowrap"
+            justifyContent="center"
+          >
+            {highlights.map((highlight) => (
+              <LocationHighlight
+                key={highlight.title}
+                isLoading={isLoading}
+                {...highlight}
+                sx={{
+                  paddingTop: "4.5px",
+                  "&:not(:first-of-type)": {
+                    borderLeft: `1px solid ${theme.palette.grey.main}`,
+                  },
+                }}
+              />
+            ))}
+          </HighlightRoot>
+        ) : null}
+      </Grid>
     </LocationRoot>
   );
 });
