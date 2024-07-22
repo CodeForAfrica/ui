@@ -4,8 +4,8 @@ import { processNewUsers } from "@/vpnmanager/lib/processUsers";
 export async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const key: string = req.headers["x-api-key"] as string;
-    const SECRET_TOKEN = process.env.SECRET_TOKEN;
-    if (!key || key !== SECRET_TOKEN) {
+    const API_SECRET_KEY = process.env.API_SECRET_KEY;
+    if (!(key && key !== API_SECRET_KEY)) {
       return res.status(403).json({ message: "INVALID_API_KEY" });
     }
     processNewUsers();

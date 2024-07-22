@@ -561,7 +561,6 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
   NEXT_PUBLIC_GOOGLE_ANALYTICS \
-  SECRET_TOKEN \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -605,7 +604,6 @@ COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/app.json ./app.json
 USER nextjs
 
-ENV SECRET_TOKEN=${SECRET_TOKEN}
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/vpnmanager/server.js"]
