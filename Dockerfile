@@ -560,6 +560,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
   NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  SECRET_TOKEN \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -581,6 +582,7 @@ RUN pnpm --filter "./apps/vpnmanager" build
 
 FROM base-runner as vpnmanager-runner
 
+ARG SECRET_TOKEN
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/vpnmanager/.next \
@@ -589,7 +591,6 @@ RUN set -ex \
 # PNPM
 # symlink some dependencies
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/node_modules ./apps/vpnmanager/node_modules
 # Next.js
 # Public assets
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/public ./apps/vpnmanager/public
@@ -598,10 +599,11 @@ COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/dist ./apps/vpnmanager/dist
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/scripts ./apps/vpnmanager/scripts
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/app.json ./app.json
 USER nextjs
 
+ENV SECRET_TOKEN=${SECRET_TOKEN}
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/vpnmanager/server.js"]

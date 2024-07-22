@@ -57,6 +57,7 @@ jobs:
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}
+            SECRET_TOKEN=${{ secrets.VPNMANAGER_SECRET_TOKEN }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
