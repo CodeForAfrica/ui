@@ -147,7 +147,7 @@ services:
         - SENTRY_ORG
         - SENTRY_PROJECT
         - SENTRY_DSN
-        - SECRET_TOKEN
+        - API_SECRET_KEY
     environment:
       NODE_ENV: ${NODE_ENV:-production}
     ports:
