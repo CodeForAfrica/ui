@@ -582,7 +582,7 @@ RUN pnpm --filter "./apps/vpnmanager" build
 
 FROM base-runner as vpnmanager-runner
 
-ARG SECRET_TOKEN
+ARG API_SECRET_KEY
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/vpnmanager/.next \
