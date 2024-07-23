@@ -588,6 +588,7 @@ RUN set -ex \
   && mkdir -p ./apps/vpnmanager/.next \
   && chown nextjs:nodejs ./apps/vpnmanager/.next
 
+  ENV API_SECRET_KEY=${API_SECRET_KEY}
 # PNPM
 # symlink some dependencies
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
