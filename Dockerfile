@@ -440,6 +440,8 @@ CMD ["node", "dist/server.js"]
 
 FROM base-deps as pesayetu-deps
 
+COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
+COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
 COPY apps/pesayetu/package.json ./apps/pesayetu/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
@@ -580,6 +582,7 @@ RUN pnpm --filter "./apps/vpnmanager" build
 
 FROM base-runner as vpnmanager-runner
 
+ARG API_SECRET_KEY
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/vpnmanager/.next \
@@ -597,7 +600,7 @@ COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
-
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/contrib/dokku ./contrib/dokku
 USER nextjs
 
 # server.js is created by next build from the standalone output
@@ -616,6 +619,8 @@ CMD ["node", "apps/vpnmanager/server.js"]
 
   FROM base-deps as climatemappedafrica-deps
 
+  COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
+  COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
   COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
 
   # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
