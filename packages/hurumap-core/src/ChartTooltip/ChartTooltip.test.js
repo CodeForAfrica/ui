@@ -11,6 +11,8 @@ const defaultTooltipProps = {
   event: null,
   title: "",
   formattedValue: undefined,
+  position: { x: 10, y: 10 },
+  tooltipRef: { current: null },
 };
 
 describe("ChartTooltip", () => {
