@@ -1,97 +1,86 @@
-import { Box, Typography, Grid, useTheme } from "@mui/material";
-import React, { forwardRef } from "react";
+import { StyledEngineProvider } from "@mui/material/styles";
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 
-const ChartTooltip = forwardRef(function ChartTooltip(
-  { title, value, formattedValue, item, ...props },
-  ref,
-) {
-  const theme = useTheme();
-  const { typography, palette } = theme;
-  return (
-    <Grid
-      container
-      ref={ref}
-      style={{
-        background: palette.grey.dark,
-        boxShadow: "0px 3px 6px #00000029",
-        borderRadius: theme.typography.pxToRem(4),
-        opacity: 0.8,
-        color: theme.palette.text.secondary,
-        padding: theme.typography.pxToRem(12.5),
-        paddingRight: 0,
-        display: "inline-block",
-        width: "fit-content",
-      }}
-    >
-      {item && (
-        <Grid
-          item
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Box
-            style={{
-              width: theme.typography.pxToRem(10),
-              height: theme.typography.pxToRem(10),
-              border: `1px solid ${theme.palette.background.default}`,
-              background: props.itemColor,
-              borderRadius: "100%",
-              marginRight: theme.typography.pxToRem(7),
-            }}
-          />
-          <Typography
-            style={{
-              fontSize: typography.pxToRem(11),
-            }}
-          >
-            {item}
-          </Typography>
-        </Grid>
-      )}
-      <Grid
-        item
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Typography
-          variant="body2"
-          component="div"
-          style={{
-            marginRight: typography.pxToRem(12.5),
-            maxWidth: typography.pxToRem(148),
-          }}
-        >
-          {title}
-        </Typography>
-        {formattedValue && (
-          <Typography
-            variant="body2"
-            component="div"
-            style={{
-              marginRight: typography.pxToRem(12.5),
-              maxWidth: typography.pxToRem(148),
-            }}
-          >
-            {formattedValue}
-          </Typography>
-        )}
-        <Typography
-          variant="body2"
-          component="div"
-          style={{
-            marginRight: typography.pxToRem(12.5),
-            maxWidth: typography.pxToRem(148),
-          }}
-        >
-          {value}
-        </Typography>
-      </Grid>
-    </Grid>
+import Tooltip from "./Tooltip"; // Import your ChartTooltip component
+
+function calculateTooltipPosition(event, tooltipBox, offsetX, offsetY) {
+  let x = event.pageX + offsetX;
+  /* eslint-env browser */
+  if (x + tooltipBox.width > window.innerWidth) {
+    x = +event.pageX - offsetX - tooltipBox.width;
+  }
+  let y = event.pageY + offsetY;
+  /* eslint-env browser */
+  if (y < window.innerHeight) {
+    /* eslint-env browser */
+    y = window.innerHeight + offsetY;
+  }
+  /* eslint-env browser */
+  if (y + tooltipBox.height > window.innerHeight) {
+    y = +event.pageY - offsetY - tooltipBox.height;
+  }
+  return { x, y };
+}
+
+function ChartTooltip({
+  id,
+  geoCode,
+  value,
+  itemColor,
+  title,
+  formattedValue,
+  event,
+}) {
+  const tooltipRef = useRef();
+
+  useEffect(() => {
+    const el = document.createElement("div");
+    el.className = `charttooltip-${id}-${geoCode}`;
+    document.body.appendChild(el);
+    tooltipRef.current = el;
+
+    const tooltipContainer = document.fullscreenElement || document.body;
+    tooltipContainer.appendChild(el);
+
+    return () => {
+      if (el) {
+        el.remove();
+      }
+    };
+  }, [id, geoCode]);
+
+  useEffect(() => {
+    if (tooltipRef.current && value) {
+      const { x, y } = calculateTooltipPosition(
+        event,
+        tooltipRef.current.getBoundingClientRect(),
+        0,
+        10,
+      );
+      tooltipRef.current.style.top = `${y}px`;
+      tooltipRef.current.style.left = `${x}px`;
+      tooltipRef.current.style.zIndex = 1230;
+      tooltipRef.current.style.position = "absolute";
+    }
+  }, [value, event]);
+
+  if (!tooltipRef.current || !value) {
+    return null;
+  }
+
+  return ReactDOM.createPortal(
+    <StyledEngineProvider injectFirst>
+      <Tooltip
+        title={title}
+        value={value.count}
+        formattedValue={formattedValue}
+        item={value?.category}
+        itemColor={itemColor}
+      />
+    </StyledEngineProvider>,
+    tooltipRef.current,
   );
-});
+}
 
 export default ChartTooltip;

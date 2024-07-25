@@ -1,19 +1,15 @@
 import { ChartTooltip } from "@hurumap/core";
 import { Source } from "@hurumap/next";
 import { useMediaQuery } from "@mui/material";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import makeStyles from "@mui/styles/makeStyles";
-import PropTypes from "prop-types";
-import React, { useEffect, useState, useRef, useCallback } from "react";
-import ReactDOMServer from "react-dom/server";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import embed from "vega-embed";
 
 import configureScope from "./configureScope";
 import Filters from "./Filters";
-import { calculateTooltipPosition, idify } from "./utils";
+import { idify } from "./utils";
 
 import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
-import theme from "@/pesayetu/theme";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -28,7 +24,7 @@ const useStyles = makeStyles(() => ({
 function Chart({
   indicator,
   indicatorTitle,
-  secondaryIndicator: { indicator: secondaryIndicator },
+  secondaryIndicator: sI,
   title,
   geoCode,
   profileNames,
@@ -39,8 +35,10 @@ function Chart({
   const chartRef = useRef();
   const [view, setView] = useState(null);
   const [cSpec, setCSpec] = useState(null);
-  // For charts, cnsider anything less than 600px as mobile
   const isMobile = !useMediaQuery("(min-width:600px)");
+  const [tooltipData, setTooltipData] = useState(null);
+  const [tooltipEvent, setTooltipEvent] = useState(null);
+  const secondaryIndicator = sI?.indicator;
 
   const {
     id,
@@ -65,56 +63,10 @@ function Chart({
 
   const handler = useCallback(
     (_, event, item, value) => {
-      const className = `charttooltip-${id}-${geoCode}`;
-      /* eslint-env browser */
-      let el = document.getElementsByClassName(className)[0];
-      if (!el) {
-        /* eslint-env browser */
-        el = document.createElement("div");
-        el.classList.add(className);
-        /* eslint-env browser */
-        document.body.appendChild(el);
-      }
-
-      /* eslint-env browser */
-      const tooltipContainer = document.fullscreenElement || document.body;
-      tooltipContainer.appendChild(el);
-      // hide tooltip for null objects, undefined
-      if (!value) {
-        el.remove();
-        return;
-      }
-      el.innerHTML = ReactDOMServer.renderToString(
-        <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <ChartTooltip
-              title={value.group}
-              value={value.count}
-              formattedValue={
-                defaultType?.toLowerCase() === "percentage" || !disableToggle
-                  ? value.percentage
-                  : undefined
-              }
-              item={value?.category}
-              itemColor={item?.fill}
-            />
-          </ThemeProvider>
-        </StyledEngineProvider>,
-      );
-
-      el.classList.add("visible");
-      const { x, y } = calculateTooltipPosition(
-        event,
-        el.getBoundingClientRect(),
-        0,
-        10,
-      );
-      el.setAttribute(
-        "style",
-        `top: ${y}px; left: ${x}px; z-index: 1230; position: absolute`,
-      );
+      setTooltipEvent(event);
+      setTooltipData({ item, value, id, geoCode });
     },
-    [defaultType, disableToggle, geoCode, id],
+    [id, geoCode],
   );
 
   useEffect(() => {
@@ -205,6 +157,7 @@ function Chart({
   if (!indicator?.data) {
     return null;
   }
+
   return (
     <div className={classes.root} id={`chart-${id}-${geoCode}`}>
       <IndicatorTitle
@@ -227,7 +180,6 @@ function Chart({
       </IndicatorTitle>
       {!isMobile && (
         <Filters
-          // remove primary group, remove stacked field & defined defaults filters
           filterGroups={filterGroups}
           filterSelectProps={filterSelectProps}
           setFilterSelectProps={setFilterSelectProps}
@@ -244,66 +196,23 @@ function Chart({
       >
         {source}
       </Source>
+      {tooltipData && tooltipEvent && (
+        <ChartTooltip
+          id={id}
+          geoCode={geoCode}
+          value={tooltipData.value}
+          itemColor={tooltipData.item?.fill}
+          event={tooltipEvent}
+          title={tooltipData.value?.group}
+          formattedValue={
+            defaultType?.toLowerCase() === "percentage" || !disableToggle
+              ? tooltipData.value?.percentage
+              : undefined
+          }
+        />
+      )}
     </div>
   );
 }
-
-Chart.propTypes = {
-  indicator: PropTypes.shape({
-    id: PropTypes.number,
-    chart_configuration: PropTypes.shape({
-      disableToggle: PropTypes.bool,
-      defaultType: PropTypes.string,
-      filter: PropTypes.PropTypes.shape({
-        defaults: PropTypes.arrayOf(PropTypes.shape({})),
-      }),
-      stacked_field: PropTypes.string,
-    }),
-    description: PropTypes.string,
-    metadata: PropTypes.shape({
-      source: PropTypes.string,
-      url: PropTypes.string,
-      groups: PropTypes.arrayOf(PropTypes.shape({})),
-      primary_group: PropTypes.string,
-    }),
-    data: PropTypes.arrayOf(PropTypes.shape({})),
-  }),
-  indicatorTitle: PropTypes.string,
-  secondaryIndicator: PropTypes.shape({
-    indicator: PropTypes.shape({
-      id: PropTypes.number,
-      chart_configuration: PropTypes.shape({
-        disableToggle: PropTypes.bool,
-        defaultType: PropTypes.string,
-        filter: PropTypes.PropTypes.shape({
-          defaults: PropTypes.arrayOf(PropTypes.shape({})),
-        }),
-        stacked_field: PropTypes.string,
-      }),
-      description: PropTypes.string,
-      metadata: PropTypes.shape({
-        source: PropTypes.string,
-        url: PropTypes.string,
-        groups: PropTypes.arrayOf(PropTypes.shape({})),
-        primary_group: PropTypes.string,
-      }),
-      data: PropTypes.arrayOf(PropTypes.shape({})),
-    }),
-  }),
-  title: PropTypes.string,
-  geoCode: PropTypes.string,
-  profileNames: PropTypes.shape({}),
-  isCompare: PropTypes.bool,
-};
-
-Chart.defaultProps = {
-  indicator: undefined,
-  indicatorTitle: undefined,
-  secondaryIndicator: {},
-  title: undefined,
-  geoCode: undefined,
-  profileNames: undefined,
-  isCompare: false,
-};
 
 export default Chart;
