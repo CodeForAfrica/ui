@@ -1,27 +1,9 @@
+/* eslint-env browser */
 import { StyledEngineProvider } from "@mui/material/styles";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import Tooltip from "./Tooltip"; // Import your ChartTooltip component
-
-function calculateTooltipPosition(event, tooltipBox, offsetX, offsetY) {
-  let x = event.pageX + offsetX;
-  /* eslint-env browser */
-  if (x + tooltipBox.width > window.innerWidth) {
-    x = +event.pageX - offsetX - tooltipBox.width;
-  }
-  let y = event.pageY + offsetY;
-  /* eslint-env browser */
-  if (y < window.innerHeight) {
-    /* eslint-env browser */
-    y = window.innerHeight + offsetY;
-  }
-  /* eslint-env browser */
-  if (y + tooltipBox.height > window.innerHeight) {
-    y = +event.pageY - offsetY - tooltipBox.height;
-  }
-  return { x, y };
-}
 
 function ChartTooltip({
   id,
@@ -31,9 +13,11 @@ function ChartTooltip({
   title,
   formattedValue,
   event,
+  position,
+  ...props
 }) {
-  const tooltipRef = useRef();
-
+  const { tooltipRef } = props;
+  const { x, y } = position;
   useEffect(() => {
     const el = document.createElement("div");
     el.className = `charttooltip-${id}-${geoCode}`;
@@ -48,22 +32,16 @@ function ChartTooltip({
         el.remove();
       }
     };
-  }, [id, geoCode]);
+  }, [id, geoCode, tooltipRef]);
 
   useEffect(() => {
     if (tooltipRef.current && value) {
-      const { x, y } = calculateTooltipPosition(
-        event,
-        tooltipRef.current.getBoundingClientRect(),
-        0,
-        10,
-      );
       tooltipRef.current.style.top = `${y}px`;
       tooltipRef.current.style.left = `${x}px`;
       tooltipRef.current.style.zIndex = 1230;
       tooltipRef.current.style.position = "absolute";
     }
-  }, [value, event]);
+  }, [value, event, x, y, tooltipRef]);
 
   if (!tooltipRef.current || !value) {
     return null;
@@ -77,6 +55,7 @@ function ChartTooltip({
         formattedValue={formattedValue}
         item={value?.category}
         itemColor={itemColor}
+        {...props}
       />
     </StyledEngineProvider>,
     tooltipRef.current,

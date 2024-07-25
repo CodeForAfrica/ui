@@ -2,7 +2,7 @@ import { Box, Typography, Grid } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const Tooltip = forwardRef(function Tooltip(
-  { title, value, formattedValue, item, ...props },
+  { title, value, formattedValue, item, sx, ...props },
   ref,
 ) {
   return (
@@ -19,6 +19,7 @@ const Tooltip = forwardRef(function Tooltip(
         paddingRight: 0,
         display: "inline-block",
         width: "fit-content",
+        ...(typeof sx === "function" ? sx(theme) : sx),
       })}
     >
       {item && (

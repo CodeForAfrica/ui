@@ -7,7 +7,7 @@ import embed from "vega-embed";
 
 import configureScope from "./configureScope";
 import Filters from "./Filters";
-import { idify } from "./utils";
+import { calculateTooltipPosition, idify } from "./utils";
 
 import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
 
@@ -33,11 +33,11 @@ function Chart({
 }) {
   const classes = useStyles(props);
   const chartRef = useRef();
+  const tooltipRef = useRef();
   const [view, setView] = useState(null);
   const [cSpec, setCSpec] = useState(null);
   const isMobile = !useMediaQuery("(min-width:600px)");
   const [tooltipData, setTooltipData] = useState(null);
-  const [tooltipEvent, setTooltipEvent] = useState(null);
   const secondaryIndicator = sI?.indicator;
 
   const {
@@ -63,8 +63,7 @@ function Chart({
 
   const handler = useCallback(
     (_, event, item, value) => {
-      setTooltipEvent(event);
-      setTooltipData({ item, value, id, geoCode });
+      setTooltipData({ item, value, id, geoCode, event });
     },
     [id, geoCode],
   );
@@ -154,6 +153,15 @@ function Chart({
       }),
   ];
 
+  let position = {};
+  if (tooltipData?.event && tooltipRef?.current) {
+    position = calculateTooltipPosition(
+      tooltipData?.event,
+      tooltipRef?.current?.getBoundingClientRect(),
+      0,
+      10,
+    );
+  }
   if (!indicator?.data) {
     return null;
   }
@@ -196,14 +204,16 @@ function Chart({
       >
         {source}
       </Source>
-      {tooltipData && tooltipEvent && (
+      {tooltipData && tooltipData?.event && (
         <ChartTooltip
           id={id}
           geoCode={geoCode}
           value={tooltipData.value}
           itemColor={tooltipData.item?.fill}
-          event={tooltipEvent}
+          event={tooltipData?.event}
           title={tooltipData.value?.group}
+          tooltipRef={tooltipRef}
+          position={position}
           formattedValue={
             defaultType?.toLowerCase() === "percentage" || !disableToggle
               ? tooltipData.value?.percentage
