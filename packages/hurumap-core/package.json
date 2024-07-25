@@ -67,6 +67,14 @@
     "react-leaflet": "^4.2.1"
   },
   "dependencies": {
-    "prop-types": "^15.8.1"
+    "@commons-ui/core": "workspace:*",
+    "@mui/icons-material": "^5.16.1",
+    "clsx": "^2.1.1",
+    "papaparse": "^5.4.1",
+    "prop-types": "^15.8.1",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-share": "^5.1.0",
+    "vega": "^5.30.0",
+    "xlsx": "^0.18.5"
   }
 }

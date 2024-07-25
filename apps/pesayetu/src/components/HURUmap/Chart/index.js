@@ -1,3 +1,4 @@
+import { IndicatorTitle } from "@hurumap/core";
 import { Source } from "@hurumap/next";
 import { useMediaQuery } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
@@ -12,7 +13,7 @@ import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
 import ChartTooltip from "@/pesayetu/components/HURUmap/ChartTooltip";
-import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
+// import IndicatorTitle from "@/pesayetu/components/HURUmap/IndicatorTitle";
 import theme from "@/pesayetu/theme";
 
 const useStyles = makeStyles(() => ({

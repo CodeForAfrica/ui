@@ -53,6 +53,9 @@
         "SOURCE_LIB"
       ]
     },
+    "@hurumap/core": {
+      "env": ["NEXT_PUBLIC_APP_URL"]
+    },
     "jest": {
       "inputs": ["src/**/*.js"]
     },
