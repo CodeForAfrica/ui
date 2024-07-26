@@ -79,6 +79,7 @@ function Action({ children, header, icon, title, id, ...props }) {
       >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
+            {/* Fix: https://github.com/mui/material-ui/issues/27154#issuecomment-1117386458  */}
             <div>
               <ClickAwayListener onClickAway={handleClose}>
                 <Paper className={classes.paper}>
