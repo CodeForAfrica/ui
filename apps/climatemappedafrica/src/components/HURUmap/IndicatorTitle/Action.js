@@ -79,15 +79,17 @@ function Action({ children, header, icon, title, id, ...props }) {
       >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
-            <ClickAwayListener onClickAway={handleClose}>
-              <Paper className={classes.paper}>
-                <ButtonBase onClick={handleClose} className={classes.header}>
-                  <Typography className={classes.title}>{header}</Typography>
-                  <CloseIcon />
-                </ButtonBase>
-                {children}
-              </Paper>
-            </ClickAwayListener>
+            <div>
+              <ClickAwayListener onClickAway={handleClose}>
+                <Paper className={classes.paper}>
+                  <ButtonBase onClick={handleClose} className={classes.header}>
+                    <Typography className={classes.title}>{header}</Typography>
+                    <CloseIcon />
+                  </ButtonBase>
+                  {children}
+                </Paper>
+              </ClickAwayListener>
+            </div>
           </Fade>
         )}
       </Popper>

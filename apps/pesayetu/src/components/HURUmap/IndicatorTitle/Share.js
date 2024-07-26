@@ -1,10 +1,10 @@
-import { Grid, TextField, Typography, SvgIcon } from "@mui/material";
+import { ShareButton } from "@hurumap/core";
+import { Grid, TextField, Typography, SvgIcon, useTheme } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-import ShareButton from "./ShareButton";
 import useStyles from "./useStyles";
 
 import { ReactComponent as CopyIcon } from "@/pesayetu/assets/icons/Group 5062.svg";
@@ -20,6 +20,7 @@ function Share({
 }) {
   const classes = useStyles(props);
   const [copied, setCopied] = useState(false);
+  const theme = useTheme();
 
   const handleOnCopy = () => {
     setCopied((prev) => !prev);
@@ -82,7 +83,7 @@ function Share({
         ? `@media (max-width: 1280px) {
       .${className} {
         padding-top: 160%;
-      } 
+      }
       @media (max-width: 620px) {
         .${className}  {
           padding-top: 200%;
@@ -103,8 +104,8 @@ function Share({
         }
       }`
     }
-</style> 
-<div class="${className}"><iframe class="frame" 
+</style>
+<div class="${className}"><iframe class="frame"
   src="${
     process.env.NEXT_PUBLIC_APP_URL
   }/embed/${geoCode.toLowerCase()}/${indicatorId}"></iframe></div></div>
@@ -125,7 +126,22 @@ function Share({
               </CopyToClipboard>
             </div>
           ) : (
-            <ShareButton name={social.name} url={url} {...social.props} />
+            <ShareButton
+              name={social.name}
+              url={url}
+              {...social.props}
+              sx={{
+                backgroundColor: `${theme.palette.background.default} !important`,
+                filter: "opacity(0.6)",
+                width: "100%",
+                border: `solid 1px ${theme.palette.background.paper} !important`,
+                paddingTop: `${theme.typography.pxToRem(5)} !important`,
+                "&:hover": {
+                  border: "solid 1px #666666 !important",
+                  backgroundColor: `${theme.palette.grey.light} !important`,
+                },
+              }}
+            />
           )}
         </Grid>
       ))}

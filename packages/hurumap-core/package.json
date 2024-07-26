@@ -67,6 +67,8 @@
     "react-leaflet": "^4.2.1"
   },
   "dependencies": {
-    "prop-types": "^15.8.1"
+    "@mui/icons-material": "^5.16.1",
+    "prop-types": "^15.8.1",
+    "react-share": "^5.1.0"
   }
 }
