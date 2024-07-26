@@ -7,7 +7,12 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import useStyles from "./useStyles";
 
+import { ReactComponent as EmailIcon } from "@/climatemappedafrica/assets/icons/Email.svg";
+import { ReactComponent as FacebookIcon } from "@/climatemappedafrica/assets/icons/Facebook.svg";
 import { ReactComponent as CopyIcon } from "@/climatemappedafrica/assets/icons/Group 5062.svg";
+import { ReactComponent as LinkedInIcon } from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
+import { ReactComponent as TwitterIcon } from "@/climatemappedafrica/assets/icons/Twitter.svg";
+import { ReactComponent as WhatsAppIcon } from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
 import site from "@/climatemappedafrica/utils/site";
 
 function Share({
@@ -45,21 +50,24 @@ function Share({
   const shareData = [
     {
       name: "Facebook",
+      icon: FacebookIcon,
       props: { quote: title, hashtag: "#ClimateMapped.Africa" },
     },
     {
       name: "Twitter",
+      icon: TwitterIcon,
       props: { title, via: "Code4Africa", related: ["Code4Africa"] },
     },
     {
       name: "LinkedIn",
+      icon: LinkedInIcon,
       props: {
         summary: title,
         source: process.env.NEXT_PUBLIC_APP_URL,
       },
     },
-    { name: "WhatsApp", props: { quote: title } },
-    { name: "Email", props: { subject: title } },
+    { name: "WhatsApp", icon: WhatsAppIcon, props: { quote: title } },
+    { name: "Email", icon: EmailIcon, props: { subject: title } },
     { name: "CopyUrl" },
   ];
 
@@ -131,6 +139,7 @@ function Share({
           ) : (
             <ShareButton
               name={social.name}
+              icon={social.icon}
               url={url}
               {...social.props}
               sx={{
@@ -142,6 +151,11 @@ function Share({
                 "&:hover": {
                   border: "solid 1px #666666 !important",
                   backgroundColor: `${theme.palette.grey.light} !important`,
+                },
+              }}
+              ButtonProps={{
+                style: {
+                  width: "100%",
                 },
               }}
             />

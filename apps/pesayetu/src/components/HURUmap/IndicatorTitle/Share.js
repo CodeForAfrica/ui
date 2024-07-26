@@ -7,7 +7,12 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import useStyles from "./useStyles";
 
+import { ReactComponent as EmailIcon } from "@/pesayetu/assets/icons/Email.svg";
+import { ReactComponent as FacebookIcon } from "@/pesayetu/assets/icons/Facebook.svg";
 import { ReactComponent as CopyIcon } from "@/pesayetu/assets/icons/Group 5062.svg";
+import { ReactComponent as LinkedInIcon } from "@/pesayetu/assets/icons/LinkedIn.svg";
+import { ReactComponent as TwitterIcon } from "@/pesayetu/assets/icons/Twitter.svg";
+import { ReactComponent as WhatsAppIcon } from "@/pesayetu/assets/icons/WhatsApp.svg";
 import site from "@/pesayetu/utils/site";
 
 function Share({
@@ -43,20 +48,26 @@ function Share({
   ).toString();
 
   const shareData = [
-    { name: "Facebook", props: { quote: title, hashtag: "#PesaYetu" } },
+    {
+      name: "Facebook",
+      icon: FacebookIcon,
+      props: { quote: title, hashtag: "#ClimateMapped.Africa" },
+    },
     {
       name: "Twitter",
+      icon: TwitterIcon,
       props: { title, via: "Code4Africa", related: ["Code4Africa"] },
     },
     {
       name: "LinkedIn",
+      icon: LinkedInIcon,
       props: {
         summary: title,
         source: process.env.NEXT_PUBLIC_APP_URL,
       },
     },
-    { name: "WhatsApp", props: { quote: title } },
-    { name: "Email", props: { subject: title } },
+    { name: "WhatsApp", icon: WhatsAppIcon, props: { quote: title } },
+    { name: "Email", icon: EmailIcon, props: { subject: title } },
     { name: "CopyUrl" },
   ];
 
@@ -129,16 +140,22 @@ function Share({
             <ShareButton
               name={social.name}
               url={url}
+              icon={social.icon}
               {...social.props}
               sx={{
-                backgroundColor: `${theme.palette.background.default} !important`,
+                backgroundColor: `${theme.palette.background.default} `,
                 filter: "opacity(0.6)",
                 width: "100%",
-                border: `solid 1px ${theme.palette.background.paper} !important`,
-                paddingTop: `${theme.typography.pxToRem(5)} !important`,
+                border: `solid 1px ${theme.palette.background.paper} `,
+                paddingTop: `${theme.typography.pxToRem(5)} `,
                 "&:hover": {
-                  border: "solid 1px #666666 !important",
-                  backgroundColor: `${theme.palette.grey.light} !important`,
+                  border: "solid 1px #666666 ",
+                  backgroundColor: `${theme.palette.grey.light} `,
+                },
+              }}
+              ButtonProps={{
+                style: {
+                  width: "100%",
                 },
               }}
             />

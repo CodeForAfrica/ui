@@ -1,11 +1,4 @@
-import EmailIcon from "@mui/icons-material/Email";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import PinterestIcon from "@mui/icons-material/Pinterest";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import XIcon from "@mui/icons-material/X";
-import { Box } from "@mui/material";
+import { Box, SvgIcon } from "@mui/material";
 import React from "react";
 import {
   TwitterShareButton,
@@ -18,24 +11,23 @@ import {
 } from "react-share";
 
 const componentMap = {
-  Facebook: { icon: FacebookIcon, button: FacebookShareButton },
-  Twitter: { icon: XIcon, button: TwitterShareButton },
-  LinkedIn: { icon: LinkedInIcon, button: LinkedinShareButton },
-  WhatsApp: { icon: WhatsAppIcon, button: WhatsappShareButton },
-  Email: { icon: EmailIcon, button: EmailShareButton },
-  Telegram: { icon: TelegramIcon, button: TelegramShareButton },
-  Pinterest: { icon: PinterestIcon, button: PinterestShareButton },
+  Facebook: FacebookShareButton,
+  Twitter: TwitterShareButton,
+  LinkedIn: LinkedinShareButton,
+  WhatsApp: WhatsappShareButton,
+  Email: EmailShareButton,
+  Telegram: TelegramShareButton,
+  Pinterest: PinterestShareButton,
 };
 
 const ShareButton = React.forwardRef(function ShareButton({
   name,
   url,
-  IconProps,
   ButtonProps,
+  icon,
   ...props
 }) {
-  const SocialButtonComponent = componentMap[name].button;
-  const SocialIcon = componentMap[name].icon;
+  const SocialButtonComponent = componentMap[name];
 
   if (!SocialButtonComponent) {
     return null;
@@ -52,7 +44,12 @@ const ShareButton = React.forwardRef(function ShareButton({
       }}
     >
       <SocialButtonComponent url={url} {...ButtonProps}>
-        <SocialIcon {...IconProps} />
+        <SvgIcon
+          component={icon}
+          sx={{
+            width: "100%",
+          }}
+        />
       </SocialButtonComponent>
     </Box>
   );
