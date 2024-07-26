@@ -37,6 +37,10 @@ const ShareButton = React.forwardRef(function ShareButton({
   const SocialButtonComponent = componentMap[name].button;
   const SocialIcon = componentMap[name].icon;
 
+  if (!SocialButtonComponent) {
+    return null;
+  }
+
   return (
     <Box
       {...props}
