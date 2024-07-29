@@ -21,10 +21,11 @@ const componentMap = {
 };
 
 const ShareButton = React.forwardRef(function ShareButton({
+  ButtonProps,
+  IconProps,
+  icon,
   name,
   url,
-  ButtonProps,
-  icon,
   ...props
 }) {
   const SocialButtonComponent = componentMap[name];
@@ -40,14 +41,17 @@ const ShareButton = React.forwardRef(function ShareButton({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        ...props.sx,
+        ...props?.sx,
       }}
     >
       <SocialButtonComponent url={url} {...ButtonProps}>
         <SvgIcon
           component={icon}
+          viewBox="0 0 24 24"
+          {...IconProps}
           sx={{
             width: "100%",
+            ...IconProps?.sx,
           }}
         />
       </SocialButtonComponent>
