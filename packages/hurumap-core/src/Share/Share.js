@@ -96,10 +96,9 @@ const Share = React.forwardRef(function Share({
       >
         <Typography
           sx={{
-            fontSize: theme.typography.pxToRem(11),
-            lineHeight: 17 / 11,
             color: "#666666",
           }}
+          variant="caption"
         >
           Embed on your website:
         </Typography>
@@ -117,11 +116,15 @@ const Share = React.forwardRef(function Share({
       >
         <TextField
           value={code}
-          sx={{
-            background: theme.palette.background.paper,
-            fontSize: theme.typography.pxToRem(11),
-            lineHeight: 17 / 11,
-            color: "#666666",
+          size="small"
+          fullWidth
+          InputProps={{
+            style: {
+              background: theme.palette.background.paper,
+              fontSize: theme.typography.pxToRem(11),
+              lineHeight: 17 / 11,
+              color: "#666666",
+            },
           }}
         />
       </Grid>
