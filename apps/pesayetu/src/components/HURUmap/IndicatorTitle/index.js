@@ -68,12 +68,61 @@ function IndicatorTitle({
 }) {
   const classes = useStyles(props);
 
-  const { geoCode, indicatorId } = props;
+  const { chartType, geoCode, indicatorId, isCompare } = props;
 
   const url = new URL(
     `/embed/${geoCode.toLowerCase()}/${indicatorId}`,
     site.environmentUrl,
   ).toString();
+  const className = `wrapper-${geoCode}-${indicatorId}`;
+  const code = `<div>
+  <style>
+    .frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      z-index: 10;
+    }
+    .${className} {
+        position: relative;
+        overflow: hidden;
+        padding-top: ${chartType === "treemap" ? "75%" : "56.25%"};
+    }
+    ${
+      isCompare
+        ? `@media (max-width: 1280px) {
+      .${className} {
+        padding-top: 160%;
+      }
+      @media (max-width: 620px) {
+        .${className}  {
+          padding-top: 200%;
+        }
+      @media (max-width: 500px) {
+        .${className}  {padding-top: 240% }}`
+        : `@media (max-width: 1280px) {
+        .${className}{
+          padding-top: ${chartType === "treemap" ? "100%" : "75%"};
+        }
+    @media (max-width: 620px) {
+      .${className} {
+        padding-top: ${chartType === "treemap" ? "120%" : "100%"};
+      }
+      @media (max-width: 500px) {
+        .${className} {
+          padding-top: ${chartType === "treemap" ? "170%" : "140%"};
+        }
+      }`
+    }
+</style>
+<div class="${className}"><iframe class="frame"
+  src="${
+    process.env.NEXT_PUBLIC_APP_URL
+  }/embed/${geoCode.toLowerCase()}/${indicatorId}"></iframe></div></div>
+  `;
 
   const shareData = [
     {
@@ -134,7 +183,13 @@ function IndicatorTitle({
       title: "Share",
       header: "Share chart via:",
       children: (
-        <Share title={title} shareData={shareData} url={url} {...props} />
+        <Share
+          title={title}
+          shareData={shareData}
+          url={url}
+          code={code}
+          {...props}
+        />
       ),
       icon: <ShareIcon />,
     },
