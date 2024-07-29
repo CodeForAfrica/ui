@@ -3,17 +3,20 @@ import React, { useState, useEffect } from "react";
 
 import ShareButton from "@/hurumap/core/ShareButton";
 
-const Share = React.forwardRef(function Share({
-  title,
-  chartType,
-  code,
-  geoCode,
-  indicatorId,
-  isCompare,
-  shareData,
-  url,
-  ...props
-}) {
+const Share = React.forwardRef(function Share(
+  {
+    title,
+    chartType,
+    code,
+    geoCode,
+    indicatorId,
+    isCompare,
+    shareData,
+    url,
+    ...props
+  },
+  ref,
+) {
   const theme = useTheme();
   const [copied, setCopied] = useState(false);
 
@@ -32,7 +35,7 @@ const Share = React.forwardRef(function Share({
   }, [copied]);
 
   return (
-    <Grid container {...props}>
+    <Grid container {...props} ref={ref}>
       {shareData.map((social) => (
         <Grid item xs={4} key={social.name}>
           <ShareButton

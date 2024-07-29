@@ -25,15 +25,10 @@ const componentMap = {
   WhatsApp: WhatsappShareButton,
 };
 
-const ShareButton = React.forwardRef(function ShareButton({
-  ButtonProps,
-  IconProps,
-  icon,
-  name,
-  url,
-  onCopy,
-  ...props
-}) {
+const ShareButton = React.forwardRef(function ShareButton(
+  { ButtonProps, IconProps, icon, name, url, onCopy, ...props },
+  ref,
+) {
   const SocialButtonComponent = componentMap[name];
 
   if (!SocialButtonComponent && name !== "CopyUrl") {
@@ -49,6 +44,7 @@ const ShareButton = React.forwardRef(function ShareButton({
         alignItems: "center",
         ...props?.sx,
       }}
+      ref={ref}
     >
       {name === "CopyUrl" ? (
         <CopyToClipboard text={url} onCopy={onCopy} {...ButtonProps}>
