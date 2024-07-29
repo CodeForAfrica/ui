@@ -1,23 +1,28 @@
 import { Box, SvgIcon } from "@mui/material";
 import React from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import {
-  TwitterShareButton,
-  LinkedinShareButton,
-  FacebookShareButton,
   EmailShareButton,
-  WhatsappShareButton,
-  TelegramShareButton,
+  FacebookShareButton,
+  FacebookMessengerShareButton,
+  LinkedinShareButton,
   PinterestShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
 } from "react-share";
 
 const componentMap = {
-  Facebook: FacebookShareButton,
-  Twitter: TwitterShareButton,
-  LinkedIn: LinkedinShareButton,
-  WhatsApp: WhatsappShareButton,
   Email: EmailShareButton,
-  Telegram: TelegramShareButton,
+  Facebook: FacebookShareButton,
+  FacebookMessenger: FacebookMessengerShareButton,
+  LinkedIn: LinkedinShareButton,
   Pinterest: PinterestShareButton,
+  Reddit: RedditShareButton,
+  Telegram: TelegramShareButton,
+  Twitter: TwitterShareButton,
+  WhatsApp: WhatsappShareButton,
 };
 
 const ShareButton = React.forwardRef(function ShareButton({
@@ -26,11 +31,12 @@ const ShareButton = React.forwardRef(function ShareButton({
   icon,
   name,
   url,
+  onCopy,
   ...props
 }) {
   const SocialButtonComponent = componentMap[name];
 
-  if (!SocialButtonComponent) {
+  if (!SocialButtonComponent && name !== "CopyUrl") {
     return null;
   }
 
@@ -44,17 +50,31 @@ const ShareButton = React.forwardRef(function ShareButton({
         ...props?.sx,
       }}
     >
-      <SocialButtonComponent url={url} {...ButtonProps}>
-        <SvgIcon
-          component={icon}
-          viewBox="0 0 24 24"
-          {...IconProps}
-          sx={{
-            width: "100%",
-            ...IconProps?.sx,
-          }}
-        />
-      </SocialButtonComponent>
+      {name === "CopyUrl" ? (
+        <CopyToClipboard text={url} onCopy={onCopy} {...ButtonProps}>
+          <SvgIcon
+            component={icon}
+            viewBox="0 0 24 24"
+            {...IconProps}
+            sx={{
+              width: "100%",
+              ...IconProps?.sx,
+            }}
+          />
+        </CopyToClipboard>
+      ) : (
+        <SocialButtonComponent url={url} {...ButtonProps}>
+          <SvgIcon
+            component={icon}
+            viewBox="0 0 24 24"
+            {...IconProps}
+            sx={{
+              width: "100%",
+              ...IconProps?.sx,
+            }}
+          />
+        </SocialButtonComponent>
+      )}
     </Box>
   );
 });

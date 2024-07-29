@@ -1,9 +1,8 @@
 import { ShareButton } from "@hurumap/core";
-import { Grid, TextField, Typography, SvgIcon, useTheme } from "@mui/material";
+import { Grid, TextField, Typography, useTheme } from "@mui/material";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import useStyles from "./useStyles";
 
@@ -68,7 +67,7 @@ function Share({
     },
     { name: "WhatsApp", icon: WhatsAppIcon, props: { quote: title } },
     { name: "Email", icon: EmailIcon, props: { subject: title } },
-    { name: "CopyUrl" },
+    { name: "CopyUrl", icon: CopyIcon, props: { subject: title } },
   ];
 
   const className = `wrapper-${geoCode}-${indicatorId}`;
@@ -126,40 +125,29 @@ function Share({
     <Grid container className={classes.root}>
       {shareData.map((social) => (
         <Grid item xs={4} key={social.name}>
-          {social.name === "CopyUrl" ? (
-            <div className={classes.shareButton}>
-              <CopyToClipboard text={url} onCopy={handleOnCopy}>
-                <SvgIcon
-                  component={CopyIcon}
-                  viewBox="0 0 28 28"
-                  className={classes.copyIcon}
-                />
-              </CopyToClipboard>
-            </div>
-          ) : (
-            <ShareButton
-              name={social.name}
-              url={url}
-              icon={social.icon}
-              {...social.props}
-              sx={{
-                backgroundColor: `${theme.palette.background.default} `,
-                filter: "opacity(0.6)",
+          <ShareButton
+            name={social.name}
+            url={url}
+            icon={social.icon}
+            {...social.props}
+            sx={{
+              backgroundColor: `${theme.palette.background.default} `,
+              filter: "opacity(0.6)",
+              width: "100%",
+              border: `solid 1px ${theme.palette.background.paper} `,
+              paddingTop: `${theme.typography.pxToRem(5)} `,
+              "&:hover": {
+                border: "solid 1px #666666 ",
+                backgroundColor: `${theme.palette.grey.light} `,
+              },
+            }}
+            ButtonProps={{
+              style: {
                 width: "100%",
-                border: `solid 1px ${theme.palette.background.paper} `,
-                paddingTop: `${theme.typography.pxToRem(5)} `,
-                "&:hover": {
-                  border: "solid 1px #666666 ",
-                  backgroundColor: `${theme.palette.grey.light} `,
-                },
-              }}
-              ButtonProps={{
-                style: {
-                  width: "100%",
-                },
-              }}
-            />
-          )}
+              },
+            }}
+            onCopy={handleOnCopy}
+          />
         </Grid>
       ))}
 
