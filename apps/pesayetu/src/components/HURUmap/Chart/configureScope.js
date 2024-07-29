@@ -1,4 +1,5 @@
-import BarChartScope from "./BarChartScope";
+import Scope from "@hurumap/core";
+
 import DonutChartScope from "./DonutChartScope";
 import LineChartScope from "./LineChartScope";
 import MultiLineChartScope from "./MultiLineChartScope";
@@ -7,6 +8,10 @@ import TreemapChartScope from "./TreemapChartScope";
 import VerticalBarChartScope from "./VerticalBarChartScope";
 import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
+import { hurumapArgs } from "@/pesayetu/config";
+import theme from "@/pesayetu/theme";
+
+const { BarChartScope } = Scope;
 export default function configureScope(
   indicator,
   secondaryIndicator = null,
@@ -87,16 +92,21 @@ export default function configureScope(
           isCompare,
         );
       } else {
-        vegaSpec = BarChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : [{}],
-          showParent ? secondaryIndicator?.parentData : [{}],
+        const barChartArgs = {
+          primaryData: indicator?.data,
+          metadata: indicator?.metadata,
+          config: configuration,
+          secondaryData: secondaryIndicator?.data ?? null,
+          primaryParentData: showParent ? indicator?.parentData : [{}],
+          secondaryParentData: showParent
+            ? secondaryIndicator?.parentData
+            : [{}],
           profileNames,
           isCompare,
-        );
+          theme,
+          args: hurumapArgs,
+        };
+        vegaSpec = BarChartScope(barChartArgs);
       }
       break;
   }
