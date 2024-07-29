@@ -1,4 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
+import { Share } from "@hurumap/core";
 import { Grid } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
@@ -6,11 +7,17 @@ import React from "react";
 
 import Action from "./Action";
 import Download from "./Download";
-import Share from "./Share";
 
 import { ReactComponent as DownloadIcon } from "@/pesayetu/assets/icons/Component 1.svg";
 import { ReactComponent as ShareIcon } from "@/pesayetu/assets/icons/Component 27.svg";
 import { ReactComponent as InfoIcon } from "@/pesayetu/assets/icons/Component852.svg";
+import { ReactComponent as EmailIcon } from "@/pesayetu/assets/icons/Email.svg";
+import { ReactComponent as FacebookIcon } from "@/pesayetu/assets/icons/Facebook.svg";
+import { ReactComponent as CopyIcon } from "@/pesayetu/assets/icons/Group 5062.svg";
+import { ReactComponent as LinkedInIcon } from "@/pesayetu/assets/icons/LinkedIn.svg";
+import { ReactComponent as TwitterIcon } from "@/pesayetu/assets/icons/Twitter.svg";
+import { ReactComponent as WhatsAppIcon } from "@/pesayetu/assets/icons/WhatsApp.svg";
+import site from "@/pesayetu/utils/site";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {
@@ -61,6 +68,37 @@ function IndicatorTitle({
 }) {
   const classes = useStyles(props);
 
+  const { geoCode, indicatorId } = props;
+
+  const url = new URL(
+    `/embed/${geoCode.toLowerCase()}/${indicatorId}`,
+    site.environmentUrl,
+  ).toString();
+
+  const shareData = [
+    {
+      name: "Facebook",
+      icon: FacebookIcon,
+      props: { quote: title, hashtag: "#ClimateMapped.Africa" },
+    },
+    {
+      name: "Twitter",
+      icon: TwitterIcon,
+      props: { title, via: "Code4Africa", related: ["Code4Africa"] },
+    },
+    {
+      name: "LinkedIn",
+      icon: LinkedInIcon,
+      props: {
+        summary: title,
+        source: process.env.NEXT_PUBLIC_APP_URL,
+      },
+    },
+    { name: "WhatsApp", icon: WhatsAppIcon, props: { quote: title } },
+    { name: "Email", icon: EmailIcon, props: { subject: title } },
+    { name: "CopyUrl", icon: CopyIcon, props: { subject: title } },
+  ];
+
   const actions = [
     description && {
       id: "act-description",
@@ -95,7 +133,9 @@ function IndicatorTitle({
       id: "act-share",
       title: "Share",
       header: "Share chart via:",
-      children: <Share title={title} {...props} />,
+      children: (
+        <Share title={title} shareData={shareData} url={url} {...props} />
+      ),
       icon: <ShareIcon />,
     },
   ];
