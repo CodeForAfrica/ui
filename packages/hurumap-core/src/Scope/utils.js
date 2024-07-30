@@ -1,5 +1,6 @@
 function idify(string) {
   return string
+    .toLowerCase()
     .replace(/^\s+|\s+$/g, "")
     .replace(/[^a-z0-9]/g, "")
     .replace(/\s+/g, "_")
