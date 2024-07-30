@@ -2,13 +2,12 @@ import { ButtonBase, IconButton, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import clsx from "clsx";
 import Image from "next/image";
-import Papa from "papaparse";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import * as vega from "vega";
-import * as XLSX from "xlsx";
 
 import useStyles from "./useStyles";
+import { downloadSheetData, downloadJson } from "./utils";
 
 import cfalogo from "@/pesayetu/assets/logos/Group4462.svg";
 import projectlogo from "@/pesayetu/assets/logos/Group5002.svg";
@@ -41,8 +40,12 @@ function Download({
   const [layout, setLayout] = useState(0);
 
   useEffect(() => {
-    const viewProp = new vega.View(vega.parse(spec), { renderer: "none" });
-    setView(viewProp);
+    try {
+      const viewProp = new vega.View(vega.parse(spec), { renderer: "none" });
+      setView(viewProp);
+    } catch (e) {
+      console.error(e);
+    }
   }, [spec]);
 
   const setImageLayout = async (e, type) => {
@@ -128,31 +131,12 @@ function Download({
 
     const fileType = type.toLowerCase();
     const fileName = `${title}.${fileType}`;
-    let href;
 
     if (fileType === "json") {
-      href = `data:text/json;charset=utf-8,${encodeURIComponent(
-        JSON.stringify(data),
-      )}`;
-    } else if (fileType === "csv") {
-      href = `data:text/csv;charset=utf-8,${Papa.unparse(data)}`;
+      downloadJson(data, fileName);
     } else {
-      const table = XLSX.utils.json_to_sheet(data);
-      const wb = XLSX.utils.book_new(); // make Workbook of Excel
-      // add Worksheet to Workbook
-      XLSX.utils.book_append_sheet(wb, table, title);
-      // export Excel file
-      XLSX.writeFile(wb, fileName);
-      return;
+      downloadSheetData(data, fileType, fileName, title);
     }
-    /* eslint-env browser */
-    const link = document.createElement("a");
-    link.href = href;
-    link.download = fileName;
-    /* eslint-env browser */
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
   };
 
   return (
