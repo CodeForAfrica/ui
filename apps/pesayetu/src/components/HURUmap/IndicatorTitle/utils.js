@@ -37,3 +37,14 @@ export function downloadJson(data, filename) {
   link.click();
   link.remove();
 }
+
+export function downloadImage(url, title, imgType) {
+  const link = document.createElement("a");
+  link.download = `${title}.${imgType}`;
+  link.href = url;
+  /* eslint-env browser */
+  document.body.appendChild(link);
+  link.click();
+  /* eslint-env browser */
+  document.body.removeChild(link);
+}

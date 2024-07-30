@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 import * as vega from "vega";
 
 import useStyles from "./useStyles";
-import { downloadSheetData, downloadJson } from "./utils";
+import { downloadSheetData, downloadJson, downloadImage } from "./utils";
 
 import cfalogo from "@/pesayetu/assets/logos/Group4462.svg";
 import projectlogo from "@/pesayetu/assets/logos/Group5002.svg";
@@ -114,15 +114,7 @@ function Download({
 
     const imgType = type.toLowerCase();
     const url = await view.toImageURL(imgType, config.images.scaleFactor);
-    /* eslint-env browser */
-    const link = document.createElement("a");
-    link.download = `${title}.${imgType}`;
-    link.href = url;
-    /* eslint-env browser */
-    document.body.appendChild(link);
-    link.click();
-    /* eslint-env browser */
-    document.body.removeChild(link);
+    downloadImage(url, title, imgType);
   };
 
   const handleDataDownload = async (e, type) => {
