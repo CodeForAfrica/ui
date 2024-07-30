@@ -48,3 +48,57 @@ export function downloadImage(url, title, imgType) {
   /* eslint-env browser */
   document.body.removeChild(link);
 }
+
+export async function createImage({
+  view,
+  totalHeight,
+  chartTitle,
+  chartSubtitle,
+  source = "",
+  projectlogo,
+  cfalogo,
+  backgroundColor,
+  layout,
+  imgType,
+  scaleFactor,
+}) {
+  if (!view) {
+    return null;
+  }
+
+  view?.signal("totalHeight", totalHeight);
+  view?.signal("chartTitle", chartTitle);
+  view?.signal("chartSubtitle", chartSubtitle.toUpperCase());
+  view?.signal("chartSource", source);
+  view?.signal("projectLogoUrl", projectlogo);
+  view?.signal("logoWidth", 60);
+  view?.signal("logoUrl", cfalogo);
+  view?.signal("background", backgroundColor);
+
+  if (layout === 0) {
+    view?.signal("titleY", 20);
+    view?.signal("titleH", 60 + (chartTitle.length - 1) * 15);
+    view?.signal("chartY", 50);
+    view?.signal("titleGroupY", 0);
+    view?.signal("sourceGroupY", totalHeight - 80);
+    view?.signal("sourceGroupH", 60);
+    view?.signal("sourceY", 30);
+  } else {
+    view?.signal("titleY", 25);
+    view?.signal("titleH", 60 + (chartTitle.length - 1) * 15);
+    view?.signal("chartY", 60);
+    view?.signal(
+      "titleGroupY",
+      totalHeight - 80 + (chartTitle.length - 1) * 15,
+    );
+    view?.signal("sourceGroupY", 1);
+    view?.signal("sourceGroupH", 60);
+    view?.signal("sourceY", 30);
+  }
+
+  await view?.runAsync();
+
+  const url = await view.toImageURL(imgType, scaleFactor);
+
+  return url;
+}

@@ -7,7 +7,12 @@ import React, { useState, useEffect } from "react";
 import * as vega from "vega";
 
 import useStyles from "./useStyles";
-import { downloadSheetData, downloadJson, downloadImage } from "./utils";
+import {
+  downloadSheetData,
+  downloadJson,
+  downloadImage,
+  createImage,
+} from "./utils";
 
 import cfalogo from "@/pesayetu/assets/logos/Group4462.svg";
 import projectlogo from "@/pesayetu/assets/logos/Group5002.svg";
@@ -81,39 +86,21 @@ function Download({
     e.stopPropagation();
 
     const totalHeight = height + 300; // chartHeight + extra space for legends, logo + title;
-    view?.signal("totalHeight", totalHeight);
-    view?.signal("chartTitle", chartTitle);
-    view?.signal("chartSubtitle", chartSubtitle.toUpperCase());
-    view?.signal("chartSource", source ? `Source: ${source}` : "");
-    view?.signal("projectLogoUrl", projectlogo);
-    view?.signal("logoWidth", 60);
-    view?.signal("logoUrl", cfalogo);
-    view?.signal("background", palette.common.white);
-
-    if (layout === 0) {
-      view?.signal("titleY", 20);
-      view?.signal("titleH", 60 + (chartTitle.length - 1) * 15);
-      view?.signal("chartY", 50);
-      view?.signal("titleGroupY", 0);
-      view?.signal("sourceGroupY", totalHeight - 80);
-      view?.signal("sourceGroupH", 60);
-      view?.signal("sourceY", 30);
-    } else {
-      view?.signal("titleY", 25);
-      view?.signal("titleH", 60 + (chartTitle.length - 1) * 15);
-      view?.signal("chartY", 60);
-      view?.signal(
-        "titleGroupY",
-        totalHeight - 80 + (chartTitle.length - 1) * 15,
-      );
-      view?.signal("sourceGroupY", 1);
-      view?.signal("sourceGroupH", 60);
-      view?.signal("sourceY", 30);
-    }
-    await view?.runAsync();
-
     const imgType = type.toLowerCase();
-    const url = await view.toImageURL(imgType, config.images.scaleFactor);
+
+    const url = await createImage({
+      view,
+      totalHeight,
+      chartTitle,
+      chartSubtitle,
+      source,
+      projectlogo,
+      cfalogo,
+      backgroundColor: palette.common.white,
+      layout,
+      imgType,
+      scaleFactor: config.images.scaleFactor,
+    });
     downloadImage(url, title, imgType);
   };
 
