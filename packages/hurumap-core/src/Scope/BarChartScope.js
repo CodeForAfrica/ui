@@ -17,7 +17,6 @@ export default function BarChartScope({
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
-
   return merge(
     Scope({
       primaryData,

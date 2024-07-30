@@ -1,4 +1,4 @@
-import Scope from "@hurumap/core";
+import { Scope } from "@hurumap/core";
 
 import DonutChartScope from "./DonutChartScope";
 import LineChartScope from "./LineChartScope";
@@ -12,6 +12,7 @@ import { hurumapArgs } from "@/pesayetu/config";
 import theme from "@/pesayetu/theme";
 
 const { BarChartScope } = Scope;
+
 export default function configureScope(
   indicator,
   secondaryIndicator = null,
