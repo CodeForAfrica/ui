@@ -34,6 +34,7 @@ const LazyMap = React.forwardRef(function Map(props, ref) {
         // if we are pinning/comparing do not drill down
         return geoms.boundary;
       }
+      console.log("BOOM:", { preferredChildren, level, geoms });
       const preferredChildrenPerLevel = preferredChildren[level];
       const preferredLevel =
         preferredChildrenPerLevel?.find((l) => geoms.children[l]) ?? null;

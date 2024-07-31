@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import useExplore from "./useExplore";
-import { primaryGeoStyles, secondaryGeoStyles } from "./useLayerStyles";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
@@ -129,8 +128,7 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             onClick={handleClickMap}
             onClickUnpin={handleClickUnpin}
             zoom={7}
-            primaryGeoStyles={primaryGeoStyles}
-            secondaryGeoStyles={secondaryGeoStyles}
+            {...props}
           />
           <Location
             highlights={highlights}
