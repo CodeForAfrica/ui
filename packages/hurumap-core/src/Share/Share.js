@@ -95,7 +95,7 @@ const Share = React.forwardRef(function Share(
 
   return (
     <Grid container {...props} ref={ref}>
-      {shareData.map((social) => (
+      {shareData?.map((social) => (
         <Grid item xs={4} key={social.name}>
           <ShareButton
             name={social.name}
