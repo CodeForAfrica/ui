@@ -17,7 +17,7 @@ function Layers({
   PopUpLocationTagProps,
   geography,
   isPinOrCompare = false,
-  locationCodes,
+  locationCodes: locationCodesProp,
   onClick,
   onClickUnpin,
   parentsGeometries,
@@ -67,7 +67,10 @@ function Layers({
         isPinOrCompare && feature.properties.code === secondaryGeography?.code
           ? secondaryGeoStyles
           : primaryGeoStyles;
-      if (!locationCodes?.includes(feature.properties.code)) {
+      // assume ISO 3166-1 codes so comparing uppercase should be ggood
+      const locationCodes =
+        locationCodesProp?.map((c) => c.toUpperCase()) || [];
+      if (!locationCodes?.includes(feature.properties.code.toUpperCase())) {
         layer.setStyle(geoStyles.inactive);
       } else {
         const popUpContent = (level, name) =>
@@ -150,7 +153,7 @@ function Layers({
       PopUpLocationTagProps,
       geography,
       isPinOrCompare,
-      locationCodes,
+      locationCodesProp,
       onClick,
       primaryGeoStyles,
       secondaryGeoStyles,
@@ -201,18 +204,19 @@ function Layers({
       }
     }
   }, [
-    groupRef,
-    siblingRef,
-    onClickUnpin,
     geography.code,
-    pinIcon,
-    selectedBoundary,
+    groupRef,
+    isPinOrCompare,
     map,
+    onClickUnpin,
     onEachFeature,
     parentsGeometries,
-    isPinOrCompare,
+    pinIcon,
+    selectedBoundary,
+    siblingRef,
   ]);
 
+  console.log("BOOM: ", { selectedBoundary });
   return (
     <>
       <FeatureGroup ref={siblingRef}>
@@ -226,6 +230,8 @@ function Layers({
 }
 
 Layers.propTypes = {
+  PinnedLocationTagProps: PropTypes.shape({}),
+  PopUpLocationTagProps: PropTypes.shape({}),
   geography: PropTypes.shape({
     code: PropTypes.string,
     level: PropTypes.string,

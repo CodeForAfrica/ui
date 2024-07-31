@@ -8,9 +8,8 @@ import "leaflet/dist/leaflet.css";
 
 // TODO(kilemensi): We can't use styled and MapContainer because MapContainer
 //                  is a dynamic component i.e. needs window to exist
-const Map = React.forwardRef(function Map(props, ref) {
+const LazyMap = React.forwardRef(function Map(props, ref) {
   const {
-    LayersProps,
     center,
     geography,
     geometries,
@@ -24,6 +23,8 @@ const Map = React.forwardRef(function Map(props, ref) {
     sx,
     tileLayers,
     zoom,
+    // Assume remaining props are for Layers component
+    ...LayersProps
   } = props;
   const [selectedBoundary, setSelectedBoundary] = useState(null);
 
@@ -78,7 +79,6 @@ const Map = React.forwardRef(function Map(props, ref) {
   }, [geometries, geography, getSelectedBoundary]);
 
   const locationCodes = locations?.map(({ code }) => code);
-
   return (
     <MapContainer
       center={center}
@@ -116,7 +116,7 @@ const Map = React.forwardRef(function Map(props, ref) {
   );
 });
 
-Map.propTypes = {
+LazyMap.propTypes = {
   LayersProps: PropTypes.shape({}),
   center: (props, propName, componentName) => {
     const { [propName]: prop } = props;
@@ -146,4 +146,4 @@ Map.propTypes = {
   isPinOrCompare: PropTypes.bool,
 };
 
-export default Map;
+export default LazyMap;
