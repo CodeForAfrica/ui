@@ -7,7 +7,6 @@ const LazyMap = dynamic(() => import("./LazyMap"), {
 });
 
 function MapContainer(props) {
-  console.log("BOOM: ", props);
   return <LazyMap {...props} />;
 }
 

@@ -216,7 +216,6 @@ function Layers({
     siblingRef,
   ]);
 
-  console.log("BOOM: ", { selectedBoundary });
   return (
     <>
       <FeatureGroup ref={siblingRef}>
