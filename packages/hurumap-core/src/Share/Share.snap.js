@@ -29,7 +29,44 @@ exports[`Share renders unchanged 1`] = `
             class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
             id=":r0:"
             type="text"
-            value="<h1>code</h1>"
+            value="
+  <div>
+    <style>
+      .frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        z-index: 10;
+      }
+      .chart {
+        position: relative;
+        overflow: hidden;
+        padding-top: 75%;
+      }
+      @media (max-width: 1280px) {
+              .chart {
+                padding-top: 100%;
+              }
+            }
+            @media (max-width: 620px) {
+              .chart {
+                padding-top: 120%;
+              }
+            }
+            @media (max-width: 500px) {
+              .chart {
+                padding-top: 170%;
+              }
+            }
+    </style>
+    <div class="chart">
+      <iframe class="frame" src="http://localhost:3001/embed/ke/1087"></iframe>
+    </div>
+  </div>
+"
           />
           <fieldset
             aria-hidden="true"

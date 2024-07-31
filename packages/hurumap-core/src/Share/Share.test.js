@@ -9,7 +9,10 @@ describe("Share", () => {
       <Share
         title="Area of agricultural land in hectares"
         chartType="treemap"
-        code="<h1>code</h1>"
+        codeData={{
+          src: "http://localhost:3001/embed/ke/1087",
+          className: "chart",
+        }}
         geoCode="KE"
         indicatorId={1087}
         isCompare={false}

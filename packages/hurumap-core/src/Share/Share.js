@@ -7,7 +7,7 @@ const Share = React.forwardRef(function Share(
   {
     title,
     chartType,
-    code,
+    codeData,
     geoCode,
     indicatorId,
     isCompare,
@@ -19,6 +19,65 @@ const Share = React.forwardRef(function Share(
 ) {
   const theme = useTheme();
   const [copied, setCopied] = useState(false);
+
+  const { src, className } = codeData;
+
+  const code = `
+  <div>
+    <style>
+      .frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        z-index: 10;
+      }
+      .${className} {
+        position: relative;
+        overflow: hidden;
+        padding-top: ${chartType === "treemap" ? "75%" : "56.25%"};
+      }
+      ${
+        isCompare
+          ? `@media (max-width: 1280px) {
+              .${className} {
+                padding-top: 160%;
+              }
+            }
+            @media (max-width: 620px) {
+              .${className} {
+                padding-top: 200%;
+              }
+            }
+            @media (max-width: 500px) {
+              .${className} {
+                padding-top: 240%;
+              }
+            }`
+          : `@media (max-width: 1280px) {
+              .${className} {
+                padding-top: ${chartType === "treemap" ? "100%" : "75%"};
+              }
+            }
+            @media (max-width: 620px) {
+              .${className} {
+                padding-top: ${chartType === "treemap" ? "120%" : "100%"};
+              }
+            }
+            @media (max-width: 500px) {
+              .${className} {
+                padding-top: ${chartType === "treemap" ? "170%" : "140%"};
+              }
+            }`
+      }
+    </style>
+    <div class="${className}">
+      <iframe class="frame" src="${src}"></iframe>
+    </div>
+  </div>
+`;
 
   const handleOnCopy = () => {
     setCopied((prev) => !prev);
@@ -36,7 +95,7 @@ const Share = React.forwardRef(function Share(
 
   return (
     <Grid container {...props} ref={ref}>
-      {shareData.map((social) => (
+      {shareData?.map((social) => (
         <Grid item xs={4} key={social.name}>
           <ShareButton
             name={social.name}
