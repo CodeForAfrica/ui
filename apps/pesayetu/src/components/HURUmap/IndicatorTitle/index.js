@@ -1,11 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
-import { Share } from "@hurumap/core";
+import { Share, Action } from "@hurumap/core";
 import { Grid } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Action from "./Action";
 import Download from "./Download";
 
 import { ReactComponent as DownloadIcon } from "@/pesayetu/assets/icons/Component 1.svg";
