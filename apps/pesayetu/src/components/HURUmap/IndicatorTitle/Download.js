@@ -41,8 +41,12 @@ function Download({
   const [layout, setLayout] = useState(0);
 
   useEffect(() => {
-    const viewProp = new vega.View(vega.parse(spec), { renderer: "none" });
-    setView(viewProp);
+    try {
+      const viewProp = new vega.View(vega.parse(spec), { renderer: "none" });
+      setView(viewProp);
+    } catch (error) {
+      console.error("Error creating view", error);
+    }
   }, [spec]);
 
   const setImageLayout = async (e, type) => {
