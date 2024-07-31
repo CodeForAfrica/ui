@@ -1,5 +1,6 @@
+import { Location } from "@hurumap/core";
 import { Map } from "@hurumap/next";
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
@@ -8,7 +9,6 @@ import useExplore from "./useExplore";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
-import Location from "@/pesayetu/components/HURUmap/Location";
 import Panel from "@/pesayetu/components/HURUmap/Panel";
 
 function initialState(profiles, onClick) {
@@ -22,6 +22,7 @@ function initialState(profiles, onClick) {
 }
 
 function ExplorePage({ panelProps, profile: profileProp, ...props }) {
+  const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
   //       this point, useReducer hasn't been called yet so we can't use
@@ -128,15 +129,23 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             onClickUnpin={handleClickUnpin}
             zoom={7}
             {...props}
-            sx={{
-              display: { xs: "none", md: "block" },
-            }}
           />
           <Location
             highlights={highlights}
             isLoading={isLoading}
             tags={tags}
-            className={classes.location}
+            sx={{
+              display: "none",
+              [theme.breakpoints.up("md")]: {
+                display: "flex",
+                left: 0,
+                margin: "0 auto",
+                position: "absolute",
+                right: 0,
+                top: theme.typography.pxToRem(52),
+                zIndex: theme.zIndex.appBar,
+              },
+            }}
           />
         </div>
       </Box>

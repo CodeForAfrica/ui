@@ -582,6 +582,7 @@ RUN pnpm --filter "./apps/vpnmanager" build
 
 FROM base-runner as vpnmanager-runner
 
+ARG API_SECRET_KEY
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/vpnmanager/.next \
@@ -599,7 +600,7 @@ COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
-
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/contrib/dokku ./contrib/dokku
 USER nextjs
 
 # server.js is created by next build from the standalone output

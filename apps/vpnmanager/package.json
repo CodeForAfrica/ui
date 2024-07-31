@@ -10,8 +10,7 @@
     "lint": "TIMING=1 next lint --fix './'",
     "clean": "rm -rf .next .turbo node_modules",
     "jest": "jest --passWithNoTests",
-    "playwright": "npx playwright test",
-    "process-spreadsheet": "node dist/scripts/processGsheet.js"
+    "playwright": "npx playwright test"
   },
   "dependencies": {
     "@babel/preset-react": "^7.24.7",
@@ -33,8 +32,7 @@
     "next": "^14.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tsc-alias": "^1.8.10",
-    "tsconfig-paths": "^4.2.0"
+    "tsc-alias": "^1.8.10"
   },
   "devDependencies": {
     "@babel/core": "^7.24.8",
