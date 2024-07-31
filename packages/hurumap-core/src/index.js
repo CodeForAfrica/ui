@@ -6,3 +6,4 @@ export { default as Location } from "./Location";
 export { default as ShareButton } from "./ShareButton";
 export { default as Share } from "./Share";
 export { default as Action } from "./Action";
+export { default as Download } from "./Download";
