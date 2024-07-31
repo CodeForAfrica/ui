@@ -79,13 +79,17 @@ function Chart({
       );
       setCSpec(spec);
       if (chartRef?.current) {
-        const newView = await embed(chartRef.current, spec, {
-          renderer: "canvas",
-          actions: false,
-          tooltip: handler,
-        });
+        try {
+          const newView = await embed(chartRef.current, spec, {
+            renderer: "canvas",
+            actions: false,
+            tooltip: handler,
+          });
 
-        setView(newView.view);
+          setView(newView.view);
+        } catch (error) {
+          console.error(error);
+        }
       }
     }
     renderChart();

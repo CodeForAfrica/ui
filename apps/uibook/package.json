@@ -36,6 +36,7 @@
     "@emotion/styled": "^11.13.0",
     "@hurumap/core": "workspace:*",
     "@hurumap/next": "workspace:*",
+    "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",
     "@mui/utils": "^5.16.6",
     "@next/env": "^14.2.5",
