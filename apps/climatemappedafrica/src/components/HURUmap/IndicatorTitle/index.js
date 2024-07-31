@@ -1,16 +1,22 @@
 import { RichTypography } from "@commons-ui/core";
+import { Share, Action } from "@hurumap/core";
 import { Grid } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Action from "./Action";
 import Download from "./Download";
-import Share from "./Share";
 
 import { ReactComponent as DownloadIcon } from "@/climatemappedafrica/assets/icons/Component 1.svg";
 import { ReactComponent as ShareIcon } from "@/climatemappedafrica/assets/icons/Component 27.svg";
 import { ReactComponent as InfoIcon } from "@/climatemappedafrica/assets/icons/Component852.svg";
+import { ReactComponent as EmailIcon } from "@/climatemappedafrica/assets/icons/Email.svg";
+import { ReactComponent as FacebookIcon } from "@/climatemappedafrica/assets/icons/Facebook.svg";
+import { ReactComponent as CopyIcon } from "@/climatemappedafrica/assets/icons/Group 5062.svg";
+import { ReactComponent as LinkedInIcon } from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
+import { ReactComponent as TwitterIcon } from "@/climatemappedafrica/assets/icons/Twitter.svg";
+import { ReactComponent as WhatsAppIcon } from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
+import site from "@/climatemappedafrica/utils/site";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {
@@ -61,6 +67,43 @@ function IndicatorTitle({
 }) {
   const classes = useStyles(props);
 
+  const { geoCode, indicatorId } = props;
+
+  const url = new URL(
+    `/embed/${geoCode.toLowerCase()}/${indicatorId}`,
+    site.environmentUrl,
+  ).toString();
+  const className = `wrapper-${geoCode}-${indicatorId}`;
+
+  const shareData = [
+    {
+      name: "Facebook",
+      icon: FacebookIcon,
+      props: { quote: title, hashtag: "#ClimateMapped.Africa" },
+    },
+    {
+      name: "Twitter",
+      icon: TwitterIcon,
+      props: { title, via: "Code4Africa", related: ["Code4Africa"] },
+    },
+    {
+      name: "LinkedIn",
+      icon: LinkedInIcon,
+      props: {
+        summary: title,
+        source: process.env.NEXT_PUBLIC_APP_URL,
+      },
+    },
+    { name: "WhatsApp", icon: WhatsAppIcon, props: { quote: title } },
+    { name: "Email", icon: EmailIcon, props: { subject: title } },
+    { name: "CopyUrl", icon: CopyIcon, props: { subject: title } },
+  ];
+
+  const codeData = {
+    className,
+    src: `${process.env.NEXT_PUBLIC_APP_URL}/embed/${geoCode.toLowerCase()}/${indicatorId}`,
+  };
+
   const actions = [
     description && {
       id: "act-description",
@@ -95,7 +138,15 @@ function IndicatorTitle({
       id: "act-share",
       title: "Share",
       header: "Share chart via:",
-      children: <Share title={title} {...props} />,
+      children: (
+        <Share
+          title={title}
+          shareData={shareData}
+          url={url}
+          codeData={codeData}
+          {...props}
+        />
+      ),
       icon: <ShareIcon />,
     },
   ];
