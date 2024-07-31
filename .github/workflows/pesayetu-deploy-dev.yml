@@ -2,7 +2,7 @@ name: Pesayetu | Deploy | DEV
 
 on:
   push:
-    branches: [fix/docker-build]
+    branches: [main]
     paths:
       - "apps/pesayetu/**"
       - "Dockerfile.pesayetu"
