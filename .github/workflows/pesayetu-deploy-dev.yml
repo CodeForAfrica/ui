@@ -2,7 +2,7 @@ name: Pesayetu | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches: [fix/docker-build]
     paths:
       - "apps/pesayetu/**"
       - "Dockerfile.pesayetu"
@@ -69,7 +69,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          target: vpnmanager-runner
+          target: pesayetu-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
