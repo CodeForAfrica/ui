@@ -1,5 +1,5 @@
 import { ChartTooltip } from "@hurumap/core";
-import React from "react";
+import React, { useRef } from "react";
 
 export default {
   title: "@hurumap/core/ChartTooltip",
@@ -11,7 +11,7 @@ export default {
     },
     value: {
       control: {
-        type: "text",
+        type: "object",
       },
     },
     formattedValue: {
@@ -24,23 +24,30 @@ export default {
         type: "text",
       },
     },
-    groupColor: {
+    itemColor: {
       control: {
-        type: "text",
+        type: "color",
+      },
+    },
+    position: {
+      control: {
+        type: "object",
       },
     },
   },
 };
 
 function Template({ ...args }) {
-  return <ChartTooltip {...args} />;
+  const tooltipRef = useRef(null);
+  return <ChartTooltip {...args} tooltipRef={tooltipRef} />;
 }
 
 export const Default = Template.bind({});
 
 Default.args = {
-  title: "15-24",
-  value: "1456000",
-  group: "cat2",
-  groupColor: "#7DB2D3",
+  title: "Residental Areas",
+  value: { count: "176", category: "Default" },
+  group: "category",
+  itemColor: "red",
+  position: { x: 100, y: 100 },
 };
