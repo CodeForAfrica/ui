@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import DonutChartScope from "./DonutChartScope";
 import LineChartScope from "./LineChartScope";
 import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
@@ -11,7 +10,7 @@ import VerticalStackedChartScope from "./VerticalStackedChartScope";
 import { hurumapArgs } from "@/pesayetu/config";
 import theme from "@/pesayetu/theme";
 
-const { BarChartScope } = Scope;
+const { BarChartScope, DonutChartScope } = Scope;
 
 export default function configureScope(
   indicator,
@@ -42,6 +41,19 @@ export default function configureScope(
     isCompare,
     isMobile,
   ];
+  const donutScopeOptions = {
+    primaryData: indicator?.data,
+    metadata: indicator?.metadata,
+    config: configuration,
+    secondaryData: secondaryIndicator?.data ?? null,
+    primaryParentData: showParent ? indicator?.parentData : [{}],
+    secondaryParentData: showParent ? secondaryIndicator?.parentData : [{}],
+    profileNames,
+    isCompare,
+    isMobile,
+    theme,
+    args: hurumapArgs,
+  };
   switch (chartType) {
     case "line":
       if (configuration?.stacked_field) {
@@ -51,7 +63,7 @@ export default function configureScope(
       }
       break;
     case "donut":
-      vegaSpec = DonutChartScope(...scopeOptions);
+      vegaSpec = DonutChartScope(donutScopeOptions);
       break;
     case "treemap":
       vegaSpec = TreemapChartScope(...scopeOptions);
