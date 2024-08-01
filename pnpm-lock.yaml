@@ -1742,8 +1742,8 @@ importers:
         specifier: ^6.9.0
         version: 6.9.0(eslint@8.57.0)
       eslint-plugin-markdown:
-        specifier: ^3.0.1
-        version: 3.0.1(eslint@8.57.0)
+        specifier: ^5.1.0
+        version: 5.1.0(eslint@8.57.0)
       eslint-plugin-playwright:
         specifier: ^0.19.0
         version: 0.19.0(eslint-plugin-jest@27.9.0(eslint@8.57.0)(jest@29.7.0)(typescript@5.5.4))(eslint@8.57.0)
@@ -5969,6 +5969,7 @@ packages:
 
   '@swc/register@0.1.10':
     resolution: {integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==}
+    deprecated: Use @swc-node/register instead
     hasBin: true
     peerDependencies:
       '@swc/core': ^1.0.46
@@ -8276,11 +8277,11 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-markdown@3.0.1:
-    resolution: {integrity: sha512-8rqoc148DWdGdmYF6WSQFT3uQ6PO7zXYgeBpHAOAakX/zpq+NvFYbDA/H7PYzHajwtmaOzAwfxyl++x0g1/N9A==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+  eslint-plugin-markdown@5.1.0:
+    resolution: {integrity: sha512-SJeyKko1K6GwI0AN6xeCDToXDkfKZfXcexA6B+O2Wr2btUS9GrC+YgwSyVli5DJnctUHjFXcQ2cqTaAmVoLi2A==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+      eslint: '>=8'
 
   eslint-plugin-module-resolver@1.5.0:
     resolution: {integrity: sha512-fz8oVazFk5jfZRCBgURDIM955QufKePsGNgpu+z/HWedy9HII6jir1PGts+p27rCWWwSw2LXoxS4xll2WH17fw==}
@@ -22660,7 +22661,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-markdown@3.0.1(eslint@8.57.0):
+  eslint-plugin-markdown@5.1.0(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
       mdast-util-from-markdown: 0.8.5
