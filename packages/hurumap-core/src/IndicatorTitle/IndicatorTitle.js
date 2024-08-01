@@ -1,69 +1,13 @@
 import { RichTypography } from "@commons-ui/core";
-import DownloadIcon from "@mui/icons-material/Download";
-import InfoIcon from "@mui/icons-material/Info";
-import ShareIcon from "@mui/icons-material/Share";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
-import Action from "./Action";
-import Download from "./Download";
-import Share from "./Share";
+import Action from "@/hurumap/core/Action";
 
 const IndicatorTitle = React.forwardRef(function IndicatorTitle(
-  { children, description, disableToggle, title, view, ...props },
+  { children, actions = [], description, disableToggle, title, view, ...props },
   ref,
 ) {
-  const actions = [
-    description && {
-      id: "act-description",
-      title: "Description",
-      header: "Learn More",
-      children: (
-        <RichTypography
-          sx={(theme) => ({
-            fontSize: theme.typography.pxToRem(11),
-            lineHeight: 17 / 11,
-            color: "#666666",
-            padding: `${theme.typography.pxToRem(18)} ${theme.typography.pxToRem(
-              20,
-            )} ${theme.typography.pxToRem(31)} ${theme.typography.pxToRem(16)}`,
-            "& > p > span": {
-              display: "inline-block",
-            },
-          })}
-        >
-          {description}
-        </RichTypography>
-      ),
-      icon: <InfoIcon />,
-    },
-    {
-      id: "act-download",
-      title: "Download",
-      header: disableToggle ? "Download chart as" : "Chart value as:",
-      children: (
-        <Download
-          {...props}
-          title={title}
-          disableToggle={disableToggle}
-          height={view?.height()}
-          data={[
-            ...(view?.data("primary") ?? []),
-            ...(view?.data("secondary") ?? []),
-          ]}
-        />
-      ),
-      icon: <DownloadIcon />,
-    },
-    {
-      id: "act-share",
-      title: "Share",
-      header: "Share chart via:",
-      children: <Share title={title} {...props} />,
-      icon: <ShareIcon />,
-    },
-  ];
-
   return (
     <Box
       {...props}

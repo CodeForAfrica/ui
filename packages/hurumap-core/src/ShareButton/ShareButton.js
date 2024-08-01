@@ -31,11 +31,11 @@ const ShareButton = React.forwardRef(function ShareButton(
 ) {
   let SocialButtonComponent = component;
 
-  if (name && name !== "CopyUrl") {
+  if (name) {
     SocialButtonComponent = componentMap[name];
   }
 
-  if (!SocialButtonComponent) {
+  if (!SocialButtonComponent && name !== "CopyUrl") {
     return null;
   }
 
