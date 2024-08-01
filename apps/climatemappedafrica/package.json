@@ -31,7 +31,7 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
-    "@apollo/client": "^3.11.1",
+    "@apollo/client": "^3.11.2",
     "@commons-ui/core": "^0.1.0",
     "@commons-ui/next": "workspace:*",
     "@emotion/react": "^11.13.0",
@@ -67,7 +67,7 @@
     "swr": "^2.2.5",
     "vega": "^5.30.0",
     "vega-embed": "^6.26.0",
-    "vega-lite": "^5.20.0",
+    "vega-lite": "^5.20.1",
     "vega-tooltip": "^0.33.0",
     "video.js": "^8.17.1",
     "videojs-youtube": "^3.0.1",
@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.7",
     "@commons-ui/testing-library": "workspace:*",
     "@material-ui/codemod": "^4.5.1",

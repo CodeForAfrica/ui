@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.7",
     "@playwright/test": "^1.45.3",
     "eslint": "^8.57.0",

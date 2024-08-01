@@ -1,10 +1,8 @@
-import merge from "deepmerge";
+import { deepmerge } from "@mui/utils";
 
 import Scope from "./Scope";
 
-import theme from "@/pesayetu/theme";
-
-export default function BarChartScope(
+export default function BarChartScope({
   primaryData,
   metadata,
   config,
@@ -13,21 +11,24 @@ export default function BarChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-) {
+  theme,
+  args,
+}) {
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
-
-  return merge(
-    Scope(
+  return deepmerge(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "bar",
-    ),
+      chartType: "bar",
+      theme,
+      args,
+    }),
     {
       signals: [
         {
@@ -55,7 +56,8 @@ export default function BarChartScope(
               signal: "data('secondary').length > 1 ? width/2 - 30 : width",
             },
           ],
-          nice: { signal: "primaryXTickCount" },
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
+          // nice: { signal: "primaryXTickCount" },
           zero: true,
           domain: {
             data: "primary_formatted",
@@ -71,7 +73,7 @@ export default function BarChartScope(
               signal: "data('secondary').length > 1 ? width/2 - 30 : 0",
             },
           ],
-          nice: { signal: "secondaryXTickCount" },
+          // nice: { signal: "secondaryXTickCount" },
           zero: true,
           domain: {
             data: "secondary_formatted",
@@ -97,7 +99,6 @@ export default function BarChartScope(
           domain: [parentLabel],
         },
       ],
-
       marks: [
         {
           type: "group",
@@ -271,7 +272,6 @@ export default function BarChartScope(
               tickCount: { signal: "secondaryXTickCount" },
             },
           ],
-
           marks: [
             {
               type: "rect",
@@ -344,6 +344,9 @@ export default function BarChartScope(
           ],
         },
       ],
+    },
+    {
+      clone: false,
     },
   );
 }
