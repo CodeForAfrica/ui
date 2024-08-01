@@ -8,7 +8,7 @@ import "leaflet/dist/leaflet.css";
 
 // TODO(kilemensi): We can't use styled and MapContainer because MapContainer
 //                  is a dynamic component i.e. needs window to exist
-const LazyMap = React.forwardRef(function Map(props, ref) {
+const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   const {
     center,
     geography,
