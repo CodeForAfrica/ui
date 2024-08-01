@@ -33,8 +33,8 @@ function Template({ ...args }) {
 export const Default = Template.bind({});
 
 Default.args = {
+  ...tags[1],
   active: true,
   isLoading: false,
-  ...tags[1],
   variant: "default",
 };

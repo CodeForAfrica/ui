@@ -1,124 +1,60 @@
 import { LocationTag } from "@hurumap/core";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import L from "leaflet";
 import PropTypes from "prop-types";
-import React, { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import ReactDOMServer from "react-dom/server";
-import { useMap, FeatureGroup, GeoJSON } from "react-leaflet";
+import { FeatureGroup, GeoJSON, useMap } from "react-leaflet";
 
-import { ReactComponent as CancelIcon } from "@/climatemappedafrica/assets/icons/Component108-4.svg";
-import theme, {
-  CHART_PRIMARY_COLOR_SCHEME,
-  CHART_SECONDARY_COLOR_SCHEME,
-} from "@/climatemappedafrica/theme";
-
-const primaryGeoStyles = {
-  inactive: {
-    color: CHART_PRIMARY_COLOR_SCHEME[3],
-    fillColor: "#f8f8f8",
-    fillOpacity: 1,
-    weight: 1,
-  },
-  hoverOnly: {
-    out: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[2],
-      fillOpacity: 1,
-      weight: 1,
-    },
-    over: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
-      fillOpacity: 1,
-    },
-  },
-  selected: {
-    out: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
-      strokeWidth: 1,
-      opacity: 1,
-      fillOpacity: 1,
-      weight: 1.5,
-    },
-    over: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
-      opacity: 1,
-    },
-  },
-};
-
-const secondaryGeoStyles = {
-  ...primaryGeoStyles,
-  hoverOnly: {
-    out: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[2],
-      fillOpacity: 1,
-      weight: 1,
-    },
-    over: {
-      color: CHART_SECONDARY_COLOR_SCHEME[3],
-      fillColor: CHART_SECONDARY_COLOR_SCHEME[1],
-      fillOpacity: 1,
-      opacity: 1,
-    },
-  },
-  selected: {
-    out: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
-      strokeWidth: 1,
-      opacity: 1,
-      fillOpacity: 1,
-      weight: 1.5,
-    },
-    over: {
-      color: CHART_PRIMARY_COLOR_SCHEME[3],
-      fillColor: CHART_PRIMARY_COLOR_SCHEME[1],
-      opacity: 1,
-    },
-  },
-};
+import {
+  defaultPrimaryGeoStyles,
+  defaultSecondaryGeoStyles,
+} from "./geoStyles";
 
 function Layers({
+  PinnedLocationTagProps,
+  PopUpLocationTagProps,
   geography,
-  isPinOrCompare,
-  locationCodes,
+  isPinOrCompare = false,
+  locationCodes: locationCodesProp,
   onClick,
   onClickUnpin,
   parentsGeometries,
+  primaryGeoStyles: primaryGeoStylesProp,
+  secondaryGeoStyles: secondaryGeoStylesProp,
   secondaryGeography,
   selectedBoundary,
 }) {
   const map = useMap();
   const groupRef = useRef();
   const siblingRef = useRef();
+  const theme = useTheme();
+  const primaryGeoStyles = primaryGeoStylesProp || defaultPrimaryGeoStyles;
+  const secondaryGeoStyles =
+    secondaryGeoStylesProp || defaultSecondaryGeoStyles;
 
   const pinIcon = L.divIcon({
     html: ReactDOMServer.renderToStaticMarkup(
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <LocationTag
-            IconButtonProps={{
-              children: <CancelIcon />,
+            MarkerProps={{
+              ...PinnedLocationTagProps,
               sx: {
-                left: 0,
-                position: "absolute",
-                top: 0,
-                "&:hover": {
-                  color: "#666666",
-                  "& .Component108-4_svg__b": {
-                    stroke: theme.palette.text?.secondary,
-                  },
-                },
+                ...PinnedLocationTagProps?.sx,
               },
             }}
             level={geography?.level}
             name={geography?.name?.toLowerCase()}
             code={geography?.code}
             color="primary"
+            variant="marker"
+            sx={{
+              left: 0,
+              position: "absolute",
+              top: 0,
+            }}
           />
         </ThemeProvider>
       </StyledEngineProvider>,
@@ -131,13 +67,10 @@ function Layers({
         isPinOrCompare && feature.properties.code === secondaryGeography?.code
           ? secondaryGeoStyles
           : primaryGeoStyles;
-      const normalizedLocationCodes = locationCodes?.map((code) =>
-        code.toLowerCase(),
-      );
-      const isCodeIncluded = normalizedLocationCodes?.includes(
-        feature.properties.code.toLowerCase(),
-      );
-      if (!isCodeIncluded) {
+      // assume ISO 3166-1 codes so comparing uppercase should be ggood
+      const locationCodes =
+        locationCodesProp?.map((c) => c.toUpperCase()) || [];
+      if (!locationCodes?.includes(feature.properties.code.toUpperCase())) {
         layer.setStyle(geoStyles.inactive);
       } else {
         const popUpContent = (level, name) =>
@@ -148,10 +81,12 @@ function Layers({
                   color={isPinOrCompare ? "secondary" : "primary"}
                   level={level}
                   name={name.toLowerCase()}
+                  {...PopUpLocationTagProps}
                   sx={{
                     left: 0,
                     position: "absolute",
                     top: 0,
+                    ...PopUpLocationTagProps?.sx,
                   }}
                 />
               </ThemeProvider>
@@ -214,7 +149,17 @@ function Layers({
         }
       }
     },
-    [geography, isPinOrCompare, secondaryGeography, locationCodes, onClick],
+    [
+      PopUpLocationTagProps,
+      geography,
+      isPinOrCompare,
+      locationCodesProp,
+      onClick,
+      primaryGeoStyles,
+      secondaryGeoStyles,
+      secondaryGeography,
+      theme,
+    ],
   );
 
   useEffect(() => {
@@ -259,16 +204,16 @@ function Layers({
       }
     }
   }, [
-    groupRef,
-    siblingRef,
-    onClickUnpin,
     geography.code,
-    pinIcon,
-    selectedBoundary,
+    groupRef,
+    isPinOrCompare,
     map,
+    onClickUnpin,
     onEachFeature,
     parentsGeometries,
-    isPinOrCompare,
+    pinIcon,
+    selectedBoundary,
+    siblingRef,
   ]);
 
   return (
@@ -284,6 +229,8 @@ function Layers({
 }
 
 Layers.propTypes = {
+  PinnedLocationTagProps: PropTypes.shape({}),
+  PopUpLocationTagProps: PropTypes.shape({}),
   geography: PropTypes.shape({
     code: PropTypes.string,
     level: PropTypes.string,
@@ -294,21 +241,12 @@ Layers.propTypes = {
   onClick: PropTypes.func,
   onClickUnpin: PropTypes.func,
   parentsGeometries: PropTypes.arrayOf(PropTypes.shape({})),
+  primaryGeoStyles: PropTypes.shape({}),
   secondaryGeography: PropTypes.shape({
     code: PropTypes.string,
   }),
+  secondaryGeoStyles: PropTypes.shape({}),
   selectedBoundary: PropTypes.shape({}),
-};
-
-Layers.defaultProps = {
-  geography: undefined,
-  isPinOrCompare: undefined,
-  locationCodes: undefined,
-  onClick: undefined,
-  onClickUnpin: undefined,
-  parentsGeometries: undefined,
-  secondaryGeography: undefined,
-  selectedBoundary: undefined,
 };
 
 export default Layers;

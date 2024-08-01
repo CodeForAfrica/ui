@@ -5,9 +5,9 @@ const LocationHighlight = React.forwardRef(function LocationHighlight(
   {
     TitleTypographyProps,
     ValueTypographyProps,
+    isLoading,
     title,
     value,
-    isLoading,
     ...props
   },
   ref,
@@ -18,8 +18,8 @@ const LocationHighlight = React.forwardRef(function LocationHighlight(
       display="inline-flex"
       flexDirection="column"
       flexGrow={1}
-      ref={ref}
       {...props}
+      ref={ref}
     >
       <Typography
         variant="subtitle1"

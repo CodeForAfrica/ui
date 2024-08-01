@@ -18,13 +18,6 @@ const highlights = [
 
 export default {
   title: "@hurumap/core/LocationHighlight",
-  argTypes: {
-    isLoading: {
-      control: {
-        type: "boolean",
-      },
-    },
-  },
 };
 
 function Template({ ...args }) {
@@ -34,6 +27,6 @@ function Template({ ...args }) {
 export const Default = Template.bind({});
 
 Default.args = {
-  isLoading: false,
   ...highlights[0],
+  isLoading: false,
 };
