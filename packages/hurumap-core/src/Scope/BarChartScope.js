@@ -17,6 +17,8 @@ export default function BarChartScope({
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
+
+  // Need to merge/contact arrays
   return merge(
     Scope({
       primaryData,
@@ -99,7 +101,6 @@ export default function BarChartScope({
           domain: [parentLabel],
         },
       ],
-
       marks: [
         {
           type: "group",
@@ -273,7 +274,6 @@ export default function BarChartScope({
               tickCount: { signal: "secondaryXTickCount" },
             },
           ],
-
           marks: [
             {
               type: "rect",

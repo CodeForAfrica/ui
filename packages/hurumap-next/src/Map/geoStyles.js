@@ -1,9 +1,13 @@
-import {
-  CHART_PRIMARY_COLOR_SCHEME,
-  CHART_SECONDARY_COLOR_SCHEME,
-} from "@/climatemappedafrica/theme";
+const CHART_PRIMARY_COLOR_SCHEME = ["#0B2AEA", "#7986D1", "#DFDFDF", "#666666"];
 
-export const primaryGeoStyles = {
+const CHART_SECONDARY_COLOR_SCHEME = [
+  "#FC0D1B",
+  "#F8A199",
+  "#DFDFDF",
+  "#666666",
+];
+
+const defaultPrimaryGeoStyles = {
   inactive: {
     color: CHART_PRIMARY_COLOR_SCHEME[3],
     fillColor: "#f8f8f8",
@@ -40,8 +44,8 @@ export const primaryGeoStyles = {
   },
 };
 
-export const secondaryGeoStyles = {
-  ...primaryGeoStyles,
+const defaultSecondaryGeoStyles = {
+  ...defaultPrimaryGeoStyles,
   hoverOnly: {
     out: {
       color: CHART_PRIMARY_COLOR_SCHEME[3],
@@ -72,3 +76,5 @@ export const secondaryGeoStyles = {
     },
   },
 };
+
+export { defaultPrimaryGeoStyles, defaultSecondaryGeoStyles };

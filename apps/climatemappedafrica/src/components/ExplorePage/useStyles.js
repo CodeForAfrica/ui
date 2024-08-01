@@ -41,12 +41,6 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
       },
     },
   },
-  map: {
-    display: "none",
-    [breakpoints.up("md")]: {
-      display: "block",
-    },
-  },
 }));
 
 export default useStyles;
