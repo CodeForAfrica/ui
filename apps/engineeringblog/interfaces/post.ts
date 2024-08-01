@@ -1,7 +1,12 @@
-import { Metadata } from 'next';
-import { Author } from './author';
+import { Author } from "./author";
+import { TAG } from "@/lib/constants/tag";
 
-export interface Post extends Metadata {
-  author: Array<Author>,
-  excerpt: string,
+export interface Post {
+  title: string;
+  description: string;
+  excerpt: string;
+  previewImage: string;
+  publishingDate: string;
+  authors: Array<Author>;
+  categories: Set<typeof TAG>;
 }

@@ -1,10 +1,9 @@
-import Navbar from "@/components/Navbar";
-import { Fragment } from "react";
+import HeroPost from "@/components/HeroPost";
 
 export default function Home() {
   return (
-    <Fragment>
-      <Navbar />
-    </Fragment>
+    <>
+      <HeroPost slug="{}" />
+    </>
   );
 }
