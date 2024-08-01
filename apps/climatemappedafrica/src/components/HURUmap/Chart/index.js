@@ -104,7 +104,7 @@ function Chart({
 
           setView(newView.view);
         } catch (error) {
-          console.error(error);
+          console.error("Error rendering chart", error);
         }
       }
     }

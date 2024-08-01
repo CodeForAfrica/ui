@@ -25,8 +25,8 @@ Default.args = {
   handleChartValueChange: () => {},
   height: 100,
   isAction: true,
-  imageTypes: ["PNG", "JPEG", "SVG"],
-  layouts: ["Default"],
+  imageTypes: ["PNG", "SVG"],
+  layouts: ["Layout 1", "Layout 2"],
   projectlogo: null,
   profileNames: [],
   scaleFactor: 2,
@@ -35,4 +35,7 @@ Default.args = {
   title: "Download",
   values: [],
   view: null,
+  sx: {
+    width: 200,
+  },
 };
