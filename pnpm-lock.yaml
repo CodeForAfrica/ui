@@ -174,7 +174,7 @@ importers:
         specifier: ^0.23.2
         version: 0.23.2
       sharp:
-        specifier: ^0.33.4
+        specifier: ^0.33.0
         version: 0.33.4
       slate:
         specifier: ^0.103.0
@@ -361,7 +361,7 @@ importers:
         specifier: ^7.6.0
         version: 7.6.0(react@18.3.1)(vega-lite@5.20.1(vega@5.30.0(encoding@0.1.13)))(vega@5.30.0(encoding@0.1.13))
       sharp:
-        specifier: ^0.33.4
+        specifier: ^0.33.0
         version: 0.33.4
       simplebar-react:
         specifier: ^3.2.6
@@ -623,7 +623,7 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(react@18.3.1)
       sharp:
-        specifier: ^0.33.4
+        specifier: ^0.33.0
         version: 0.33.4
       slate:
         specifier: ^0.103.0
@@ -798,7 +798,7 @@ importers:
         specifier: ^7.6.0
         version: 7.6.0(react@18.3.1)(vega-lite@5.20.1(vega@5.30.0(encoding@0.1.13)))(vega@5.30.0(encoding@0.1.13))
       sharp:
-        specifier: ^0.33.4
+        specifier: ^0.33.0
         version: 0.33.4
       simplebar-react:
         specifier: ^3.2.6
@@ -1045,7 +1045,7 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0
       sharp:
-        specifier: ^0.33.4
+        specifier: ^0.33.0
         version: 0.33.4
       simplebar-react:
         specifier: ^3.2.6
