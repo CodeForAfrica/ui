@@ -35,7 +35,7 @@
     "@payloadcms/plugin-sentry": "^0.0.6",
     "@payloadcms/plugin-seo": "^2.3.2",
     "@payloadcms/richtext-slate": "^1.5.2",
-    "@sentry/nextjs": "^8.21.0",
+    "@sentry/nextjs": "^8.22.0",
     "ace-builds": "^1.35.4",
     "crawler-user-agents": "^1.0.142",
     "date-fns": "^3.6.0",

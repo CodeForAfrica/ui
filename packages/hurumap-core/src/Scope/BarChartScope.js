@@ -1,4 +1,4 @@
-import { deepmerge } from "@mui/utils";
+import merge from "deepmerge";
 
 import Scope from "./Scope";
 
@@ -17,7 +17,9 @@ export default function BarChartScope({
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
-  return deepmerge(
+
+  // Need to merge/contact arrays
+  return merge(
     Scope({
       primaryData,
       metadata,
@@ -344,9 +346,6 @@ export default function BarChartScope({
           ],
         },
       ],
-    },
-    {
-      clone: false,
     },
   );
 }
