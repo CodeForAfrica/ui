@@ -1,15 +1,20 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+"use client";
+
 import theme from "@/theme/theme";
+import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
 
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { FunctionComponent, PropsWithChildren } from "react";
+import MuiThemeProviderNext from "./MuiThemeProviderNext";
 
-export function ThemeRegistry({ children }: { children: React.ReactNode }) {
+const ThemeRegistry: FunctionComponent<PropsWithChildren> = ({ children }) => {
   return (
-    <AppRouterCacheProvider>
-      <ThemeProvider theme={theme}>
-        {/* <CssBaseline /> */}
+    <MuiThemeProviderNext>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
         {children}
-      </ThemeProvider>
-    </AppRouterCacheProvider>
+      </MuiThemeProvider>
+    </MuiThemeProviderNext>
   );
-}
+};
+
+export default ThemeRegistry;
