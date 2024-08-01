@@ -4,7 +4,7 @@
 
 ARG \
   # Must match packageManager in package.json
-  PNPM_VERSION=9.4.0 \
+  PNPM_VERSION=9.6.0 \
   # Next.js / Payload (build time)
   PORT=3000 \
   # Next.js (runtime)
@@ -20,7 +20,7 @@ ARG \
   SENTRY_PROJECT=""
 
 
-FROM node:20.14-alpine as node
+FROM node:20.16-alpine AS node
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
@@ -35,7 +35,7 @@ RUN apk update \
 # base: starting image to be used in all other stages
 # ---------------------------------------------------
 
-FROM node as base
+FROM node AS base
 
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
@@ -47,7 +47,7 @@ WORKDIR /workspace
 #            "build" stages.
 # --------------------------------------------------------------------
 
-FROM base as pnpm-base
+FROM base AS pnpm-base
 
 ARG PNPM_VERSION
 
@@ -57,7 +57,7 @@ RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 # base-desp: image with the common packages package.json copied
 # -------------------------------------------------------------
 
-FROM pnpm-base as base-deps
+FROM pnpm-base AS base-deps
 
 COPY pnpm-lock.yaml .
 
@@ -77,7 +77,7 @@ RUN pnpm --filter "./packages/**" install --offline --frozen-lockfile
 # base-builder: base image that will be used by application-specific builders
 # ---------------------------------------------------------------------------
 
-FROM pnpm-base as base-builder
+FROM pnpm-base AS base-builder
 
 COPY --from=base-deps /workspace/packages/ ./packages
 
@@ -89,7 +89,7 @@ COPY packages ./packages
 # base-runner: base for final deployable image
 # --------------------------------------------
 
-FROM base as base-runner
+FROM base AS base-runner
 
 ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_NAME \
@@ -127,7 +127,7 @@ EXPOSE ${PORT}
 # charterafrica-desp: image with all charterafrica dependencies
 # -------------------------------------------------------------
 
-FROM base-deps as charterafrica-deps
+FROM base-deps AS charterafrica-deps
 
 COPY apps/charterafrica/package.json ./apps/charterafrica/package.json
 
@@ -137,7 +137,7 @@ RUN pnpm --filter "./apps/charterafrica/" install --offline --frozen-lockfile
 # charterafrica-builder: image that uses deps to build shippable output
 # ---------------------------------------------------------------------
 
-FROM base-builder as charterafrica-builder
+FROM base-builder AS charterafrica-builder
 
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
@@ -177,7 +177,7 @@ RUN pnpm --filter "./apps/charterafrica/" build-payload
 # charterafrica-runner: final deployable image
 # --------------------------------------------
 
-FROM base-runner as charterafrica-runner
+FROM base-runner AS charterafrica-runner
 
 ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
   PAYLOAD_PUBLIC_APP_URL
@@ -234,7 +234,7 @@ CMD ["node", "dist/server.js"]
 # codeforafrica-desp: image with all codeforafrica dependencies
 # -------------------------------------------------------------
 
-FROM base-deps as codeforafrica-deps
+FROM base-deps AS codeforafrica-deps
 
 # TODO(kilemensi): Figure out why this is needed
 COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
@@ -247,7 +247,7 @@ RUN pnpm --filter "./apps/codeforafrica/" install --offline --frozen-lockfile
 # codeforafrica-builder: image that uses deps to build shippable output
 # ---------------------------------------------------------------------
 
-FROM base-builder as codeforafrica-builder
+FROM base-builder AS codeforafrica-builder
 
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
@@ -287,7 +287,7 @@ RUN pnpm --filter "./apps/codeforafrica/" build-payload
 # codeforafrica-runner: final deployable image
 # --------------------------------------------
 
-FROM base-runner as codeforafrica-runner
+FROM base-runner AS codeforafrica-runner
 
 ARG NEXT_PUBLIC_APP_LOGO_URL \
   PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
@@ -343,7 +343,7 @@ CMD ["node", "dist/server.js"]
 # roboshield-desp: image with all roboshield dependencies
 # -------------------------------------------------------
 
-FROM base-deps as roboshield-deps
+FROM base-deps AS roboshield-deps
 
 COPY apps/roboshield/package.json ./apps/roboshield/package.json
 
@@ -353,7 +353,7 @@ RUN pnpm --filter "./apps/roboshield/" install --offline --frozen-lockfile
 # roboshield-builder: image that uses deps to build shippable output
 # ------------------------------------------------------------------
 
-FROM base-builder as roboshield-builder
+FROM base-builder AS roboshield-builder
 
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
@@ -389,7 +389,7 @@ RUN pnpm --filter "./apps/roboshield/" build-payload
 #
 # roboshield-runner: final deployable image
 # -----------------------------------------
-FROM base-runner as roboshield-runner
+FROM base-runner AS roboshield-runner
 
 ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
   PAYLOAD_PUBLIC_APP_URL
@@ -438,7 +438,7 @@ CMD ["node", "dist/server.js"]
 # pesayetu-desp: image with all pesayetu dependencies
 # ---------------------------------------------------
 
-FROM base-deps as pesayetu-deps
+FROM base-deps AS pesayetu-deps
 
 COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
 COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
@@ -451,7 +451,7 @@ RUN pnpm --filter "./apps/pesayetu" install --offline --frozen-lockfile
 # pesayetu-builder: image that uses deps to build shippable output
 # ----------------------------------------------------------------
 
-FROM base-builder as pesayetu-builder
+FROM base-builder AS pesayetu-builder
 
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
@@ -494,7 +494,7 @@ RUN pnpm --filter "./apps/pesayetu" build
 # pesayetu-runner: final deployable image
 # ---------------------------------------
 
-FROM base-runner as pesayetu-runner
+FROM base-runner AS pesayetu-runner
 
 ARG NEXT_PUBLIC_IMAGE_DOMAINS \
   NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
@@ -539,7 +539,7 @@ CMD ["node", "apps/pesayetu/server.js"]
 # vpnmanager-desp: image with all pesayetu dependencies
 # -----------------------------------------------------
 
-FROM base-deps as vpnmanager-deps
+FROM base-deps AS vpnmanager-deps
 
 COPY apps/vpnmanager/package.json ./apps/vpnmanager/package.json
 
@@ -550,7 +550,7 @@ RUN pnpm --filter "./apps/vpnmanager" install --offline --frozen-lockfile
 # vpnmanager-builder: image that uses deps to build shippable output
 # ------------------------------------------------------------------
 
-FROM base-builder as vpnmanager-builder
+FROM base-builder AS vpnmanager-builder
 
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
@@ -580,7 +580,7 @@ RUN pnpm --filter "./apps/vpnmanager" build
 # vpnmanager-runner: final deployable image
 # -----------------------------------------
 
-FROM base-runner as vpnmanager-runner
+FROM base-runner AS vpnmanager-runner
 
 ARG API_SECRET_KEY
 RUN set -ex \
@@ -617,85 +617,85 @@ CMD ["node", "apps/vpnmanager/server.js"]
 # climatemappedafrica-desp: image with all climatemappedafrica dependencies
 # ---------------------------------------------------
 
-  FROM base-deps as climatemappedafrica-deps
+FROM base-deps AS climatemappedafrica-deps
 
-  COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
-  COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
-  COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
+COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
+COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
+COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
 
-  # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-  RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
 
-  #
-  # climatemappedafrica-builder: image that uses deps to build shippable output
-  # ----------------------------------------------------------------
+#
+# climatemappedafrica-builder: image that uses deps to build shippable output
+# ----------------------------------------------------------------
 
-  FROM base-builder as climatemappedafrica-builder
+FROM base-builder AS climatemappedafrica-builder
 
-  ARG NEXT_TELEMETRY_DISABLED \
-    # Next.js / Payload (build time)
-    PORT \
-    # Next.js (runtime)
-    NEXT_PUBLIC_APP_NAME=Climate Mapped Africa \
-    NEXT_PUBLIC_APP_URL \
-    NEXT_PUBLIC_SENTRY_DSN \
-    NEXT_PUBLIC_SEO_DISABLED \
-    NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
-    NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
-    NEXT_PUBLIC_GOOGLE_ANALYTICS \
-    # Sentry (build time)
-    SENTRY_AUTH_TOKEN \
-    SENTRY_ENVIRONMENT \
-    SENTRY_ORG \
-    SENTRY_PROJECT \
-    # Custom (runtime)
-    HURUMAP_API_URL
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME=Climate Mapped Africa \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
+  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT \
+  # Custom (runtime)
+  HURUMAP_API_URL
 
-  # This is in app-builder instead of base-builder just incase app-deps adds deps
-  COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
 
-  COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
+COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
 
-  COPY apps/climatemappedafrica ./apps/climatemappedafrica
+COPY apps/climatemappedafrica ./apps/climatemappedafrica
 
-  RUN pnpm --filter "./apps/climatemappedafrica" build
+RUN pnpm --filter "./apps/climatemappedafrica" build
 
-  #
-  # climatemappedafrica-runner: final deployable image
-  # ---------------------------------------
+#
+# climatemappedafrica-runner: final deployable image
+# ---------------------------------------
 
-  FROM base-runner as climatemappedafrica-runner
+FROM base-runner AS climatemappedafrica-runner
 
-  ARG NEXT_PUBLIC_IMAGE_DOMAINS \
-    NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
-    NEXT_PUBLIC_OPENAFRICA_DOMAINS \
-    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS
+ARG NEXT_PUBLIC_IMAGE_DOMAINS \
+  NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
+  NEXT_PUBLIC_OPENAFRICA_DOMAINS \
+  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS
 
-  ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
-    NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
-    NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
-    NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
+ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
+  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
+  NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
+  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
 
-  RUN set -ex \
-    # Create nextjs cache dir w/ correct permissions
-    && mkdir -p ./apps/climatemappedafrica/.next \
-    && chown nextjs:nodejs ./apps/climatemappedafrica/.next
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/climatemappedafrica/.next \
+  && chown nextjs:nodejs ./apps/climatemappedafrica/.next
 
-  # PNPM
-  # symlink some dependencies
-  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+# PNPM
+# symlink some dependencies
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
-  # Next.js
-  # Public assets
-  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
+# Next.js
+# Public assets
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
 
-  # Automatically leverage output traces to reduce image size
-  # https://nextjs.org/docs/advanced-features/output-file-tracing
-  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
-  COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
 
-  USER nextjs
+USER nextjs
 
-  # server.js is created by next build from the standalone output
-  # https://nextjs.org/docs/pages/api-reference/next-config-js/output
-  CMD ["node", "apps/climatemappedafrica/server.js"]
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/climatemappedafrica/server.js"]
