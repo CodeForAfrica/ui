@@ -1,11 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
-import { Share, Action } from "@hurumap/core";
-import { Grid } from "@mui/material";
+import { Action, Download, Share } from "@hurumap/core";
+import { Grid, useTheme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
-import React from "react";
-
-import Download from "./Download";
+import React, { useState, useEffect } from "react";
+import * as vega from "vega";
 
 import { ReactComponent as DownloadIcon } from "@/climatemappedafrica/assets/icons/Component 1.svg";
 import { ReactComponent as ShareIcon } from "@/climatemappedafrica/assets/icons/Component 27.svg";
@@ -16,6 +15,10 @@ import { ReactComponent as CopyIcon } from "@/climatemappedafrica/assets/icons/G
 import { ReactComponent as LinkedInIcon } from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
 import { ReactComponent as TwitterIcon } from "@/climatemappedafrica/assets/icons/Twitter.svg";
 import { ReactComponent as WhatsAppIcon } from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
+import cfalogo from "@/climatemappedafrica/assets/logos/Group4462.svg";
+import projectlogo from "@/climatemappedafrica/assets/logos/Group5002.svg";
+import { idify } from "@/climatemappedafrica/components/HURUmap/Chart/utils";
+import config, { hurumapArgs } from "@/climatemappedafrica/config";
 import site from "@/climatemappedafrica/utils/site";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
@@ -65,15 +68,30 @@ function IndicatorTitle({
   view,
   ...props
 }) {
-  const classes = useStyles(props);
+  const [downloadView, setDownloadView] = useState(null);
 
-  const { geoCode, indicatorId } = props;
+  const classes = useStyles(props);
+  const { palette } = useTheme();
+
+  const {
+    currentFilters,
+    geoCode,
+    indicatorId,
+    isCompare,
+    profileNames,
+    spec,
+  } = props;
 
   const url = new URL(
     `/embed/${geoCode.toLowerCase()}/${indicatorId}`,
     site.environmentUrl,
   ).toString();
   const className = `wrapper-${geoCode}-${indicatorId}`;
+
+  const codeData = {
+    className,
+    src: `${process.env.NEXT_PUBLIC_APP_URL}/embed/${geoCode.toLowerCase()}/${indicatorId}`,
+  };
 
   const shareData = [
     {
@@ -99,10 +117,33 @@ function IndicatorTitle({
     { name: "CopyUrl", icon: CopyIcon, props: { subject: title } },
   ];
 
-  const codeData = {
-    className,
-    src: `${process.env.NEXT_PUBLIC_APP_URL}/embed/${geoCode.toLowerCase()}/${indicatorId}`,
+  const {
+    indicatorTitle: {
+      download: { values, layouts, imageTypes, fileTypes },
+    },
+  } = hurumapArgs;
+
+  const newFilters = currentFilters?.forEach(({ name, value }) => {
+    const filterName = idify(name);
+    view?.signal(`${filterName}Filter`, true);
+    view?.signal(`${filterName}FilterValue`, value);
+  });
+
+  const splitString = (str) => {
+    // eslint-disable-next-line prefer-regex-literals
+    const regex = new RegExp(/\S.{1,42}\S(?= |$)/, "g");
+    const chunks = str.match(regex);
+    return chunks;
   };
+
+  const chartTitle = splitString(title)?.slice(0, 3);
+  const subtitle = currentFilters?.reduce((acc, cur) => {
+    return `${acc}${cur.name}: ${cur.value},`;
+  }, "");
+  const secondaryName = isCompare
+    ? ` vs ${profileNames?.secondary?.split("-")[0]}`
+    : "";
+  const chartSubtitle = `${subtitle} Location: ${profileNames?.primary}${secondaryName}`;
 
   const actions = [
     description && {
@@ -130,6 +171,18 @@ function IndicatorTitle({
             ...(view?.data("primary") ?? []),
             ...(view?.data("secondary") ?? []),
           ]}
+          values={values}
+          imageTypes={imageTypes}
+          view={downloadView}
+          chartTitle={chartTitle}
+          chartSubtitle={chartSubtitle}
+          cfalogo={cfalogo}
+          projectlogo={projectlogo}
+          backgroundColor={palette.common.white}
+          scaleFactor={config.images.scaleFactor}
+          layouts={layouts}
+          fileTypes={fileTypes}
+          currentFilters={newFilters}
         />
       ),
       icon: <DownloadIcon />,
@@ -150,6 +203,15 @@ function IndicatorTitle({
       icon: <ShareIcon />,
     },
   ];
+
+  useEffect(() => {
+    try {
+      const viewProp = new vega.View(vega.parse(spec), { renderer: "none" });
+      setDownloadView(viewProp);
+    } catch (error) {
+      console.error("Error creating view", error);
+    }
+  }, [spec]);
 
   return (
     <div className={classes.root}>
