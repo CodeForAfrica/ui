@@ -1,23 +1,15 @@
 import { Location } from "@hurumap/core";
+import { Map } from "@hurumap/next";
 import { Box, useTheme } from "@mui/material";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import useExplore from "./useExplore";
-import { primaryGeoStyles, secondaryGeoStyles } from "./useLayerStyles";
 import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
-
-const Map = dynamic(
-  () => import("@/climatemappedafrica/components/HURUmap/Map"),
-  {
-    ssr: false,
-  },
-);
 
 function initialState(profiles, onClick) {
   return {
@@ -136,10 +128,7 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             onClick={handleClickMap}
             onClickUnpin={handleClickUnpin}
             zoom={7}
-            primaryGeoStyles={primaryGeoStyles}
-            secondaryGeoStyles={secondaryGeoStyles}
             {...props}
-            className={classes.map}
           />
           <Location
             highlights={highlights}

@@ -1,37 +1,31 @@
-import makeStyles from "@mui/styles/makeStyles";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useState } from "react";
-import { MapContainer, ZoomControl, TileLayer, Pane } from "react-leaflet";
+import { MapContainer, Pane, TileLayer, ZoomControl } from "react-leaflet";
 
 import Layers from "./Layers";
 
 import "leaflet/dist/leaflet.css";
 
-const useStyles = makeStyles(({ typography }) => ({
-  root: {
-    "& .tooltip": {
-      height: typography.pxToRem(38),
-      width: typography.pxToRem(88),
-      position: "relative",
+// TODO(kilemensi): We can't use styled and MapContainer because MapContainer
+//                  is a dynamic component i.e. needs window to exist
+const LazyMap = React.forwardRef(function LazyMap(props, ref) {
+  const {
+    center,
+    geography,
+    geometries,
+    isPinOrCompare,
+    locations,
+    preferredChildren,
+    styles = {
+      height: "100%",
+      width: "100%",
     },
-  },
-}));
-
-function Map({
-  center,
-  className,
-  geography,
-  geometries,
-  locations,
-  preferredChildren,
-  styles,
-  tileLayers,
-  zoom,
-  isPinOrCompare,
-  ...props
-}) {
-  const classes = useStyles(props);
+    sx,
+    tileLayers,
+    zoom,
+    // Assume remaining props are for Layers component
+    ...LayersProps
+  } = props;
   const [selectedBoundary, setSelectedBoundary] = useState(null);
 
   const getSelectedBoundary = useCallback(
@@ -85,7 +79,6 @@ function Map({
   }, [geometries, geography, getSelectedBoundary]);
 
   const locationCodes = locations?.map(({ code }) => code);
-
   return (
     <MapContainer
       center={center}
@@ -96,10 +89,13 @@ function Map({
       touchZoom={false}
       zoomSnap={0.25}
       style={styles}
-      className={clsx(classes.root, className)}
+      sx={sx}
+      ref={ref}
     >
+      {" "}
       {tileLayers?.map(({ pane, url, zIndex }) => (
         <Pane
+          key={url}
           index={pane}
           name={pane}
           style={{ zIndex, pointerEvents: "none" }}
@@ -109,7 +105,7 @@ function Map({
       ))}
       <ZoomControl position="bottomright" />
       <Layers
-        {...props}
+        {...LayersProps}
         geography={geography}
         locationCodes={locationCodes}
         parentsGeometries={geometries.parents}
@@ -118,9 +114,10 @@ function Map({
       />
     </MapContainer>
   );
-}
+});
 
-Map.propTypes = {
+LazyMap.propTypes = {
+  LayersProps: PropTypes.shape({}),
   center: (props, propName, componentName) => {
     const { [propName]: prop } = props;
     if (!Array.isArray(prop) || prop.length !== 2 || prop.some(Number.isNaN)) {
@@ -131,7 +128,6 @@ Map.propTypes = {
     }
     return null;
   },
-  className: PropTypes.string,
   geography: PropTypes.shape({
     level: PropTypes.string,
   }),
@@ -150,22 +146,4 @@ Map.propTypes = {
   isPinOrCompare: PropTypes.bool,
 };
 
-Map.defaultProps = {
-  center: undefined,
-  className: undefined,
-  geography: undefined,
-  geometries: undefined,
-  locations: undefined,
-  preferredChildren: undefined,
-  setGeoCode: undefined,
-  setShouldFetch: undefined,
-  styles: {
-    height: "100%",
-    width: "100%",
-  },
-  tileLayers: undefined,
-  zoom: undefined,
-  isPinOrCompare: undefined,
-};
-
-export default Map;
+export default LazyMap;
