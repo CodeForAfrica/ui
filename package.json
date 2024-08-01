@@ -41,7 +41,7 @@
     "node": "20.x",
     "pnpm": "9"
   },
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@9.6.0",
   "pnpm": {
     "overrides": {
       "sharp": "^0.33.0"
