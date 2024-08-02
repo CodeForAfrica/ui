@@ -226,6 +226,99 @@ USER nextjs
 # Custom server to run Payload and Next.js in the same app
 CMD ["node", "dist/server.js"]
 
+
+# ============================================================================
+# Climate Mapped Africa
+# ============================================================================
+
+#
+# climatemappedafrica-desp: image with all climatemappedafrica dependencies
+# -------------------------------------------------------------------------
+
+FROM base-deps AS climatemappedafrica-deps
+
+COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
+COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
+COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
+
+#
+# climatemappedafrica-builder: image that uses deps to build shippable output
+# ---------------------------------------------------------------------------
+
+FROM base-builder AS climatemappedafrica-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME=Climate Mapped Africa \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
+  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT \
+  # Custom (runtime)
+  HURUMAP_API_URL
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
+
+COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
+
+COPY apps/climatemappedafrica ./apps/climatemappedafrica
+
+RUN pnpm --filter "./apps/climatemappedafrica" build
+
+#
+# climatemappedafrica-runner: final deployable image
+# --------------------------------------------------
+
+FROM base-runner AS climatemappedafrica-runner
+
+ARG NEXT_PUBLIC_IMAGE_DOMAINS \
+  NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
+  NEXT_PUBLIC_OPENAFRICA_DOMAINS \
+  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS
+
+ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
+  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
+  NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
+  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/climatemappedafrica/.next \
+  && chown nextjs:nodejs ./apps/climatemappedafrica/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Next.js
+# Public assets
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
+
+USER nextjs
+
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/climatemappedafrica/server.js"]
+
+
 # ============================================================================
 # Code for Africa
 # ============================================================================
@@ -335,100 +428,6 @@ USER nextjs
 # Custom server to run Payload and Next.js in the same app
 CMD ["node", "dist/server.js"]
 
-# ============================================================================
-# Roboshield
-# ============================================================================
-
-#
-# roboshield-desp: image with all roboshield dependencies
-# -------------------------------------------------------
-
-FROM base-deps AS roboshield-deps
-
-COPY apps/roboshield/package.json ./apps/roboshield/package.json
-
-RUN pnpm --filter "./apps/roboshield/" install --offline --frozen-lockfile
-
-#
-# roboshield-builder: image that uses deps to build shippable output
-# ------------------------------------------------------------------
-
-FROM base-builder AS roboshield-builder
-
-ARG NEXT_TELEMETRY_DISABLED \
-  # Next.js / Payload (build time)
-  PORT \
-  # Next.js (runtime)
-  NEXT_PUBLIC_APP_NAME="RoboShield" \
-  NEXT_PUBLIC_APP_URL \
-  NEXT_PUBLIC_SENTRY_DSN \
-  # Payload (runtime)
-  MONGO_URL \
-  PAYLOAD_SECRET \
-  # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
-
-# This is in app-builder instead of base-builder just incase app-deps adds deps
-COPY --from=roboshield-deps /workspace/node_modules ./node_modules
-
-COPY --from=roboshield-deps /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
-
-COPY apps/roboshield ./apps/roboshield/
-
-# When building Next.js app, Next.js needs to connect to local Payload
-ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN pnpm --filter "./apps/roboshield/" build-next
-
-# When building Payload app, Payload needs to have final app URL
-ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-RUN pnpm --filter "./apps/roboshield/" build-payload
-
-#
-# roboshield-runner: final deployable image
-# -----------------------------------------
-FROM base-runner AS roboshield-runner
-
-ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
-  PAYLOAD_PUBLIC_APP_URL
-
-ARG PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
-  PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
-
-RUN set -ex \
-  # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/roboshield//.next \
-  && chown nextjs:nodejs ./apps/roboshield/.next
-
-# PNPM
-# symlink some dependencies
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/next.config.js ./apps/roboshield/next.config.js
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.env ./apps/roboshield/.env
-# Since we can't use output: "standalone", copy all app's dependencies
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
-
-# Next.js
-# Public assets
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
-
-# Since we can't use output: "standalone", copy the whole app's .next folder
-# TODO(kilemensi): Figure out which files in .next folder are not needed
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next ./apps/roboshield/.next
-
-# Payload
-COPY --from=roboshield-builder /workspace/apps/roboshield/dist ./apps/roboshield/dist
-COPY --from=roboshield-builder /workspace/apps/roboshield/build ./apps/roboshield/build
-
-# Since we can't use output: "standalone", switch to specific app's folder
-WORKDIR /workspace/apps/roboshield
-
-USER nextjs
-
-# Custom server to run Payload and Next.js in the same app
-CMD ["node", "dist/server.js"]
 
 # ============================================================================
 # PesaYetu
@@ -532,6 +531,102 @@ CMD ["node", "apps/pesayetu/server.js"]
 
 
 # ============================================================================
+# Roboshield
+# ============================================================================
+
+#
+# roboshield-desp: image with all roboshield dependencies
+# -------------------------------------------------------
+
+FROM base-deps AS roboshield-deps
+
+COPY apps/roboshield/package.json ./apps/roboshield/package.json
+
+RUN pnpm --filter "./apps/roboshield/" install --offline --frozen-lockfile
+
+#
+# roboshield-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS roboshield-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="RoboShield" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  # Payload (runtime)
+  MONGO_URL \
+  PAYLOAD_SECRET \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=roboshield-deps /workspace/node_modules ./node_modules
+
+COPY --from=roboshield-deps /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
+
+COPY apps/roboshield ./apps/roboshield/
+
+# When building Next.js app, Next.js needs to connect to local Payload
+ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
+RUN pnpm --filter "./apps/roboshield/" build-next
+
+# When building Payload app, Payload needs to have final app URL
+ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+RUN pnpm --filter "./apps/roboshield/" build-payload
+
+#
+# roboshield-runner: final deployable image
+# -----------------------------------------
+FROM base-runner AS roboshield-runner
+
+ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+  PAYLOAD_PUBLIC_APP_URL
+
+ARG PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
+  PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/roboshield//.next \
+  && chown nextjs:nodejs ./apps/roboshield/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/next.config.js ./apps/roboshield/next.config.js
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.env ./apps/roboshield/.env
+# Since we can't use output: "standalone", copy all app's dependencies
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
+
+# Next.js
+# Public assets
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
+
+# Since we can't use output: "standalone", copy the whole app's .next folder
+# TODO(kilemensi): Figure out which files in .next folder are not needed
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next ./apps/roboshield/.next
+
+# Payload
+COPY --from=roboshield-builder /workspace/apps/roboshield/dist ./apps/roboshield/dist
+COPY --from=roboshield-builder /workspace/apps/roboshield/build ./apps/roboshield/build
+
+# Since we can't use output: "standalone", switch to specific app's folder
+WORKDIR /workspace/apps/roboshield
+
+USER nextjs
+
+# Custom server to run Payload and Next.js in the same app
+CMD ["node", "dist/server.js"]
+
+
+# ============================================================================
 # VPN Manager
 # ============================================================================
 
@@ -608,94 +703,3 @@ USER nextjs
 CMD ["node", "apps/vpnmanager/server.js"]
 
 
-
-# ============================================================================
-# Climate Mapped Africa
-# ============================================================================
-
-#
-# climatemappedafrica-desp: image with all climatemappedafrica dependencies
-# ---------------------------------------------------
-
-FROM base-deps AS climatemappedafrica-deps
-
-COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
-COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
-COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
-
-# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
-
-#
-# climatemappedafrica-builder: image that uses deps to build shippable output
-# ----------------------------------------------------------------
-
-FROM base-builder AS climatemappedafrica-builder
-
-ARG NEXT_TELEMETRY_DISABLED \
-  # Next.js / Payload (build time)
-  PORT \
-  # Next.js (runtime)
-  NEXT_PUBLIC_APP_NAME=Climate Mapped Africa \
-  NEXT_PUBLIC_APP_URL \
-  NEXT_PUBLIC_SENTRY_DSN \
-  NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
-  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
-  # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT \
-  # Custom (runtime)
-  HURUMAP_API_URL
-
-# This is in app-builder instead of base-builder just incase app-deps adds deps
-COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
-
-COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
-
-COPY apps/climatemappedafrica ./apps/climatemappedafrica
-
-RUN pnpm --filter "./apps/climatemappedafrica" build
-
-#
-# climatemappedafrica-runner: final deployable image
-# ---------------------------------------
-
-FROM base-runner AS climatemappedafrica-runner
-
-ARG NEXT_PUBLIC_IMAGE_DOMAINS \
-  NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
-  NEXT_PUBLIC_OPENAFRICA_DOMAINS \
-  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS
-
-ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
-  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
-  NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
-  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
-
-RUN set -ex \
-  # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/climatemappedafrica/.next \
-  && chown nextjs:nodejs ./apps/climatemappedafrica/.next
-
-# PNPM
-# symlink some dependencies
-COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-
-# Next.js
-# Public assets
-COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
-COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
-
-USER nextjs
-
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD ["node", "apps/climatemappedafrica/server.js"]
