@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import LineChartScope from "./LineChartScope";
 import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
 import TreemapChartScope from "./TreemapChartScope";
@@ -10,7 +9,7 @@ import VerticalStackedChartScope from "./VerticalStackedChartScope";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 import theme from "@/climatemappedafrica/theme";
 
-const { BarChartScope, DonutChartScope } = Scope;
+const { BarChartScope, LineChartScope, DonutChartScope } = Scope;
 
 export default function configureScope(
   indicator,
@@ -30,6 +29,7 @@ export default function configureScope(
 
   let vegaSpec;
   const chartType = configuration?.chart_type?.toLowerCase();
+
   /**
    * @deprecated Use scopeOptions for implementing new charts
    * This will be completely removed once all charts scopes
@@ -47,6 +47,7 @@ export default function configureScope(
     isCompare,
     isMobile,
   ];
+
   const scopeOptions = {
     primaryData: indicator?.data,
     metadata: indicator?.metadata,
@@ -60,12 +61,13 @@ export default function configureScope(
     theme,
     args: hurumapArgs,
   };
+
   switch (chartType) {
     case "line":
       if (configuration?.stacked_field) {
         vegaSpec = MultiLineChartScope(..._scopeOptions);
       } else {
-        vegaSpec = LineChartScope(..._scopeOptions);
+        vegaSpec = LineChartScope(scopeOptions);
       }
       break;
     case "donut":
