@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import DonutChartScope from "./DonutChartScope";
 import LineChartScope from "./LineChartScope";
 import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
@@ -11,7 +10,7 @@ import VerticalStackedChartScope from "./VerticalStackedChartScope";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 import theme from "@/climatemappedafrica/theme";
 
-const { BarChartScope } = Scope;
+const { BarChartScope, DonutChartScope } = Scope;
 
 export default function configureScope(
   indicator,
@@ -31,7 +30,13 @@ export default function configureScope(
 
   let vegaSpec;
   const chartType = configuration?.chart_type?.toLowerCase();
-  const scopeOptions = [
+  /**
+   * @deprecated Use scopeOptions for implementing new charts
+   * This will be completely removed once all charts scopes
+   * are moved to Hurumap package
+   */
+  // eslint-disable-next-line no-underscore-dangle
+  const _scopeOptions = [
     indicator?.data,
     indicator?.metadata,
     configuration,
@@ -42,19 +47,32 @@ export default function configureScope(
     isCompare,
     isMobile,
   ];
+  const scopeOptions = {
+    primaryData: indicator?.data,
+    metadata: indicator?.metadata,
+    config: configuration,
+    secondaryData: secondaryIndicator?.data ?? null,
+    primaryParentData: showParent ? indicator?.parentData : [{}],
+    secondaryParentData: showParent ? secondaryIndicator?.parentData : [{}],
+    profileNames,
+    isCompare,
+    isMobile,
+    theme,
+    args: hurumapArgs,
+  };
   switch (chartType) {
     case "line":
       if (configuration?.stacked_field) {
-        vegaSpec = MultiLineChartScope(...scopeOptions);
+        vegaSpec = MultiLineChartScope(..._scopeOptions);
       } else {
-        vegaSpec = LineChartScope(...scopeOptions);
+        vegaSpec = LineChartScope(..._scopeOptions);
       }
       break;
     case "donut":
-      vegaSpec = DonutChartScope(...scopeOptions);
+      vegaSpec = DonutChartScope(scopeOptions);
       break;
     case "treemap":
-      vegaSpec = TreemapChartScope(...scopeOptions);
+      vegaSpec = TreemapChartScope(..._scopeOptions);
       break;
     case "stacked":
       if (isMobile) {
@@ -93,21 +111,7 @@ export default function configureScope(
           isCompare,
         );
       } else {
-        const barChartArgs = {
-          primaryData: indicator?.data,
-          metadata: indicator?.metadata,
-          config: configuration,
-          secondaryData: secondaryIndicator?.data ?? null,
-          primaryParentData: showParent ? indicator?.parentData : [{}],
-          secondaryParentData: showParent
-            ? secondaryIndicator?.parentData
-            : [{}],
-          profileNames,
-          isCompare,
-          theme,
-          args: hurumapArgs,
-        };
-        vegaSpec = BarChartScope(barChartArgs);
+        vegaSpec = BarChartScope(scopeOptions);
       }
       break;
   }

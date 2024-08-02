@@ -1,10 +1,8 @@
-import merge from "deepmerge";
+import deepmerge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/pesayetu/theme";
-
-export default function DonutChartScope(
+export default function DonutChartScope({
   primaryData,
   metadata,
   config,
@@ -14,7 +12,9 @@ export default function DonutChartScope(
   profileNames,
   isCompare,
   isMobile,
-) {
+  theme,
+  args,
+}) {
   const { primary_group: primaryGroup } = metadata;
 
   const secondaryLegend = isCompare
@@ -30,34 +30,37 @@ export default function DonutChartScope(
       ]
     : [];
 
-  return merge(
-    Scope(
+  const transform = [
+    {
+      type: "formula",
+      expr: "format(datum[datatype[Units]], numberFormat[Units]) + ' ' + datum[mainGroup]",
+      as: "custom_label",
+    },
+    {
+      type: "pie",
+      field: { signal: "datatype[Units]" },
+      startAngle: { signal: "startAngle" },
+      endAngle: { signal: "endAngle" },
+      sort: { signal: "sort" },
+    },
+    {
+      type: "collect",
+      sort: { field: "count", order: "descending" },
+    },
+  ];
+  return deepmerge(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "donut",
-      [
-        {
-          type: "formula",
-          expr: "format(datum[datatype[Units]], numberFormat[Units]) + ' ' + datum[mainGroup]",
-          as: "custom_label",
-        },
-        {
-          type: "pie",
-          field: { signal: "datatype[Units]" },
-          startAngle: { signal: "startAngle" },
-          endAngle: { signal: "endAngle" },
-          sort: { signal: "sort" },
-        },
-        {
-          type: "collect",
-          sort: { field: "count", order: "descending" },
-        },
-      ],
-    ),
+      chartType: "donut",
+      transform,
+      theme,
+      args,
+    }),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 380 : 180,
       width: 700,
