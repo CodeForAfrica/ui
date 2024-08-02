@@ -1,6 +1,6 @@
 import { Location } from "@hurumap/core";
+import { Map } from "@hurumap/next";
 import { Box, useTheme } from "@mui/material";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
@@ -10,10 +10,6 @@ import useProfileGeography from "./useProfileGeography";
 import useStyles from "./useStyles";
 
 import Panel from "@/pesayetu/components/HURUmap/Panel";
-
-const Map = dynamic(() => import("@/pesayetu/components/HURUmap/Map"), {
-  ssr: false,
-});
 
 function initialState(profiles, onClick) {
   return {
@@ -133,7 +129,6 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
             onClickUnpin={handleClickUnpin}
             zoom={7}
             {...props}
-            className={classes.map}
           />
           <Location
             highlights={highlights}

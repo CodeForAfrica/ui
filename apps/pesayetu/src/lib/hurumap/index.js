@@ -46,8 +46,8 @@ function formatProfileGeographyData(data, parent) {
                         indicator
                       ],
                       parentData: parent.data
-                        ? parent?.data?.[label]?.subcategories?.[child]
-                            ?.indicators?.[indicator]?.data ?? null
+                        ? (parent?.data?.[label]?.subcategories?.[child]
+                            ?.indicators?.[indicator]?.data ?? null)
                         : null,
                       parentName: parent?.name ?? null,
                     },
@@ -63,9 +63,9 @@ function formatProfileGeographyData(data, parent) {
                   parentMetric:
                     parent.data &&
                     parent?.data[label]?.subcategories[child]?.key_metrics
-                      ? parent?.data[label]?.subcategories[child]?.key_metrics[
+                      ? (parent?.data[label]?.subcategories[child]?.key_metrics[
                           index
-                        ] ?? null
+                        ] ?? null)
                       : null,
                 };
               }),

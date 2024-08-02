@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import DonutChartScope from "./DonutChartScope";
 import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
 import TreemapChartScope from "./TreemapChartScope";
@@ -10,7 +9,7 @@ import VerticalStackedChartScope from "./VerticalStackedChartScope";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 import theme from "@/climatemappedafrica/theme";
 
-const { BarChartScope, LineChartScope } = Scope;
+const { BarChartScope, LineChartScope, DonutChartScope } = Scope;
 
 export default function configureScope(
   indicator,
@@ -72,7 +71,7 @@ export default function configureScope(
       }
       break;
     case "donut":
-      vegaSpec = DonutChartScope(..._scopeOptions);
+      vegaSpec = DonutChartScope(scopeOptions);
       break;
     case "treemap":
       vegaSpec = TreemapChartScope(..._scopeOptions);
@@ -114,21 +113,7 @@ export default function configureScope(
           isCompare,
         );
       } else {
-        const barChartArgs = {
-          primaryData: indicator?.data,
-          metadata: indicator?.metadata,
-          config: configuration,
-          secondaryData: secondaryIndicator?.data ?? null,
-          primaryParentData: showParent ? indicator?.parentData : [{}],
-          secondaryParentData: showParent
-            ? secondaryIndicator?.parentData
-            : [{}],
-          profileNames,
-          isCompare,
-          theme,
-          args: hurumapArgs,
-        };
-        vegaSpec = BarChartScope(barChartArgs);
+        vegaSpec = BarChartScope(scopeOptions);
       }
       break;
   }
