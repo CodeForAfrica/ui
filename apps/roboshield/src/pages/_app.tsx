@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { GoogleTagManager as GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactNode } from "react";
@@ -32,7 +32,7 @@ export default function App(props: AppProps | any) {
           </GlobalProvider>
         </ThemeProvider>
       </AppCacheProvider>
-      {gaId?.length ? <GoogleAnalytics gtmId={gaId} /> : null}
+      {gaId?.length ? <GoogleAnalytics gaId={gaId} /> : null}
     </>
   );
 }
