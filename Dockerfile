@@ -387,8 +387,8 @@ ARG NEXT_PUBLIC_APP_LOGO_URL \
   PAYLOAD_PUBLIC_APP_URL
 
 # TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
-#              - GA_MEASUREMENT_ID (charterafrica, codeforafrica, roboshield)
-#              - GOOGLE_ANALYTICS (pesayetu, vpnmanager)
+#              - GA_MEASUREMENT_ID (charterafrica, codeforafrica)
+#              - GOOGLE_ANALYTICS_ID (pesayetu, roboshield, vpnmanager)
 #              This is only needed at runtime
 ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
   PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \

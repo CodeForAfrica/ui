@@ -27,6 +27,7 @@
     "@mui/utils": "^5.16.6",
     "@mui/x-date-pickers": "^7.11.1",
     "@next/env": "^14.2.5",
+    "@next/third-parties": "^14.2.5",
     "@payloadcms/bundler-webpack": "^1.0.7",
     "@payloadcms/db-mongodb": "^1.7.1",
     "@payloadcms/live-preview-react": "^0.2.0",
