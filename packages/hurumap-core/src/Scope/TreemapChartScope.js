@@ -36,7 +36,7 @@ export default function TreemapChartScope({
       ],
     },
   ];
-  console.log(theme);
+
   return merge(
     Scope({
       primaryData,
