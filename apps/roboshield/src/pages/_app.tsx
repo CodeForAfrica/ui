@@ -1,8 +1,8 @@
-import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 import Page from "@/roboshield/components/Page";
 import { GlobalProvider } from "@/roboshield/context/GlobalContext";
@@ -16,6 +16,7 @@ function getDefaultLayout(page: ReactNode, pageProps: any) {
 export default function App(props: AppProps | any) {
   const { Component, pageProps } = props;
   const getLayout = Component.getLayout || getDefaultLayout;
+  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
   return (
     <>
@@ -31,6 +32,7 @@ export default function App(props: AppProps | any) {
           </GlobalProvider>
         </ThemeProvider>
       </AppCacheProvider>
+      {gaId?.length ? <GoogleAnalytics gaId={gaId} /> : null}
     </>
   );
 }

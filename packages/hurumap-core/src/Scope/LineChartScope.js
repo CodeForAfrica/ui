@@ -2,9 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/pesayetu/theme";
-
-export default function LineChartScope(
+export default function LineChartScope({
   primaryData,
   metadata,
   config,
@@ -14,7 +12,9 @@ export default function LineChartScope(
   profileNames,
   isCompare,
   isMobile,
-) {
+  theme,
+  args,
+}) {
   const {
     parentLabel,
     xScaleType,
@@ -23,7 +23,6 @@ export default function LineChartScope(
     timeUnit,
     timeFormat,
   } = config;
-
   const { primary_group: primaryGroup } = metadata;
 
   const timeTransform =
@@ -43,16 +42,18 @@ export default function LineChartScope(
       : undefined;
 
   return merge(
-    Scope(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "line",
+      chartType: "line",
       timeTransform,
-    ),
+      theme,
+      args,
+    }),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 620 : 310,
       signals: [
@@ -112,7 +113,8 @@ export default function LineChartScope(
             field: { signal: "datatype[Units]" },
           },
           range: [{ signal: "isCompare && isMobile ? height/2: height" }, 0],
-          nice: { signal: "primaryYTickCount" },
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
+          // nice: { signal: "primaryYTickCount" },
           zero: false,
           clamp: true,
         },
@@ -124,7 +126,8 @@ export default function LineChartScope(
             field: { signal: "datatype[Units]" },
           },
           range: [{ signal: "isCompare && isMobile ? height/2: height" }, 0],
-          nice: { signal: "secondaryYTickCount" },
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
+          // nice: { signal: "secondaryYTickCount" },
           zero: false,
           clamp: true,
         },
