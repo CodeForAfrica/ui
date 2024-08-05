@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
 import TreemapChartScope from "./TreemapChartScope";
 import VerticalBarChartScope from "./VerticalBarChartScope";
@@ -9,7 +8,8 @@ import VerticalStackedChartScope from "./VerticalStackedChartScope";
 import { hurumapArgs } from "@/pesayetu/config";
 import theme from "@/pesayetu/theme";
 
-const { BarChartScope, LineChartScope, DonutChartScope } = Scope;
+const { BarChartScope, LineChartScope, DonutChartScope, MultiLineChartScope } =
+  Scope;
 
 export default function configureScope(
   indicator,
@@ -65,7 +65,7 @@ export default function configureScope(
   switch (chartType) {
     case "line":
       if (configuration?.stacked_field) {
-        vegaSpec = MultiLineChartScope(..._scopeOptions);
+        vegaSpec = MultiLineChartScope(scopeOptions);
       } else {
         vegaSpec = LineChartScope(scopeOptions);
       }
