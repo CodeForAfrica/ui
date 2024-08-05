@@ -3,13 +3,17 @@ import { Scope } from "@hurumap/core";
 import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
 import TreemapChartScope from "./TreemapChartScope";
-import VerticalBarChartScope from "./VerticalBarChartScope";
 import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
 import { hurumapArgs } from "@/climatemappedafrica/config";
 import theme from "@/climatemappedafrica/theme";
 
-const { BarChartScope, LineChartScope, DonutChartScope } = Scope;
+const {
+  BarChartScope,
+  LineChartScope,
+  DonutChartScope,
+  VerticalBarChartScope,
+} = Scope;
 
 export default function configureScope(
   indicator,
@@ -102,16 +106,7 @@ export default function configureScope(
       break;
     default:
       if (isMobile) {
-        vegaSpec = VerticalBarChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : null,
-          showParent ? secondaryIndicator?.parentData : null,
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = VerticalBarChartScope(scopeOptions);
       } else {
         vegaSpec = BarChartScope(scopeOptions);
       }
