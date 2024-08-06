@@ -94,7 +94,8 @@ export default function StackedChartScope({
           ],
           zero: true,
           clamp: true,
-          nice: { signal: "primaryXTickCount" },
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
+          // nice: { signal: "primaryXTickCount" },
         },
         {
           name: "s_xscale",
@@ -110,7 +111,8 @@ export default function StackedChartScope({
           ],
           zero: true,
           clamp: true,
-          nice: { signal: "secondaryXTickCount" },
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
+          // nice: { signal: "secondaryXTickCount" },
         },
         {
           name: "color",
