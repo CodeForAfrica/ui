@@ -2,9 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/climatemappedafrica/theme";
-
-export default function VerticalStackedChartScope(
+export default function VerticalStackedChartScope({
   primaryData,
   metadata,
   config,
@@ -12,29 +10,33 @@ export default function VerticalStackedChartScope(
   primaryParentData,
   secondaryParentData,
   isCompare,
-) {
+  theme,
+  args,
+}) {
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
   const stackedField = config.stacked_field;
 
   return merge(
-    Scope(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "stacked",
-      [
+      chartType: "stacked",
+      transform: [
         {
           type: "stack",
           groupby: [primaryGroup],
           field: { signal: "datatype[Units]" },
         },
       ],
-    ),
+      args,
+      theme,
+    }),
     {
       height: isCompare && secondaryData?.length > 1 ? 620 : 310,
       signals: [
@@ -73,7 +75,7 @@ export default function VerticalStackedChartScope(
             0,
           ],
           zero: true,
-          // nice: true,
+          nice: true,
         },
         {
           name: "s_xscale",
@@ -96,7 +98,7 @@ export default function VerticalStackedChartScope(
             0,
           ],
           zero: true,
-          // nice: true,
+          nice: true,
         },
         {
           name: "secondary_color",

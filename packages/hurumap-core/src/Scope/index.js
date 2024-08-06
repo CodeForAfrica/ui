@@ -5,6 +5,7 @@ import MultiLineChartScope from "./MultiLineChartScope";
 import Scope from "./Scope";
 import TreemapChartScope from "./TreemapChartScope";
 import VerticalBarChartScope from "./VerticalBarChartScope";
+import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
 export default {
   Scope,
@@ -13,5 +14,6 @@ export default {
   LineChartScope,
   MultiLineChartScope,
   VerticalBarChartScope,
+  VerticalStackedChartScope,
   TreemapChartScope,
 };
