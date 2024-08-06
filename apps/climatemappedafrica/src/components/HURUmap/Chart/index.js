@@ -1,15 +1,29 @@
-import { ChartTooltip } from "@hurumap/core";
+import { RichTypography } from "@commons-ui/core";
+import { ChartTooltip, IndicatorTitle, Download, Share } from "@hurumap/core";
 import { Source } from "@hurumap/next";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import React, { useState, useRef, useCallback, useEffect } from "react";
+import * as vega from "vega";
 import embed from "vega-embed";
 
 import configureScope from "./configureScope";
 import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
-import IndicatorTitle from "@/climatemappedafrica/components/HURUmap/IndicatorTitle";
+import { ReactComponent as DownloadIcon } from "@/climatemappedafrica/assets/icons/Component 1.svg";
+import { ReactComponent as ShareIcon } from "@/climatemappedafrica/assets/icons/Component 27.svg";
+import { ReactComponent as InfoIcon } from "@/climatemappedafrica/assets/icons/Component852.svg";
+import { ReactComponent as EmailIcon } from "@/climatemappedafrica/assets/icons/Email.svg";
+import { ReactComponent as FacebookIcon } from "@/climatemappedafrica/assets/icons/Facebook.svg";
+import { ReactComponent as CopyIcon } from "@/climatemappedafrica/assets/icons/Group 5062.svg";
+import { ReactComponent as LinkedInIcon } from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
+import { ReactComponent as TwitterIcon } from "@/climatemappedafrica/assets/icons/Twitter.svg";
+import { ReactComponent as WhatsAppIcon } from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
+import cfalogo from "@/climatemappedafrica/assets/logos/Group4462.svg";
+import projectlogo from "@/climatemappedafrica/assets/logos/Group5002.svg";
+import config, { hurumapArgs } from "@/climatemappedafrica/config";
+import site from "@/climatemappedafrica/utils/site";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -38,6 +52,8 @@ function Chart({
   const [cSpec, setCSpec] = useState(null);
   const isMobile = !useMediaQuery("(min-width:600px)");
   const [tooltipData, setTooltipData] = useState(null);
+  const { palette } = useTheme();
+  const [downloadView, setDownloadView] = useState(null);
   const secondaryIndicator = sI?.indicator;
 
   const {
@@ -79,13 +95,17 @@ function Chart({
       );
       setCSpec(spec);
       if (chartRef?.current) {
-        const newView = await embed(chartRef.current, spec, {
-          renderer: "canvas",
-          actions: false,
-          tooltip: handler,
-        });
+        try {
+          const newView = await embed(chartRef.current, spec, {
+            renderer: "canvas",
+            actions: false,
+            tooltip: handler,
+          });
 
-        setView(newView.view);
+          setView(newView.view);
+        } catch (error) {
+          console.error("Error rendering chart", error);
+        }
       }
     }
     renderChart();
@@ -97,6 +117,15 @@ function Chart({
     secondaryIndicator,
     handler,
   ]);
+
+  useEffect(() => {
+    try {
+      const viewProp = new vega.View(vega.parse(cSpec), { renderer: "none" });
+      setDownloadView(viewProp);
+    } catch (error) {
+      console.error("Error creating view", error);
+    }
+  }, [cSpec]);
 
   // apply default filter if defined
   const defaultFilters =
@@ -165,6 +194,134 @@ function Chart({
   if (!indicator?.data) {
     return null;
   }
+  const {
+    indicatorTitle: {
+      download: { values, layouts, imageTypes, fileTypes },
+    },
+  } = hurumapArgs;
+
+  const splitString = (str) => {
+    // eslint-disable-next-line prefer-regex-literals
+    const regex = new RegExp(/\S.{1,42}\S(?= |$)/, "g");
+    const chunks = str.match(regex);
+    return chunks;
+  };
+
+  const chartTitle = splitString(title)?.slice(0, 3);
+  const subtitle = currentFilters?.reduce((acc, cur) => {
+    return `${acc}${cur.name}: ${cur.value},`;
+  }, "");
+  const secondaryName = isCompare
+    ? ` vs ${profileNames?.secondary?.split("-")[0]}`
+    : "";
+  const chartSubtitle = `${subtitle} Location: ${profileNames?.primary}${secondaryName}`;
+
+  const shareData = [
+    {
+      name: "Facebook",
+      icon: FacebookIcon,
+      props: { quote: title, hashtag: "#ClimateMapped.Africa" },
+    },
+    {
+      name: "Twitter",
+      icon: TwitterIcon,
+      props: { title, via: "Code4Africa", related: ["Code4Africa"] },
+    },
+    {
+      name: "LinkedIn",
+      icon: LinkedInIcon,
+      props: {
+        summary: title,
+        source: process.env.NEXT_PUBLIC_APP_URL,
+      },
+    },
+    { name: "WhatsApp", icon: WhatsAppIcon, props: { quote: title } },
+    { name: "Email", icon: EmailIcon, props: { subject: title } },
+    { name: "CopyUrl", icon: CopyIcon, props: { subject: title } },
+  ];
+
+  const shareUrl = new URL(
+    `/embed/${geoCode.toLowerCase()}/${id}`,
+    site.environmentUrl,
+  ).toString();
+
+  const className = `wrapper-${geoCode}-${id}`;
+
+  const codeData = {
+    className,
+    src: `${process.env.NEXT_PUBLIC_APP_URL}/embed/${geoCode.toLowerCase()}/${id}`,
+  };
+
+  const actions = [
+    description && {
+      id: "act-description",
+      title: "Description",
+      header: "Learn More",
+      children: (
+        <RichTypography
+          sx={(theme) => ({
+            fontSize: theme.typography.pxToRem(11),
+            lineHeight: 17 / 11,
+            color: "#666666",
+            padding: `${theme.typography.pxToRem(18)} ${theme.typography.pxToRem(
+              20,
+            )} ${theme.typography.pxToRem(31)} ${theme.typography.pxToRem(16)}`,
+            "& > p > span": {
+              display: "inline-block",
+            },
+          })}
+        >
+          {description}
+        </RichTypography>
+      ),
+      icon: <InfoIcon />,
+    },
+    {
+      id: "act-download",
+      title: "Download",
+      header: disableToggle ? "Download chart as" : "Chart value as:",
+      children: (
+        <Download
+          {...props}
+          title={title}
+          disableToggle={disableToggle}
+          height={view?.height()}
+          data={[
+            ...(view?.data("primary") ?? []),
+            ...(view?.data("secondary") ?? []),
+          ]}
+          values={values}
+          imageTypes={imageTypes}
+          view={downloadView}
+          chartTitle={chartTitle}
+          chartSubtitle={chartSubtitle}
+          cfalogo={cfalogo}
+          projectlogo={projectlogo}
+          backgroundColor={palette.common.white}
+          scaleFactor={config.images.scaleFactor}
+          layouts={layouts}
+          fileTypes={fileTypes}
+          currentFilters={currentFilters}
+        />
+      ),
+      icon: <DownloadIcon />,
+    },
+    {
+      id: "act-share",
+      title: "Share",
+      header: "Share chart via:",
+      children: (
+        <Share
+          title={title}
+          shareData={shareData}
+          url={shareUrl}
+          codeData={codeData}
+          {...props}
+        />
+      ),
+      icon: <ShareIcon />,
+    },
+  ];
 
   return (
     <div className={classes.root} id={`chart-${id}-${geoCode}`}>
@@ -183,6 +340,7 @@ function Chart({
         isCompare={isCompare}
         profileNames={profileNames}
         chartType={chartType?.toLowerCase()}
+        actions={actions}
       >
         {indicatorTitle}
       </IndicatorTitle>

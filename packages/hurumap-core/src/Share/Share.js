@@ -1,7 +1,7 @@
 import { Grid, TextField, Typography, useTheme } from "@mui/material";
 import React, { useState, useEffect } from "react";
 
-import ShareButton from "@/hurumap/core/ShareButton";
+import ShareButton from "./ShareButton";
 
 const Share = React.forwardRef(function Share(
   {
