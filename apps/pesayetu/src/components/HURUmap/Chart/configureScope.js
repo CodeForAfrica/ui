@@ -2,7 +2,6 @@ import { Scope } from "@hurumap/core";
 
 import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
-import TreemapChartScope from "./TreemapChartScope";
 import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
 import { hurumapArgs } from "@/pesayetu/config";
@@ -12,6 +11,7 @@ const {
   BarChartScope,
   LineChartScope,
   DonutChartScope,
+  TreemapChartScope,
   VerticalBarChartScope,
 } = Scope;
 
@@ -78,7 +78,7 @@ export default function configureScope(
       vegaSpec = DonutChartScope(scopeOptions);
       break;
     case "treemap":
-      vegaSpec = TreemapChartScope(..._scopeOptions);
+      vegaSpec = TreemapChartScope(scopeOptions);
       break;
     case "stacked":
       if (isMobile) {
