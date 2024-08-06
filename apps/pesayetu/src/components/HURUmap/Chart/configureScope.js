@@ -1,7 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import VerticalStackedChartScope from "./VerticalStackedChartScope";
-
 import { hurumapArgs } from "@/pesayetu/config";
 import theme from "@/pesayetu/theme";
 
@@ -13,6 +11,7 @@ const {
   TreemapChartScope,
   VerticalBarChartScope,
   StackedChartScope,
+  VerticalStackedChartScope,
 } = Scope;
 
 export default function configureScope(
@@ -64,15 +63,7 @@ export default function configureScope(
       break;
     case "stacked":
       if (isMobile) {
-        vegaSpec = VerticalStackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : null,
-          showParent ? secondaryIndicator?.parentData : null,
-          isCompare,
-        );
+        vegaSpec = VerticalStackedChartScope(scopeOptions);
       } else {
         vegaSpec = StackedChartScope(scopeOptions);
       }
