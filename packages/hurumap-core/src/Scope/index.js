@@ -1,6 +1,7 @@
 import BarChartScope from "./BarChartScope";
 import DonutChartScope from "./DonutChartScope";
 import LineChartScope from "./LineChartScope";
+import MultiLineChartScope from "./MultiLineChartScope";
 import Scope from "./Scope";
 import TreemapChartScope from "./TreemapChartScope";
 import VerticalBarChartScope from "./VerticalBarChartScope";
@@ -8,8 +9,9 @@ import VerticalBarChartScope from "./VerticalBarChartScope";
 export default {
   Scope,
   BarChartScope,
-  LineChartScope,
   DonutChartScope,
+  LineChartScope,
+  MultiLineChartScope,
   VerticalBarChartScope,
   TreemapChartScope,
 };

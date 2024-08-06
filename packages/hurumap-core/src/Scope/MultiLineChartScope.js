@@ -2,9 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/climatemappedafrica/theme";
-
-export default function MultiLineChartScope(
+export default function MultiLineChartScope({
   primaryData,
   metadata,
   config,
@@ -14,7 +12,9 @@ export default function MultiLineChartScope(
   profileNames,
   isCompare,
   isMobile,
-) {
+  theme,
+  args,
+}) {
   const {
     parentLabel,
     xScaleType,
@@ -43,24 +43,28 @@ export default function MultiLineChartScope(
         ]
       : [];
 
+  const transform = [
+    {
+      type: "stack",
+      groupby: [stackedField],
+      field: { signal: "datatype[Units]" },
+    },
+    ...timeTransform,
+  ];
+
   return merge(
-    Scope(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "line",
-      [
-        {
-          type: "stack",
-          groupby: [stackedField],
-          field: { signal: "datatype[Units]" },
-        },
-        ...timeTransform,
-      ],
-    ),
+      chartType: "line",
+      transform,
+      theme,
+      args,
+    }),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 620 : 310,
       signals: [
@@ -124,6 +128,7 @@ export default function MultiLineChartScope(
             field: { signal: "datatype[Units]" },
           },
           range: [{ signal: "isCompare && isMobile ? height/2: height" }, 0],
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
           // nice: { signal: "primaryYTickCount" },
           zero: false,
           clamp: true,
@@ -136,6 +141,7 @@ export default function MultiLineChartScope(
             field: { signal: "datatype[Units]" },
           },
           range: [{ signal: "isCompare && isMobile ? height/2: height" }, 0],
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
           // nice: { signal: "secondaryYTickCount" },
           zero: false,
           clamp: true,

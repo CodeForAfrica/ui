@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import MultiLineChartScope from "./MultiLineChartScope";
 import StackedChartScope from "./StackedChartScope";
 import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
@@ -9,8 +8,9 @@ import theme from "@/pesayetu/theme";
 
 const {
   BarChartScope,
-  LineChartScope,
   DonutChartScope,
+  LineChartScope,
+  MultiLineChartScope,
   TreemapChartScope,
   VerticalBarChartScope,
 } = Scope;
@@ -34,24 +34,6 @@ export default function configureScope(
   let vegaSpec;
   const chartType = configuration?.chart_type?.toLowerCase();
 
-  /**
-   * @deprecated Use scopeOptions for implementing new charts
-   * This will be completely removed once all charts scopes
-   * are moved to Hurumap package
-   */
-  // eslint-disable-next-line no-underscore-dangle
-  const _scopeOptions = [
-    indicator?.data,
-    indicator?.metadata,
-    configuration,
-    secondaryIndicator?.data ?? null,
-    showParent ? indicator?.parentData : [{}],
-    showParent ? secondaryIndicator?.parentData : [{}],
-    profileNames,
-    isCompare,
-    isMobile,
-  ];
-
   const scopeOptions = {
     primaryData: indicator?.data,
     metadata: indicator?.metadata,
@@ -69,7 +51,7 @@ export default function configureScope(
   switch (chartType) {
     case "line":
       if (configuration?.stacked_field) {
-        vegaSpec = MultiLineChartScope(..._scopeOptions);
+        vegaSpec = MultiLineChartScope(scopeOptions);
       } else {
         vegaSpec = LineChartScope(scopeOptions);
       }
