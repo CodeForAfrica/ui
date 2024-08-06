@@ -1,7 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import StackedChartScope from "./StackedChartScope";
-
 import { hurumapArgs } from "@/climatemappedafrica/config";
 import theme from "@/climatemappedafrica/theme";
 
@@ -13,6 +11,7 @@ const {
   TreemapChartScope,
   VerticalBarChartScope,
   VerticalStackedChartScope,
+  StackedChartScope,
 } = Scope;
 
 export default function configureScope(
@@ -66,16 +65,7 @@ export default function configureScope(
       if (isMobile) {
         vegaSpec = VerticalStackedChartScope(scopeOptions);
       } else {
-        vegaSpec = StackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : [{}],
-          showParent ? secondaryIndicator?.parentData : [{}],
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = StackedChartScope(scopeOptions);
       }
       break;
     default:
