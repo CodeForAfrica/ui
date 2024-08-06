@@ -1,6 +1,5 @@
 import { Scope } from "@hurumap/core";
 
-import StackedChartScope from "./StackedChartScope";
 import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
 import { hurumapArgs } from "@/pesayetu/config";
@@ -13,6 +12,7 @@ const {
   MultiLineChartScope,
   TreemapChartScope,
   VerticalBarChartScope,
+  StackedChartScope,
 } = Scope;
 
 export default function configureScope(
@@ -74,16 +74,7 @@ export default function configureScope(
           isCompare,
         );
       } else {
-        vegaSpec = StackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : [{}],
-          showParent ? secondaryIndicator?.parentData : [{}],
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = StackedChartScope(scopeOptions);
       }
       break;
     default:
