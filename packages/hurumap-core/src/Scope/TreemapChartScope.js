@@ -2,9 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/pesayetu/theme";
-
-export default function TreemapChartScope(
+export default function TreemapChartScope({
   primaryData,
   metadata,
   config,
@@ -14,39 +12,44 @@ export default function TreemapChartScope(
   profileNames,
   isCompare,
   isMobile,
-) {
+  theme,
+  args,
+}) {
   const { primary_group: primaryGroup } = metadata;
   const nestedFields = config?.nest_fields ?? [primaryGroup]; // if nest fields are undefined, make use primaryGroup
+  const transform = [
+    {
+      type: "nest",
+      keys: nestedFields,
+    },
+    {
+      type: "treemap",
+      field: { signal: "datatype[Units]" },
+      method: { signal: "layout" },
+      ratio: { signal: "aspectRatio" },
+      size: [
+        {
+          signal:
+            "isCompare && data('secondary').length > 1 && !isMobile ? width/2 -30: width",
+        },
+        { signal: "isCompare && isMobile ? height/2 : height" },
+      ],
+    },
+  ];
 
   return merge(
-    Scope(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "treemap",
-      [
-        {
-          type: "nest",
-          keys: nestedFields,
-        },
-        {
-          type: "treemap",
-          field: { signal: "datatype[Units]" },
-          method: { signal: "layout" },
-          ratio: { signal: "aspectRatio" },
-          size: [
-            {
-              signal:
-                "isCompare && data('secondary').length > 1 && !isMobile ? width/2 -30: width",
-            },
-            { signal: "isCompare && isMobile ? height/2 : height" },
-          ],
-        },
-      ],
-    ),
+      chartType: "treemap",
+      transform,
+      theme,
+      args,
+    }),
     {
       height: isMobile && isCompare && secondaryData?.length > 1 ? 760 : 380,
       signals: [
