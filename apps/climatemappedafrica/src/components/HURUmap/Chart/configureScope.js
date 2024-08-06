@@ -1,15 +1,19 @@
 import { Scope } from "@hurumap/core";
 
 import StackedChartScope from "./StackedChartScope";
-import TreemapChartScope from "./TreemapChartScope";
-import VerticalBarChartScope from "./VerticalBarChartScope";
 import VerticalStackedChartScope from "./VerticalStackedChartScope";
 
 import { hurumapArgs } from "@/climatemappedafrica/config";
 import theme from "@/climatemappedafrica/theme";
 
-const { BarChartScope, LineChartScope, DonutChartScope, MultiLineChartScope } =
-  Scope;
+const {
+  BarChartScope,
+  DonutChartScope,
+  LineChartScope,
+  MultiLineChartScope,
+  TreemapChartScope,
+  VerticalBarChartScope,
+} = Scope;
 
 export default function configureScope(
   indicator,
@@ -29,24 +33,6 @@ export default function configureScope(
 
   let vegaSpec;
   const chartType = configuration?.chart_type?.toLowerCase();
-
-  /**
-   * @deprecated Use scopeOptions for implementing new charts
-   * This will be completely removed once all charts scopes
-   * are moved to Hurumap package
-   */
-  // eslint-disable-next-line no-underscore-dangle
-  const _scopeOptions = [
-    indicator?.data,
-    indicator?.metadata,
-    configuration,
-    secondaryIndicator?.data ?? null,
-    showParent ? indicator?.parentData : [{}],
-    showParent ? secondaryIndicator?.parentData : [{}],
-    profileNames,
-    isCompare,
-    isMobile,
-  ];
 
   const scopeOptions = {
     primaryData: indicator?.data,
@@ -74,7 +60,7 @@ export default function configureScope(
       vegaSpec = DonutChartScope(scopeOptions);
       break;
     case "treemap":
-      vegaSpec = TreemapChartScope(..._scopeOptions);
+      vegaSpec = TreemapChartScope(scopeOptions);
       break;
     case "stacked":
       if (isMobile) {
@@ -102,16 +88,7 @@ export default function configureScope(
       break;
     default:
       if (isMobile) {
-        vegaSpec = VerticalBarChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : null,
-          showParent ? secondaryIndicator?.parentData : null,
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = VerticalBarChartScope(scopeOptions);
       } else {
         vegaSpec = BarChartScope(scopeOptions);
       }

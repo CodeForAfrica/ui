@@ -2,9 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/pesayetu/theme";
-
-export default function VerticalBarChartScope(
+export default function VerticalBarChartScope({
   primaryData,
   metadata,
   config,
@@ -13,21 +11,25 @@ export default function VerticalBarChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-) {
+  theme,
+  args,
+}) {
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
 
   return merge(
-    Scope(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "bar",
-    ),
+      chartType: "bar",
+      theme,
+      args,
+    }),
     {
       height: isCompare && secondaryData?.length > 1 ? 620 : 310,
       signals: [
