@@ -15,10 +15,10 @@ exports[`<ArticleGrid /> renders unchanged 1`] = `
           class="MuiStack-root css-kbcct1-MuiStack-root"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root css-usoss4-MuiFormControl-root-MuiTextField-root"
+            class="MuiFormControl-root MuiTextField-root css-1tgwtox-MuiFormControl-root-MuiTextField-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1waoal3-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1wq2s8-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"

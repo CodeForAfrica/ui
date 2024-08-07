@@ -13,7 +13,7 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1cj7j73-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h4 css-1an6ohp-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 css-7yxv5i-MuiTypography-root"
           >
             Title
           </div>
@@ -21,10 +21,10 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiStack-root css-kbcct1-MuiStack-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root css-usoss4-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root css-1tgwtox-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1waoal3-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1wq2s8-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <input
                   aria-invalid="false"
@@ -64,11 +64,11 @@ exports[`<Articles /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiToggleButtonGroup-root css-170sqt-MuiToggleButtonGroup-root"
+              class="MuiToggleButtonGroup-root css-1h98p8e-MuiToggleButtonGroup-root"
               role="group"
             >
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="All"
@@ -80,7 +80,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag1"
@@ -92,7 +92,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag2"
@@ -113,7 +113,7 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiPaper-root MuiPaper-outlined MuiCard-root css-15bifma-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1rk9n7b-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1gjmvym-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
               href="/stories/article-1"
               tabindex="0"
             >
@@ -146,7 +146,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                       Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
                     </p>
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-p7w0vb-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-p3imlw-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -174,7 +174,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                         Battle for gender equality in African media continues
                       </h1>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-1vf7gf3-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-4mulzs-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -203,7 +203,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 class="MuiPaper-root MuiPaper-outlined MuiCard-root css-f91d8w-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ewmwf5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1nkr5oe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/stories/article-1"
                   tabindex="0"
                 >
@@ -245,7 +245,7 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zznnd2-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-s5eomh-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

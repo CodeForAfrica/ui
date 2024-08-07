@@ -48,7 +48,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
               typography: { md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
-                color: { xs: "inherit", md: "primary.main" },
+                color: "inherit",
               },
               ...NavListItemProps?.sx,
             }}

@@ -8,7 +8,7 @@ import MobileNavBar from "@/civicsignalblog/components/MobileNavBar";
 function NavBar({ logo, menus, socialLinks }) {
   return (
     <NavigationBar
-      sx={{ bgcolor: "primary.main", py: { xs: "10px", md: "15.5" } }}
+      sx={{ bgcolor: "primary.dark", py: { xs: "10px", md: "15.5" } }}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar

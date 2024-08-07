@@ -12,7 +12,7 @@ import StayInTouch from "@/civicsignalblog/components/StayInTouch";
 
 const FooterRoot = styled(Box)(
   ({ theme: { breakpoints, palette, typography } }) => ({
-    backgroundColor: palette.primary.main,
+    backgroundColor: palette.primary.dark,
     color: palette.text.secondary,
     padding: `${typography.pxToRem(80)} 0`,
     [breakpoints.up("md")]: {

@@ -9,7 +9,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-13090fg-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1l4edms-MuiTypography-root-MuiLink-root"
         href="/our-work"
       >
         Our Work
@@ -19,7 +19,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-13090fg-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1l4edms-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         About
@@ -29,7 +29,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-13090fg-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1l4edms-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         Stories
@@ -39,7 +39,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-13090fg-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1l4edms-MuiTypography-root-MuiLink-root"
         href="/opportunity"
       >
         Opportunity
@@ -49,7 +49,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-lvozse"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-13090fg-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1l4edms-MuiTypography-root-MuiLink-root"
         href="/contact"
       >
         Contact
@@ -59,7 +59,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-o9b79t"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineAlways css-1njzm2w-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineAlways css-1k38rmt-MuiTypography-root-MuiLink-root"
         href="https://www.facebook.com/CodeForAfrica"
         rel="noreferrer noopener"
         target="_blank"
@@ -76,7 +76,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-o9b79t"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineAlways css-1njzm2w-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineAlways css-1k38rmt-MuiTypography-root-MuiLink-root"
         href="https://twitter.com/Code4Africa"
         rel="noreferrer noopener"
         target="_blank"

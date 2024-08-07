@@ -6,10 +6,10 @@ exports[`<FilterBar /> renders unchanged 1`] = `
     class="MuiStack-root css-7ziy04-MuiStack-root"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root css-usoss4-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-1tgwtox-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1waoal3-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1wq2s8-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <input
           aria-invalid="false"
@@ -48,11 +48,11 @@ exports[`<FilterBar /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiToggleButtonGroup-root css-170sqt-MuiToggleButtonGroup-root"
+      class="MuiToggleButtonGroup-root css-1h98p8e-MuiToggleButtonGroup-root"
       role="group"
     >
       <div
-        class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-4r2hgb-MuiButtonBase-root-MuiChip-root"
+        class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
         role="button"
         tabindex="0"
         value="tag"

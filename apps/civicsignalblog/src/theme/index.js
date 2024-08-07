@@ -6,7 +6,7 @@ const FONT_FAMILY_SECONDARY = "Merriweather, serif";
 
 const palette = {
   mode: "light",
-  primary: { main: "#022069", light: "#EFF0FD", dark: "#08125C" }, // blues
+  primary: { main: "#101fff", light: "#EFF0FD", dark: "#022069" }, // blues
   secondary: { main: "#000000", light: "#7F7272" },
   error: { main: "#EF4444" },
   grey: { main: "#B4ABAB", light: "#E3DFDF" },

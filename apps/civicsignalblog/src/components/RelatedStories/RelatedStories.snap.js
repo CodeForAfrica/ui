@@ -6,7 +6,7 @@ exports[`<RelatedStories /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1pmgh96-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5Small css-194wjcv-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5Small css-13k1zrb-MuiTypography-root"
     >
       Related Stories
     </div>
@@ -20,7 +20,7 @@ exports[`<RelatedStories /> renders unchanged 1`] = `
           class="MuiPaper-root MuiPaper-outlined MuiCard-root css-f91d8w-MuiPaper-root-MuiCard-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ewmwf5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1nkr5oe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
             href="/stories/article-1"
             tabindex="0"
           >
