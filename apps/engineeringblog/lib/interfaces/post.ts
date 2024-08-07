@@ -1,12 +1,13 @@
 import { Author } from "./author";
 import { TAG } from "@/lib/constants/tag";
+import ImageMetadata from "./image-metadata";
 
 export interface Post {
   title: string;
   description: string;
   excerpt: string;
-  previewImage: string;
+  previewImage: ImageMetadata;
   publishingDate: string;
   authors: Array<Author>;
-  categories: Set<typeof TAG>;
+  tags: Set<string>;
 }
