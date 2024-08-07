@@ -10,10 +10,10 @@ exports[`<Articles /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-teoma9-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-17kpph-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1cj7j73-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h4 css-1ghqz4h-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 css-1an6ohp-MuiTypography-root"
           >
             Title
           </div>
@@ -21,10 +21,10 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiStack-root css-kbcct1-MuiStack-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root css-usoss4-MuiFormControl-root-MuiTextField-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1avksc5-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1waoal3-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <input
                   aria-invalid="false"
@@ -64,7 +64,7 @@ exports[`<Articles /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiToggleButtonGroup-root css-yajo80-MuiToggleButtonGroup-root"
+              class="MuiToggleButtonGroup-root css-170sqt-MuiToggleButtonGroup-root"
               role="group"
             >
               <div
@@ -110,10 +110,10 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-cy97kn-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ern672-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-outlined MuiCard-root css-15bifma-MuiPaper-root-MuiCard-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ihjyes-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1rk9n7b-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
               href="/stories/article-1"
               tabindex="0"
             >
@@ -125,7 +125,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 >
                   <img
                     alt="Featured Article Image"
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1eqknb7-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-t5e89h-MuiCardMedia-root"
                     src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
                   />
                 </div>
@@ -146,7 +146,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                       Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
                     </p>
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1it8s17-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-p7w0vb-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -174,7 +174,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                         Battle for gender equality in African media continues
                       </h1>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-exvu7h-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-1vf7gf3-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -200,15 +200,15 @@ exports[`<Articles /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1dte7n6-MuiGrid-root"
             >
               <div
-                class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1dxfqf3-MuiPaper-root-MuiCard-root"
+                class="MuiPaper-root MuiPaper-outlined MuiCard-root css-f91d8w-MuiPaper-root-MuiCard-root"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1cub10c-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ewmwf5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
                   href="/stories/article-1"
                   tabindex="0"
                 >
                   <img
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-gzk243-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-qxudtl-MuiCardMedia-root"
                     src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
                   />
                   <div
@@ -245,7 +245,7 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1ahypso-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zznnd2-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

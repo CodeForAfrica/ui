@@ -3,7 +3,7 @@
 exports[`<Footer /> renders unchanged 1`] = `
 <div>
   <footer
-    class="MuiBox-root css-iaw44m"
+    class="MuiBox-root css-uokh7t"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"

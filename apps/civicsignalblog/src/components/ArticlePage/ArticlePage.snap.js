@@ -24,21 +24,21 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-cnnhfl-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-body2 css-1jq7s7e-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body2 css-huwsd1-MuiTypography-root"
       >
         Sept 1, 2021
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h1 css-1ceh4ag-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1 css-46cvyl-MuiTypography-root"
       >
         Article
       </div>
       <div
-        class="MuiToggleButtonGroup-root css-h89xvq-MuiToggleButtonGroup-root"
+        class="MuiToggleButtonGroup-root css-fe5y9w-MuiToggleButtonGroup-root"
         role="group"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-z7fpuu-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-bs2tl9-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
           href="/tag1?tag=tag2"
           tabindex="0"
           value="tag2"
@@ -54,7 +54,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="MuiStack-root css-yhfzs2-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-footerCap css-1j4rac6-MuiTypography-root"
         >
           Share This Article
         </div>
@@ -120,7 +120,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="MuiStack-root css-ty68jk-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-1kbu40d-MuiTypography-root"
         >
           Article by
         </div>
@@ -128,12 +128,12 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           class="MuiStack-root css-3oepjh-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1SemiBold css-c69tfe-MuiTypography-root"
           >
             Author 1
           </div>
           <div
-            class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-2apph2-MuiTypography-root"
           >
             Author 1 bio
           </div>
@@ -143,7 +143,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="MuiStack-root css-ty68jk-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-1kbu40d-MuiTypography-root"
         >
           Article by
         </div>
@@ -151,12 +151,12 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           class="MuiStack-root css-3oepjh-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1SemiBold css-c69tfe-MuiTypography-root"
           >
             Author 2
           </div>
           <div
-            class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-2apph2-MuiTypography-root"
           >
             Author 2 bio
           </div>

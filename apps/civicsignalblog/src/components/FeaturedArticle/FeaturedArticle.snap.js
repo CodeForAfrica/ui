@@ -3,10 +3,10 @@
 exports[`<FeaturedArticle /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-ern672-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-15bifma-MuiPaper-root-MuiCard-root"
   >
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ihjyes-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1rk9n7b-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
       href="/stories/article-1"
       tabindex="0"
     >
@@ -18,7 +18,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
         >
           <img
             alt="Featured Article Image"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1eqknb7-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-t5e89h-MuiCardMedia-root"
             src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
           />
         </div>
@@ -39,7 +39,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               Lorem ipsum dolor sit amet consectetur adipiscing elit mattis, vestibulum potenti rhoncus eget lacus fermentum taciti quam, quis curae accumsan viverra semper dapibus sed.
             </p>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1it8s17-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-p7w0vb-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
@@ -67,7 +67,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
                 Battle for gender equality in African media continues
               </h1>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-exvu7h-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-1vf7gf3-MuiButtonBase-root-MuiButton-root"
                 tabindex="0"
                 type="button"
               >

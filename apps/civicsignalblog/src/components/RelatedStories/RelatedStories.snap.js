@@ -6,7 +6,7 @@ exports[`<RelatedStories /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1pmgh96-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5Small css-1v0gnt0-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5Small css-194wjcv-MuiTypography-root"
     >
       Related Stories
     </div>
@@ -17,15 +17,15 @@ exports[`<RelatedStories /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1dte7n6-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1dxfqf3-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-outlined MuiCard-root css-f91d8w-MuiPaper-root-MuiCard-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1cub10c-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-ewmwf5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
             href="/stories/article-1"
             tabindex="0"
           >
             <img
-              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-gzk243-MuiCardMedia-root"
+              class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-qxudtl-MuiCardMedia-root"
               src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
             />
             <div

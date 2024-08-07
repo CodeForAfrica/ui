@@ -6,10 +6,10 @@ exports[`<FilterBar /> renders unchanged 1`] = `
     class="MuiStack-root css-7ziy04-MuiStack-root"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiTextField-root css-usoss4-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1avksc5-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1waoal3-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <input
           aria-invalid="false"
@@ -48,7 +48,7 @@ exports[`<FilterBar /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiToggleButtonGroup-root css-yajo80-MuiToggleButtonGroup-root"
+      class="MuiToggleButtonGroup-root css-170sqt-MuiToggleButtonGroup-root"
       role="group"
     >
       <div
