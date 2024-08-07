@@ -88,6 +88,11 @@ function Layers({
                     top: 0,
                     ...PopUpLocationTagProps?.sx,
                   }}
+                  NameTypographyProps={{
+                    style: {
+                      minWidth: 60,
+                    },
+                  }}
                 />
               </ThemeProvider>
             </StyledEngineProvider>,
