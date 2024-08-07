@@ -320,27 +320,27 @@ CMD ["node", "apps/climatemappedafrica/server.js"]
 
 
 # ============================================================================
-# Code for Africa
+# CivicSignal Blog
 # ============================================================================
 
 #
-# codeforafrica-desp: image with all codeforafrica dependencies
+# civicsignalblog-desp: image with all codeforafrica dependencies
 # -------------------------------------------------------------
 
-FROM base-deps AS codeforafrica-deps
+FROM base-deps AS civicsignalblog-deps
 
 # TODO(kilemensi): Figure out why this is needed
 COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
 
-COPY apps/codeforafrica/package.json ./apps/codeforafrica/package.json
+COPY apps/civicsignalblog/package.json ./apps/civicsignalblog/package.json
 
-RUN pnpm --filter "./apps/codeforafrica/" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/civicsignalblog/" install --offline --frozen-lockfile
 
 #
-# codeforafrica-builder: image that uses deps to build shippable output
+# civicsignalblog-builder: image that uses deps to build shippable output
 # ---------------------------------------------------------------------
 
-FROM base-builder AS codeforafrica-builder
+FROM base-builder AS civicsignalblog-builder
 
 ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
@@ -352,8 +352,8 @@ ARG NEXT_TELEMETRY_DISABLED \
   # Payload (runtime)
   # TODO(koech): Standadise naming of Mongo DB URL. Our options:
   #              - MONGODB_URL (codeforafrica)
-  #              - MONGO_URL (charterafrica, roboshield)
-  MONGODB_URL \
+  #              - MONGO_URL (charterafrica, civicsignalblog, roboshield)
+  MONGO_URL \
   PAYLOAD_SECRET \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
@@ -362,32 +362,32 @@ ARG NEXT_TELEMETRY_DISABLED \
   SENTRY_PROJECT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
-COPY --from=codeforafrica-deps /workspace/node_modules ./node_modules
+COPY --from=civicsignalblog-deps /workspace/node_modules ./node_modules
 
-COPY --from=codeforafrica-deps /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
+COPY --from=civicsignalblog-deps /workspace/apps/civicsignalblog/node_modules ./apps/civicsignalblog/node_modules
 
-COPY apps/codeforafrica ./apps/codeforafrica/
+COPY apps/civicsignalblog ./apps/civicsignalblog/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN pnpm --filter "./apps/codeforafrica/" build-next
+RUN pnpm --filter "./apps/civicsignalblog/" build-next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-RUN pnpm --filter "./apps/codeforafrica/" build-payload
+RUN pnpm --filter "./apps/civicsignalblog/" build-payload
 
 #
-# codeforafrica-runner: final deployable image
+# civicsignalblog-runner: final deployable image
 # --------------------------------------------
 
-FROM base-runner AS codeforafrica-runner
+FROM base-runner AS civicsignalblog-runner
 
 ARG NEXT_PUBLIC_APP_LOGO_URL \
   PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
   PAYLOAD_PUBLIC_APP_URL
 
 # TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
-#              - GA_MEASUREMENT_ID (charterafrica, codeforafrica)
+#              - GA_MEASUREMENT_ID (charterafrica, civicsignalblog, codeforafrica)
 #              - GOOGLE_ANALYTICS_ID (pesayetu, roboshield, vpnmanager)
 #              This is only needed at runtime
 ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
@@ -396,37 +396,147 @@ ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/codeforafrica//.next \
-  && chown nextjs:nodejs ./apps/codeforafrica/.next
+  && mkdir -p ./apps/civicsignalblog//.next \
+  && chown nextjs:nodejs ./apps/civicsignalblog/.next
 
 # PNPM
 # symlink some dependencies
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
 # Since we can't use output: "standalone", copy all app's dependencies
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/next.config.js ./apps/codeforafrica/next.config.js
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/.env ./apps/codeforafrica/.env
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/migrations ./apps/codeforafrica/migrations
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/node_modules ./apps/civicsignalblog/node_modules
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/next.config.js ./apps/civicsignalblog/next.config.js
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/.env ./apps/civicsignalblog/.env
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/migrations ./apps/civicsignalblog/migrations
 # Next.js
 # Public assets
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/public ./apps/codeforafrica/public
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/public ./apps/civicsignalblog/public
 
 # Since we can't use output: "standalone", copy the whole app's .next folder
 # TODO(kilemensi): Figure out which files in .next folder are not needed
-COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/.next ./apps/codeforafrica/.next
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/.next ./apps/civicsignalblog/.next
 
 # Payload
-COPY --from=codeforafrica-builder /workspace/apps/codeforafrica/dist ./apps/codeforafrica/dist
-COPY --from=codeforafrica-builder /workspace/apps/codeforafrica/build ./apps/codeforafrica/build
+COPY --from=civicsignalblog-builder /workspace/apps/civicsignalblog/dist ./apps/civicsignalblog/dist
+COPY --from=civicsignalblog-builder /workspace/apps/civicsignalblog/build ./apps/civicsignalblog/build
 
 # Since we can't use output: "standalone", switch to specific app's folder
-WORKDIR /workspace/apps/codeforafrica
+WORKDIR /workspace/apps/civicsignalblog
 
 USER nextjs
 
 # Custom server to run Payload and Next.js in the same app
 CMD ["node", "dist/server.js"]
+
+
+# ============================================================================
+# Code for Africa
+# ============================================================================
+
+#
+# codeforafrica-desp: image with all codeforafrica dependencies
+# -------------------------------------------------------------
+
+  FROM base-deps AS codeforafrica-deps
+
+  # TODO(kilemensi): Figure out why this is needed
+  COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
+  
+  COPY apps/codeforafrica/package.json ./apps/codeforafrica/package.json
+  
+  RUN pnpm --filter "./apps/codeforafrica/" install --offline --frozen-lockfile
+  
+  #
+  # codeforafrica-builder: image that uses deps to build shippable output
+  # ---------------------------------------------------------------------
+  
+  FROM base-builder AS codeforafrica-builder
+  
+  ARG NEXT_TELEMETRY_DISABLED \
+    # Next.js / Payload (build time)
+    PORT \
+    # Next.js (runtime)
+    NEXT_PUBLIC_APP_NAME="Code for Africa" \
+    NEXT_PUBLIC_APP_URL \
+    NEXT_PUBLIC_SENTRY_DSN \
+    # Payload (runtime)
+    # TODO(koech): Standadise naming of Mongo DB URL. Our options:
+    #              - MONGODB_URL (codeforafrica)
+    #              - MONGO_URL (charterafrica, roboshield)
+    MONGODB_URL \
+    PAYLOAD_SECRET \
+    # Sentry (build time)
+    SENTRY_AUTH_TOKEN \
+    SENTRY_ENVIRONMENT \
+    SENTRY_ORG \
+    SENTRY_PROJECT
+  
+  # This is in app-builder instead of base-builder just incase app-deps adds deps
+  COPY --from=codeforafrica-deps /workspace/node_modules ./node_modules
+  
+  COPY --from=codeforafrica-deps /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
+  
+  COPY apps/codeforafrica ./apps/codeforafrica/
+  
+  # When building Next.js app, Next.js needs to connect to local Payload
+  ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
+  RUN pnpm --filter "./apps/codeforafrica/" build-next
+  
+  # When building Payload app, Payload needs to have final app URL
+  ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+  RUN pnpm --filter "./apps/codeforafrica/" build-payload
+  
+  #
+  # codeforafrica-runner: final deployable image
+  # --------------------------------------------
+  
+  FROM base-runner AS codeforafrica-runner
+  
+  ARG NEXT_PUBLIC_APP_LOGO_URL \
+    PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+    PAYLOAD_PUBLIC_APP_URL
+  
+  # TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
+  #              - GA_MEASUREMENT_ID (charterafrica, codeforafrica)
+  #              - GOOGLE_ANALYTICS_ID (pesayetu, roboshield, vpnmanager)
+  #              This is only needed at runtime
+  ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
+    PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
+    PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH}
+  
+  RUN set -ex \
+    # Create nextjs cache dir w/ correct permissions
+    && mkdir -p ./apps/codeforafrica//.next \
+    && chown nextjs:nodejs ./apps/codeforafrica/.next
+  
+  # PNPM
+  # symlink some dependencies
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+  
+  # Since we can't use output: "standalone", copy all app's dependencies
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/node_modules ./apps/codeforafrica/node_modules
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/next.config.js ./apps/codeforafrica/next.config.js
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/.env ./apps/codeforafrica/.env
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/migrations ./apps/codeforafrica/migrations
+  # Next.js
+  # Public assets
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/public ./apps/codeforafrica/public
+  
+  # Since we can't use output: "standalone", copy the whole app's .next folder
+  # TODO(kilemensi): Figure out which files in .next folder are not needed
+  COPY --from=codeforafrica-builder --chown=nextjs:nodejs /workspace/apps/codeforafrica/.next ./apps/codeforafrica/.next
+  
+  # Payload
+  COPY --from=codeforafrica-builder /workspace/apps/codeforafrica/dist ./apps/codeforafrica/dist
+  COPY --from=codeforafrica-builder /workspace/apps/codeforafrica/build ./apps/codeforafrica/build
+  
+  # Since we can't use output: "standalone", switch to specific app's folder
+  WORKDIR /workspace/apps/codeforafrica
+  
+  USER nextjs
+  
+  # Custom server to run Payload and Next.js in the same app
+  CMD ["node", "dist/server.js"]
 
 
 # ============================================================================
