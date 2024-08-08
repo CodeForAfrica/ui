@@ -91,6 +91,7 @@ function Layers({
                   NameTypographyProps={{
                     style: {
                       minWidth: 60,
+                      textAlign: "center",
                     },
                   }}
                 />
