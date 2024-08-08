@@ -13,6 +13,7 @@ const {
   MultiLineChartScope,
   TreemapChartScope,
   VerticalBarChartScope,
+  HeatMapScope,
 } = Scope;
 
 export default function configureScope(
@@ -86,11 +87,16 @@ export default function configureScope(
         );
       }
       break;
+    case "heatmap":
+      vegaSpec = HeatMapScope(scopeOptions);
+      console.log("HeatMapScope", vegaSpec);
+      break;
     default:
       if (isMobile) {
         vegaSpec = VerticalBarChartScope(scopeOptions);
       } else {
         vegaSpec = BarChartScope(scopeOptions);
+        console.log("BarChartScope", vegaSpec);
       }
       break;
   }
