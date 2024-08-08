@@ -15,7 +15,7 @@ env:
   GIT_PUSH_FLAGS: "--force"
   IMAGE_NAME: "codeforafrica/civicsignalblog-ui"
   VERSION_FILE_NAME: "./apps/civicsignalblog/package.json"
-  NEXT_PUBLIC_APP_URL: "https://blog.civicsignal.africa"
+  NEXT_PUBLIC_APP_URL: "https://research.civicsignal.africa"
   SENTRY_ENVIRONMENT: "production"
 
 jobs:
