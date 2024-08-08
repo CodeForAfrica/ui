@@ -24,6 +24,11 @@ const Posts = {
     group: "Publication",
     useAsTitle: "title",
     listSearchableFields: ["content", "excerpt"],
+    livePreview: {
+      // Assumed that all posts appear under pots/stories
+      url: ({ data }) =>
+        `${process.env.PAYLOAD_PUBLIC_APP_URL}/posts/stories/${data.slug}`,
+    },
   },
   fields: [
     {

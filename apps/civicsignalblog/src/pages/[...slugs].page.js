@@ -1,3 +1,4 @@
+import { useLivePreview } from "@payloadcms/live-preview-react";
 import React from "react";
 import { SWRConfig } from "swr";
 
@@ -18,7 +19,13 @@ const componentsBySlugs = {
   stories: Articles,
 };
 
-function Index({ blocks, fallback }) {
+function Index(initialData) {
+  const { data: props } = useLivePreview({
+    serverURL: process.env.NEXT_PUBLIC_APP_URL || "",
+    depth: 2,
+    initialData,
+  });
+  const { blocks, fallback } = props;
   if (!blocks?.length) {
     return null;
   }
