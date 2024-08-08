@@ -7,10 +7,10 @@ import payload from "payload";
 import { Payload } from "payload/dist/payload";
 import { loadEnvConfig } from "@next/env";
 
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
-
 const dev = process.env.NODE_ENV !== "production";
+const projectDir = process.cwd();
+loadEnvConfig(projectDir, dev);
+
 const hostname = process.env.NEXT_HOSTNAME || "localhost";
 const port = parseInt(process.env.PORT || "3000", 10);
 const sendGridAPIKey = process.env.SENDGRID_API_KEY;

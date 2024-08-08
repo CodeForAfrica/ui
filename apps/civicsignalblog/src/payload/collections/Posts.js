@@ -4,6 +4,7 @@ import image from "../fields/image";
 import publishedOn from "../fields/publishedOn";
 import slug from "../fields/slug";
 import tags from "../fields/tags";
+import formatDraftUrl from "../utils/formatDraftUrl";
 
 const Posts = {
   slug: "posts",
@@ -22,12 +23,14 @@ const Posts = {
     defaultColumns: ["title", "authors", "publishedOn"],
     description: "Stories",
     group: "Publication",
+    preview: (doc, options) => formatDraftUrl("posts/stories", doc, options),
     useAsTitle: "title",
     listSearchableFields: ["content", "excerpt"],
     livePreview: {
-      // Assumed that all posts appear under pots/stories
-      url: ({ data }) =>
-        `${process.env.PAYLOAD_PUBLIC_APP_URL}/posts/stories/${data.slug}`,
+      // Assumed that all posts appear under posts/stories
+      url: ({ data }) => {
+        return `${process.env.PAYLOAD_PUBLIC_APP_URL}/posts/stories/${data.slug}`;
+      },
     },
   },
   fields: [

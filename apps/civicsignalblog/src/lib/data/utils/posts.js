@@ -106,8 +106,8 @@ export async function getPost(api, slug, primaryTag) {
     authors,
     title,
     coverImage,
-    excerpt,
-    tags,
+    excerpt = null,
+    tags = [],
     meta,
     publishedOn,
     ...other

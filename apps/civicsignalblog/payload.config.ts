@@ -6,11 +6,11 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
-import dotenv from "dotenv";
 import { sentry } from "@payloadcms/plugin-sentry";
 import seo from "@payloadcms/plugin-seo";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+import { loadEnvConfig } from "@next/env";
 
 import Authors from "./src/payload/collections/Authors";
 import Media from "./src/payload/collections/Media";
@@ -22,8 +22,9 @@ import Tags from "./src/payload/collections/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
-dotenv.config();
-dotenv.config({ path: "./.env.local" });
+const dev = process.env.NODE_ENV !== "production";
+const projectDir = process.cwd();
+loadEnvConfig(projectDir, dev);
 
 const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
 
