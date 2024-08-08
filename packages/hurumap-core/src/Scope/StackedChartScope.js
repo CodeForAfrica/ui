@@ -2,9 +2,7 @@ import merge from "deepmerge";
 
 import Scope from "./Scope";
 
-import theme from "@/climatemappedafrica/theme";
-
-export default function StackedChartScope(
+export default function StackedChartScope({
   primaryData,
   metadata,
   config,
@@ -13,7 +11,10 @@ export default function StackedChartScope(
   secondaryParentData,
   profileNames,
   isCompare,
-) {
+  isMobile,
+  theme,
+  args,
+}) {
   const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
@@ -38,23 +39,28 @@ export default function StackedChartScope(
       ]
     : null;
 
+  const transform = [
+    {
+      type: "stack",
+      groupby: [primaryGroup],
+      field: { signal: "datatype[Units]" },
+    },
+  ];
+
   return merge(
-    Scope(
+    Scope({
       primaryData,
       metadata,
       config,
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      "stacked",
-      [
-        {
-          type: "stack",
-          groupby: [primaryGroup],
-          field: { signal: "datatype[Units]" },
-        },
-      ],
-    ),
+      chartType: "stacked",
+      transform,
+      isMobile,
+      theme,
+      args,
+    }),
     {
       signals: [
         {
@@ -88,6 +94,7 @@ export default function StackedChartScope(
           ],
           zero: true,
           clamp: true,
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
           // nice: { signal: "primaryXTickCount" },
         },
         {
@@ -104,6 +111,7 @@ export default function StackedChartScope(
           ],
           zero: true,
           clamp: true,
+          // TODO: explore why adding nice breaks the chart with error: Error: Cycle detected in dataflow graph.
           // nice: { signal: "secondaryXTickCount" },
         },
         {
