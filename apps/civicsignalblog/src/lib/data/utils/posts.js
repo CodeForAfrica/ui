@@ -116,17 +116,18 @@ export async function getPost(api, slug, primaryTag) {
   const postMeta = {
     title,
     description: excerpt,
-    image: coverImage,
+    image: coverImage ?? null,
     ...meta,
   };
   const blocks = [
     {
-      authors: authors.map(({ fullName, bio }) => {
-        return {
-          name: fullName,
-          bio,
-        };
-      }),
+      authors:
+        authors?.map(({ fullName, bio }) => {
+          return {
+            name: fullName,
+            bio,
+          };
+        }) ?? null,
       title,
       coverImage,
       excerpt,

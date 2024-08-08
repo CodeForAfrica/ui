@@ -20,6 +20,10 @@ const Pages = {
     group: "Publication",
     preview: (doc, options) => formatDraftUrl("pages", doc, options),
     useAsTitle: "title",
+    livePreview: {
+      url: ({ data }) =>
+        `${process.env.PAYLOAD_PUBLIC_APP_URL}/${data.slug !== "index" ? `${data.slug}` : ""}`,
+    },
   },
   fields: [
     {
