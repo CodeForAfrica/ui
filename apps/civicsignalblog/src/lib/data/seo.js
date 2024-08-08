@@ -39,7 +39,7 @@ export default function getPageSeoFromMeta(page, settings) {
     type: "website",
     site_name: siteTitle,
   };
-  if (image.url) {
+  if (image?.url) {
     const { alt, height, mimeType: type, url, width } = image;
     openGraph.images = [
       {
