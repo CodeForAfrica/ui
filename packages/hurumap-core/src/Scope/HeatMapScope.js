@@ -18,7 +18,19 @@ export default function HeatMapScope(props) {
     args,
   } = props;
 
+  const { stepDivider = null } = config;
+
   const { primary_group: primaryGroup } = metadata;
+
+  const transform = [];
+
+  if (stepDivider !== null) {
+    transform.push({
+      type: "formula",
+      as: "stepTransform",
+      expr: `floor(datum.year / ${stepDivider}) * ${stepDivider}`,
+    });
+  }
 
   return merge(
     Scope({
@@ -28,6 +40,7 @@ export default function HeatMapScope(props) {
       secondaryData,
       primaryParentData,
       secondaryParentData,
+      transform,
       chartType: "heatmap",
       theme,
       args,
@@ -59,17 +72,13 @@ export default function HeatMapScope(props) {
           type: "band",
           domain: {
             data: "primary_formatted",
-            field: primaryGroup,
+            field: stepDivider !== null ? "stepTransform" : primaryGroup,
           },
           range: "width",
         },
         {
           name: "y",
           type: "band",
-          // domain: {
-          //   data: "primary_formatted",
-          //   field: { signal: "datatype[Units]" },
-          // },
           range: "height",
         },
         {
@@ -90,7 +99,10 @@ export default function HeatMapScope(props) {
           },
           encode: {
             enter: {
-              x: { scale: "x", field: primaryGroup },
+              x: {
+                scale: "x",
+                field: stepDivider !== null ? "stepTransform" : primaryGroup,
+              },
               y: { scale: "y", field: { signal: "datatype[Units]" } },
               height: { scale: "y", band: 1 },
               width: { scale: "x", band: 1 },
