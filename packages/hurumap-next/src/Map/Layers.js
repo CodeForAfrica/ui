@@ -88,6 +88,19 @@ function Layers({
                     top: 0,
                     ...PopUpLocationTagProps?.sx,
                   }}
+                  NameTypographyProps={{
+                    style: {
+                      minWidth: 60,
+                      textAlign: "center",
+                    },
+                  }}
+                  LevelTypographyProps={{
+                    style: {
+                      top: -12,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                    },
+                  }}
                 />
               </ThemeProvider>
             </StyledEngineProvider>,
