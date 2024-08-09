@@ -12,12 +12,11 @@ export default function HeatMapScope(props) {
     secondaryData,
     primaryParentData,
     secondaryParentData,
-    // profileNames,
-    // isCompare,
+    isCompare,
+    isMobile,
     theme,
     args,
   } = props;
-  // const { parentLabel } = config;
 
   const { primary_group: primaryGroup } = metadata;
 
@@ -34,14 +33,30 @@ export default function HeatMapScope(props) {
       args,
     }),
     {
-      width: 800,
-      height: 500,
-      padding: 5,
-      signals: [],
+      signals: [
+        {
+          name: "height",
+          value: isMobile && isCompare && secondaryData?.length > 1 ? 620 : 310,
+        },
+        {
+          name: "isMobile",
+          value: isMobile,
+        },
+        {
+          name: "isCompare",
+          value: isCompare,
+        },
+      ],
+      width: {
+        signal: "isMobile ? 300 : 600",
+      },
+      height: {
+        signal: "height",
+      },
       scales: [
         {
           name: "x",
-          type: "time",
+          type: "band",
           domain: {
             data: "primary_formatted",
             field: primaryGroup,
@@ -51,18 +66,16 @@ export default function HeatMapScope(props) {
         {
           name: "y",
           type: "band",
-          domain: {
-            data: "primary_formatted",
-            field: { signal: "datatype[Units]" },
-          },
+          // domain: {
+          //   data: "primary_formatted",
+          //   field: { signal: "datatype[Units]" },
+          // },
           range: "height",
         },
         {
           name: "color",
           type: "linear",
-          range: {
-            scheme: theme.palette.primary.main,
-          },
+          range: [theme.palette.primary.main, theme.palette.primary.light],
           domain: {
             data: "primary_formatted",
             field: { signal: "datatype[Units]" },
@@ -77,15 +90,40 @@ export default function HeatMapScope(props) {
           },
           encode: {
             enter: {
-              y: { scale: "yscale", field: { signal: "mainGroup" } },
-              height: { scale: "yscale", band: 1 },
-              x: { scale: "xscale", field: { signal: "datatype[Units]" } },
-              width: { value: 1 },
+              x: { scale: "x", field: primaryGroup },
+              y: { scale: "y", field: { signal: "datatype[Units]" } },
+              height: { scale: "y", band: 1 },
+              width: { scale: "x", band: 1 },
+              tooltip: {
+                signal: `datum.${primaryGroup} + " : " + format(datum.count, ',')`,
+              },
             },
             update: {
-              fill: { value: theme.palette.primary.main },
+              fill: { scale: "color", field: { signal: "datatype[Units]" } },
             },
           },
+        },
+      ],
+      axes: [
+        {
+          orient: "bottom",
+          scale: "x",
+          title: primaryGroup,
+        },
+        {
+          orient: "left",
+          scale: "y",
+          title: { signal: "datatype[Units]" },
+        },
+      ],
+      legends: [
+        {
+          fill: "color",
+          title: { signal: "datatype[Units]" },
+          type: "gradient",
+          titleFontSize: 12,
+          titlePadding: 4,
+          gradientLength: { signal: "height - 16" },
         },
       ],
     },
