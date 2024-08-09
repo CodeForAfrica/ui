@@ -20,11 +20,11 @@ exports[`Location renders unchanged 1`] = `
           >
             Country
           </h6>
-          <span
+          <div
             class="css-k6p9om"
           >
             Kenya
-          </span>
+          </div>
         </div>
       </div>
       <div
@@ -39,11 +39,11 @@ exports[`Location renders unchanged 1`] = `
           >
             County
           </h6>
-          <span
+          <div
             class="css-k6p9om"
           >
             Isiolo
-          </span>
+          </div>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ const LevelTypography = styled("h6", {
   };
 });
 
-const NameTypography = styled("span")(({ theme }) => {
+const NameTypography = styled("div")(({ theme }) => {
   return {
     fontSize: theme.typography.pxToRem(9),
     fontWeight: "bold",
