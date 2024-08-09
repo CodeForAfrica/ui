@@ -20,8 +20,11 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   select: {
     width: typography.pxToRem(165),
+    height: typography.pxToRem(40),
+    paddingLeft: 0,
+    paddingRight: typography.pxToRem(40),
     [breakpoints.up("lg")]: {
-      width: typography.pxToRem(185),
+      width: typography.pxToRem(200),
     },
   },
   filled: {
