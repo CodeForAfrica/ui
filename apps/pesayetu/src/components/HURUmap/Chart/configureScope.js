@@ -1,19 +1,18 @@
 import { Scope } from "@hurumap/core";
 
-import StackedChartScope from "./StackedChartScope";
-import VerticalStackedChartScope from "./VerticalStackedChartScope";
-
 import { hurumapArgs } from "@/pesayetu/config";
 import theme from "@/pesayetu/theme";
 
 const {
   BarChartScope,
   DonutChartScope,
+  HeatMapScope,
   LineChartScope,
   MultiLineChartScope,
   TreemapChartScope,
   VerticalBarChartScope,
-  HeatMapScope,
+  StackedChartScope,
+  VerticalStackedChartScope,
 } = Scope;
 
 export default function configureScope(
@@ -65,26 +64,9 @@ export default function configureScope(
       break;
     case "stacked":
       if (isMobile) {
-        vegaSpec = VerticalStackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : null,
-          showParent ? secondaryIndicator?.parentData : null,
-          isCompare,
-        );
+        vegaSpec = VerticalStackedChartScope(scopeOptions);
       } else {
-        vegaSpec = StackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : [{}],
-          showParent ? secondaryIndicator?.parentData : [{}],
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = StackedChartScope(scopeOptions);
       }
       break;
     case "heatmap":
