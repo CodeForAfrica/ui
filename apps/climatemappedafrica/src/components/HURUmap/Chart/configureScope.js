@@ -6,6 +6,7 @@ import theme from "@/climatemappedafrica/theme";
 const {
   BarChartScope,
   DonutChartScope,
+  HeatMapScope,
   LineChartScope,
   MultiLineChartScope,
   TreemapChartScope,
@@ -60,6 +61,9 @@ export default function configureScope(
       break;
     case "treemap":
       vegaSpec = TreemapChartScope(scopeOptions);
+      break;
+    case "heatmap":
+      vegaSpec = HeatMapScope(scopeOptions);
       break;
     case "stacked":
       if (isMobile) {
