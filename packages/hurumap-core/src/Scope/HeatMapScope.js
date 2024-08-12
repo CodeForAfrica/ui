@@ -125,11 +125,11 @@ export default function HeatMapScope(props) {
                 },
               },
               // TODO: check why tooltip is not working correctly
-              // tooltip: [
-              //   {
-              //     signal: `datum.${primaryGroup} + ' : ' + datum.count`
-              //   }
-              // ]
+              tooltip: [
+                {
+                  signal: `datum.${primaryGroup} + ' : ' + + datatype[Units]`,
+                },
+              ],
             },
             update: {
               y: {
