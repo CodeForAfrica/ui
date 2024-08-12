@@ -31,6 +31,7 @@ export default function HeatMapScope(props) {
       args,
     }),
     {
+      height: isMobile && isCompare && secondaryData?.length > 1 ? 620 : 310,
       signals: [
         {
           name: "height",
@@ -45,26 +46,7 @@ export default function HeatMapScope(props) {
           value: isCompare,
         },
         { name: "stripeWidth", update: "width/length(data('primary'))" },
-        {
-          name: "selectedStripeTemp",
-          value: 0,
-          on: [
-            {
-              events: "@stripe:pointerover",
-              update: {
-                signal: "datatype[Units]",
-              },
-            },
-            { events: "@stripe:pointerout", update: "0" },
-          ],
-        },
       ],
-      width: {
-        signal: "isMobile ? 400 : 800",
-      },
-      height: {
-        signal: "height",
-      },
       scales: [
         {
           name: "scaleX",
@@ -86,19 +68,6 @@ export default function HeatMapScope(props) {
             },
           },
           range: [theme.palette.secondary.main, theme.palette.primary.main],
-          reverse: true,
-        },
-        {
-          name: "scaleYForLegendTick",
-          type: "linear",
-          domain: {
-            data: "primary",
-            field: {
-              signal: "datatype[Units]",
-            },
-          },
-          range: [0, { signal: "height" }],
-          zero: false,
           reverse: true,
         },
       ],
@@ -156,27 +125,6 @@ export default function HeatMapScope(props) {
           format: ".4",
           labelColor: "black",
         },
-        {
-          scale: "scaleYForLegendTick",
-          orient: "right",
-          domain: false,
-          labels: false,
-          ticks: true,
-          tickColor: "black",
-          offset: 45,
-          encode: {
-            ticks: {
-              update: {
-                x: { value: -7 },
-                x2: { value: 13 },
-                y: {
-                  scale: "scaleYForLegendTick",
-                  signal: "selectedStripeTemp",
-                },
-              },
-            },
-          },
-        },
       ],
       legends: [
         {
@@ -184,7 +132,7 @@ export default function HeatMapScope(props) {
           type: "gradient",
           titleFontSize: 12,
           titlePadding: 4,
-          gradientLength: { signal: "height-16" },
+          gradientLength: { signal: "height" },
         },
       ],
     },
