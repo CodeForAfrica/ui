@@ -3,7 +3,7 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
-import Tooltip from "./Tooltip"; // Import your ChartTooltip component
+import Tooltip from "./Tooltip";
 
 function ChartTooltip({
   id,

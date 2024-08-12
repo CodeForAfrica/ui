@@ -18,19 +18,7 @@ export default function HeatMapScope(props) {
     args,
   } = props;
 
-  const { stepDivider = null } = config;
-
   const { primary_group: primaryGroup } = metadata;
-
-  const transform = [];
-
-  if (stepDivider !== null) {
-    transform.push({
-      type: "formula",
-      as: "stepTransform",
-      expr: `floor(datum.year / ${stepDivider}) * ${stepDivider}`,
-    });
-  }
 
   return merge(
     Scope({
@@ -40,7 +28,6 @@ export default function HeatMapScope(props) {
       secondaryData,
       primaryParentData,
       secondaryParentData,
-      transform,
       chartType: "heatmap",
       theme,
       args,
@@ -59,83 +46,136 @@ export default function HeatMapScope(props) {
           name: "isCompare",
           value: isCompare,
         },
+        { name: "stripeWidth", update: "width/length(data('primary'))" },
+        {
+          name: "selectedStripeTemp",
+          value: 0,
+          on: [
+            { events: "@stripe:pointerover", update: "datum.count" },
+            { events: "@stripe:pointerout", update: "0" },
+          ],
+        },
       ],
       width: {
-        signal: "isMobile ? 300 : 600",
+        signal: "isMobile ? 400 : 800",
       },
       height: {
         signal: "height",
       },
       scales: [
         {
-          name: "x",
-          type: "band",
+          name: "scaleX",
+          type: "linear",
           domain: {
-            data: "primary_formatted",
-            field: stepDivider !== null ? "stepTransform" : primaryGroup,
+            data: "primary",
+            field: primaryGroup,
           },
-          range: "width",
-        },
-        {
-          name: "y",
-          type: "band",
-          range: "height",
+          range: [0, { signal: "width" }],
+          zero: false,
         },
         {
           name: "color",
           type: "linear",
-          range: [theme.palette.primary.main, theme.palette.primary.light],
           domain: {
-            data: "primary_formatted",
-            field: { signal: "datatype[Units]" },
+            data: "primary",
+            field: "count",
           },
+          range: [theme.palette.primary.main, theme.palette.primary.light],
+          reverse: true,
+        },
+        {
+          name: "scaleYForLegendTick",
+          type: "linear",
+          domain: { data: "primary", field: "count" },
+          range: [0, { signal: "height" }],
+          zero: false,
+          reverse: true,
         },
       ],
       marks: [
         {
+          name: "stripe",
           type: "rect",
+          interactive: true,
           from: {
-            data: "primary_formatted",
+            data: "primary",
           },
           encode: {
             enter: {
-              x: {
-                scale: "x",
-                field: stepDivider !== null ? "stepTransform" : primaryGroup,
+              xc: {
+                scale: "scaleX",
+                field: primaryGroup,
               },
-              y: { scale: "y", field: { signal: "datatype[Units]" } },
-              height: { scale: "y", band: 1 },
-              width: { scale: "x", band: 1 },
-              tooltip: {
-                signal: `datum.${primaryGroup} + " : " + format(datum.count, ',')`,
+              fill: {
+                scale: "color",
+                field: "count",
               },
+              // TODO: check why tooltip is not working correctly
+              // tooltip: [
+              //   {
+              //     signal: `datum.${primaryGroup} + ' : ' + datum.count`
+              //   }
+              // ]
             },
             update: {
-              fill: { scale: "color", field: { signal: "datatype[Units]" } },
+              y: {
+                signal: 0,
+              },
+              height: {
+                signal: "height",
+              },
+              width: {
+                signal: "stripeWidth",
+              },
+            },
+            hover: {
+              y: {
+                value: -4,
+              },
+              height: {
+                signal: "height + 8",
+              },
             },
           },
         },
       ],
       axes: [
         {
+          scale: "scaleX",
           orient: "bottom",
-          scale: "x",
-          title: primaryGroup,
+          domain: false,
+          format: ".4",
+          labelColor: "black",
         },
         {
-          orient: "left",
-          scale: "y",
-          title: { signal: "datatype[Units]" },
+          scale: "scaleYForLegendTick",
+          orient: "right",
+          domain: false,
+          labels: false,
+          ticks: true,
+          tickColor: "black",
+          offset: 45,
+          encode: {
+            ticks: {
+              update: {
+                x: { value: -7 },
+                x2: { value: 13 },
+                y: {
+                  scale: "scaleYForLegendTick",
+                  signal: "selectedStripeTemp",
+                },
+              },
+            },
+          },
         },
       ],
       legends: [
         {
           fill: "color",
-          title: { signal: "datatype[Units]" },
           type: "gradient",
           titleFontSize: 12,
           titlePadding: 4,
-          gradientLength: { signal: "height - 16" },
+          gradientLength: { signal: "height-16" },
         },
       ],
     },
