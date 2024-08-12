@@ -33,7 +33,7 @@ function ArticlePage({
         }}
         sx={{
           width: "100%",
-          height: { xs: "163px", md: "600px" },
+          height: "40vw",
         }}
       />
       <ArticleHeader
