@@ -51,7 +51,12 @@ export default function HeatMapScope(props) {
           name: "selectedStripeTemp",
           value: 0,
           on: [
-            { events: "@stripe:pointerover", update: "datum.count" },
+            {
+              events: "@stripe:pointerover",
+              update: {
+                signal: "datatype[Units]",
+              },
+            },
             { events: "@stripe:pointerout", update: "0" },
           ],
         },
@@ -78,15 +83,22 @@ export default function HeatMapScope(props) {
           type: "linear",
           domain: {
             data: "primary",
-            field: "count",
+            field: {
+              signal: "datatype[Units]",
+            },
           },
-          range: [theme.palette.primary.main, theme.palette.primary.light],
+          range: [theme.palette.secondary.main, theme.palette.primary.main],
           reverse: true,
         },
         {
           name: "scaleYForLegendTick",
           type: "linear",
-          domain: { data: "primary", field: "count" },
+          domain: {
+            data: "primary",
+            field: {
+              signal: "datatype[Units]",
+            },
+          },
           range: [0, { signal: "height" }],
           zero: false,
           reverse: true,
@@ -108,7 +120,9 @@ export default function HeatMapScope(props) {
               },
               fill: {
                 scale: "color",
-                field: "count",
+                field: {
+                  signal: "datatype[Units]",
+                },
               },
               // TODO: check why tooltip is not working correctly
               // tooltip: [
