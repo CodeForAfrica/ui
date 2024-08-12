@@ -77,7 +77,6 @@ export default function configureScope(
         vegaSpec = VerticalBarChartScope(scopeOptions);
       } else {
         vegaSpec = BarChartScope(scopeOptions);
-        console.log("BarChartScope", vegaSpec);
       }
       break;
   }

@@ -3,8 +3,6 @@ import merge from "deepmerge";
 import Scope from "./Scope";
 
 export default function HeatMapScope(props) {
-  console.log("HeatMapScope props: ", props);
-
   const {
     primaryData,
     metadata,
@@ -124,12 +122,6 @@ export default function HeatMapScope(props) {
                   signal: "datatype[Units]",
                 },
               },
-              // TODO: check why tooltip is not working correctly
-              tooltip: [
-                {
-                  signal: `datum.${primaryGroup} + ' : ' + + datatype[Units]`,
-                },
-              ],
             },
             update: {
               y: {
@@ -140,6 +132,9 @@ export default function HeatMapScope(props) {
               },
               width: {
                 signal: "stripeWidth",
+              },
+              tooltip: {
+                signal: "{'group': datum[mainGroup], 'count': datum.count}",
               },
             },
             hover: {
