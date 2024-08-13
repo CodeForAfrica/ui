@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { Link, RichTypography } from "@commons-ui/next";
 import { Box } from "@mui/material";
+import { deepmerge } from "@mui/utils";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
@@ -30,41 +31,42 @@ const serialize = (children, props) =>
     if (!node) {
       return null;
     }
+    const nodeProps = deepmerge(DEFAULT_PROPS, props, { clone: true });
     // TODO(kilemensi): handle node.type === indent
     switch (node.type) {
       case "h1":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h1" key={i}>
+          <RichTypography {...nodeProps} variant="h1" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h2":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h2" key={i}>
+          <RichTypography {...nodeProps} variant="h2" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h3":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h3" key={i}>
+          <RichTypography {...nodeProps} variant="h3" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h4":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h4" key={i}>
+          <RichTypography {...nodeProps} variant="h4" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h5":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h5" key={i}>
+          <RichTypography {...nodeProps} variant="h5" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h6":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h6" key={i}>
+          <RichTypography {...nodeProps} variant="h6" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
@@ -72,7 +74,13 @@ const serialize = (children, props) =>
         return <blockquote key={i}>{serialize(node.children)}</blockquote>;
       case "link":
         return (
-          <RichTypography component={Link} href={node.href} key={i} {...props}>
+          <RichTypography
+            {...nodeProps}
+            component={Link}
+            href={node.href}
+            variant="inherit"
+            key={i}
+          >
             {serialize(node.children)}
           </RichTypography>
         );

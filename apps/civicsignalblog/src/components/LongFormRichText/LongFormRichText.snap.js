@@ -3,14 +3,14 @@
 exports[`<LongFormRichText /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-6cogad"
+    class="MuiBox-root css-17be2kn"
   >
     <p
       class="MuiTypography-root MuiTypography-body1 css-oo170e-MuiTypography-root"
     >
       Women make up only 22% of the people seen, heard or read about in the news in Africa, the results of the 
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-body1 css-ww82j7-MuiTypography-root-MuiLink-root-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit css-1yokalx-MuiTypography-root-MuiLink-root-MuiTypography-root"
         href="https://whomakesthenews.org/gmmp-2020-final-reports/"
         rel="noreferrer noopener"
         target="_blank"
