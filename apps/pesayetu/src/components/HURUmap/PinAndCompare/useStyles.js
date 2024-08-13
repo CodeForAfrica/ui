@@ -19,12 +19,19 @@ const useStyles = makeStyles(({ typography, palette }) => ({
       backgroundColor: palette.grey.light,
     },
   },
-  locationSelect: {
-    paddingTop: typography.pxToRem(10),
-    paddingBottom: typography.pxToRem(10),
+  select: {
+    width: typography.pxToRem(185),
+    height: typography.pxToRem(40),
+    paddingLeft: 0,
+    paddingRight: typography.pxToRem(40),
+  },
+  filled: {
+    padding: `${typography.pxToRem(10)} 0 ${typography.pxToRem(
+      10,
+    )} ${typography.pxToRem(15)} !important`,
   },
   selectPaper: {
-    height: typography.pxToRem(310),
+    maxHeight: typography.pxToRem(310),
   },
 }));
 
