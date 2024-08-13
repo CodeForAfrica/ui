@@ -77,6 +77,16 @@ export default buildConfig({
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
+    livePreview: {
+      breakpoints: [
+        {
+          label: "Mobile",
+          name: "mobile",
+          width: 375,
+          height: 667,
+        },
+      ],
+    },
     webpack: (config) => ({
       ...config,
       resolve: {

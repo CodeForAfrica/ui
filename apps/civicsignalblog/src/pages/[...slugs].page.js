@@ -1,4 +1,3 @@
-import { useLivePreview } from "@payloadcms/live-preview-react";
 import React from "react";
 import { SWRConfig } from "swr";
 
@@ -9,6 +8,7 @@ import LongForm from "@/civicsignalblog/components/LongForm/LongForm";
 import PageHeader from "@/civicsignalblog/components/PageHeader";
 import RelatedStories from "@/civicsignalblog/components/RelatedStories";
 import { getPageServerSideProps } from "@/civicsignalblog/lib/data";
+import { useLivePreview } from "@/civicsignalblog/utils/useLivePreview";
 
 const componentsBySlugs = {
   article: ArticlePage,
@@ -25,6 +25,7 @@ function Index(initialData) {
     depth: 2,
     initialData,
   });
+
   const { blocks, fallback } = props;
   if (!blocks?.length) {
     return null;

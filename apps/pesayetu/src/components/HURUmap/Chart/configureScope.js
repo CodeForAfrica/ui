@@ -6,6 +6,7 @@ import theme from "@/pesayetu/theme";
 const {
   BarChartScope,
   DonutChartScope,
+  HeatMapScope,
   LineChartScope,
   MultiLineChartScope,
   TreemapChartScope,
@@ -67,6 +68,9 @@ export default function configureScope(
       } else {
         vegaSpec = StackedChartScope(scopeOptions);
       }
+      break;
+    case "heatmap":
+      vegaSpec = HeatMapScope(scopeOptions);
       break;
     default:
       if (isMobile) {
