@@ -54,11 +54,8 @@ const LongFormRichText = React.forwardRef((props, ref) => {
           },
         },
         "& a": {
-          ...theme.typography.body1,
-          mb: 2,
-          [theme.breakpoints.up("md")]: {
-            ...theme.typography.body3,
-          },
+          font: "inherit",
+          margin: "inherit",
         },
         "& ul": {
           mb: 2,
