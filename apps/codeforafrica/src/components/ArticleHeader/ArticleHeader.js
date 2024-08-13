@@ -1,14 +1,12 @@
 import { Section } from "@commons-ui/core";
-import { Link, RichTypography } from "@commons-ui/next";
+import { RichTypography } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
 
-import ChoiceChip from "@/codeforafrica/components/ChoiceChip";
-import ChoiceChipGroup from "@/codeforafrica/components/ChoiceChipGroup";
 import ShareThisPage from "@/codeforafrica/components/ShareThisPage";
 
 const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
-  const { date, excerpt, sx, tags, title, primaryTag } = props;
+  const { date, excerpt, sx, title } = props;
 
   return (
     <Section
@@ -48,19 +46,6 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
       >
         {excerpt}
       </RichTypography>
-      {tags?.length > 0 ? (
-        <ChoiceChipGroup color="default" sx={{ mt: { xs: 2.5, md: 5 } }}>
-          {tags.map((tag) => (
-            <ChoiceChip
-              label={tag.name}
-              value={tag.slug}
-              key={tag.slug}
-              component={Link}
-              href={`/${primaryTag}?tag=${tag.slug}`}
-            />
-          ))}
-        </ChoiceChipGroup>
-      ) : null}
       <ShareThisPage
         title="Share This Article"
         sx={{ mt: { xs: 2.5, md: 5 } }}
@@ -73,14 +58,6 @@ ArticleHeader.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
   excerpt: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.shape({})),
-};
-
-ArticleHeader.defaultProps = {
-  title: undefined,
-  date: undefined,
-  tags: undefined,
-  excerpt: undefined,
 };
 
 export default ArticleHeader;
