@@ -34,23 +34,6 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         Article
       </div>
       <div
-        class="MuiToggleButtonGroup-root css-qg4su5-MuiToggleButtonGroup-root"
-        role="group"
-      >
-        <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1f523vq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
-          href="/tag1?tag=tag2"
-          tabindex="0"
-          value="tag2"
-        >
-          <span
-            class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
-          >
-            tag2
-          </span>
-        </a>
-      </div>
-      <div
         class="MuiStack-root css-yhfzs2-MuiStack-root"
       >
         <div
@@ -106,15 +89,8 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
     <section
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-z5w0rf-MuiContainer-root"
     />
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-13ttudx-MuiContainer-root"
-    >
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-18tdphm-MuiDivider-root"
-      />
-    </div>
     <address
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1o0bwi8-MuiContainer-root"
     >
       <div
         class="MuiStack-root css-ty68jk-MuiStack-root"
@@ -163,6 +139,34 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         </div>
       </div>
     </address>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ke15ni-MuiContainer-root"
+    >
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-18tdphm-MuiDivider-root"
+      />
+    </div>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
+    >
+      <div
+        class="MuiToggleButtonGroup-root css-qg4su5-MuiToggleButtonGroup-root"
+        role="group"
+      >
+        <a
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1f523vq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          href="/tag1?tag=tag2"
+          tabindex="0"
+          value="tag2"
+        >
+          <span
+            class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+          >
+            tag2
+          </span>
+        </a>
+      </div>
+    </div>
   </article>
 </div>
 `;
