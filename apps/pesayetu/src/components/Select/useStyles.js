@@ -10,12 +10,10 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
     },
   },
   select: {
-    height: "100%",
     width: typography.pxToRem(135),
     background: palette.background.paper,
     borderStyle: "none",
     borderRadius: 2,
-    paddingLeft: typography.pxToRem(24),
     paddingBottom: typography.pxToRem(15),
     paddingTop: typography.pxToRem(15),
     fontSize: typography.caption.fontSize,
@@ -28,7 +26,7 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
       display: "none",
     },
     [breakpoints.up("lg")]: {
-      width: typography.pxToRem(165),
+      width: typography.pxToRem(185),
     },
   },
   paper: {
