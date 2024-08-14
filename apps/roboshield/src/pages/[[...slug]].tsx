@@ -2,7 +2,7 @@ import { getPageServerSideProps } from "@/roboshield/lib/data";
 import BlockRenderer from "@/roboshield/components/BlockRenderer";
 import { PageProps } from "@/roboshield/lib/data";
 import { GetServerSidePropsContext } from "next";
-import { useLivePreview } from "@payloadcms/live-preview-react";
+import useLivePreview from "@/roboshield/utils/useLivePreview";
 
 const Page: React.FC<PageProps> = (initialPage) => {
   const { data } = useLivePreview({
