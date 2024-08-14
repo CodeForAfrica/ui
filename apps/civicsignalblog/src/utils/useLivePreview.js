@@ -1,3 +1,4 @@
+// Adapted from https://github.com/payloadcms/payload/blob/main/packages/live-preview-react/src/index.ts
 import { subscribe, unsubscribe, ready } from "@payloadcms/live-preview";
 import { useCallback, useEffect, useState, useRef } from "react";
 
