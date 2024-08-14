@@ -1,6 +1,6 @@
 {
   "name": "roboshield",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": true,
   "scripts": {
     "build-server": "tsc --project tsconfig.server.json",
