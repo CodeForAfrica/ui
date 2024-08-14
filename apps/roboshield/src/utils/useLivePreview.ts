@@ -44,6 +44,8 @@ export const useLivePreview = <T extends any>(props: {
     };
   }, [serverURL, onChange, depth, initialData]);
 
+  // We are adding this snippet to the hook to ensure that input data takes precedence over changed document in case initialData changes.
+  // We are facing an issue where links are unresponsive
   useEffect(() => {
     setData(initialData);
   }, [initialData]);
