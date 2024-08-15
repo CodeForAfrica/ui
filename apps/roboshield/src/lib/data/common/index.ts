@@ -50,16 +50,15 @@ export async function getPageProps(
   api: Api,
   context: GetServerSidePropsContext,
 ) {
-  const { resolvedUrl } = context;
-  let path;
-  if (resolvedUrl === "/" || resolvedUrl === "") {
-    path = "index";
-  } else {
-    path = resolvedUrl.replace(/^\//, "");
-  }
+  // For now, RoboShield only supports single paths i.e. /, /about, etc.,
+  // so params.slug[0] is good enough
+  const {
+    params: { slug: slugs },
+  } = context;
+  const [slug] = slugs || ["index"];
   const {
     docs: [page],
-  } = await api.findPage(path);
+  } = await api.findPage(slug);
 
   if (!page) {
     return null;
@@ -74,6 +73,7 @@ export async function getPageProps(
     blocks,
     footer,
     navbar,
+    slug,
   };
 }
 
