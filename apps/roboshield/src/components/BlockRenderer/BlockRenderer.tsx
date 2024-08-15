@@ -22,11 +22,10 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
       {blocks?.map((block) => {
         const Component: FC<any> = components[block.blockType];
 
-        if (Component) {
-          return <Component key={block.blockType} {...block} />;
+        if (!Component) {
+          return null;
         }
-
-        return null;
+        return <Component {...block} key={block.id} />;
       })}
     </>
   );
