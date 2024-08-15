@@ -2,16 +2,14 @@
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-
 import Image from "next/image";
-import cfaLogoLight from "@/assets/images/logo-light-mode.png";
-import cfaLogoDark from "@/assets/images/logo-dark-mode.png";
-
-import { useTheme } from "@mui/material/styles";
-import { Button } from "@mui/material";
 import { useMemo } from "react";
+
+import cfaLogoDark from "@/assets/images/logo-dark-mode.png";
+import cfaLogoLight from "@/assets/images/logo-light-mode.png";
 
 export default function Navbar() {
   const theme = useTheme();

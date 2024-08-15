@@ -707,6 +707,12 @@ importers:
       '@emotion/styled':
         specifier: ^11.11.5
         version: 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
+      '@mdx-js/loader':
+        specifier: ^3.0.1
+        version: 3.0.1(webpack@5.93.0)
+      '@mdx-js/react':
+        specifier: ^3.0.1
+        version: 3.0.1(@types/react@18.3.3)(react@18.3.1)
       '@mui/icons-material':
         specifier: ^5.16.1
         version: 5.16.1(@mui/material@5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
@@ -716,12 +722,15 @@ importers:
       '@mui/material-nextjs':
         specifier: ^5.16.1
         version: 5.16.1(@emotion/cache@11.11.0)(@emotion/server@11.11.0(@emotion/css@11.11.2))(@mui/material@5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.3)(next@14.2.5(@babel/core@7.24.9)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
+      '@next/mdx':
+        specifier: ^14.2.5
+        version: 14.2.5(@mdx-js/loader@3.0.1(webpack@5.93.0))(@mdx-js/react@3.0.1(@types/react@18.3.3)(react@18.3.1))
+      '@types/mdx':
+        specifier: ^2.0.13
+        version: 2.0.13
       next:
         specifier: 14.2.5
         version: 14.2.5(@babel/core@7.24.9)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
-      next-mdx-remote:
-        specifier: ^5.0.0
-        version: 5.0.0(@types/react@18.3.3)(react@18.3.1)
       react:
         specifier: ^18
         version: 18.3.1
@@ -897,7 +906,7 @@ importers:
         version: 8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@storybook/addon-interactions':
         specifier: ^8.2.2
-        version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
+        version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@storybook/addon-links':
         specifier: ^8.2.2
         version: 8.2.2(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
@@ -909,13 +918,13 @@ importers:
         version: 8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8))
       '@storybook/nextjs':
         specifier: ^8.2.2
-        version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(babel-plugin-macros@3.1.0)(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(next@14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(type-fest@4.21.0)(typescript@5.5.3)(webpack-hot-middleware@2.26.1)(webpack@5.93.0(esbuild@0.21.5))
+        version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(babel-plugin-macros@3.1.0)(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(next@14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(type-fest@4.21.0)(typescript@5.5.3)(webpack-hot-middleware@2.26.1)(webpack@5.93.0(esbuild@0.21.5))
       '@storybook/react':
         specifier: ^8.2.2
         version: 8.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(typescript@5.5.3)
       '@storybook/test':
         specifier: ^8.2.2
-        version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
+        version: 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@svgr/webpack':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.5.3)
@@ -1671,7 +1680,7 @@ importers:
     dependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
-        version: 6.4.6(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(babel-plugin-macros@3.1.0))
+        version: 6.4.6(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))
       '@testing-library/react':
         specifier: ^14.3.1
         version: 14.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3863,6 +3872,11 @@ packages:
     resolution: {integrity: sha512-JkZJ+28tNIg/1ecTNO5aul0UmXlsSjKN+WaY0L6eBXTpRpfHj1dnOg8C6QYI2IJoxDr0juZ74Kafwu1EcS/ICw==}
     engines: {node: '>=8.0.0'}
 
+  '@mdx-js/loader@3.0.1':
+    resolution: {integrity: sha512-YbYUt7YyEOdFxhyuCWmLKf5vKhID/hJAojEUnheJk4D8iYVLFQw+BAoBWru/dHGch1omtmZOPstsmKPyBF68Tw==}
+    peerDependencies:
+      webpack: '>=5'
+
   '@mdx-js/mdx@3.0.1':
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
 
@@ -4089,6 +4103,17 @@ packages:
 
   '@next/eslint-plugin-next@14.2.5':
     resolution: {integrity: sha512-LY3btOpPh+OTIpviNojDpUdIbHW9j0JBYBjsIp8IxtDFfYFyORvw3yNq6N231FVqQA7n7lwaf7xHbVJlA1ED7g==}
+
+  '@next/mdx@14.2.5':
+    resolution: {integrity: sha512-AROhSdXQg0/jt55iqxVSJqp9oaCyXwRe44/I17c77gDshZ6ex7VKBZDH0GljaxZ0Y4mScYUbFJJEh42Xw4X4Dg==}
+    peerDependencies:
+      '@mdx-js/loader': '>=0.15.0'
+      '@mdx-js/react': '>=0.15.0'
+    peerDependenciesMeta:
+      '@mdx-js/loader':
+        optional: true
+      '@mdx-js/react':
+        optional: true
 
   '@next/swc-darwin-arm64@14.2.5':
     resolution: {integrity: sha512-/9zVxJ+K9lrzSGli1///ujyRfon/ZneeZ+v4ptpiPoOU+GKZnm8Wj8ELWU1Pm7GHltYRBklmXMTUqM/DqQ99FQ==}
@@ -10668,12 +10693,6 @@ packages:
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
 
-  next-mdx-remote@5.0.0:
-    resolution: {integrity: sha512-RNNbqRpK9/dcIFZs/esQhuLA8jANqlH694yqoDBK8hkVdJUndzzGmnPHa2nyi90N4Z9VmzuSWNRpr5ItT3M7xQ==}
-    engines: {node: '>=14', npm: '>=7'}
-    peerDependencies:
-      react: '>=16'
-
   next-seo@6.5.0:
     resolution: {integrity: sha512-MfzUeWTN/x/rsKp/1n0213eojO97lIl0unxqbeCY+6pAucViHDA8GSLRRcXpgjsSmBxfCFdfpu7LXbt4ANQoNQ==}
     peerDependencies:
@@ -13158,9 +13177,6 @@ packages:
   unist-util-is@4.1.0:
     resolution: {integrity: sha512-ZOQSsnce92GrxSqlnEEseX0gi7GH9zTJZ0p9dtu87WRb/37mMPO2Ilx1s/t9vBHrFhbgweUwb+t7cIn5dxPhZg==}
 
-  unist-util-is@5.2.1:
-    resolution: {integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==}
-
   unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
 
@@ -13173,9 +13189,6 @@ packages:
   unist-util-remove-position@5.0.0:
     resolution: {integrity: sha512-Hp5Kh3wLxv0PHj9m2yZhhLt58KzPtEYKQQ4yxfYFEO7EvHwzyDYnduhHnY1mDxoqr7VUwVuHXk9RXKIiYS1N8Q==}
 
-  unist-util-remove@3.1.1:
-    resolution: {integrity: sha512-kfCqZK5YVY5yEa89tvpl7KnBBHu2c6CzMkqHUrlOqaRgGOMp0sMvwWOVrbAtj03KhovQB7i96Gda72v/EFE0vw==}
-
   unist-util-stringify-position@2.0.3:
     resolution: {integrity: sha512-3faScn5I+hy9VleOq/qNbAd6pAx7iH5jYBMS9I1HgQVijz/4mv5Bvw5iw1sC/90CODiKo81G/ps8AJrISn687g==}
 
@@ -13184,9 +13197,6 @@ packages:
 
   unist-util-visit-parents@3.1.1:
     resolution: {integrity: sha512-1KROIZWo6bcMrZEwiH2UrXDyalAa0uqzWCxCJj6lPOvTve2WkfgCytoDTPaMnodXh1WrXOq0haVYHj99ynJlsg==}
-
-  unist-util-visit-parents@5.1.3:
-    resolution: {integrity: sha512-x6+y8g7wWMyQhL1iZfhIPhDAs7Xwbn9nRosDXl7qoPTSCy0yNxnKc+hWokFifWQIDGi154rdUqKvbCa4+1kLhg==}
 
   unist-util-visit-parents@6.0.1:
     resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==}
@@ -13486,9 +13496,6 @@ packages:
   verror@1.10.0:
     resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==}
     engines: {'0': node >=0.6.0}
-
-  vfile-matter@5.0.0:
-    resolution: {integrity: sha512-jhPSqlj8hTSkTXOqyxbUeZAFFVq/iwu/jukcApEqc/7DOidaAth6rDc0Zgg0vWpzUnWkwFP7aK28l6nBmxMqdQ==}
 
   vfile-message@4.0.2:
     resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
@@ -16758,6 +16765,14 @@ snapshots:
       - jscodeshift
       - supports-color
 
+  '@mdx-js/loader@3.0.1(webpack@5.93.0)':
+    dependencies:
+      '@mdx-js/mdx': 3.0.1
+      source-map: 0.7.4
+      webpack: 5.93.0
+    transitivePeerDependencies:
+      - supports-color
+
   '@mdx-js/mdx@3.0.1':
     dependencies:
       '@types/estree': 1.0.5
@@ -17000,6 +17015,13 @@ snapshots:
   '@next/eslint-plugin-next@14.2.5':
     dependencies:
       glob: 10.3.10
+
+  '@next/mdx@14.2.5(@mdx-js/loader@3.0.1(webpack@5.93.0))(@mdx-js/react@3.0.1(@types/react@18.3.3)(react@18.3.1))':
+    dependencies:
+      source-map: 0.7.4
+    optionalDependencies:
+      '@mdx-js/loader': 3.0.1(webpack@5.93.0)
+      '@mdx-js/react': 3.0.1(@types/react@18.3.3)(react@18.3.1)
 
   '@next/swc-darwin-arm64@14.2.5':
     optional: true
@@ -18965,11 +18987,11 @@ snapshots:
       '@storybook/global': 5.0.0
       storybook: 8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8))
 
-  '@storybook/addon-interactions@8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
+  '@storybook/addon-interactions@8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
     dependencies:
       '@storybook/global': 5.0.0
       '@storybook/instrumenter': 8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
-      '@storybook/test': 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
+      '@storybook/test': 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       polished: 4.3.1
       storybook: 8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8))
       ts-dedent: 2.2.0
@@ -19435,7 +19457,7 @@ snapshots:
 
   '@storybook/mdx2-csf@1.1.0': {}
 
-  '@storybook/nextjs@8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(babel-plugin-macros@3.1.0)(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(next@14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(type-fest@4.21.0)(typescript@5.5.3)(webpack-hot-middleware@2.26.1)(webpack@5.93.0(esbuild@0.21.5))':
+  '@storybook/nextjs@8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(babel-plugin-macros@3.1.0)(esbuild@0.21.5)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(next@14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(type-fest@4.21.0)(typescript@5.5.3)(webpack-hot-middleware@2.26.1)(webpack@5.93.0(esbuild@0.21.5))':
     dependencies:
       '@babel/core': 7.24.8
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.24.8)
@@ -19454,7 +19476,7 @@ snapshots:
       '@storybook/builder-webpack5': 8.2.2(esbuild@0.21.5)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(typescript@5.5.3)
       '@storybook/preset-react-webpack': 8.2.2(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(typescript@5.5.3)
       '@storybook/react': 8.2.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))(typescript@5.5.3)
-      '@storybook/test': 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
+      '@storybook/test': 8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@types/node': 18.19.39
       '@types/semver': 7.5.8
       babel-loader: 9.1.3(@babel/core@7.24.8)(webpack@5.93.0(esbuild@0.21.5))
@@ -19780,12 +19802,12 @@ snapshots:
       memoizerific: 1.11.3
       qs: 6.12.3
 
-  '@storybook/test@8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
+  '@storybook/test@8.2.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))':
     dependencies:
       '@storybook/csf': 0.1.11
       '@storybook/instrumenter': 8.2.2(storybook@8.2.2(@babel/preset-env@7.24.8(@babel/core@7.24.8)))
       '@testing-library/dom': 10.1.0
-      '@testing-library/jest-dom': 6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))
+      '@testing-library/jest-dom': 6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.1.0)
       '@vitest/expect': 1.6.0
       '@vitest/spy': 1.6.0
@@ -20075,7 +20097,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/jest-dom@6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0))':
+  '@testing-library/jest-dom@6.4.5(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.24.8
@@ -20105,7 +20127,7 @@ snapshots:
       '@types/jest': 29.5.12
       jest: 29.7.0(@types/node@20.14.10)
 
-  '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(babel-plugin-macros@3.1.0))':
+  '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.14.10)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)))':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.24.8
@@ -26396,19 +26418,6 @@ snapshots:
       url-loader: 4.1.1(file-loader@6.2.0(webpack@5.93.0(esbuild@0.21.5)))(webpack@5.93.0(esbuild@0.21.5))
       webpack: 5.93.0(esbuild@0.21.5)
 
-  next-mdx-remote@5.0.0(@types/react@18.3.3)(react@18.3.1):
-    dependencies:
-      '@babel/code-frame': 7.24.7
-      '@mdx-js/mdx': 3.0.1
-      '@mdx-js/react': 3.0.1(@types/react@18.3.3)(react@18.3.1)
-      react: 18.3.1
-      unist-util-remove: 3.1.1
-      vfile: 6.0.2
-      vfile-matter: 5.0.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - supports-color
-
   next-seo@6.5.0(next@14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       next: 14.2.5(@babel/core@7.24.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.45.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
@@ -29601,10 +29610,6 @@ snapshots:
 
   unist-util-is@4.1.0: {}
 
-  unist-util-is@5.2.1:
-    dependencies:
-      '@types/unist': 2.0.10
-
   unist-util-is@6.0.0:
     dependencies:
       '@types/unist': 3.0.2
@@ -29622,12 +29627,6 @@ snapshots:
       '@types/unist': 3.0.2
       unist-util-visit: 5.0.0
 
-  unist-util-remove@3.1.1:
-    dependencies:
-      '@types/unist': 2.0.10
-      unist-util-is: 5.2.1
-      unist-util-visit-parents: 5.1.3
-
   unist-util-stringify-position@2.0.3:
     dependencies:
       '@types/unist': 2.0.10
@@ -29640,11 +29639,6 @@ snapshots:
     dependencies:
       '@types/unist': 2.0.10
       unist-util-is: 4.1.0
-
-  unist-util-visit-parents@5.1.3:
-    dependencies:
-      '@types/unist': 2.0.10
-      unist-util-is: 5.2.1
 
   unist-util-visit-parents@6.0.1:
     dependencies:
@@ -30129,11 +30123,6 @@ snapshots:
       assert-plus: 1.0.0
       core-util-is: 1.0.2
       extsprintf: 1.3.0
-
-  vfile-matter@5.0.0:
-    dependencies:
-      vfile: 6.0.2
-      yaml: 2.4.5
 
   vfile-message@4.0.2:
     dependencies:
