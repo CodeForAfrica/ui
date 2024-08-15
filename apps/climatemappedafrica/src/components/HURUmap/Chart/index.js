@@ -354,6 +354,17 @@ function Chart({
         />
       )}
       <div ref={chartRef} className={classes.chart} />
+      <RichTypography
+        sx={(theme) => ({
+          fontSize: theme.typography.pxToRem(13),
+          lineHeight: 20 / 13,
+          color: "#666666",
+          display: "inline-flex",
+          fontWeight: 500,
+        })}
+      >
+        {description}
+      </RichTypography>
       <Source
         href={url}
         sx={({ typography }) => ({
