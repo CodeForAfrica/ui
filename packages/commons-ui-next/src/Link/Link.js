@@ -14,14 +14,23 @@ const Anchor = styled("a")({});
 
 export const NextLinkComposed = React.forwardRef(
   function NextLinkComposed(props, ref) {
-    const { linkAs, locale, prefetch, replace, scroll, shallow, to, ...other } =
-      props;
+    const {
+      linkAs,
+      locale,
+      prefetch,
+      legacyBehavior = true,
+      replace,
+      scroll,
+      shallow,
+      to,
+      ...other
+    } = props;
 
     return (
       <NextLink
         as={linkAs}
         href={to}
-        legacyBehavior
+        legacyBehavior={legacyBehavior}
         locale={locale}
         passHref
         prefetch={prefetch}
@@ -37,6 +46,7 @@ export const NextLinkComposed = React.forwardRef(
 
 NextLinkComposed.propTypes = {
   href: PropTypes.string,
+  legacyBehavior: PropTypes.bool,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
   passHref: PropTypes.bool,
@@ -44,17 +54,7 @@ NextLinkComposed.propTypes = {
   replace: PropTypes.bool,
   scroll: PropTypes.bool,
   shallow: PropTypes.bool,
-};
-
-NextLinkComposed.defaultProps = {
-  href: undefined,
-  linkAs: undefined,
-  locale: undefined,
-  passHref: undefined,
-  prefetch: undefined,
-  replace: undefined,
-  scroll: undefined,
-  shallow: undefined,
+  to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
 function checkIfPathsMatch(linkPath, currentPath) {
@@ -70,6 +70,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     className: classNameProp,
     href,
     isActive: isActiveProp,
+    legacyBehavior,
     linkAs: linkAsProp,
     locale,
     noLinkStyle,
@@ -132,6 +133,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     scroll,
     shallow,
     prefetch,
+    legacyBehavior,
     locale,
   };
 
@@ -162,6 +164,7 @@ Link.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
   isActive: PropTypes.func,
+  legacyBehavior: PropTypes.bool,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
   noLinkStyle: PropTypes.bool,
@@ -170,22 +173,6 @@ Link.propTypes = {
   role: PropTypes.string,
   scroll: PropTypes.bool,
   shallow: PropTypes.bool,
-};
-
-Link.defaultProps = {
-  activeClassName: undefined,
-  as: undefined,
-  className: undefined,
-  href: undefined,
-  isActive: undefined,
-  linkAs: undefined,
-  locale: undefined,
-  noLinkStyle: undefined,
-  prefetch: undefined,
-  replace: undefined,
-  role: undefined,
-  scroll: undefined,
-  shallow: undefined,
 };
 
 export default Link;
