@@ -30,12 +30,18 @@ interface Props {
   children?: React.ReactNode;
   navbar?: Navbar;
   footer?: FooterProps;
+  slug?: string;
 }
-function Page({ children, navbar, footer }: Props) {
+
+/**
+ * While the layout (navbar, footer) remain the same, the main component
+ * changes from page to page. Use `slug` to track page changes.
+ */
+function Page({ children, footer, navbar, slug }: Props) {
   return (
     <>
       {navbar ? <NavBar {...navbar} /> : null}
-      {children ? <main>{children}</main> : null}
+      {children ? <main key={slug}>{children}</main> : null}
       {footer ? <Footer {...footer} /> : null}
     </>
   );
