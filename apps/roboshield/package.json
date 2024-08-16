@@ -43,6 +43,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "next": "^14.2.5",
+    "next-seo": "^6.5.0",
     "nodemailer-sendgrid": "^1.0.3",
     "payload": "^2.25.0",
     "react": "^18.3.1",
