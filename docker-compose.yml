@@ -24,6 +24,31 @@ services:
     ports:
       - 3000:3000
 
+  civicsignalblog:
+    build:
+      context: .
+      target: civicsignalblog-runner
+      args:
+        - MONGO_URL=${MONGO_URL}
+        - PAYLOAD_SECRET
+        - SENTRY_AUTH_TOKEN
+        - SENTRY_ENVIRONMENT
+        - SENTRY_ORG
+        - SENTRY_PROJECT
+    environment:
+      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
+      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
+      S3_BUCKET: ${S3_BUCKET}
+      S3_REGION: ${S3_REGION}
+      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
+      SENTRY_ORG: ${SENTRY_ORG}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
+      SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+
   codeforafrica:
     depends_on:
       mongodb:
@@ -49,6 +74,21 @@ services:
       SENTRY_ORG: ${SENTRY_ORG}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+
+  climatemappedafrica:
+    build:
+      context: .
+      target: climatemappedafrica-runner
+      args:
+        - HURUMAP_API_URL
+    environment:
+      HURUMAP_API_URL: ${HURUMAP_API_URL}
+      S3_UPLOAD_KEY: ${S3_UPLOAD_KEY}
+      S3_UPLOAD_SECRET: ${S3_UPLOAD_SECRET}
+      S3_UPLOAD_BUCKET: ${S3_UPLOAD_BUCKET}
+      S3_UPLOAD_REGION: ${S3_UPLOAD_REGION}
     ports:
       - 3000:3000
 
@@ -132,6 +172,7 @@ services:
         - SENTRY_ORG
         - SENTRY_PROJECT
         - SENTRY_DSN
+        - API_SECRET_KEY
     environment:
       NODE_ENV: ${NODE_ENV:-production}
     ports:

@@ -1,0 +1,101 @@
+name: RoboShield | Deploy | PROD
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+env:
+  APP_NAME: roboshield-ui
+  DOKKU_REMOTE_BRANCH: "master"
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  IMAGE_NAME: "codeforafrica/roboshield-ui"
+  NEXT_PUBLIC_APP_URL: "https://roboshield.trustlab.africa"
+  SENTRY_ENVIRONMENT: "production"
+  VERSION_FILE_NAME: "./apps/roboshield/package.json"
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [20.16]
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Check if version is bumped
+        id: version-check
+        uses: EndBug/version-check@v2
+        with:
+          diff-search: true
+          file-name: "${{ env.VERSION_FILE_NAME }}"
+
+      - name: Set up Docker Buildx
+        if: steps.version-check.outputs.changed == 'true'
+        uses: docker/setup-buildx-action@v3
+
+      - name: Cache Docker layers
+        if: steps.version-check.outputs.changed == 'true'
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          path: /tmp/.buildx-cache
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Login to DockerHub
+        if: steps.version-check.outputs.changed == 'true'
+        uses: docker/login-action@v3
+        with:
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+
+      - name: Build Docker image
+        if: steps.version-check.outputs.changed == 'true'
+        uses: docker/build-push-action@v5
+        with:
+          build-args: |
+            MONGO_URL=${{ secrets.ROBOSHIELD_MONGO_URL }}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.ROBOSHIELD_SENTRY_DSN }}
+            PAYLOAD_SECRET=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          context: .
+          target: roboshield-runner
+          file: Dockerfile
+          push: true
+          tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
+
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        if: steps.version-check.outputs.changed == 'true'
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+      - name: Push to Dokku
+        if: steps.version-check.outputs.changed == 'true'
+        uses: dokku/github-action@v1.4.0
+        with:
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}

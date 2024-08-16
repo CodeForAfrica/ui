@@ -73,7 +73,7 @@ const Spotlight = React.forwardRef(function Spotlight(props, ref) {
                     <CardMedia
                       alt={item.title}
                       component="img"
-                      src={item.image.src}
+                      src={item.image.url}
                       sx={{
                         height: {
                           xs: "auto",

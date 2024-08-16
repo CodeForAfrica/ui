@@ -1,11 +1,19 @@
-import BarChartScope from "./BarChartScope";
-import DonutChartScope from "./DonutChartScope";
-import LineChartScope from "./LineChartScope";
-import MultiLineChartScope from "./MultiLineChartScope";
-import StackedChartScope from "./StackedChartScope";
-import TreemapChartScope from "./TreemapChartScope";
-import VerticalBarChartScope from "./VerticalBarChartScope";
-import VerticalStackedChartScope from "./VerticalStackedChartScope";
+import { Scope } from "@hurumap/core";
+
+import { hurumapArgs } from "@/pesayetu/config";
+import theme from "@/pesayetu/theme";
+
+const {
+  BarChartScope,
+  DonutChartScope,
+  HeatMapScope,
+  LineChartScope,
+  MultiLineChartScope,
+  TreemapChartScope,
+  VerticalBarChartScope,
+  StackedChartScope,
+  VerticalStackedChartScope,
+} = Scope;
 
 export default function configureScope(
   indicator,
@@ -25,78 +33,50 @@ export default function configureScope(
 
   let vegaSpec;
   const chartType = configuration?.chart_type?.toLowerCase();
-  const scopeOptions = [
-    indicator?.data,
-    indicator?.metadata,
-    configuration,
-    secondaryIndicator?.data ?? null,
-    showParent ? indicator?.parentData : [{}],
-    showParent ? secondaryIndicator?.parentData : [{}],
+
+  const scopeOptions = {
+    primaryData: indicator?.data,
+    metadata: indicator?.metadata,
+    config: configuration,
+    secondaryData: secondaryIndicator?.data ?? null,
+    primaryParentData: showParent ? indicator?.parentData : [{}],
+    secondaryParentData: showParent ? secondaryIndicator?.parentData : [{}],
     profileNames,
     isCompare,
     isMobile,
-  ];
+    theme,
+    args: hurumapArgs,
+  };
+
   switch (chartType) {
     case "line":
       if (configuration?.stacked_field) {
-        vegaSpec = MultiLineChartScope(...scopeOptions);
+        vegaSpec = MultiLineChartScope(scopeOptions);
       } else {
-        vegaSpec = LineChartScope(...scopeOptions);
+        vegaSpec = LineChartScope(scopeOptions);
       }
       break;
     case "donut":
-      vegaSpec = DonutChartScope(...scopeOptions);
+      vegaSpec = DonutChartScope(scopeOptions);
       break;
     case "treemap":
-      vegaSpec = TreemapChartScope(...scopeOptions);
+      vegaSpec = TreemapChartScope(scopeOptions);
       break;
     case "stacked":
       if (isMobile) {
-        vegaSpec = VerticalStackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : null,
-          showParent ? secondaryIndicator?.parentData : null,
-          isCompare,
-        );
+        vegaSpec = VerticalStackedChartScope(scopeOptions);
       } else {
-        vegaSpec = StackedChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : [{}],
-          showParent ? secondaryIndicator?.parentData : [{}],
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = StackedChartScope(scopeOptions);
       }
+      break;
+    case "heatmap":
+      vegaSpec = HeatMapScope(scopeOptions);
       break;
     default:
       if (isMobile) {
-        vegaSpec = VerticalBarChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : null,
-          showParent ? secondaryIndicator?.parentData : null,
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = VerticalBarChartScope(scopeOptions);
       } else {
-        vegaSpec = BarChartScope(
-          indicator?.data,
-          indicator?.metadata,
-          configuration,
-          secondaryIndicator?.data ?? null,
-          showParent ? indicator?.parentData : [{}],
-          showParent ? secondaryIndicator?.parentData : [{}],
-          profileNames,
-          isCompare,
-        );
+        vegaSpec = BarChartScope(scopeOptions);
       }
       break;
   }

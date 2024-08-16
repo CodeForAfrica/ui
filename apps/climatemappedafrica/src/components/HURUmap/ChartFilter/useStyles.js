@@ -20,14 +20,16 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   select: {
     width: typography.pxToRem(165),
+    height: typography.pxToRem(40),
+    paddingLeft: 0,
     [breakpoints.up("lg")]: {
-      width: typography.pxToRem(185),
+      width: typography.pxToRem(200),
     },
   },
   filled: {
-    padding: `${typography.pxToRem(10)} 0 ${typography.pxToRem(
-      10,
-    )} ${typography.pxToRem(15)} !important`,
+    padding: `${typography.pxToRem(10)} ${typography.pxToRem(
+      40,
+    )} ${typography.pxToRem(10)} ${typography.pxToRem(20)} !important`,
   },
   selectPaper: {
     maxHeight: typography.pxToRem(310),

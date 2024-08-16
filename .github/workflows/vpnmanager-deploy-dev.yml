@@ -23,7 +23,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [20.14]
+        node-version: [20.16]
         os: [ubuntu-latest]
     steps:
       - name: Checkout
@@ -57,6 +57,7 @@ jobs:
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}
+            API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .

@@ -10,11 +10,11 @@ exports[`LocationTag renders unchanged 1`] = `
     >
       region
     </h6>
-    <span
+    <div
       class="css-k6p9om"
     >
       Region
-    </span>
+    </div>
   </div>
 </div>
 `;

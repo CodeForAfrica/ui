@@ -5,7 +5,6 @@ import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { CollectionConfig, GlobalConfig } from "payload/types";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import Site from "./src/payload/globals/Site";
-import dotenv from "dotenv";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import seo from "@payloadcms/plugin-seo";
@@ -13,9 +12,11 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+import { loadEnvConfig } from "@next/env";
+import { Config } from "./payload-types";
 
-dotenv.config();
-dotenv.config({ path: "./.env.local" });
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 
 const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
 
@@ -60,6 +61,16 @@ export default buildConfig({
     : undefined),
   admin: {
     user: Users.slug,
+    livePreview: {
+      breakpoints: [
+        {
+          label: "Mobile",
+          name: "mobile",
+          width: 375,
+          height: 667,
+        },
+      ],
+    },
     webpack: (config) => ({
       ...config,
       resolve: {
@@ -112,4 +123,11 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  typescript: {
+    declare: false, // defaults to true if not set
+  },
 });
+
+declare module "payload" {
+  export interface PayloadGeneratedTypes extends Config {}
+}

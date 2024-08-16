@@ -1,0 +1,9 @@
+{
+  "name": "vpnmanager",
+  "cron": [
+    {
+      "command": "node contrib/dokku/scripts/processGsheet.mjs",
+      "schedule": "@hourly"
+    }
+  ]
+}

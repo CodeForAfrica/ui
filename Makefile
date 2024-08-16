@@ -8,8 +8,14 @@ COMPOSE_BUILD_ENV=BUILDKIT_PROGRESS=plain
 charterafrica:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env.local up charterafrica --build
 
+civicsignalblog:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/civicsignalblog/.env.local up civicsignalblog --build
+
 codeforafrica:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/codeforafrica/.env.local up codeforafrica --build
+
+climatemappedafrica:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/climatemappedafrica/.env.local up climatemappedafrica --build
 
 down:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) down --volumes

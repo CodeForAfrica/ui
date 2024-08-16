@@ -7,8 +7,8 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     borderBottom: `solid 1px ${palette.divider}`,
   },
   pinButton: {
-    maxHeight: typography.pxToRem(44),
-    maxWidth: typography.pxToRem(44),
+    maxHeight: typography.pxToRem(40),
+    maxWidth: typography.pxToRem(40),
     overflow: "hidden",
     padding: 0,
     marginRight: typography.pxToRem(14),
@@ -20,8 +20,14 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     },
   },
   locationSelect: {
-    paddingTop: typography.pxToRem(10),
-    paddingBottom: typography.pxToRem(10),
+    width: typography.pxToRem(205),
+    height: typography.pxToRem(40),
+    paddingLeft: 0,
+  },
+  filled: {
+    padding: `${typography.pxToRem(10)} 0 ${typography.pxToRem(
+      10,
+    )} ${typography.pxToRem(15)} !important`,
   },
   selectPaper: {
     height: typography.pxToRem(310),
