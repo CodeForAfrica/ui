@@ -390,7 +390,7 @@ ARG NEXT_PUBLIC_APP_LOGO_URL \
 #              - GA_MEASUREMENT_ID (charterafrica)
 #              - GOOGLE_ANALYTICS_ID (pesayetu, vpnmanager)
 #              This is only needed at runtime
-# TODO(koech): Completely remove the use of ENV var for Googel analytics
+# TODO(koech): Completely remove the use of ENV vars for Google Analytics
 #              for those app that have CMS. Measurement id should be set
 #              in the Settings part of a site.
 ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
