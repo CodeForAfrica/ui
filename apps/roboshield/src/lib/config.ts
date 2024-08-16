@@ -85,7 +85,7 @@ export const platforms: Platform[] = [
 
 export const configureCrawlDelay = (delay: number) => {
   const comment =
-    "#Crawl-delay Specifies the minimum interval (in seconds)\n#for a robot to wait after loading one page, before starting to load another.\n";
+    "# Crawl-delay Specifies the minimum interval (in seconds)\n#for a robot to wait after loading one page, before starting to load another.\n";
   return `${comment}Crawl-delay: ${delay}\n\n`;
 };
 
