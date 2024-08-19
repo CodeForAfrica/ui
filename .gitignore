@@ -8,6 +8,7 @@ node_modules
 
 # typescript
 dist/
+**/next-env.d.ts
 
 # testing
 coverage
