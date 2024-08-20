@@ -108,7 +108,7 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
     tags.push(secondaryTags[secondaryTags.length - 1]);
   }
 
-  const { locations, mapType = "choropleth" } = props;
+  const { locations, mapType = "default" } = props;
 
   let choropleth = null;
   if (mapType === "choropleth") {

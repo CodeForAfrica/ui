@@ -190,7 +190,7 @@ export async function getStaticProps({ params }) {
       ghostkitSR: "",
     },
   };
-  const { locations, preferredChildren } = await fetchProfile();
+  const { locations, preferredChildren, mapType } = await fetchProfile();
   const [originalCode] = params?.slug || [""];
   const code = originalCode.trim().toLowerCase();
 
@@ -240,6 +240,7 @@ export async function getStaticProps({ params }) {
       ...props,
       blocks,
       locations,
+      mapType,
       profile,
       variant: "explore",
       preferredChildren,

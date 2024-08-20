@@ -16,7 +16,11 @@ export async function fetchProfile() {
     },
   );
 
-  return { locations, preferredChildren: configuration.preferred_children };
+  return {
+    locations,
+    preferredChildren: configuration.preferred_children,
+    mapType: configuration?.map_type,
+  };
 }
 
 function formatProfileGeographyData(data, parent) {

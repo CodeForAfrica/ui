@@ -136,7 +136,6 @@ function Layers({
         } else {
           style = geoStyles.hoverOnly.out;
         }
-
         layer.setStyle(style);
 
         layer.on("mouseover", () => {
