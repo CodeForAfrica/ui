@@ -11,8 +11,8 @@ export async function fetchProfile() {
   );
 
   const locations = configuration?.featured_locations?.map(
-    ({ name, code, level }) => {
-      return { name, level, code: code.toLowerCase() };
+    ({ name, code, level, count = null }) => {
+      return { name, level, code: code.toLowerCase(), count };
     },
   );
 

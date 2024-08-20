@@ -77,4 +77,16 @@ const defaultSecondaryGeoStyles = {
   },
 };
 
-export { defaultPrimaryGeoStyles, defaultSecondaryGeoStyles };
+const defaultChoroplethStyles = {
+  "very low": "yellow",
+  low: "orange",
+  moderate: "red",
+  high: "purple",
+  "very high": "black",
+};
+
+export {
+  defaultPrimaryGeoStyles,
+  defaultSecondaryGeoStyles,
+  defaultChoroplethStyles,
+};
