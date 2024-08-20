@@ -15,6 +15,7 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
     geometries,
     isPinOrCompare,
     locations,
+    mapType = "default",
     preferredChildren,
     styles = {
       height: "100%",
@@ -79,6 +80,36 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   }, [geometries, geography, getSelectedBoundary]);
 
   const locationCodes = locations?.map(({ code }) => code);
+
+  let choropleth = null;
+  if (mapType === "choropleth") {
+    const filteredLocations = locations.filter(({ count }) => count !== null);
+    const counts = filteredLocations.map(({ count }) => count);
+    const maxCount = Math.max(...counts);
+    const minCount = Math.min(...counts);
+
+    const getClassification = (count) => {
+      const range = maxCount - minCount;
+      const veryLowThreshold = minCount + range * 0.2;
+      const lowThreshold = minCount + range * 0.4;
+      const moderateThreshold = minCount + range * 0.6;
+      const highThreshold = minCount + range * 0.8;
+
+      if (count <= veryLowThreshold) return "very low";
+      if (count <= lowThreshold) return "low";
+      if (count <= moderateThreshold) return "moderate";
+      if (count <= highThreshold) return "high";
+      return "very high";
+    };
+
+    choropleth = filteredLocations.map(({ code, count }) => {
+      return {
+        code,
+        count,
+        classification: getClassification(count),
+      };
+    });
+  }
   return (
     <MapContainer
       center={center}
@@ -106,6 +137,7 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
       <ZoomControl position="bottomright" />
       <Layers
         {...LayersProps}
+        choropleth={choropleth}
         geography={geography}
         locationCodes={locationCodes}
         parentsGeometries={geometries.parents}

@@ -107,39 +107,6 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
   if (secondaryTags?.length) {
     tags.push(secondaryTags[secondaryTags.length - 1]);
   }
-
-  const { locations, mapType = "default" } = props;
-
-  let choropleth = null;
-  if (mapType === "choropleth") {
-    const filteredLocations = locations.filter(({ count }) => count !== null);
-    const counts = filteredLocations.map(({ count }) => count);
-    const maxCount = Math.max(...counts);
-    const minCount = Math.min(...counts);
-
-    const getClassification = (count) => {
-      const range = maxCount - minCount;
-      const veryLowThreshold = minCount + range * 0.2;
-      const lowThreshold = minCount + range * 0.4;
-      const moderateThreshold = minCount + range * 0.6;
-      const highThreshold = minCount + range * 0.8;
-
-      if (count <= veryLowThreshold) return "very low";
-      if (count <= lowThreshold) return "low";
-      if (count <= moderateThreshold) return "moderate";
-      if (count <= highThreshold) return "high";
-      return "very high";
-    };
-
-    choropleth = filteredLocations.map(({ code, count }) => {
-      return {
-        code,
-        count,
-        classification: getClassification(count),
-      };
-    });
-  }
-
   return (
     <>
       <Box
@@ -153,7 +120,6 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
         <div className={classes.root}>
           <Map
             center={[0.3051933453207569, 37.908818734483155]}
-            choropleth={choropleth}
             geography={geography}
             secondaryGeography={state.secondary?.geography}
             geometries={geometries}
