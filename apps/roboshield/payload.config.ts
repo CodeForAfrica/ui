@@ -1,19 +1,19 @@
-import { buildConfig } from "payload/config";
-import { slateEditor } from "@payloadcms/richtext-slate";
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { loadEnvConfig } from "@next/env";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
-import { CollectionConfig, GlobalConfig } from "payload/types";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
-import Site from "./src/payload/globals/Site";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+import nestedDocs from "@payloadcms/plugin-nested-docs";
+import seo from "@payloadcms/plugin-seo";
+import { slateEditor } from "@payloadcms/richtext-slate";
+import { buildConfig } from "payload/config";
+import { CollectionConfig, GlobalConfig } from "payload/types";
+import { Config } from "./payload-types";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
-import seo from "@payloadcms/plugin-seo";
-import nestedDocs from "@payloadcms/plugin-nested-docs";
-import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import Users from "./src/payload/collections/Users";
+import Site from "./src/payload/globals/Site";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
-import { loadEnvConfig } from "@next/env";
-import { Config } from "./payload-types";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -109,7 +109,7 @@ export default buildConfig({
     }),
     seo({
       collections: ["pages"],
-      globals: [],
+      globals: ["settings-site"],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc }: any) =>

@@ -29,7 +29,8 @@ const mergeAndSortBots = (existingBots: Robot[], newBots: Robot[]) => {
 };
 
 export async function generateRobots(state: GlobalState) {
-  let robots = ``;
+  let robots = `
+  `;
 
   if (state.crawlDelay && state.crawlDelay > 0) {
     robots += configureCrawlDelay(state.crawlDelay);
@@ -73,8 +74,7 @@ export async function generateRobots(state: GlobalState) {
       robots += configureSitemaps(validSitemaps);
     }
   }
-
-  return robots;
+  return `${robots}\n# Generatedy by RoboShield (https://roboshield.trustlab.africa)\n`;
 }
 
 export const validateRobots = (robots: string) => {

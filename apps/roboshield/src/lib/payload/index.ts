@@ -8,8 +8,12 @@ export type CollectionConfig = keyof Config["collections"];
 export type CollectionItemTypes = Config["collections"][CollectionConfig];
 export type GlobalConfig = keyof Config["globals"];
 
-async function findPage(slug: string): Promise<PaginatedDocs<Page>> {
+async function findPage(
+  slug: string,
+  options?: Partial<ByIDOptions<CollectionConfig>>,
+): Promise<PaginatedDocs<Page>> {
   return payload.find({
+    ...options,
     collection: "pages",
     where: {
       slug: {

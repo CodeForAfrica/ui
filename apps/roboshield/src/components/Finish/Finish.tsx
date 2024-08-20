@@ -1,15 +1,16 @@
 import { Box, Snackbar } from "@mui/material";
+import { sendGAEvent } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
 
-import Code from "../Code";
+import Code from "@/roboshield/components/Code";
 import StepperNav from "@/roboshield/components/StepperNav";
 
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import { downloadFile } from "@/roboshield/utils/file";
-import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
-import StepHint from "@/roboshield/components/StepHint";
 
 interface Props extends StepComponent {
   handleReset: () => void;
@@ -37,27 +38,28 @@ export default function Finish({
     });
   }
 
-  const getCopyMetadata = () => {
-    const date = new Date().toISOString();
-    const url = window.location.href;
-    return `${code}\n\n\n# Generated on: ${date}\n# URL: ${url}\n\n`;
+  const reportShieldEvent = (event: string) => {
+    const value = new Date().toISOString();
+    sendGAEvent("event", event, { value: "xyz" });
   };
 
   const handleDownload = async () => {
+    reportShieldEvent("download");
     const filename = "robots.txt";
     if (!saved) {
       await saveData();
       setSaved(true);
     }
-    await downloadFile(filename, getCopyMetadata());
+    await downloadFile(filename, code);
   };
 
   const handleCopy = async () => {
+    reportShieldEvent("copy");
     if (!saved) {
       await saveData();
       setSaved(true);
     }
-    navigator.clipboard.writeText(getCopyMetadata());
+    navigator.clipboard.writeText(code);
     setShowSnackbar(true);
   };
 
