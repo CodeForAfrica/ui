@@ -1,9 +1,6 @@
 module.exports = {
   root: true,
-  extends: [
-    "next/core-web-vitals",
-    "plugin:prettier/recommended"
-  ],
+  extends: ["next/core-web-vitals", "plugin:prettier/recommended"],
   settings: {
     "import/resolver": {
       webpack: {

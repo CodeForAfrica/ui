@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.16.1",
     "@mui/material": "^5.16.1",
     "@mui/material-nextjs": "^5.16.1",
+    "@mui/utils": "^5.16.6",
     "@next/mdx": "^14.2.5",
     "@types/mdx": "^2.0.13",
     "next": "14.2.5",
