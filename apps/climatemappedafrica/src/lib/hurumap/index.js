@@ -19,8 +19,8 @@ export async function fetchProfile() {
   return {
     locations,
     preferredChildren: configuration.preferred_children,
-    mapType: configuration?.map_type,
-    choroplethColors: configuration?.choropleth,
+    mapType: configuration?.map_type ?? "default",
+    choroplethColors: configuration?.choropleth ?? null,
   };
 }
 

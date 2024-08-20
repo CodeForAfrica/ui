@@ -17,10 +17,10 @@ function Layers({
   PinnedLocationTagProps,
   PopUpLocationTagProps,
   geography,
-  choropleth,
   choroplethColors,
   isPinOrCompare = false,
-  locationCodes: locationCodesProp,
+  locations,
+  mapType,
   onClick,
   onClickUnpin,
   parentsGeometries,
@@ -66,19 +66,72 @@ function Layers({
 
   const onEachFeature = useCallback(
     (feature, layer) => {
-      const count = choropleth?.find(
+      let choropleth = null;
+      if (mapType === "choropleth") {
+        const filteredLocations = locations.filter(
+          ({ count }) => count !== null,
+        );
+        const counts = filteredLocations.map(({ count }) => count);
+        const maxCount = Math.max(...counts);
+        const minCount = Math.min(...counts);
+
+        const negativeColorRange =
+          choroplethColors?.negative_color_range ||
+          defaultChoroplethStyles.negative_color_range;
+        const positiveColorRange =
+          choroplethColors?.positive_color_range ||
+          defaultChoroplethStyles.positive_color_range;
+        const zeroColor =
+          choroplethColors?.zero_color || defaultChoroplethStyles.zero_color;
+        const opacity =
+          choroplethColors?.opacity || defaultChoroplethStyles.opacity;
+        // const opacityHover = choroplethColors?.opacity_hover || defaultChoroplethStyles.opacity_hover;
+
+        const getColor = (count) => {
+          if (count === 0) return zeroColor;
+
+          const range = maxCount - minCount;
+          const negativeThresholds = negativeColorRange.map(
+            (_, index) =>
+              minCount + range * ((index + 1) / negativeColorRange.length),
+          );
+          const positiveThresholds = positiveColorRange.map(
+            (_, index) =>
+              minCount + range * ((index + 1) / positiveColorRange.length),
+          );
+
+          if (count < 0) {
+            for (let i = 0; i < negativeThresholds.length; i += 1) {
+              if (count <= negativeThresholds[i]) return negativeColorRange[i];
+            }
+            return negativeColorRange[negativeColorRange.length - 1];
+          }
+          for (let i = 0; i < positiveThresholds.length; i += 1) {
+            if (count <= positiveThresholds[i]) return positiveColorRange[i];
+          }
+          return positiveColorRange[positiveColorRange.length - 1];
+        };
+
+        choropleth = filteredLocations.map(({ code, count }) => {
+          return {
+            code,
+            count,
+            fillColor: getColor(count),
+            opacity,
+          };
+        });
+      }
+
+      const choroplethColor = choropleth?.find(
         (c) => c.code.toLowerCase() === feature.properties.code.toLowerCase(),
       );
-      const choroplethColor =
-        (choroplethColors && choroplethColors[count?.classification]) ||
-        defaultChoroplethStyles[count?.classification];
       let geoStyles =
         isPinOrCompare && feature.properties.code === secondaryGeography?.code
           ? secondaryGeoStyles
           : primaryGeoStyles;
       // assume ISO 3166-1 codes so comparing uppercase should be good
       const locationCodes =
-        locationCodesProp?.map((c) => c.toUpperCase()) || [];
+        locations?.map(({ code }) => code)?.map((c) => c.toUpperCase()) || [];
       if (!locationCodes?.includes(feature.properties.code.toUpperCase())) {
         layer.setStyle(geoStyles.inactive);
       } else {
@@ -129,7 +182,7 @@ function Layers({
           style = geoStyles.selected.out;
           style = {
             ...style,
-            ...(choroplethColor && { fillColor: choroplethColor }),
+            ...(choroplethColor && { ...choroplethColor }),
           };
         } else if (
           isPinOrCompare &&
@@ -147,7 +200,7 @@ function Layers({
             ...(feature?.properties?.selected
               ? geoStyles.selected.over
               : geoStyles.hoverOnly.over),
-            ...(choroplethColor && { fillColor: choroplethColor }),
+            ...(choroplethColor && { ...choroplethColor }),
             fillOpacity: 0.5,
             weight: 2,
             opacity: 1,
@@ -160,7 +213,7 @@ function Layers({
             outStyle = geoStyles.selected.out;
             outStyle = {
               ...outStyle,
-              ...(choroplethColor && { fillColor: choroplethColor }),
+              ...(choroplethColor && { ...choroplethColor }),
             };
           } else if (
             isPinOrCompare &&
@@ -184,12 +237,12 @@ function Layers({
       }
     },
     [
-      choropleth,
       choroplethColors,
       PopUpLocationTagProps,
       geography,
       isPinOrCompare,
-      locationCodesProp,
+      locations,
+      mapType,
       onClick,
       primaryGeoStyles,
       secondaryGeoStyles,
@@ -273,7 +326,7 @@ Layers.propTypes = {
     name: PropTypes.string,
   }),
   isPinOrCompare: PropTypes.bool,
-  locationCodes: PropTypes.arrayOf(PropTypes.string),
+  locations: PropTypes.arrayOf(PropTypes.shape({})),
   onClick: PropTypes.func,
   onClickUnpin: PropTypes.func,
   parentsGeometries: PropTypes.arrayOf(PropTypes.shape({})),
