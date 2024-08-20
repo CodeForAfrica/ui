@@ -8,8 +8,8 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useMemo } from "react";
 
-import cfaLogoDark from "@/assets/images/logo-dark-mode.png";
-import cfaLogoLight from "@/assets/images/logo-light-mode.png";
+import cfaLogoDark from "@/engineeringblog/assets/images/logo-dark-mode.png";
+import cfaLogoLight from "@/engineeringblog/assets/images/logo-light-mode.png";
 
 export default function Navbar() {
   const theme = useTheme();
