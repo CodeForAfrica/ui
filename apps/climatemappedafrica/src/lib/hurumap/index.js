@@ -20,6 +20,7 @@ export async function fetchProfile() {
     locations,
     preferredChildren: configuration.preferred_children,
     mapType: configuration?.map_type,
+    choroplethColors: configuration?.choropleth,
   };
 }
 

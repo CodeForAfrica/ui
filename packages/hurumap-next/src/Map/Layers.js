@@ -18,6 +18,7 @@ function Layers({
   PopUpLocationTagProps,
   geography,
   choropleth,
+  choroplethColors,
   isPinOrCompare = false,
   locationCodes: locationCodesProp,
   onClick,
@@ -68,7 +69,9 @@ function Layers({
       const count = choropleth?.find(
         (c) => c.code.toLowerCase() === feature.properties.code.toLowerCase(),
       );
-      const choroplethColor = defaultChoroplethStyles[count?.classification];
+      const choroplethColor =
+        (choroplethColors && choroplethColors[count?.classification]) ||
+        defaultChoroplethStyles[count?.classification];
       let geoStyles =
         isPinOrCompare && feature.properties.code === secondaryGeography?.code
           ? secondaryGeoStyles
@@ -182,6 +185,7 @@ function Layers({
     },
     [
       choropleth,
+      choroplethColors,
       PopUpLocationTagProps,
       geography,
       isPinOrCompare,
