@@ -64,63 +64,61 @@ function Layers({
     ),
   });
 
+  const generateChoropleth = useCallback(() => {
+    if (mapType !== "choropleth") return null;
+
+    const filteredLocations = locations.filter(({ count }) => count !== null);
+    const counts = filteredLocations.map(({ count }) => count);
+    const maxCount = Math.max(...counts);
+    const minCount = Math.min(...counts);
+
+    const negativeColorRange =
+      choroplethColors?.negative_color_range ||
+      defaultChoroplethStyles.negative_color_range;
+    const positiveColorRange =
+      choroplethColors?.positive_color_range ||
+      defaultChoroplethStyles.positive_color_range;
+    const zeroColor =
+      choroplethColors?.zero_color || defaultChoroplethStyles.zero_color;
+    const opacity =
+      choroplethColors?.opacity || defaultChoroplethStyles.opacity;
+
+    const getColor = (count) => {
+      if (count === 0) return zeroColor;
+
+      const range = maxCount - minCount;
+      const thresholds = (colorRange) =>
+        colorRange.map(
+          (_, index) => minCount + range * ((index + 1) / colorRange.length),
+        );
+
+      const negativeThresholds = thresholds(negativeColorRange);
+      const positiveThresholds = thresholds(positiveColorRange);
+
+      if (count < 0) {
+        for (let i = 0; i < negativeThresholds.length; i += 1) {
+          if (count <= negativeThresholds[i]) return negativeColorRange[i];
+        }
+        return negativeColorRange[negativeColorRange.length - 1];
+      }
+
+      for (let i = 0; i < positiveThresholds.length; i += 1) {
+        if (count <= positiveThresholds[i]) return positiveColorRange[i];
+      }
+      return positiveColorRange[positiveColorRange.length - 1];
+    };
+
+    return filteredLocations.map(({ code, count }) => ({
+      code,
+      count,
+      fillColor: getColor(count),
+      opacity,
+    }));
+  }, [choroplethColors, locations, mapType]);
+
   const onEachFeature = useCallback(
     (feature, layer) => {
-      let choropleth = null;
-      if (mapType === "choropleth") {
-        const filteredLocations = locations.filter(
-          ({ count }) => count !== null,
-        );
-        const counts = filteredLocations.map(({ count }) => count);
-        const maxCount = Math.max(...counts);
-        const minCount = Math.min(...counts);
-
-        const negativeColorRange =
-          choroplethColors?.negative_color_range ||
-          defaultChoroplethStyles.negative_color_range;
-        const positiveColorRange =
-          choroplethColors?.positive_color_range ||
-          defaultChoroplethStyles.positive_color_range;
-        const zeroColor =
-          choroplethColors?.zero_color || defaultChoroplethStyles.zero_color;
-        const opacity =
-          choroplethColors?.opacity || defaultChoroplethStyles.opacity;
-        // const opacityHover = choroplethColors?.opacity_hover || defaultChoroplethStyles.opacity_hover;
-
-        const getColor = (count) => {
-          if (count === 0) return zeroColor;
-
-          const range = maxCount - minCount;
-          const negativeThresholds = negativeColorRange.map(
-            (_, index) =>
-              minCount + range * ((index + 1) / negativeColorRange.length),
-          );
-          const positiveThresholds = positiveColorRange.map(
-            (_, index) =>
-              minCount + range * ((index + 1) / positiveColorRange.length),
-          );
-
-          if (count < 0) {
-            for (let i = 0; i < negativeThresholds.length; i += 1) {
-              if (count <= negativeThresholds[i]) return negativeColorRange[i];
-            }
-            return negativeColorRange[negativeColorRange.length - 1];
-          }
-          for (let i = 0; i < positiveThresholds.length; i += 1) {
-            if (count <= positiveThresholds[i]) return positiveColorRange[i];
-          }
-          return positiveColorRange[positiveColorRange.length - 1];
-        };
-
-        choropleth = filteredLocations.map(({ code, count }) => {
-          return {
-            code,
-            count,
-            fillColor: getColor(count),
-            opacity,
-          };
-        });
-      }
+      const choropleth = generateChoropleth();
 
       const choroplethColor = choropleth?.find(
         (c) => c.code.toLowerCase() === feature.properties.code.toLowerCase(),
@@ -201,9 +199,6 @@ function Layers({
               ? geoStyles.selected.over
               : geoStyles.hoverOnly.over),
             ...(choroplethColor && { ...choroplethColor }),
-            fillOpacity: 0.5,
-            weight: 2,
-            opacity: 1,
           });
         });
         layer.on("mouseout", () => {
@@ -237,12 +232,11 @@ function Layers({
       }
     },
     [
-      choroplethColors,
+      generateChoropleth,
       PopUpLocationTagProps,
       geography,
       isPinOrCompare,
       locations,
-      mapType,
       onClick,
       primaryGeoStyles,
       secondaryGeoStyles,
