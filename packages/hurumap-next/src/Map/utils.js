@@ -6,7 +6,7 @@ const calculateThresholds = (min, max, steps) => {
   const stepSize = (max - min) / steps;
   const thresholds = [];
 
-  for (let i = 0; i < steps; 1 + i) {
+  for (let i = 0; i < steps; i += 1) {
     thresholds.push({
       min: min + i * stepSize,
       max: min + (i + 1) * stepSize,
