@@ -68,7 +68,9 @@ function Layers({
     if (mapType !== "choropleth") return null;
 
     const filteredLocations = locations.filter(({ count }) => count !== null);
+
     const counts = filteredLocations.map(({ count }) => count);
+
     const maxCount = Math.max(...counts);
     const minCount = Math.min(...counts);
 
@@ -83,17 +85,19 @@ function Layers({
     const opacity =
       choroplethColors?.opacity || defaultChoroplethStyles.opacity;
 
+    // Calculate color thresholds based on count range
+    const calculateThresholds = (colorRange) => {
+      const range = maxCount - minCount;
+      return colorRange.map(
+        (_, index) => minCount + range * ((index + 1) / colorRange.length),
+      );
+    };
+
+    const negativeThresholds = calculateThresholds(negativeColorRange);
+    const positiveThresholds = calculateThresholds(positiveColorRange);
+
     const getColor = (count) => {
       if (count === 0) return zeroColor;
-
-      const range = maxCount - minCount;
-      const thresholds = (colorRange) =>
-        colorRange.map(
-          (_, index) => minCount + range * ((index + 1) / colorRange.length),
-        );
-
-      const negativeThresholds = thresholds(negativeColorRange);
-      const positiveThresholds = thresholds(positiveColorRange);
 
       if (count < 0) {
         for (let i = 0; i < negativeThresholds.length; i += 1) {
