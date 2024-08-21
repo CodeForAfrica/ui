@@ -1,7 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["CI", "GITHUB_TOKEN", "PORT"],
+  "globalEnv": [
+    "CI",
+    "GITHUB_TOKEN",
+    "PORT",
+    "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
@@ -18,7 +23,6 @@
         "NEXT_PUBLIC_APP_URL",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
         "NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
-        "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID",
         "NEXT_PUBLIC_VERCEL_ENV",
         "NEXT_PUBLIC_VERCEL_URL",
         "NODE_ENV",

@@ -390,6 +390,9 @@ export interface SettingsSite {
     title: string;
     embedCode: string;
   };
+  analytics?: {
+    analyticsId?: string | null;
+  };
   initiative: {
     title: string;
     description: {
@@ -410,6 +413,11 @@ export interface SettingsSite {
           id?: string | null;
         }[]
       | null;
+  };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    image?: string | Media | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;

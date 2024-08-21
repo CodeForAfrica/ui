@@ -55,6 +55,28 @@ const EngagementTab: Tab = {
         },
       ],
     },
+    {
+      name: "analytics",
+      type: "group",
+      label: "Site Analytics",
+      localized: true,
+      fields: [
+        {
+          type: "collapsible",
+          label: "Google Analytics",
+          fields: [
+            {
+              name: "analyticsId",
+              type: "text",
+            },
+          ],
+          admin: {
+            description:
+              "Measurement ID: https://support.google.com/analytics/answer/12270356",
+          },
+        },
+      ],
+    },
   ],
 };
 

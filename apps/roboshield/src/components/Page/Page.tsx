@@ -1,4 +1,5 @@
 import React from "react";
+import { NextSeo, NextSeoProps } from "next-seo";
 
 import Footer from "@/roboshield/components/Footer";
 import type { FooterProps } from "@/roboshield/components/Footer";
@@ -30,12 +31,20 @@ interface Props {
   children?: React.ReactNode;
   navbar?: Navbar;
   footer?: FooterProps;
+  seo?: NextSeoProps;
+  slug?: string;
 }
-function Page({ children, navbar, footer }: Props) {
+
+/**
+ * While the layout (navbar, footer) remain the same, the main component
+ * changes from page to page. Use `slug` to track page changes.
+ */
+function Page({ children, footer, navbar, seo, slug }: Props) {
   return (
     <>
+      <NextSeo {...seo} />
       {navbar ? <NavBar {...navbar} /> : null}
-      {children ? <main>{children}</main> : null}
+      {children ? <main key={slug}>{children}</main> : null}
       {footer ? <Footer {...footer} /> : null}
     </>
   );

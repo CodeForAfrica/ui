@@ -1,7 +1,8 @@
-import { blockify } from "../blockify";
-import { GetServerSidePropsContext } from "next";
+import { blockify } from "@/roboshield/lib/data/blockify";
+import getPageSeoFromMeta from "@/roboshield/lib/data/seo";
 import { Api } from "@/roboshield/lib/payload";
 import { SettingsSite } from "@/root/payload-types";
+import { GetServerSidePropsContext } from "next";
 
 export function imageFromMedia(alt: string, url: string) {
   return { alt, src: url };
@@ -50,16 +51,15 @@ export async function getPageProps(
   api: Api,
   context: GetServerSidePropsContext,
 ) {
-  const { resolvedUrl } = context;
-  let path;
-  if (resolvedUrl === "/" || resolvedUrl === "") {
-    path = "index";
-  } else {
-    path = resolvedUrl.replace(/^\//, "");
-  }
+  // For now, RoboShield only supports single paths i.e. /, /about, etc.,
+  // so params.slug[0] is good enough
+  const slugs = context.params?.slug as string[] | undefined;
+  const [slug] = slugs || ["index"];
+  const { draftMode = false } = context;
+  const options = { draft: draftMode };
   const {
     docs: [page],
-  } = await api.findPage(path);
+  } = await api.findPage(slug, options);
 
   if (!page) {
     return null;
@@ -68,12 +68,18 @@ export async function getPageProps(
   const blocks = await blockify(page.blocks, api);
 
   const siteSettings = await api.findGlobal("settings-site");
-  const navbar = getNavBar(siteSettings);
+  const { analytics } = siteSettings;
   const footer = getFooter(siteSettings);
+  const navbar = getNavBar(siteSettings);
+  const seo = getPageSeoFromMeta(page, siteSettings);
+
   return {
+    analytics,
     blocks,
     footer,
     navbar,
+    seo,
+    slug,
   };
 }
 

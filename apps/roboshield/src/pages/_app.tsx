@@ -1,5 +1,7 @@
+import SEO from "@/roboshield/next-seo.config";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { ReactNode } from "react";
@@ -16,14 +18,15 @@ function getDefaultLayout(page: ReactNode, pageProps: any) {
 export default function App(props: AppProps | any) {
   const { Component, pageProps } = props;
   const getLayout = Component.getLayout || getDefaultLayout;
-  const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+  const { analytics } = pageProps;
+  const { analyticsId: gaId } = analytics || {};
 
   return (
     <>
+      <DefaultSeo {...SEO} />
       <AppCacheProvider {...props}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
-          <title>RoboShield</title>
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
@@ -32,7 +35,7 @@ export default function App(props: AppProps | any) {
           </GlobalProvider>
         </ThemeProvider>
       </AppCacheProvider>
-      {gaId?.length ? <GoogleAnalytics gaId={gaId} /> : null}
+      <GoogleAnalytics gaId={gaId} />
     </>
   );
 }
