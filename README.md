@@ -10,10 +10,11 @@
 | [**RoboShield**](./apps/roboshield/)         | Guard your website against AI Bots                        |
 
 ## Blogs
-| Name                                         | Description                                               |
-| -------------------------------------------- | --------------------------------------------------------- |
-| [**CivicSignal Research**](./apps/civicsignalblog/)       | View the latest analysis from CivicSignal team     |
-| [**TechLab**](./apps/engineeringblog/)       | View the latest stories from the CFA engineering team     |
+
+| Name                                                | Description                                           |
+| --------------------------------------------------- | ----------------------------------------------------- |
+| [**CivicSignal Research**](./apps/civicsignalblog/) | View the latest analysis from CivicSignal team        |
+| [**TechLab**](./apps/engineeringblog/)              | View the latest stories from the CFA engineering team |
 
 ## Get started
 
