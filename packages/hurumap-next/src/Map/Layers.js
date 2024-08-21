@@ -71,6 +71,9 @@ function Layers({
     const counts = filteredLocations.map(({ count }) => count);
     const maxCount = Math.max(...counts);
     const minCount = Math.min(...counts);
+    const roundedMinCount = Math.floor(minCount);
+    const roundedMaxCount = Math.ceil(maxCount);
+    const range = roundedMaxCount - roundedMinCount;
 
     const negativeColorRange =
       choroplethColors?.negative_color_range ||
@@ -83,67 +86,37 @@ function Layers({
     const opacity =
       choroplethColors?.opacity || defaultChoroplethStyles.opacity;
 
-    // Calculate color thresholds based on count range
-    const calculateThresholds = (colorRange) => {
-      const range = maxCount - minCount;
-      return colorRange.map(
-        (_, index) => minCount + range * (index / colorRange.length),
+    const calculateThresholds = (steps) => {
+      const stepSize = range / (steps - 1);
+      const thresholds = Array.from(
+        { length: steps },
+        (_, i) => roundedMinCount + i * stepSize,
       );
+      return thresholds;
     };
 
-    const negativeThresholds = calculateThresholds(negativeColorRange);
-    const positiveThresholds = calculateThresholds(positiveColorRange);
+    const positiveThresholds = calculateThresholds(positiveColorRange.length);
+    const negativeThresholds = calculateThresholds(negativeColorRange.length);
 
-    const roundToNearestHalf = (num) => Math.round(num * 2) / 2;
-
-    const getColor = (count) => {
-      if (count === 0) return zeroColor;
-
-      if (count < 0) {
-        for (let i = 0; i < negativeThresholds.length; i += 1) {
-          if (count <= negativeThresholds[i]) return negativeColorRange[i];
-        }
-        return negativeColorRange[negativeColorRange.length - 1];
-      }
-
-      for (let i = 0; i < positiveThresholds.length; i += 1) {
-        if (count <= positiveThresholds[i]) return positiveColorRange[i];
-      }
-      return positiveColorRange[positiveColorRange.length - 1];
-    };
-
-    // Generate legend based on thresholds and color ranges
     const generateLegend = () => {
-      const legend = [];
-
-      // Check if there are any negative counts
-      const hasNegativeCounts = locations.some(({ count }) => count < 0);
-
-      if (hasNegativeCounts) {
-        negativeThresholds.forEach((threshold, index) => {
-          legend.push({
-            range: `${index === 0 ? roundToNearestHalf(minCount) : roundToNearestHalf(negativeThresholds[index - 1] + 0.5)} to ${roundToNearestHalf(threshold)}`,
-            color: negativeColorRange[index],
-          });
-        });
-      }
-
-      legend.push({
-        range: "0",
-        color: zeroColor,
+      const legend = {};
+      const thresholds = positiveThresholds.concat(negativeThresholds);
+      const colorRange = positiveColorRange.concat(negativeColorRange);
+      thresholds.forEach((threshold, i) => {
+        legend[threshold] = colorRange[i];
       });
-
-      positiveThresholds.forEach((threshold, index) => {
-        legend.push({
-          range: `${index === 0 ? 0.5 : roundToNearestHalf(positiveThresholds[index - 1] + 0.5)} to ${roundToNearestHalf(threshold)}`,
-          color: positiveColorRange[index],
-        });
-      });
-
       return legend;
     };
 
-    const legend = generateLegend();
+    const legend = generateLegend(positiveThresholds, positiveColorRange);
+
+    const getColor = (count) => {
+      if (count === 0) return zeroColor;
+      const colorRange = count > 0 ? positiveColorRange : negativeColorRange;
+      const thresholds = count > 0 ? positiveThresholds : negativeThresholds;
+      const index = thresholds.findIndex((threshold) => count <= threshold);
+      return colorRange[index];
+    };
 
     const choroplethData = filteredLocations.map(({ code, count }) => ({
       code,
