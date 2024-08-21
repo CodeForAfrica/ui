@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { MapContainer, Pane, TileLayer, ZoomControl } from "react-leaflet";
 
 import Layers from "./Layers";
+import { generateChoropleth } from "./utils";
 
 import "leaflet/dist/leaflet.css";
 
@@ -12,10 +13,12 @@ import "leaflet/dist/leaflet.css";
 const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   const {
     center,
+    choroplethColors,
     geography,
     geometries,
     isPinOrCompare,
     locations,
+    mapType,
     preferredChildren,
     styles = {
       height: "100%",
@@ -45,6 +48,12 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
       return null;
     },
     [preferredChildren, isPinOrCompare],
+  );
+
+  const { choropleth } = generateChoropleth(
+    choroplethColors,
+    locations,
+    mapType,
   );
 
   useEffect(() => {
@@ -78,6 +87,8 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
     }
     setSelectedBoundary(selectedBound);
   }, [geometries, geography, getSelectedBoundary]);
+
+  const locationCodes = locations?.map(({ code }) => code);
 
   return (
     <MapContainer
@@ -124,7 +135,8 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
       <Layers
         {...LayersProps}
         geography={geography}
-        locations={locations}
+        choropleth={choropleth}
+        locationCodes={locationCodes}
         parentsGeometries={geometries.parents}
         selectedBoundary={selectedBoundary}
         isPinOrCompare={isPinOrCompare}
