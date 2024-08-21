@@ -8,6 +8,11 @@
 | [**Code for Africa**](./apps/codeforafrica/) | Africa's largest network of civic tech and open data labs |
 | [**PesaYetu**](./apps/pesayetu/)             | Data to hold your government accountable                  |
 | [**RoboShield**](./apps/roboshield/)         | Guard your website against AI Bots                        |
+
+## Blogs
+| Name                                         | Description                                               |
+| -------------------------------------------- | --------------------------------------------------------- |
+| [**CivicSignal Research**](./apps/civicsignalblog/)       | View the latest analysis from CivicSignal team     |
 | [**TechLab**](./apps/engineeringblog/)       | View the latest stories from the CFA engineering team     |
 
 ## Get started
