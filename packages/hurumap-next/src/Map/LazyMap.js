@@ -1,3 +1,4 @@
+import { Typography, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useState } from "react";
 import { MapContainer, Pane, TileLayer, ZoomControl } from "react-leaflet";
@@ -102,6 +103,23 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
           <TileLayer url={url} />
         </Pane>
       ))}
+      <Box
+        sx={(theme) => ({
+          position: "absolute",
+          zIndex: 1000,
+          bottom: theme.spacing(1),
+          right: theme.spacing(12),
+          backgroundColor: theme.palette.background.paper,
+          padding: theme.spacing(3),
+          borderRadius: theme.shape.borderRadius,
+          boxShadow: theme.shadows[3],
+          ...sx,
+        })}
+      >
+        <Typography variant="h6" sx={{ textAlign: "center" }}>
+          Legend for the map goes here
+        </Typography>
+      </Box>
       <ZoomControl position="bottomright" />
       <Layers
         {...LayersProps}
