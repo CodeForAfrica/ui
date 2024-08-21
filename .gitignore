@@ -8,6 +8,7 @@ node_modules
 
 # typescript
 dist/
+**/next-env.d.ts
 
 # testing
 coverage
@@ -34,6 +35,7 @@ yarn-error.log*
 
 # Editors
 **/.vscode
+**/.idea
 
 # Vercel
 .vercel
