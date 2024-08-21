@@ -68,9 +68,7 @@ function Layers({
     if (mapType !== "choropleth") return null;
 
     const filteredLocations = locations.filter(({ count }) => count !== null);
-
     const counts = filteredLocations.map(({ count }) => count);
-
     const maxCount = Math.max(...counts);
     const minCount = Math.min(...counts);
 
@@ -89,12 +87,14 @@ function Layers({
     const calculateThresholds = (colorRange) => {
       const range = maxCount - minCount;
       return colorRange.map(
-        (_, index) => minCount + range * ((index + 1) / colorRange.length),
+        (_, index) => minCount + range * (index / colorRange.length),
       );
     };
 
     const negativeThresholds = calculateThresholds(negativeColorRange);
     const positiveThresholds = calculateThresholds(positiveColorRange);
+
+    const roundToNearestHalf = (num) => Math.round(num * 2) / 2;
 
     const getColor = (count) => {
       if (count === 0) return zeroColor;
@@ -112,17 +112,52 @@ function Layers({
       return positiveColorRange[positiveColorRange.length - 1];
     };
 
-    return filteredLocations.map(({ code, count }) => ({
+    // Generate legend based on thresholds and color ranges
+    const generateLegend = () => {
+      const legend = [];
+
+      // Check if there are any negative counts
+      const hasNegativeCounts = locations.some(({ count }) => count < 0);
+
+      if (hasNegativeCounts) {
+        negativeThresholds.forEach((threshold, index) => {
+          legend.push({
+            range: `${index === 0 ? roundToNearestHalf(minCount) : roundToNearestHalf(negativeThresholds[index - 1] + 0.5)} to ${roundToNearestHalf(threshold)}`,
+            color: negativeColorRange[index],
+          });
+        });
+      }
+
+      legend.push({
+        range: "0",
+        color: zeroColor,
+      });
+
+      positiveThresholds.forEach((threshold, index) => {
+        legend.push({
+          range: `${index === 0 ? 0.5 : roundToNearestHalf(positiveThresholds[index - 1] + 0.5)} to ${roundToNearestHalf(threshold)}`,
+          color: positiveColorRange[index],
+        });
+      });
+
+      return legend;
+    };
+
+    const legend = generateLegend();
+
+    const choroplethData = filteredLocations.map(({ code, count }) => ({
       code,
       count,
       fillColor: getColor(count),
       opacity,
     }));
+
+    return { choropleth: choroplethData, legend };
   }, [choroplethColors, locations, mapType]);
 
   const onEachFeature = useCallback(
     (feature, layer) => {
-      const choropleth = generateChoropleth();
+      const { choropleth } = generateChoropleth();
 
       const choroplethColor = choropleth?.find(
         (c) => c.code.toLowerCase() === feature.properties.code.toLowerCase(),
