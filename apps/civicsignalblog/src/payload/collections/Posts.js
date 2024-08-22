@@ -68,7 +68,9 @@ const Posts = {
     },
   ],
   versions: {
-    drafts: true,
+    drafts: {
+      autosave: true,
+    },
   },
 };
 
