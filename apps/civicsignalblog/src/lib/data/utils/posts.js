@@ -1,5 +1,6 @@
 import { sortTags } from "@/civicsignalblog/lib/data/utils/tags";
 import formatDate from "@/civicsignalblog/utils/formatDate";
+import site from "@/civicsignalblog/utils/site";
 
 export function formatPost(post, primaryTag) {
   const {
@@ -110,13 +111,20 @@ export async function getPost(api, slug, primaryTag) {
     tags = [],
     meta,
     publishedOn,
+    updatedAt,
     ...other
   } = post;
 
   const postMeta = {
-    title,
+    canonical: `${site.environmentUrl}posts/${primaryTag}/${slug}`,
     description: excerpt,
     image: coverImage ?? null,
+    article: {
+      authors: authors?.map((a) => a.fullname || a.bio) ?? null,
+      publishedAt: publishedOn,
+      tags: tags.length ? tags.map((t) => t.name) : null,
+      updatedAt,
+    },
     ...meta,
   };
   const blocks = [
@@ -124,20 +132,24 @@ export async function getPost(api, slug, primaryTag) {
       authors:
         authors?.map(({ fullName, bio }) => {
           return {
-            name: fullName,
-            bio,
+            name: fullName.trim(),
+            bio: bio?.trim() || null,
           };
         }) ?? null,
       title,
       coverImage,
       excerpt,
       tags,
+      publishedAt: publishedOn,
       publishedOn: formatDate(publishedOn, {
         includeTime: false,
         month: "short",
       }),
       primaryTag,
       blockType: "article",
+      updatedAt,
+      // NOTE(kilemensi): handle locale if/when used
+      url: `${site.environmentUrl}posts/${primaryTag}/${slug}`,
       ...other,
     },
   ];
