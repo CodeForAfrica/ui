@@ -1,1 +1,1 @@
-FROM codeforafrica/codeforafrica-ui:0.1.10
+FROM codeforafrica/codeforafrica-ui:0.1.12

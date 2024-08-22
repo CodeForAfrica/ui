@@ -62,16 +62,17 @@ export default function getPageSeoFromMeta(
   page: Page,
   settings: SettingsSite,
 ): NextSeoProps {
-  const canonical = site.url.replace(/\/+$/, "");
+  const canonical = page.meta?.canonical || site.url.replace(/\/+$/, "");
   const defaultTitle = settings.meta?.title || settings.title || site.name;
   const title = page.meta?.title || page.title || defaultTitle;
-  const titleTemplate = defaultTitle && `%s | ${defaultTitle}`;
+  // Dont't use template on homepage
+  const titleTemplate =
+    page.slug !== "index" ? defaultTitle && `%s | ${defaultTitle}` : null;
   const description =
     page.meta?.description ||
     settings.meta?.description ||
     stringifyDescription(settings.description);
   const openGraph: Record<string, any> = {
-    description,
     type: "website",
     siteName: defaultTitle,
   };
@@ -90,5 +91,5 @@ export default function getPageSeoFromMeta(
     openGraph,
   };
 
-  return Object.fromEntries(Object.entries(seo).filter(([key, val]) => val));
+  return Object.fromEntries(Object.entries(seo).filter(([, val]) => val));
 }

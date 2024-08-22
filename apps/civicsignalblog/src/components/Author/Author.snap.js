@@ -11,7 +11,7 @@ exports[`<Author /> renders unchanged 1`] = `
       Article by
     </div>
     <div
-      class="MuiStack-root css-3oepjh-MuiStack-root"
+      class="MuiStack-root css-1niho6o-MuiStack-root"
     />
   </div>
 </div>

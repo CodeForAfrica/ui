@@ -101,7 +101,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Article by
         </div>
         <div
-          class="MuiStack-root css-3oepjh-MuiStack-root"
+          class="MuiStack-root css-1niho6o-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-body1SemiBold css-8hw0pt-MuiTypography-root"
@@ -124,7 +124,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           Article by
         </div>
         <div
-          class="MuiStack-root css-3oepjh-MuiStack-root"
+          class="MuiStack-root css-1niho6o-MuiStack-root"
         >
           <div
             class="MuiTypography-root MuiTypography-body1SemiBold css-8hw0pt-MuiTypography-root"
@@ -150,11 +150,11 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fwha7w-MuiContainer-root"
     >
       <div
-        class="MuiToggleButtonGroup-root css-qg4su5-MuiToggleButtonGroup-root"
+        class="MuiToggleButtonGroup-root css-1ie26o5-MuiToggleButtonGroup-root"
         role="group"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1f523vq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1463e5x-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
           href="/tag1?tag=tag2"
           tabindex="0"
           value="tag2"

@@ -1,6 +1,6 @@
 {
-  "name": "Code for Africa",
-  "short_name": "CfA",
+  "name": "CivicSignal Research",
+  "short_name": "CivicSignal",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#022069",
+  "background_color": "#022069",
   "display": "standalone"
 }

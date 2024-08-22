@@ -41,7 +41,7 @@ const FeaturedArticle = React.forwardRef(function FeaturedArticle(props, ref) {
               sx={{
                 height: {
                   xs: "217px",
-                  sm: variant === "cover" ? "401px" : "217px",
+                  sm: variant === "cover" ? "401px" : "297px",
                   md: "476px",
                 },
                 width: {

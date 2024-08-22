@@ -17,7 +17,7 @@ exports[`<RelatedStories /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1dte7n6-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-outlined MuiCard-root css-f91d8w-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1u025w9-MuiPaper-root-MuiCard-root"
         >
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1nkr5oe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
