@@ -1,9 +1,6 @@
 import site from "@/civicsignalblog/utils/site";
 
 const config = {
-  // Disable indexing while in development
-  dangerouslySetAllPagesToNoFollow: true,
-  dangerouslySetAllPagesToNoIndex: true,
   openGraph: {
     type: "website",
     locale: "en_GB",
