@@ -21,7 +21,7 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiStack-root css-kbcct1-MuiStack-root"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root css-1tgwtox-MuiFormControl-root-MuiTextField-root"
+              class="MuiFormControl-root MuiTextField-root css-1w88xu6-MuiFormControl-root-MuiTextField-root"
             >
               <div
                 class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1wq2s8-MuiInputBase-root-MuiOutlinedInput-root"
@@ -64,11 +64,11 @@ exports[`<Articles /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiToggleButtonGroup-root css-1h98p8e-MuiToggleButtonGroup-root"
+              class="MuiToggleButtonGroup-root css-14ffl62-MuiToggleButtonGroup-root"
               role="group"
             >
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1wfz6ql-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="All"
@@ -80,7 +80,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1wfz6ql-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag1"
@@ -92,7 +92,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 </span>
               </div>
               <div
-                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1qm1ngu-MuiButtonBase-root-MuiChip-root"
+                class="MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-1wfz6ql-MuiButtonBase-root-MuiChip-root"
                 role="button"
                 tabindex="0"
                 value="tag2"
@@ -110,7 +110,7 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-cy97kn-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-outlined MuiCard-root css-15bifma-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-outlined MuiCard-root css-81wvh9-MuiPaper-root-MuiCard-root"
           >
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1gjmvym-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
@@ -125,7 +125,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 >
                   <img
                     alt="Featured Article Image"
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-t5e89h-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-14h10vz-MuiCardMedia-root"
                     src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
                   />
                 </div>
@@ -200,7 +200,7 @@ exports[`<Articles /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1dte7n6-MuiGrid-root"
             >
               <div
-                class="MuiPaper-root MuiPaper-outlined MuiCard-root css-f91d8w-MuiPaper-root-MuiCard-root"
+                class="MuiPaper-root MuiPaper-outlined MuiCard-root css-1u025w9-MuiPaper-root-MuiCard-root"
               >
                 <a
                   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1nkr5oe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
@@ -236,7 +236,7 @@ exports[`<Articles /> renders unchanged 1`] = `
       </div>
     </div>
     <nav
-      class="MuiBox-root css-wpqv47"
+      class="MuiBox-root css-1vlywgk"
     >
       <ul
         class="css-1ghxxas"

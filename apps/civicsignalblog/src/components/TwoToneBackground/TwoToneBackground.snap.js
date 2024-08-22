@@ -3,7 +3,7 @@
 exports[`<NextPreviousPagination /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-wpqv47"
+    class="MuiBox-root css-1vlywgk"
   />
 </div>
 `;

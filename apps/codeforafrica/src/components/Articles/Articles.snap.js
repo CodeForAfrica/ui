@@ -125,7 +125,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 >
                   <img
                     alt="Featured Article Image"
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1eqknb7-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-6crdfp-MuiCardMedia-root"
                     src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
                   />
                 </div>
