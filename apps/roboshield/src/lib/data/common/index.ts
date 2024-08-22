@@ -1,8 +1,10 @@
+import { GetServerSidePropsContext } from "next";
+
 import { blockify } from "@/roboshield/lib/data/blockify";
 import getPageSeoFromMeta from "@/roboshield/lib/data/seo";
 import { Api } from "@/roboshield/lib/payload";
+import site from "@/roboshield/utils/site";
 import { SettingsSite } from "@/root/payload-types";
-import { GetServerSidePropsContext } from "next";
 
 export function imageFromMedia(alt: string, url: string) {
   return { alt, src: url };
@@ -64,6 +66,15 @@ export async function getPageProps(
   if (!page) {
     return null;
   }
+
+  // NOTE(kilemensi): handle locale if/when used
+  const pagePath = slugs?.join("/") ?? "";
+  // remove any trailing '/'
+  const pageUrl = `${site.environmentUrl}${pagePath}`.replace(/\/+$/, "");
+  page.meta = {
+    canonical: pageUrl,
+    ...page.meta,
+  } as Record<string, any>;
 
   const blocks = await blockify(page.blocks, api);
 
