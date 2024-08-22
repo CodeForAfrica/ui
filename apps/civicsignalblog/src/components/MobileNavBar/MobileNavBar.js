@@ -25,7 +25,7 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialogContent-root": {
     padding: spacing(5),
     color: palette.text.secondary,
-    background: palette.primary.main,
+    background: palette.primary.dark,
   },
 }));
 

@@ -18,41 +18,59 @@ function stringifyDescription(description) {
   }, "");
 }
 
-export default function getPageSeoFromMeta(page, settings) {
-  const { title: pageTitle, meta: pageMeta } = page;
-  const {
-    title: metaTitle,
-    description: metaDescription,
-    image = {},
-  } = pageMeta;
-  const { title: settingsTitle, description: siteDescription } = settings;
-  const siteTitle = settingsTitle ?? site.name;
-  const title = metaTitle || pageTitle || siteTitle || null;
-  const description =
-    metaDescription || stringifyDescription(siteDescription) || null;
-  const titleTemplate = siteTitle ? `%s | ${siteTitle}` : null;
-  const defaultTitle = siteTitle || null;
-  const canonical = site.url.replace(/\/+$/, "");
-  const openGraph = {
-    title,
-    description,
-    type: "website",
-    site_name: siteTitle,
-  };
-  if (image?.url) {
-    const { alt, height, mimeType: type, url, width } = image;
-    openGraph.images = [
-      {
-        alt: alt || title || defaultTitle,
-        height,
-        type,
-        url,
-        width,
-      },
-    ];
+function mediaToImage(media, title) {
+  if (!media?.url) {
+    return null;
   }
+  const { height, mimeType: type, url, width } = media;
+  const image = { height, url, width };
+  if (type) {
+    image.type = type;
+  }
+  const alt = media.alt || title;
+  if (alt) {
+    image.alt = alt;
+  }
+  return image;
+}
 
-  return {
+export default function getPageSeoFromMeta(page, settings) {
+  const canonical = page.meta?.canonical || site.url.replace(/\/+$/, "");
+  const defaultTitle = settings.meta?.title || settings.title || site.name;
+  const title = page.meta?.title || page.title || defaultTitle;
+  // Dont't use template on homepage
+  const titleTemplate =
+    page.slug !== "index" ? defaultTitle && `%s | ${defaultTitle}` : null;
+  const description =
+    page.meta?.description ||
+    settings.meta?.description ||
+    stringifyDescription(settings.description);
+  const openGraph = {
+    type: "website",
+    siteName: defaultTitle,
+  };
+  if (page.meta?.article) {
+    const { article } = page.meta;
+    openGraph.type = "article";
+    openGraph.article = {
+      publishedTime: article.publishedAt,
+      modifiedTime: article.updatedAt,
+    };
+    const { authors, tags } = article;
+    if (authors?.length) {
+      openGraph.article.authors = authors;
+    }
+    if (tags?.length) {
+      openGraph.tags = tags;
+    }
+  }
+  const image =
+    mediaToImage(page.meta?.image, title) ||
+    mediaToImage(settings.meta?.image, title);
+  if (image) {
+    openGraph.images = [image];
+  }
+  const seo = {
     title,
     titleTemplate,
     defaultTitle,
@@ -60,4 +78,6 @@ export default function getPageSeoFromMeta(page, settings) {
     canonical,
     openGraph,
   };
+
+  return Object.fromEntries(Object.entries(seo).filter(([, val]) => val));
 }

@@ -2,6 +2,7 @@ import blockify from "@/civicsignalblog/lib/data/blockify";
 import pagify from "@/civicsignalblog/lib/data/pagify";
 import getPageSeoFromMeta from "@/civicsignalblog/lib/data/seo";
 import { imageFromMedia } from "@/civicsignalblog/lib/data/utils";
+import site from "@/civicsignalblog/utils/site";
 
 function getNavBar(settings) {
   const {
@@ -166,10 +167,21 @@ export async function getPageProps(api, context) {
     return null;
   }
   if (params?.slugs?.length > 2) {
+    // Posts and other collections
     page = await pagify(page, api, context);
     if (!page) {
       return null;
     }
+  } else {
+    // Pages
+    // NOTE(kilemensi): handle locale if/when used
+    const pagePath = params?.slugs?.join("/") ?? "";
+    // remove any trailing '/'
+    const pageUrl = `${site.environmentUrl}${pagePath}`.replace(/\/+$/, "");
+    page.meta = {
+      canonical: pageUrl,
+      ...page.meta,
+    };
   }
   const blocks = await blockify(page?.blocks, api, context);
   const siteSettings = await api.findGlobal("settings-site");

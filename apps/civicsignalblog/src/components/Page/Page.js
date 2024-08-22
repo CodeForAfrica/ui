@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
@@ -10,7 +11,11 @@ function Page({ children, footer, navbar, seo }) {
     <>
       <NextSeo {...seo} />
       {navbar ? <NavBar {...navbar} /> : null}
-      {children ? <main>{children}</main> : null}
+      {children ? (
+        <Box component="main" sx={{ bgcolor: "background.main" }}>
+          {children}
+        </Box>
+      ) : null}
       {footer ? <Footer {...footer} /> : null}
     </>
   );

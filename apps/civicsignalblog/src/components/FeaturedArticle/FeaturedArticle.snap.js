@@ -3,7 +3,7 @@
 exports[`<FeaturedArticle /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-15bifma-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-outlined MuiCard-root css-81wvh9-MuiPaper-root-MuiCard-root"
   >
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiCardActionArea-root css-1gjmvym-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiCardActionArea-root"
@@ -18,7 +18,7 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
         >
           <img
             alt="Featured Article Image"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-t5e89h-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-14h10vz-MuiCardMedia-root"
             src="https://res.cloudinary.com/code-for-africa/image/upload/v1650885664/codeforafrica/unsplash_L6hr1BptcNc_of23p3.png"
           />
         </div>

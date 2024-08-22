@@ -110,6 +110,18 @@ export default buildConfig({
     seo({
       collections: ["pages"],
       globals: ["settings-site"],
+      fields: [
+        // NOTE(kilemensi): This is only added to make sure Payload generate correct type
+        {
+          name: "canonical",
+          type: "text",
+          admin: {
+            disabled: true,
+            description:
+              "https://developers.google.com/search/docs/crawling-indexing/canonicalization",
+          },
+        },
+      ],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc }: any) =>

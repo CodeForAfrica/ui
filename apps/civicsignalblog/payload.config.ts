@@ -128,7 +128,7 @@ export default buildConfig({
     }),
     seo({
       collections: ["pages", "posts"],
-      globals: [],
+      globals: ["settings-site"],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc }: any) =>

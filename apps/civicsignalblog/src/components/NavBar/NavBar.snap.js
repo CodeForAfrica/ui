@@ -3,7 +3,7 @@
 exports[`<NavBar /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-2kjg2f-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-1sr66oj-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
   >
     <div
       class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"

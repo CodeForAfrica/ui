@@ -56,7 +56,9 @@ const Pages = {
     },
   ],
   versions: {
-    drafts: true,
+    drafts: {
+      autosave: true,
+    },
   },
 };
 

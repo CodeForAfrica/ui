@@ -12,7 +12,11 @@ const palette = {
   grey: { main: "#B4ABAB", light: "#E3DFDF" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
   divider: "#DAD5D5",
-  background: { main: "#F6F5F5" },
+  background: {
+    default: "#022069",
+    main: "#FFFFFF",
+    paper: "#FFFFFF",
+  },
   action: { hoverOpacity: 0, focusOpacity: 0 },
   highlight: { main: "#ED1C24" },
 };

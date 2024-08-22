@@ -235,6 +235,7 @@ export interface Page {
     title?: string | null;
     description?: string | null;
     image?: string | Media | null;
+    canonical?: string | null;
   };
   parent?: (string | null) | Page;
   breadcrumbs?:
@@ -418,6 +419,7 @@ export interface SettingsSite {
     title?: string | null;
     description?: string | null;
     image?: string | Media | null;
+    canonical?: string | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
