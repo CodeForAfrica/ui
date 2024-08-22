@@ -66,8 +66,7 @@ export default function getPageSeoFromMeta(
   const defaultTitle = settings.meta?.title || settings.title || site.name;
   const title = page.meta?.title || page.title || defaultTitle;
   // Dont't use template on homepage
-  const titleTemplate =
-    page.slug !== "index" ? defaultTitle && `%s | ${defaultTitle}` : null;
+  const titleTemplate = page.slug === "index" ? "%s" : `%s | ${defaultTitle}`;
   const description =
     page.meta?.description ||
     settings.meta?.description ||
