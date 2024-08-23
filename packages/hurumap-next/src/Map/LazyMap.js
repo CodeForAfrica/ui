@@ -13,7 +13,7 @@ import "leaflet/dist/leaflet.css";
 const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   const {
     center,
-    choroplethColors,
+    choropleth: choroplethProps,
     geography,
     geometries,
     isPinOrCompare,
@@ -51,7 +51,7 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   );
 
   const { choropleth, legend } = generateChoropleth(
-    choroplethColors,
+    choroplethProps,
     locations,
     mapType,
   );

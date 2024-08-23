@@ -190,7 +190,7 @@ export async function getStaticProps({ params }) {
       ghostkitSR: "",
     },
   };
-  const { locations, preferredChildren, mapType, choroplethColors } =
+  const { locations, preferredChildren, mapType, choropleth } =
     await fetchProfile();
   const [originalCode] = params?.slug || [""];
   const code = originalCode.trim().toLowerCase();
@@ -240,7 +240,7 @@ export async function getStaticProps({ params }) {
     props: {
       ...props,
       blocks,
-      choroplethColors,
+      choropleth,
       locations,
       mapType,
       profile,
