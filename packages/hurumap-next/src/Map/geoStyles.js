@@ -78,8 +78,24 @@ const defaultSecondaryGeoStyles = {
 };
 
 const defaultChoroplethStyles = {
-  negative_color_range: CHART_SECONDARY_COLOR_SCHEME,
-  positive_color_range: CHART_PRIMARY_COLOR_SCHEME,
+  negative_color_range: [
+    "#FEA502",
+    "#FFAA54",
+    "#FD928E",
+    "#DFB494",
+    "#9BFAFA",
+    "#64F9F9",
+    "#01F8F8",
+  ],
+  positive_color_range: [
+    "#021AFE",
+    "#5455FF",
+    "#928EFD",
+    "#B494DF",
+    "#FA9B9B",
+    "#F96264",
+    "#F80701",
+  ],
   opacity: 0.7,
   opacity_hover: 1,
   zero_color: "white",

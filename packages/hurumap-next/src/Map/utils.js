@@ -2,14 +2,18 @@
 
 import { defaultChoroplethStyles } from "./geoStyles";
 
+const roundToNearestHalf = (num) => {
+  return Math.round(num * 2) / 2;
+};
+
 const calculateThresholds = (min, max, steps) => {
   const stepSize = (max - min) / steps;
   const thresholds = [];
 
   for (let i = 0; i < steps; i += 1) {
     thresholds.push({
-      min: min + i * stepSize,
-      max: min + (i + 1) * stepSize,
+      min: roundToNearestHalf(min + i * stepSize),
+      max: roundToNearestHalf(min + (i + 1) * stepSize),
     });
   }
 
