@@ -2,6 +2,7 @@ import createEmotionServer from "@emotion/server/create-instance";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
 
+import theme from "@/civicsignalblog/theme";
 import createEmotionCache from "@/civicsignalblog/utils/createEmotionCache";
 
 class MyDocument extends Document {
@@ -44,7 +45,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1020e1" />
           <meta name="msapplication-TileColor" content="#2b5797" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content={theme.palette.primary.main} />
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
         </Head>
