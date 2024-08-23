@@ -1,9 +1,9 @@
-import { Typography, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useCallback, useEffect, useState } from "react";
 import { MapContainer, Pane, TileLayer, ZoomControl } from "react-leaflet";
 
 import Layers from "./Layers";
+import Legend from "./Legend";
 import { generateChoropleth } from "./utils";
 
 import "leaflet/dist/leaflet.css";
@@ -114,39 +114,7 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
           <TileLayer url={url} />
         </Pane>
       ))}
-      <Grid
-        container
-        spacing={2}
-        sx={(theme) => ({
-          position: "absolute",
-          zIndex: 1000,
-          width: "fit-content",
-          bottom: theme.spacing(1),
-          left: "50%",
-          transform: "translateX(-50%)",
-          backgroundColor: theme.palette.background.paper,
-          padding: theme.spacing(1),
-          boxShadow: theme.shadows[3],
-          ...sx,
-        })}
-      >
-        {legend?.map(({ min, max, color }) => (
-          <Grid
-            key={`${min}-${max}`}
-            sx={(theme) => ({
-              backgroundColor: color,
-              padding: theme.spacing(1),
-            })}
-          >
-            <Typography
-              variant="subtitle1"
-              sx={(theme) => ({ color: theme.palette.text.secondary })}
-            >
-              {min} - {max}
-            </Typography>
-          </Grid>
-        ))}
-      </Grid>
+      <Legend legend={legend} />
       <ZoomControl position="bottomright" />
       <Layers
         {...LayersProps}
