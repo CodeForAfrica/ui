@@ -15,6 +15,7 @@ import {
 function Layers({
   PinnedLocationTagProps,
   PopUpLocationTagProps,
+  choropleth,
   geography,
   isPinOrCompare = false,
   locationCodes: locationCodesProp,
@@ -63,11 +64,14 @@ function Layers({
 
   const onEachFeature = useCallback(
     (feature, layer) => {
+      const choroplethColor = choropleth?.find(
+        (c) => c.code.toLowerCase() === feature.properties.code.toLowerCase(),
+      );
       let geoStyles =
         isPinOrCompare && feature.properties.code === secondaryGeography?.code
           ? secondaryGeoStyles
           : primaryGeoStyles;
-      // assume ISO 3166-1 codes so comparing uppercase should be ggood
+      // assume ISO 3166-1 codes so comparing uppercase should be good
       const locationCodes =
         locationCodesProp?.map((c) => c.toUpperCase()) || [];
       if (!locationCodes?.includes(feature.properties.code.toUpperCase())) {
@@ -118,6 +122,10 @@ function Layers({
         let style;
         if (feature?.properties?.selected) {
           style = geoStyles.selected.out;
+          style = {
+            ...style,
+            ...(choroplethColor && { ...choroplethColor }),
+          };
         } else if (
           isPinOrCompare &&
           feature.properties.code === secondaryGeography?.code
@@ -130,17 +138,22 @@ function Layers({
 
         layer.on("mouseover", () => {
           geoStyles = isPinOrCompare ? secondaryGeoStyles : primaryGeoStyles;
-          layer.setStyle(
-            feature?.properties?.selected
+          layer.setStyle({
+            ...(feature?.properties?.selected
               ? geoStyles.selected.over
-              : geoStyles.hoverOnly.over,
-          );
+              : geoStyles.hoverOnly.over),
+            ...(choroplethColor && { ...choroplethColor }),
+          });
         });
         layer.on("mouseout", () => {
           geoStyles = isPinOrCompare ? secondaryGeoStyles : primaryGeoStyles;
           let outStyle;
           if (feature?.properties?.selected) {
             outStyle = geoStyles.selected.out;
+            outStyle = {
+              ...outStyle,
+              ...(choroplethColor && { ...choroplethColor }),
+            };
           } else if (
             isPinOrCompare &&
             feature.properties.code === secondaryGeography?.code
@@ -164,6 +177,7 @@ function Layers({
     },
     [
       PopUpLocationTagProps,
+      choropleth,
       geography,
       isPinOrCompare,
       locationCodesProp,

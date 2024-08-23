@@ -3,6 +3,8 @@ import React, { useCallback, useEffect, useState } from "react";
 import { MapContainer, Pane, TileLayer, ZoomControl } from "react-leaflet";
 
 import Layers from "./Layers";
+import Legend from "./Legend";
+import { generateChoropleth } from "./utils";
 
 import "leaflet/dist/leaflet.css";
 
@@ -11,10 +13,12 @@ import "leaflet/dist/leaflet.css";
 const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   const {
     center,
+    choropleth: choroplethProps,
     geography,
     geometries,
     isPinOrCompare,
     locations,
+    mapType,
     preferredChildren,
     styles = {
       height: "100%",
@@ -44,6 +48,12 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
       return null;
     },
     [preferredChildren, isPinOrCompare],
+  );
+
+  const { choropleth, legend } = generateChoropleth(
+    choroplethProps,
+    locations,
+    mapType,
   );
 
   useEffect(() => {
@@ -79,6 +89,7 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
   }, [geometries, geography, getSelectedBoundary]);
 
   const locationCodes = locations?.map(({ code }) => code);
+
   return (
     <MapContainer
       center={center}
@@ -103,10 +114,12 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
           <TileLayer url={url} />
         </Pane>
       ))}
+      {mapType === "choropleth" && <Legend legend={legend} />}
       <ZoomControl position="bottomright" />
       <Layers
         {...LayersProps}
         geography={geography}
+        choropleth={choropleth}
         locationCodes={locationCodes}
         parentsGeometries={geometries.parents}
         selectedBoundary={selectedBoundary}

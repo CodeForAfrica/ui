@@ -11,12 +11,17 @@ export async function fetchProfile() {
   );
 
   const locations = configuration?.featured_locations?.map(
-    ({ name, code, level }) => {
-      return { name, level, code: code.toLowerCase() };
+    ({ name, code, level, count = null }) => {
+      return { name, level, code: code.toLowerCase(), count };
     },
   );
 
-  return { locations, preferredChildren: configuration.preferred_children };
+  return {
+    locations,
+    preferredChildren: configuration.preferred_children,
+    mapType: configuration?.map_type ?? "default",
+    choropleth: configuration?.choropleth ?? null,
+  };
 }
 
 function formatProfileGeographyData(data, parent) {
