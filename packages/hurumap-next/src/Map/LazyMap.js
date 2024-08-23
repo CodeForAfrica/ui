@@ -114,7 +114,7 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
           <TileLayer url={url} />
         </Pane>
       ))}
-      <Legend legend={legend} />
+      {mapType === "choropleth" && <Legend legend={legend} />}
       <ZoomControl position="bottomright" />
       <Layers
         {...LayersProps}
