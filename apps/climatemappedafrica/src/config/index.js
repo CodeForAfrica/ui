@@ -32,7 +32,8 @@ import MercyKaragi from "@/climatemappedafrica/assets/images/Mercy-Karagi.png";
 import Piero from "@/climatemappedafrica/assets/images/Piero.png";
 import screenshot1 from "@/climatemappedafrica/assets/images/Screenshot 2021-06-14 at 12.51.45@2x.png";
 import Tricia from "@/climatemappedafrica/assets/images/Tricia-Govindasamy.png";
-import desktopLogo from "@/climatemappedafrica/assets/logos/Component61.svg";
+// import desktopLogo from "@/climatemappedafrica/assets/logos/Component61.svg";
+import desktopLogo from "@/climatemappedafrica/assets/logos/climateMapped.png";
 import drawerLogo from "@/climatemappedafrica/assets/logos/Group 4188@2x-white.png";
 import mobileLogo from "@/climatemappedafrica/assets/logos/Group 4188@3x.png";
 import Metric1 from "@/climatemappedafrica/assets/Metric1@2x.png";
@@ -173,8 +174,8 @@ export const navigationArgs = {
     ],
   },
   desktopLogoProps: {
-    width: 237,
-    height: 55,
+    width: 200,
+    height: 80,
     alt: "desktop logo",
     href: "https://codeforafrica.org",
     src: desktopLogo,
