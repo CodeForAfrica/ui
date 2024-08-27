@@ -185,14 +185,6 @@ export const navigationArgs = {
     href: "https://codeforafrica.org",
     src: logo,
   },
-
-  drawerLogoProps: {
-    width: 180,
-    height: 70,
-    alt: "drawer logo",
-    href: "https://codeforafrica.org",
-    src: logo,
-  },
 };
 
 export const ourCourses = {
