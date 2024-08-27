@@ -15,7 +15,7 @@ import React, { useState } from "react";
 
 import SearchIcon from "@/climatemappedafrica/assets/icons/search-open.svg";
 import MenuCloseIcon from "@/climatemappedafrica/assets/menu_close.svg";
-import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
+// import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Link from "@/climatemappedafrica/components/Link";
 import Menu from "@/climatemappedafrica/components/Menu";
@@ -25,7 +25,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {},
   logoButton: {
     padding: 0,
-    width: typography.pxToRem(254),
   },
   section: {},
   dialog: {
@@ -171,10 +170,10 @@ function MobileNavigation({
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  const handleClickOpen = (e) => {
-    e?.preventDefault();
-    setOpen(true);
-  };
+  // const handleClickOpen = (e) => {
+  //   e?.preventDefault();
+  //   setOpen(true);
+  // };
   const handleClose = (e) => {
     e?.preventDefault();
     setOpen(false);
@@ -189,7 +188,7 @@ function MobileNavigation({
     <div className={classes.root}>
       <Section className={classes.section}>
         <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item xs={10}>
+          <Grid item container justifyContent="center">
             <LogoButton
               href="/"
               component={Link}
@@ -198,7 +197,7 @@ function MobileNavigation({
               <Image {...mobileLogoProps} />
             </LogoButton>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <IconButton
               aria-label="Open drawer"
               edge="start"
@@ -213,7 +212,7 @@ function MobileNavigation({
                 className={classes.open}
               />
             </IconButton>
-          </Grid>
+          </Grid> */}
           <Dialog
             fullScreen
             open={open}

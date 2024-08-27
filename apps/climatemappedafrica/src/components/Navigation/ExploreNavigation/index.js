@@ -15,7 +15,9 @@ import Section from "@/climatemappedafrica/components/Section";
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: {},
   section: {},
-  logoButton: {},
+  logoButton: {
+    padding: 0,
+  },
   help: {
     color: "#666666",
     textAlign: "center",
