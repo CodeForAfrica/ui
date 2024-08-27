@@ -25,7 +25,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {},
   logoButton: {
     padding: 0,
-    width: typography.pxToRem(254),
   },
   section: {},
   dialog: {

@@ -32,10 +32,7 @@ import MercyKaragi from "@/climatemappedafrica/assets/images/Mercy-Karagi.png";
 import Piero from "@/climatemappedafrica/assets/images/Piero.png";
 import screenshot1 from "@/climatemappedafrica/assets/images/Screenshot 2021-06-14 at 12.51.45@2x.png";
 import Tricia from "@/climatemappedafrica/assets/images/Tricia-Govindasamy.png";
-// import desktopLogo from "@/climatemappedafrica/assets/logos/Component61.svg";
-import desktopLogo from "@/climatemappedafrica/assets/logos/climateMapped.png";
-import drawerLogo from "@/climatemappedafrica/assets/logos/Group 4188@2x-white.png";
-import mobileLogo from "@/climatemappedafrica/assets/logos/Group 4188@3x.png";
+import logo from "@/climatemappedafrica/assets/logos/climateMapped.png";
 import Metric1 from "@/climatemappedafrica/assets/Metric1@2x.png";
 import Metric2 from "@/climatemappedafrica/assets/Metric2@2x.png";
 
@@ -178,23 +175,23 @@ export const navigationArgs = {
     height: 80,
     alt: "desktop logo",
     href: "https://codeforafrica.org",
-    src: desktopLogo,
+    src: logo,
   },
 
   mobileLogoProps: {
-    width: 254,
-    height: 40,
+    width: 180,
+    height: 70,
     alt: "mobile logo",
     href: "https://codeforafrica.org",
-    src: mobileLogo,
+    src: logo,
   },
 
   drawerLogoProps: {
-    width: 254,
-    height: 40,
+    width: 180,
+    height: 70,
     alt: "drawer logo",
     href: "https://codeforafrica.org",
-    src: drawerLogo,
+    src: logo,
   },
 };
 
