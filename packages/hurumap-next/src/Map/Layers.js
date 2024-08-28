@@ -75,6 +75,7 @@ function Layers({
       const locationCodes =
         locationCodesProp?.map((c) => c.toUpperCase()) || [];
       if (!locationCodes?.includes(feature.properties.code.toUpperCase())) {
+        geoStyles.inactive.color = choropleth[0].color;
         layer.setStyle(geoStyles.inactive);
       } else {
         const popUpContent = (level, name) =>
