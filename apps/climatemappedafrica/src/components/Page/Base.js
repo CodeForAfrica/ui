@@ -13,7 +13,12 @@ import getNavigationMenu from "@/climatemappedafrica/functions/menus/getNavigati
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, menus, variant, post, ...props }) {
+function BasePage({
+  children = undefined,
+  menus = undefined,
+  variant = undefined,
+  ...props
+}) {
   const seo = {};
   const footerProps = getFooterMenu(menus?.footerMenu || []);
   const navigation = getNavigationMenu(menus?.primaryMenu || []);
@@ -75,12 +80,6 @@ BasePage.propTypes = {
     primaryMenu: PropTypes.arrayOf(PropTypes.shape({})),
   }),
   variant: PropTypes.string,
-};
-
-BasePage.defaultProps = {
-  children: undefined,
-  menus: undefined,
-  variant: undefined,
 };
 
 export default BasePage;
