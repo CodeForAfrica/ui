@@ -62,7 +62,7 @@ const generateLegend = (
   return legend;
 };
 
-export const generateChoropleth = (colors, locations, mapType) => {
+export const generateChoropleth = (choroplethProps, locations, mapType) => {
   if (mapType !== "choropleth") return null;
 
   const filteredLocations = locations.filter(({ count }) => count !== null);
@@ -75,13 +75,14 @@ export const generateChoropleth = (colors, locations, mapType) => {
   const roundedMaxCount = Math.ceil(maxCount);
 
   const negativeColorRange =
-    colors?.negative_color_range ||
+    choroplethProps?.negative_color_range ||
     defaultChoroplethStyles.negative_color_range;
   const positiveColorRange =
-    colors?.positive_color_range ||
+    choroplethProps?.positive_color_range ||
     defaultChoroplethStyles.positive_color_range;
-  const zeroColor = colors?.zero_color || defaultChoroplethStyles.zero_color;
-  const opacity = colors?.opacity || defaultChoroplethStyles.opacity;
+  const zeroColor =
+    choroplethProps?.zero_color || defaultChoroplethStyles.zero_color;
+  const opacity = choroplethProps?.opacity || defaultChoroplethStyles.opacity;
 
   const positiveThresholds = hasPositiveValues
     ? calculateThresholds(
@@ -125,6 +126,7 @@ export const generateChoropleth = (colors, locations, mapType) => {
       code,
       count,
       fillColor: color,
+      color: choroplethProps.border_color,
       opacity,
     };
   });
