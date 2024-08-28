@@ -83,6 +83,8 @@ export const generateChoropleth = (choroplethProps, locations, mapType) => {
   const zeroColor =
     choroplethProps?.zero_color || defaultChoroplethStyles.zero_color;
   const opacity = choroplethProps?.opacity || defaultChoroplethStyles.opacity;
+  const borderColor =
+    choroplethProps.border_color || defaultChoroplethStyles.color;
 
   const positiveThresholds = hasPositiveValues
     ? calculateThresholds(
@@ -126,7 +128,7 @@ export const generateChoropleth = (choroplethProps, locations, mapType) => {
       code,
       count,
       fillColor: color,
-      color: choroplethProps.border_color,
+      color: borderColor,
       opacity,
     };
   });
