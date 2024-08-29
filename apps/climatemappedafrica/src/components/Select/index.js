@@ -21,16 +21,16 @@ function ExpandMoreIcon(props) {
 }
 
 function Input({
-  disabled = undefined,
-  helperText = undefined,
-  label: labelProp = undefined,
-  onChange = undefined,
-  onOpen = undefined,
-  onClose = undefined,
-  open = undefined,
-  options = undefined,
-  selected = undefined,
-  placeholder = undefined,
+  disabled,
+  helperText,
+  label: labelProp,
+  onChange,
+  onOpen,
+  onClose,
+  open,
+  options,
+  selected,
+  placeholder,
   ...props
 }) {
   const classes = useStyles(props);

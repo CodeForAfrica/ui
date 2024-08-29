@@ -13,14 +13,14 @@ function PinIcon(props) {
 }
 
 function PinAndCompare({
-  helperText = undefined,
+  helperText,
   isMobile = false,
-  currentGeographyCode = undefined,
-  locations = undefined,
-  onChange = undefined,
-  onClickPin = undefined,
-  onClose = undefined,
-  placeholder = undefined,
+  currentGeographyCode,
+  locations,
+  onChange,
+  onClickPin,
+  onClose,
+  placeholder,
   ...props
 }) {
   const classes = useStyles(props);

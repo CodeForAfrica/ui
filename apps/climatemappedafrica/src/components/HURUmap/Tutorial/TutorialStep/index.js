@@ -77,12 +77,4 @@ TutorialStep.propTypes = {
   selector: PropTypes.string,
 };
 
-TutorialStep.defaultProps = {
-  description: undefined,
-  image: undefined,
-  onClose: undefined,
-  title: undefined,
-  selector: undefined,
-};
-
 export default TutorialStep;

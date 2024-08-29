@@ -21,12 +21,7 @@ function initialState(profiles, onClick) {
   };
 }
 
-function ExplorePage({
-  panelProps = undefined,
-  profile: profileProp = undefined,
-  apiUri,
-  ...props
-}) {
+function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at

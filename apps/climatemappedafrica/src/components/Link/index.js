@@ -52,18 +52,6 @@ NextComposed.propTypes = {
   shallow: PropTypes.bool,
 };
 
-NextComposed.defaultProps = {
-  as: undefined,
-  component: undefined,
-  href: undefined,
-  locale: undefined,
-  passHref: undefined,
-  prefetch: undefined,
-  replace: undefined,
-  scroll: undefined,
-  shallow: undefined,
-};
-
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link/
 const Link = forwardRef(function Link(props, ref) {
@@ -140,16 +128,6 @@ Link.propTypes = {
   naked: PropTypes.bool,
   onClick: PropTypes.func,
   prefetch: PropTypes.bool,
-};
-
-Link.defaultProps = {
-  activeClassName: undefined,
-  as: undefined,
-  className: undefined,
-  href: undefined,
-  naked: undefined,
-  onClick: undefined,
-  prefetch: undefined,
 };
 
 export default Link;

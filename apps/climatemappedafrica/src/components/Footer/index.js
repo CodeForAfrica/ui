@@ -17,13 +17,13 @@ import Link from "@/climatemappedafrica/components/Link";
 import Section from "@/climatemappedafrica/components/Section";
 
 function Footer({
-  title = undefined,
-  logoProps = undefined,
+  title,
+  logoProps,
   aboutVariant = "subtitle1",
-  description = undefined,
-  copyrightProps = undefined,
-  quickLinks: quickLinksProp = undefined,
-  socialMedia = undefined,
+  description,
+  copyrightProps,
+  quickLinks: quickLinksProp,
+  socialMedia,
   ...props
 }) {
   const classes = useStyles(props);

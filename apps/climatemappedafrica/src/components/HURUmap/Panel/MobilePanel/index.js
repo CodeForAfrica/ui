@@ -16,11 +16,7 @@ import { hurumapArgs } from "@/climatemappedafrica/config";
 // eslint-disable-next-line import/order
 import useStyles from "./useStyles";
 
-function MobilePanel({
-  scrollToTopLabel = undefined,
-  activeType = undefined,
-  ...props
-}) {
+function MobilePanel({ scrollToTopLabel, activeType, ...props }) {
   const classes = useStyles(props);
   const { onSelectLocation, primaryProfile, dataNotAvailable } = props;
   const { geography, items } = primaryProfile;

@@ -64,11 +64,11 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 function DropdownSearch({
   href: hrefProp = "/explore",
   label = "Search for a location",
-  counties = undefined,
-  onClick = undefined,
+  counties,
+  onClick,
   icon: iconProp = SearchIcon,
-  placeholder = undefined,
-  variant = undefined,
+  placeholder,
+  variant,
   ...props
 }) {
   const classes = useStyles(props);

@@ -53,9 +53,4 @@ SubcategoryHeader.propTypes = {
   description: PropTypes.string,
 };
 
-SubcategoryHeader.defaultProps = {
-  title: undefined,
-  description: undefined,
-};
-
 export default SubcategoryHeader;

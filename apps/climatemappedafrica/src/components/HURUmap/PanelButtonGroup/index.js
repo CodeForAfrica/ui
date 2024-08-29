@@ -7,13 +7,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-function PanelButtonGroup({
-  items = undefined,
-  value = undefined,
-  onChange = undefined,
-  pins = [],
-  ...props
-}) {
+function PanelButtonGroup({ items, value, onChange, pins = [], ...props }) {
   const classes = useStyles(props);
   const handleChange = (_, selected) => {
     onChange(selected);

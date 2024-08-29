@@ -8,14 +8,14 @@ import useStyles from "./useStyles";
 import PanelButtonGroup from "@/climatemappedafrica/components/HURUmap/PanelButtonGroup";
 
 function PanelButtons({
-  isPinning = undefined,
-  isCompare = undefined,
-  onClickPin = undefined,
-  onClickUnpin = undefined,
-  panelItems: panelItemsProp = undefined,
-  primaryProfile = undefined,
-  secondaryProfile = undefined,
-  drawerRef = undefined,
+  isPinning,
+  isCompare,
+  onClickPin,
+  onClickUnpin,
+  panelItems: panelItemsProp,
+  primaryProfile,
+  secondaryProfile,
+  drawerRef,
   ...props
 }) {
   const [value, setValue] = useState();

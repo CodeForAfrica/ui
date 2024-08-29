@@ -18,14 +18,7 @@ function SvgIcon(props) {
   return <MuiSvgIcon {...props} />;
 }
 
-function LocationHeader({
-  icon = undefined,
-  level = undefined,
-  onClick = undefined,
-  parent = undefined,
-  title = undefined,
-  ...props
-}) {
+function LocationHeader({ icon, level, onClick, parent, title, ...props }) {
   const classes = useStyles(props);
 
   if (!title) {

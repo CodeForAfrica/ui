@@ -16,10 +16,10 @@ function a11yProps(name, index) {
 
 function Tabs({
   activeTab = 0,
-  items = undefined,
-  name: nameProp = undefined,
-  onChange = undefined,
-  linkComponent = undefined,
+  items,
+  name: nameProp,
+  onChange,
+  linkComponent,
   ...props
 }) {
   const router = useRouter();

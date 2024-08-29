@@ -2,11 +2,7 @@ import NImage from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-function Image({
-  placeholder: placeholderProp = undefined,
-  src = undefined,
-  ...props
-}) {
+function Image({ placeholder: placeholderProp, src, ...props }) {
   if (!src) {
     return null;
   }
