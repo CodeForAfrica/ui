@@ -77,10 +77,4 @@ BasePage.propTypes = {
   variant: PropTypes.string,
 };
 
-BasePage.defaultProps = {
-  children: undefined,
-  menus: undefined,
-  variant: undefined,
-};
-
 export default BasePage;
