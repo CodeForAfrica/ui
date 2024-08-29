@@ -28,7 +28,7 @@ const useStyles = makeStyles(
   }),
 );
 
-function Navigation({ variant, ...props }) {
+function Navigation({ variant = undefined, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -74,10 +74,6 @@ function Navigation({ variant, ...props }) {
 
 Navigation.propTypes = {
   variant: PropTypes.string,
-};
-
-Navigation.defaultProps = {
-  variant: undefined,
 };
 
 export default Navigation;

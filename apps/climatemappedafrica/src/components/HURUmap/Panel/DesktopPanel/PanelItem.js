@@ -3,7 +3,7 @@ import React from "react";
 
 import RichData from "./RichData";
 
-function PanelItem({ item, ...props }) {
+function PanelItem({ item = undefined, ...props }) {
   const key = item.value;
   switch (key) {
     case "rich-data": // fallthrough
@@ -16,10 +16,6 @@ PanelItem.propTypes = {
   item: PropTypes.shape({
     value: PropTypes.string,
   }),
-};
-
-PanelItem.defaultProps = {
-  item: undefined,
 };
 
 export default PanelItem;

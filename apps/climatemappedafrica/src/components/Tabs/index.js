@@ -15,11 +15,11 @@ function a11yProps(name, index) {
 }
 
 function Tabs({
-  activeTab,
-  items,
-  name: nameProp,
-  onChange,
-  linkComponent,
+  activeTab = 0,
+  items = undefined,
+  name: nameProp = undefined,
+  onChange = undefined,
+  linkComponent = undefined,
   ...props
 }) {
   const router = useRouter();
@@ -103,14 +103,6 @@ Tabs.propTypes = {
     }),
   ),
   onChange: PropTypes.func,
-};
-
-Tabs.defaultProps = {
-  activeTab: 0,
-  items: undefined,
-  linkComponent: undefined,
-  name: undefined,
-  onChange: undefined,
 };
 
 export default Tabs;

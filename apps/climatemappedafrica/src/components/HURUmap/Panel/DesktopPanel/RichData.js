@@ -6,7 +6,7 @@ import useStyles from "./useStyles";
 import Profile from "@/climatemappedafrica/components/HURUmap/Panel/Profile";
 import TreeView from "@/climatemappedafrica/components/HURUmap/TreeView";
 
-function RichData({ primaryProfile, ...props }) {
+function RichData({ primaryProfile = undefined, ...props }) {
   const classes = useStyles(props);
   const profileRef = useRef();
 
@@ -38,10 +38,6 @@ RichData.propTypes = {
   primaryProfile: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),
   }),
-};
-
-RichData.defaultProps = {
-  primaryProfile: undefined,
 };
 
 export default RichData;

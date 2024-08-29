@@ -10,7 +10,7 @@ import useStyles from "./useStyles";
 import { ReactComponent as CheckIcon } from "@/climatemappedafrica/assets/icons/checked.svg";
 import slugify from "@/climatemappedafrica/utils/slugify";
 
-function TreeView({ items, onLabelClick, ...props }) {
+function TreeView({ items = undefined, onLabelClick = undefined, ...props }) {
   const classes = useStyles(props);
   const [expanded, setExpanded] = useState();
 
@@ -87,11 +87,6 @@ TreeView.propTypes = {
     }),
   ),
   onLabelClick: PropTypes.func,
-};
-
-TreeView.defaultProps = {
-  items: undefined,
-  onLabelClick: undefined,
 };
 
 export default TreeView;

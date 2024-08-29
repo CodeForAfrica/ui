@@ -21,7 +21,12 @@ function initialState(profiles, onClick) {
   };
 }
 
-function ExplorePage({ panelProps, profile: profileProp, ...props }) {
+function ExplorePage({
+  panelProps = undefined,
+  profile: profileProp = undefined,
+  apiUri,
+  ...props
+}) {
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -184,12 +189,6 @@ ExplorePage.propTypes = {
       }),
     ),
   ]),
-};
-
-ExplorePage.defaultProps = {
-  apiUri: undefined,
-  panelProps: undefined,
-  profile: undefined,
 };
 
 export default ExplorePage;

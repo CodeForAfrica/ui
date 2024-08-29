@@ -158,12 +158,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function MobileNavigation({
+  drawerLogoProps = undefined,
+  href = "/explore",
+  menuProps = undefined,
+  mobileLogoProps = undefined,
+  socialLinks = undefined,
   logoProps,
-  menuProps,
-  mobileLogoProps,
-  drawerLogoProps,
-  socialLinks,
-  href,
   ...props
 }) {
   const classes = useStyles(props);
@@ -306,15 +306,6 @@ MobileNavigation.propTypes = {
     height: PropTypes.number,
   }),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
-};
-
-MobileNavigation.defaultProps = {
-  drawerLogoProps: undefined,
-  href: "/explore",
-  logoProps: undefined,
-  menuProps: undefined,
-  mobileLogoProps: undefined,
-  socialLinks: undefined,
 };
 
 export default MobileNavigation;

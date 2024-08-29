@@ -7,7 +7,13 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-function PanelButtonGroup({ items, value, onChange, pins, ...props }) {
+function PanelButtonGroup({
+  items = undefined,
+  value = undefined,
+  onChange = undefined,
+  pins = [],
+  ...props
+}) {
   const classes = useStyles(props);
   const handleChange = (_, selected) => {
     onChange(selected);
@@ -61,13 +67,6 @@ PanelButtonGroup.propTypes = {
   ),
   value: PropTypes.string,
   onChange: PropTypes.func,
-};
-
-PanelButtonGroup.defaultProps = {
-  pins: [],
-  items: undefined,
-  value: undefined,
-  onChange: undefined,
 };
 
 export default PanelButtonGroup;

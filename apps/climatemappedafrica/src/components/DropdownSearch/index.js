@@ -62,13 +62,13 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 }));
 
 function DropdownSearch({
-  href: hrefProp,
-  label,
-  counties,
-  onClick,
-  icon: iconProp,
-  placeholder,
-  variant,
+  href: hrefProp = "/explore",
+  label = "Search for a location",
+  counties = undefined,
+  onClick = undefined,
+  icon: iconProp = SearchIcon,
+  placeholder = undefined,
+  variant = undefined,
   ...props
 }) {
   const classes = useStyles(props);
@@ -174,16 +174,6 @@ DropdownSearch.propTypes = {
   counties: PropTypes.arrayOf(PropTypes.shape({})),
   variant: PropTypes.string,
   placeholder: PropTypes.string,
-};
-
-DropdownSearch.defaultProps = {
-  label: "Search for a location",
-  href: "/explore",
-  onClick: undefined,
-  icon: SearchIcon,
-  counties: undefined,
-  variant: undefined,
-  placeholder: undefined,
 };
 
 export default DropdownSearch;

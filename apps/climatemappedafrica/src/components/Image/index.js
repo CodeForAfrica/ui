@@ -2,7 +2,11 @@ import NImage from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-function Image({ placeholder: placeholderProp, src, ...props }) {
+function Image({
+  placeholder: placeholderProp = undefined,
+  src = undefined,
+  ...props
+}) {
   if (!src) {
     return null;
   }
@@ -14,11 +18,6 @@ function Image({ placeholder: placeholderProp, src, ...props }) {
 Image.propTypes = {
   placeholder: PropTypes.string,
   src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-};
-
-Image.defaultProps = {
-  placeholder: undefined,
-  src: undefined,
 };
 
 export default Image;
