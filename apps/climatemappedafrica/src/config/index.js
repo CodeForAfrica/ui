@@ -1,21 +1,20 @@
 import profile from "./profile";
 
-import richDataIcon from "@/climatemappedafrica/assets/Component121.svg";
 import pinIcon from "@/climatemappedafrica/assets/Component122.svg";
-import panelPinIcon from "@/climatemappedafrica/assets/icons/Component 95 – 2.svg";
-import pinBlack from "@/climatemappedafrica/assets/icons/Component 96 – 12.svg";
-import Group4646 from "@/climatemappedafrica/assets/icons/Group 4646-white.svg";
-import developmentHover from "@/climatemappedafrica/assets/icons/Group 4646.svg";
-import Group4656 from "@/climatemappedafrica/assets/icons/Group 4656-white.svg";
-import revenueHover from "@/climatemappedafrica/assets/icons/Group 4656.svg";
-import Group4657 from "@/climatemappedafrica/assets/icons/Group 4657-white.svg";
-import overviewHover from "@/climatemappedafrica/assets/icons/Group 4657.svg";
-import Group4658 from "@/climatemappedafrica/assets/icons/Group 4658-white.svg";
-import summaryHover from "@/climatemappedafrica/assets/icons/Group 4658.svg";
-import Group4659 from "@/climatemappedafrica/assets/icons/Group 4659-white.svg";
-import implementHover from "@/climatemappedafrica/assets/icons/Group 4659.svg";
-import Layout1 from "@/climatemappedafrica/assets/icons/Group922.svg";
-import Layout2 from "@/climatemappedafrica/assets/icons/Group923.svg";
+import AnalyticsWhite from "@/climatemappedafrica/assets/icons/analytics-white.svg";
+import implementHover from "@/climatemappedafrica/assets/icons/analytics.svg";
+import DocumentsWhite from "@/climatemappedafrica/assets/icons/documents-white.svg";
+import overviewHover from "@/climatemappedafrica/assets/icons/documents.svg";
+import EyeWhite from "@/climatemappedafrica/assets/icons/eye-white.svg";
+import summaryHover from "@/climatemappedafrica/assets/icons/eye.svg";
+import GearsWhite from "@/climatemappedafrica/assets/icons/gears-white.svg";
+import developmentHover from "@/climatemappedafrica/assets/icons/gears.svg";
+import Layout1 from "@/climatemappedafrica/assets/icons/layout.svg";
+import Layout2 from "@/climatemappedafrica/assets/icons/layout2.svg";
+import panelPinIcon from "@/climatemappedafrica/assets/icons/panelPin.svg";
+import pinBlue from "@/climatemappedafrica/assets/icons/pinBlue.svg";
+import Group4656 from "@/climatemappedafrica/assets/icons/puzzle-white.svg";
+import revenueHover from "@/climatemappedafrica/assets/icons/puzzle.svg";
 import unsplashOne from "@/climatemappedafrica/assets/images/adomas-aleno-unsplash.png";
 import DataVisualOne from "@/climatemappedafrica/assets/images/DataVisualOne.png";
 import DataVisualThree from "@/climatemappedafrica/assets/images/DataVisualThree.png";
@@ -35,13 +34,14 @@ import Tricia from "@/climatemappedafrica/assets/images/Tricia-Govindasamy.png";
 import logo from "@/climatemappedafrica/assets/logos/climateMapped.png";
 import Metric1 from "@/climatemappedafrica/assets/Metric1@2x.png";
 import Metric2 from "@/climatemappedafrica/assets/Metric2@2x.png";
+import richDataIcon from "@/climatemappedafrica/assets/richData.svg";
 
 export const dataIndicator = {
   title: "Data <span class='highlight'>Indicators</span>",
   items: [
     {
       title: "Overview",
-      image: Group4657,
+      image: DocumentsWhite,
       hover: overviewHover,
       description:
         "<p class='paragraph'>This includes general county data.</p> Topics include administrative and political units, population size and composition, land use, tourism and wildlife, industry and trade, finance, and education.",
@@ -55,21 +55,21 @@ export const dataIndicator = {
     },
     {
       title: "Development",
-      image: Group4646,
+      image: GearsWhite,
       hover: developmentHover,
       description:
         "<p>This highlights the county development priorities and strategies.</p> It looks at the programmes and associated budgets the county has proposed for the period 2018 to 2022.",
     },
     {
       title: "Implement",
-      image: Group4659,
+      image: AnalyticsWhite,
       hover: implementHover,
       description:
         "<p>This showcases the implementation framework for the county as published in the County Integrated Development Plan.</p> It covers the resource mobilisation framework on the proposed and predicted revenue and expenditure.",
     },
     {
       title: "Summary",
-      image: Group4658,
+      image: EyeWhite,
       hover: summaryHover,
       description:
         "<p>The summary takes a look at the monitoring and evaluation framework as published in the County Integrated Development Plan.</p> This includes the outcome indicators for each of the sector plans proposed.",
@@ -746,7 +746,7 @@ export const panelArgs = {
     },
     {
       value: "pin",
-      icon: pinBlack,
+      icon: pinBlue,
       children: "2",
       pin: true,
       tree: treeViewArgs,

@@ -7,7 +7,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/climatemappedafrica/assets/icons/Component 108 – 5.svg";
+import { ReactComponent as CloseIcon } from "@/climatemappedafrica/assets/icons/close.svg";
 
 function TutorialStep({ description, title, image, selector, ...props }) {
   const classes = useStyles(props);
