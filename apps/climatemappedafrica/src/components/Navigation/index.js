@@ -28,7 +28,7 @@ const useStyles = makeStyles(
   }),
 );
 
-function Navigation({ variant = undefined, ...props }) {
+function Navigation({ variant, ...props }) {
   const classes = useStyles(props);
 
   return (
