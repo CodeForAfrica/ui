@@ -21,7 +21,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   }, {}),
 }));
 
-function Section({ className = undefined, fixed = true, ...props }) {
+function Section({ className, fixed = true, ...props }) {
   const classes = useStyles(props);
 
   return (
