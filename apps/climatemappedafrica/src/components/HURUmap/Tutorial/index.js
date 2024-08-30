@@ -27,7 +27,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   },
 }));
 
-function Tutorial({ children, defaultOpen = false, items = [], ...props }) {
+function Tutorial({ children, defaultOpen = false, items, ...props }) {
   const classes = useStyles(props);
   const { setIsOpen } = useTour();
   setIsOpen(defaultOpen);
