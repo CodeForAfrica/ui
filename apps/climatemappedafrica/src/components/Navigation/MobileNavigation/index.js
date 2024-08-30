@@ -158,11 +158,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function MobileNavigation({
-  drawerLogoProps = undefined,
+  drawerLogoProps,
   href = "/explore",
-  menuProps = undefined,
-  mobileLogoProps = undefined,
-  socialLinks = undefined,
+  menuProps,
+  mobileLogoProps,
+  socialLinks,
   logoProps,
   ...props
 }) {

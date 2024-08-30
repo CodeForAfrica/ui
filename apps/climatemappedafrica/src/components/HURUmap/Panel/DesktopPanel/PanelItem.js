@@ -3,7 +3,7 @@ import React from "react";
 
 import RichData from "./RichData";
 
-function PanelItem({ item = undefined, ...props }) {
+function PanelItem({ item, ...props }) {
   const key = item.value;
   switch (key) {
     case "rich-data": // fallthrough
