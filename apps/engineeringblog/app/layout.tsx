@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Navbar from "@/engineeringblog/components/Navbar";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import StyledRoot from "./StyledRoot";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Code For Africa Engineering",
-  description: "The homepage of CFA engineering blog",
+  title: "Technology | Code for Africa",
+  description:
+    "Tech adventures in Africa's civic labs: Coding, innovating, and disrupting for good across the continent.",
 };
 
 export default function RootLayout({
@@ -18,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <AppRouterCacheProvider>
           <StyledRoot>
             <Navbar />
