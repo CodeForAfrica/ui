@@ -1,0 +1,6 @@
+# Disallow specifies the paths that are not allowed to be crawled by the robot.
+User-agent: *
+Disallow: /
+
+
+# Generatedy by RoboShield (https://roboshield.trustlab.africa)
