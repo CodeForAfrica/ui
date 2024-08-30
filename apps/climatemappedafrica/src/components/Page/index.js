@@ -7,7 +7,7 @@ import Base from "./Base";
  * Page component that adds error handling.
  * TODO(kilemensi): Add error handling once we have error page designs
  */
-function Page({ ...props }) {
+function Page(props) {
   return <Base {...props} />;
 }
 
