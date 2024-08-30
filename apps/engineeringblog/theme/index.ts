@@ -1,20 +1,10 @@
-"use client";
-
-import { createTheme, ThemeOptions } from "@mui/material";
+import { ThemeOptions, createTheme } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
-import { Merriweather, Open_Sans } from "next/font/google";
 
-const openSans = Open_Sans({
-  weight: ["300", "400", "600", "700", "800"],
-  subsets: ["latin"],
-});
-
-const merriWeather = Merriweather({
-  weight: ["300", "400", "700"],
-  subsets: ["latin"],
-});
-const FONT_FAMILY_PRIMARY = openSans.style.fontFamily;
-const FONT_FAMILY_SECONDARY = merriWeather.style.fontFamily;
+const FONT_FAMILY_SANS =
+  '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"';
+const FONT_FAMILY_MONO =
+  'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important';
 
 const palette = {
   mode: "light",
@@ -39,6 +29,17 @@ const breakpoints = {
   },
 };
 
+declare module "@mui/material/styles" {
+  interface TypographyOptions {
+    fontFamilyMono: string;
+  }
+  interface Theme {
+    typography: {
+      fontFamilyMono: string;
+    };
+  }
+}
+
 const theme = createTheme({
   palette,
   breakpoints,
@@ -52,99 +53,100 @@ const theme = createTheme({
     unit: "px",
   },
   typography: {
-    fontFamily: FONT_FAMILY_PRIMARY,
+    fontFamily: FONT_FAMILY_SANS,
+    fontFamilyMono: FONT_FAMILY_MONO,
     display1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 300,
       lineHeight: 72 / 72,
     },
     display2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       lineHeight: 72 / 60,
       letterSpacing: "-0.04em",
     },
     h1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       letterSpacing: "-0.04em",
     },
     h2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       letterSpacing: "-0.04em",
     },
     h3: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     h4: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     h5: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     h6: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 700,
       letterSpacing: "-0.02em",
     },
     subheading: {
-      fontFamily: FONT_FAMILY_SECONDARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 300,
     },
     subtitle1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
     },
     subtitle2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
     },
     body1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
     },
     body2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
     },
     body3: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
     },
     button: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 600,
     },
     caption: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
       lineHeight: 14 / 12,
     },
     footer: {
-      fontFamily: FONT_FAMILY_PRIMARY,
+      fontFamily: FONT_FAMILY_SANS,
       fontStyle: "normal",
       fontWeight: 400,
       lineHeight: 14 / 12,
@@ -373,10 +375,6 @@ deepmerge(
     body1: {
       fontSize: pxToRem(14),
       lineHeight: 23 / 14,
-      marginTop: pxToRem(28),
-      "&:first-of-type": {
-        marginTop: 0,
-      },
     },
     body1SemiBold: {
       ...theme.typography.body1,
@@ -398,10 +396,6 @@ deepmerge(
     body2: {
       fontSize: pxToRem(16),
       lineHeight: 26 / 16,
-      marginTop: pxToRem(28),
-      "&:first-of-type": {
-        marginTop: 0,
-      },
     },
     body2SemiBold: {
       ...theme.typography.body2,
