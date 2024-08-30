@@ -11,12 +11,13 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
-    "@mui/icons-material": "^5.16.1",
     "@mui/material": "^5.16.1",
     "@mui/material-nextjs": "^5.16.1",
     "@mui/utils": "^5.16.6",
@@ -27,6 +28,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -37,5 +39,8 @@
     "eslint-plugin-import": "^2.29.1",
     "prettier": "^3.3.3",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
