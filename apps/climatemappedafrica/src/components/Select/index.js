@@ -128,15 +128,4 @@ Input.propTypes = {
   selected: PropTypes.string,
 };
 
-Input.defaultProps = {
-  disabled: undefined,
-  helperText: undefined,
-  onChange: undefined,
-  onOpen: undefined,
-  onClose: undefined,
-  open: undefined,
-  placeholder: undefined,
-  selected: undefined,
-};
-
 export default Input;

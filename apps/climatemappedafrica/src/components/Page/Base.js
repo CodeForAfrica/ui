@@ -9,7 +9,7 @@ import getNavigationMenu from "@/climatemappedafrica/functions/menus/getNavigati
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, menus, variant, post, ...props }) {
+function BasePage({ children, menus, variant, ...props }) {
   const seo = {};
   const navigation = getNavigationMenu(menus?.primaryMenu || []);
   const { menuProps, socialLinks } = navigation;

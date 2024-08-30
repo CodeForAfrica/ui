@@ -119,8 +119,4 @@ SubcategoryList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-SubcategoryList.defaultProps = {
-  items: undefined,
-};
-
 export default SubcategoryList;

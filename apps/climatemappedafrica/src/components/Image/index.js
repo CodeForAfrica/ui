@@ -16,9 +16,4 @@ Image.propTypes = {
   src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
 };
 
-Image.defaultProps = {
-  placeholder: undefined,
-  src: undefined,
-};
-
 export default Image;

@@ -40,8 +40,4 @@ RichData.propTypes = {
   }),
 };
 
-RichData.defaultProps = {
-  primaryProfile: undefined,
-};
-
 export default RichData;

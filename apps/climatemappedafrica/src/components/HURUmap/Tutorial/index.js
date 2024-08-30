@@ -27,7 +27,7 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   },
 }));
 
-function Tutorial({ children, defaultOpen, items, ...props }) {
+function Tutorial({ children, defaultOpen = false, items, ...props }) {
   const classes = useStyles(props);
   const { setIsOpen } = useTour();
   setIsOpen(defaultOpen);
@@ -78,12 +78,6 @@ Tutorial.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
   children: PropTypes.node,
   defaultOpen: PropTypes.bool,
-};
-
-Tutorial.defaultProps = {
-  items: undefined,
-  children: undefined,
-  defaultOpen: false,
 };
 
 export default Tutorial;

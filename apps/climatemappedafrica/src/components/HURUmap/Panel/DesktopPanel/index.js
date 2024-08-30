@@ -48,13 +48,4 @@ DesktopPanel.propTypes = {
   }),
 };
 
-DesktopPanel.defaultProps = {
-  isCompare: undefined,
-  isPinning: undefined,
-  onClickPin: undefined,
-  onClickUnpin: undefined,
-  panelItems: undefined,
-  primaryProfile: undefined,
-};
-
 export default DesktopPanel;
