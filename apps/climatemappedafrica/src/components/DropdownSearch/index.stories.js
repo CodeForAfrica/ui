@@ -2,8 +2,6 @@ import React from "react";
 
 import DropdownSearch from ".";
 
-import { searchArgs } from "@/climatemappedafrica/config";
-
 export default {
   title: "Components/DropdownSearch",
   argTypes: {
@@ -27,5 +25,19 @@ function Template({ ...args }) {
 export const Default = Template.bind({});
 
 Default.args = {
-  ...searchArgs,
+  label: "Search for Location",
+  counties: [
+    {
+      name: "Nairobi",
+      code: 47,
+    },
+    {
+      name: "Marsabit",
+      code: 10,
+    },
+    {
+      name: "Meru",
+      code: 6,
+    },
+  ],
 };

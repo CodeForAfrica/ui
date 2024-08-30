@@ -2,7 +2,7 @@ import React from "react";
 
 import Panel from ".";
 
-import { hurumapArgs, panelArgs } from "@/climatemappedafrica/config";
+import { hurumapArgs } from "@/climatemappedafrica/config";
 
 const { locations } = hurumapArgs;
 
@@ -19,5 +19,4 @@ export const Default = Template.bind({});
 
 Default.args = {
   locations,
-  ...panelArgs,
 };

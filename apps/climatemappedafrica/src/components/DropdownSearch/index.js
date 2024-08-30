@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
-import SearchIcon from "@/climatemappedafrica/assets/icons/Group 3257.svg";
+import SearchIcon from "@/climatemappedafrica/assets/icons/search.svg";
 import Link from "@/climatemappedafrica/components/Link";
 
 const useStyles = makeStyles(({ palette, typography }) => ({

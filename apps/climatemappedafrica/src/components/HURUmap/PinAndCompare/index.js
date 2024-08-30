@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as PinIconDefault } from "@/climatemappedafrica/assets/Component 96 – 12.svg";
-import { ReactComponent as PinIconSelected } from "@/climatemappedafrica/assets/Group 958.svg";
+import { ReactComponent as PinIconDefault } from "@/climatemappedafrica/assets/pinBlack.svg";
+import { ReactComponent as PinIconSelected } from "@/climatemappedafrica/assets/pinSelected.svg";
 import Select from "@/climatemappedafrica/components/Select";
 
 function PinIcon(props) {
