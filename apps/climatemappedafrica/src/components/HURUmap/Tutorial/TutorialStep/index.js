@@ -7,7 +7,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/climatemappedafrica/assets/icons/Component 108 – 5.svg";
+import { ReactComponent as CloseIcon } from "@/climatemappedafrica/assets/icons/close.svg";
 
 function TutorialStep({ description, title, image, selector, ...props }) {
   const classes = useStyles(props);
@@ -75,14 +75,6 @@ TutorialStep.propTypes = {
   onClose: PropTypes.func,
   title: PropTypes.string,
   selector: PropTypes.string,
-};
-
-TutorialStep.defaultProps = {
-  description: undefined,
-  image: undefined,
-  onClose: undefined,
-  title: undefined,
-  selector: undefined,
 };
 
 export default TutorialStep;

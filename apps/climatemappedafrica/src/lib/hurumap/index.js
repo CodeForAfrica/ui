@@ -1,4 +1,4 @@
-import defaultIcon from "@/climatemappedafrica/assets/icons/Group 4658-white.svg";
+import defaultIcon from "@/climatemappedafrica/assets/icons/eye-white.svg";
 import { hurumap } from "@/climatemappedafrica/config";
 import fetchJson from "@/climatemappedafrica/utils/fetchJson";
 import formatNumericalValue from "@/climatemappedafrica/utils/formatNumericalValue";

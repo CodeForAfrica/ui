@@ -1,8 +1,8 @@
 import { createTheme } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
-import chevronrightDark from "@/climatemappedafrica/assets/icons/Group 997-dark.svg";
-import chevronright from "@/climatemappedafrica/assets/icons/Group 997.svg";
+import chevronright from "@/climatemappedafrica/assets/icons/chevronright.svg";
+import chevronrightDark from "@/climatemappedafrica/assets/icons/chevronrightDark.svg";
 import hoverIcon from "@/climatemappedafrica/assets/icons/hover-icon.png";
 
 const FONT_FAMILY = '"Poppins", "sans-serif"';

@@ -171,15 +171,4 @@ PanelButtons.propTypes = {
   }),
 };
 
-PanelButtons.defaultProps = {
-  drawerRef: undefined,
-  isCompare: undefined,
-  isPinning: undefined,
-  onClickPin: undefined,
-  onClickUnpin: undefined,
-  panelItems: undefined,
-  primaryProfile: undefined,
-  secondaryProfile: undefined,
-};
-
 export default PanelButtons;
