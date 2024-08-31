@@ -1,10 +1,13 @@
 import { Grid } from "@mui/material";
-import PropTypes from "prop-types";
 import React from "react";
 
 import Logo from "@/engineeringblog/components/Logo";
+import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
 
-const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
+const DesktopNavBar = React.forwardRef(function DesktopNavBar(
+  props: NavBarProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   const { logo, sx } = props;
 
   return (
@@ -21,15 +24,5 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
     </Grid>
   );
 });
-
-DesktopNavBar.propTypes = {
-  direction: PropTypes.string,
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    }),
-  ),
-};
 
 export default DesktopNavBar;

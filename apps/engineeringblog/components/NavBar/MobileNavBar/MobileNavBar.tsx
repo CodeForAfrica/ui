@@ -4,12 +4,13 @@ import {
   Grid,
   IconButton,
   Slide,
+  SlideProps,
   SvgIcon,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import PropTypes from "prop-types";
 import React from "react";
 
+import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
 import Logo from "@/engineeringblog/components/Logo";
 import CloseIcon from "@/engineeringblog/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import MenuIcon from "@/engineeringblog/assets/icons/Type=menu, Size=24, Color=CurrentColor.svg";
@@ -29,11 +30,19 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+interface TransitionProps extends SlideProps {}
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps,
+  ref,
+) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
+const MobileNavBar = React.forwardRef(function MobileNavBar(
+  props: NavBarProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   const { logo, sx } = props;
   const [open, setOpen] = React.useState(false);
 
@@ -88,23 +97,11 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               justifyContent: "space-between",
               alignItems: "flex-start",
             }}
-            onClose={handleClose}
           ></DialogContent>
         </DialogContainer>
       </Grid>
     </Grid>
   );
 });
-
-MobileNavBar.propTypes = {
-  direction: PropTypes.string,
-  logo: PropTypes.shape({}),
-  menus: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    }),
-  ),
-};
 
 export default MobileNavBar;
