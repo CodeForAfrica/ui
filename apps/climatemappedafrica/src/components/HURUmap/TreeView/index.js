@@ -89,9 +89,4 @@ TreeView.propTypes = {
   onLabelClick: PropTypes.func,
 };
 
-TreeView.defaultProps = {
-  items: undefined,
-  onLabelClick: undefined,
-};
-
 export default TreeView;

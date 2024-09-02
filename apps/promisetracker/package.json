@@ -49,7 +49,7 @@
     "react-dom": "catalog:",
     "react-share": "catalog:",
     "reading-time": "catalog:",
-    "sharp": "catalog:",
+    "sharp": "^0.33.5",
     "simplebar-react": "catalog:",
     "tiny-warning": "catalog:",
     "victory": "catalog:"

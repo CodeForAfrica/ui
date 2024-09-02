@@ -18,8 +18,4 @@ PanelItem.propTypes = {
   }),
 };
 
-PanelItem.defaultProps = {
-  item: undefined,
-};
-
 export default PanelItem;

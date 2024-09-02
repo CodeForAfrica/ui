@@ -195,16 +195,4 @@ Profile.propTypes = {
   }),
 };
 
-Profile.defaultProps = {
-  categories: undefined,
-  dataNotAvailable: undefined,
-  isLoading: undefined,
-  isPinning: undefined,
-  onClickPin: undefined,
-  onClickUnpin: undefined,
-  onSelectLocation: undefined,
-  primaryProfile: undefined,
-  secondaryProfile: undefined,
-};
-
 export default Profile;

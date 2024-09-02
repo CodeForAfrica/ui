@@ -54,7 +54,7 @@
     "react-test-renderer": "catalog:",
     "require-from-string": "catalog:",
     "typescript": "catalog:",
-    "webpack": "^5.93.0"
+    "webpack": "^5.94.0"
   },
   "peerDependencies": {
     "@babel/core": "catalog:",

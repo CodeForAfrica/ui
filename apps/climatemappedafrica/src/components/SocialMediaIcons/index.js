@@ -85,8 +85,4 @@ SocialMediaIcons.propTypes = {
   ),
 };
 
-SocialMediaIcons.defaultProps = {
-  socialLinks: undefined,
-};
-
 export default SocialMediaIcons;

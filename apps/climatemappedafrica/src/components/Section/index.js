@@ -21,7 +21,7 @@ const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
   }, {}),
 }));
 
-function Section({ className, fixed, ...props }) {
+function Section({ className, fixed = true, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -42,11 +42,6 @@ function Section({ className, fixed, ...props }) {
 Section.propTypes = {
   className: PropTypes.string,
   fixed: PropTypes.bool,
-};
-
-Section.defaultProps = {
-  className: undefined,
-  fixed: true,
 };
 
 export default Section;

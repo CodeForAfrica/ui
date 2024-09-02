@@ -72,7 +72,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-share": "catalog:",
-    "sharp": "catalog:",
+    "sharp": "^0.33.5",
     "slate": "catalog:",
     "swr": "catalog:"
   },

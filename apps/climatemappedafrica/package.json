@@ -62,7 +62,7 @@
     "react-multi-carousel": "catalog:",
     "react-share": "catalog:",
     "react-vega": "catalog:",
-    "sharp": "catalog:",
+    "sharp": "^0.33.5",
     "simplebar-react": "catalog:",
     "swr": "catalog:",
     "vega": "catalog:",

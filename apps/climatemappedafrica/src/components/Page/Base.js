@@ -1,27 +1,20 @@
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Footer from "@/climatemappedafrica/components/Footer";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import { navigationArgs } from "@/climatemappedafrica/config";
-import getFooterMenu from "@/climatemappedafrica/functions/menus/getFooterMenu";
 import getNavigationMenu from "@/climatemappedafrica/functions/menus/getNavigationMenu";
 
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, menus, variant, post, ...props }) {
+function BasePage({ children, menus, variant, ...props }) {
   const seo = {};
-  const footerProps = getFooterMenu(menus?.footerMenu || []);
   const navigation = getNavigationMenu(menus?.primaryMenu || []);
   const { menuProps, socialLinks } = navigation;
   const { desktopLogoProps, mobileLogoProps, drawerLogoProps } = navigationArgs;
-  const theme = useTheme();
 
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   const navigationProps = {
     ...props,
     ...menus,
@@ -60,7 +53,6 @@ function BasePage({ children, menus, variant, post, ...props }) {
         noindex={seo?.metaRobotsNoindex !== "index"}
       />
       {children}
-      {!(variant === "explore" && isDesktop) && <Footer {...footerProps} />}
     </>
   );
 }
@@ -75,12 +67,6 @@ BasePage.propTypes = {
     primaryMenu: PropTypes.arrayOf(PropTypes.shape({})),
   }),
   variant: PropTypes.string,
-};
-
-BasePage.defaultProps = {
-  children: undefined,
-  menus: undefined,
-  variant: undefined,
 };
 
 export default BasePage;

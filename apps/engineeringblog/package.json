@@ -11,6 +11,8 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
     "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
@@ -27,6 +29,8 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@svgr/webpack": "catalog:",
+    "@types/mdx": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
@@ -37,5 +41,8 @@
     "eslint-plugin-import": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
