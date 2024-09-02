@@ -16,7 +16,7 @@
     "@emotion/styled": "catalog:",
     "@mdx-js/loader": "catalog:",
     "@mdx-js/react": "catalog:",
-    "@mui/icons-material": "^5.16.7",
+    "@mui/icons-material": "catalog:",
     "@mui/material": "catalog:",
     "@mui/material-nextjs": "catalog:",
     "@mui/utils": "catalog:",

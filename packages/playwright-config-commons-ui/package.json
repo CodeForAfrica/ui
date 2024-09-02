@@ -12,17 +12,17 @@
     "clean": "rm -rf .turbo node_modules"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/preset-react": "^7.24.7",
-    "@playwright/test": "^1.45.3",
-    "eslint": "^8.57.0",
+    "@babel/core": "catalog:",
+    "@babel/preset-env": "catalog:",
+    "@babel/preset-react": "catalog:",
+    "@playwright/test": "catalog:",
+    "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "prettier": "^3.3.3",
-    "react": "^18.3.1",
-    "typescript": "^5.5.4"
+    "prettier": "catalog:",
+    "react": "catalog:",
+    "typescript": "catalog:"
   },
   "peerDependencies": {
-    "@playwright/test": "^1.19.2"
+    "@playwright/test": "catalog:"
   }
 }

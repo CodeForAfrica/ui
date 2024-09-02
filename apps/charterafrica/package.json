@@ -78,7 +78,7 @@
     "react-share": "catalog:",
     "react-swipeable-views-react-18-fix": "catalog:",
     "scheduler": "catalog:",
-    "sharp": "^0.33.5",
+    "sharp": "catalog:",
     "slate": "catalog:",
     "swr": "catalog:",
     "video.js": "catalog:",

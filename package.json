@@ -29,7 +29,7 @@
     "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
     "@playwright/test": "catalog:",
-    "eslint": "^8.57.0",
+    "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
     "husky": "catalog:",
     "lint-staged": "catalog:",
@@ -44,7 +44,7 @@
   "packageManager": "pnpm@9.9.0",
   "pnpm": {
     "overrides": {
-      "sharp": "^0.33.0"
+      "sharp": "catalog:"
     }
   }
 }
