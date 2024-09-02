@@ -1,6 +1,5 @@
-import TreeItem from "@mui/lab/TreeItem";
-import MuiTreeView from "@mui/lab/TreeView";
 import { Typography } from "@mui/material";
+import { SimpleTreeView, TreeItem } from "@mui/x-tree-view";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -30,14 +29,14 @@ function TreeView({ items, onLabelClick, ...props }) {
   }
   return (
     <div className={classes.root}>
-      <MuiTreeView expanded={[expanded]}>
+      <SimpleTreeView expanded={[expanded]}>
         {items.map((item) => {
           const itemId = slugify(item.title);
 
           return (
             <TreeItem
+              itemId={itemId}
               key={itemId}
-              nodeId={itemId}
               label={
                 <>
                   <Typography data-id={itemId} data-expand variant="caption">
@@ -58,8 +57,8 @@ function TreeView({ items, onLabelClick, ...props }) {
 
                 return (
                   <TreeItem
+                    itemId={childId}
                     key={childId}
-                    nodeId={childId}
                     label={
                       <Typography data-id={childId} variant="caption">
                         {child.title}
@@ -75,7 +74,7 @@ function TreeView({ items, onLabelClick, ...props }) {
             </TreeItem>
           );
         })}
-      </MuiTreeView>
+      </SimpleTreeView>
     </div>
   );
 }
