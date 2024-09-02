@@ -34,7 +34,12 @@ export default async function index() {
   }
 
   return (
-    <Container>
+    <Container
+      sx={{
+        mt: 5,
+        mb: 5,
+      }}
+    >
       <Grid
         container
         rowSpacing={{ xs: "28px", md: 5 }}
