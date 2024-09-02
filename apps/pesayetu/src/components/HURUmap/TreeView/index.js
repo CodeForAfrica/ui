@@ -60,7 +60,11 @@ function TreeView({ items, onLabelClick, ...props }) {
                     itemId={childId}
                     key={childId}
                     label={
-                      <Typography data-id={childId} variant="caption">
+                      <Typography
+                        data-id={childId}
+                        variant="caption"
+                        onClick={() => onLabelClick(childId)}
+                      >
                         {child.title}
                       </Typography>
                     }
