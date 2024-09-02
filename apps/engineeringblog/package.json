@@ -22,6 +22,7 @@
     "@mui/material-nextjs": "^5.16.1",
     "@mui/utils": "^5.16.6",
     "@next/mdx": "^14.2.5",
+    "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
     "next": "^14.2.5",
     "react": "^18",

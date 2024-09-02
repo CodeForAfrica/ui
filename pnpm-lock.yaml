@@ -936,6 +936,9 @@ importers:
       '@next/mdx':
         specifier: ^14.2.5
         version: 14.2.6(@mdx-js/loader@3.0.1(webpack@5.93.0))(@mdx-js/react@3.0.1(@types/react@18.3.3)(react@18.3.1))
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3

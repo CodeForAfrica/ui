@@ -1,7 +1,9 @@
-import { Box, Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import ArticleCard from "@/engineeringblog/components/Article";
+import { format } from "date-fns";
 
 export function getAllPosts() {
   const postsDirectory = path.join(process.cwd(), "content");
@@ -18,7 +20,7 @@ export function getAllPosts() {
       slug: fileName.replace(/\.mdx$/, ""),
       title: data.title,
       description: data.description,
-      date: data.date,
+      date: format(new Date(data.date), "MMM dd, yyyy"),
       featuredImage: data?.featuredImage,
     };
   });
@@ -26,17 +28,24 @@ export function getAllPosts() {
 
 export default async function index() {
   const posts = await getAllPosts();
+
+  if (!posts) {
+    return <div>No posts!</div>;
+  }
+
   return (
     <Container>
-      <Box>
-        {posts.map((post) => (
-          <Box key={post.slug}>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-            <p>{post.date}</p>
-          </Box>
+      <Grid
+        container
+        rowSpacing={{ xs: "28px", md: 5 }}
+        columnSpacing={{ xs: 0, sm: "18px", lg: "28px" }}
+      >
+        {posts?.map((article) => (
+          <Grid item xs={12} sm={4} key={article.slug}>
+            <ArticleCard article={article} />
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </Container>
   );
 }
