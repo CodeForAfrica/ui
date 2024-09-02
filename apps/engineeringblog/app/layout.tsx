@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Navbar from "@/engineeringblog/components/Navbar";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import StyledRoot from "./StyledRoot";
+import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+import NavBar from "@/engineeringblog/components/NavBar";
+import theme from "@/engineeringblog/theme";
+
+// TODO: blurWidth/blueHeight https://github.com/vercel/next.js/issues/56511
+import logoLight from "@/engineeringblog/assets/images/logo-light.png";
 
 export const metadata: Metadata = {
-  title: "Code For Africa Engineering",
-  description: "The homepage of CFA engineering blog",
+  title: "Technology | Code for Africa",
+  description:
+    "Tech adventures in Africa's civic labs: Coding, innovating, and disrupting for good across the continent.",
 };
 
 export default function RootLayout({
@@ -16,14 +19,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const logo = {
+    ...logoLight,
+    alt: "Technology | Code for Africa",
+    title: "Technology",
+  };
+
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <AppRouterCacheProvider>
-          <StyledRoot>
-            <Navbar />
+          <ThemeProvider theme={theme}>
+            <CssBaseline enableColorScheme />
+            <NavBar logo={logo} />
             {children}
-          </StyledRoot>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
