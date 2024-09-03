@@ -1,3 +1,4 @@
+import { ArticleWithoutContent } from "@/engineeringblog/utils";
 import {
   Card,
   CardActionArea,
@@ -7,25 +8,14 @@ import {
 } from "@mui/material";
 import React from "react";
 
-type Article = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  featuredImage: string;
-  content: string;
-};
-
-export type ArticleCardProps = {
-  article: Article;
-};
-
 const ArticleCard = React.forwardRef(function ArticleCard(
-  props: ArticleCardProps,
+  {
+    article,
+  }: {
+    article: ArticleWithoutContent;
+  },
   ref: React.Ref<HTMLDivElement>,
 ) {
-  const { article } = props;
-
   return (
     <Card
       elevation={0}

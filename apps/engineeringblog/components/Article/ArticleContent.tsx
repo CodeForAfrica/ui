@@ -4,27 +4,17 @@ import React from "react";
 import { Figure } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import ArticleHeader from "./ArticleHeader";
-
-type Article = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  featuredImage: string;
-  content: string;
-};
-
-export type ArticleCardProps = {
-  article: Article;
-};
+import { Article } from "@/engineeringblog/utils";
 
 const ArticleContent = React.forwardRef(function ArticleContent(
-  props: ArticleCardProps,
+  {
+    article,
+  }: {
+    article: Article;
+  },
   ref: React.Ref<HTMLDivElement>,
 ) {
-  const {
-    article: { title, description, featuredImage, date, content },
-  } = props;
+  const { title, description, featuredImage, date, content } = article;
 
   return (
     <Box ref={ref}>

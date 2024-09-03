@@ -4,25 +4,16 @@ import { Section } from "@commons-ui/core";
 import { Grid } from "@mui/material";
 import React from "react";
 import ArticleCard from "./ArticleCard";
+import { ArticleWithoutContent } from "@/engineeringblog/utils";
 
-type Article = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  featuredImage: string;
-  content: string;
-};
-
-export type ArticleCardProps = {
-  articles: Article[];
-};
-
-const ArtilceList = React.forwardRef(function ArtilceList(
-  props: ArticleCardProps,
+const ArticleList = React.forwardRef(function ArtilceList(
+  {
+    articles,
+  }: {
+    articles: ArticleWithoutContent[];
+  },
   ref: React.Ref<HTMLDivElement>,
 ) {
-  const { articles } = props;
   return (
     <Section ref={ref}>
       <Grid
@@ -40,4 +31,4 @@ const ArtilceList = React.forwardRef(function ArtilceList(
   );
 });
 
-export default ArtilceList;
+export default ArticleList;
