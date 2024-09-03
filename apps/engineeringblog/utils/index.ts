@@ -5,6 +5,16 @@ import { format } from "date-fns";
 import { remark } from "remark";
 import html from "remark-html";
 import remarkMdx from "remark-mdx";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeFormat from "rehype-format";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkParseFrontmatter from "remark-parse-frontmatter";
+import rehypeStringify from "rehype-stringify";
+import prism from "remark-prism";
+import rehypeRaw from "rehype-raw";
+import { unified } from "unified";
+import rehypeHighlight from "rehype-highlight";
 
 export type Article = {
   slug: string;
@@ -49,10 +59,7 @@ export async function getBlogPost(slug: string): Promise<Article> {
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(remarkMdx)
-    .use(html)
-    .process(content);
+  // const processedContent = await unified().processSync(content);
 
   return {
     slug,
@@ -60,6 +67,7 @@ export async function getBlogPost(slug: string): Promise<Article> {
     description: data.description,
     date: format(new Date(data.date), "MMM dd, yyyy"),
     featuredImage: data.featuredImage,
-    content: processedContent.toString(),
+    // processedContent: processedContent.toString(),
+    content,
   };
 }

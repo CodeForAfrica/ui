@@ -5,7 +5,7 @@ import { Figure } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import ArticleHeader from "./ArticleHeader";
 import { Article } from "@/engineeringblog/utils";
-
+import Markdown from "@/engineeringblog/components/Markdown";
 const ArticleContent = React.forwardRef(function ArticleContent(
   {
     article,
@@ -42,10 +42,7 @@ const ArticleContent = React.forwardRef(function ArticleContent(
         }}
         ref={ref}
       >
-        <Box
-          component="article"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <Markdown markdown={content} />
       </Section>
     </Box>
   );
