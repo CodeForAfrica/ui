@@ -13,6 +13,7 @@ type Article = {
   description: string;
   date: string;
   featuredImage: string;
+  content: string;
 };
 
 export type ArticleCardProps = {

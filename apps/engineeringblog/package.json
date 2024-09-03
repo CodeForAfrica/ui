@@ -17,7 +17,6 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
     "@mui/material": "^5.16.1",
     "@mui/material-nextjs": "^5.16.1",
     "@mui/utils": "^5.16.6",
@@ -26,7 +25,10 @@
     "gray-matter": "^4.0.3",
     "next": "^14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-mdx": "^3.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

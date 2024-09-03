@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { format } from "date-fns";
-import ArtilceList from "@/engineeringblog/components/Article/ArtilceList";
+import { ArtilceList } from "@/engineeringblog/components/Article";
 
 export function getAllPosts() {
   const postsDirectory = path.join(process.cwd(), "content");
@@ -14,7 +14,7 @@ export function getAllPosts() {
   return fileNames.map((fileName) => {
     const filePath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(filePath, "utf8");
-    const { data } = matter(fileContents);
+    const { data, content } = matter(fileContents);
 
     return {
       slug: fileName.replace(/\.mdx$/, ""),
@@ -22,6 +22,7 @@ export function getAllPosts() {
       description: data.description,
       date: format(new Date(data.date), "MMM dd, yyyy"),
       featuredImage: data?.featuredImage,
+      content,
     };
   });
 }
