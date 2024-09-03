@@ -11,6 +11,7 @@ import slugify from "@/pesayetu/utils/slugify";
 
 function TreeView({ items, onLabelClick, ...props }) {
   const classes = useStyles(props);
+
   const [expanded, setExpanded] = useState();
 
   const handleLabelClick = (e) => {
@@ -39,13 +40,17 @@ function TreeView({ items, onLabelClick, ...props }) {
               key={itemId}
               label={
                 <>
-                  <Typography data-id={itemId} data-expand variant="caption">
+                  <Typography
+                    data-id={itemId}
+                    data-expand
+                    variant="caption"
+                    onClick={() => onLabelClick(itemId)}
+                  >
                     {item.title}
                   </Typography>
                   <CheckIcon className={classes.icon} />
                 </>
               }
-              onLabelClick={handleLabelClick}
               classes={{
                 root: classes.tree,
                 expanded: classes.expanded,
