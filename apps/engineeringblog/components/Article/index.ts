@@ -1,3 +1,3 @@
-import ArticleCard from "./ArticleCard";
+import ArtilceList from "./ArtilceList";
 
-export default ArticleCard;
+export default ArtilceList;

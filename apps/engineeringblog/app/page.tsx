@@ -1,10 +1,9 @@
-import { Container, Grid } from "@mui/material";
-import { Section } from "@commons-ui/core";
+import { Container } from "@mui/material";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import ArticleCard from "@/engineeringblog/components/Article";
 import { format } from "date-fns";
+import ArtilceList from "@/engineeringblog/components/Article/ArtilceList";
 
 export function getAllPosts() {
   const postsDirectory = path.join(process.cwd(), "content");
@@ -35,18 +34,13 @@ export default async function index() {
   }
 
   return (
-    <Container sx={{ px: { xs: 2.5, sm: 0 } }}>
-      <Grid
-        container
-        rowSpacing={{ xs: "28px", md: 5 }}
-        columnSpacing={{ xs: 0, sm: "18px", lg: "28px" }}
-      >
-        {posts?.map((article) => (
-          <Grid item xs={12} sm={4} key={article.slug}>
-            <ArticleCard article={article} />
-          </Grid>
-        ))}
-      </Grid>
+    <Container
+      sx={{
+        px: { xs: 2.5, sm: 0 },
+        py: { xs: 2.5, sm: 5 },
+      }}
+    >
+      <ArtilceList articles={posts} />
     </Container>
   );
 }
