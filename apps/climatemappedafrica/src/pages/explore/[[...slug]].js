@@ -40,10 +40,6 @@ Explore.propTypes = {
   }),
 };
 
-Explore.defaultProps = {
-  blocks: undefined,
-};
-
 export async function getStaticPaths() {
   const { locations } = await fetchProfile();
   const paths = locations.map(({ code: locationCode }) => ({
