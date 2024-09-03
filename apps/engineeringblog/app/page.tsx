@@ -1,4 +1,5 @@
 import { Container, Grid } from "@mui/material";
+import { Section } from "@commons-ui/core";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -34,12 +35,7 @@ export default async function index() {
   }
 
   return (
-    <Container
-      sx={{
-        mt: 5,
-        mb: 5,
-      }}
-    >
+    <Container sx={{ px: { xs: 2.5, sm: 0 } }}>
       <Grid
         container
         rowSpacing={{ xs: "28px", md: 5 }}
