@@ -1,6 +1,5 @@
-import TreeItem from "@mui/lab/TreeItem";
-import MuiTreeView from "@mui/lab/TreeView";
 import { Typography } from "@mui/material";
+import { SimpleTreeView, TreeItem } from "@mui/x-tree-view";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -12,13 +11,15 @@ import slugify from "@/pesayetu/utils/slugify";
 
 function TreeView({ items, onLabelClick, ...props }) {
   const classes = useStyles(props);
+
   const [expanded, setExpanded] = useState();
 
   const handleLabelClick = (e) => {
     e.preventDefault();
     const { id, expand } = e.target.dataset;
+
     if (expand) {
-      setExpanded(id);
+      setExpanded([id]);
     }
     if (onLabelClick) {
       onLabelClick(id);
@@ -30,23 +31,27 @@ function TreeView({ items, onLabelClick, ...props }) {
   }
   return (
     <div className={classes.root}>
-      <MuiTreeView expanded={[expanded]}>
+      <SimpleTreeView expandedItems={expanded}>
         {items.map((item) => {
           const itemId = slugify(item.title);
 
           return (
             <TreeItem
+              itemId={itemId}
               key={itemId}
-              nodeId={itemId}
               label={
                 <>
-                  <Typography data-id={itemId} data-expand variant="caption">
+                  <Typography
+                    data-id={itemId}
+                    data-expand
+                    variant="caption"
+                    onClick={handleLabelClick}
+                  >
                     {item.title}
                   </Typography>
                   <CheckIcon className={classes.icon} />
                 </>
               }
-              onLabelClick={handleLabelClick}
               classes={{
                 root: classes.tree,
                 expanded: classes.expanded,
@@ -58,14 +63,17 @@ function TreeView({ items, onLabelClick, ...props }) {
 
                 return (
                   <TreeItem
+                    itemId={childId}
                     key={childId}
-                    nodeId={childId}
                     label={
-                      <Typography data-id={childId} variant="caption">
+                      <Typography
+                        data-id={childId}
+                        variant="caption"
+                        onClick={handleLabelClick}
+                      >
                         {child.title}
                       </Typography>
                     }
-                    onLabelClick={handleLabelClick}
                     classes={{
                       label: clsx(classes.label, classes.childLabel),
                     }}
@@ -75,7 +83,7 @@ function TreeView({ items, onLabelClick, ...props }) {
             </TreeItem>
           );
         })}
-      </MuiTreeView>
+      </SimpleTreeView>
     </div>
   );
 }
