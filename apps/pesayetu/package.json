@@ -39,7 +39,6 @@
     "@emotion/styled": "^11.13.0",
     "@hurumap/core": "workspace:*",
     "@hurumap/next": "workspace:*",
-    "@mui/lab": "5.0.0-alpha.155",
     "@mui/material": "^5.16.6",
     "@mui/styles": "^5.16.6",
     "@mui/utils": "^5.16.6",
