@@ -11,9 +11,7 @@ import {
 } from "@/climatemappedafrica/lib/hurumap";
 
 export default function Explore(props) {
-  const {
-    blocks: { tutorial, panel },
-  } = props;
+  const { blocks: { tutorial = {}, panel = {} } = {} } = props;
   const {
     query: { showTutorial },
   } = useRouter();

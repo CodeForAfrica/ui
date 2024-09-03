@@ -69,11 +69,4 @@ DesktopNavigation.propTypes = {
   }),
 };
 
-DesktopNavigation.defaultProps = {
-  logoProps: undefined,
-  menuProps: undefined,
-  socialLinks: undefined,
-  desktopLogoProps: undefined,
-};
-
 export default DesktopNavigation;

@@ -79,12 +79,4 @@ LocationHeader.propTypes = {
   title: PropTypes.string,
 };
 
-LocationHeader.defaultProps = {
-  icon: undefined,
-  level: undefined,
-  onClick: undefined,
-  parent: undefined,
-  title: undefined,
-};
-
 export default LocationHeader;

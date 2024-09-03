@@ -5,7 +5,7 @@ import SubcategoryList from "./SubcategoryList";
 
 import Profile from "@/climatemappedafrica/components/HURUmap/Panel/Profile";
 
-function RichData({ item, ...props }) {
+function RichData({ item, geography, ...props }) {
   return (
     <>
       <SubcategoryList items={item.children} />
@@ -24,11 +24,6 @@ RichData.propTypes = {
   geography: PropTypes.shape({
     name: PropTypes.string,
   }),
-};
-
-RichData.defaultProps = {
-  item: undefined,
-  geography: undefined,
 };
 
 export default RichData;

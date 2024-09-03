@@ -112,12 +112,4 @@ MobilePanel.propTypes = {
   scrollToTopLabel: PropTypes.string,
 };
 
-MobilePanel.defaultProps = {
-  activeType: undefined,
-  dataNotAvailable: undefined,
-  onSelectLocation: undefined,
-  primaryProfile: undefined,
-  scrollToTopLabel: undefined,
-};
-
 export default MobilePanel;

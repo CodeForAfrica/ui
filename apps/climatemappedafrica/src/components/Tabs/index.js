@@ -15,7 +15,7 @@ function a11yProps(name, index) {
 }
 
 function Tabs({
-  activeTab,
+  activeTab = 0,
   items,
   name: nameProp,
   onChange,
@@ -103,14 +103,6 @@ Tabs.propTypes = {
     }),
   ),
   onChange: PropTypes.func,
-};
-
-Tabs.defaultProps = {
-  activeTab: 0,
-  items: undefined,
-  linkComponent: undefined,
-  name: undefined,
-  onChange: undefined,
 };
 
 export default Tabs;

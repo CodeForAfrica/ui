@@ -13,8 +13,8 @@ function ChartFilter({
   onSelectAttribute,
   deleteFilter,
   index,
-  attributeText,
-  valueText,
+  attributeText = "Filter by attribute:",
+  valueText = "Select a value:",
   selectedAttribute: selectedAttributeProp,
   selectedValue: selectedValueProp,
   ...props
@@ -161,8 +161,6 @@ ChartFilter.defaultProps = {
   onSelectAttribute: undefined,
   selectedValue: undefined,
   selectedAttribute: undefined,
-  attributeText: "Filter by attribute:",
-  valueText: "Select a value:",
 };
 
 export default ChartFilter;

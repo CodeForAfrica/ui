@@ -36,10 +36,4 @@ CategoryHeader.propTypes = {
   icon: PropTypes.string,
 };
 
-CategoryHeader.defaultProps = {
-  title: undefined,
-  description: undefined,
-  icon: undefined,
-};
-
 export default CategoryHeader;

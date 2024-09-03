@@ -154,8 +154,4 @@ Menu.propTypes = {
   children: PropTypes.node,
 };
 
-Menu.defaultProps = {
-  children: undefined,
-  socialLinks: undefined,
-};
 export default Menu;
