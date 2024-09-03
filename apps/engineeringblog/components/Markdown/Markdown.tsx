@@ -1,5 +1,6 @@
+// Addapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
 import { FC } from "react";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { Components } from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
@@ -27,22 +28,15 @@ type MarkdownProps = {
 const Markdown: FC<MarkdownProps> = ({ markdown }) => {
   const syntaxTheme = oneDark;
 
-  const MarkdownComponents: {
-    code: FC<{
-      node: any;
-      inline: boolean;
-      className: string;
-      [key: string]: any;
-    }>;
-  } = {
-    code({ node, inline, className, ...props }) {
+  const MarkdownComponents: Components = {
+    code({ node, className, children, ...props }) {
       const hasLang = /language-(\w+)/.exec(className || "");
       const hasMeta = node?.data?.meta;
 
       const applyHighlights = (lineNumber: number): { data?: string } => {
         if (hasMeta) {
           const RE = /{([\d,-]+)}/;
-          const metadata = node.data.meta?.replace(/\s/g, "");
+          const metadata = node?.data?.meta?.replace(/\s/g, "") || "";
           const strlineNumbers = RE?.test(metadata)
             ? RE?.exec(metadata)![1]
             : "0";
@@ -66,13 +60,15 @@ const Markdown: FC<MarkdownProps> = ({ markdown }) => {
           useInlineStyles={true}
           lineProps={applyHighlights}
         >
-          {props.children}
+          {String(children).replace(/\n$/, "")}
         </SyntaxHighlighter>
       ) : (
-        <code className={className} {...props} />
+        <code className={className} {...props}>
+          {children}
+        </code>
       );
     },
-  };
+  } as Components;
 
   return (
     <ReactMarkdown components={MarkdownComponents}>{markdown}</ReactMarkdown>
