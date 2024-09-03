@@ -4,12 +4,25 @@ const useStyles = makeStyles(({ typography, palette }) => ({
   root: {
     textAlign: "right",
     background: palette.background.paper,
-    "& .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label":
-      {
-        backgroundColor: "unset",
-      },
+    "& .MuiTreeItem-content.Mui-selected": {
+      backgroundColor: "unset",
+    },
     "& .MuiTreeItem-iconContainer": {
       width: 0,
+    },
+    "& .MuiTreeItem-iconContainer svg": {
+      display: "none",
+    },
+    "& .MuiTreeItem-content": {
+      padding: 0,
+      borderRadius: 0,
+      "&.Mui-expanded": {
+        borderRightColor: palette.primary.main,
+        borderRightWidth: typography.pxToRem(2),
+        borderRightStyle: "Solid",
+        backgroundColor: palette.background.default,
+        borderBottom: `1px solid ${palette.grey.main}`,
+      },
     },
   },
   label: {
@@ -29,18 +42,9 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     fill: palette.grey.main,
     width: typography.pxToRem(19),
   },
-  tree: {},
   expanded: {
     "& .MuiCollapse-root": {
       marginLeft: 0,
-      borderTop: `1px solid ${palette.grey.main}`,
-      borderBottom: `1px solid ${palette.grey.main}`,
-    },
-    "&> .MuiTreeItem-content": {
-      borderRightColor: palette.primary.main,
-      borderRightWidth: typography.pxToRem(2),
-      borderRightStyle: "Solid",
-      backgroundColor: palette.background.default,
     },
     "& $icon": {
       fill: "#666666",

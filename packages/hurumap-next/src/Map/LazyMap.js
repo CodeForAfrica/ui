@@ -50,11 +50,8 @@ const LazyMap = React.forwardRef(function LazyMap(props, ref) {
     [preferredChildren, isPinOrCompare],
   );
 
-  const { choropleth, legend } = generateChoropleth(
-    choroplethProps,
-    locations,
-    mapType,
-  );
+  const { choropleth, legend } =
+    generateChoropleth(choroplethProps, locations, mapType) || {};
 
   useEffect(() => {
     let selectedBound =
