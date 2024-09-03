@@ -17,8 +17,9 @@ function TreeView({ items, onLabelClick, ...props }) {
   const handleLabelClick = (e) => {
     e.preventDefault();
     const { id, expand } = e.target.dataset;
+
     if (expand) {
-      setExpanded(id);
+      setExpanded([id]);
     }
     if (onLabelClick) {
       onLabelClick(id);
@@ -30,7 +31,7 @@ function TreeView({ items, onLabelClick, ...props }) {
   }
   return (
     <div className={classes.root}>
-      <SimpleTreeView expanded={[expanded]}>
+      <SimpleTreeView expandedItems={expanded}>
         {items.map((item) => {
           const itemId = slugify(item.title);
 
@@ -44,7 +45,7 @@ function TreeView({ items, onLabelClick, ...props }) {
                     data-id={itemId}
                     data-expand
                     variant="caption"
-                    onClick={() => onLabelClick(itemId)}
+                    onClick={handleLabelClick}
                   >
                     {item.title}
                   </Typography>
@@ -68,12 +69,11 @@ function TreeView({ items, onLabelClick, ...props }) {
                       <Typography
                         data-id={childId}
                         variant="caption"
-                        onClick={() => onLabelClick(childId)}
+                        onClick={handleLabelClick}
                       >
                         {child.title}
                       </Typography>
                     }
-                    onLabelClick={handleLabelClick}
                     classes={{
                       label: clsx(classes.label, classes.childLabel),
                     }}
