@@ -49,7 +49,7 @@
     "react-dom": "catalog:",
     "react-test-renderer": "catalog:",
     "typescript": "catalog:",
-    "webpack": "^5.94.0"
+    "webpack": "catalog:"
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
@@ -57,11 +57,11 @@
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
     "react": "catalog:",
-    "react-dom": "^18.2.0"
+    "react-dom": "catalog:"
   },
   "dependencies": {
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",
-    "prop-types": "^15.8.1"
+    "prop-types": "catalog:"
   }
 }

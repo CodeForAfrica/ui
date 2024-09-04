@@ -54,7 +54,7 @@
     "react-test-renderer": "catalog:",
     "require-from-string": "catalog:",
     "typescript": "catalog:",
-    "webpack": "^5.94.0"
+    "webpack": "catalog:"
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
@@ -68,7 +68,7 @@
     "react-copy-to-clipboard": "catalog:",
     "react-dom": "catalog:",
     "react-share": "catalog:",
-    "xlsx": "^0.18.5"
+    "xlsx": "catalog:"
   },
   "dependencies": {
     "@commons-ui/core": "workspace:*",
@@ -79,6 +79,6 @@
     "react-copy-to-clipboard": "catalog:",
     "react-share": "catalog:",
     "vega": "catalog:",
-    "xlsx": "^0.18.5"
+    "xlsx": "catalog:"
   }
 }

@@ -46,19 +46,19 @@
     "react-dom": "catalog:",
     "require-from-string": "catalog:",
     "typescript": "catalog:",
-    "webpack": "^5.94.0"
+    "webpack": "catalog:"
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
     "@commons-ui/core": "workspace:*",
     "@mui/material": "catalog:",
     "clsx": "catalog:",
-    "next": "~13.4.11",
+    "next": "catalog:",
     "prop-types": "catalog:",
     "react": "catalog:",
-    "react-dom": "^18.2.0"
+    "react-dom": "catalog:"
   },
   "dependencies": {
-    "clsx": "^2.1.1"
+    "clsx": "catalog:"
   }
 }

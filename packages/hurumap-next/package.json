@@ -53,7 +53,7 @@
     "react-leaflet": "catalog:",
     "require-from-string": "catalog:",
     "typescript": "catalog:",
-    "webpack": "^5.94.0"
+    "webpack": "catalog:"
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
@@ -68,6 +68,6 @@
     "prop-types": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-leaflet": "^4.2.1"
+    "react-leaflet": "catalog:"
   }
 }

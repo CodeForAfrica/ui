@@ -30,18 +30,18 @@
     "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
-    "eslint-plugin-testing-library": "^6.3.0"
+    "eslint-plugin-testing-library": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "react": "catalog:",
-    "typescript": "^5.5.4"
+    "typescript": "catalog:"
   },
   "peerDependencies": {
     "eslint": "catalog:",
     "prettier": "catalog:",
-    "typescript": "^4.6.2"
+    "typescript": "catalog:"
   }
 }
