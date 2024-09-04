@@ -12,9 +12,11 @@ import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import scss from "react-syntax-highlighter/dist/cjs/languages/prism/scss";
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
+import CodeCopyBtn from "./CodeCopyBtn";
 
 import rangeParser from "parse-numeric-range";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Box } from "@mui/material";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -31,10 +33,27 @@ type MarkdownProps = {
   markdown: string;
 };
 
+const Pre = ({ children }: { children: JSX.Element }) => (
+  <Box
+    component="pre"
+    sx={{
+      position: "relative",
+      padding: "1em",
+      backgroundColor: "#282c34",
+      borderRadius: "5px",
+      overflow: "auto",
+    }}
+  >
+    <CodeCopyBtn>{children}</CodeCopyBtn>
+    {children}
+  </Box>
+);
+
 const Markdown: FC<MarkdownProps> = ({ markdown }) => {
   const syntaxTheme = oneDark;
 
   const MarkdownComponents: Components = {
+    pre: Pre,
     code({ node, className, children, ...props }) {
       const hasLang = /language-(\w+)/.exec(className || "");
       const hasMeta = node?.data?.meta;
