@@ -23,10 +23,15 @@
     "@mui/material-nextjs": "catalog:",
     "@mui/utils": "catalog:",
     "@next/mdx": "catalog:",
+    "date-fns": "catalog:",
+    "gray-matter": "catalog:",
     "@types/mdx": "catalog:",
     "next": "catalog:",
+    "parse-numeric-range": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "react-markdown": "catalog:",
+    "react-syntax-highlighter": "catalog:"
   },
   "devDependencies": {
     "@svgr/webpack": "catalog:",
@@ -34,6 +39,7 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@types/react-syntax-highlighter": "catalog:",
     "eslint": "catalog:",
     "eslint-config-next": "catalog:",
     "eslint-config-prettier": "catalog:",
