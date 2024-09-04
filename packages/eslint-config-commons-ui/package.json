@@ -13,35 +13,35 @@
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.25.1",
-    "@babel/preset-react": "^7.24.7",
-    "@next/eslint-plugin-next": "^14.2.5",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-turbo": "^2.0.11",
-    "eslint-import-resolver-jsconfig": "^1.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^27.9.0",
-    "eslint-plugin-jest-dom": "^5.4.0",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-markdown": "^3.0.1",
-    "eslint-plugin-playwright": "^0.19.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-testing-library": "^6.2.2"
+    "@babel/eslint-parser": "catalog:",
+    "@babel/preset-react": "catalog:",
+    "@next/eslint-plugin-next": "catalog:",
+    "eslint-config-airbnb": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-config-turbo": "catalog:",
+    "eslint-import-resolver-jsconfig": "catalog:",
+    "eslint-plugin-import": "catalog:",
+    "eslint-plugin-jest": "catalog:",
+    "eslint-plugin-jest-dom": "catalog:",
+    "eslint-plugin-json": "catalog:",
+    "eslint-plugin-jsx-a11y": "catalog:",
+    "eslint-plugin-markdown": "catalog:",
+    "eslint-plugin-playwright": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-testing-library": "catalog:"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.3",
-    "react": "^18.3.1",
-    "typescript": "^5.5.4"
+    "@babel/core": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "react": "catalog:",
+    "typescript": "catalog:"
   },
   "peerDependencies": {
-    "eslint": "^8.11.0",
-    "prettier": "^2.6.0",
-    "typescript": "^4.6.2"
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
   }
 }
