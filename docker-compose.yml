@@ -175,7 +175,11 @@ services:
         - API_SECRET_KEY
     environment:
       NODE_ENV: ${NODE_ENV:-production}
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
+      NEXT_APP_VPN_API_URL: ${NEXT_APP_VPN_API_URL}
     ports:
       - ${VPN_MANAGER_PORT:-3000}:3000
+    volumes:
+      - ./db_data:/apps/vpnmanager/data
 volumes:
   db_data:

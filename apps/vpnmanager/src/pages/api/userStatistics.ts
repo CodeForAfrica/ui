@@ -1,5 +1,5 @@
 import { NextApiResponse, NextApiRequest } from "next";
-import { processNewUsers } from "@/vpnmanager/lib/processUsers";
+import { processUserStats, getStats } from "@/vpnmanager/lib/userStatistics";
 
 export async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -8,8 +8,14 @@ export async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!(key && key === API_SECRET_KEY)) {
       return res.status(403).json({ message: "INVALID_API_KEY" });
     }
-    processNewUsers();
-    return res.status(200).json({ message: "Process Started" });
-  } catch (error) {}
+    if (req.method === "POST") {
+      const data = await processUserStats();
+      return res.status(200).json(data);
+    }
+    const response = await getStats(req.query as { [key: string]: string });
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
 }
 export default handler;
