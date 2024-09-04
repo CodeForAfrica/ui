@@ -21,7 +21,18 @@ module.exports = {
     "^.+\\.(js|jsx|ts|tsx)$": [
       "babel-jest",
       {
-        presets: ["next/babel"],
+        sourceType: "unambiguous",
+        targets: { node: process.versions.node },
+        // Can't use presets: ["next/babel"] here
+        // https://github.com/babel/babel/issues/16798#issuecomment-2326220768
+        // In short, next/babel is bundling old versions of babel that don't have the
+        // import assertions/attributes fix.
+        // 🤞🏽 this will be sorted in the next.js release
+        presets: [
+          "@babel/preset-env",
+          // or runtime: 'classic', depending on which one you are using
+          ["@babel/preset-react", { development: true, runtime: "automatic" }],
+        ],
         plugins: ["@babel/plugin-transform-private-methods"],
       },
     ],
