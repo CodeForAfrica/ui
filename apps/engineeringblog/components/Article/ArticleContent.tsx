@@ -18,17 +18,6 @@ const ArticleContent = React.forwardRef(function ArticleContent(
 
   return (
     <Box ref={ref}>
-      <Figure
-        ImageProps={{
-          alt: title,
-          sx: { objectFit: "cover" },
-          src: featuredImage,
-        }}
-        sx={{
-          width: "100%",
-          height: { xs: "163px", md: "600px" },
-        }}
-      />
       <ArticleHeader date={date} excerpt={description} title={title} sx={{}} />
       <Section
         component="header"
