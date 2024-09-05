@@ -1,13 +1,13 @@
 import { Container } from "@mui/material";
 import { ArticleList } from "@/engineeringblog/components/Article";
 import { getAllPosts } from "@/engineeringblog/utils";
-import Empty from "@/engineeringblog/components/Empty";
+import NoPosts from "@/engineeringblog/components/NoPosts";
 
 export default async function index() {
   const posts = await getAllPosts();
 
   if (!posts.length) {
-    return <Empty />;
+    return <NoPosts />;
   }
 
   return (

@@ -4,7 +4,7 @@ import React from "react";
 import bg from "@/engineeringblog/assets/images/1920x668px bg - 2 2.png";
 import { alpha, Box, Typography } from "@mui/material";
 
-const Empty = React.forwardRef(function Empty() {
+const NoPosts = React.forwardRef(function NoPosts() {
   return (
     <Box
       sx={(theme) => ({
@@ -70,4 +70,4 @@ const Empty = React.forwardRef(function Empty() {
   );
 });
 
-export default Empty;
+export default NoPosts;
