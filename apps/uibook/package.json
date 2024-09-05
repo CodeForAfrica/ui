@@ -28,7 +28,7 @@
     "clean": "rm -rf .next .turbo node_modules storybook-static"
   },
   "dependencies": {
-    "@commons-ui/core": "catalog:",
+    "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
     "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",

@@ -53,8 +53,7 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
 
 const Transition: ForwardRefExoticComponent<
   Omit<SlideProps, "ref"> & RefAttributes<HTMLDivElement>
-> = React.forwardRef(function Transition<D extends React.ElementType>(
-  // @ts-expect-error: Let's ignore a compile on children for now
+> = React.forwardRef(function Transition(
   { children, ...props },
   ref: React.Ref<HTMLDivElement> | undefined,
 ) {

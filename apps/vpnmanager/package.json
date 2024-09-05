@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/preset-react": "catalog:",
-    "@commons-ui/core": "catalog:",
+    "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
     "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
