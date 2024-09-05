@@ -107,7 +107,7 @@ function reducer(state, action) {
         newState.secondary = undefined;
       }
       newState.secondary = undefined;
-      newState.slug = newState.primary.geography?.code?.toLowerCase();
+      newState.slug = newState.primary.geography.code.toLowerCase();
 
       return newState;
     }

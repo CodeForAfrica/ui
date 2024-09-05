@@ -1,8 +1,6 @@
-// lib/Database.ts
 import betterSqlite3 from "better-sqlite3";
 import path from "path";
 
-// Define the database file path
 const dbPath = path.resolve(process.cwd(), "data", "database.sqlite");
 const db = betterSqlite3(dbPath);
 
