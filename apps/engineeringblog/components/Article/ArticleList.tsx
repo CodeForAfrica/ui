@@ -23,7 +23,7 @@ const ArticleList = React.forwardRef(function ArtilceList(
       >
         {articles?.map((article) => (
           <Grid item xs={12} sm={4} key={article.slug}>
-            <ArticleCard article={article} />
+            <ArticleCard {...article} />
           </Grid>
         ))}
       </Grid>

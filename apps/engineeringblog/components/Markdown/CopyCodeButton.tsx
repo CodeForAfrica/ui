@@ -1,12 +1,14 @@
 import React from "react";
-import { CopyAll } from "@mui/icons-material";
-import DoneIcon from "@mui/icons-material/Done";
-import { Box } from "@mui/material";
+import { IconButton } from "@mui/material";
+import CopyIcon from "@/engineeringblog/assets/icons/Type=copy, Size=24, Color=White.svg";
+import CheckIcon from "@/engineeringblog/assets/icons/Type=check-circle, Size=24, Color=White.svg";
 
-export default function CodeCopyBtn({ children }: { children: JSX.Element }) {
+export default function CopyCodeButton({
+  children,
+}: {
+  children: JSX.Element;
+}) {
   const [copyOk, setCopyOk] = React.useState(false);
-
-  const iconColor = copyOk ? "#0af20a" : "#ddd";
 
   const handleClick = (_e: React.MouseEvent) => {
     navigator.clipboard.writeText(children.props.children);
@@ -18,7 +20,7 @@ export default function CodeCopyBtn({ children }: { children: JSX.Element }) {
   };
 
   return (
-    <Box
+    <IconButton
       sx={{
         color: "white",
         position: "absolute",
@@ -30,15 +32,10 @@ export default function CodeCopyBtn({ children }: { children: JSX.Element }) {
       }}
     >
       {copyOk ? (
-        <DoneIcon
-          sx={{
-            color: iconColor,
-          }}
-        />
+        <CheckIcon />
       ) : (
-        <CopyAll
+        <CopyIcon
           sx={{
-            color: iconColor,
             "&:hover": {
               color: "#fff",
             },
@@ -46,6 +43,6 @@ export default function CodeCopyBtn({ children }: { children: JSX.Element }) {
           onClick={handleClick}
         />
       )}
-    </Box>
+    </IconButton>
   );
 }

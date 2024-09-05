@@ -9,11 +9,7 @@ import {
 import React from "react";
 
 const ArticleCard = React.forwardRef(function ArticleCard(
-  {
-    article,
-  }: {
-    article: ArticleWithoutContent;
-  },
+  { title, publishDate, featuredImage, slug }: ArticleWithoutContent,
   ref: React.Ref<HTMLDivElement>,
 ) {
   return (
@@ -32,13 +28,10 @@ const ArticleCard = React.forwardRef(function ArticleCard(
         filter: "drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1))",
       }}
     >
-      <CardActionArea
-        component={article.slug ? "a" : "div"}
-        href={article.slug}
-      >
+      <CardActionArea component={slug ? "a" : "div"} href={slug}>
         <CardMedia
           component="img"
-          src={article.featuredImage}
+          src={featuredImage}
           sx={{
             height: "217.64px",
             filter:
@@ -46,12 +39,12 @@ const ArticleCard = React.forwardRef(function ArticleCard(
           }}
         />
         <CardContent>
-          <Typography variant="subtitle1">{article.title}</Typography>
+          <Typography variant="subtitle1">{title}</Typography>
           <Typography
             sx={{ color: "#9F9494", display: "block", mt: 2 }}
             variant="caption"
           >
-            {article.date}
+            {publishDate}
           </Typography>
         </CardContent>
       </CardActionArea>

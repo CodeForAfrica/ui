@@ -12,7 +12,7 @@ import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import scss from "react-syntax-highlighter/dist/cjs/languages/prism/scss";
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
-import CodeCopyBtn from "./CodeCopyBtn";
+import CopyCodeButton from "./CopyCodeButton";
 
 import rangeParser from "parse-numeric-range";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -44,7 +44,7 @@ const Pre = ({ children }: { children: JSX.Element }) => (
       overflow: "auto",
     }}
   >
-    <CodeCopyBtn>{children}</CodeCopyBtn>
+    <CopyCodeButton>{children}</CopyCodeButton>
     {children}
   </Box>
 );

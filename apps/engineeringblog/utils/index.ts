@@ -6,14 +6,14 @@ export type Article = {
   slug: string;
   title: string;
   description: string;
-  date: string;
+  publishDate: string;
   featuredImage: string;
   content: string;
 };
 
 export type ArticleWithoutContent = Omit<Article, "content">;
 
-export function getAllPosts(): ArticleWithoutContent[] {
+export function getAllContents(): ArticleWithoutContent[] {
   const postsDirectory = path.join(process.cwd(), "content");
   const fileNames = fs
     .readdirSync(postsDirectory)
@@ -28,18 +28,21 @@ export function getAllPosts(): ArticleWithoutContent[] {
       slug: fileName.replace(/\.mdx$/, ""),
       title: data.title,
       description: data.description,
-      date: data.date,
-      formattedDate: format(new Date(data.date), "MMM dd, yyyy"),
+      publishDate: data.publishDate,
+      formattedDate: format(new Date(data.publishDate), "MMM dd, yyyy"),
       featuredImage: data?.featuredImage,
     };
   });
 
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  posts.sort(
+    (a, b) =>
+      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+  );
 
   return posts;
 }
 
-export async function getBlogPost(slug: string): Promise<Article> {
+export async function getContent(slug: string): Promise<Article> {
   const postsDirectory = path.join(process.cwd(), "content");
   const filePath = path.join(postsDirectory, `${slug}.mdx`);
   const fileContents = fs.readFileSync(filePath, "utf8");
@@ -49,7 +52,7 @@ export async function getBlogPost(slug: string): Promise<Article> {
     slug,
     title: data.title,
     description: data.description,
-    date: format(new Date(data.date), "MMM dd, yyyy"),
+    publishDate: format(new Date(data.publishDate), "MMM dd, yyyy"),
     featuredImage: data.featuredImage,
     content,
   };
