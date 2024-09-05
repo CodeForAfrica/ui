@@ -252,14 +252,4 @@ ProfileItems.propTypes = {
   }),
 };
 
-ProfileItems.defaultProps = {
-  categories: undefined,
-  dataNotAvailable: undefined,
-  getSecondaryIndicator: undefined,
-  getSecondaryMetric: undefined,
-  geoCode: undefined,
-  primaryProfile: undefined,
-  secondaryProfile: undefined,
-};
-
 export default ProfileItems;

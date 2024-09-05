@@ -76,8 +76,4 @@ Navigation.propTypes = {
   variant: PropTypes.string,
 };
 
-Navigation.defaultProps = {
-  variant: undefined,
-};
-
 export default Navigation;

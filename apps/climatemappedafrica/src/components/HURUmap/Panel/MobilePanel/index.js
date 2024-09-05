@@ -4,8 +4,8 @@ import React from "react";
 
 import RichData from "./RichData";
 
-import { ReactComponent as TopIcon } from "@/climatemappedafrica/assets/icons/Component 130 – 1.svg";
 import Print from "@/climatemappedafrica/assets/icons/print.svg";
+import { ReactComponent as TopIcon } from "@/climatemappedafrica/assets/icons/top.svg";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
 import Section from "@/climatemappedafrica/components/Section";
@@ -110,14 +110,6 @@ MobilePanel.propTypes = {
     }),
   }),
   scrollToTopLabel: PropTypes.string,
-};
-
-MobilePanel.defaultProps = {
-  activeType: undefined,
-  dataNotAvailable: undefined,
-  onSelectLocation: undefined,
-  primaryProfile: undefined,
-  scrollToTopLabel: undefined,
 };
 
 export default MobilePanel;

@@ -146,13 +146,4 @@ ExploreNavigation.propTypes = {
   }),
 };
 
-ExploreNavigation.defaultProps = {
-  logoProps: undefined,
-  menuProps: undefined,
-  onOpenHelp: undefined,
-  socialLinks: undefined,
-  desktopLogoProps: undefined,
-  mobileLogoProps: undefined,
-};
-
 export default ExploreNavigation;

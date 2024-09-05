@@ -11,17 +11,17 @@ import configureScope from "./configureScope";
 import Filters from "./Filters";
 import { calculateTooltipPosition, idify } from "./utils";
 
-import { ReactComponent as DownloadIcon } from "@/climatemappedafrica/assets/icons/Component 1.svg";
-import { ReactComponent as ShareIcon } from "@/climatemappedafrica/assets/icons/Component 27.svg";
-import { ReactComponent as InfoIcon } from "@/climatemappedafrica/assets/icons/Component852.svg";
+import { ReactComponent as CopyIcon } from "@/climatemappedafrica/assets/icons/copy.svg";
+import { ReactComponent as DownloadIcon } from "@/climatemappedafrica/assets/icons/download.svg";
 import { ReactComponent as EmailIcon } from "@/climatemappedafrica/assets/icons/Email.svg";
 import { ReactComponent as FacebookIcon } from "@/climatemappedafrica/assets/icons/Facebook.svg";
-import { ReactComponent as CopyIcon } from "@/climatemappedafrica/assets/icons/Group 5062.svg";
 import { ReactComponent as LinkedInIcon } from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
+import { ReactComponent as InfoIcon } from "@/climatemappedafrica/assets/icons/plus.svg";
+import { ReactComponent as ShareIcon } from "@/climatemappedafrica/assets/icons/share.svg";
 import { ReactComponent as TwitterIcon } from "@/climatemappedafrica/assets/icons/Twitter.svg";
 import { ReactComponent as WhatsAppIcon } from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
-import cfalogo from "@/climatemappedafrica/assets/logos/Group4462.svg";
-import projectlogo from "@/climatemappedafrica/assets/logos/Group5002.svg";
+import cfalogo from "@/climatemappedafrica/assets/logos/cfa.svg";
+import projectlogo from "@/climatemappedafrica/assets/logos/projectLogo.svg";
 import config, { hurumapArgs } from "@/climatemappedafrica/config";
 import site from "@/climatemappedafrica/utils/site";
 

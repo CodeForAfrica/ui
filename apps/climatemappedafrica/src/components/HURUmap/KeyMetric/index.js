@@ -94,17 +94,4 @@ KeyMetric.propTypes = {
   parentFormattedValue: PropTypes.string,
 };
 
-KeyMetric.defaultProps = {
-  className: undefined,
-  color: undefined,
-  description: undefined,
-  displayFormat: undefined,
-  formattedValue: undefined,
-  metadata: undefined,
-  title: undefined,
-  value: undefined,
-  parentName: undefined,
-  parentFormattedValue: undefined,
-};
-
 export default KeyMetric;

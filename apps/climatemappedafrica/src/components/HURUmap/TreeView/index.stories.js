@@ -1,7 +1,6 @@
 import React from "react";
 
 import TreeView from "@/climatemappedafrica/components/HURUmap/TreeView";
-import { treeViewArgs } from "@/climatemappedafrica/config";
 
 export default {
   title: "Components/HURUmap/TreeView",
@@ -14,4 +13,4 @@ function Template({ ...args }) {
 
 export const Default = Template.bind({});
 
-Default.args = treeViewArgs;
+Default.args = {};

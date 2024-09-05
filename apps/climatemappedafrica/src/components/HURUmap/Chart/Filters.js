@@ -164,12 +164,4 @@ Filters.propTypes = {
   }),
 };
 
-Filters.defaultProps = {
-  defaultFilters: undefined,
-  filterGroups: undefined,
-  filterSelectProps: undefined,
-  setFilterSelectProps: undefined,
-  view: undefined,
-};
-
 export default Filters;

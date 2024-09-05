@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as PinIconDefault } from "@/climatemappedafrica/assets/Component 96 – 12.svg";
-import { ReactComponent as PinIconSelected } from "@/climatemappedafrica/assets/Group 958.svg";
+import { ReactComponent as PinIconDefault } from "@/climatemappedafrica/assets/pinBlack.svg";
+import { ReactComponent as PinIconSelected } from "@/climatemappedafrica/assets/pinSelected.svg";
 import Select from "@/climatemappedafrica/components/Select";
 
 function PinIcon(props) {
@@ -14,12 +14,12 @@ function PinIcon(props) {
 
 function PinAndCompare({
   helperText,
-  isMobile,
+  isMobile = false,
   currentGeographyCode,
   locations,
   onChange,
-  onClose,
   onClickPin,
+  onClose,
   placeholder,
   ...props
 }) {
@@ -108,17 +108,6 @@ PinAndCompare.propTypes = {
   onClickPin: PropTypes.func,
   onClose: PropTypes.func,
   placeholder: PropTypes.string,
-};
-
-PinAndCompare.defaultProps = {
-  helperText: undefined,
-  isMobile: false,
-  currentGeographyCode: undefined,
-  locations: undefined,
-  onChange: undefined,
-  onClickPin: undefined,
-  onClose: undefined,
-  placeholder: undefined,
 };
 
 export default PinAndCompare;
