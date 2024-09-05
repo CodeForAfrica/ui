@@ -15,7 +15,7 @@
     "generate:types": "payload generate:types"
   },
   "dependencies": {
-    "@commons-ui/core": "catalog:",
+    "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
     "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
