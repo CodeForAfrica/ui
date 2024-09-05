@@ -14,13 +14,12 @@ function calculateDailyDataUsage(userData: UserDataUsage) {
   if (!userData) {
     return 0;
   }
-  const date = new Date();
-  date.setDate(date.getDate() - 1);
+
   const { usage, outlineId } = userData;
   const [res] = Model.getAll({
     orderBy: "date DESC",
     userId: outlineId?.toString(),
-  }) as any[];
+  }) as Record[];
   return usage - (res?.cumulativeData || 0);
 }
 
