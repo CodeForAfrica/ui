@@ -1,11 +1,8 @@
-/* eslint-env browser */
 import MuiLink from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
-import clsx from "clsx";
 import NextLink from "next/link";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
@@ -57,19 +54,13 @@ NextLinkComposed.propTypes = {
   to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
-function checkIfPathsMatch(linkPath, currentPath) {
-  return linkPath === currentPath;
-}
-
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link
 const Link = React.forwardRef(function Link(props, ref) {
   const {
-    activeClassName = "active",
     as,
-    className: classNameProp,
+    className,
     href,
-    isActive: isActiveProp,
     legacyBehavior,
     linkAs: linkAsProp,
     locale,
@@ -82,37 +73,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     ...other
   } = props;
 
-  const { asPath, isReady } = useRouter();
-  const [className, setClassName] = useState(classNameProp);
-  const linkAs = linkAsProp || as;
-  const isActive = isActiveProp || checkIfPathsMatch;
-
-  useEffect(() => {
-    if (isReady) {
-      const linkPathname = new URL(linkAs || href, window.location.href)
-        .pathname;
-      const activePathname = new URL(asPath, window.location.href).pathname;
-      const newClassName = clsx(classNameProp, {
-        [activeClassName]: isActive(linkPathname, activePathname),
-      });
-
-      if (newClassName !== className) {
-        setClassName(newClassName);
-      }
-    }
-  }, [
-    activeClassName,
-    asPath,
-    className,
-    classNameProp,
-    href,
-    isActive,
-    isReady,
-    linkAs,
-  ]);
-
   const isExternal = isExternalUrl(href);
-
   if (isExternal) {
     const externalLinkProps = {
       href,
@@ -126,6 +87,7 @@ const Link = React.forwardRef(function Link(props, ref) {
     return <MuiLink className={className} {...externalLinkProps} ref={ref} />;
   }
 
+  const linkAs = linkAsProp || as;
   const nextjsProps = {
     to: href,
     linkAs,
@@ -159,11 +121,9 @@ const Link = React.forwardRef(function Link(props, ref) {
 });
 
 Link.propTypes = {
-  activeClassName: PropTypes.string,
   as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.string,
   href: PropTypes.string,
-  isActive: PropTypes.func,
   legacyBehavior: PropTypes.bool,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
