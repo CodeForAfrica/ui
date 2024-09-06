@@ -6,6 +6,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 const ArticleCard = React.forwardRef(function ArticleCard(
@@ -28,7 +29,7 @@ const ArticleCard = React.forwardRef(function ArticleCard(
         filter: "drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1))",
       }}
     >
-      <CardActionArea component={slug ? "a" : "div"} href={slug}>
+      <CardActionArea component={slug ? Link : "div"} href={slug}>
         <CardMedia
           component="img"
           src={featuredImage}
