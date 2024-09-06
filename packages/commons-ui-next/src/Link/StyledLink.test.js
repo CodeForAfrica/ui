@@ -1,11 +1,11 @@
 import { render } from "@commons-ui/testing-library";
 import React from "react";
 
-import Link from "./Link";
+import StyledLink from "./StyledLink";
 
-describe("<Link />", () => {
+describe("<StyledLink />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<Link href="/">Home</Link>);
+    const { container } = render(<StyledLink href="/">Home</StyledLink>);
     expect(container).toMatchSnapshot();
   });
 });
