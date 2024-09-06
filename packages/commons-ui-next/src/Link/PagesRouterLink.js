@@ -4,14 +4,14 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
-import Link from "./Link";
+import StyledLink from "./StyledLink";
+
+import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
 function checkIfPathsMatch(linkPath, currentPath) {
   return linkPath === currentPath;
 }
 
-// A styled version of the Next.js Link component:
-// https://nextjs.org/docs/api-reference/next/link
 const PagesRouterLink = React.forwardRef(
   function PagesRouterLinkLink(props, ref) {
     const {
@@ -21,25 +21,25 @@ const PagesRouterLink = React.forwardRef(
       href,
       isActive: isActiveProp,
       linkAs: linkAsProp,
-      locale,
-      scroll,
       ...other
     } = props;
 
     const { asPath, isReady } = useRouter();
     const [className, setClassName] = useState(classNameProp);
-    const linkAs = linkAsProp || as;
     const isActive = isActiveProp || checkIfPathsMatch;
+    const isInternalLink = !isExternalUrl(
+      typeof href === "string" ? href : href.pathname,
+    );
+    const linkAs = linkAsProp || as;
 
     useEffect(() => {
-      if (isReady) {
+      if (isReady && isInternalLink) {
         const linkPathname = new URL(linkAs || href, window.location.href)
           .pathname;
-        const activePathname = new URL(asPath, window.location.href).pathname;
+        const currentPathname = new URL(asPath, window.location.href).pathname;
         const newClassName = clsx(classNameProp, {
-          [activeClassName]: isActive(linkPathname, activePathname),
+          [activeClassName]: isActive(linkPathname, currentPathname),
         });
-
         if (newClassName !== className) {
           setClassName(newClassName);
         }
@@ -51,15 +51,17 @@ const PagesRouterLink = React.forwardRef(
       classNameProp,
       href,
       isActive,
+      isInternalLink,
       isReady,
       linkAs,
     ]);
 
     return (
-      <Link
+      <StyledLink
         {...other}
         as={as}
         className={className}
+        href={href}
         linkAs={linkAsProp}
         ref={ref}
       />
