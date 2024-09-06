@@ -12,8 +12,8 @@ function checkIfPathsMatch(linkPath, currentPath) {
 
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link
-const PageRouterLink = React.forwardRef(
-  function PageRouterLinkLink(props, ref) {
+const PagesRouterLink = React.forwardRef(
+  function PagesRouterLinkLink(props, ref) {
     const {
       activeClassName,
       as,
@@ -67,7 +67,7 @@ const PageRouterLink = React.forwardRef(
   },
 );
 
-PageRouterLink.propTypes = {
+PagesRouterLink.propTypes = {
   activeClassName: PropTypes.string,
   as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.string,
@@ -84,4 +84,4 @@ PageRouterLink.propTypes = {
   shallow: PropTypes.bool,
 };
 
-export default PageRouterLink;
+export default PagesRouterLink;
