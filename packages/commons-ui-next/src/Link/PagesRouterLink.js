@@ -15,7 +15,7 @@ function checkIfPathsMatch(linkPath, currentPath) {
 const PagesRouterLink = React.forwardRef(
   function PagesRouterLinkLink(props, ref) {
     const {
-      activeClassName,
+      activeClassName = "active",
       as,
       className: classNameProp,
       href,
