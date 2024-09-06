@@ -11,7 +11,6 @@ export interface Record {
   date: string;
   cumulativeData: number;
   email: string;
-  accessUrl?: string;
   createdAt: string;
 }
 
@@ -34,7 +33,6 @@ class Model {
         date TEXT NOT NULL,
         cumulativeData INTEGER NOT NULL,
         email TEXT NOT NULL,
-        accessUrl TEXT,
         createdAt TEXT NOT NULL,
         UNIQUE (date, userId)
       )
@@ -44,14 +42,13 @@ class Model {
 
   static createOrUpdate(record: Record) {
     const insertData = db.prepare(`
-      INSERT INTO records (userId, usage, date, cumulativeData, email, accessUrl, createdAt)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO records (userId, usage, date, cumulativeData, email, createdAt)
+      VALUES (?, ?, ?, ?, ?, ?)
       ON CONFLICT(date, userId)
       DO UPDATE SET
         usage = excluded.usage,
         cumulativeData = excluded.cumulativeData,
         email = excluded.email,
-        accessUrl = excluded.accessUrl,
         createdAt = excluded.createdAt;
     `);
     const info = insertData.run(
@@ -60,7 +57,6 @@ class Model {
       record.date,
       record.cumulativeData,
       record.email,
-      record.accessUrl,
       record.createdAt,
     );
     return { ...record, ID: info.lastInsertRowid };
@@ -86,7 +82,7 @@ class Model {
     if (filters.groupBy === "email" || filters.groupBy === "date") {
       query +=
         filters.groupBy === "email"
-          ? " email, userId, accessUrl, SUM(usage) as totalUsage FROM records"
+          ? " email, userId, SUM(usage) as totalUsage FROM records"
           : " date, SUM(usage) as totalUsage FROM records";
     } else {
       query += " * FROM records";

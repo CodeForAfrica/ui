@@ -44,7 +44,6 @@ export async function processUserStats() {
       date,
       cumulativeData: bytesTransferredByUserId[key],
       email: userDetails?.name || "",
-      accessUrl: userDetails?.accessUrl,
     };
     addUserStatsToDb({ ...newData, createdAt: new Date().toISOString() });
     return newData;
