@@ -4,7 +4,7 @@ import path from "path";
 const dbPath = path.resolve(process.cwd(), "data", "database.sqlite");
 const db = betterSqlite3(dbPath);
 
-class Record {
+export interface Record {
   ID?: number;
   userId: string;
   usage: number;
@@ -13,32 +13,11 @@ class Record {
   email: string;
   accessUrl?: string;
   createdAt: string;
-
-  constructor(
-    userId: string,
-    usage: number,
-    date: string,
-    cumulativeData: number,
-    email: string,
-    accessUrl?: string,
-    createdAt?: string,
-    ID?: number,
-  ) {
-    this.ID = ID;
-    this.userId = userId;
-    this.usage = usage;
-    this.date = date;
-    this.cumulativeData = cumulativeData;
-    this.email = email;
-    this.accessUrl = accessUrl;
-    this.createdAt = createdAt || new Date().toISOString();
-  }
 }
 
 export interface Filters {
   email?: string;
-  date?: string;
-  dateBetween?: { start: string; end: string };
+  date?: string | { start: string; end: string };
   userId?: string;
   ID?: number;
   groupBy?: "email" | "date";
@@ -56,16 +35,24 @@ class Model {
         cumulativeData INTEGER NOT NULL,
         email TEXT NOT NULL,
         accessUrl TEXT,
-        createdAt TEXT NOT NULL
+        createdAt TEXT NOT NULL,
+        UNIQUE (date, userId)
       )
     `;
     db.exec(createTable);
   }
 
-  static create(record: Record) {
+  static createOrUpdate(record: Record) {
     const insertData = db.prepare(`
       INSERT INTO records (userId, usage, date, cumulativeData, email, accessUrl, createdAt)
       VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(date, userId)
+      DO UPDATE SET
+        usage = excluded.usage,
+        cumulativeData = excluded.cumulativeData,
+        email = excluded.email,
+        accessUrl = excluded.accessUrl,
+        createdAt = excluded.createdAt;
     `);
     const info = insertData.run(
       record.userId,
@@ -97,27 +84,26 @@ class Model {
     let query = "SELECT";
     const params: any[] = [];
     if (filters.groupBy === "email" || filters.groupBy === "date") {
-      if (filters.groupBy === "email") {
-        query +=
-          " email, userId, accessUrl, SUM(usage) as totalUsage FROM records WHERE 1=1";
-      }
-      if (filters.groupBy === "date") {
-        query += " date, SUM(usage) as totalUsage FROM records WHERE 1=1";
-      }
+      query +=
+        filters.groupBy === "email"
+          ? " email, userId, accessUrl, SUM(usage) as totalUsage FROM records"
+          : " date, SUM(usage) as totalUsage FROM records";
     } else {
-      query += " * FROM records WHERE 1=1";
+      query += " * FROM records";
     }
+    query += " WHERE 1=1";
     if (filters.email) {
       query += " AND email = ?";
       params.push(filters.email);
     }
     if (filters.date) {
-      query += " AND date = ?";
-      params.push(filters.date);
-    }
-    if (filters.dateBetween && !filters.date) {
-      query += " AND date BETWEEN ? AND ?";
-      params.push(filters.dateBetween.start, filters.dateBetween.end);
+      if (typeof filters.date === "string") {
+        query += " AND date = ?";
+        params.push(filters.date);
+      } else {
+        query += " AND date BETWEEN ? AND ?";
+        params.push(filters.date.start, filters.date.end);
+      }
     }
     if (filters.userId) {
       query += " AND userId = ?";
@@ -146,4 +132,4 @@ class Model {
 // Initialize the database
 Model.initialize();
 
-export { Model, Record };
+export { Model };

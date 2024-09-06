@@ -1,5 +1,5 @@
 import { OutlineVPN } from "./outline";
-import { Model, Record } from "@/vpnmanager/lib/data/database";
+import { Filters, Model, Record } from "@/vpnmanager/lib/data/database";
 
 interface UserDataUsage {
   outlineId: string | number;
@@ -24,17 +24,7 @@ function calculateDailyDataUsage(userData: UserDataUsage) {
 }
 
 function addUserStatsToDb(record: Omit<Record, "ID">) {
-  // Find in DB if userId and date exists then update else create
-  const date = new Date();
-  const [res] = Model.getAll({
-    date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
-    userId: record?.userId?.toString(),
-  }) as Record[];
-  if (res) {
-    Model.update(res.ID as number, record);
-    return;
-  }
-  Model.create(record);
+  Model.createOrUpdate(record);
 }
 // Process Daily user stats. Doesn't matter the time of the day, it just updates.
 export async function processUserStats() {
@@ -62,20 +52,22 @@ export async function processUserStats() {
   return unprocessedUsers;
 }
 
-export async function getStats(filters: { [key: string]: string }) {
+export async function getStats(
+  filters: Partial<Filters> & { "date.start"?: string; "date.end"?: string },
+) {
   const validFilters = {
     email: filters.email,
-    ID: parseInt(filters.ID),
+    ID: filters.ID,
     userId: filters.userId,
     groupBy: filters.groupBy as "email" | "date",
     orderBy: filters.orderBy,
-    dateBetween:
-      filters["dateBetween.start"] && filters["dateBetween.end"]
+    date:
+      filters["date.start"] && filters["date.end"]
         ? {
-            start: filters["dateBetween.start"],
-            end: filters["dateBetween.end"],
+            start: filters["date.start"],
+            end: filters["date.end"],
           }
-        : undefined,
+        : filters.date,
   };
 
   return Model.getAll(validFilters);
