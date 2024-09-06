@@ -10,7 +10,7 @@ exports[`Source renders unchanged 1`] = `
       : 
     </p>
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1jglad5-MuiTypography-root-MuiLink-root"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1jglad5-MuiTypography-root-MuiLink-root"
       href="https://example.com"
       rel="noreferrer noopener"
       target="_blank"

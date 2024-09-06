@@ -1,18 +1,15 @@
-/* eslint-env browser */
 import MuiLink from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
-import clsx from "clsx";
 import NextLink from "next/link";
-import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
 // Add support for the sx prop for consistency with the other branches.
 const Anchor = styled("a")({});
 
-export const NextLinkComposed = React.forwardRef(
+const NextLinkComposed = React.forwardRef(
   function NextLinkComposed(props, ref) {
     const {
       linkAs,
@@ -57,19 +54,13 @@ NextLinkComposed.propTypes = {
   to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
 };
 
-function checkIfPathsMatch(linkPath, currentPath) {
-  return linkPath === currentPath;
-}
-
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link
-const Link = React.forwardRef(function Link(props, ref) {
+const StyledLink = React.forwardRef(function Link(props, ref) {
   const {
-    activeClassName = "active",
     as,
-    className: classNameProp,
+    className,
     href,
-    isActive: isActiveProp,
     legacyBehavior,
     linkAs: linkAsProp,
     locale,
@@ -82,37 +73,9 @@ const Link = React.forwardRef(function Link(props, ref) {
     ...other
   } = props;
 
-  const { asPath, isReady } = useRouter();
-  const [className, setClassName] = useState(classNameProp);
-  const linkAs = linkAsProp || as;
-  const isActive = isActiveProp || checkIfPathsMatch;
-
-  useEffect(() => {
-    if (isReady) {
-      const linkPathname = new URL(linkAs || href, window.location.href)
-        .pathname;
-      const activePathname = new URL(asPath, window.location.href).pathname;
-      const newClassName = clsx(classNameProp, {
-        [activeClassName]: isActive(linkPathname, activePathname),
-      });
-
-      if (newClassName !== className) {
-        setClassName(newClassName);
-      }
-    }
-  }, [
-    activeClassName,
-    asPath,
-    className,
-    classNameProp,
-    href,
-    isActive,
-    isReady,
-    linkAs,
-  ]);
-
-  const isExternal = isExternalUrl(href);
-
+  // https://nextjs.org/docs/app/api-reference/components/link#href-required
+  const url = typeof href === "string" ? href : href.pathname;
+  const isExternal = isExternalUrl(url);
   if (isExternal) {
     const externalLinkProps = {
       href,
@@ -120,12 +83,13 @@ const Link = React.forwardRef(function Link(props, ref) {
       target: "_blank",
       ...other,
     };
-    if (noLinkStyle) {
-      return <Anchor className={className} {...externalLinkProps} ref={ref} />;
-    }
-    return <MuiLink className={className} {...externalLinkProps} ref={ref} />;
+    const LinkComponent = noLinkStyle ? Anchor : MuiLink;
+    return (
+      <LinkComponent className={className} {...externalLinkProps} ref={ref} />
+    );
   }
 
+  const linkAs = linkAsProp || as;
   const nextjsProps = {
     to: href,
     linkAs,
@@ -137,33 +101,23 @@ const Link = React.forwardRef(function Link(props, ref) {
     locale,
   };
 
-  if (noLinkStyle) {
-    return (
-      <NextLinkComposed
-        {...nextjsProps}
-        {...other}
-        className={className}
-        ref={ref}
-      />
-    );
-  }
+  const LinkComponent = noLinkStyle ? NextLinkComposed : MuiLink;
+  const component = noLinkStyle ? undefined : NextLinkComposed;
   return (
-    <MuiLink
+    <LinkComponent
       {...nextjsProps}
       {...other}
-      component={NextLinkComposed}
+      component={component}
       className={className}
       ref={ref}
     />
   );
 });
 
-Link.propTypes = {
-  activeClassName: PropTypes.string,
+StyledLink.propTypes = {
   as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.string,
   href: PropTypes.string,
-  isActive: PropTypes.func,
   legacyBehavior: PropTypes.bool,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,
@@ -175,4 +129,4 @@ Link.propTypes = {
   shallow: PropTypes.bool,
 };
 
-export default Link;
+export default StyledLink;
