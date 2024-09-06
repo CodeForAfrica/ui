@@ -1,4 +1,5 @@
-import { Link, Stack, SvgIcon } from "@mui/material";
+import { StyledLink as Link } from "@commons-ui/next";
+import { Stack, SvgIcon } from "@mui/material";
 import { SxProps, Theme } from "@mui/material/styles";
 import Image, { ImageProps } from "next/image";
 import React from "react";
