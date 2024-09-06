@@ -198,7 +198,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   +26
                 </div>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar undefined css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -214,7 +214,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar undefined css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -230,7 +230,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar undefined css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg
@@ -246,7 +246,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   </svg>
                 </a>
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar undefined css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault MuiAvatarGroup-avatar active css-1yxemuo-MuiTypography-root-MuiLink-root-MuiAvatar-root"
                   href=""
                 >
                   <svg

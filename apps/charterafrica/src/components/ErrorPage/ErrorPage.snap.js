@@ -35,7 +35,7 @@ exports[`<ErrorPage /> renders unchanged 1`] = `
         </p>
       </div>
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary undefined css-x1hbuq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary active css-x1hbuq-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"
         tabindex="0"
       >
