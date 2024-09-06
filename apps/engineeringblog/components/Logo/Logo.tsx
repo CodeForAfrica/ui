@@ -41,7 +41,7 @@ const Logo = React.forwardRef(function Logo(
       <Link
         color="inherit"
         href={logoHref}
-        sx={(theme) => ({
+        sx={(theme: Theme) => ({
           "&>svg,&>img": {
             transition: theme.transitions.create(["opacity", "transform"]),
           },
@@ -57,14 +57,14 @@ const Logo = React.forwardRef(function Logo(
       >
         {title?.length ? (
           <SvgIcon
-            sx={(theme) => ({
+            sx={{
               fill: { xs: "none" },
               fontSize: 32,
               left: -24,
               opacity: 0,
               position: "absolute",
               right: 0,
-            })}
+            }}
           >
             <PreviousIcon />
           </SvgIcon>
@@ -87,7 +87,7 @@ const Logo = React.forwardRef(function Logo(
           textTransform="uppercase"
           typography="h4"
           underline="none"
-          sx={({ transitions, typography }) => ({
+          sx={({ transitions, typography }: Theme) => ({
             display: "flex",
             fontFamily: typography.fontFamilyMono,
             transition: transitions.create(["opacity", "transform"]),
