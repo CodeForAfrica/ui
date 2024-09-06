@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
@@ -63,12 +65,6 @@ RichTypography.propTypes = {
   children: PropTypes.node,
   html: PropTypes.bool,
   component: PropTypes.elementType,
-};
-
-RichTypography.defaultProps = {
-  children: undefined,
-  html: undefined,
-  component: undefined,
 };
 
 export default RichTypography;

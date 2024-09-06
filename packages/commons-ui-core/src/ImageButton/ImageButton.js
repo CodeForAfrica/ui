@@ -1,3 +1,5 @@
+"use client";
+
 import ButtonBase from "@mui/material/ButtonBase";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -51,12 +53,6 @@ ImageButton.propTypes = {
    */
   src: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-};
-
-ImageButton.defaultProps = {
-  height: undefined,
-  src: undefined,
-  width: undefined,
 };
 
 export default ImageButton;
