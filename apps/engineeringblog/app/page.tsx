@@ -1,9 +1,10 @@
-import { Box, Container } from "@mui/material";
+import { Section } from "@commons-ui/core";
+import { Box } from "@mui/material";
 
 export default function index() {
   return (
-    <Container>
+    <Section>
       <Box minHeight="1000px">Homepage</Box>
-    </Container>
+    </Section>
   );
 }
