@@ -89,7 +89,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways undefined css-16az78j-MuiTypography-root-MuiLink-root"
                     href="/"
                   >
                     Privacy Policy
@@ -99,7 +99,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways undefined css-16az78j-MuiTypography-root-MuiLink-root"
                     href="/"
                   >
                     Imprint
