@@ -43,6 +43,7 @@
     "eslint-config-next": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-import-resolver-webpack": "catalog:",
+    "eslint-plugin-mdx": "catalog:",
     "eslint-plugin-import": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

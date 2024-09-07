@@ -1,5 +1,5 @@
 // Addapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
-import { FC } from "react";
+import React from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
@@ -29,10 +29,6 @@ SyntaxHighlighter.registerLanguage("python", python);
 SyntaxHighlighter.registerLanguage("jsx", jsx);
 SyntaxHighlighter.registerLanguage("java", java);
 
-type MarkdownProps = {
-  markdown: string;
-};
-
 const Pre = ({ children }: { children: JSX.Element }) => (
   <Box
     component="pre"
@@ -49,7 +45,11 @@ const Pre = ({ children }: { children: JSX.Element }) => (
   </Box>
 );
 
-const Markdown: FC<MarkdownProps> = ({ markdown }) => {
+const Markdown = React.forwardRef(function Markdown({
+  markdown,
+}: {
+  markdown: string;
+}) {
   const syntaxTheme = oneDark;
 
   const MarkdownComponents: Components = {
@@ -98,6 +98,6 @@ const Markdown: FC<MarkdownProps> = ({ markdown }) => {
   return (
     <ReactMarkdown components={MarkdownComponents}>{markdown}</ReactMarkdown>
   );
-};
+});
 
 export default Markdown;
