@@ -3,17 +3,21 @@
 import { Section } from "@commons-ui/core";
 import { Grid } from "@mui/material";
 import React from "react";
+
+import { ArticleWithoutContentProps } from "@/engineeringblog/utils";
 import ArticleCard from "./ArticleCard";
-import { ArticleWithoutContent } from "@/engineeringblog/utils";
 
 const ArticleList = React.forwardRef(function ArtilceList(
   {
     articles,
   }: {
-    articles: ArticleWithoutContent[];
+    articles: ArticleWithoutContentProps[];
   },
   ref: React.Ref<HTMLDivElement>,
 ) {
+  if (!articles?.length) {
+    return null;
+  }
   return (
     <Section ref={ref}>
       <Grid
@@ -22,7 +26,7 @@ const ArticleList = React.forwardRef(function ArtilceList(
         columnSpacing={{ xs: 0, sm: "18px", lg: "28px" }}
       >
         {articles?.map((article) => (
-          <Grid item xs={12} sm={4} key={article.slug}>
+          <Grid item xs={12} sm={6} md={4} key={article.slug}>
             <ArticleCard {...article} />
           </Grid>
         ))}

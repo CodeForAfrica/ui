@@ -1,6 +1,6 @@
 "use client";
+
 import { StyledLink } from "@/commons-ui/next/Link";
-import { ArticleWithoutContent } from "@/engineeringblog/utils";
 import {
   Card,
   CardActionArea,
@@ -10,8 +10,10 @@ import {
 } from "@mui/material";
 import React from "react";
 
+import { ArticleWithoutContentProps } from "@/engineeringblog/utils";
+
 const ArticleCard = React.forwardRef(function ArticleCard(
-  { title, publishDate, featuredImage, slug }: ArticleWithoutContent,
+  { title, publishedDate, featuredImage, slug }: ArticleWithoutContentProps,
   ref: React.Ref<HTMLDivElement>,
 ) {
   return (
@@ -29,6 +31,7 @@ const ArticleCard = React.forwardRef(function ArticleCard(
         border: "1px solid #DAD5D5",
         filter: "drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1))",
       }}
+      ref={ref}
     >
       <CardActionArea component={slug ? StyledLink : "div"} href={slug}>
         <CardMedia
@@ -46,7 +49,7 @@ const ArticleCard = React.forwardRef(function ArticleCard(
             sx={{ color: "#9F9494", display: "block", mt: 2 }}
             variant="caption"
           >
-            {publishDate}
+            {publishedDate}
           </Typography>
         </CardContent>
       </CardActionArea>
