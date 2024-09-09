@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import NavBar from "@/engineeringblog/components/NavBar";
 import theme from "@/engineeringblog/theme";
 
-// TODO: blurWidth/blueHeight https://github.com/vercel/next.js/issues/56511
 import logoLight from "@/engineeringblog/assets/images/logo-light.png";
 
 export const metadata: Metadata = {
@@ -19,8 +18,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // TODO: blurWidth/blurHeight https://github.com/vercel/next.js/issues/56511
+  const { blurWidth, blurHeight, ...logoProps } = logoLight;
   const logo = {
-    ...logoLight,
+    ...logoProps,
     alt: "Technology | Code for Africa",
     title: "Technology",
   };

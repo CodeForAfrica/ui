@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -37,7 +39,7 @@ const Section = React.forwardRef(function Section(props, ref) {
 
   return (
     <SectionRoot
-      {...props}
+      {...others}
       disableGutters={disableGutters}
       fixed={fixed}
       ownerState={ownerState}
@@ -48,10 +50,6 @@ const Section = React.forwardRef(function Section(props, ref) {
 
 Section.propTypes = {
   fixed: PropTypes.bool,
-};
-
-Section.defaultProps = {
-  fixed: undefined,
 };
 
 export default Section;
