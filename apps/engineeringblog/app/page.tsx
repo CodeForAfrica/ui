@@ -1,5 +1,6 @@
 import { Section } from "@commons-ui/core";
-import { ArticleList } from "@/engineeringblog/components/Article";
+
+import ArticleList from "@/engineeringblog/components/ArticleList";
 import { getAllContents } from "@/engineeringblog/utils";
 
 export default async function index() {
