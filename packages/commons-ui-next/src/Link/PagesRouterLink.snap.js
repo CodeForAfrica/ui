@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Link /> renders unchanged 1`] = `
+exports[`<PagesRouterLink /> renders unchanged 1`] = `
 <div>
   <a
     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-dr1pfv-MuiTypography-root-MuiLink-root"

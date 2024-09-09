@@ -1,3 +1,7 @@
-import Link from "./Link";
+import PagesRouterLink from "./PagesRouterLink";
+import StyledLink from "./StyledLink";
 
-export default Link;
+export { StyledLink, PagesRouterLink };
+
+// To be backward-compatible, set default Link to PagesRouterLink
+export default PagesRouterLink;
