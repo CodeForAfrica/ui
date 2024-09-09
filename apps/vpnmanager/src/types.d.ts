@@ -1,3 +1,5 @@
+import { NextApiRequest } from "next";
+
 export interface OutlineOptions {
   apiUrl: string;
   fingerprint?: string;
@@ -39,3 +41,9 @@ export interface SheetRow {
   endDate: string;
   keySent: "Yes" | "No";
 }
+
+export type RestMethods = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+
+export type RestMethodFunctions = {
+  [K in RestMethods]?: (req: NextApiRequest) => Promise<any>;
+};

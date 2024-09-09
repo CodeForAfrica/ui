@@ -1,3 +1,4 @@
+import { NextApiRequest } from "next/types";
 import { OutlineVPN } from "./outline";
 import { Filters, Model, Record } from "@/vpnmanager/lib/data/database";
 
@@ -16,17 +17,22 @@ function calculateDailyDataUsage(userData: UserDataUsage) {
   }
 
   const { usage, outlineId } = userData;
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  const lastWeek = new Date();
+  lastWeek.setDate(yesterday.getDate() - 7);
   const [res] = Model.getAll({
     orderBy: "date DESC",
+    date: {
+      start: `${lastWeek.getFullYear()}-${lastWeek.getMonth() + 1}-${lastWeek.getDate()}`,
+      end: `${yesterday.getFullYear()}-${yesterday.getMonth() + 1}-${yesterday.getDate()}`,
+    },
     userId: outlineId?.toString(),
   }) as Record[];
   return usage - (res?.cumulativeData || 0);
 }
 
-function addUserStatsToDb(record: Omit<Record, "ID">) {
-  Model.createOrUpdate(record);
-}
-// Process Daily user stats. Doesn't matter the time of the day, it just updates.
 export async function processUserStats() {
   const date = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`;
   const { bytesTransferredByUserId = {} } = await vpnManager.getDataUsage();
@@ -45,15 +51,17 @@ export async function processUserStats() {
       cumulativeData: bytesTransferredByUserId[key],
       email: userDetails?.name || "",
     };
-    addUserStatsToDb({ ...newData, createdAt: new Date().toISOString() });
+    Model.createOrUpdate({ ...newData, createdAt: new Date().toISOString() });
     return newData;
   });
   return unprocessedUsers;
 }
 
-export async function getStats(
-  filters: Partial<Filters> & { "date.start"?: string; "date.end"?: string },
-) {
+export async function getStats(req: NextApiRequest) {
+  const filters: Partial<Filters> & {
+    "date.start"?: string;
+    "date.end"?: string;
+  } = req.query;
   const validFilters = {
     email: filters.email,
     ID: filters.ID,
