@@ -7,6 +7,7 @@ module.exports = {
   moduleNameMapper: {
     ...moduleNameMapper,
     // Handle module aliases
+    "^@/commons-ui/core/(.*)$": "<rootDir>/../commons-ui-core/src/$1",
     "^@/commons-ui/next/(.*)$": "<rootDir>/src/$1",
   },
 };
