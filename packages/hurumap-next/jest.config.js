@@ -7,7 +7,8 @@ module.exports = {
   moduleNameMapper: {
     ...moduleNameMapper,
     // Handle module aliases
-    "^@/hurumap/next/(.*)$": "<rootDir>/src/$1",
+    "^@/commons-ui/core/(.*)$": "<rootDir>/../commons-ui-core/src/$1",
     "^@/commons-ui/next/(.*)$": "<rootDir>/../commons-ui-next/src/$1",
+    "^@/hurumap/next/(.*)$": "<rootDir>/src/$1",
   },
 };

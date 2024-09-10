@@ -1,35 +1,20 @@
-import React from "react";
 import { NextSeo, NextSeoProps } from "next-seo";
+import React from "react";
 
-import Footer from "@/roboshield/components/Footer";
 import type { FooterProps } from "@/roboshield/components/Footer";
+import Footer from "@/roboshield/components/Footer";
+import type { NavBarProps } from "@/roboshield/components/NavBar";
 import NavBar from "@/roboshield/components/NavBar";
-import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
-interface Menu {
-  label: string;
-  href: string;
-}
-
-interface Menu {
-  label: string;
-  href: string;
-}
-
-interface Navbar {
-  logo: any;
-  menus: Menu[];
-  socialLinks: SocialMediaLink[];
-}
 interface Footer {
   logo: any;
   description: string;
   partners: any[];
 }
 
-interface Props {
+interface PageProps {
   children?: React.ReactNode;
-  navbar?: Navbar;
+  navbar?: NavBarProps;
   footer?: FooterProps;
   seo?: NextSeoProps;
   slug?: string;
@@ -39,7 +24,7 @@ interface Props {
  * While the layout (navbar, footer) remain the same, the main component
  * changes from page to page. Use `slug` to track page changes.
  */
-function Page({ children, footer, navbar, seo, slug }: Props) {
+function Page({ children, footer, navbar, seo, slug }: PageProps) {
   return (
     <>
       <NextSeo {...seo} />

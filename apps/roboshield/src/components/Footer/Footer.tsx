@@ -1,15 +1,14 @@
-import { Section } from "@commons-ui/core";
+import { Section, StayInTouch } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
 import { Box, Grid, Stack } from "@mui/material";
 import { Theme, styled } from "@mui/material/styles";
 
+import type { SocialMediaLink } from "@/roboshield/components/NavBarNavList";
 import NewsletterSubscription from "@/roboshield/components/NewsletterSubscription";
-import StayInTouch from "@/roboshield/components/StayInTouch";
-import RichText from "@/roboshield/components/RichText";
 import type { Children } from "@/roboshield/components/RichText";
-import FooterDescription from "./FooterDescription";
+import RichText from "@/roboshield/components/RichText";
 import { SettingsSite } from "@/root/payload-types";
-import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
+import FooterDescription from "./FooterDescription";
 
 type Partner = SettingsSite["initiative"]["partners"];
 
@@ -47,7 +46,7 @@ const FooterRoot = styled(Box)(
   }),
 );
 
-export default function Footer({
+function Footer({
   connect,
   description,
   logo,
@@ -86,7 +85,12 @@ export default function Footer({
                   />
                 </Grid>
                 <Grid item>
-                  <StayInTouch {...connect} sx={{ mt: "52px" }} />
+                  <StayInTouch
+                    {...connect}
+                    LinkProps={{ component: Link }}
+                    TitleProps={{ variant: "footerCap" }}
+                    sx={{ mt: "52px" }}
+                  />
                 </Grid>
               </Grid>
               <Grid item xs={24} md={11}>
@@ -161,3 +165,5 @@ export default function Footer({
     </FooterRoot>
   );
 }
+
+export default Footer;

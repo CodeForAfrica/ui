@@ -3,18 +3,18 @@ import React from "react";
 
 import DesktopNavBar from "@/roboshield/components/DesktopNavBar";
 import MobileNavBar from "@/roboshield/components/MobileNavBar";
-import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
+import type {
+  Menu,
+  SocialMediaLink,
+} from "@/roboshield/components/NavBarNavList";
 
-interface Menu {
-  label: string;
-  href: string;
-}
-interface Props {
+interface NavBarProps {
   logo: any;
   menus: Menu[];
   socialLinks: SocialMediaLink[];
 }
-function NavBar({ logo, menus, socialLinks }: Props) {
+
+function NavBar({ logo, menus, socialLinks }: NavBarProps) {
   return (
     <NavigationBar sx={{ py: { xs: "10px", md: "20px" } }}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
@@ -39,4 +39,5 @@ function NavBar({ logo, menus, socialLinks }: Props) {
   );
 }
 
+export type { NavBarProps };
 export default NavBar;

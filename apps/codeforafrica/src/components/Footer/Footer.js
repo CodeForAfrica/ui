@@ -1,4 +1,5 @@
-import { Section } from "@commons-ui/core";
+import { Section, StayInTouch } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import { Box, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -8,7 +9,6 @@ import FooterDescription from "./FooterDescription";
 
 import FooterLinks from "@/codeforafrica/components/FooterLinks";
 import NewsletterSubscription from "@/codeforafrica/components/NewsletterSubscription";
-import StayInTouch from "@/codeforafrica/components/StayInTouch";
 
 const FooterRoot = styled(Box)(
   ({ theme: { breakpoints, palette, typography } }) => ({
@@ -67,7 +67,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   />
                 </Grid>
                 <Grid item>
-                  <StayInTouch {...connect} sx={{ mt: "52px" }} />
+                  <StayInTouch
+                    {...connect}
+                    LinkProps={{ component: Link }}
+                    TitleProps={{ variant: "footerCap" }}
+                    sx={{ mt: "52px" }}
+                  />
                 </Grid>
               </Grid>
               <Grid item xs={12} md="auto">

@@ -3,7 +3,7 @@ import React from "react";
 
 import RichTypography from "./RichTypography";
 
-describe("RichTypography", () => {
+describe("<RichTypography />", () => {
   it("renders unchanged", () => {
     const { container } = render(<RichTypography />);
     expect(container).toMatchSnapshot();

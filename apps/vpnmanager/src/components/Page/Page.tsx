@@ -1,33 +1,14 @@
 import React from "react";
 
+import type { NavBarProps } from "@/vpnmanager/components/NavBar";
 import NavBar from "@/vpnmanager/components/NavBar";
 
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
-
-interface Menu {
-  label: string;
-  href: string;
-}
-
-interface Menu {
-  label: string;
-  href: string;
-}
-
-interface Navbar {
-  logo: any;
-  menus: Menu[];
-  socialLinks: SocialLinks[];
-}
-
-interface Props {
+interface PageProps {
   children?: React.ReactNode;
-  navbar?: Navbar;
+  navbar?: NavBarProps;
 }
-function Page({ children, navbar }: Props) {
+
+function Page({ children, navbar }: PageProps) {
   return (
     <>
       {navbar ? <NavBar {...navbar} /> : null}

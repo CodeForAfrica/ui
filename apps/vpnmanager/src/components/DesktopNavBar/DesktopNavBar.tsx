@@ -1,26 +1,24 @@
-import React, { FC, ForwardRefExoticComponent, RefAttributes } from "react";
+import React, { ForwardedRef } from "react";
 
-import NavBarNavList from "@/vpnmanager/components/NavBarNavList";
-import NextImageButton from "@/vpnmanager/components/NextImageButton";
 import { Box, Grid, Grid2Props } from "@mui/material";
 
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
+import type {
+  Menu,
+  SocialMediaLink,
+} from "@/vpnmanager/components/NavBarNavList";
+import NavBarNavList from "@/vpnmanager/components/NavBarNavList";
+import NextImageButton from "@/vpnmanager/components/NextImageButton";
 
-interface Menu {
-  label: string;
-  href: string;
-}
 interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
-const DesktopNavBar: ForwardRefExoticComponent<
-  Omit<Props, "ref"> & RefAttributes<HTMLDivElement>
-> = React.forwardRef(function DesktopNavBar(props, ref) {
+
+const DesktopNavBar = React.forwardRef(function DesktopNavBar(
+  props: Props,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const { logo, menus, socialLinks, sx } = props;
 
   return (
