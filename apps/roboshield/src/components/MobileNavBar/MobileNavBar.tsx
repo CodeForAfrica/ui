@@ -13,14 +13,13 @@ import React, { ForwardedRef } from "react";
 
 import MenuIcon from "@/roboshield/assets/icons/Type=menu, Size=32, Color=CurrentColor.svg";
 import CloseIcon from "@/roboshield/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import type {
+  Menu,
+  SocialMediaLink,
+} from "@/roboshield/components/NavBarNavList";
 import NavBarNavList from "@/roboshield/components/NavBarNavList";
 import NextImageButton from "@/roboshield/components/NextImageButton";
-import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
-interface Menu {
-  label: string;
-  href: string;
-}
 interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];

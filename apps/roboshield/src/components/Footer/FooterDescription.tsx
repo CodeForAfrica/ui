@@ -1,13 +1,14 @@
 import { Figure, Link } from "@commons-ui/next";
 import { Stack, Theme } from "@mui/material";
-import React from "react";
-import RichText from "@/roboshield/components/RichText";
+import type { SxProps } from "@mui/material/styles";
+
 import type { Children } from "@/roboshield/components/RichText";
+import RichText from "@/roboshield/components/RichText";
 
 interface FooterDescriptionProps {
   description: Children;
   logo: any;
-  sx?: any;
+  sx?: SxProps<Theme>;
 }
 
 function FooterDescription({ description, logo, sx }: FooterDescriptionProps) {
