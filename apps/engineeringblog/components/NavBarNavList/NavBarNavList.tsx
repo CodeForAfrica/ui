@@ -1,6 +1,7 @@
 import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+import { StyledLink as Link } from "@commons-ui/next";
 import type { LinkProps } from "@mui/material";
+import type { Theme } from "@mui/material/styles";
 import React from "react";
 
 interface NavListItemProps extends LinkProps {}
@@ -20,7 +21,6 @@ type SocialMediaPlatform =
 
 interface SocialMediaLink {
   platform: SocialMediaPlatform;
-  // TODO(koech): Confirm why we chose url instead of href in the CMS
   url: string;
 }
 
@@ -42,19 +42,25 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
       {menus?.map((item) => (
         <NavListItem
           key={item.label}
-          sx={{
-            mb: { xs: 2.5, md: 0 },
+          sx={(theme: Theme) => ({
+            borderBottom: {
+              xs: `1px solid ${theme.palette.divider}`,
+              md: "none",
+            },
+            py: { xs: 1, md: 0 },
             mr: { xs: 0, md: 2.5 },
-          }}
+          })}
         >
           <Link
             color="inherit"
             underline="none"
             // in mobile h3 = h4 in desktop
-            variant="h3"
+            variant="h5"
             {...NavListItemProps}
             href={item.href}
             sx={{
+              display: "flex",
+              flexBasis: { xs: 1, md: "auto" },
               typography: { md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
@@ -69,12 +75,17 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
       ))}
       {socialLinks?.map(({ platform, url }) => {
         return (
-          <NavListItem key={url}>
+          <NavListItem
+            sx={{
+              py: { xs: 1, md: 0 },
+            }}
+            key={url}
+          >
             <SocialMediaIconLink
               component={Link}
               href={url}
               platform={platform}
-              variant="h3"
+              variant="h5"
               IconProps={{
                 fontSize: "inherit",
                 sx: {
@@ -82,6 +93,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
                 },
               }}
               sx={{
+                display: "flex",
                 typography: { md: "h5" },
               }}
             />

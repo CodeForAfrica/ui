@@ -1,9 +1,9 @@
-import { SxProps } from "@mui/material/styles";
+import type { SxProps, Theme } from "@mui/material/styles";
 
-import { ArticleProps } from "@/engineeringblog/utils";
+import { ArticleProps } from "@/engineeringblog/lib/data";
 
 interface ArticleSxProps extends ArticleProps {
-  sx?: SxProps;
+  sx?: SxProps<Theme>;
 }
 
 export type { ArticleSxProps };

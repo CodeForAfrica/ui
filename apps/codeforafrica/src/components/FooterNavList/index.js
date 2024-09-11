@@ -1,10 +1,8 @@
-import { NavList } from "@commons-ui/core";
+import { NavList, NavListItem } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import NavListItem from "@/codeforafrica/components/NavListItem";
 
 function FooterNavList({ menus, children }) {
   if (!menus?.length) {
@@ -56,10 +54,6 @@ FooterNavList.propTypes = {
       href: PropTypes.string,
     }),
   ),
-};
-
-FooterNavList.defaultProps = {
-  menus: undefined,
 };
 
 export default FooterNavList;
