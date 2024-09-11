@@ -1,0 +1,55 @@
+{
+  "name": "global-cms-poc",
+  "version": "1.0.0",
+  "description": "A blank template to get started with Payload 3.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "generate:types": "payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+  },
+  "dependencies": {
+    "@mui/utils": "^6.0.2",
+    "@payloadcms/db-mongodb": "3.0.0-beta.102",
+    "@payloadcms/db-postgres": "3.0.0-beta.102",
+    "@payloadcms/next": "3.0.0-beta.102",
+    "@payloadcms/plugin-cloud": "3.0.0-beta.102",
+    "@payloadcms/plugin-seo": "3.0.0-beta.102",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.102",
+    "@payloadcms/ui": "3.0.0-beta.102",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.9.0",
+    "next": "15.0.0-canary.104",
+    "payload": "3.0.0-beta.102",
+    "react": "19.0.0-rc-06d0b89e-20240801",
+    "react-dom": "19.0.0-rc-06d0b89e-20240801",
+    "sharp": "0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/react": "npm:types-react@19.0.0-rc.0",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
+    "eslint": "^9.10.0",
+    "eslint-config-next": "15.0.0-canary.53",
+    "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.0",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
+    }
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.0",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
+  },
+  "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
+}
