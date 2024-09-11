@@ -1,8 +1,8 @@
-import type { CollectionConfig } from "payload";
-import { superAdmins } from "@/payload/access/superAdmins";
+import type { CollectionConfig } from 'payload'
+import { superAdmins } from '@/payload/access/superAdmins'
 
 export const Tenants: CollectionConfig = {
-  slug: "tenants",
+  slug: 'tenants',
   access: {
     create: superAdmins,
     read: superAdmins,
@@ -10,25 +10,25 @@ export const Tenants: CollectionConfig = {
     delete: superAdmins,
   },
   admin: {
-    useAsTitle: "name",
+    useAsTitle: 'name',
   },
   fields: [
     {
-      name: "name",
-      type: "text",
+      name: 'name',
+      type: 'text',
       required: true,
     },
     {
-      name: "domains",
-      type: "array",
+      name: 'domains',
+      type: 'array',
       index: true,
       fields: [
         {
-          name: "domain",
-          type: "text",
+          name: 'domain',
+          type: 'text',
           required: true,
         },
       ],
     },
   ],
-};
+}

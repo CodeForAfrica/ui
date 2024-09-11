@@ -1,6 +1,6 @@
-# Payload 3.0 Multi-tenant App
+# Central CMS
 
-This repo has contains source code for [Payload 3.0](https://github.com/payloadcms/payload) multi-tenant approach. It borrows ideas from this [example](https://payloadcms.com/blog/how-to-build-a-multi-tenant-app-with-payload) the main difference is that this example is suited for a scenario where you are managing content of multiple instances of the same application while in our case we are managing content of multiple instances of different applications.
+This repo has contains source code for [Payload 3.0](https://github.com/payloadcms/payload) CMS for multiple full stack Applications. It borrows ideas from this [example](https://payloadcms.com/blog/how-to-build-a-multi-tenant-app-with-payload) the main difference is that this example is suited for a scenario where you are managing content of multiple instances of the same application while in our case we are managing content of multiple instances of different applications.
 
 ## Running the project in Development mode
 

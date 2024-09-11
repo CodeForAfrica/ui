@@ -1,7 +1,7 @@
-import formatPagePath from "./formatPagePath";
+import formatPagePath from './formatPagePath'
 
 async function findAndFormatPagePath(payload, slug) {
-  const collection = "pages";
+  const collection = 'pages'
   const options = {
     collection,
     where: {
@@ -10,13 +10,13 @@ async function findAndFormatPagePath(payload, slug) {
       },
     },
     limit: 0,
-  };
-  const { docs } = await payload.find(options);
+  }
+  const { docs } = await payload.find(options)
 
   if (docs?.length) {
-    return formatPagePath(collection, docs[0]);
+    return formatPagePath(collection, docs[0])
   }
-  return undefined;
+  return undefined
 }
 
-export default findAndFormatPagePath;
+export default findAndFormatPagePath

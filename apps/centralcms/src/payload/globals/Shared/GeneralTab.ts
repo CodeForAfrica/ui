@@ -1,54 +1,53 @@
-import { Tab } from "payload";
-import image from "@/custom-fields/image";
-import richText from "@/custom-fields/RichText";
+import { Tab } from 'payload'
+import image from '@/custom-fields/image'
+import richText from '@/custom-fields/RichText'
 
 const GeneralTab: Tab = {
-  label: "General",
+  label: 'General',
   fields: [
     {
-      type: "collapsible",
-      label: "Title & Description",
+      type: 'collapsible',
+      label: 'Title & Description',
       fields: [
         {
-          name: "title",
-          type: "text",
+          name: 'title',
+          type: 'text',
           required: true,
           localized: true,
         },
         richText({
-          name: "description",
+          name: 'description',
           required: true,
           localized: true,
         }),
       ],
     },
     {
-      type: "collapsible",
-      label: "Logo",
+      type: 'collapsible',
+      label: 'Logo',
       fields: [
         image({
           overrides: {
-            name: "primaryLogo",
+            name: 'primaryLogo',
             required: true,
             localized: true,
             admin: {
-              description: "Shown on main navigation bar.",
+              description: 'Shown on main navigation bar.',
             },
           },
         }),
         image({
           overrides: {
-            name: "secondaryLogo",
+            name: 'secondaryLogo',
             localized: true,
             admin: {
-              description:
-                "Shown on main footer. If not provided, primary logo will be reused.",
+              description: 'Shown on main footer. If not provided, primary logo will be reused.',
             },
           },
         }),
       ],
     },
   ],
-};
+}
 
-export default GeneralTab;
+export default GeneralTab

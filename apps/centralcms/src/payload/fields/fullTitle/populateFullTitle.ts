@@ -2,16 +2,16 @@ export function generateFullTitle(breadcrumbs) {
   if (Array.isArray(breadcrumbs)) {
     return breadcrumbs.reduce((title, breadcrumb, i) => {
       if (i === 0) {
-        return `${breadcrumb.label}`;
+        return `${breadcrumb.label}`
       }
-      return `${title} > ${breadcrumb.label}`;
-    }, "");
+      return `${title} > ${breadcrumb.label}`
+    }, '')
   }
-  return undefined;
+  return undefined
 }
 
 async function populateFullTitle({ data, originalDoc }) {
-  return generateFullTitle(data?.breadcrumbs || originalDoc?.breadcrumbs);
+  return generateFullTitle(data?.breadcrumbs || originalDoc?.breadcrumbs)
 }
 
-export default populateFullTitle;
+export default populateFullTitle

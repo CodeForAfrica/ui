@@ -1,33 +1,33 @@
-import { Block } from "payload";
+import { Block } from 'payload'
 
 const Partners: Block = {
-  slug: "our-partners",
-  imageURL: "/images/cms/blocks/codeforafrica/partners.png",
-  imageAltText: "Our partners.",
+  slug: 'our-partners',
+  imageURL: '/images/cms/blocks/codeforafrica/partners.png',
+  imageAltText: 'Our partners.',
   labels: {
     singular: {
-      en: "Partners",
+      en: 'Partners',
     },
     plural: {
-      en: "Partners",
+      en: 'Partners',
     },
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: true,
     },
     {
-      name: "partners",
-      type: "relationship",
-      relationTo: "partners",
+      name: 'partners',
+      type: 'relationship',
+      relationTo: 'partners',
       hasMany: true,
       admin: {
         isSortable: true,
       },
     },
   ],
-};
+}
 
-export default Partners;
+export default Partners

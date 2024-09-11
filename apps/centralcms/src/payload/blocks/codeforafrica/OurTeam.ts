@@ -1,57 +1,57 @@
-import { Block } from "payload";
+import { Block } from 'payload'
 
 const OurTeam: Block = {
-  slug: "our-team",
-  imageURL: "/images/cms/blocks/codeforafrica/team.png",
-  imageAltText: "Our team.",
+  slug: 'our-team',
+  imageURL: '/images/cms/blocks/codeforafrica/team.png',
+  imageAltText: 'Our team.',
   labels: {
     singular: {
-      en: "Team",
+      en: 'Team',
     },
     plural: {
-      en: "Team",
+      en: 'Team',
     },
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: true,
     },
     {
-      name: "fields",
-      type: "select",
+      name: 'fields',
+      type: 'select',
       label: {
-        en: "Filter By",
+        en: 'Filter By',
       },
       hasMany: true,
       options: [
         {
-          value: "team",
-          label: { en: "Team" },
+          value: 'team',
+          label: { en: 'Team' },
         },
         {
-          value: "country",
-          label: { en: "Country" },
+          value: 'country',
+          label: { en: 'Country' },
         },
       ],
     },
     {
-      name: "labels",
-      type: "group",
+      name: 'labels',
+      type: 'group',
       admin: {
-        description: "Labels/Titles to be used in member view page",
+        description: 'Labels/Titles to be used in member view page',
       },
       fields: [
         {
-          name: "projects",
-          type: "text",
+          name: 'projects',
+          type: 'text',
           required: true,
-          defaultValue: "Projects",
+          defaultValue: 'Projects',
         },
       ],
     },
   ],
-};
+}
 
-export default OurTeam;
+export default OurTeam

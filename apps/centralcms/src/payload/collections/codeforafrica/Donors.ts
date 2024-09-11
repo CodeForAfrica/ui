@@ -1,7 +1,7 @@
-import image from "@/payload/fields/image";
-import slug from "@/payload/fields/slug";
-import type { CollectionConfig } from "payload";
-import { canRead } from "@/payload/access/codeforafrica";
+import image from '@/payload/fields/image'
+import slug from '@/payload/fields/slug'
+import type { CollectionConfig } from 'payload'
+import { canRead } from '@/payload/access/codeforafrica'
 
 const Donors: CollectionConfig = {
   access: {
@@ -9,37 +9,37 @@ const Donors: CollectionConfig = {
     create: () => true,
     update: () => true,
   },
-  slug: "donors",
+  slug: 'donors',
   labels: {
     singular: {
-      en: "Donor",
+      en: 'Donor',
     },
     plural: {
-      en: "Donors",
+      en: 'Donors',
     },
   },
   admin: {
-    defaultColumns: ["name", "slug", "updatedAt"],
+    defaultColumns: ['name', 'slug', 'updatedAt'],
     enableRichTextLink: false,
-    group: "Organisation",
-    useAsTitle: "name",
+    group: 'Organisation',
+    useAsTitle: 'name',
   },
   fields: [
     {
-      name: "name",
-      type: "text",
+      name: 'name',
+      type: 'text',
       required: true,
       localized: true,
     },
-    slug({ fieldToUse: "name" }),
+    slug({ fieldToUse: 'name' }),
     image({
       overrides: {
-        name: "logo",
+        name: 'logo',
         required: true,
         localized: true,
       },
     }),
   ],
-};
+}
 
-export default Donors;
+export default Donors

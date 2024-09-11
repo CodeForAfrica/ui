@@ -1,10 +1,10 @@
-import { deepmerge } from "@mui/utils";
-import { Field } from "payload";
+import { deepmerge } from '@mui/utils'
+import { Field } from 'payload'
 
 interface BlockFieldsProps {
-  name: string;
-  fields: Field[];
-  overrides?: Record<string, any>;
+  name: string
+  fields: Field[]
+  overrides?: Record<string, any>
 }
 
 const blockFields = ({ name, fields, overrides }: BlockFieldsProps) =>
@@ -12,7 +12,7 @@ const blockFields = ({ name, fields, overrides }: BlockFieldsProps) =>
     {
       name,
       label: false,
-      type: "group",
+      type: 'group',
       admin: {
         hideGutter: true,
         style: {
@@ -23,6 +23,6 @@ const blockFields = ({ name, fields, overrides }: BlockFieldsProps) =>
       fields,
     },
     overrides,
-  ) as Field;
+  ) as Field
 
-export default blockFields;
+export default blockFields

@@ -1,25 +1,24 @@
-import { Tab } from "payload";
-import socialLinks from "@/custom-fields/socialLinks";
+import { Tab } from 'payload'
+import socialLinks from '@/custom-fields/socialLinks'
 
 const EngagementTab: Tab = {
-  label: "Engagement",
+  label: 'Engagement',
   fields: [
     {
-      name: "connect",
-      type: "group",
-      label: "Social Accounts",
+      name: 'connect',
+      type: 'group',
+      label: 'Social Accounts',
       localized: true,
       fields: [
         {
-          type: "collapsible",
-          label: "Title & Links",
+          type: 'collapsible',
+          label: 'Title & Links',
           fields: [
             {
-              name: "title",
-              type: "text",
+              name: 'title',
+              type: 'text',
               admin: {
-                description:
-                  "Text that appears on contact links e.g Stay in Touch",
+                description: 'Text that appears on contact links e.g Stay in Touch',
               },
               required: true,
             },
@@ -29,26 +28,26 @@ const EngagementTab: Tab = {
       ],
     },
     {
-      name: "newsletter",
-      type: "group",
-      label: "Email Newsletter",
+      name: 'newsletter',
+      type: 'group',
+      label: 'Email Newsletter',
       localized: true,
       fields: [
         {
-          type: "collapsible",
-          label: "Title & Embed Code",
+          type: 'collapsible',
+          label: 'Title & Embed Code',
           fields: [
             {
-              name: "title",
-              type: "text",
+              name: 'title',
+              type: 'text',
               required: true,
             },
             {
-              name: "embedCode",
-              type: "code",
+              name: 'embedCode',
+              type: 'code',
               required: true,
               admin: {
-                language: "html",
+                language: 'html',
               },
             },
           ],
@@ -56,6 +55,6 @@ const EngagementTab: Tab = {
       ],
     },
   ],
-};
+}
 
-export default EngagementTab;
+export default EngagementTab

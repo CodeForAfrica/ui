@@ -1,24 +1,24 @@
-import blockFields from "@/payload/fields/blockFields";
-import { Block } from "payload";
+import blockFields from '@/payload/fields/blockFields'
+import { Block } from 'payload'
 
 const MediaBlock: Block = {
-  slug: "mediaBlock",
+  slug: 'mediaBlock',
   fields: [
     blockFields({
-      name: "mediaBlockFields",
+      name: 'mediaBlockFields',
       fields: [
         {
-          name: "image",
-          type: "upload",
-          relationTo: "media",
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
           required: true,
           filterOptions: {
-            mimeType: { contains: "image" },
+            mimeType: { contains: 'image' },
           },
         },
       ],
     }),
   ],
-};
+}
 
-export default MediaBlock;
+export default MediaBlock

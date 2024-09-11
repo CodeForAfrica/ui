@@ -1,23 +1,23 @@
-import { deepmerge } from "@mui/utils";
+import { deepmerge } from '@mui/utils'
 
-import formatSlug from "./formatSlug";
-import { Field } from "payload";
+import formatSlug from './formatSlug'
+import { Field } from 'payload'
 
-function slug({ fieldToUse = "title", overrides = undefined } = {}): Field {
+function slug({ fieldToUse = 'title', overrides = undefined } = {}): Field {
   const slugResult: Field = {
-    name: "slug",
-    type: "text",
+    name: 'slug',
+    type: 'text',
     index: true,
     unique: true,
     admin: {
-      position: "sidebar",
+      position: 'sidebar',
     },
     hooks: {
       beforeValidate: [formatSlug(fieldToUse)],
     },
-  };
+  }
 
-  return deepmerge(slugResult, overrides);
+  return deepmerge(slugResult, overrides)
 }
 
-export default slug;
+export default slug

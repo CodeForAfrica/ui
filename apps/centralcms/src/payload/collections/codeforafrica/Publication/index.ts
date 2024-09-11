@@ -1,20 +1,20 @@
-import PostTab from "./PostTab";
+import PostTab from './PostTab'
 
 const Publication = {
-  slug: "settings-publication",
-  label: "Publication",
+  slug: 'settings-publication',
+  label: 'Publication',
   access: {
     read: () => true,
   },
   admin: {
-    group: "Settings",
+    group: 'Settings',
   },
   fields: [
     {
-      type: "tabs",
+      type: 'tabs',
       tabs: [PostTab],
     },
   ],
-};
+}
 
-export default Publication;
+export default Publication

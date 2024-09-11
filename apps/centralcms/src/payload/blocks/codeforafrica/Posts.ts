@@ -1,78 +1,78 @@
-import { Block } from "payload";
+import { Block } from 'payload'
 
 const primaryTags = [
   {
-    label: "Stories",
-    value: "stories",
+    label: 'Stories',
+    value: 'stories',
   },
   {
-    label: "Opportunities",
-    value: "opportunities",
+    label: 'Opportunities',
+    value: 'opportunities',
   },
-];
+]
 
 const Posts: Block = {
   // `posts` slug is already used by Post collection
-  slug: "post-list",
-  imageURL: "/images/cms/blocks/codeforafrica/posts.jpg",
-  imageAltText: "Stories & Opportunities",
+  slug: 'post-list',
+  imageURL: '/images/cms/blocks/codeforafrica/posts.jpg',
+  imageAltText: 'Stories & Opportunities',
   labels: {
     singular: {
-      en: "Posts",
+      en: 'Posts',
     },
     plural: {
-      en: "Posts",
+      en: 'Posts',
     },
   },
   fields: [
     {
-      name: "primaryTag",
-      label: "Post Type",
-      type: "select",
+      name: 'primaryTag',
+      label: 'Post Type',
+      type: 'select',
       hasMany: false,
       options: primaryTags,
       required: true,
     },
     {
-      name: "stories",
-      type: "group",
+      name: 'stories',
+      type: 'group',
       fields: [
         {
-          name: "featured",
-          type: "relationship",
-          relationTo: "posts",
+          name: 'featured',
+          type: 'relationship',
+          relationTo: 'posts',
           hasMany: false,
         },
         {
-          name: "title",
-          type: "text",
+          name: 'title',
+          type: 'text',
           required: true,
-          defaultValue: "Stories",
+          defaultValue: 'Stories',
         },
       ],
       admin: {
-        condition: (_, siblingData) => siblingData.primaryTag === "stories",
+        condition: (_, siblingData) => siblingData.primaryTag === 'stories',
       },
     },
     {
-      name: "labels",
-      type: "group",
+      name: 'labels',
+      type: 'group',
       fields: [
         {
-          name: "search",
-          type: "text",
+          name: 'search',
+          type: 'text',
           required: true,
-          defaultValue: "Search Posts",
+          defaultValue: 'Search Posts',
         },
         {
-          name: "readMore",
-          type: "text",
+          name: 'readMore',
+          type: 'text',
           required: true,
-          defaultValue: "Read More",
+          defaultValue: 'Read More',
         },
       ],
     },
   ],
-};
+}
 
-export default Posts;
+export default Posts
