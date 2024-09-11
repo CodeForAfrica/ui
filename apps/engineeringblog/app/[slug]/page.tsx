@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 
 import Article from "@/engineeringblog/components/Article";
-import { ArticleProps, getContent } from "@/engineeringblog/utils";
+import { ArticleProps, getContent } from "@/engineeringblog/lib/data";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const post: ArticleProps = await getContent(params.slug);

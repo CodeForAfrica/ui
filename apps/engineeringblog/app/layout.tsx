@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import NavBar from "@/engineeringblog/components/NavBar";
 import theme from "@/engineeringblog/theme";
 
+import { getSettings } from "@/engineeringblog/lib/data";
 import logoLight from "@/engineeringblog/assets/images/logo-light.png";
 
 export const metadata: Metadata = {
@@ -13,11 +14,12 @@ export const metadata: Metadata = {
     "Tech adventures in Africa's civic labs: Coding, innovating, and disrupting for good across the continent.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { primaryNavigation } = await getSettings();
   // TODO: blurWidth/blurHeight https://github.com/vercel/next.js/issues/56511
   const { blurWidth, blurHeight, ...logoProps } = logoLight;
   const logo = {
@@ -32,7 +34,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
-            <NavBar logo={logo} />
+            <NavBar {...primaryNavigation} logo={logo} />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
