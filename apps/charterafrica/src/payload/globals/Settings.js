@@ -1,6 +1,5 @@
-import { array } from "payload/dist/fields/validations";
-
 import { locales } from "../utils/locales";
+import validateUniqueArrayFieldSelect from "../utils/validateUniqueArrayFieldSelect";
 
 const Settings = {
   slug: "settings",
@@ -78,15 +77,12 @@ const Settings = {
                 isClearable: false,
                 isSortable: true,
               },
-              validate: (val, options) => {
-                const { data, t } = options || {};
-                if (
-                  data?.languages?.filter((l) => l.locale === val)?.length > 1
-                ) {
-                  return t("charterafrica.site:uniqueLocales");
-                }
-                return array(val, options);
-              },
+              validate: validateUniqueArrayFieldSelect(
+                "languages",
+                "locale",
+                locales,
+                "charterafrica.site:uniqueLocales",
+              ),
             },
             {
               name: "label",
