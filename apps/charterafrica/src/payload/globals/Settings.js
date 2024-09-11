@@ -1,4 +1,4 @@
-import { array } from "payload/dist/fields/validations";
+import { select } from "payload/dist/fields/validations";
 
 import { locales } from "../utils/locales";
 
@@ -85,7 +85,7 @@ const Settings = {
                 ) {
                   return t("charterafrica.site:uniqueLocales");
                 }
-                return array(val, options);
+                return select(val, { ...options, options: locales });
               },
             },
             {

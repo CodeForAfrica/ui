@@ -1,8 +1,35 @@
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { text, array } from "payload/dist/fields/validations";
+import { text, select } from "payload/dist/fields/validations";
 
 import linkArray from "../fields/linkArray";
 import richText from "../fields/richText";
+
+const socialMediaOptions = [
+  {
+    value: "facebook",
+    label: "Facebook",
+  },
+  {
+    value: "github",
+    label: "Github",
+  },
+  {
+    value: "instagram",
+    label: "Instagram",
+  },
+  {
+    value: "linkedin",
+    label: "LinkedIn",
+  },
+  {
+    value: "slack",
+    label: "Slack",
+  },
+  {
+    value: "twitter",
+    label: "Twitter",
+  },
+];
 
 const Footer = {
   slug: "footer",
@@ -120,32 +147,7 @@ const Footer = {
                 pt: "Media",
               },
               type: "select",
-              options: [
-                {
-                  value: "facebook",
-                  label: "Facebook",
-                },
-                {
-                  value: "github",
-                  label: "Github",
-                },
-                {
-                  value: "instagram",
-                  label: "Instagram",
-                },
-                {
-                  value: "linkedin",
-                  label: "LinkedIn",
-                },
-                {
-                  value: "slack",
-                  label: "Slack",
-                },
-                {
-                  value: "twitter",
-                  label: "Twitter",
-                },
-              ],
+              options: socialMediaOptions,
               unique: true,
               required: true,
               admin: {
@@ -160,7 +162,10 @@ const Footer = {
                 ) {
                   return t("charterafrica.site:uniqueMedia");
                 }
-                return array(val, options);
+                return select(val, {
+                  ...options,
+                  options: socialMediaOptions,
+                });
               },
             },
             {
