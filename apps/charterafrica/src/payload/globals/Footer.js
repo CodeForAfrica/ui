@@ -1,8 +1,36 @@
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { text, array } from "payload/dist/fields/validations";
+import { text } from "payload/dist/fields/validations";
 
 import linkArray from "../fields/linkArray";
 import richText from "../fields/richText";
+import validateUniqueArrayFieldSelect from "../utils/validateUniqueArrayFieldSelect";
+
+const socialMediaOptions = [
+  {
+    value: "facebook",
+    label: "Facebook",
+  },
+  {
+    value: "github",
+    label: "Github",
+  },
+  {
+    value: "instagram",
+    label: "Instagram",
+  },
+  {
+    value: "linkedin",
+    label: "LinkedIn",
+  },
+  {
+    value: "slack",
+    label: "Slack",
+  },
+  {
+    value: "twitter",
+    label: "Twitter",
+  },
+];
 
 const Footer = {
   slug: "footer",
@@ -120,48 +148,19 @@ const Footer = {
                 pt: "Media",
               },
               type: "select",
-              options: [
-                {
-                  value: "facebook",
-                  label: "Facebook",
-                },
-                {
-                  value: "github",
-                  label: "Github",
-                },
-                {
-                  value: "instagram",
-                  label: "Instagram",
-                },
-                {
-                  value: "linkedin",
-                  label: "LinkedIn",
-                },
-                {
-                  value: "slack",
-                  label: "Slack",
-                },
-                {
-                  value: "twitter",
-                  label: "Twitter",
-                },
-              ],
+              options: socialMediaOptions,
               unique: true,
               required: true,
               admin: {
                 isClearable: false,
                 isSortable: true,
               },
-              validate: (val, options) => {
-                const { data, t } = options || {};
-                if (
-                  data?.connect?.links?.filter((l) => l.media === val)?.length >
-                  1
-                ) {
-                  return t("charterafrica.site:uniqueMedia");
-                }
-                return array(val, options);
-              },
+              validate: validateUniqueArrayFieldSelect(
+                "links",
+                "media",
+                socialMediaOptions,
+                "charterafrica.site:uniqueMedia",
+              ),
             },
             {
               name: "url",
