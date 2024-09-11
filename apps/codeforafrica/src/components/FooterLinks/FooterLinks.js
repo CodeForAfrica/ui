@@ -1,10 +1,10 @@
+import { NavListItem } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import FooterNavList from "@/codeforafrica/components/FooterNavList";
-import NavListItem from "@/codeforafrica/components/NavListItem";
 
 const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
   const { primaryMenus, secondaryMenus, sx } = props;
@@ -44,10 +44,6 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
 
 FooterLinks.propTypes = {
   additionalLinks: PropTypes.shape({}),
-};
-
-FooterLinks.defaultProps = {
-  additionalLinks: undefined,
 };
 
 export default FooterLinks;
