@@ -1,8 +1,9 @@
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { text, select } from "payload/dist/fields/validations";
+import { text } from "payload/dist/fields/validations";
 
 import linkArray from "../fields/linkArray";
 import richText from "../fields/richText";
+import validateUniqueArrayFieldSelect from "../utils/validateUniqueArrayFieldSelect";
 
 const socialMediaOptions = [
   {
@@ -154,19 +155,12 @@ const Footer = {
                 isClearable: false,
                 isSortable: true,
               },
-              validate: (val, options) => {
-                const { data, t } = options || {};
-                if (
-                  data?.connect?.links?.filter((l) => l.media === val)?.length >
-                  1
-                ) {
-                  return t("charterafrica.site:uniqueMedia");
-                }
-                return select(val, {
-                  ...options,
-                  options: socialMediaOptions,
-                });
-              },
+              validate: validateUniqueArrayFieldSelect(
+                "links",
+                "media",
+                socialMediaOptions,
+                "charterafrica.site:uniqueMedia",
+              ),
             },
             {
               name: "url",
