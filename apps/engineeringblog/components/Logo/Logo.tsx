@@ -42,6 +42,7 @@ const Logo = React.forwardRef(function Logo(
         color="inherit"
         href={logoHref}
         sx={(theme: Theme) => ({
+          display: "flex",
           "&>svg,&>img": {
             transition: theme.transitions.create(["opacity", "transform"]),
           },

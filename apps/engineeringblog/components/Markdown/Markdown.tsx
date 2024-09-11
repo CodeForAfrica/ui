@@ -1,5 +1,4 @@
 // Addapted from https://amirardalan.com/blog/syntax-highlight-code-in-markdown
-import React from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
@@ -14,9 +13,9 @@ import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import CopyCodeButton from "./CopyCodeButton";
 
+import { Box } from "@mui/material";
 import rangeParser from "parse-numeric-range";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { Box } from "@mui/material";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
@@ -45,11 +44,11 @@ const Pre = ({ children }: { children: JSX.Element }) => (
   </Box>
 );
 
-const Markdown = React.forwardRef(function Markdown({
-  markdown,
-}: {
+type MarkdownProps = {
   markdown: string;
-}) {
+};
+
+function Markdown({ markdown }: MarkdownProps) {
   const syntaxTheme = oneDark;
 
   const MarkdownComponents: Components = {
@@ -98,6 +97,6 @@ const Markdown = React.forwardRef(function Markdown({
   return (
     <ReactMarkdown components={MarkdownComponents}>{markdown}</ReactMarkdown>
   );
-});
+}
 
 export default Markdown;
