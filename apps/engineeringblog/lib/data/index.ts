@@ -17,9 +17,13 @@ export interface ArticleProps extends MdFileContentProps {
 
 export type ArticleWithoutContentProps = Omit<ArticleProps, "content">;
 
-async function readMdFile(filePath: string): Promise<MdFileContentProps> {
+async function readMdFile(filePath: string) {
   const fileContent = await fs.readFile(filePath, "utf8");
-  const { data, content } = matter(fileContent);
+  return matter(fileContent);
+}
+
+async function readArticleFile(filePath: string): Promise<MdFileContentProps> {
+  const { data, content } = await readMdFile(filePath);
 
   return {
     title: data.title,
@@ -37,7 +41,7 @@ export async function getAllContents(): Promise<ArticleWithoutContentProps[]> {
     .filter((fileName) => fileName.endsWith(".mdx"))
     .map(async (fileName) => {
       const filePath = path.join(contentDir, fileName);
-      const { content, ...fileContent } = await readMdFile(filePath);
+      const { content, ...fileContent } = await readArticleFile(filePath);
 
       return {
         ...fileContent,
@@ -60,10 +64,53 @@ export async function getAllContents(): Promise<ArticleWithoutContentProps[]> {
 
 export async function getContent(slug: string): Promise<ArticleProps> {
   const filePath = path.join(process.cwd(), "content", `${slug}.mdx`);
-  const fileContent = await readMdFile(filePath);
+  const fileContent = await readArticleFile(filePath);
 
   return {
     ...fileContent,
     slug,
   };
+}
+
+type ConnectPlatformProp =
+  | "Facebook"
+  | "Twitter"
+  | "Instagram"
+  | "Linkedin"
+  | "Github"
+  | "Slack";
+
+type ConnectLinkProp = {
+  platform: ConnectPlatformProp;
+  url: string;
+};
+
+type ConnectProps = {
+  title: string;
+  links: ConnectLinkProp[];
+};
+
+type PrimaryNavigationProps = {
+  connect: ConnectPlatformProp;
+};
+
+type SettingsProps = {
+  title: string;
+  primaryNavigation: PrimaryNavigationProps;
+  connect: ConnectProps;
+};
+
+async function readSettingsFile(filePath: string): Promise<SettingsProps> {
+  const { data } = await readMdFile(filePath);
+
+  return {
+    title: data.title,
+    primaryNavigation: data.primaryNavigation,
+    connect: data.connect,
+  };
+}
+
+export async function getSettings(): Promise<SettingsProps> {
+  const filePath = path.join(process.cwd(), "content", "site", "settings.mdx");
+  return readSettingsFile(filePath);
 }
