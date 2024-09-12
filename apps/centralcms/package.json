@@ -1,0 +1,56 @@
+{
+  "name": "centralcms",
+  "version": "0.0.1",
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "Headless CMS for CfA full stack applications",
+  "keywords": [
+    "cms",
+    "next",
+    "next.js",
+    "react",
+    "payload"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "generate:types": "payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+  },
+  "dependencies": {
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
+    "@mui/utils": "catalog:",
+    "@payloadcms/db-mongodb": "catalog:payload-3",
+    "@payloadcms/db-postgres": "catalog:payload-3",
+    "@payloadcms/next": "catalog:payload-3",
+    "@payloadcms/plugin-cloud": "catalog:payload-3",
+    "@payloadcms/plugin-seo": "catalog:payload-3",
+    "@payloadcms/richtext-lexical": "catalog:payload-3",
+    "@payloadcms/ui": "catalog:payload-3",
+    "cross-env": "catalog:payload-3",
+    "graphql": "catalog:payload-3",
+    "next": "catalog:payload-3",
+    "payload": "catalog:payload-3",
+    "react": "catalog:payload-3",
+    "react-dom": "catalog:payload-3",
+    "sharp": "catalog:"
+  },
+  "devDependencies": {
+    "@commons-ui/testing-library": "workspace:*",
+    "@svgr/webpack": "catalog:",
+    "@types/node": "catalog:payload-3",
+    "@types/react": "catalog:payload-3",
+    "@types/react-dom": "catalog:payload-3",
+    "eslint": "catalog:payload-3",
+    "eslint-config-next": "catalog:payload-3",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  }
+}
