@@ -3,7 +3,7 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
-import { buildConfig, GlobalConfig } from 'payload'
+import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { Users } from '@/payload/collections/Users'
@@ -27,10 +27,10 @@ import RoboShieldGlobals from '@/payload/globals/RoboShieldGlobals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const DATABASE_URI: string =
-  process.env.DATABASE_URI ??
+const MONGO_URL: string =
+  process.env.MONGO_URL ??
   (() => {
-    throw new Error('DATABASE_URI environment variable is not set')
+    throw new Error('MONGO_URL environment variable is not set')
   })()
 
 export default buildConfig({
@@ -62,7 +62,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: DATABASE_URI,
+    url: MONGO_URL,
   }),
   sharp,
   plugins: [

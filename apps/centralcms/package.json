@@ -22,6 +22,8 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
     "@mui/utils": "catalog:",
     "@payloadcms/db-mongodb": "catalog:payload-3",
     "@payloadcms/db-postgres": "catalog:payload-3",
@@ -39,6 +41,8 @@
     "sharp": "catalog:"
   },
   "devDependencies": {
+    "@commons-ui/testing-library": "workspace:*",
+    "@svgr/webpack": "catalog:",
     "@types/node": "catalog:payload-3",
     "@types/react": "catalog:payload-3",
     "@types/react-dom": "catalog:payload-3",

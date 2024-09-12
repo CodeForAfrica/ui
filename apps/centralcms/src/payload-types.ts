@@ -8,216 +8,216 @@
 
 export interface Config {
   auth: {
-    users: UserAuthOperations
-  }
+    users: UserAuthOperations;
+  };
   collections: {
-    users: User
-    media: Media
-    tenants: Tenant
-    author: Author
-    donors: Donor
-    'guiding-principles': GuidingPrinciple
-    impact: Impact
-    offices: Office
-    members: Member
-    partners: Partner
-    projects: Project
-    posts: Post
-    tag: Tag
-    teams: Team
-    CodeForAfricaPages: CodeForAfricaPage
-    RoboshieldPages: RoboshieldPage
-    'payload-preferences': PayloadPreference
-    'payload-migrations': PayloadMigration
-  }
+    users: User;
+    media: Media;
+    tenants: Tenant;
+    author: Author;
+    donors: Donor;
+    'guiding-principles': GuidingPrinciple;
+    impact: Impact;
+    offices: Office;
+    members: Member;
+    partners: Partner;
+    projects: Project;
+    posts: Post;
+    tag: Tag;
+    teams: Team;
+    CodeForAfricaPages: CodeForAfricaPage;
+    RoboshieldPages: RoboshieldPage;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
+  };
   db: {
-    defaultIDType: string
-  }
+    defaultIDType: string;
+  };
   globals: {
-    'codeforafrica-site-settings': CodeforafricaSiteSetting
-    'roboshield-site-settings': RoboshieldSiteSetting
-  }
-  locale: null
+    'codeforafrica-site-settings': CodeforafricaSiteSetting;
+    'roboshield-site-settings': RoboshieldSiteSetting;
+  };
+  locale: null;
   user: User & {
-    collection: 'users'
-  }
+    collection: 'users';
+  };
 }
 export interface UserAuthOperations {
   forgotPassword: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   login: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   registerFirstUser: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
   unlock: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: string
-  firstName?: string | null
-  lastName?: string | null
-  roles: ('super-admin' | 'user')[]
+  id: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  roles: ('super-admin' | 'user')[];
   tenants?:
     | {
-        tenant: string | Tenant
-        roles: ('admin' | 'user')[]
-        id?: string | null
+        tenant: string | Tenant;
+        roles: ('admin' | 'user')[];
+        id?: string | null;
       }[]
-    | null
-  lastLoggedInTenant?: (string | null) | Tenant
-  updatedAt: string
-  createdAt: string
-  enableAPIKey?: boolean | null
-  apiKey?: string | null
-  apiKeyIndex?: string | null
-  email: string
-  resetPasswordToken?: string | null
-  resetPasswordExpiration?: string | null
-  salt?: string | null
-  hash?: string | null
-  loginAttempts?: number | null
-  lockUntil?: string | null
-  password?: string | null
+    | null;
+  lastLoggedInTenant?: (string | null) | Tenant;
+  updatedAt: string;
+  createdAt: string;
+  enableAPIKey?: boolean | null;
+  apiKey?: string | null;
+  apiKeyIndex?: string | null;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tenants".
  */
 export interface Tenant {
-  id: string
-  name: string
+  id: string;
+  name: string;
   domains?:
     | {
-        domain: string
-        id?: string | null
+        domain: string;
+        id?: string | null;
       }[]
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
-  id: string
-  alt: string
-  updatedAt: string
-  createdAt: string
-  url?: string | null
-  thumbnailURL?: string | null
-  filename?: string | null
-  mimeType?: string | null
-  filesize?: number | null
-  width?: number | null
-  height?: number | null
-  focalX?: number | null
-  focalY?: number | null
+  id: string;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "author".
  */
 export interface Author {
-  id: string
-  fullName: string
-  bio?: string | null
-  updatedAt: string
-  createdAt: string
+  id: string;
+  fullName: string;
+  bio?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "donors".
  */
 export interface Donor {
-  id: string
-  name: string
-  slug?: string | null
-  logo: string | Media
-  updatedAt: string
-  createdAt: string
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "guiding-principles".
  */
 export interface GuidingPrinciple {
-  id: string
-  title: string
-  slug?: string | null
-  icon: string | Media
+  id: string;
+  title: string;
+  slug?: string | null;
+  icon: string | Media;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  updatedAt: string
-  createdAt: string
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "impact".
  */
 export interface Impact {
-  id: string
-  title: string
+  id: string;
+  title: string;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  value: string
-  icon: string | Media
-  updatedAt: string
-  createdAt: string
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  value: string;
+  icon: string | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "offices".
  */
 export interface Office {
-  id: string
-  city: string
+  id: string;
+  city: string;
   /**
    * @minItems 2
    * @maxItems 2
    */
-  location: [number, number]
-  addressLine1?: string | null
-  addressLine2?: string | null
-  zipCode?: string | null
+  location: [number, number];
+  addressLine1?: string | null;
+  addressLine2?: string | null;
+  zipCode?: string | null;
   country?:
     | (
         | 'AFG'
@@ -470,20 +470,20 @@ export interface Office {
         | 'ZMB'
         | 'ZWE'
       )
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "members".
  */
 export interface Member {
-  id: string
-  image: string | Media
-  name: string
-  title: string
-  slug?: string | null
+  id: string;
+  image: string | Media;
+  name: string;
+  title: string;
+  slug?: string | null;
   country?:
     | (
         | 'AFG'
@@ -736,228 +736,228 @@ export interface Member {
         | 'ZMB'
         | 'ZWE'
       )
-    | null
+    | null;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   connect?:
     | {
-        platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack'
-        url: string
-        id?: string | null
+        platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+        url: string;
+        id?: string | null;
       }[]
-    | null
-  team: string | Team
-  updatedAt: string
-  createdAt: string
+    | null;
+  team: string | Team;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "teams".
  */
 export interface Team {
-  id: string
-  name: string
-  slug?: string | null
-  updatedAt: string
-  createdAt: string
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "partners".
  */
 export interface Partner {
-  id: string
-  name: string
-  slug?: string | null
-  logo: string | Media
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   connect?:
     | {
-        platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack'
-        url: string
-        id?: string | null
+        platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+        url: string;
+        id?: string | null;
       }[]
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
-  id: string
-  name: string
-  icon: string | Media
+  id: string;
+  name: string;
+  icon: string | Media;
   title: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   subtitle: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  tagLine: string
-  tag: string | Tag
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  tagLine: string;
+  tag: string | Tag;
   externalLink: {
     link: {
-      label: string
-      type?: ('internal' | 'custom') | null
+      label: string;
+      type?: ('internal' | 'custom') | null;
       internal?:
         | ({
-            relationTo: 'RoboshieldPages'
-            value: string | RoboshieldPage
+            relationTo: 'RoboshieldPages';
+            value: string | RoboshieldPage;
           } | null)
         | ({
-            relationTo: 'CodeForAfricaPages'
-            value: string | CodeForAfricaPage
-          } | null)
-      url?: string | null
-      newTab?: boolean | null
-    }
-  }
-  thumbnail: string | Media
+            relationTo: 'CodeForAfricaPages';
+            value: string | CodeForAfricaPage;
+          } | null);
+      url?: string | null;
+      newTab?: boolean | null;
+    };
+  };
+  thumbnail: string | Media;
   badges?:
     | {
-        name: string
-        date: string
-        id?: string | null
+        name: string;
+        date: string;
+        id?: string | null;
       }[]
-    | null
+    | null;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   links?:
     | {
-        type: 'source' | 'data'
+        type: 'source' | 'data';
         link: {
-          label: string
-          type?: ('internal' | 'custom') | null
+          label: string;
+          type?: ('internal' | 'custom') | null;
           internal?:
             | ({
-                relationTo: 'RoboshieldPages'
-                value: string | RoboshieldPage
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
               } | null)
             | ({
-                relationTo: 'CodeForAfricaPages'
-                value: string | CodeForAfricaPage
-              } | null)
-          url?: string | null
-        }
-        id?: string | null
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+        };
+        id?: string | null;
       }[]
-    | null
-  partners: (string | Partner)[]
-  donors: (string | Donor)[]
-  team: (string | Member)[]
-  slug?: string | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  partners: (string | Partner)[];
+  donors: (string | Donor)[];
+  team: (string | Member)[];
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tag".
  */
 export interface Tag {
-  id: string
-  name: string
-  slug?: string | null
-  updatedAt: string
-  createdAt: string
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "RoboshieldPages".
  */
 export interface RoboshieldPage {
-  id: string
-  title: string
-  slug?: string | null
-  tenant?: (string | null) | Tenant
+  id: string;
+  title: string;
+  slug?: string | null;
+  tenant?: (string | null) | Tenant;
   content?: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  } | null
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   blocks?:
     | (
         | {
-            title: string
-            subtitle: string
-            id?: string | null
-            blockName?: string | null
-            blockType: 'page-header'
+            title: string;
+            subtitle: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'page-header';
           }
         | SiteHero
         | {
@@ -966,266 +966,266 @@ export interface RoboshieldPage {
                   | {
                       content: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      }
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'richtext'
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'richtext';
                     }
                   | {
-                      image: string | Media
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'mediaBlock'
+                      image: string | Media;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'mediaBlock';
                     }
                   | {
                       externalEmbedFields?: {
-                        embedType?: ('url' | 'code') | null
-                        url?: string | null
-                        caption?: string | null
-                        code?: string | null
-                      }
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'externalEmbed'
+                        embedType?: ('url' | 'code') | null;
+                        url?: string | null;
+                        caption?: string | null;
+                        code?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'externalEmbed';
                     }
                 )[]
-              | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'content'
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'content';
           }
         | {
-            title: string
+            title: string;
             statistics?:
               | {
-                  name: string
-                  value: string
+                  name: string;
+                  value: string;
                   description: {
                     root: {
-                      type: string
+                      type: string;
                       children: {
-                        type: string
-                        version: number
-                        [k: string]: unknown
-                      }[]
-                      direction: ('ltr' | 'rtl') | null
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                      indent: number
-                      version: number
-                    }
-                    [k: string]: unknown
-                  }
-                  icon?: (string | null) | Media
-                  id?: string | null
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  icon?: (string | null) | Media;
+                  id?: string | null;
                 }[]
-              | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'statistics'
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statistics';
           }
         | {
             steps?:
               | (
                   | {
-                      title: string
+                      title: string;
                       hint?: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      } | null
-                      defaultFetchExistingRobots?: boolean | null
-                      existingRobotsTxt: string
-                      placeholder: string
-                      urlValidationError: string
-                      fetch: string
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'existing-robots-txt'
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      defaultFetchExistingRobots?: boolean | null;
+                      existingRobotsTxt: string;
+                      placeholder: string;
+                      urlValidationError: string;
+                      fetch: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'existing-robots-txt';
                     }
                   | {
-                      title: string
+                      title: string;
                       hint?: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      } | null
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       crawlDelay: {
-                        label: string
-                        title: string
-                      }
+                        label: string;
+                        title: string;
+                      };
                       cacheDelay: {
-                        label: string
-                        title: string
-                      }
+                        label: string;
+                        title: string;
+                      };
                       visitTime: {
-                        label: string
-                        title: string
-                      }
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'delays'
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'delays';
                     }
                   | {
-                      title: string
+                      title: string;
                       hint?: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      } | null
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       selectPlatform: {
-                        label: string
-                        title: string
-                      }
+                        label: string;
+                        title: string;
+                      };
                       disallowedPaths: {
-                        label: string
-                        title: string
-                      }
+                        label: string;
+                        title: string;
+                      };
                       allowedPaths: {
-                        label: string
-                        title: string
-                      }
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'paths'
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'paths';
                     }
                   | {
-                      title: string
+                      title: string;
                       hint?: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      } | null
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       aiWebCrawlers: {
-                        label: string
-                        title: string
-                      }
+                        label: string;
+                        title: string;
+                      };
                       searchEngineCrawlers: {
-                        label: string
-                        title: string
-                      }
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'block-bots'
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'block-bots';
                     }
                   | {
-                      title: string
+                      title: string;
                       hint?: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      } | null
-                      placeholder: string
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'site-maps'
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'site-maps';
                     }
                   | {
-                      title: string
+                      title: string;
                       hint?: {
                         root: {
-                          type: string
+                          type: string;
                           children: {
-                            type: string
-                            version: number
-                            [k: string]: unknown
-                          }[]
-                          direction: ('ltr' | 'rtl') | null
-                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                          indent: number
-                          version: number
-                        }
-                        [k: string]: unknown
-                      } | null
-                      placeholder: string
-                      id?: string | null
-                      blockName?: string | null
-                      blockType: 'finish'
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'finish';
                     }
                 )[]
-              | null
+              | null;
             actions: {
-              showRobotsTxt: string
-              continue: string
-              back: string
-              reset: string
-              download: string
-              copyToClipboard: string
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'robots-txt-generator'
+              showRobotsTxt: string;
+              continue: string;
+              back: string;
+              reset: string;
+              download: string;
+              copyToClipboard: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'robots-txt-generator';
           }
       )[]
-    | null
+    | null;
   meta?: {
-    title?: string | null
-    image?: (string | null) | Media
-    description?: string | null
-  }
-  updatedAt: string
-  createdAt: string
+    title?: string | null;
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1234,279 +1234,279 @@ export interface RoboshieldPage {
 export interface SiteHero {
   heroHeaders?:
     | {
-        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null
-        title?: string | null
-        id?: string | null
+        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
+        title?: string | null;
+        id?: string | null;
       }[]
-    | null
+    | null;
   heroDescription: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  heroCallToAction?: string | null
-  id?: string | null
-  blockName?: string | null
-  blockType: 'page-hero'
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  heroCallToAction?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'page-hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CodeForAfricaPages".
  */
 export interface CodeForAfricaPage {
-  id: string
-  title: string
-  slug?: string | null
+  id: string;
+  title: string;
+  slug?: string | null;
   blocks?:
     | (
         | {
-            embedCode: string
-            id?: string | null
-            blockName?: string | null
-            blockType: 'contact-form'
+            embedCode: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contact-form';
           }
         | {
-            title: string
+            title: string;
             subtitle?: {
               root: {
-                type: string
+                type: string;
                 children: {
-                  type: string
-                  version: number
-                  [k: string]: unknown
-                }[]
-                direction: ('ltr' | 'rtl') | null
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                indent: number
-                version: number
-              }
-              [k: string]: unknown
-            } | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'error'
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'error';
           }
         | {
-            defaultTag: string | Tag
-            projects: (string | Project)[]
-            id?: string | null
-            blockName?: string | null
-            blockType: 'featured-work'
+            defaultTag: string | Tag;
+            projects: (string | Project)[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'featured-work';
           }
         | {
-            title: string
-            primaryTag?: string | null
+            title: string;
+            primaryTag?: string | null;
             featured: {
-              story: string | Post
-              action?: string | null
-            }
+              story: string | Post;
+              action?: string | null;
+            };
             stories: {
-              items: (string | Post)[]
+              items: (string | Post)[];
               action: {
                 link: {
-                  label: string
-                  type?: ('internal' | 'custom') | null
+                  label: string;
+                  type?: ('internal' | 'custom') | null;
                   internal?:
                     | ({
-                        relationTo: 'RoboshieldPages'
-                        value: string | RoboshieldPage
+                        relationTo: 'RoboshieldPages';
+                        value: string | RoboshieldPage;
                       } | null)
                     | ({
-                        relationTo: 'CodeForAfricaPages'
-                        value: string | CodeForAfricaPage
-                      } | null)
-                  url?: string | null
-                  newTab?: boolean | null
-                }
-              }
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'featured-stories'
+                        relationTo: 'CodeForAfricaPages';
+                        value: string | CodeForAfricaPage;
+                      } | null);
+                  url?: string | null;
+                  newTab?: boolean | null;
+                };
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'featured-stories';
           }
         | {
-            title: string
-            subtitle: string
+            title: string;
+            subtitle: string;
             action: {
               link: {
-                label: string
-                type?: ('internal' | 'custom') | null
+                label: string;
+                type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
-                      relationTo: 'RoboshieldPages'
-                      value: string | RoboshieldPage
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
                     } | null)
                   | ({
-                      relationTo: 'CodeForAfricaPages'
-                      value: string | CodeForAfricaPage
-                    } | null)
-                url?: string | null
-                newTab?: boolean | null
-              }
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'get-in-touch'
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
+                url?: string | null;
+                newTab?: boolean | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'get-in-touch';
           }
         | {
-            impacts?: (string | Impact)[] | null
+            impacts?: (string | Impact)[] | null;
             action: {
               link: {
-                label: string
-                type?: ('internal' | 'custom') | null
+                label: string;
+                type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
-                      relationTo: 'RoboshieldPages'
-                      value: string | RoboshieldPage
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
                     } | null)
                   | ({
-                      relationTo: 'CodeForAfricaPages'
-                      value: string | CodeForAfricaPage
-                    } | null)
-                url?: string | null
-                newTab?: boolean | null
-              }
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'get-involved'
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
+                url?: string | null;
+                newTab?: boolean | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'get-involved';
           }
         | {
-            title: string
-            list?: (string | GuidingPrinciple)[] | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-guiding-principles'
+            title: string;
+            list?: (string | GuidingPrinciple)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-guiding-principles';
           }
         | {
             title: {
               root: {
-                type: string
+                type: string;
                 children: {
-                  type: string
-                  version: number
-                  [k: string]: unknown
-                }[]
-                direction: ('ltr' | 'rtl') | null
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                indent: number
-                version: number
-              }
-              [k: string]: unknown
-            }
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             messages?:
               | {
-                  message?: string | null
-                  id?: string | null
+                  message?: string | null;
+                  id?: string | null;
                 }[]
-              | null
-            subtitle: string
-            image: string | Media
-            id?: string | null
-            blockName?: string | null
-            blockType: 'hero'
+              | null;
+            subtitle: string;
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
           }
         | {
-            title: string
-            subtitle: string
+            title: string;
+            subtitle: string;
             action: {
               link: {
-                label: string
-                type?: ('internal' | 'custom') | null
+                label: string;
+                type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
-                      relationTo: 'RoboshieldPages'
-                      value: string | RoboshieldPage
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
                     } | null)
                   | ({
-                      relationTo: 'CodeForAfricaPages'
-                      value: string | CodeForAfricaPage
-                    } | null)
-                url?: string | null
-                newTab?: boolean | null
-              }
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'join-our-slack'
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
+                url?: string | null;
+                newTab?: boolean | null;
+              };
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'join-our-slack';
           }
         | {
-            title: string
+            title: string;
             description: {
               root: {
-                type: string
+                type: string;
                 children: {
-                  type: string
-                  version: number
-                  [k: string]: unknown
-                }[]
-                direction: ('ltr' | 'rtl') | null
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                indent: number
-                version: number
-              }
-              [k: string]: unknown
-            }
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             action: {
               link: {
-                label: string
-                type?: ('internal' | 'custom') | null
+                label: string;
+                type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
-                      relationTo: 'RoboshieldPages'
-                      value: string | RoboshieldPage
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
                     } | null)
                   | ({
-                      relationTo: 'CodeForAfricaPages'
-                      value: string | CodeForAfricaPage
-                    } | null)
-                url?: string | null
-                newTab?: boolean | null
-              }
-            }
-            image: string | Media
-            id?: string | null
-            blockName?: string | null
-            blockType: 'meet-our-team'
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
+                url?: string | null;
+                newTab?: boolean | null;
+              };
+            };
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'meet-our-team';
           }
         | {
-            title: string
-            subtitle: string
-            id?: string | null
-            blockName?: string | null
-            blockType: 'page-header'
+            title: string;
+            subtitle: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'page-header';
           }
         | {
-            primaryTag: 'stories' | 'opportunities'
+            primaryTag: 'stories' | 'opportunities';
             stories?: {
-              featured?: (string | null) | Post
-              title: string
-            }
+              featured?: (string | null) | Post;
+              title: string;
+            };
             labels: {
-              search: string
-              readMore: string
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'post-list'
+              search: string;
+              readMore: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'post-list';
           }
         | {
-            title: string
-            subtitle: string
-            image: string | Media
-            id?: string | null
-            blockName?: string | null
-            blockType: 'custom-page-header'
+            title: string;
+            subtitle: string;
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'custom-page-header';
           }
         | {
             content: (
@@ -1514,433 +1514,434 @@ export interface CodeForAfricaPage {
                   richTextBlockFields: {
                     content: {
                       root: {
-                        type: string
+                        type: string;
                         children: {
-                          type: string
-                          version: number
-                          [k: string]: unknown
-                        }[]
-                        direction: ('ltr' | 'rtl') | null
-                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                        indent: number
-                        version: number
-                      }
-                      [k: string]: unknown
-                    }
-                  }
-                  id?: string | null
-                  blockName?: string | null
-                  blockType: 'richText'
+                          type: string;
+                          version: number;
+                          [k: string]: unknown;
+                        }[];
+                        direction: ('ltr' | 'rtl') | null;
+                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                        indent: number;
+                        version: number;
+                      };
+                      [k: string]: unknown;
+                    };
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'richText';
                 }
               | {
                   mediaBlockFields: {
-                    image: string | Media
-                  }
-                  id?: string | null
-                  blockName?: string | null
-                  blockType: 'mediaBlock'
+                    image: string | Media;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'mediaBlock';
                 }
               | {
                   embedBlockFields?: {
-                    embedType?: ('url' | 'code') | null
-                    url?: string | null
-                    caption?: string | null
-                    code?: string | null
-                  }
-                  id?: string | null
-                  blockName?: string | null
-                  blockType: 'external-embed'
+                    embedType?: ('url' | 'code') | null;
+                    url?: string | null;
+                    caption?: string | null;
+                    code?: string | null;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'external-embed';
                 }
-            )[]
-            id?: string | null
-            blockName?: string | null
-            blockType: 'longform'
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'longform';
           }
         | {
-            title: string
-            offices: (string | Office)[]
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-offices'
+            title: string;
+            offices: (string | Office)[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-offices';
           }
         | {
-            title: string
-            impacts?: (string | Impact)[] | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-impact'
+            title: string;
+            impacts?: (string | Impact)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-impact';
           }
         | {
-            title: string
-            subtitle: string
+            title: string;
+            subtitle: string;
             description: {
               root: {
-                type: string
+                type: string;
                 children: {
-                  type: string
-                  version: number
-                  [k: string]: unknown
-                }[]
-                direction: ('ltr' | 'rtl') | null
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-                indent: number
-                version: number
-              }
-              [k: string]: unknown
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-mission'
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-mission';
           }
         | {
-            title: string
-            partners?: (string | Partner)[] | null
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-partners'
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-partners';
           }
         | {
-            title: string
-            fields?: ('team' | 'country')[] | null
+            title: string;
+            fields?: ('team' | 'country')[] | null;
             labels: {
-              projects: string
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-team'
+              projects: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-team';
           }
         | {
-            title: string
+            title: string;
             labels: {
-              description: string
-              details: string
-              team: string
-              projects: string
-              partners: string
-              donors: string
-            }
-            id?: string | null
-            blockName?: string | null
-            blockType: 'our-work'
+              description: string;
+              details: string;
+              team: string;
+              projects: string;
+              partners: string;
+              donors: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'our-work';
           }
       )[]
-    | null
-  updatedAt: string
-  createdAt: string
-  _status?: ('draft' | 'published') | null
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
-  id: string
-  title: string
-  coverImage: string | Media
+  id: string;
+  title: string;
+  coverImage: string | Media;
   content: (
     | {
         richTextBlockFields: {
           content: {
             root: {
-              type: string
+              type: string;
               children: {
-                type: string
-                version: number
-                [k: string]: unknown
-              }[]
-              direction: ('ltr' | 'rtl') | null
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-              indent: number
-              version: number
-            }
-            [k: string]: unknown
-          }
-        }
-        id?: string | null
-        blockName?: string | null
-        blockType: 'richText'
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'richText';
       }
     | {
         mediaBlockFields: {
-          image: string | Media
-        }
-        id?: string | null
-        blockName?: string | null
-        blockType: 'mediaBlock'
+          image: string | Media;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'mediaBlock';
       }
     | {
         embedBlockFields?: {
-          embedType?: ('url' | 'code') | null
-          url?: string | null
-          caption?: string | null
-          code?: string | null
-        }
-        id?: string | null
-        blockName?: string | null
-        blockType: 'external-embed'
+          embedType?: ('url' | 'code') | null;
+          url?: string | null;
+          caption?: string | null;
+          code?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'external-embed';
       }
-  )[]
-  slug?: string | null
-  publishedOn: string
-  tags: (string | Tag)[]
-  authors?: (string | Author)[] | null
-  excerpt: string
-  updatedAt: string
-  createdAt: string
-  _status?: ('draft' | 'published') | null
+  )[];
+  slug?: string | null;
+  publishedOn: string;
+  tags: (string | Tag)[];
+  authors?: (string | Author)[] | null;
+  excerpt: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string
+  id: string;
   user: {
-    relationTo: 'users'
-    value: string | User
-  }
-  key?: string | null
+    relationTo: 'users';
+    value: string | User;
+  };
+  key?: string | null;
   value?:
     | {
-        [k: string]: unknown
+        [k: string]: unknown;
       }
     | unknown[]
     | string
     | number
     | boolean
-    | null
-  updatedAt: string
-  createdAt: string
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string
-  name?: string | null
-  batch?: number | null
-  updatedAt: string
-  createdAt: string
+  id: string;
+  name?: string | null;
+  batch?: number | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "codeforafrica-site-settings".
  */
 export interface CodeforafricaSiteSetting {
-  id: string
-  title: string
+  id: string;
+  title: string;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  primaryLogo: string | Media
-  secondaryLogo?: (string | null) | Media
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  primaryLogo: string | Media;
+  secondaryLogo?: (string | null) | Media;
   primaryNavigation?: {
     menus?:
       | {
           link: {
-            label: string
-            type?: ('internal' | 'custom') | null
+            label: string;
+            type?: ('internal' | 'custom') | null;
             internal?:
               | ({
-                  relationTo: 'RoboshieldPages'
-                  value: string | RoboshieldPage
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
                 } | null)
               | ({
-                  relationTo: 'CodeForAfricaPages'
-                  value: string | CodeForAfricaPage
-                } | null)
-            url?: string | null
-            newTab?: boolean | null
-          }
-          id?: string | null
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
         }[]
-      | null
-    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null
-  }
+      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+  };
   secondaryNavigation?: {
     menus?:
       | {
           link: {
-            label: string
-            type?: ('internal' | 'custom') | null
+            label: string;
+            type?: ('internal' | 'custom') | null;
             internal?:
               | ({
-                  relationTo: 'RoboshieldPages'
-                  value: string | RoboshieldPage
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
                 } | null)
               | ({
-                  relationTo: 'CodeForAfricaPages'
-                  value: string | CodeForAfricaPage
-                } | null)
-            url?: string | null
-            newTab?: boolean | null
-          }
-          id?: string | null
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   connect: {
-    title: string
+    title: string;
     links?:
       | {
-          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack'
-          url: string
-          id?: string | null
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          url: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   newsletter: {
-    title: string
-    embedCode: string
-  }
-  updatedAt?: string | null
-  createdAt?: string | null
+    title: string;
+    embedCode: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "roboshield-site-settings".
  */
 export interface RoboshieldSiteSetting {
-  id: string
-  title: string
+  id: string;
+  title: string;
   description: {
     root: {
-      type: string
+      type: string;
       children: {
-        type: string
-        version: number
-        [k: string]: unknown
-      }[]
-      direction: ('ltr' | 'rtl') | null
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-      indent: number
-      version: number
-    }
-    [k: string]: unknown
-  }
-  primaryLogo: string | Media
-  secondaryLogo?: (string | null) | Media
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  primaryLogo: string | Media;
+  secondaryLogo?: (string | null) | Media;
   primaryNavigation?: {
     menus?:
       | {
           link: {
-            label: string
-            type?: ('internal' | 'custom') | null
+            label: string;
+            type?: ('internal' | 'custom') | null;
             internal?:
               | ({
-                  relationTo: 'RoboshieldPages'
-                  value: string | RoboshieldPage
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
                 } | null)
               | ({
-                  relationTo: 'CodeForAfricaPages'
-                  value: string | CodeForAfricaPage
-                } | null)
-            url?: string | null
-            newTab?: boolean | null
-          }
-          id?: string | null
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
         }[]
-      | null
-    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null
-  }
+      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+  };
   secondaryNavigation?: {
     menus?:
       | {
           link: {
-            label: string
-            type?: ('internal' | 'custom') | null
+            label: string;
+            type?: ('internal' | 'custom') | null;
             internal?:
               | ({
-                  relationTo: 'RoboshieldPages'
-                  value: string | RoboshieldPage
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
                 } | null)
               | ({
-                  relationTo: 'CodeForAfricaPages'
-                  value: string | CodeForAfricaPage
-                } | null)
-            url?: string | null
-            newTab?: boolean | null
-          }
-          id?: string | null
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   connect: {
-    title: string
+    title: string;
     links?:
       | {
-          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack'
-          url: string
-          id?: string | null
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          url: string;
+          id?: string | null;
         }[]
-      | null
-  }
+      | null;
+  };
   newsletter: {
-    title: string
-    embedCode: string
-  }
+    title: string;
+    embedCode: string;
+  };
   initiative: {
-    title: string
+    title: string;
     description: {
       root: {
-        type: string
+        type: string;
         children: {
-          type: string
-          version: number
-          [k: string]: unknown
-        }[]
-        direction: ('ltr' | 'rtl') | null
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
-        indent: number
-        version: number
-      }
-      [k: string]: unknown
-    }
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
     partners?:
       | {
-          name: string
-          logo: string | Media
+          name: string;
+          logo: string | Media;
           link: {
-            label: string
-            type?: ('internal' | 'custom') | null
+            label: string;
+            type?: ('internal' | 'custom') | null;
             internal?:
               | ({
-                  relationTo: 'RoboshieldPages'
-                  value: string | RoboshieldPage
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
                 } | null)
               | ({
-                  relationTo: 'CodeForAfricaPages'
-                  value: string | CodeForAfricaPage
-                } | null)
-            url?: string | null
-          }
-          id?: string | null
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+          };
+          id?: string | null;
         }[]
-      | null
-  }
-  updatedAt?: string | null
-  createdAt?: string | null
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
-  [k: string]: unknown
+  [k: string]: unknown;
 }
+
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
