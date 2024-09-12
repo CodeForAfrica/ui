@@ -1,20 +1,20 @@
-import blockFields from '@/payload/fields/blockFields'
-import richText from '@/payload/fields/RichText'
-import { Block } from 'payload'
+import blockFields from "@/payload/fields/blockFields";
+import richText from "@/payload/fields/RichText";
+import { Block } from "payload";
 
 const RichText: Block = {
-  slug: 'richText',
+  slug: "richText",
   fields: [
     blockFields({
-      name: 'richTextBlockFields',
+      name: "richTextBlockFields",
       fields: [
         richText({
-          name: 'content',
+          name: "content",
           required: true,
         }),
       ],
     }),
   ],
-}
+};
 
-export default RichText
+export default RichText;

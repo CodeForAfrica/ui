@@ -1,44 +1,44 @@
-import { Tab } from 'payload'
-import link from '@/custom-fields/links/link'
-import linkArray from '@/custom-fields/links/linkArray'
-import { socialMediaOptions } from '@/custom-fields/socialLinks'
+import { Tab } from "payload";
+import link from "@/custom-fields/links/link";
+import linkArray from "@/custom-fields/links/linkArray";
+import { socialMediaOptions } from "@/custom-fields/socialLinks";
 
 const linkField = link({
   disableOpenInNewTab: false,
-})
+});
 
 const NavigationTab: Tab = {
-  label: 'Navigation',
+  label: "Navigation",
   fields: [
     {
-      name: 'primaryNavigation',
-      type: 'group',
+      name: "primaryNavigation",
+      type: "group",
       localized: true,
       fields: [
         {
-          type: 'collapsible',
-          label: 'Title & Links',
+          type: "collapsible",
+          label: "Title & Links",
           fields: [
             linkArray({
               overrides: {
-                name: 'menus',
+                name: "menus",
                 labels: {
                   singular: {
-                    en: 'Menu',
+                    en: "Menu",
                   },
                   plural: {
-                    en: 'Menus',
+                    en: "Menus",
                   },
                 },
                 fields: [linkField],
                 admin: {
-                  className: 'array-field-nested',
+                  className: "array-field-nested",
                 },
               },
             }),
             {
-              name: 'connect',
-              type: 'select',
+              name: "connect",
+              type: "select",
               options: socialMediaOptions,
             },
           ],
@@ -46,28 +46,28 @@ const NavigationTab: Tab = {
       ],
     },
     {
-      name: 'secondaryNavigation',
-      type: 'group',
+      name: "secondaryNavigation",
+      type: "group",
       localized: true,
       fields: [
         {
-          type: 'collapsible',
-          label: 'Title & Links',
+          type: "collapsible",
+          label: "Title & Links",
           fields: [
             linkArray({
               overrides: {
-                name: 'menus',
+                name: "menus",
                 labels: {
                   singular: {
-                    en: 'Menu',
+                    en: "Menu",
                   },
                   plural: {
-                    en: 'Menus',
+                    en: "Menus",
                   },
                 },
                 fields: [linkField],
                 admin: {
-                  className: 'array-field-nested',
+                  className: "array-field-nested",
                 },
               },
             }),
@@ -76,6 +76,6 @@ const NavigationTab: Tab = {
       ],
     },
   ],
-}
+};
 
-export default NavigationTab
+export default NavigationTab;

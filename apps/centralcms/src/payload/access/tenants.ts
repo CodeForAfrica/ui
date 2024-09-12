@@ -1,12 +1,12 @@
-import type { Access, AccessArgs } from 'payload'
+import type { Access, AccessArgs } from "payload";
 
-import { isSuperAdmin } from '@/payload/utilities/isSuperAdmin'
-import { isTenant } from '@/payload/utilities/typeGuards'
+import { isSuperAdmin } from "@/payload/utilities/isSuperAdmin";
+import { isTenant } from "@/payload/utilities/typeGuards";
 
 export const tenants: Access = ({ req: { user }, data }: AccessArgs) => {
   const lastLoggedInTenantId = isTenant(user?.lastLoggedInTenant)
     ? user.lastLoggedInTenant.id
-    : user?.lastLoggedInTenant
+    : user?.lastLoggedInTenant;
 
   return (
     (data?.tenant?.id && lastLoggedInTenantId === data.tenant.id) ||
@@ -15,5 +15,5 @@ export const tenants: Access = ({ req: { user }, data }: AccessArgs) => {
         equals: lastLoggedInTenantId,
       },
     }
-  )
-}
+  );
+};

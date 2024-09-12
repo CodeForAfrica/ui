@@ -1,121 +1,121 @@
-import { deepmerge } from '@mui/utils'
+import { deepmerge } from "@mui/utils";
 
-import { Field } from 'payload'
+import { Field } from "payload";
 
 type LinkType = (options?: {
-  disableLabel?: boolean
-  defaultValue?: string
-  disableLinkTypeSelection?: boolean
-  disableOpenInNewTab?: boolean
-  overrides?: Record<string, unknown>
-}) => Field
+  disableLabel?: boolean;
+  defaultValue?: string;
+  disableLinkTypeSelection?: boolean;
+  disableOpenInNewTab?: boolean;
+  overrides?: Record<string, unknown>;
+}) => Field;
 
 const link: LinkType = ({
   disableLabel = false,
-  defaultValue = 'internal',
+  defaultValue = "internal",
   disableLinkTypeSelection = false,
   disableOpenInNewTab = false,
   overrides = {},
 } = {}) => {
   const linkResult: Field = {
-    name: 'link',
-    type: 'group',
+    name: "link",
+    type: "group",
     label: false,
     admin: {
       hideGutter: true,
     },
     fields: [
       {
-        type: 'row',
+        type: "row",
         fields: [
           ...(!disableLabel
             ? [
                 {
-                  name: 'label',
-                  type: 'text',
-                  label: 'Label',
+                  name: "label",
+                  type: "text",
+                  label: "Label",
                   required: true,
                 } as Field,
               ]
             : []),
           {
-            name: 'type',
-            type: 'radio',
+            name: "type",
+            type: "radio",
             admin: {
-              layout: 'horizontal',
+              layout: "horizontal",
               hidden: disableLinkTypeSelection,
             },
             defaultValue,
             options: [
               {
-                label: 'Internal link',
-                value: 'internal',
+                label: "Internal link",
+                value: "internal",
               },
               {
-                label: 'Custom URL',
-                value: 'custom',
+                label: "Custom URL",
+                value: "custom",
               },
             ],
           },
           {
-            name: 'internal',
-            type: 'relationship',
+            name: "internal",
+            type: "relationship",
             admin: {
-              condition: (_, siblingData) => siblingData?.type === 'internal',
+              condition: (_, siblingData) => siblingData?.type === "internal",
             },
-            label: 'Document to link to',
+            label: "Document to link to",
             maxDepth: 1,
-            relationTo: ['RoboshieldPages', 'CodeForAfricaPages'],
+            relationTo: ["RoboshieldPages", "CodeForAfricaPages"],
             required: true,
           },
           {
-            name: 'url',
-            type: 'text',
+            name: "url",
+            type: "text",
             admin: {
-              condition: (_, siblingData) => siblingData?.type === 'custom',
+              condition: (_, siblingData) => siblingData?.type === "custom",
             },
-            label: 'Custom URL',
+            label: "Custom URL",
             required: true,
           },
         ],
       },
     ],
-  }
+  };
 
-  let labelFields: any = []
+  let labelFields: any = [];
 
   if (!disableLabel) {
     labelFields.push({
-      type: 'row',
+      type: "row",
       fields: [
         {
-          name: 'label',
-          type: 'text',
-          label: 'Label',
+          name: "label",
+          type: "text",
+          label: "Label",
           required: true,
         },
       ],
-    })
+    });
   }
 
   if (!disableOpenInNewTab) {
     linkResult.fields.push({
-      type: 'row',
+      type: "row",
       fields: [
         {
-          name: 'newTab',
+          name: "newTab",
           label: {
-            en: 'Open in new tab',
-            fr: 'Ouvrir dans un nouvel onglet',
-            pt: 'Abrir num novo separador',
+            en: "Open in new tab",
+            fr: "Ouvrir dans un nouvel onglet",
+            pt: "Abrir num novo separador",
           },
-          type: 'checkbox',
+          type: "checkbox",
         },
       ],
-    })
+    });
   }
 
-  return deepmerge(linkResult, overrides)
-}
+  return deepmerge(linkResult, overrides);
+};
 
-export default link
+export default link;

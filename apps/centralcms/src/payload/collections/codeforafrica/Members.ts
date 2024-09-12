@@ -1,11 +1,11 @@
-import { allCountries } from '@/payload/lib/data/json/countries'
-import image from '@/payload/fields/image'
-import richText from '@/payload/fields/RichText'
-import slug from '@/payload/fields/slug'
-import socialLinks from '@/payload/fields/socialLinks'
-import nestCollectionUnderPage from '@/payload/utilities/nestCollectionUnderPage'
-import type { CollectionConfig, Option } from 'payload'
-import { canRead } from '@/payload/access/codeforafrica'
+import { allCountries } from "@/payload/lib/data/json/countries";
+import image from "@/payload/fields/image";
+import richText from "@/payload/fields/RichText";
+import slug from "@/payload/fields/slug";
+import socialLinks from "@/payload/fields/socialLinks";
+import nestCollectionUnderPage from "@/payload/utilities/nestCollectionUnderPage";
+import type { CollectionConfig, Option } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Members: CollectionConfig = {
   access: {
@@ -13,20 +13,20 @@ const Members: CollectionConfig = {
     create: () => true,
     update: () => true,
   },
-  slug: 'members',
+  slug: "members",
   labels: {
     singular: {
-      en: 'Member',
+      en: "Member",
     },
     plural: {
-      en: 'Members',
+      en: "Members",
     },
   },
   admin: {
-    defaultColumns: ['name', 'title', 'team.name', 'updatedAt'],
+    defaultColumns: ["name", "title", "team.name", "updatedAt"],
     enableRichTextLink: false,
-    group: 'Organisation',
-    useAsTitle: 'name',
+    group: "Organisation",
+    useAsTitle: "name",
   },
   fields: [
     image({
@@ -35,45 +35,45 @@ const Members: CollectionConfig = {
       },
     }),
     {
-      name: 'name',
-      type: 'text',
+      name: "name",
+      type: "text",
       required: true,
       localized: true,
       index: true,
     },
     {
-      name: 'title',
-      type: 'text',
+      name: "title",
+      type: "text",
       required: true,
       localized: true,
     },
-    slug({ fieldToUse: 'name' }),
+    slug({ fieldToUse: "name" }),
     {
-      name: 'country',
-      type: 'select',
+      name: "country",
+      type: "select",
       options: allCountries as Option[],
     },
     richText({
-      name: 'description',
+      name: "description",
       required: true,
       localized: true,
     }),
     socialLinks({
-      name: 'connect',
-      label: 'Social Media Links',
+      name: "connect",
+      label: "Social Media Links",
       required: false,
       localized: true,
     }),
     {
-      name: 'team',
-      type: 'relationship',
-      relationTo: 'teams',
+      name: "team",
+      type: "relationship",
+      relationTo: "teams",
       required: true,
     },
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage('members')],
+    afterRead: [nestCollectionUnderPage("members")],
   },
-}
+};
 
-export default Members
+export default Members;

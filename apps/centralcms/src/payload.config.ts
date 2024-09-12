@@ -1,37 +1,37 @@
 // storage-adapter-import-placeholder
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { seoPlugin } from '@payloadcms/plugin-seo'
-import path from 'path'
-import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
-import sharp from 'sharp'
-import { Users } from '@/payload/collections/Users'
-import { Media } from '@/payload/collections/Media'
-import { Tenants } from '@/payload/collections/Tenants'
-import Pages from '@/payload/collections/codeforafrica/Pages'
-import { Pages as RoboShieldPages } from '@/payload/collections/roboshield/Pages'
-import Authors from './payload/collections/codeforafrica/Authors'
-import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'
-import Partners from '@/payload/collections/codeforafrica/Partners'
-import Posts from '@/payload/collections/codeforafrica/Posts'
-import Donors from '@/payload/collections/codeforafrica/Donors'
-import Impact from '@/payload/collections/codeforafrica/Impact'
-import Members from '@/payload/collections/codeforafrica/Members'
-import Offices from '@/payload/collections/codeforafrica/Offices'
-import Projects from '@/payload/collections/codeforafrica/Projects'
-import Tags from '@/payload/collections/codeforafrica/Tags'
-import Teams from '@/payload/collections/codeforafrica/Teams'
-import CodeforAfricaGlobals from '@/payload/globals/CodeforAfricaGlobals'
-import RoboShieldGlobals from '@/payload/globals/RoboShieldGlobals'
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { seoPlugin } from "@payloadcms/plugin-seo";
+import path from "path";
+import { buildConfig } from "payload";
+import { fileURLToPath } from "url";
+import sharp from "sharp";
+import { Users } from "@/payload/collections/Users";
+import { Media } from "@/payload/collections/Media";
+import { Tenants } from "@/payload/collections/Tenants";
+import Pages from "@/payload/collections/codeforafrica/Pages";
+import { Pages as RoboShieldPages } from "@/payload/collections/roboshield/Pages";
+import Authors from "./payload/collections/codeforafrica/Authors";
+import GuidingPrinciples from "@/payload/collections/codeforafrica/GuidingPrinciples";
+import Partners from "@/payload/collections/codeforafrica/Partners";
+import Posts from "@/payload/collections/codeforafrica/Posts";
+import Donors from "@/payload/collections/codeforafrica/Donors";
+import Impact from "@/payload/collections/codeforafrica/Impact";
+import Members from "@/payload/collections/codeforafrica/Members";
+import Offices from "@/payload/collections/codeforafrica/Offices";
+import Projects from "@/payload/collections/codeforafrica/Projects";
+import Tags from "@/payload/collections/codeforafrica/Tags";
+import Teams from "@/payload/collections/codeforafrica/Teams";
+import CodeforAfricaGlobals from "@/payload/globals/CodeforAfricaGlobals";
+import RoboShieldGlobals from "@/payload/globals/RoboShieldGlobals";
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 const MONGO_URL: string =
   process.env.MONGO_URL ??
   (() => {
-    throw new Error('MONGO_URL environment variable is not set')
-  })()
+    throw new Error("MONGO_URL environment variable is not set");
+  })();
 
 export default buildConfig({
   admin: {
@@ -57,9 +57,9 @@ export default buildConfig({
   ],
   editor: lexicalEditor(),
   globals: [CodeforAfricaGlobals, RoboShieldGlobals],
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
+    outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db: mongooseAdapter({
     url: MONGO_URL,
@@ -69,4 +69,4 @@ export default buildConfig({
     // storage-adapter-placeholder
     seoPlugin({}),
   ],
-})
+});

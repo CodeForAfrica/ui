@@ -1,20 +1,20 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from "payload";
 
-import { anyone } from '@/payload/access/anyone'
-import { superAdminFieldAccess } from '@/payload/access/superAdmins'
-import { adminsAndSelf } from './access/adminsAndSelf'
-import { tenantAdmins } from './access/tenantAdmins'
-import { recordLastLoggedInTenant } from './hooks/recordLastLoggedInTenant'
-import { checkDomain } from './hooks/checkDomain'
-import { isSuperOrTenantAdmin } from './utilities/isSuperOrTenantAdmin'
+import { anyone } from "@/payload/access/anyone";
+import { superAdminFieldAccess } from "@/payload/access/superAdmins";
+import { adminsAndSelf } from "./access/adminsAndSelf";
+import { tenantAdmins } from "./access/tenantAdmins";
+import { recordLastLoggedInTenant } from "./hooks/recordLastLoggedInTenant";
+import { checkDomain } from "./hooks/checkDomain";
+import { isSuperOrTenantAdmin } from "./utilities/isSuperOrTenantAdmin";
 
 export const Users: CollectionConfig = {
-  slug: 'users',
+  slug: "users",
   auth: {
     useAPIKey: true,
   },
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: "email",
   },
   access: {
     read: adminsAndSelf,
@@ -29,16 +29,16 @@ export const Users: CollectionConfig = {
   },
   fields: [
     {
-      name: 'firstName',
-      type: 'text',
+      name: "firstName",
+      type: "text",
     },
     {
-      name: 'lastName',
-      type: 'text',
+      name: "lastName",
+      type: "text",
     },
     {
-      name: 'roles',
-      type: 'select',
+      name: "roles",
+      type: "select",
       hasMany: true,
       required: true,
       access: {
@@ -48,19 +48,19 @@ export const Users: CollectionConfig = {
       },
       options: [
         {
-          label: 'Super Admin',
-          value: 'super-admin',
+          label: "Super Admin",
+          value: "super-admin",
         },
         {
-          label: 'User',
-          value: 'user',
+          label: "User",
+          value: "user",
         },
       ],
     },
     {
-      name: 'tenants',
-      type: 'array',
-      label: 'Tenants',
+      name: "tenants",
+      type: "array",
+      label: "Tenants",
       access: {
         create: tenantAdmins,
         update: tenantAdmins,
@@ -68,33 +68,33 @@ export const Users: CollectionConfig = {
       },
       fields: [
         {
-          name: 'tenant',
-          type: 'relationship',
-          relationTo: 'tenants',
+          name: "tenant",
+          type: "relationship",
+          relationTo: "tenants",
           required: true,
         },
         {
-          name: 'roles',
-          type: 'select',
+          name: "roles",
+          type: "select",
           hasMany: true,
           required: true,
           options: [
             {
-              label: 'Admin',
-              value: 'admin',
+              label: "Admin",
+              value: "admin",
             },
             {
-              label: 'User',
-              value: 'user',
+              label: "User",
+              value: "user",
             },
           ],
         },
       ],
     },
     {
-      name: 'lastLoggedInTenant',
-      type: 'relationship',
-      relationTo: 'tenants',
+      name: "lastLoggedInTenant",
+      type: "relationship",
+      relationTo: "tenants",
       index: true,
       access: {
         create: () => false,
@@ -102,8 +102,8 @@ export const Users: CollectionConfig = {
         update: superAdminFieldAccess,
       },
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
       },
     },
   ],
-}
+};

@@ -1,44 +1,45 @@
 interface BreadCrumbs {
-  doc: string
-  url: string
-  label: string
-  id: string
+  doc: string;
+  url: string;
+  label: string;
+  id: string;
 }
 interface Doc {
-  slug: string
-  parent?: Doc
-  breadcrumbs: BreadCrumbs[]
+  slug: string;
+  parent?: Doc;
+  breadcrumbs: BreadCrumbs[];
 }
 function fullSlugFromParents(doc: Doc): string {
-  const { slug, parent } = doc
+  const { slug, parent } = doc;
   if (!parent) {
-    return slug
+    return slug;
   }
-  return `${fullSlugFromParents(parent)}/${slug}`
+  return `${fullSlugFromParents(parent)}/${slug}`;
 }
 
 function fullSlugFromBreadcrumbs(doc: Doc) {
-  const fullSlug = doc?.breadcrumbs?.[doc?.breadcrumbs.length - 1]?.url?.slice(1)
-  return fullSlug
+  const fullSlug =
+    doc?.breadcrumbs?.[doc?.breadcrumbs.length - 1]?.url?.slice(1);
+  return fullSlug;
 }
 
 function formatPagePath(collection: string, doc: Doc) {
-  let pageSlug = fullSlugFromBreadcrumbs(doc) || fullSlugFromParents(doc) || ''
-  if (pageSlug === 'index') {
-    pageSlug = ''
+  let pageSlug = fullSlugFromBreadcrumbs(doc) || fullSlugFromParents(doc) || "";
+  if (pageSlug === "index") {
+    pageSlug = "";
   }
-  let prefix = ''
+  let prefix = "";
   if (collection) {
     switch (collection) {
-      case 'pages':
+      case "pages":
         // Empty prefix for pages
-        break
+        break;
       default:
-        prefix = `/${collection}`
+        prefix = `/${collection}`;
     }
   }
 
-  return `${prefix}/${pageSlug}`
+  return `${prefix}/${pageSlug}`;
 }
 
-export default formatPagePath
+export default formatPagePath;

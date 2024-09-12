@@ -1,77 +1,77 @@
-import { Tab } from 'payload'
+import { Tab } from "payload";
 
 const PostTab: Tab = {
-  label: 'Post',
+  label: "Post",
   fields: [
     {
-      type: 'collapsible',
-      label: 'Story',
+      type: "collapsible",
+      label: "Story",
       fields: [
         {
-          name: 'stories',
-          label: 'Recent stories',
-          type: 'group',
+          name: "stories",
+          label: "Recent stories",
+          type: "group",
           localized: true,
           fields: [
             {
-              name: 'showRecent',
-              label: 'Show recent stories',
-              type: 'checkbox',
+              name: "showRecent",
+              label: "Show recent stories",
+              type: "checkbox",
               required: true,
               defaultValue: false,
             },
             {
-              name: 'title',
-              label: 'Title',
-              type: 'text',
+              name: "title",
+              label: "Title",
+              type: "text",
               required: true,
-              defaultValue: 'Recent Stories',
+              defaultValue: "Recent Stories",
               admin: {
                 condition: (_, data) => data.showRecent,
               },
             },
           ],
           admin: {
-            className: 'group-field-nested',
+            className: "group-field-nested",
           },
         },
       ],
     },
     {
-      type: 'collapsible',
-      label: 'Opportunity',
+      type: "collapsible",
+      label: "Opportunity",
       fields: [
         {
-          name: 'opportunities',
-          label: 'Recent opportunities',
-          type: 'group',
+          name: "opportunities",
+          label: "Recent opportunities",
+          type: "group",
           localized: true,
           fields: [
             {
-              name: 'showRecent',
-              label: 'Show recent opportunities',
-              type: 'checkbox',
+              name: "showRecent",
+              label: "Show recent opportunities",
+              type: "checkbox",
               required: true,
               defaultValue: false,
             },
             {
-              name: 'title',
-              label: 'Title',
-              type: 'text',
+              name: "title",
+              label: "Title",
+              type: "text",
               required: true,
-              defaultValue: 'Recent Opportunities',
+              defaultValue: "Recent Opportunities",
               admin: {
                 condition: (_, data) => data.showRecent,
               },
             },
           ],
           admin: {
-            className: 'group-field-nested',
+            className: "group-field-nested",
           },
         },
       ],
     },
   ],
-}
+};
 
-export default PostTab
+export default PostTab;

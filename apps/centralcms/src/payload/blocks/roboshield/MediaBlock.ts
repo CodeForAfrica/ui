@@ -1,16 +1,16 @@
-import { Block } from 'payload'
+import { Block } from "payload";
 
 export const MediaBlock: Block = {
-  slug: 'mediaBlock',
+  slug: "mediaBlock",
   fields: [
     {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
+      name: "image",
+      type: "upload",
+      relationTo: "media",
       required: true,
       filterOptions: {
-        mimeType: { contains: 'image' },
+        mimeType: { contains: "image" },
       },
     },
   ],
-}
+};

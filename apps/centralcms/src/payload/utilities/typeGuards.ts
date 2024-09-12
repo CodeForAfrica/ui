@@ -1,5 +1,5 @@
-import { Tenant } from '@/payload-types'
+import { Tenant } from "@/payload-types";
 
 export function isTenant(obj: any): obj is Tenant {
-  return obj && typeof obj === 'object' && 'id' in obj
+  return obj && typeof obj === "object" && "id" in obj;
 }

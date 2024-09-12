@@ -1,16 +1,16 @@
-import { Block } from 'payload'
-import richText from '@/custom-fields/RichText'
+import { Block } from "payload";
+import richText from "@/custom-fields/RichText";
 
 export const RichText: Block = {
-  slug: 'richtext',
+  slug: "richtext",
   labels: {
-    singular: 'Rich Text',
-    plural: 'Rich Text',
+    singular: "Rich Text",
+    plural: "Rich Text",
   },
   fields: [
     richText({
-      name: 'content',
+      name: "content",
       required: true,
     }),
   ],
-}
+};

@@ -1,31 +1,36 @@
-import type { AfterLoginHook } from 'node_modules/payload/dist/collections/config/types'
+import type { AfterLoginHook } from "node_modules/payload/dist/collections/config/types";
 
-export const recordLastLoggedInTenant: AfterLoginHook = async ({ req, user }) => {
+export const recordLastLoggedInTenant: AfterLoginHook = async ({
+  req,
+  user,
+}) => {
   try {
     const relatedOrg = await req.payload
       .find({
-        collection: 'tenants',
+        collection: "tenants",
         where: {
-          'domains.domain': {
-            in: [req.headers.get('host')],
+          "domains.domain": {
+            in: [req.headers.get("host")],
           },
         },
         depth: 0,
         limit: 1,
       })
-      ?.then((res) => res.docs?.[0])
+      ?.then((res) => res.docs?.[0]);
 
     await req.payload.update({
       id: user.id,
-      collection: 'users',
+      collection: "users",
       data: {
         lastLoggedInTenant: relatedOrg?.id || null,
       },
       req,
-    })
+    });
   } catch (err: unknown) {
-    req.payload.logger.error(`Error recording last logged in tenant for user ${user.id}: ${err}`)
+    req.payload.logger.error(
+      `Error recording last logged in tenant for user ${user.id}: ${err}`,
+    );
   }
 
-  return user
-}
+  return user;
+};

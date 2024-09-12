@@ -1,56 +1,56 @@
-import { CustomComponent, Tab } from 'payload'
-import image from '@/custom-fields/image'
-import link from '@/custom-fields/links/link'
-import richText from '@/custom-fields/RichText'
+import { CustomComponent, Tab } from "payload";
+import image from "@/custom-fields/image";
+import link from "@/custom-fields/links/link";
+import richText from "@/custom-fields/RichText";
 
 const PartnersTab: Tab = {
-  label: 'Initiative',
+  label: "Initiative",
   fields: [
     {
-      name: 'initiative',
-      type: 'group',
+      name: "initiative",
+      type: "group",
       fields: [
         {
-          name: 'title',
-          type: 'text',
+          name: "title",
+          type: "text",
           required: true,
         },
         richText({
-          name: 'description',
+          name: "description",
           required: true,
         }),
         {
-          name: 'partners',
-          label: 'Partners',
-          type: 'array',
+          name: "partners",
+          label: "Partners",
+          type: "array",
           fields: [
             {
-              name: 'name',
-              type: 'text',
+              name: "name",
+              type: "text",
               required: true,
             },
             image({
               overrides: {
-                label: 'Logo',
-                name: 'logo',
+                label: "Logo",
+                name: "logo",
                 required: true,
               },
             }),
             link({
-              defaultValue: 'custom',
+              defaultValue: "custom",
               disableLinkTypeSelection: true,
               disableOpenInNewTab: true,
             }),
           ],
           admin: {
             components: {
-              RowLabel: '@/payload/components/RowLabel.tsx',
+              RowLabel: "@/payload/components/RowLabel.tsx",
             },
           },
         },
       ],
     },
   ],
-}
+};
 
-export default PartnersTab
+export default PartnersTab;
