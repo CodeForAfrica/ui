@@ -7,7 +7,7 @@ This repo has contains source code for [Payload 3.0](https://github.com/payloadc
 To spin up the project locally, follow these steps:
 
 1. First clone the repo
-1. Then `cd YOUR_PROJECT_REPO && cp .env.example .env`
+1. Then `cd YOUR_PROJECT_REPO && cp .env.template .env`
 1. Next `pnpm install && pnpm run dev` (or `docker-compose up`, see [Docker](#docker))
 1. Now `open http://localhost:3000/admin` to access the admin panel
 1. Create your first super-admin user using the form on the page
