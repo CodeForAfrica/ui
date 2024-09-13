@@ -1,7 +1,11 @@
 import Statistics from "@/vpnmanager/components/Statistics";
+import { Data } from "@/vpnmanager/components/Statistics/Statistics";
 import { getStats } from "@/vpnmanager/lib/statistics";
 
-export default function Home(props) {
+interface Props {
+  data: Data[];
+}
+export default function Home(props: Props) {
   const { data } = props;
   return <Statistics data={data} />;
 }

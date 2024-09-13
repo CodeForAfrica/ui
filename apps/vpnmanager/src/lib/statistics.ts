@@ -6,8 +6,18 @@ const vpnManager = new OutlineVPN({
   apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
 });
 
+function formatDate(date?: Date): string | void {
+  if (!date) {
+    return;
+  }
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
 export async function processUserStats() {
-  const date = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`;
+  const date: string = formatDate(new Date()) as string;
   const { bytesTransferredByUserId = {} } = await vpnManager.getDataUsage();
   const allUsers = await vpnManager.getUsers();
   const unprocessedUsers: Omit<Record, "ID" | "createdAt">[] = Object.keys(
@@ -41,11 +51,14 @@ export async function getStats(req: NextApiRequest) {
     date:
       filters["date.start"] && filters["date.end"]
         ? {
-            start: filters["date.start"],
-            end: filters["date.end"],
+            start: formatDate(new Date(filters["date.start"])) as string,
+            end: formatDate(new Date(filters["date.end"])) as string,
           }
-        : filters.date,
+        : (formatDate(
+            filters.date ? new Date(filters.date as string) : undefined,
+          ) as string),
   };
 
+  console.log(validFilters);
   return Model.getAll(validFilters);
 }
