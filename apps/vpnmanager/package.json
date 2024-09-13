@@ -27,6 +27,7 @@
     "@sentry/nextjs": "catalog:",
     "@svgr/webpack": "catalog:",
     "@types/jest": "catalog:",
+    "better-sqlite3": "catalog:",
     "googleapis": "catalog:",
     "jest": "catalog:",
     "next": "catalog:",
