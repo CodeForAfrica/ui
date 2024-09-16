@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -15,8 +16,9 @@ import {
 import { Section } from "@commons-ui/core";
 import { useRouter } from "next/router";
 
-import formatDateTime from "@/vpnmanager/utils/formatDate";
+import formatDateTime, { formatDate } from "@/vpnmanager/utils/formatDate";
 import { fetchJson } from "@/vpnmanager/utils";
+import { Link } from "@commons-ui/next";
 
 export interface Data {
   ID: number;
@@ -34,17 +36,19 @@ interface Props {
 
 const Statistics: React.FC<Props> = ({ data: result }) => {
   const router = useRouter();
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
   const [filters, setFilters] = useState({
     ID: router.query.ID || "",
     userId: router.query.userId || "",
     email: router.query.email || "",
     "date.start": router.query["date.start"] || "",
     "date.end": router.query["date.end"] || "",
-    date: router.query.date,
+    date: router.query.date || formatDate(yesterday),
     orderBy: "date DESC",
   });
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [data, setData] = useState(result);
   const paginatedData = data.slice(
     page * rowsPerPage,
@@ -92,16 +96,52 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
   };
 
   useEffect(() => {
-    setFilters({
+    setFilters((initial) => ({
+      ...initial,
       ID: router.query.ID || "",
       userId: router.query.userId || "",
       email: router.query.email || "",
       "date.start": router.query["date.start"] || "",
       "date.end": router.query["date.end"] || "",
       orderBy: "date DESC",
-      date: router.query.date,
-    });
+    }));
   }, [router.query]);
+
+  const exportRef = useRef();
+  function exportAsCsv() {
+    const csvHeaders = [
+      "ID",
+      "User ID",
+      "Email",
+      "Usage",
+      "Date",
+      "Cumulative Data",
+      "Created At",
+    ];
+
+    const csvRows = data.map((row) =>
+      [
+        row.ID,
+        row.userId,
+        row.email,
+        row.usage,
+        row.date,
+        row.cumulativeData,
+        row.createdAt,
+      ].join(","),
+    );
+
+    const csvContent = [csvHeaders.join(","), ...csvRows].join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link: HTMLAnchorElement =
+      exportRef.current as unknown as HTMLAnchorElement;
+    if (!link) return;
+    link.href = url;
+    link.setAttribute("download", "statistics.csv");
+    link.click();
+  }
 
   return (
     <TableContainer component={Paper}>
@@ -109,10 +149,10 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
         <Grid container spacing={2} padding={2}>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <TextField
-              label="ID"
               name="ID"
               variant="outlined"
               value={filters.ID}
+              InputLabelProps={{ shrink: true }}
               onChange={handleFilterChange}
               placeholder="ID"
               size="small"
@@ -135,11 +175,11 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <TextField
-              label="User ID"
               name="userId"
               variant="outlined"
               value={filters.userId}
               onChange={handleFilterChange}
+              InputLabelProps={{ shrink: true }}
               placeholder="User ID"
               size="small"
               fullWidth
@@ -147,11 +187,11 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <TextField
-              label="Email"
               name="email"
               variant="outlined"
               value={filters.email}
               onChange={handleFilterChange}
+              InputLabelProps={{ shrink: true }}
               placeholder="Email"
               size="small"
               fullWidth
@@ -159,7 +199,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <TextField
-              label="Date Start"
               name="date.start"
               type="date"
               InputLabelProps={{ shrink: true }}
@@ -173,7 +212,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <TextField
-              label="Date End"
               name="date.end"
               type="date"
               InputLabelProps={{ shrink: true }}
@@ -186,51 +224,70 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Button onClick={applyFilters} size="small" variant="contained">
+            <Button
+              sx={{ width: "100%" }}
+              onClick={applyFilters}
+              size="small"
+              variant="contained"
+            >
               Apply Filters
             </Button>
           </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Link ref={exportRef} href="#" sx={{ display: "none" }}>
+              pp
+            </Link>
+            <Button
+              sx={{ width: "100%" }}
+              size="small"
+              variant="contained"
+              onClick={exportAsCsv}
+            >
+              Export as CSV
+            </Button>
+          </Grid>
         </Grid>
+        <Box sx={{ width: "100%", overflowX: "auto" }}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ fontWeight: "bold" }}>Email</TableCell>
+                <TableCell sx={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
+                  User ID
+                </TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Usage</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Date</TableCell>
+                <TableCell sx={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
+                  Total Usage(30 days)
+                </TableCell>
 
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ fontWeight: "bold" }}>Email</TableCell>
-              <TableCell sx={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
-                User ID
-              </TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>Usage</TableCell>
-              <TableCell sx={{ fontWeight: "bold" }}>Date</TableCell>
-              <TableCell sx={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
-                Total Usage(30 days)
-              </TableCell>
-
-              <TableCell sx={{ fontWeight: "bold" }}>Created At</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {paginatedData?.length > 0 ? (
-              paginatedData.map((row) => (
-                <TableRow key={row.ID}>
-                  <TableCell>{row.email}</TableCell>
-                  <TableCell>{row.userId}</TableCell>
-                  <TableCell>{row.usage}</TableCell>
-                  <TableCell>{formatDateTime(row.date)}</TableCell>
-                  <TableCell>{row.cumulativeData}</TableCell>
-                  <TableCell>
-                    {formatDateTime(row.createdAt, { includeTime: true })}
+                <TableCell sx={{ fontWeight: "bold" }}>Created At</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {paginatedData?.length > 0 ? (
+                paginatedData.map((row) => (
+                  <TableRow key={row.ID}>
+                    <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.userId}</TableCell>
+                    <TableCell>{row.usage}</TableCell>
+                    <TableCell>{formatDateTime(row.date)}</TableCell>
+                    <TableCell>{row.cumulativeData}</TableCell>
+                    <TableCell>
+                      {formatDateTime(row.createdAt, { includeTime: true })}
+                    </TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={7} align="center">
+                    No data found.
                   </TableCell>
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={7} align="center">
-                  No data found.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              )}
+            </TableBody>
+          </Table>
+        </Box>
         {data.length ? (
           <TablePagination
             component="div"

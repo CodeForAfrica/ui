@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/core": "catalog:",
     "@commons-ui/testing-library": "workspace:*",
+    "@types/better-sqlite3": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

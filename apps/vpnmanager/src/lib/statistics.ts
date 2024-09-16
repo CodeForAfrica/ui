@@ -1,21 +1,12 @@
 import { NextApiRequest } from "next/types";
 import { OutlineVPN } from "./outline";
 import { Filters, Model, Record } from "@/vpnmanager/lib/data/database";
+import { formatDate } from "@/vpnmanager/utils/formatDate";
 
 const vpnManager = new OutlineVPN({
   apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
 });
 
-function formatDate(date?: Date): string | void {
-  if (!date) {
-    return;
-  }
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
 export async function processUserStats() {
   const date: string = formatDate(new Date()) as string;
   const { bytesTransferredByUserId = {} } = await vpnManager.getDataUsage();
@@ -59,6 +50,5 @@ export async function getStats(req: NextApiRequest) {
           ) as string),
   };
 
-  console.log(validFilters);
   return Model.getAll(validFilters);
 }
