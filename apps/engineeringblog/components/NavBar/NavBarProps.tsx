@@ -1,5 +1,5 @@
 import { Theme, SxProps } from "@mui/material/styles";
-import { LogoProps } from "@/engineeringblog/components/Logo";
+import type { LogoProps } from "@/engineeringblog/components/Logo";
 import type {
   Menu,
   SocialMediaLink,
