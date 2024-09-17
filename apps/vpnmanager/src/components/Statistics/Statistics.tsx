@@ -110,7 +110,7 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
     }));
   }, [router.query]);
 
-  const exportRef = useRef();
+  const exportRef = useRef<HTMLAnchorElement>();
 
   function exportAsCsv() {
     const csvHeaders = [
