@@ -1,5 +1,4 @@
-import { Config, Page, SettingsSite } from "@/root/payload-types";
-import payload from "payload";
+import { Config } from "@/root/payload-types";
 
 export type CollectionConfig = keyof Config["collections"];
 export type CollectionItemTypes = Config["collections"][CollectionConfig];
@@ -25,13 +24,6 @@ async function findPage(slug: string, options?: any): Promise<any> {
   return sendRequestToPayload(url, options);
 }
 
-async function getCollection(
-  collection: CollectionConfig,
-  options?: any,
-): Promise<any> {
-  return [];
-}
-
 async function findGlobal(slug: GlobalConfig, options?: []): Promise<any> {
   const url = `${process.env.PAYLOAD_API_URL}/api/globals/roboshield-site-settings`;
   return sendRequestToPayload(url, options);
@@ -40,7 +32,6 @@ async function findGlobal(slug: GlobalConfig, options?: []): Promise<any> {
 const api = {
   findGlobal,
   findPage,
-  getCollection,
 };
 
 export type Api = typeof api;
