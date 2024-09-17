@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import {
   Dialog,
   DialogContent,
@@ -7,16 +8,17 @@ import {
   SlideProps,
   SvgIcon,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import React from "react";
 
-import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
-import Logo from "@/engineeringblog/components/Logo";
-import CloseIcon from "@/engineeringblog/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import MenuIcon from "@/engineeringblog/assets/icons/Type=menu, Size=24, Color=CurrentColor.svg";
+import CloseIcon from "@/engineeringblog/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import Logo from "@/engineeringblog/components/Logo";
+import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
+import NavBarNavList from "@/engineeringblog/components/NavBarNavList";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
-  marginTop: "49px", // NavBar has 1px bottom border
+  marginTop: "48px", // NavBar has 1px bottom border
   "& .MuiDialog-container": {
     height: "100%",
   },
@@ -24,9 +26,8 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
     background: "transparent",
   },
   "& .MuiDialogContent-root": {
-    padding: spacing(5),
     color: palette.text.primary,
-    background: palette.background.default,
+    background: alpha(palette.background.default, 0.95),
   },
 }));
 
@@ -43,7 +44,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(
   props: NavBarProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
-  const { logo, sx } = props;
+  const { logo, menus, socialLinks, sx } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -80,7 +81,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(
           </SvgIcon>
         </IconButton>
         <DialogContainer
-          PaperProps={{ elevation: 0 }}
+          PaperProps={{ elevation: 0, sx: { background: "transparent" } }}
           fullScreen
           onClose={handleClose}
           TransitionComponent={Transition}
@@ -89,15 +90,24 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(
         >
           <DialogContent
             id="mobile-navbar-dialog"
-            sx={{
+            sx={(theme) => ({
+              alignItems: "flex-start",
+              borderTop: `1px solid ${theme.palette.divider}`,
+              color: "inherit",
+              display: "flex",
+              justifyContent: "space-between",
               m: 0,
               p: 0,
-              display: "flex",
-              color: "inherit",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-            }}
-          ></DialogContent>
+            })}
+          >
+            <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
+              <NavBarNavList
+                menus={menus}
+                socialLinks={socialLinks}
+                NavListItemProps={{ onClick: handleClose }}
+              />
+            </Section>
+          </DialogContent>
         </DialogContainer>
       </Grid>
     </Grid>

@@ -50,7 +50,7 @@ const Partners = {
       name: "description",
       required: true,
       localized: true,
-      editor: slateEditor(),
+      editor: slateEditor({}),
     }),
     socialLinks({
       name: "connect",

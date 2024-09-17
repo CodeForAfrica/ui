@@ -64,7 +64,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
 function DropdownSearch({
   href: hrefProp = "/explore",
   label = "Search for a location",
-  counties,
+  locations,
   onClick,
   icon: iconProp = SearchIcon,
   placeholder,
@@ -74,38 +74,38 @@ function DropdownSearch({
   const classes = useStyles(props);
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [countyCode, setCountyCode] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    setCountyCode(null);
+    setSelectedLocation(null);
   };
 
   const handleSelect = (code, name) => {
     setQuery(name.toLowerCase());
-    setCountyCode(code);
+    setSelectedLocation(code);
     if (code && hrefProp?.length) {
       router.push(`${hrefProp}/${code}`);
     }
   };
 
   useEffect(() => {
-    if (query?.length > 0 && !countyCode) {
-      const matchedGeo = counties?.filter(({ name }) =>
+    if (query?.length > 0 && !selectedLocation) {
+      const matchedGeo = locations?.filter(({ name }) =>
         name.toLowerCase()?.startsWith(query.toLowerCase()),
       );
       setSuggestions(matchedGeo);
     } else {
       setSuggestions([]);
     }
-  }, [counties, countyCode, query]);
+  }, [locations, selectedLocation, query]);
 
   const handleClickSearch = () => {
     if (onClick) {
-      onClick(countyCode);
-    } else if (hrefProp?.length && countyCode) {
-      const href = `${hrefProp}/${countyCode}`;
+      onClick(selectedLocation);
+    } else if (selectedLocation) {
+      const href = `${hrefProp}/${selectedLocation}`;
       router.push(href);
     } else if (query) {
       router.push("/404");
@@ -155,6 +155,7 @@ function DropdownSearch({
                 underline="none"
                 onClick={() => handleSelect(code, name)}
                 classes={{ root: classes.menuItem }}
+                key={code}
               >
                 {name.toLowerCase()}
               </ListItem>
@@ -171,7 +172,7 @@ DropdownSearch.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   icon: PropTypes.string,
-  counties: PropTypes.arrayOf(PropTypes.shape({})),
+  locations: PropTypes.arrayOf(PropTypes.shape({})),
   variant: PropTypes.string,
   placeholder: PropTypes.string,
 };

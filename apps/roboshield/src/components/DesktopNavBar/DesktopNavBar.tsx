@@ -1,19 +1,21 @@
-import { Box, Grid, Grid2Props } from "@mui/material";
+import { Box, Grid } from "@mui/material";
+import type { SxProps, Theme } from "@mui/material/styles";
 import React, { ForwardedRef } from "react";
 
+import type {
+  Menu,
+  SocialMediaLink,
+} from "@/roboshield/components/NavBarNavList";
 import NavBarNavList from "@/roboshield/components/NavBarNavList";
 import NextImageButton from "@/roboshield/components/NextImageButton";
-import type { SocialMediaLink } from "@/roboshield/components/SocialMediaLinkIcon";
 
-interface Menu {
-  label: string;
-  href: string;
-}
-interface Props extends Grid2Props {
+interface Props {
   logo: any;
   menus: Menu[];
   socialLinks: SocialMediaLink[];
+  sx?: SxProps<Theme>;
 }
+
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(
   props: Props,
   ref: ForwardedRef<HTMLDivElement>,

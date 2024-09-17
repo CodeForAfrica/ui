@@ -1,25 +1,7 @@
-import { NavList } from "@commons-ui/core";
+import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import FacebookIcon from "@/codeforafrica/assets/icons/Type=facebook, Size=24, Color=CurrentColor.svg";
-import GitHubIcon from "@/codeforafrica/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
-import InstagramIcon from "@/codeforafrica/assets/icons/Type=instagram, Size=24, Color=CurrentColor.svg";
-import LinkedInIcon from "@/codeforafrica/assets/icons/Type=linkedin, Size=24, Color=CurrentColor.svg";
-import SlackIcon from "@/codeforafrica/assets/icons/Type=slack, Size=24, Color=CurrentColor.svg";
-import TwitterIcon from "@/codeforafrica/assets/icons/Type=twitter, Size=24, Color=CurrentColor.svg";
-import NavListItem from "@/codeforafrica/components/NavListItem";
-
-const platformToIconMap = {
-  Facebook: FacebookIcon,
-  Twitter: TwitterIcon,
-  Instagram: InstagramIcon,
-  Linkedin: LinkedInIcon,
-  Github: GitHubIcon,
-  Slack: SlackIcon,
-};
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
@@ -58,29 +40,19 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
         </NavListItem>
       ))}
       {socialLinks?.map(({ platform, url }) => {
-        const Icon = platformToIconMap[platform];
-        if (!Icon) {
-          return null;
-        }
         return (
           <NavListItem key={platform}>
-            <Link
+            <SocialMediaIconLink
+              component={Link}
               href={url}
-              variant="h3"
+              platform={platform}
+              IconProps={{
+                mt: direction === "column" ? 0 : 1,
+              }}
               sx={{
-                color: { xs: "inherit" },
                 typography: { md: "h5" },
               }}
-            >
-              <SvgIcon
-                component={Icon}
-                fontSize="inherit"
-                sx={{
-                  fill: { xs: "none" },
-                  mt: direction === "column" ? 0 : 1,
-                }}
-              />
-            </Link>
+            />
           </NavListItem>
         );
       })}
@@ -97,12 +69,6 @@ NavBarNavList.propTypes = {
       href: PropTypes.string,
     }),
   ),
-};
-
-NavBarNavList.defaultProps = {
-  NavListItemProps: undefined,
-  direction: undefined,
-  menus: undefined,
 };
 
 export default NavBarNavList;

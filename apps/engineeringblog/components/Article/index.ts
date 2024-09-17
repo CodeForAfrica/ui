@@ -1,5 +1,5 @@
-import ArticleList from "./ArticleList";
-import ArticleCard from "./ArticleCard";
-import ArticleContent from "./ArticleContent";
+import Article from "./Article";
+import ArticleHeader from "./ArticleHeader";
 
-export { ArticleList, ArticleCard, ArticleContent };
+export { ArticleHeader };
+export default Article;

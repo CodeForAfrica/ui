@@ -1,103 +1,96 @@
-import React, { ElementType, FC } from "react";
-
-import GitHubIcon from "@/vpnmanager/assets/icons/Type=github, Size=24, Color=CurrentColor.svg";
-import NavListItem from "@/vpnmanager/components/NavListItem";
-import { NavList } from "@commons-ui/core";
+import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import { LinkProps, SvgIcon } from "@mui/material";
-
-const platformToIconMap: {
-  [key: string]: ElementType<any>;
-} = {
-  Github: GitHubIcon,
-};
+import type { LinkProps } from "@mui/material";
+import React from "react";
 
 interface NavListItemProps extends LinkProps {}
-
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
 
 interface Menu {
   label: string;
   href: string;
 }
 
+type SocialMediaPlatform =
+  | "Facebook"
+  | "Github"
+  | "Instagram"
+  | "LinkedIn"
+  | "Slack"
+  | "Twitter";
+
+interface SocialMediaLink {
+  platform: SocialMediaPlatform;
+  // TODO(koech): Confirm why we chose url instead of href in the CMS
+  url: string;
+}
+
 interface Props {
   NavListItemProps?: NavListItemProps;
   direction?: string;
   menus?: Menu[];
-  socialLinks?: SocialLinks[];
+  socialLinks?: SocialMediaLink[];
 }
 
-const NavBarNavList: FC<Props> = React.forwardRef(
-  function NavBarNavList(props, ref) {
-    const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
+const NavBarNavList = React.forwardRef(function NavBarNavList(
+  props: Props,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
+  const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
 
-    if (!menus?.length) {
-      return null;
-    }
-    return (
-      <NavList direction={direction} {...other} ref={ref}>
-        {menus.map((item) => (
-          <NavListItem
-            key={item.label}
+  return (
+    <NavList direction={direction} {...other} ref={ref}>
+      {menus?.map((item) => (
+        <NavListItem
+          key={item.label}
+          sx={{
+            mb: { xs: 2.5, md: 0 },
+            mr: { xs: 0, md: 2.5 },
+          }}
+        >
+          <Link
+            color="inherit"
+            underline="none"
+            // in mobile h3 = h4 in desktop
+            variant="h3"
+            {...NavListItemProps}
+            href={item.href}
             sx={{
-              mb: { xs: 2.5, md: 0 },
-              mr: { xs: 0, md: 2.5 },
+              typography: { md: "body3" },
+              "&:hover, &:active, &:focus, &:focus-within": {
+                textDecoration: "none",
+                color: { xs: "inherit", md: "primary.main" },
+              },
+              ...NavListItemProps?.sx,
             }}
           >
-            <Link
-              color="inherit"
-              underline="none"
-              // in mobile h3 = h4 in desktop
+            {item.label}
+          </Link>
+        </NavListItem>
+      ))}
+      {socialLinks?.map(({ platform, url }) => {
+        return (
+          <NavListItem key={url}>
+            <SocialMediaIconLink
+              component={Link}
+              href={url}
+              platform={platform}
               variant="h3"
-              {...NavListItemProps}
-              href={item.href}
-              sx={{
-                typography: { md: "body3" },
-                "&:hover, &:active, &:focus, &:focus-within": {
-                  textDecoration: "none",
-                  color: { xs: "inherit", md: "primary.main" },
+              IconProps={{
+                fontSize: "inherit",
+                sx: {
+                  mt: direction === "column" ? 0 : 1,
                 },
-                ...NavListItemProps?.sx,
               }}
-            >
-              {item.label}
-            </Link>
+              sx={{
+                typography: { md: "h5" },
+              }}
+            />
           </NavListItem>
-        ))}
-        {socialLinks?.map(({ platform, url }) => {
-          const Icon = platformToIconMap[platform];
-          if (!Icon) {
-            return null;
-          }
-          return (
-            <NavListItem key={platform}>
-              <Link
-                href={url}
-                variant="h3"
-                sx={{
-                  color: { xs: "inherit" },
-                  typography: { md: "h5" },
-                }}
-              >
-                <SvgIcon
-                  component={Icon}
-                  fontSize="inherit"
-                  sx={{
-                    fill: { xs: "none" },
-                    mt: direction === "column" ? 0 : 1,
-                  }}
-                />
-              </Link>
-            </NavListItem>
-          );
-        })}
-      </NavList>
-    );
-  },
-);
+        );
+      })}
+    </NavList>
+  );
+});
 
+export type { Menu, SocialMediaPlatform, SocialMediaLink };
 export default NavBarNavList;

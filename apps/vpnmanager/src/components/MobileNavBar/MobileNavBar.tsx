@@ -1,15 +1,3 @@
-import React, {
-  FC,
-  ForwardedRef,
-  ForwardRefExoticComponent,
-  RefAttributes,
-  ReactNode,
-} from "react";
-
-import menuIcon from "@/vpnmanager/assets/icons/menu-icon.svg";
-import CloseIcon from "@/vpnmanager/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
-import NavBarNavList from "@/vpnmanager/components/NavBarNavList";
-import NextImageButton from "@/vpnmanager/components/NextImageButton";
 import {
   Dialog,
   DialogContent,
@@ -21,20 +9,21 @@ import {
   SvgIcon,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import React, { ForwardedRef } from "react";
 
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
+import type {
+  Menu,
+  SocialMediaLink,
+} from "@/vpnmanager/components/NavBarNavList";
+import menuIcon from "@/vpnmanager/assets/icons/menu-icon.svg";
+import CloseIcon from "@/vpnmanager/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import NavBarNavList from "@/vpnmanager/components/NavBarNavList";
+import NextImageButton from "@/vpnmanager/components/NextImageButton";
 
-interface Menu {
-  label: string;
-  href: string;
-}
 interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
@@ -51,11 +40,9 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-const Transition: ForwardRefExoticComponent<
-  Omit<SlideProps, "ref"> & RefAttributes<HTMLDivElement>
-> = React.forwardRef(function Transition(
-  { children, ...props },
-  ref: React.Ref<HTMLDivElement> | undefined,
+const Transition = React.forwardRef(function Transition(
+  { children, ...props }: SlideProps,
+  ref,
 ) {
   return (
     <Slide direction="down" ref={ref} {...props}>
@@ -64,10 +51,8 @@ const Transition: ForwardRefExoticComponent<
   );
 });
 
-const MobileNavBar: ForwardRefExoticComponent<
-  Omit<Props, "ref"> & RefAttributes<HTMLDivElement>
-> = React.forwardRef(function MobileNavBar(
-  props,
+const MobileNavBar = React.forwardRef(function MobileNavBar(
+  props: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   const { logo, menus, socialLinks, sx } = props;

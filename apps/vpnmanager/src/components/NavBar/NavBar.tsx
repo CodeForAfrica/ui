@@ -1,24 +1,20 @@
+import { NavBar as NavigationBar, Section } from "@commons-ui/core";
 import React from "react";
 
 import DesktopNavBar from "@/vpnmanager/components/DesktopNavBar";
 import MobileNavBar from "@/vpnmanager/components/MobileNavBar";
-import { NavBar as NavigationBar, Section } from "@commons-ui/core";
+import type {
+  Menu,
+  SocialMediaLink,
+} from "@/vpnmanager/components/NavBarNavList";
 
-interface SocialLinks {
-  platform: string;
-  url: string;
-}
-
-interface Menu {
-  label: string;
-  href: string;
-}
-interface Props {
+interface NavBarProps {
   logo: any;
   menus: Menu[];
-  socialLinks: SocialLinks[];
+  socialLinks: SocialMediaLink[];
 }
-function NavBar({ logo, menus, socialLinks }: Props) {
+
+function NavBar({ logo, menus, socialLinks }: NavBarProps) {
   return (
     <NavigationBar sx={{ py: { xs: "10px", md: "15.5" } }}>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
@@ -43,4 +39,5 @@ function NavBar({ logo, menus, socialLinks }: Props) {
   );
 }
 
+export type { NavBarProps };
 export default NavBar;

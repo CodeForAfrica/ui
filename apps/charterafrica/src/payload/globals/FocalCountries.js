@@ -1,5 +1,5 @@
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { array } from "payload/dist/fields/validations";
+import { text } from "payload/dist/fields/validations";
 
 import linkGroup from "../fields/linkGroup";
 import richText from "../fields/richText";
@@ -67,7 +67,7 @@ const FocalCountries = {
                 ) {
                   return t("charterafrica.site:uniqueCountries");
                 }
-                return array(val, options);
+                return text(val, options);
               },
               admin: {
                 width: "50%",

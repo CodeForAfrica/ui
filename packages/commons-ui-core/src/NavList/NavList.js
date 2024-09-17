@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
