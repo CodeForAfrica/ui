@@ -1,6 +1,6 @@
 import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { StyledLink as Link } from "@commons-ui/next";
-import type { LinkProps } from "@mui/material";
+import type { LinkProps, StackOwnProps } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
@@ -24,13 +24,11 @@ interface SocialMediaLink {
   url: string;
 }
 
-interface NavBarNavListProps {
+interface NavBarNavListProps extends Pick<StackOwnProps, "direction" | "sx"> {
   NavListItemLinkProps?: LinkProps;
   NavListItemProps?: NavListItemProps;
-  direction?: string | object;
   menus?: Menu[];
   socialLinks?: SocialMediaLink[];
-  sx?: SxProps<Theme>;
 }
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(
