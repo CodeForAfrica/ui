@@ -467,7 +467,21 @@ deepmerge(
   theme.components,
   {
     MuiCssBaseline: {
+      // Ensure footer is always attached to the bottom of the screen
+      // regardless of content size: https://stackoverflow.com/a/20352949
       styleOverrides: `
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+      body>header {
+        min-height: 32px;
+      }
+      body>footer {
+        min-height: 32px;
+      }
       blockquote {
         background-color: ${palette.background.default};
         font-size: ${pxToRem(16)};
@@ -546,6 +560,16 @@ deepmerge(
         },
         sizeSmall: {
           ...theme.typography.body1,
+        },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            color: "currentcolor",
+            opacity: 0.65,
+          },
         },
       },
     },

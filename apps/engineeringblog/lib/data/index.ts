@@ -72,6 +72,11 @@ export async function getContent(slug: string): Promise<ArticleProps> {
   };
 }
 
+type Menu = {
+  label: string;
+  href: string;
+};
+
 type ConnectPlatformProp =
   | "Facebook"
   | "Twitter"
@@ -85,18 +90,27 @@ type ConnectLinkProp = {
   url: string;
 };
 
-type ConnectProps = {
+export type ConnectProps = {
   title: string;
   links: ConnectLinkProp[];
 };
 
-type PrimaryNavigationProps = {
-  connect: ConnectPlatformProp;
+type NavigationProps = {
+  menus: Menu[];
 };
+
+interface PrimaryNavigationProps extends NavigationProps {
+  connect: ConnectPlatformProp;
+}
+
+interface SecondaryNavigationProps extends NavigationProps {
+  copyright: string;
+}
 
 type SettingsProps = {
   title: string;
   primaryNavigation: PrimaryNavigationProps;
+  secondaryNavigation: SecondaryNavigationProps;
   connect: ConnectProps;
 };
 
@@ -104,9 +118,10 @@ async function readSettingsFile(filePath: string): Promise<SettingsProps> {
   const { data } = await readMdFile(filePath);
 
   return {
-    title: data.title,
-    primaryNavigation: data.primaryNavigation,
     connect: data.connect,
+    primaryNavigation: data.primaryNavigation,
+    secondaryNavigation: data.secondaryNavigation,
+    title: data.title,
   };
 }
 

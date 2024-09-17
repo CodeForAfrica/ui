@@ -3,7 +3,7 @@
 exports[`<SocialMediaIconLink /> renders unchanged 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-lbia66-MuiTypography-root-MuiLink-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1mtm6uj-MuiTypography-root-MuiLink-root"
     href="https://github.com/CodeForAfrica"
   >
     <svg
