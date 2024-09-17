@@ -2,6 +2,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 
+import Footer from "@/engineeringblog/components/Footer";
 import NavBar from "@/engineeringblog/components/NavBar";
 import theme from "@/engineeringblog/theme";
 
@@ -19,7 +20,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { primaryNavigation } = await getSettings();
+  const { connect, primaryNavigation, secondaryNavigation } =
+    await getSettings();
   // TODO: blurWidth/blurHeight https://github.com/vercel/next.js/issues/56511
   const { blurWidth, blurHeight, ...logoProps } = logoLight;
   const logo = {
@@ -36,6 +38,11 @@ export default async function RootLayout({
             <CssBaseline enableColorScheme />
             <NavBar {...primaryNavigation} logo={logo} />
             {children}
+            <Footer
+              copyright={secondaryNavigation.copyright}
+              connect={connect}
+              secondaryMenus={secondaryNavigation.menus}
+            />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
