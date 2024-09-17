@@ -1,7 +1,7 @@
 import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { StyledLink as Link } from "@commons-ui/next";
 import type { LinkProps } from "@mui/material";
-import type { Theme } from "@mui/material/styles";
+import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
 interface NavListItemProps extends LinkProps {}
@@ -24,23 +24,33 @@ interface SocialMediaLink {
   url: string;
 }
 
-interface Props {
+interface NavBarNavListProps {
+  NavListItemLinkProps?: LinkProps;
   NavListItemProps?: NavListItemProps;
-  direction?: string;
+  direction?: string | object;
   menus?: Menu[];
   socialLinks?: SocialMediaLink[];
+  sx?: SxProps<Theme>;
 }
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(
-  props: Props,
+  props: NavBarNavListProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
-  const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
+  const {
+    NavListItemLinkProps,
+    NavListItemProps,
+    direction,
+    menus,
+    socialLinks,
+    ...other
+  } = props;
 
   return (
     <NavList direction={direction} {...other} ref={ref}>
       {menus?.map((item) => (
         <NavListItem
+          {...NavListItemProps}
           key={item.label}
           sx={(theme: Theme) => ({
             borderBottom: {
@@ -49,6 +59,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
             },
             py: { xs: 1, md: 0 },
             mr: { xs: 0, md: 2.5 },
+            ...NavListItemProps?.sx,
           })}
         >
           <Link
@@ -56,18 +67,18 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
             underline="none"
             // in mobile h3 = h4 in desktop
             variant="h5"
-            {...NavListItemProps}
+            {...NavListItemLinkProps}
             href={item.href}
-            sx={{
+            sx={(theme: Theme) => ({
               display: "flex",
               flexBasis: { xs: 1, md: "auto" },
+              transition: theme.transitions.create(["opacity"]),
               typography: { md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
-                color: { xs: "inherit", md: "primary.main" },
               },
-              ...NavListItemProps?.sx,
-            }}
+              ...NavListItemLinkProps?.sx,
+            })}
           >
             {item.label}
           </Link>
@@ -86,12 +97,13 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
               href={url}
               platform={platform}
               variant="h5"
-              IconProps={{
+              IconProps={(theme: Theme) => ({
                 fontSize: "inherit",
+                transition: theme.transitions.create(["opacity"]),
                 sx: {
                   mt: direction === "column" ? 0 : 1,
                 },
-              }}
+              })}
               sx={{
                 display: "flex",
                 typography: { md: "h5" },
