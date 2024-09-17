@@ -27,6 +27,7 @@ function linkArray(args: Args) {
     fields: [link(linkConfig)],
     admin: {
       initCollapsed: true,
+      // TODO (michael): Add proper row label
     },
   };
 

@@ -41,24 +41,6 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
         label: "Platform",
         options: socialMediaOptions,
         required: true,
-        validate: (val, args) => {
-          const { data, t } = args || {};
-          const { name: linksName = "links" } = overrides as Overrides;
-          if (
-            data?.[linksName]?.filter((l: any) => l.platform === val)?.length >
-            1
-          ) {
-            return t("codeforafrica.validation:uniquePlatforms");
-          }
-
-          const {
-            hasMany,
-            options = socialMediaOptions,
-            required = true,
-          } = args;
-          // @ts-ignore
-          return select(val, { hasMany, options, required, t });
-        },
       },
       url({
         overrides: {

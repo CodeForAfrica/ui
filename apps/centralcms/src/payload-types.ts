@@ -849,21 +849,20 @@ export interface Project {
   tagLine: string;
   tag: string | Tag;
   externalLink: {
-    link: {
-      label: string;
-      type?: ('internal' | 'custom') | null;
-      internal?:
-        | ({
-            relationTo: 'RoboshieldPages';
-            value: string | RoboshieldPage;
-          } | null)
-        | ({
-            relationTo: 'CodeForAfricaPages';
-            value: string | CodeForAfricaPage;
-          } | null);
-      url?: string | null;
-      newTab?: boolean | null;
-    };
+    label: string;
+    linkType?: ('custom' | 'internal') | null;
+    doc?:
+      | ({
+          relationTo: 'RoboshieldPages';
+          value: string | RoboshieldPage;
+        } | null)
+      | ({
+          relationTo: 'CodeForAfricaPages';
+          value: string | CodeForAfricaPage;
+        } | null);
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
   };
   thumbnail: string | Media;
   badges?:
@@ -891,20 +890,19 @@ export interface Project {
   links?:
     | {
         type: 'source' | 'data';
-        link: {
-          label: string;
-          type?: ('internal' | 'custom') | null;
-          internal?:
-            | ({
-                relationTo: 'RoboshieldPages';
-                value: string | RoboshieldPage;
-              } | null)
-            | ({
-                relationTo: 'CodeForAfricaPages';
-                value: string | CodeForAfricaPage;
-              } | null);
-          url?: string | null;
-        };
+        label: string;
+        linkType?: ('custom' | 'internal') | null;
+        doc?:
+          | ({
+              relationTo: 'RoboshieldPages';
+              value: string | RoboshieldPage;
+            } | null)
+          | ({
+              relationTo: 'CodeForAfricaPages';
+              value: string | CodeForAfricaPage;
+            } | null);
+        url?: string | null;
+        href: string;
         id?: string | null;
       }[]
     | null;
@@ -1313,21 +1311,20 @@ export interface CodeForAfricaPage {
             stories: {
               items: (string | Post)[];
               action: {
-                link: {
-                  label: string;
-                  type?: ('internal' | 'custom') | null;
-                  internal?:
-                    | ({
-                        relationTo: 'RoboshieldPages';
-                        value: string | RoboshieldPage;
-                      } | null)
-                    | ({
-                        relationTo: 'CodeForAfricaPages';
-                        value: string | CodeForAfricaPage;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
+                label: string;
+                linkType?: ('custom' | 'internal') | null;
+                doc?:
+                  | ({
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
+                    } | null)
+                  | ({
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
               };
             };
             id?: string | null;
@@ -1338,21 +1335,20 @@ export interface CodeForAfricaPage {
             title: string;
             subtitle: string;
             action: {
-              link: {
-                label: string;
-                type?: ('internal' | 'custom') | null;
-                internal?:
-                  | ({
-                      relationTo: 'RoboshieldPages';
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: 'CodeForAfricaPages';
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             id?: string | null;
             blockName?: string | null;
@@ -1361,21 +1357,20 @@ export interface CodeForAfricaPage {
         | {
             impacts?: (string | Impact)[] | null;
             action: {
-              link: {
-                label: string;
-                type?: ('internal' | 'custom') | null;
-                internal?:
-                  | ({
-                      relationTo: 'RoboshieldPages';
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: 'CodeForAfricaPages';
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             id?: string | null;
             blockName?: string | null;
@@ -1420,21 +1415,20 @@ export interface CodeForAfricaPage {
             title: string;
             subtitle: string;
             action: {
-              link: {
-                label: string;
-                type?: ('internal' | 'custom') | null;
-                internal?:
-                  | ({
-                      relationTo: 'RoboshieldPages';
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: 'CodeForAfricaPages';
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             id?: string | null;
             blockName?: string | null;
@@ -1458,21 +1452,20 @@ export interface CodeForAfricaPage {
               [k: string]: unknown;
             };
             action: {
-              link: {
-                label: string;
-                type?: ('internal' | 'custom') | null;
-                internal?:
-                  | ({
-                      relationTo: 'RoboshieldPages';
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: 'CodeForAfricaPages';
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             image: string | Media;
             id?: string | null;
@@ -1750,21 +1743,20 @@ export interface CodeforafricaSiteSetting {
   primaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ('internal' | 'custom') | null;
-            internal?:
-              | ({
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: 'CodeForAfricaPages';
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
@@ -1773,21 +1765,20 @@ export interface CodeforafricaSiteSetting {
   secondaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ('internal' | 'custom') | null;
-            internal?:
-              | ({
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: 'CodeForAfricaPages';
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
@@ -1836,21 +1827,20 @@ export interface RoboshieldSiteSetting {
   primaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ('internal' | 'custom') | null;
-            internal?:
-              | ({
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: 'CodeForAfricaPages';
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
@@ -1859,21 +1849,20 @@ export interface RoboshieldSiteSetting {
   secondaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ('internal' | 'custom') | null;
-            internal?:
-              | ({
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: 'CodeForAfricaPages';
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
@@ -1913,20 +1902,19 @@ export interface RoboshieldSiteSetting {
       | {
           name: string;
           logo: string | Media;
-          link: {
-            label: string;
-            type?: ('internal' | 'custom') | null;
-            internal?:
-              | ({
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: 'CodeForAfricaPages';
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
           id?: string | null;
         }[]
       | null;
