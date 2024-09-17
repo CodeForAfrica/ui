@@ -11,7 +11,7 @@ export default function Home(props: Props) {
 }
 
 export async function getStaticProps() {
-  const data = await getStats({ query: { orderBy: "date DESC" } } as any);
+  const data = await getStats({ query: { orderBy: "date DESC" } });
   return {
     props: {
       data,

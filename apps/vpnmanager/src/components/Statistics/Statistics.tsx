@@ -17,7 +17,7 @@ import { Section } from "@commons-ui/core";
 import { useRouter } from "next/router";
 
 import formatDateTime, { formatDate } from "@/vpnmanager/utils/formatDate";
-import { fetchJson } from "@/vpnmanager/utils";
+import { fetchJson, formatBytes } from "@/vpnmanager/utils";
 import { Link } from "@commons-ui/next";
 
 export interface Data {
@@ -49,7 +49,12 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
   });
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [data, setData] = useState(result);
+  const [rawData, setData] = useState(result);
+  const data = rawData.map((d) => ({
+    ...d,
+    cumulativeData: formatBytes(d.cumulativeData),
+    usage: formatBytes(d.usage),
+  }));
   const paginatedData = data.slice(
     page * rowsPerPage,
     page * rowsPerPage + rowsPerPage,
@@ -57,17 +62,17 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
   useEffect(() => {
     (async () => {
       try {
-        const params: any = {};
-        Object.keys(filters).forEach((key) => {
-          if (filters[key as keyof typeof filters]) {
-            params[key] = filters[key as keyof typeof filters];
-          }
-        });
+        const params: Partial<Record<keyof typeof filters, string>> =
+          Object.fromEntries(
+            Object.entries(filters).filter(([_, value]) => Boolean(value)),
+          );
         const res = await fetchJson.get("/api/statistics", {
-          params: params as Record<string, string>,
+          params,
         });
         setData(res || []);
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
     })();
   }, [filters]);
 
@@ -76,12 +81,10 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
   };
 
   const applyFilters = () => {
-    const params: any = {};
-    Object.keys(filters).forEach((key) => {
-      if (filters[key as keyof typeof filters]) {
-        params[key] = filters[key as keyof typeof filters];
-      }
-    });
+    const params: Partial<Record<keyof typeof filters, string>> =
+      Object.fromEntries(
+        Object.entries(filters).filter(([_, value]) => Boolean(value)),
+      );
 
     if (Object.keys(params).length) {
       router.push(
@@ -108,6 +111,7 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
   }, [router.query]);
 
   const exportRef = useRef();
+
   function exportAsCsv() {
     const csvHeaders = [
       "ID",
@@ -134,14 +138,12 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
     const csvContent = [csvHeaders.join(","), ...csvRows].join("\n");
 
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link: HTMLAnchorElement =
-      exportRef.current as unknown as HTMLAnchorElement;
-    if (!link) return;
-    link.href = url;
-    link.setAttribute("download", "statistics.csv");
-    link.click();
+    if (exportRef.current) {
+      exportRef.current?.setAttribute("href", URL.createObjectURL(blob));
+    }
   }
+
+  exportAsCsv();
 
   return (
     <TableContainer component={Paper}>
@@ -234,17 +236,16 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
             </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>
-            <Link ref={exportRef} href="#" sx={{ display: "none" }}>
-              pp
-            </Link>
-            <Button
-              sx={{ width: "100%" }}
-              size="small"
-              variant="contained"
-              onClick={exportAsCsv}
+            <Link
+              target="_blank"
+              ref={exportRef}
+              href={"#"}
+              download="statistics.csv"
             >
-              Export as CSV
-            </Button>
+              <Button sx={{ width: "100%" }} size="small" variant="contained">
+                Export as CSV
+              </Button>
+            </Link>
           </Grid>
         </Grid>
         <Box sx={{ width: "100%", overflowX: "auto" }}>

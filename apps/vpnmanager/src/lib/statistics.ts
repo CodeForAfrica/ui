@@ -28,7 +28,9 @@ export async function processUserStats() {
   return unprocessedUsers;
 }
 
-export async function getStats(req: NextApiRequest) {
+export async function getStats(
+  req: NextApiRequest | { query: NextApiRequest["query"] },
+) {
   const filters: Partial<Filters> & {
     "date.start"?: string;
     "date.end"?: string;
@@ -49,6 +51,5 @@ export async function getStats(req: NextApiRequest) {
             filters.date ? new Date(filters.date as string) : undefined,
           ) as string),
   };
-
   return Model.getAll(validFilters);
 }
