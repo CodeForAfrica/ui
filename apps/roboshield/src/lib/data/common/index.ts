@@ -2,7 +2,6 @@ import { GetServerSidePropsContext } from "next";
 
 import { blockify } from "@/roboshield/lib/data/blockify";
 import getPageSeoFromMeta from "@/roboshield/lib/data/seo";
-import { Api } from "@/roboshield/lib/payload";
 import site from "@/roboshield/utils/site";
 import { SettingsSite } from "@/root/payload-types";
 
@@ -79,13 +78,13 @@ export async function getPageProps(
   const blocks = await blockify(page.blocks, api);
 
   const siteSettings = await api.findGlobal("settings-site");
-  const { analytics } = siteSettings;
+  //const { analytics } = siteSettings;
   const footer = getFooter(siteSettings);
   const navbar = getNavBar(siteSettings);
   const seo = getPageSeoFromMeta(page, siteSettings);
 
   return {
-    analytics,
+    //analytics,
     blocks,
     footer,
     navbar,
