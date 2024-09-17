@@ -1,7 +1,7 @@
 import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { StyledLink as Link } from "@commons-ui/next";
 import type { LinkProps, StackOwnProps } from "@mui/material";
-import type { SxProps, Theme } from "@mui/material/styles";
+import type { Theme } from "@mui/material/styles";
 import React from "react";
 
 interface NavListItemProps extends LinkProps {}
