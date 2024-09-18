@@ -16,9 +16,9 @@ import {
 import { Section } from "@commons-ui/core";
 import { useRouter } from "next/router";
 
-import formatDateTime, { formatDate } from "@/vpnmanager/utils/formatDate";
 import { fetchJson, formatBytes } from "@/vpnmanager/utils";
 import { Link } from "@commons-ui/next";
+import { format, startOfYesterday } from "date-fns";
 
 export interface Data {
   ID: number;
@@ -36,15 +36,14 @@ interface Props {
 
 const Statistics: React.FC<Props> = ({ data: result }) => {
   const router = useRouter();
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterday = startOfYesterday();
   const [filters, setFilters] = useState({
     ID: router.query.ID || "",
     userId: router.query.userId || "",
     email: router.query.email || "",
     "date.start": router.query["date.start"] || "",
     "date.end": router.query["date.end"] || "",
-    date: router.query.date || formatDate(yesterday),
+    date: router.query.date || format(yesterday, "yyyy-MM-dd"),
     orderBy: "date DESC",
   });
   const [page, setPage] = useState(0);
@@ -272,10 +271,10 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
                     <TableCell>{row.email}</TableCell>
                     <TableCell>{row.userId}</TableCell>
                     <TableCell>{row.usage}</TableCell>
-                    <TableCell>{formatDateTime(row.date)}</TableCell>
+                    <TableCell>{format(row.date, "yyyy-MM-dd")}</TableCell>
                     <TableCell>{row.cumulativeData}</TableCell>
                     <TableCell>
-                      {formatDateTime(row.createdAt, { includeTime: true })}
+                      {format(row.createdAt, "yyyy-MM-dd HH:mm")}
                     </TableCell>
                   </TableRow>
                 ))

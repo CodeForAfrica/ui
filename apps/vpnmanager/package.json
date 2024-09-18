@@ -28,6 +28,7 @@
     "@svgr/webpack": "catalog:",
     "@types/jest": "catalog:",
     "better-sqlite3": "catalog:",
+    "date-fns": "catalog:",
     "googleapis": "catalog:",
     "jest": "catalog:",
     "next": "catalog:",

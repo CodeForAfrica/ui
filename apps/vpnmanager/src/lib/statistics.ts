@@ -1,14 +1,14 @@
 import { NextApiRequest } from "next/types";
 import { OutlineVPN } from "./outline";
 import { Filters, Model, Record } from "@/vpnmanager/lib/data/database";
-import { formatDate } from "@/vpnmanager/utils/formatDate";
+import { format } from "date-fns";
 
 const vpnManager = new OutlineVPN({
   apiUrl: process.env.NEXT_APP_VPN_API_URL as string,
 });
 
 export async function processUserStats() {
-  const date: string = formatDate(new Date()) as string;
+  const date: string = format(new Date(), "yyyy-MM-dd");
   const { bytesTransferredByUserId = {} } = await vpnManager.getDataUsage();
   const allUsers = await vpnManager.getUsers();
   const unprocessedUsers: Omit<Record, "ID" | "createdAt">[] = Object.keys(
@@ -35,6 +35,10 @@ export async function getStats(
     "date.start"?: string;
     "date.end"?: string;
   } = req.query;
+  const stringDate =
+    typeof filters.date === "string"
+      ? format(new Date(filters.date), "yyyy-MM-dd")
+      : undefined;
   const validFilters = {
     email: filters.email,
     ID: filters.ID,
@@ -44,12 +48,13 @@ export async function getStats(
     date:
       filters["date.start"] && filters["date.end"]
         ? {
-            start: formatDate(new Date(filters["date.start"])) as string,
-            end: formatDate(new Date(filters["date.end"])) as string,
+            start: format(
+              new Date(filters["date.start"]),
+              "yyyy-MM-dd",
+            ) as string,
+            end: format(new Date(filters["date.end"]), "yyyy-MM-dd") as string,
           }
-        : (formatDate(
-            filters.date ? new Date(filters.date as string) : undefined,
-          ) as string),
+        : stringDate,
   };
   return Model.getAll(validFilters);
 }
