@@ -16,7 +16,7 @@ export interface Config {
     tenants: Tenant;
     author: Author;
     donors: Donor;
-    "guiding-principles": GuidingPrinciple;
+    'guiding-principles': GuidingPrinciple;
     impact: Impact;
     offices: Office;
     members: Member;
@@ -27,19 +27,19 @@ export interface Config {
     teams: Team;
     CodeForAfricaPages: CodeForAfricaPage;
     RoboshieldPages: RoboshieldPage;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
   };
   db: {
     defaultIDType: string;
   };
   globals: {
-    "codeforafrica-site-settings": CodeforafricaSiteSetting;
-    "roboshield-site-settings": RoboshieldSiteSetting;
+    'codeforafrica-site-settings': CodeforafricaSiteSetting;
+    'roboshield-site-settings': RoboshieldSiteSetting;
   };
   locale: null;
   user: User & {
-    collection: "users";
+    collection: 'users';
   };
 }
 export interface UserAuthOperations {
@@ -68,11 +68,11 @@ export interface User {
   id: string;
   firstName?: string | null;
   lastName?: string | null;
-  roles: ("super-admin" | "user")[];
+  roles: ('super-admin' | 'user')[];
   tenants?:
     | {
         tenant: string | Tenant;
-        roles: ("admin" | "user")[];
+        roles: ('admin' | 'user')[];
         id?: string | null;
       }[]
     | null;
@@ -166,8 +166,8 @@ export interface GuidingPrinciple {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -191,8 +191,8 @@ export interface Impact {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -220,255 +220,255 @@ export interface Office {
   zipCode?: string | null;
   country?:
     | (
-        | "AFG"
-        | "ALA"
-        | "ALB"
-        | "DZA"
-        | "ASM"
-        | "AND"
-        | "AGO"
-        | "AIA"
-        | "ATA"
-        | "ATG"
-        | "ARG"
-        | "ARM"
-        | "ABW"
-        | "AUS"
-        | "AUT"
-        | "AZE"
-        | "BHS"
-        | "BHR"
-        | "BGD"
-        | "BRB"
-        | "BLR"
-        | "BEL"
-        | "BLZ"
-        | "BEN"
-        | "BMU"
-        | "BTN"
-        | "BOL"
-        | "BES"
-        | "BIH"
-        | "BWA"
-        | "BVT"
-        | "BRA"
-        | "IOT"
-        | "BRN"
-        | "BGR"
-        | "BFA"
-        | "BDI"
-        | "CPV"
-        | "KHM"
-        | "CMR"
-        | "CAN"
-        | "CYM"
-        | "CAF"
-        | "TCD"
-        | "CHL"
-        | "CHN"
-        | "CXR"
-        | "CCK"
-        | "COL"
-        | "COM"
-        | "COG"
-        | "COD"
-        | "COK"
-        | "CRI"
-        | "CIV"
-        | "HRV"
-        | "CUB"
-        | "CUW"
-        | "CYP"
-        | "CZE"
-        | "DNK"
-        | "DJI"
-        | "DMA"
-        | "DOM"
-        | "ECU"
-        | "EGY"
-        | "SLV"
-        | "GNQ"
-        | "ERI"
-        | "EST"
-        | "SWZ"
-        | "ETH"
-        | "FLK"
-        | "FRO"
-        | "FJI"
-        | "FIN"
-        | "FRA"
-        | "GUF"
-        | "PYF"
-        | "ATF"
-        | "GAB"
-        | "GMB"
-        | "GEO"
-        | "DEU"
-        | "GHA"
-        | "GIB"
-        | "GRC"
-        | "GRL"
-        | "GRD"
-        | "GLP"
-        | "GUM"
-        | "GTM"
-        | "GGY"
-        | "GIN"
-        | "GNB"
-        | "GUY"
-        | "HTI"
-        | "HMD"
-        | "VAT"
-        | "HND"
-        | "HKG"
-        | "HUN"
-        | "ISL"
-        | "IND"
-        | "IDN"
-        | "IRN"
-        | "IRQ"
-        | "IRL"
-        | "IMN"
-        | "ISR"
-        | "ITA"
-        | "JAM"
-        | "JPN"
-        | "JEY"
-        | "JOR"
-        | "KAZ"
-        | "KEN"
-        | "KIR"
-        | "PRK"
-        | "KOR"
-        | "KWT"
-        | "KGZ"
-        | "LAO"
-        | "LVA"
-        | "LBN"
-        | "LSO"
-        | "LBR"
-        | "LBY"
-        | "LIE"
-        | "LTU"
-        | "LUX"
-        | "MAC"
-        | "MDG"
-        | "MWI"
-        | "MYS"
-        | "MDV"
-        | "MLI"
-        | "MLT"
-        | "MHL"
-        | "MTQ"
-        | "MRT"
-        | "MUS"
-        | "MYT"
-        | "MEX"
-        | "FSM"
-        | "MDA"
-        | "MCO"
-        | "MNG"
-        | "MNE"
-        | "MSR"
-        | "MAR"
-        | "MOZ"
-        | "MMR"
-        | "NAM"
-        | "NRU"
-        | "NPL"
-        | "NLD"
-        | "NCL"
-        | "NZL"
-        | "NIC"
-        | "NER"
-        | "NGA"
-        | "NIU"
-        | "NFK"
-        | "MKD"
-        | "MNP"
-        | "NOR"
-        | "OMN"
-        | "PAK"
-        | "PLW"
-        | "PSE"
-        | "PAN"
-        | "PNG"
-        | "PRY"
-        | "PER"
-        | "PHL"
-        | "PCN"
-        | "POL"
-        | "PRT"
-        | "PRI"
-        | "QAT"
-        | "REU"
-        | "ROU"
-        | "RUS"
-        | "RWA"
-        | "BLM"
-        | "SHN"
-        | "KNA"
-        | "LCA"
-        | "MAF"
-        | "SPM"
-        | "VCT"
-        | "WSM"
-        | "SMR"
-        | "STP"
-        | "SAU"
-        | "SEN"
-        | "SRB"
-        | "SYC"
-        | "SLE"
-        | "SGP"
-        | "SXM"
-        | "SVK"
-        | "SVN"
-        | "SLB"
-        | "SOM"
-        | "ZAF"
-        | "SGS"
-        | "SSD"
-        | "ESP"
-        | "LKA"
-        | "SDN"
-        | "SUR"
-        | "SJM"
-        | "SWE"
-        | "CHE"
-        | "SYR"
-        | "TWN"
-        | "TJK"
-        | "TZA"
-        | "THA"
-        | "TLS"
-        | "TGO"
-        | "TKL"
-        | "TON"
-        | "TTO"
-        | "TUN"
-        | "TUR"
-        | "TKM"
-        | "TCA"
-        | "TUV"
-        | "UGA"
-        | "UKR"
-        | "ARE"
-        | "GBR"
-        | "USA"
-        | "UMI"
-        | "URY"
-        | "UZB"
-        | "VUT"
-        | "VEN"
-        | "VNM"
-        | "VGB"
-        | "VIR"
-        | "WLF"
-        | "ESH"
-        | "YEM"
-        | "ZMB"
-        | "ZWE"
+        | 'AFG'
+        | 'ALA'
+        | 'ALB'
+        | 'DZA'
+        | 'ASM'
+        | 'AND'
+        | 'AGO'
+        | 'AIA'
+        | 'ATA'
+        | 'ATG'
+        | 'ARG'
+        | 'ARM'
+        | 'ABW'
+        | 'AUS'
+        | 'AUT'
+        | 'AZE'
+        | 'BHS'
+        | 'BHR'
+        | 'BGD'
+        | 'BRB'
+        | 'BLR'
+        | 'BEL'
+        | 'BLZ'
+        | 'BEN'
+        | 'BMU'
+        | 'BTN'
+        | 'BOL'
+        | 'BES'
+        | 'BIH'
+        | 'BWA'
+        | 'BVT'
+        | 'BRA'
+        | 'IOT'
+        | 'BRN'
+        | 'BGR'
+        | 'BFA'
+        | 'BDI'
+        | 'CPV'
+        | 'KHM'
+        | 'CMR'
+        | 'CAN'
+        | 'CYM'
+        | 'CAF'
+        | 'TCD'
+        | 'CHL'
+        | 'CHN'
+        | 'CXR'
+        | 'CCK'
+        | 'COL'
+        | 'COM'
+        | 'COG'
+        | 'COD'
+        | 'COK'
+        | 'CRI'
+        | 'CIV'
+        | 'HRV'
+        | 'CUB'
+        | 'CUW'
+        | 'CYP'
+        | 'CZE'
+        | 'DNK'
+        | 'DJI'
+        | 'DMA'
+        | 'DOM'
+        | 'ECU'
+        | 'EGY'
+        | 'SLV'
+        | 'GNQ'
+        | 'ERI'
+        | 'EST'
+        | 'SWZ'
+        | 'ETH'
+        | 'FLK'
+        | 'FRO'
+        | 'FJI'
+        | 'FIN'
+        | 'FRA'
+        | 'GUF'
+        | 'PYF'
+        | 'ATF'
+        | 'GAB'
+        | 'GMB'
+        | 'GEO'
+        | 'DEU'
+        | 'GHA'
+        | 'GIB'
+        | 'GRC'
+        | 'GRL'
+        | 'GRD'
+        | 'GLP'
+        | 'GUM'
+        | 'GTM'
+        | 'GGY'
+        | 'GIN'
+        | 'GNB'
+        | 'GUY'
+        | 'HTI'
+        | 'HMD'
+        | 'VAT'
+        | 'HND'
+        | 'HKG'
+        | 'HUN'
+        | 'ISL'
+        | 'IND'
+        | 'IDN'
+        | 'IRN'
+        | 'IRQ'
+        | 'IRL'
+        | 'IMN'
+        | 'ISR'
+        | 'ITA'
+        | 'JAM'
+        | 'JPN'
+        | 'JEY'
+        | 'JOR'
+        | 'KAZ'
+        | 'KEN'
+        | 'KIR'
+        | 'PRK'
+        | 'KOR'
+        | 'KWT'
+        | 'KGZ'
+        | 'LAO'
+        | 'LVA'
+        | 'LBN'
+        | 'LSO'
+        | 'LBR'
+        | 'LBY'
+        | 'LIE'
+        | 'LTU'
+        | 'LUX'
+        | 'MAC'
+        | 'MDG'
+        | 'MWI'
+        | 'MYS'
+        | 'MDV'
+        | 'MLI'
+        | 'MLT'
+        | 'MHL'
+        | 'MTQ'
+        | 'MRT'
+        | 'MUS'
+        | 'MYT'
+        | 'MEX'
+        | 'FSM'
+        | 'MDA'
+        | 'MCO'
+        | 'MNG'
+        | 'MNE'
+        | 'MSR'
+        | 'MAR'
+        | 'MOZ'
+        | 'MMR'
+        | 'NAM'
+        | 'NRU'
+        | 'NPL'
+        | 'NLD'
+        | 'NCL'
+        | 'NZL'
+        | 'NIC'
+        | 'NER'
+        | 'NGA'
+        | 'NIU'
+        | 'NFK'
+        | 'MKD'
+        | 'MNP'
+        | 'NOR'
+        | 'OMN'
+        | 'PAK'
+        | 'PLW'
+        | 'PSE'
+        | 'PAN'
+        | 'PNG'
+        | 'PRY'
+        | 'PER'
+        | 'PHL'
+        | 'PCN'
+        | 'POL'
+        | 'PRT'
+        | 'PRI'
+        | 'QAT'
+        | 'REU'
+        | 'ROU'
+        | 'RUS'
+        | 'RWA'
+        | 'BLM'
+        | 'SHN'
+        | 'KNA'
+        | 'LCA'
+        | 'MAF'
+        | 'SPM'
+        | 'VCT'
+        | 'WSM'
+        | 'SMR'
+        | 'STP'
+        | 'SAU'
+        | 'SEN'
+        | 'SRB'
+        | 'SYC'
+        | 'SLE'
+        | 'SGP'
+        | 'SXM'
+        | 'SVK'
+        | 'SVN'
+        | 'SLB'
+        | 'SOM'
+        | 'ZAF'
+        | 'SGS'
+        | 'SSD'
+        | 'ESP'
+        | 'LKA'
+        | 'SDN'
+        | 'SUR'
+        | 'SJM'
+        | 'SWE'
+        | 'CHE'
+        | 'SYR'
+        | 'TWN'
+        | 'TJK'
+        | 'TZA'
+        | 'THA'
+        | 'TLS'
+        | 'TGO'
+        | 'TKL'
+        | 'TON'
+        | 'TTO'
+        | 'TUN'
+        | 'TUR'
+        | 'TKM'
+        | 'TCA'
+        | 'TUV'
+        | 'UGA'
+        | 'UKR'
+        | 'ARE'
+        | 'GBR'
+        | 'USA'
+        | 'UMI'
+        | 'URY'
+        | 'UZB'
+        | 'VUT'
+        | 'VEN'
+        | 'VNM'
+        | 'VGB'
+        | 'VIR'
+        | 'WLF'
+        | 'ESH'
+        | 'YEM'
+        | 'ZMB'
+        | 'ZWE'
       )
     | null;
   updatedAt: string;
@@ -486,255 +486,255 @@ export interface Member {
   slug?: string | null;
   country?:
     | (
-        | "AFG"
-        | "ALA"
-        | "ALB"
-        | "DZA"
-        | "ASM"
-        | "AND"
-        | "AGO"
-        | "AIA"
-        | "ATA"
-        | "ATG"
-        | "ARG"
-        | "ARM"
-        | "ABW"
-        | "AUS"
-        | "AUT"
-        | "AZE"
-        | "BHS"
-        | "BHR"
-        | "BGD"
-        | "BRB"
-        | "BLR"
-        | "BEL"
-        | "BLZ"
-        | "BEN"
-        | "BMU"
-        | "BTN"
-        | "BOL"
-        | "BES"
-        | "BIH"
-        | "BWA"
-        | "BVT"
-        | "BRA"
-        | "IOT"
-        | "BRN"
-        | "BGR"
-        | "BFA"
-        | "BDI"
-        | "CPV"
-        | "KHM"
-        | "CMR"
-        | "CAN"
-        | "CYM"
-        | "CAF"
-        | "TCD"
-        | "CHL"
-        | "CHN"
-        | "CXR"
-        | "CCK"
-        | "COL"
-        | "COM"
-        | "COG"
-        | "COD"
-        | "COK"
-        | "CRI"
-        | "CIV"
-        | "HRV"
-        | "CUB"
-        | "CUW"
-        | "CYP"
-        | "CZE"
-        | "DNK"
-        | "DJI"
-        | "DMA"
-        | "DOM"
-        | "ECU"
-        | "EGY"
-        | "SLV"
-        | "GNQ"
-        | "ERI"
-        | "EST"
-        | "SWZ"
-        | "ETH"
-        | "FLK"
-        | "FRO"
-        | "FJI"
-        | "FIN"
-        | "FRA"
-        | "GUF"
-        | "PYF"
-        | "ATF"
-        | "GAB"
-        | "GMB"
-        | "GEO"
-        | "DEU"
-        | "GHA"
-        | "GIB"
-        | "GRC"
-        | "GRL"
-        | "GRD"
-        | "GLP"
-        | "GUM"
-        | "GTM"
-        | "GGY"
-        | "GIN"
-        | "GNB"
-        | "GUY"
-        | "HTI"
-        | "HMD"
-        | "VAT"
-        | "HND"
-        | "HKG"
-        | "HUN"
-        | "ISL"
-        | "IND"
-        | "IDN"
-        | "IRN"
-        | "IRQ"
-        | "IRL"
-        | "IMN"
-        | "ISR"
-        | "ITA"
-        | "JAM"
-        | "JPN"
-        | "JEY"
-        | "JOR"
-        | "KAZ"
-        | "KEN"
-        | "KIR"
-        | "PRK"
-        | "KOR"
-        | "KWT"
-        | "KGZ"
-        | "LAO"
-        | "LVA"
-        | "LBN"
-        | "LSO"
-        | "LBR"
-        | "LBY"
-        | "LIE"
-        | "LTU"
-        | "LUX"
-        | "MAC"
-        | "MDG"
-        | "MWI"
-        | "MYS"
-        | "MDV"
-        | "MLI"
-        | "MLT"
-        | "MHL"
-        | "MTQ"
-        | "MRT"
-        | "MUS"
-        | "MYT"
-        | "MEX"
-        | "FSM"
-        | "MDA"
-        | "MCO"
-        | "MNG"
-        | "MNE"
-        | "MSR"
-        | "MAR"
-        | "MOZ"
-        | "MMR"
-        | "NAM"
-        | "NRU"
-        | "NPL"
-        | "NLD"
-        | "NCL"
-        | "NZL"
-        | "NIC"
-        | "NER"
-        | "NGA"
-        | "NIU"
-        | "NFK"
-        | "MKD"
-        | "MNP"
-        | "NOR"
-        | "OMN"
-        | "PAK"
-        | "PLW"
-        | "PSE"
-        | "PAN"
-        | "PNG"
-        | "PRY"
-        | "PER"
-        | "PHL"
-        | "PCN"
-        | "POL"
-        | "PRT"
-        | "PRI"
-        | "QAT"
-        | "REU"
-        | "ROU"
-        | "RUS"
-        | "RWA"
-        | "BLM"
-        | "SHN"
-        | "KNA"
-        | "LCA"
-        | "MAF"
-        | "SPM"
-        | "VCT"
-        | "WSM"
-        | "SMR"
-        | "STP"
-        | "SAU"
-        | "SEN"
-        | "SRB"
-        | "SYC"
-        | "SLE"
-        | "SGP"
-        | "SXM"
-        | "SVK"
-        | "SVN"
-        | "SLB"
-        | "SOM"
-        | "ZAF"
-        | "SGS"
-        | "SSD"
-        | "ESP"
-        | "LKA"
-        | "SDN"
-        | "SUR"
-        | "SJM"
-        | "SWE"
-        | "CHE"
-        | "SYR"
-        | "TWN"
-        | "TJK"
-        | "TZA"
-        | "THA"
-        | "TLS"
-        | "TGO"
-        | "TKL"
-        | "TON"
-        | "TTO"
-        | "TUN"
-        | "TUR"
-        | "TKM"
-        | "TCA"
-        | "TUV"
-        | "UGA"
-        | "UKR"
-        | "ARE"
-        | "GBR"
-        | "USA"
-        | "UMI"
-        | "URY"
-        | "UZB"
-        | "VUT"
-        | "VEN"
-        | "VNM"
-        | "VGB"
-        | "VIR"
-        | "WLF"
-        | "ESH"
-        | "YEM"
-        | "ZMB"
-        | "ZWE"
+        | 'AFG'
+        | 'ALA'
+        | 'ALB'
+        | 'DZA'
+        | 'ASM'
+        | 'AND'
+        | 'AGO'
+        | 'AIA'
+        | 'ATA'
+        | 'ATG'
+        | 'ARG'
+        | 'ARM'
+        | 'ABW'
+        | 'AUS'
+        | 'AUT'
+        | 'AZE'
+        | 'BHS'
+        | 'BHR'
+        | 'BGD'
+        | 'BRB'
+        | 'BLR'
+        | 'BEL'
+        | 'BLZ'
+        | 'BEN'
+        | 'BMU'
+        | 'BTN'
+        | 'BOL'
+        | 'BES'
+        | 'BIH'
+        | 'BWA'
+        | 'BVT'
+        | 'BRA'
+        | 'IOT'
+        | 'BRN'
+        | 'BGR'
+        | 'BFA'
+        | 'BDI'
+        | 'CPV'
+        | 'KHM'
+        | 'CMR'
+        | 'CAN'
+        | 'CYM'
+        | 'CAF'
+        | 'TCD'
+        | 'CHL'
+        | 'CHN'
+        | 'CXR'
+        | 'CCK'
+        | 'COL'
+        | 'COM'
+        | 'COG'
+        | 'COD'
+        | 'COK'
+        | 'CRI'
+        | 'CIV'
+        | 'HRV'
+        | 'CUB'
+        | 'CUW'
+        | 'CYP'
+        | 'CZE'
+        | 'DNK'
+        | 'DJI'
+        | 'DMA'
+        | 'DOM'
+        | 'ECU'
+        | 'EGY'
+        | 'SLV'
+        | 'GNQ'
+        | 'ERI'
+        | 'EST'
+        | 'SWZ'
+        | 'ETH'
+        | 'FLK'
+        | 'FRO'
+        | 'FJI'
+        | 'FIN'
+        | 'FRA'
+        | 'GUF'
+        | 'PYF'
+        | 'ATF'
+        | 'GAB'
+        | 'GMB'
+        | 'GEO'
+        | 'DEU'
+        | 'GHA'
+        | 'GIB'
+        | 'GRC'
+        | 'GRL'
+        | 'GRD'
+        | 'GLP'
+        | 'GUM'
+        | 'GTM'
+        | 'GGY'
+        | 'GIN'
+        | 'GNB'
+        | 'GUY'
+        | 'HTI'
+        | 'HMD'
+        | 'VAT'
+        | 'HND'
+        | 'HKG'
+        | 'HUN'
+        | 'ISL'
+        | 'IND'
+        | 'IDN'
+        | 'IRN'
+        | 'IRQ'
+        | 'IRL'
+        | 'IMN'
+        | 'ISR'
+        | 'ITA'
+        | 'JAM'
+        | 'JPN'
+        | 'JEY'
+        | 'JOR'
+        | 'KAZ'
+        | 'KEN'
+        | 'KIR'
+        | 'PRK'
+        | 'KOR'
+        | 'KWT'
+        | 'KGZ'
+        | 'LAO'
+        | 'LVA'
+        | 'LBN'
+        | 'LSO'
+        | 'LBR'
+        | 'LBY'
+        | 'LIE'
+        | 'LTU'
+        | 'LUX'
+        | 'MAC'
+        | 'MDG'
+        | 'MWI'
+        | 'MYS'
+        | 'MDV'
+        | 'MLI'
+        | 'MLT'
+        | 'MHL'
+        | 'MTQ'
+        | 'MRT'
+        | 'MUS'
+        | 'MYT'
+        | 'MEX'
+        | 'FSM'
+        | 'MDA'
+        | 'MCO'
+        | 'MNG'
+        | 'MNE'
+        | 'MSR'
+        | 'MAR'
+        | 'MOZ'
+        | 'MMR'
+        | 'NAM'
+        | 'NRU'
+        | 'NPL'
+        | 'NLD'
+        | 'NCL'
+        | 'NZL'
+        | 'NIC'
+        | 'NER'
+        | 'NGA'
+        | 'NIU'
+        | 'NFK'
+        | 'MKD'
+        | 'MNP'
+        | 'NOR'
+        | 'OMN'
+        | 'PAK'
+        | 'PLW'
+        | 'PSE'
+        | 'PAN'
+        | 'PNG'
+        | 'PRY'
+        | 'PER'
+        | 'PHL'
+        | 'PCN'
+        | 'POL'
+        | 'PRT'
+        | 'PRI'
+        | 'QAT'
+        | 'REU'
+        | 'ROU'
+        | 'RUS'
+        | 'RWA'
+        | 'BLM'
+        | 'SHN'
+        | 'KNA'
+        | 'LCA'
+        | 'MAF'
+        | 'SPM'
+        | 'VCT'
+        | 'WSM'
+        | 'SMR'
+        | 'STP'
+        | 'SAU'
+        | 'SEN'
+        | 'SRB'
+        | 'SYC'
+        | 'SLE'
+        | 'SGP'
+        | 'SXM'
+        | 'SVK'
+        | 'SVN'
+        | 'SLB'
+        | 'SOM'
+        | 'ZAF'
+        | 'SGS'
+        | 'SSD'
+        | 'ESP'
+        | 'LKA'
+        | 'SDN'
+        | 'SUR'
+        | 'SJM'
+        | 'SWE'
+        | 'CHE'
+        | 'SYR'
+        | 'TWN'
+        | 'TJK'
+        | 'TZA'
+        | 'THA'
+        | 'TLS'
+        | 'TGO'
+        | 'TKL'
+        | 'TON'
+        | 'TTO'
+        | 'TUN'
+        | 'TUR'
+        | 'TKM'
+        | 'TCA'
+        | 'TUV'
+        | 'UGA'
+        | 'UKR'
+        | 'ARE'
+        | 'GBR'
+        | 'USA'
+        | 'UMI'
+        | 'URY'
+        | 'UZB'
+        | 'VUT'
+        | 'VEN'
+        | 'VNM'
+        | 'VGB'
+        | 'VIR'
+        | 'WLF'
+        | 'ESH'
+        | 'YEM'
+        | 'ZMB'
+        | 'ZWE'
       )
     | null;
   description: {
@@ -745,8 +745,8 @@ export interface Member {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -754,13 +754,7 @@ export interface Member {
   };
   connect?:
     | {
-        platform:
-          | "Facebook"
-          | "Twitter"
-          | "Instagram"
-          | "Linkedin"
-          | "Github"
-          | "Slack";
+        platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
         url: string;
         id?: string | null;
       }[]
@@ -797,8 +791,8 @@ export interface Partner {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -806,13 +800,7 @@ export interface Partner {
   };
   connect?:
     | {
-        platform:
-          | "Facebook"
-          | "Twitter"
-          | "Instagram"
-          | "Linkedin"
-          | "Github"
-          | "Slack";
+        platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
         url: string;
         id?: string | null;
       }[]
@@ -836,8 +824,8 @@ export interface Project {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -851,8 +839,8 @@ export interface Project {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -861,21 +849,20 @@ export interface Project {
   tagLine: string;
   tag: string | Tag;
   externalLink: {
-    link: {
-      label: string;
-      type?: ("internal" | "custom") | null;
-      internal?:
-        | ({
-            relationTo: "RoboshieldPages";
-            value: string | RoboshieldPage;
-          } | null)
-        | ({
-            relationTo: "CodeForAfricaPages";
-            value: string | CodeForAfricaPage;
-          } | null);
-      url?: string | null;
-      newTab?: boolean | null;
-    };
+    label: string;
+    linkType?: ('custom' | 'internal') | null;
+    doc?:
+      | ({
+          relationTo: 'RoboshieldPages';
+          value: string | RoboshieldPage;
+        } | null)
+      | ({
+          relationTo: 'CodeForAfricaPages';
+          value: string | CodeForAfricaPage;
+        } | null);
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
   };
   thumbnail: string | Media;
   badges?:
@@ -893,8 +880,8 @@ export interface Project {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -902,21 +889,20 @@ export interface Project {
   };
   links?:
     | {
-        type: "source" | "data";
-        link: {
-          label: string;
-          type?: ("internal" | "custom") | null;
-          internal?:
-            | ({
-                relationTo: "RoboshieldPages";
-                value: string | RoboshieldPage;
-              } | null)
-            | ({
-                relationTo: "CodeForAfricaPages";
-                value: string | CodeForAfricaPage;
-              } | null);
-          url?: string | null;
-        };
+        type: 'source' | 'data';
+        label: string;
+        linkType?: ('custom' | 'internal') | null;
+        doc?:
+          | ({
+              relationTo: 'RoboshieldPages';
+              value: string | RoboshieldPage;
+            } | null)
+          | ({
+              relationTo: 'CodeForAfricaPages';
+              value: string | CodeForAfricaPage;
+            } | null);
+        url?: string | null;
+        href: string;
         id?: string | null;
       }[]
     | null;
@@ -955,8 +941,8 @@ export interface RoboshieldPage {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -969,7 +955,7 @@ export interface RoboshieldPage {
             subtitle: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "page-header";
+            blockType: 'page-header';
           }
         | SiteHero
         | {
@@ -984,15 +970,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1000,30 +979,30 @@ export interface RoboshieldPage {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "richtext";
+                      blockType: 'richtext';
                     }
                   | {
                       image: string | Media;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "mediaBlock";
+                      blockType: 'mediaBlock';
                     }
                   | {
                       externalEmbedFields?: {
-                        embedType?: ("url" | "code") | null;
+                        embedType?: ('url' | 'code') | null;
                         url?: string | null;
                         caption?: string | null;
                         code?: string | null;
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "externalEmbed";
+                      blockType: 'externalEmbed';
                     }
                 )[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "content";
+            blockType: 'content';
           }
         | {
             title: string;
@@ -1039,15 +1018,8 @@ export interface RoboshieldPage {
                         version: number;
                         [k: string]: unknown;
                       }[];
-                      direction: ("ltr" | "rtl") | null;
-                      format:
-                        | "left"
-                        | "start"
-                        | "center"
-                        | "right"
-                        | "end"
-                        | "justify"
-                        | "";
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                       indent: number;
                       version: number;
                     };
@@ -1059,7 +1031,7 @@ export interface RoboshieldPage {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "statistics";
+            blockType: 'statistics';
           }
         | {
             steps?:
@@ -1074,15 +1046,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1095,7 +1060,7 @@ export interface RoboshieldPage {
                       fetch: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "existing-robots-txt";
+                      blockType: 'existing-robots-txt';
                     }
                   | {
                       title: string;
@@ -1107,15 +1072,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1135,7 +1093,7 @@ export interface RoboshieldPage {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "delays";
+                      blockType: 'delays';
                     }
                   | {
                       title: string;
@@ -1147,15 +1105,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1175,7 +1126,7 @@ export interface RoboshieldPage {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "paths";
+                      blockType: 'paths';
                     }
                   | {
                       title: string;
@@ -1187,15 +1138,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1211,7 +1155,7 @@ export interface RoboshieldPage {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "block-bots";
+                      blockType: 'block-bots';
                     }
                   | {
                       title: string;
@@ -1223,15 +1167,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1240,7 +1177,7 @@ export interface RoboshieldPage {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "site-maps";
+                      blockType: 'site-maps';
                     }
                   | {
                       title: string;
@@ -1252,15 +1189,8 @@ export interface RoboshieldPage {
                             version: number;
                             [k: string]: unknown;
                           }[];
-                          direction: ("ltr" | "rtl") | null;
-                          format:
-                            | "left"
-                            | "start"
-                            | "center"
-                            | "right"
-                            | "end"
-                            | "justify"
-                            | "";
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                           indent: number;
                           version: number;
                         };
@@ -1269,7 +1199,7 @@ export interface RoboshieldPage {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "finish";
+                      blockType: 'finish';
                     }
                 )[]
               | null;
@@ -1283,7 +1213,7 @@ export interface RoboshieldPage {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "robots-txt-generator";
+            blockType: 'robots-txt-generator';
           }
       )[]
     | null;
@@ -1302,7 +1232,7 @@ export interface RoboshieldPage {
 export interface SiteHero {
   heroHeaders?:
     | {
-        headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
+        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
         title?: string | null;
         id?: string | null;
       }[]
@@ -1315,8 +1245,8 @@ export interface SiteHero {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -1325,7 +1255,7 @@ export interface SiteHero {
   heroCallToAction?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "page-hero";
+  blockType: 'page-hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1341,7 +1271,7 @@ export interface CodeForAfricaPage {
             embedCode: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "contact-form";
+            blockType: 'contact-form';
           }
         | {
             title: string;
@@ -1353,15 +1283,8 @@ export interface CodeForAfricaPage {
                   version: number;
                   [k: string]: unknown;
                 }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                 indent: number;
                 version: number;
               };
@@ -1369,14 +1292,14 @@ export interface CodeForAfricaPage {
             } | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "error";
+            blockType: 'error';
           }
         | {
             defaultTag: string | Tag;
             projects: (string | Project)[];
             id?: string | null;
             blockName?: string | null;
-            blockType: "featured-work";
+            blockType: 'featured-work';
           }
         | {
             title: string;
@@ -1388,80 +1311,77 @@ export interface CodeForAfricaPage {
             stories: {
               items: (string | Post)[];
               action: {
-                link: {
-                  label: string;
-                  type?: ("internal" | "custom") | null;
-                  internal?:
-                    | ({
-                        relationTo: "RoboshieldPages";
-                        value: string | RoboshieldPage;
-                      } | null)
-                    | ({
-                        relationTo: "CodeForAfricaPages";
-                        value: string | CodeForAfricaPage;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
+                label: string;
+                linkType?: ('custom' | 'internal') | null;
+                doc?:
+                  | ({
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
+                    } | null)
+                  | ({
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
               };
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "featured-stories";
+            blockType: 'featured-stories';
           }
         | {
             title: string;
             subtitle: string;
             action: {
-              link: {
-                label: string;
-                type?: ("internal" | "custom") | null;
-                internal?:
-                  | ({
-                      relationTo: "RoboshieldPages";
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: "CodeForAfricaPages";
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "get-in-touch";
+            blockType: 'get-in-touch';
           }
         | {
             impacts?: (string | Impact)[] | null;
             action: {
-              link: {
-                label: string;
-                type?: ("internal" | "custom") | null;
-                internal?:
-                  | ({
-                      relationTo: "RoboshieldPages";
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: "CodeForAfricaPages";
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "get-involved";
+            blockType: 'get-involved';
           }
         | {
             title: string;
             list?: (string | GuidingPrinciple)[] | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-guiding-principles";
+            blockType: 'our-guiding-principles';
           }
         | {
             title: {
@@ -1472,15 +1392,8 @@ export interface CodeForAfricaPage {
                   version: number;
                   [k: string]: unknown;
                 }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                 indent: number;
                 version: number;
               };
@@ -1496,31 +1409,30 @@ export interface CodeForAfricaPage {
             image: string | Media;
             id?: string | null;
             blockName?: string | null;
-            blockType: "hero";
+            blockType: 'hero';
           }
         | {
             title: string;
             subtitle: string;
             action: {
-              link: {
-                label: string;
-                type?: ("internal" | "custom") | null;
-                internal?:
-                  | ({
-                      relationTo: "RoboshieldPages";
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: "CodeForAfricaPages";
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "join-our-slack";
+            blockType: 'join-our-slack';
           }
         | {
             title: string;
@@ -1532,51 +1444,43 @@ export interface CodeForAfricaPage {
                   version: number;
                   [k: string]: unknown;
                 }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                 indent: number;
                 version: number;
               };
               [k: string]: unknown;
             };
             action: {
-              link: {
-                label: string;
-                type?: ("internal" | "custom") | null;
-                internal?:
-                  | ({
-                      relationTo: "RoboshieldPages";
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: "CodeForAfricaPages";
-                      value: string | CodeForAfricaPage;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
+              label: string;
+              linkType?: ('custom' | 'internal') | null;
+              doc?:
+                | ({
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null)
+                | ({
+                    relationTo: 'CodeForAfricaPages';
+                    value: string | CodeForAfricaPage;
+                  } | null);
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
             };
             image: string | Media;
             id?: string | null;
             blockName?: string | null;
-            blockType: "meet-our-team";
+            blockType: 'meet-our-team';
           }
         | {
             title: string;
             subtitle: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "page-header";
+            blockType: 'page-header';
           }
         | {
-            primaryTag: "stories" | "opportunities";
+            primaryTag: 'stories' | 'opportunities';
             stories?: {
               featured?: (string | null) | Post;
               title: string;
@@ -1587,7 +1491,7 @@ export interface CodeForAfricaPage {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "post-list";
+            blockType: 'post-list';
           }
         | {
             title: string;
@@ -1595,7 +1499,7 @@ export interface CodeForAfricaPage {
             image: string | Media;
             id?: string | null;
             blockName?: string | null;
-            blockType: "custom-page-header";
+            blockType: 'custom-page-header';
           }
         | {
             content: (
@@ -1609,15 +1513,8 @@ export interface CodeForAfricaPage {
                           version: number;
                           [k: string]: unknown;
                         }[];
-                        direction: ("ltr" | "rtl") | null;
-                        format:
-                          | "left"
-                          | "start"
-                          | "center"
-                          | "right"
-                          | "end"
-                          | "justify"
-                          | "";
+                        direction: ('ltr' | 'rtl') | null;
+                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                         indent: number;
                         version: number;
                       };
@@ -1626,7 +1523,7 @@ export interface CodeForAfricaPage {
                   };
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "richText";
+                  blockType: 'richText';
                 }
               | {
                   mediaBlockFields: {
@@ -1634,37 +1531,37 @@ export interface CodeForAfricaPage {
                   };
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "mediaBlock";
+                  blockType: 'mediaBlock';
                 }
               | {
                   embedBlockFields?: {
-                    embedType?: ("url" | "code") | null;
+                    embedType?: ('url' | 'code') | null;
                     url?: string | null;
                     caption?: string | null;
                     code?: string | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "external-embed";
+                  blockType: 'external-embed';
                 }
             )[];
             id?: string | null;
             blockName?: string | null;
-            blockType: "longform";
+            blockType: 'longform';
           }
         | {
             title: string;
             offices: (string | Office)[];
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-offices";
+            blockType: 'our-offices';
           }
         | {
             title: string;
             impacts?: (string | Impact)[] | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-impact";
+            blockType: 'our-impact';
           }
         | {
             title: string;
@@ -1677,15 +1574,8 @@ export interface CodeForAfricaPage {
                   version: number;
                   [k: string]: unknown;
                 }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
                 indent: number;
                 version: number;
               };
@@ -1693,24 +1583,24 @@ export interface CodeForAfricaPage {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-mission";
+            blockType: 'our-mission';
           }
         | {
             title: string;
             partners?: (string | Partner)[] | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-partners";
+            blockType: 'our-partners';
           }
         | {
             title: string;
-            fields?: ("team" | "country")[] | null;
+            fields?: ('team' | 'country')[] | null;
             labels: {
               projects: string;
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-team";
+            blockType: 'our-team';
           }
         | {
             title: string;
@@ -1724,13 +1614,13 @@ export interface CodeForAfricaPage {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "our-work";
+            blockType: 'our-work';
           }
       )[]
     | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1751,15 +1641,8 @@ export interface Post {
                 version: number;
                 [k: string]: unknown;
               }[];
-              direction: ("ltr" | "rtl") | null;
-              format:
-                | "left"
-                | "start"
-                | "center"
-                | "right"
-                | "end"
-                | "justify"
-                | "";
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
               indent: number;
               version: number;
             };
@@ -1768,7 +1651,7 @@ export interface Post {
         };
         id?: string | null;
         blockName?: string | null;
-        blockType: "richText";
+        blockType: 'richText';
       }
     | {
         mediaBlockFields: {
@@ -1776,18 +1659,18 @@ export interface Post {
         };
         id?: string | null;
         blockName?: string | null;
-        blockType: "mediaBlock";
+        blockType: 'mediaBlock';
       }
     | {
         embedBlockFields?: {
-          embedType?: ("url" | "code") | null;
+          embedType?: ('url' | 'code') | null;
           url?: string | null;
           caption?: string | null;
           code?: string | null;
         };
         id?: string | null;
         blockName?: string | null;
-        blockType: "external-embed";
+        blockType: 'external-embed';
       }
   )[];
   slug?: string | null;
@@ -1797,7 +1680,7 @@ export interface Post {
   excerpt: string;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1806,7 +1689,7 @@ export interface Post {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: string | User;
   };
   key?: string | null;
@@ -1848,8 +1731,8 @@ export interface CodeforafricaSiteSetting {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -1860,46 +1743,42 @@ export interface CodeforafricaSiteSetting {
   primaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ("internal" | "custom") | null;
-            internal?:
-              | ({
-                  relationTo: "RoboshieldPages";
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: "CodeForAfricaPages";
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
-    connect?:
-      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
-      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ("internal" | "custom") | null;
-            internal?:
-              | ({
-                  relationTo: "RoboshieldPages";
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: "CodeForAfricaPages";
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
@@ -1908,13 +1787,7 @@ export interface CodeforafricaSiteSetting {
     title: string;
     links?:
       | {
-          platform:
-            | "Facebook"
-            | "Twitter"
-            | "Instagram"
-            | "Linkedin"
-            | "Github"
-            | "Slack";
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
           url: string;
           id?: string | null;
         }[]
@@ -1942,8 +1815,8 @@ export interface RoboshieldSiteSetting {
         version: number;
         [k: string]: unknown;
       }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
       indent: number;
       version: number;
     };
@@ -1954,46 +1827,42 @@ export interface RoboshieldSiteSetting {
   primaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ("internal" | "custom") | null;
-            internal?:
-              | ({
-                  relationTo: "RoboshieldPages";
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: "CodeForAfricaPages";
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
-    connect?:
-      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
-      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
-          link: {
-            label: string;
-            type?: ("internal" | "custom") | null;
-            internal?:
-              | ({
-                  relationTo: "RoboshieldPages";
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: "CodeForAfricaPages";
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
           id?: string | null;
         }[]
       | null;
@@ -2002,13 +1871,7 @@ export interface RoboshieldSiteSetting {
     title: string;
     links?:
       | {
-          platform:
-            | "Facebook"
-            | "Twitter"
-            | "Instagram"
-            | "Linkedin"
-            | "Github"
-            | "Slack";
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
           url: string;
           id?: string | null;
         }[]
@@ -2028,8 +1891,8 @@ export interface RoboshieldSiteSetting {
           version: number;
           [k: string]: unknown;
         }[];
-        direction: ("ltr" | "rtl") | null;
-        format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
         indent: number;
         version: number;
       };
@@ -2039,20 +1902,19 @@ export interface RoboshieldSiteSetting {
       | {
           name: string;
           logo: string | Media;
-          link: {
-            label: string;
-            type?: ("internal" | "custom") | null;
-            internal?:
-              | ({
-                  relationTo: "RoboshieldPages";
-                  value: string | RoboshieldPage;
-                } | null)
-              | ({
-                  relationTo: "CodeForAfricaPages";
-                  value: string | CodeForAfricaPage;
-                } | null);
-            url?: string | null;
-          };
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
+          url?: string | null;
+          href: string;
           id?: string | null;
         }[]
       | null;
@@ -2068,6 +1930,7 @@ export interface Auth {
   [k: string]: unknown;
 }
 
-declare module "payload" {
+
+declare module 'payload' {
   export interface GeneratedTypes extends Config {}
 }
