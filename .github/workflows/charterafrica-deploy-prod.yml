@@ -2,7 +2,7 @@ name: charterAFRICA | Deploy | PROD
 
 on:
   push:
-    branches: [main]
+    branches: [fix-prod-buils]
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
