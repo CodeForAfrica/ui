@@ -1,11 +1,13 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 
-import NavBar from "@/engineeringblog/components/NavBar";
-import theme from "@/engineeringblog/theme";
-
 import logoLight from "@/engineeringblog/assets/images/logo-light.png";
+import Footer from "@/engineeringblog/components/Footer";
+import NavBar from "@/engineeringblog/components/NavBar";
+import { getSettings } from "@/engineeringblog/lib/data";
+import theme from "@/engineeringblog/theme";
 
 export const metadata: Metadata = {
   title: "Technology | Code for Africa",
@@ -13,11 +15,13 @@ export const metadata: Metadata = {
     "Tech adventures in Africa's civic labs: Coding, innovating, and disrupting for good across the continent.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { analytics, connect, primaryNavigation, secondaryNavigation } =
+    await getSettings();
   // TODO: blurWidth/blurHeight https://github.com/vercel/next.js/issues/56511
   const { blurWidth, blurHeight, ...logoProps } = logoLight;
   const logo = {
@@ -32,11 +36,17 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
-            <NavBar logo={logo} />
+            <NavBar {...primaryNavigation} logo={logo} />
             {children}
+            <Footer
+              copyright={secondaryNavigation.copyright}
+              connect={connect}
+              secondaryMenus={secondaryNavigation.menus}
+            />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
+      <GoogleAnalytics gaId={analytics?.analyticsId} />
     </html>
   );
 }

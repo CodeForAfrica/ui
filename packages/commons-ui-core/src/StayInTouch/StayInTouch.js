@@ -1,3 +1,5 @@
+"use client";
+
 import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";

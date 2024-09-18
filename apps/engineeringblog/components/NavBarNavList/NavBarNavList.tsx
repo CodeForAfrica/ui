@@ -1,6 +1,7 @@
 import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
-import type { LinkProps } from "@mui/material";
+import { StyledLink as Link } from "@commons-ui/next";
+import type { LinkProps, StackOwnProps } from "@mui/material";
+import type { Theme } from "@mui/material/styles";
 import React from "react";
 
 interface NavListItemProps extends LinkProps {}
@@ -20,48 +21,62 @@ type SocialMediaPlatform =
 
 interface SocialMediaLink {
   platform: SocialMediaPlatform;
-  // TODO(koech): Confirm why we chose url instead of href in the CMS
   url: string;
 }
 
-interface Props {
+interface NavBarNavListProps extends Pick<StackOwnProps, "direction" | "sx"> {
+  NavListItemLinkProps?: LinkProps;
   NavListItemProps?: NavListItemProps;
-  direction?: string;
   menus?: Menu[];
   socialLinks?: SocialMediaLink[];
 }
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(
-  props: Props,
+  props: NavBarNavListProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
-  const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
+  const {
+    NavListItemLinkProps,
+    NavListItemProps,
+    direction,
+    menus,
+    socialLinks,
+    ...other
+  } = props;
 
   return (
     <NavList direction={direction} {...other} ref={ref}>
       {menus?.map((item) => (
         <NavListItem
+          {...NavListItemProps}
           key={item.label}
-          sx={{
-            mb: { xs: 2.5, md: 0 },
+          sx={(theme: Theme) => ({
+            borderBottom: {
+              xs: `1px solid ${theme.palette.divider}`,
+              md: "none",
+            },
+            py: { xs: 1, md: 0 },
             mr: { xs: 0, md: 2.5 },
-          }}
+            ...NavListItemProps?.sx,
+          })}
         >
           <Link
             color="inherit"
             underline="none"
             // in mobile h3 = h4 in desktop
-            variant="h3"
-            {...NavListItemProps}
+            variant="h5"
+            {...NavListItemLinkProps}
             href={item.href}
-            sx={{
+            sx={(theme: Theme) => ({
+              display: "flex",
+              flexBasis: { xs: 1, md: "auto" },
+              transition: theme.transitions.create(["opacity"]),
               typography: { md: "body3" },
               "&:hover, &:active, &:focus, &:focus-within": {
                 textDecoration: "none",
-                color: { xs: "inherit", md: "primary.main" },
               },
-              ...NavListItemProps?.sx,
-            }}
+              ...NavListItemLinkProps?.sx,
+            })}
           >
             {item.label}
           </Link>
@@ -69,19 +84,26 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
       ))}
       {socialLinks?.map(({ platform, url }) => {
         return (
-          <NavListItem key={url}>
+          <NavListItem
+            sx={{
+              py: { xs: 1, md: 0 },
+            }}
+            key={url}
+          >
             <SocialMediaIconLink
               component={Link}
               href={url}
               platform={platform}
-              variant="h3"
-              IconProps={{
+              variant="h5"
+              IconProps={(theme: Theme) => ({
                 fontSize: "inherit",
+                transition: theme.transitions.create(["opacity"]),
                 sx: {
                   mt: direction === "column" ? 0 : 1,
                 },
-              }}
+              })}
               sx={{
+                display: "flex",
                 typography: { md: "h5" },
               }}
             />

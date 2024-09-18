@@ -223,7 +223,7 @@ function Layers({
           });
         }
       } else {
-        const mark = new L.Marker(layer.getBounds().getCenter(), {
+        const mark = new L.Marker(layer.getBounds()?.getCenter(), {
           icon: pinIcon,
         });
         mark.on("click", () => {

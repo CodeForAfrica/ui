@@ -24,7 +24,7 @@ const Logo = React.forwardRef(function Logo(
     title,
     ...other // All next/image supported props
   } = props;
-  const logoHref = title?.length ? "https://codeforafrica.org" : "/";
+  const logoHref = title?.length ? "https://codeforafrica.org" : hrefProp;
 
   return (
     <Stack
@@ -42,6 +42,7 @@ const Logo = React.forwardRef(function Logo(
         color="inherit"
         href={logoHref}
         sx={(theme: Theme) => ({
+          display: "flex",
           "&>svg,&>img": {
             transition: theme.transitions.create(["opacity", "transform"]),
           },
@@ -77,6 +78,7 @@ const Logo = React.forwardRef(function Logo(
           style={{
             height: 32,
             width: "auto",
+            ...other?.style,
           }}
         />
       </Link>

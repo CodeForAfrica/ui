@@ -59,7 +59,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-o9b79t"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-ucmc6q-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1mwhxb7-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
         href="https://www.facebook.com/CodeForAfrica"
         rel="noreferrer noopener"
         target="_blank"
@@ -79,7 +79,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-o9b79t"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-ucmc6q-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1mwhxb7-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
         href="https://twitter.com/Code4Africa"
         rel="noreferrer noopener"
         target="_blank"

@@ -1,9 +1,7 @@
-import { NavList, SocialMediaIconLink } from "@commons-ui/core";
+import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import PropTypes from "prop-types";
 import React from "react";
-
-import NavListItem from "@/civicsignalblog/components/NavListItem";
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   const { NavListItemProps, direction, menus, socialLinks, ...other } = props;

@@ -32,7 +32,7 @@ function ScrollStyle({ children, sx, ...other }: ScrollStyleProps) {
         sx: trigger
           ? {
               ...sx,
-              backgroundColor: alpha(theme.palette.background.default, 0.9),
+              backgroundColor: alpha(theme.palette.background.default, 0.95),
               borderBottom: `1px solid ${theme.palette.divider}`,
             }
           : sx,
@@ -40,7 +40,7 @@ function ScrollStyle({ children, sx, ...other }: ScrollStyleProps) {
     : null;
 }
 
-function NavBar({ logo }: NavBarProps) {
+function NavBar({ logo, menus, socialLinks }: NavBarProps) {
   return (
     <ScrollStyle
       ToolbarProps={{ sx: { minHeight: { xs: 48, md: 56 } } }}
@@ -56,12 +56,16 @@ function NavBar({ logo }: NavBarProps) {
         <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
           <MobileNavBar
             logo={logo}
+            menus={menus}
+            socialLinks={socialLinks}
             sx={{
               display: { xs: "flex", md: "none" },
             }}
           />
           <DesktopNavBar
             logo={logo}
+            menus={menus}
+            socialLinks={socialLinks}
             sx={{
               display: { xs: "none", md: "flex" },
             }}

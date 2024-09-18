@@ -1,3 +1,5 @@
+"use client";
+
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -49,7 +51,7 @@ const SocialMediaIconLink = React.forwardRef(function SocialMediaIconLink(
         },
       }}
       sx={{
-        display: "block",
+        display: "flex",
         pr: "10px",
         ":last-of-type": {
           pr: 0,
