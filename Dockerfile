@@ -146,6 +146,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_NAME="charterAFRICA" \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
   # Payload (runtime)
   MONGO_URL \
   # TODO(koech): Standadise naming of Payload Secret. Our options:
@@ -167,6 +168,7 @@ COPY apps/charterafrica ./apps/charterafrica/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
+ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
 RUN pnpm --filter "./apps/charterafrica/" build-next
 
 # When building Payload app, Payload needs to have final app URL
