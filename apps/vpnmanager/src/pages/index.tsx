@@ -1,10 +1,20 @@
-export default function Home() {
-  return null;
+import Statistics from "@/vpnmanager/components/Statistics";
+import { Data } from "@/vpnmanager/components/Statistics/Statistics";
+import { getStats } from "@/vpnmanager/lib/statistics";
+
+interface Props {
+  data: Data[];
+}
+export default function Home(props: Props) {
+  const { data } = props;
+  return <Statistics data={data} />;
 }
 
 export async function getStaticProps() {
+  const data = await getStats({ query: { orderBy: "date DESC" } });
   return {
     props: {
+      data,
       navbar: {
         logo: {
           alt: "CfA logo",

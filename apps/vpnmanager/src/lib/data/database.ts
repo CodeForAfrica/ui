@@ -1,7 +1,14 @@
 import betterSqlite3 from "better-sqlite3";
 import path from "path";
+import fs from "fs";
 
 const dbPath = path.resolve(process.cwd(), "data", "database.sqlite");
+const directory = path.dirname(dbPath);
+
+if (!fs.existsSync(directory)) {
+  fs.mkdirSync(directory, { recursive: true });
+}
+
 const db = betterSqlite3(dbPath);
 
 export interface Record {
