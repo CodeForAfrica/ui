@@ -1,14 +1,14 @@
-import createSettings from "../CreateSettings";
+import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
 import NavigationTab from "./Components/NavigationTab";
 
-const Site = createSettings({
+const ResearchBlog = settings({
   slug: "settings-site",
-  label: "Research Site",
+  label: "Research Blog Site",
   group: "Settings",
   tabs: [GeneralTab, NavigationTab, EngagementTab],
 });
 
-export default Site;
+export default ResearchBlog;

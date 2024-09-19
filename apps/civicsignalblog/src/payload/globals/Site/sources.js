@@ -1,10 +1,10 @@
-import createSettings from "../CreateSettings";
+import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
 import NavigationTab from "./Components/NavigationTab";
 
-const Sources = createSettings({
+const Sources = settings({
   slug: "settings-sources-site",
   label: "Source Manager Site",
   group: "Settings",

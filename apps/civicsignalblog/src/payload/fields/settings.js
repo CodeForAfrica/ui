@@ -1,4 +1,4 @@
-const createSettings = ({ slug, label, group, tabs }) => {
+const settings = ({ slug, label, group, tabs }) => {
   return {
     slug,
     label,
@@ -17,4 +17,4 @@ const createSettings = ({ slug, label, group, tabs }) => {
   };
 };
 
-export default createSettings;
+export default settings;

@@ -1,10 +1,10 @@
-import createSettings from "../CreateSettings";
+import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
 import NavigationTab from "./Components/NavigationTab";
 
-const Explorer = createSettings({
+const Explorer = settings({
   slug: "settings-explorer-site",
   label: "Explorer Site",
   group: "Settings",

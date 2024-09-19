@@ -1,24 +1,23 @@
-import CustomPageHeader from "../blocks/CustomPageHeader";
-import Error from "../blocks/Error";
-import FeaturedStories from "../blocks/FeaturedStories";
-import LongForm from "../blocks/LongForm";
-import PageHeader from "../blocks/PageHeader";
-import Posts from "../blocks/Posts";
-import fullTitle from "../fields/fullTitle";
-import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
 
-const createPages = () => {
+import fullTitle from "./fullTitle";
+import slug from "./slug";
+
+const Pages = ({ pageSlug, group, defaultColumns, blocks }) => {
   return {
-    slug: "pages",
+    slug: pageSlug,
     access: {
       read: () => true,
       create: () => true,
       update: () => true,
     },
+    labels: {
+      singular: "Page",
+      plural: "Pages",
+    },
     admin: {
-      defaultColumns: ["fullTitle", "updatedAt"],
-      group: "Research Blog",
+      defaultColumns,
+      group,
       preview: (doc, options) => formatDraftUrl("pages", doc, options),
       useAsTitle: "title",
       livePreview: {
@@ -42,14 +41,7 @@ const createPages = () => {
         // each other e.g. while alphabecially CustomPageHeader should be with C,
         // it's functiaonally equivalent with PageHeader so we keep it next to
         // PageHeader
-        blocks: [
-          Error,
-          FeaturedStories,
-          PageHeader,
-          Posts,
-          CustomPageHeader,
-          LongForm,
-        ],
+        blocks,
         localized: true,
         admin: {
           initCollapsed: true,
@@ -63,7 +55,5 @@ const createPages = () => {
     },
   };
 };
-
-const Pages = createPages();
 
 export default Pages;
