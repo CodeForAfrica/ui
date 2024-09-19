@@ -1,7 +1,7 @@
 import { apiClient } from "./apiClient.mjs";
 
 async function main() {
-  const response = await apiClient("/api/users");
+  const response = await apiClient("/api/statistics");
   return response;
 }
 

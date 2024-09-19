@@ -43,3 +43,31 @@ or
 ```bash
 make vpnmanager
 ```
+
+### Deployment to Dokku
+
+1. Install and setup new application on dokku. [Here is the documentation of how to install and create an app on dokku](https://dokku.com/docs~v0.6.5/deployment/application-deployment/).
+
+2. Build docker image and tag.
+
+```bash
+docker build --target vpnmanager-runner \
+  --build-arg SENTRY_ORG=$SENTRY_ORG \
+  --build-arg SENTRY_PROJECT=$SENTRY_PROJECT \
+  --build-arg SENTRY_DSN=$SENTRY_DSN \
+  --build-arg API_SECRET_KEY=$API_SECRET_KEY \
+  -t codeforafrica/vpnmanager:latest .
+```
+
+3. Deploy to dokku.
+
+```bash
+dokku git:from-image vpnmanager codeforafrica/vpnmanager:latest
+```
+
+4. Persist storage database.
+   Docker in their [best practices](https://docs.docker.com/build/building/best-practices/#containers-should-be-ephemeral) that containers be treated as ephemeral. In order to manage persistent storage for database, a directory outside the container should be mounted. Vpnmanager uses sqlite to locally store data as obtained from Outline VPN API. To persist this data, run the command below
+
+```bash
+dokku storage:mount vpnmanager /var/lib/dokku/data/storage/vpnmanager/data:/workspace/apps/vpnmanager/data
+```
