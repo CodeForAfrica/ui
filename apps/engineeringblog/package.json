@@ -22,6 +22,7 @@
     "@mui/material-nextjs": "catalog:",
     "@mui/utils": "catalog:",
     "@next/mdx": "catalog:",
+    "@next/third-parties": "catalog:",
     "date-fns": "catalog:",
     "gray-matter": "catalog:",
     "@types/mdx": "catalog:",

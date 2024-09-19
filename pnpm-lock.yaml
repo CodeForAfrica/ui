@@ -870,7 +870,7 @@ importers:
         version: 14.2.8
       '@next/third-parties':
         specifier: 'catalog:'
-        version: 14.2.8(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
+        version: 14.2.8(next@14.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.7.23(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(sass@1.69.4)
@@ -1498,6 +1498,9 @@ importers:
       '@next/mdx':
         specifier: 'catalog:'
         version: 14.2.8(@mdx-js/loader@3.0.1(webpack@5.93.0))(@mdx-js/react@3.0.1(@types/react@18.3.5)(react@18.3.1))
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 14.2.8(next@14.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@types/mdx':
         specifier: 'catalog:'
         version: 2.0.13
@@ -2022,7 +2025,7 @@ importers:
         version: 14.2.8
       '@next/third-parties':
         specifier: 'catalog:'
-        version: 14.2.8(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
+        version: 14.2.8(next@14.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.7.23(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(sass@1.69.4)
@@ -17855,7 +17858,7 @@ snapshots:
   '@next/swc-win32-x64-msvc@14.2.8':
     optional: true
 
-  '@next/third-parties@14.2.8(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)':
+  '@next/third-parties@14.2.8(next@14.2.8(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)':
     dependencies:
       next: 14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
       react: 18.3.1
