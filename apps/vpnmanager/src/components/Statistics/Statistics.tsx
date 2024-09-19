@@ -38,8 +38,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
   const router = useRouter();
   const yesterday = startOfYesterday();
   const [filters, setFilters] = useState({
-    ID: router.query.ID || "",
-    userId: router.query.userId || "",
     email: router.query.email || "",
     "date.start": router.query["date.start"] || "",
     "date.end": router.query["date.end"] || "",
@@ -150,18 +148,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
         <Grid container spacing={2} padding={2}>
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <TextField
-              name="ID"
-              variant="outlined"
-              value={filters.ID}
-              InputLabelProps={{ shrink: true }}
-              onChange={handleFilterChange}
-              placeholder="ID"
-              size="small"
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <TextField
               label="Date"
               name="date"
               type="date"
@@ -170,18 +156,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
               value={filters["date"]}
               onChange={handleFilterChange}
               placeholder="Date Start"
-              size="small"
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <TextField
-              name="userId"
-              variant="outlined"
-              value={filters.userId}
-              onChange={handleFilterChange}
-              InputLabelProps={{ shrink: true }}
-              placeholder="User ID"
               size="small"
               fullWidth
             />
@@ -252,9 +226,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
             <TableHead>
               <TableRow>
                 <TableCell sx={{ fontWeight: "bold" }}>Email</TableCell>
-                <TableCell sx={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
-                  User ID
-                </TableCell>
                 <TableCell sx={{ fontWeight: "bold" }}>Usage</TableCell>
                 <TableCell sx={{ fontWeight: "bold" }}>Date</TableCell>
                 <TableCell sx={{ fontWeight: "bold", whiteSpace: "nowrap" }}>
@@ -269,7 +240,6 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
                 paginatedData.map((row) => (
                   <TableRow key={row.ID}>
                     <TableCell>{row.email}</TableCell>
-                    <TableCell>{row.userId}</TableCell>
                     <TableCell>{row.usage}</TableCell>
                     <TableCell>{format(row.date, "yyyy-MM-dd")}</TableCell>
                     <TableCell>{row.cumulativeData}</TableCell>
