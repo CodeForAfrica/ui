@@ -12,10 +12,10 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import { loadEnvConfig } from "@next/env";
 
-import Authors from "./src/payload/collections/Authors";
-import Media from "./src/payload/collections/Media";
+import Authors from "./src/payload/collections/CivicSignalBlog/Authors";
+import Media from "./src/payload/collections/CivicSignalBlog/Media";
 import Pages from "./src/payload/collections/Pages";
-import Posts from "./src/payload/collections/Posts";
+import Posts from "./src/payload/collections/CivicSignalBlog/Posts";
 import Publication from "./src/payload/globals/Publication";
 import {
   Site,
@@ -23,7 +23,7 @@ import {
   Sources,
   TopicMapper,
 } from "./src/payload/globals/Site";
-import Tags from "./src/payload/collections/Tags";
+import Tags from "./src/payload/collections/CivicSignalBlog/Tags";
 import Users from "./src/payload/collections/Users";
 import MediaData from "./src/payload/collections/CivicSignalTools/MediaData";
 import { defaultLocale, locales } from "./src/payload/utils/locales";

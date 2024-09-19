@@ -1,10 +1,10 @@
-import authors from "../fields/authors";
-import content from "../fields/content";
-import image from "../fields/image";
-import publishedOn from "../fields/publishedOn";
-import slug from "../fields/slug";
-import tags from "../fields/tags";
-import formatDraftUrl from "../utils/formatDraftUrl";
+import authors from "../../fields/authors";
+import content from "../../fields/content";
+import image from "../../fields/image";
+import publishedOn from "../../fields/publishedOn";
+import slug from "../../fields/slug";
+import tags from "../../fields/tags";
+import formatDraftUrl from "../../utils/formatDraftUrl";
 
 const Posts = {
   slug: "posts",

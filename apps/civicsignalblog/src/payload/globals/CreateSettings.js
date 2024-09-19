@@ -1,4 +1,4 @@
-const createSettings = (slug, label, group, tabs) => {
+const createSettings = ({ slug, label, group, tabs }) => {
   return {
     slug,
     label,

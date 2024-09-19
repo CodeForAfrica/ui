@@ -8,58 +8,62 @@ import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
 
-const Pages = {
-  slug: "pages",
-  access: {
-    read: () => true,
-    create: () => true,
-    update: () => true,
-  },
-  admin: {
-    defaultColumns: ["fullTitle", "updatedAt"],
-    group: "Research Blog",
-    preview: (doc, options) => formatDraftUrl("pages", doc, options),
-    useAsTitle: "title",
-    livePreview: {
-      url: ({ data }) =>
-        `${process.env.PAYLOAD_PUBLIC_APP_URL}/${data.slug !== "index" ? `${data.slug}` : ""}`,
+const createPages = () => {
+  return {
+    slug: "pages",
+    access: {
+      read: () => true,
+      create: () => true,
+      update: () => true,
     },
-  },
-  fields: [
-    {
-      name: "title",
-      type: "text",
-      required: true,
-      localized: true,
-    },
-    fullTitle({ overrides: { localized: true } }),
-    slug(),
-    {
-      name: "blocks",
-      type: "blocks",
-      // Generally sort blocks alphabetically but keep related blocks next to
-      // each other e.g. while alphabecially CustomPageHeader should be with C,
-      // it's functiaonally equivalent with PageHeader so we keep it next to
-      // PageHeader
-      blocks: [
-        Error,
-        FeaturedStories,
-        PageHeader,
-        Posts,
-        CustomPageHeader,
-        LongForm,
-      ],
-      localized: true,
-      admin: {
-        initCollapsed: true,
+    admin: {
+      defaultColumns: ["fullTitle", "updatedAt"],
+      group: "Research Blog",
+      preview: (doc, options) => formatDraftUrl("pages", doc, options),
+      useAsTitle: "title",
+      livePreview: {
+        url: ({ data }) =>
+          `${process.env.PAYLOAD_PUBLIC_APP_URL}/${data.slug !== "index" ? `${data.slug}` : ""}`,
       },
     },
-  ],
-  versions: {
-    drafts: {
-      autosave: true,
+    fields: [
+      {
+        name: "title",
+        type: "text",
+        required: true,
+        localized: true,
+      },
+      fullTitle({ overrides: { localized: true } }),
+      slug(),
+      {
+        name: "blocks",
+        type: "blocks",
+        // Generally sort blocks alphabetically but keep related blocks next to
+        // each other e.g. while alphabecially CustomPageHeader should be with C,
+        // it's functiaonally equivalent with PageHeader so we keep it next to
+        // PageHeader
+        blocks: [
+          Error,
+          FeaturedStories,
+          PageHeader,
+          Posts,
+          CustomPageHeader,
+          LongForm,
+        ],
+        localized: true,
+        admin: {
+          initCollapsed: true,
+        },
+      },
+    ],
+    versions: {
+      drafts: {
+        autosave: true,
+      },
     },
-  },
+  };
 };
+
+const Pages = createPages();
 
 export default Pages;

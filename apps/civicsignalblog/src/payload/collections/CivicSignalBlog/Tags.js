@@ -1,4 +1,4 @@
-import slug from "../fields/slug";
+import slug from "../../fields/slug";
 
 const Tags = {
   slug: "tag",
