@@ -6,7 +6,7 @@ const Authors = {
   admin: {
     defaultColumns: ["fullName", "updatedAt"],
     enableRichTextLink: false,
-    group: "Publication",
+    group: "Research Blog",
     useAsTitle: "fullName",
   },
   fields: [

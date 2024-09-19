@@ -1,22 +1,6 @@
-import EngagementTab from "./EngagementTab";
-import GeneralTab from "./GeneralTab";
-import NavigationTab from "./NavigationTab";
+import Explorer from "./explorer";
+import Site from "./research";
+import Sources from "./sources";
+import TopicMapper from "./topicMapper";
 
-const Site = {
-  slug: "settings-site",
-  label: "Site",
-  access: {
-    read: () => true,
-  },
-  admin: {
-    group: "Settings",
-  },
-  fields: [
-    {
-      type: "tabs",
-      tabs: [GeneralTab, NavigationTab, EngagementTab],
-    },
-  ],
-};
-
-export default Site;
+export { Site, Explorer, Sources, TopicMapper };

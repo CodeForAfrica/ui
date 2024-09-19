@@ -5,7 +5,7 @@ const Tags = {
   admin: {
     defaultColumns: ["name", "updatedAt"],
     enableRichTextLink: false,
-    group: "Publication",
+    group: "Research Blog",
     useAsTitle: "name",
   },
   access: {

@@ -17,9 +17,15 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Posts from "./src/payload/collections/Posts";
 import Publication from "./src/payload/globals/Publication";
-import Site from "./src/payload/globals/Site";
+import {
+  Site,
+  Explorer,
+  Sources,
+  TopicMapper,
+} from "./src/payload/globals/Site";
 import Tags from "./src/payload/collections/Tags";
 import Users from "./src/payload/collections/Users";
+import MediaData from "./src/payload/collections/CivicSignalTools/MediaData";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 const dev = process.env.NODE_ENV !== "production";
@@ -62,9 +68,16 @@ export default buildConfig({
     Pages,
     Posts,
     Tags,
+    MediaData,
     Users,
   ] as CollectionConfig[],
-  globals: [Publication, Site] as GlobalConfig[],
+  globals: [
+    Publication,
+    Site,
+    Explorer,
+    Sources,
+    TopicMapper,
+  ] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {

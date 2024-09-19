@@ -3,7 +3,7 @@ const Media = {
   admin: {
     defaultColumns: ["alt", "updatedAt"],
     enableRichTextLink: false,
-    group: "Publication",
+    group: "Research Blog",
     useAsTitle: "alt",
   },
   access: {

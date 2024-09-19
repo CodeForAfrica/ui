@@ -1,19 +1,19 @@
-import authors from "../fields/authors";
-import content from "../fields/content";
-import image from "../fields/image";
-import publishedOn from "../fields/publishedOn";
-import slug from "../fields/slug";
-import tags from "../fields/tags";
-import formatDraftUrl from "../utils/formatDraftUrl";
+import { slateEditor } from "@payloadcms/richtext-slate";
 
-const Posts = {
-  slug: "posts",
+import image from "../../fields/image";
+import publishedOn from "../../fields/publishedOn";
+import richText from "../../fields/richText";
+import slug from "../../fields/slug";
+import formatDraftUrl from "../../utils/formatDraftUrl";
+
+const MediaData = {
+  slug: "media-data",
   labels: {
     singular: {
-      en: "Post",
+      en: "Media Data",
     },
     plural: {
-      en: "Posts",
+      en: "Media Data",
     },
   },
   access: {
@@ -22,7 +22,7 @@ const Posts = {
   admin: {
     defaultColumns: ["title", "authors", "publishedOn"],
     description: "Stories",
-    group: "Research Blog",
+    group: "CivicSignal Tools",
     preview: (doc, options) => formatDraftUrl("posts/stories", doc, options),
     useAsTitle: "title",
     listSearchableFields: ["content", "excerpt"],
@@ -42,30 +42,21 @@ const Posts = {
     },
     image({
       overrides: {
-        name: "coverImage",
+        name: "mediaDataImage",
         required: true,
         localized: true,
       },
     }),
-    content({ minRows: 1, required: true, localized: true }),
     slug(),
-    publishedOn({ localized: true }),
-    tags({
-      admin: {
-        isSortable: true,
-        position: "sidebar",
-      },
+    richText({
+      name: "description",
+      editor: slateEditor({
+        admin: {
+          elements: ["link"],
+        },
+      }),
     }),
-    authors({ localized: true }),
-    {
-      name: "excerpt",
-      type: "textarea",
-      required: true,
-      localized: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
+    publishedOn({ localized: true }),
   ],
   versions: {
     drafts: {
@@ -74,4 +65,4 @@ const Posts = {
   },
 };
 
-export default Posts;
+export default MediaData;
