@@ -14,7 +14,7 @@
 | Name                                                | Description                                           |
 | --------------------------------------------------- | ----------------------------------------------------- |
 | [**CivicSignal Research**](./apps/civicsignalblog/) | View the latest analysis from CivicSignal team        |
-| [**TechLab**](./apps/engineeringblog/)              | View the latest stories from the CFA engineering team |
+| [**TechLab**](./apps/techlabblog/)                  | View the latest stories from the CFA engineering team |
 
 ## Get started
 
