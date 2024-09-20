@@ -59,6 +59,6 @@ jobs:
     secrets: inherit
     uses: ./.github/workflows/push-to-dokku.yml
     with:
-      remote_url: ${{ needs.env-setup.outputs.DOKKU_REMOTE_URL }}
+      remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog"
       private_key: ${{ needs.env-setup.outputs.DOKKU_PRIVATE_KEY }}
       image_name: "codeforafrica/techlabblog:${{ github.sha }}"
