@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       DOKKU_REMOTE_URL: ${{ steps.env-setup.outputs.DOKKU_REMOTE_URL }}
-      DOKKU_PRIVATE_KEY: ${{ steps.env-setup.outputs.DOKKU_PRIVATE_KEY }}
+      DOKKU_PRIVATE_KEY: "ssh-private-key"
       IMAGE_NAME: ${{ steps.env-setup.outputs.IMAGE_NAME }}
       SENTRY_ORG: ${{ steps.env-setup.outputs.SENTRY_ORG }}
       SENTRY_AUTH_TOKEN: ${{ steps.env-setup.outputs.SENTRY_AUTH_TOKEN }}
