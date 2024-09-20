@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       DOKKU_REMOTE_URL: ${{ steps.env-setup.outputs.DOKKU_REMOTE_URL }}
-      DOKKU_PRIVATE_KEY: "ssh-private-key"
+      DOKKU_PRIVATE_KEY: ${{ steps.env-setup.outputs.DOKKU_PRIVATE_KEY }}
       IMAGE_NAME: ${{ steps.env-setup.outputs.IMAGE_NAME }}
       SENTRY_ORG: ${{ steps.env-setup.outputs.SENTRY_ORG }}
       SENTRY_AUTH_TOKEN: ${{ steps.env-setup.outputs.SENTRY_AUTH_TOKEN }}
@@ -33,7 +33,10 @@ jobs:
         id: env-setup
         run: |
           echo "DOKKU_REMOTE_URL=${{env.DOKKU_REMOTE_URL}}" >> $GITHUB_ENV
-          echo "SSH_PRIVATE_KEY=${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
+          # Multi-line string: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#multiline-strings
+          echo "SSH_PRIVATE_KEY<<EOF" >> $GITHUB_ENV
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
           echo "IMAGE_NAME=${{ env.IMAGE_NAME }}" >> $GITHUB_ENV
           echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> $GITHUB_ENV
           echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
