@@ -32,6 +32,7 @@
     "googleapis": "catalog:",
     "jest": "catalog:",
     "next": "catalog:",
+    "next-auth": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tsc-alias": "catalog:"
