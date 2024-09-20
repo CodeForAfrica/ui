@@ -15,7 +15,6 @@ concurrency:
 
 env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog"
-  IMAGE_NAME: "codeforafrica/techlabblog"
   SENTRY_ENVIRONMENT: "development"
 
 jobs:
@@ -24,7 +23,6 @@ jobs:
     outputs:
       DOKKU_REMOTE_URL: ${{ steps.env-setup.outputs.DOKKU_REMOTE_URL }}
       DOKKU_PRIVATE_KEY: ${{ steps.env-setup.outputs.DOKKU_PRIVATE_KEY }}
-      IMAGE_NAME: ${{ steps.env-setup.outputs.IMAGE_NAME }}
       SENTRY_ORG: ${{ steps.env-setup.outputs.SENTRY_ORG }}
       SENTRY_DSN: ${{ steps.env-setup.outputs.SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ steps.env-setup.outputs.SENTRY_AUTH_TOKEN }}
@@ -38,7 +36,6 @@ jobs:
           echo "SSH_PRIVATE_KEY<<EOF" >> $GITHUB_ENV
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          echo "IMAGE_NAME=${{ env.IMAGE_NAME }}" >> $GITHUB_ENV
           echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> $GITHUB_ENV
           echo "SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}" >> $GITHUB_ENV
           echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
