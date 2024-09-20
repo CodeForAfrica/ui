@@ -107,17 +107,23 @@ interface SecondaryNavigationProps extends NavigationProps {
   copyright: string;
 }
 
+export type AnalyticsProps = {
+  analyticsId: string;
+};
+
 type SettingsProps = {
   title: string;
   primaryNavigation: PrimaryNavigationProps;
   secondaryNavigation: SecondaryNavigationProps;
   connect: ConnectProps;
+  analytics: AnalyticsProps;
 };
 
 async function readSettingsFile(filePath: string): Promise<SettingsProps> {
   const { data } = await readMdFile(filePath);
 
   return {
+    analytics: data.analytics,
     connect: data.connect,
     primaryNavigation: data.primaryNavigation,
     secondaryNavigation: data.secondaryNavigation,
