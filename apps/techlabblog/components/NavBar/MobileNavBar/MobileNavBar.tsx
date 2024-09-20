@@ -11,11 +11,11 @@ import {
 import { alpha, styled } from "@mui/material/styles";
 import React from "react";
 
-import MenuIcon from "@/engineeringblog/assets/icons/Type=menu, Size=24, Color=CurrentColor.svg";
-import CloseIcon from "@/engineeringblog/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
-import Logo from "@/engineeringblog/components/Logo";
-import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
-import NavBarNavList from "@/engineeringblog/components/NavBarNavList";
+import MenuIcon from "@/techlabblog/assets/icons/Type=menu, Size=24, Color=CurrentColor.svg";
+import CloseIcon from "@/techlabblog/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import Logo from "@/techlabblog/components/Logo";
+import type NavBarProps from "@/techlabblog/components/NavBar/NavBarProps";
+import NavBarNavList from "@/techlabblog/components/NavBarNavList";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   marginTop: "48px", // NavBar has 1px bottom border
@@ -31,7 +31,7 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-interface TransitionProps extends SlideProps {}
+interface TransitionProps extends SlideProps { }
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps,

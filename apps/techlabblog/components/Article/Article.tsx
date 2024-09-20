@@ -3,7 +3,7 @@
 import { Section } from "@commons-ui/core";
 import React from "react";
 
-import Markdown from "@/engineeringblog/components/Markdown";
+import Markdown from "@/techlabblog/components/Markdown";
 import type { ArticleSxProps } from "./ArticleSxProps";
 import ArticleHeader from "./ArticleHeader";
 

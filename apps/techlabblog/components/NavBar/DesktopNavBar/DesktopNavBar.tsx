@@ -1,9 +1,9 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
-import Logo from "@/engineeringblog/components/Logo";
-import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
-import NavBarNavList from "@/engineeringblog/components/NavBarNavList";
+import Logo from "@/techlabblog/components/Logo";
+import type NavBarProps from "@/techlabblog/components/NavBar/NavBarProps";
+import NavBarNavList from "@/techlabblog/components/NavBarNavList";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(
   props: NavBarProps,

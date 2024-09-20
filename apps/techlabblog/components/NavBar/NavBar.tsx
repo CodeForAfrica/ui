@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-import type NavBarProps from "@/engineeringblog/components/NavBar/NavBarProps";
+import type NavBarProps from "@/techlabblog/components/NavBar/NavBarProps";
 import DesktopNavBar from "./DesktopNavBar";
 import MobileNavBar from "./MobileNavBar";
 
@@ -28,15 +28,15 @@ function ScrollStyle({ children, sx, ...other }: ScrollStyleProps) {
 
   return children
     ? React.cloneElement(children, {
-        ...other,
-        sx: trigger
-          ? {
-              ...sx,
-              backgroundColor: alpha(theme.palette.background.default, 0.95),
-              borderBottom: `1px solid ${theme.palette.divider}`,
-            }
-          : sx,
-      })
+      ...other,
+      sx: trigger
+        ? {
+          ...sx,
+          backgroundColor: alpha(theme.palette.background.default, 0.95),
+          borderBottom: `1px solid ${theme.palette.divider}`,
+        }
+        : sx,
+    })
     : null;
 }
 

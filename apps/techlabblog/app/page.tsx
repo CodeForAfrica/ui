@@ -1,7 +1,7 @@
 import { Section } from "@commons-ui/core";
 
-import ArticleList from "@/engineeringblog/components/ArticleList";
-import { getAllContents } from "@/engineeringblog/lib/data";
+import ArticleList from "@/techlabblog/components/ArticleList";
+import { getAllContents } from "@/techlabblog/lib/data";
 
 export default async function index() {
   const posts = await getAllContents();

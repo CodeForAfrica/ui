@@ -18,7 +18,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@/engineeringblog": path.resolve(__dirname, "./"),
+      "@/techlabblog": path.resolve(__dirname, "./"),
     },
     extensions: [".ts", ".tsx"],
   },

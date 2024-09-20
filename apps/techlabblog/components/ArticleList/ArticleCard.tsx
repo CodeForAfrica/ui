@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-import { ArticleWithoutContentProps } from "@/engineeringblog/lib/data";
+import { ArticleWithoutContentProps } from "@/techlabblog/lib/data";
 
 const ArticleCard = React.forwardRef(function ArticleCard(
   { title, publishedDate, featuredImage, slug }: ArticleWithoutContentProps,

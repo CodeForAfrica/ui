@@ -4,7 +4,7 @@ import { Section } from "@commons-ui/core";
 import React from "react";
 import { alpha, Box, Typography } from "@mui/material";
 
-import bg from "@/engineeringblog/assets/images/1920x668px bg - 2 2.png";
+import bg from "@/techlabblog/assets/images/1920x668px bg - 2 2.png";
 
 const NoPosts = React.forwardRef(function NoPosts() {
   return (
@@ -30,12 +30,11 @@ const NoPosts = React.forwardRef(function NoPosts() {
             background: `linear-gradient(to right, 'palette.background.main' 20%, transparent 30%)`,
           },
           [theme.breakpoints.up("md")]: {
-            background: `linear-gradient(to right, ${
-              theme.palette.background.default
-            } 30%, transparent 40%, transparent 95%, ${alpha(
-              theme.palette.background.default,
-              0.7,
-            )} 98%)`,
+            background: `linear-gradient(to right, ${theme.palette.background.default
+              } 30%, transparent 40%, transparent 95%, ${alpha(
+                theme.palette.background.default,
+                0.7,
+              )} 98%)`,
           },
           [theme.breakpoints.up("lg")]: {
             background: `linear-gradient(to right, ${theme.palette.background.default} 30%, transparent 40%, transparent 95%, ${theme.palette.background.default} 99%)`,

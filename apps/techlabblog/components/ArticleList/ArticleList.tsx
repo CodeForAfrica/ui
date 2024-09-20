@@ -4,7 +4,7 @@ import { Section } from "@commons-ui/core";
 import { Grid } from "@mui/material";
 import React from "react";
 
-import { ArticleWithoutContentProps } from "@/engineeringblog/lib/data";
+import { ArticleWithoutContentProps } from "@/techlabblog/lib/data";
 import ArticleCard from "./ArticleCard";
 
 const ArticleList = React.forwardRef(function ArtilceList(

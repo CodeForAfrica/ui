@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton } from "@mui/material";
-import CopyIcon from "@/engineeringblog/assets/icons/Type=copy, Size=24, Color=White.svg";
-import CheckIcon from "@/engineeringblog/assets/icons/Type=check-circle, Size=24, Color=White.svg";
+import CopyIcon from "@/techlabblog/assets/icons/Type=copy, Size=24, Color=White.svg";
+import CheckIcon from "@/techlabblog/assets/icons/Type=check-circle, Size=24, Color=White.svg";
 
 export default function CopyCodeButton({
   children,
