@@ -23,7 +23,7 @@ jobs:
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
     with:
-      tags: "$env:IMAGE_NAME:$env:github.sha"
+      tags: "codeforafrica/techlabblog:${{ github.sha }}"
       target: "techlabblog"
       build_args: |
         SENTRY_DSN=$env:TECHLABBLOG_SENTRY_DSN
@@ -32,6 +32,7 @@ jobs:
         SENTRY_ORG: $secrets:SENTRY_ORG
 
   push-to-dokku:
+    needs: [build-docker-image]
     secrets: inherit
     uses: ./.github/workflows/push-to-dokku.yml
     with:
