@@ -14,7 +14,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog"
   SENTRY_ENVIRONMENT: "development"
 
 jobs:
@@ -31,11 +30,6 @@ jobs:
       - name: Environment Setup
         id: env-setup
         run: |
-          echo "DOKKU_REMOTE_URL=${{env.DOKKU_REMOTE_URL}}" >> $GITHUB_ENV
-          # Multi-line string: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#multiline-strings
-          echo "DOKKU_PRIVATE_KEY<<EOF" >> $GITHUB_ENV
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
           echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> $GITHUB_ENV
           echo "SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}" >> $GITHUB_ENV
           echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
@@ -56,9 +50,8 @@ jobs:
 
   push-to-dokku:
     needs: [build-docker-image, env-setup]
-    secrets: inherit
     uses: ./.github/workflows/push-to-dokku.yml
+    secrets: inherit
     with:
       remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog"
-      private_key: ${{ needs.env-setup.outputs.DOKKU_PRIVATE_KEY }}
       image_name: "codeforafrica/techlabblog:${{ github.sha }}"

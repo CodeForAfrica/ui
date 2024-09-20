@@ -7,10 +7,6 @@ on:
         required: true
         type: string
         description: "The remote URL to push to"
-      private_key:
-        required: true
-        type: string
-        description: "The name of the app to push to"
       image_name:
         required: true
         type: string
@@ -25,5 +21,5 @@ jobs:
         uses: dokku/github-action@v1.4.0
         with:
           git_remote_url: ${{ inputs.remote_url }}
-          ssh_private_key: ${{ secrets.private_key }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           deploy_docker_image: ${{ inputs.image_name }}
