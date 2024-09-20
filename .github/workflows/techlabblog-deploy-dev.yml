@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "DOKKU_REMOTE_URL=${{env.DOKKU_REMOTE_URL}}" >> $GITHUB_ENV
           # Multi-line string: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#multiline-strings
-          echo "SSH_PRIVATE_KEY<<EOF" >> $GITHUB_ENV
+          echo "DOKKU_PRIVATE_KEY<<EOF" >> $GITHUB_ENV
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
           echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> $GITHUB_ENV
