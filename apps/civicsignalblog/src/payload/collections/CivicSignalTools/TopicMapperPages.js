@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/topicMapper";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
@@ -9,7 +10,7 @@ import pages from "../../fields/pages";
 const Pages = pages({
   pageSlug: "topic-mapper-pages",
   label: "Pages",
-  group: "Topic Mapper",
+  group: "Publication",
   defaultColumns: ["fullTitle", "updatedAt"],
   blocks: [
     Error,
@@ -19,6 +20,9 @@ const Pages = pages({
     CustomPageHeader,
     LongForm,
   ],
+  access: {
+    read: canRead,
+  },
 });
 
 export default Pages;

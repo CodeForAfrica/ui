@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/researchBlog";
 import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
@@ -6,8 +7,11 @@ import NavigationTab from "./Components/NavigationTab";
 
 const ResearchBlog = settings({
   slug: "settings-site",
-  label: "Research Blog Site",
+  label: " Site",
   group: "Settings",
+  access: {
+    read: canRead,
+  },
   tabs: [GeneralTab, NavigationTab, EngagementTab],
 });
 

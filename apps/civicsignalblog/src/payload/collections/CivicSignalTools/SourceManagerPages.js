@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/sourceManager";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
@@ -9,7 +10,7 @@ import pages from "../../fields/pages";
 const Pages = pages({
   pageSlug: "source-manager-pages",
   label: "Pages",
-  group: "Source Manager",
+  group: "Publication",
   defaultColumns: ["fullTitle", "updatedAt"],
   blocks: [
     Error,
@@ -19,6 +20,9 @@ const Pages = pages({
     CustomPageHeader,
     LongForm,
   ],
+  access: {
+    read: canRead,
+  },
 });
 
 export default Pages;

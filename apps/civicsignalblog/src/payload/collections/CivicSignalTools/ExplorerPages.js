@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/explorer";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
@@ -9,7 +10,7 @@ import pages from "../../fields/pages";
 const Pages = pages({
   pageSlug: "explorer-pages",
   label: "Pages",
-  group: "Explorer",
+  group: "Publication",
   defaultColumns: ["fullTitle", "updatedAt"],
   blocks: [
     Error,
@@ -19,6 +20,9 @@ const Pages = pages({
     CustomPageHeader,
     LongForm,
   ],
+  access: {
+    read: canRead,
+  },
 });
 
 export default Pages;

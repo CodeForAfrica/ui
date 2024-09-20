@@ -1,10 +1,12 @@
+import canRead from "../../access/applications/researchBlog";
+
 import PostTab from "./PostTab";
 
 const Publication = {
   slug: "settings-publication",
   label: "Publication",
   access: {
-    read: () => true,
+    read: canRead,
   },
   admin: {
     group: "Settings",

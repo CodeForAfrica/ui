@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/explorer";
 import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
@@ -6,8 +7,11 @@ import NavigationTab from "./Components/NavigationTab";
 
 const Explorer = settings({
   slug: "settings-explorer-site",
-  label: "Explorer Site",
+  label: "Site",
   group: "Settings",
+  access: {
+    read: canRead,
+  },
   tabs: [GeneralTab, NavigationTab, EngagementTab],
 });
 

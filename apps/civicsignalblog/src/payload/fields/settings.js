@@ -1,10 +1,16 @@
-const settings = ({ slug, label, group, tabs }) => {
+const settings = ({
+  slug,
+  label,
+  group,
+  tabs,
+  access = {
+    read: () => true,
+  },
+}) => {
   return {
     slug,
     label,
-    access: {
-      read: () => true,
-    },
+    access,
     admin: {
       group,
     },

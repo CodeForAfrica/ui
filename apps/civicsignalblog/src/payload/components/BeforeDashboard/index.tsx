@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAuth } from "payload/components/utilities";
 import applications from "../../../lib/data/json/applications";
 
@@ -6,7 +6,9 @@ const BeforeDashboard: React.FC = () => {
   const { user } = useAuth();
 
   const [selectedApp, setSelectedApp] = useState(
-    user.currentlyManagedApplication || user.defaultManagedApplication,
+    String(
+      user.currentlyManagedApplication ?? user.defaultManagedApplication,
+    ) ?? "",
   );
 
   const updateCurrentlyManagedApp = async (app) => {
