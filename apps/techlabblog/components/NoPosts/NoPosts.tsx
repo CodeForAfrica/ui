@@ -30,11 +30,12 @@ const NoPosts = React.forwardRef(function NoPosts() {
             background: `linear-gradient(to right, 'palette.background.main' 20%, transparent 30%)`,
           },
           [theme.breakpoints.up("md")]: {
-            background: `linear-gradient(to right, ${theme.palette.background.default
-              } 30%, transparent 40%, transparent 95%, ${alpha(
-                theme.palette.background.default,
-                0.7,
-              )} 98%)`,
+            background: `linear-gradient(to right, ${
+              theme.palette.background.default
+            } 30%, transparent 40%, transparent 95%, ${alpha(
+              theme.palette.background.default,
+              0.7,
+            )} 98%)`,
           },
           [theme.breakpoints.up("lg")]: {
             background: `linear-gradient(to right, ${theme.palette.background.default} 30%, transparent 40%, transparent 95%, ${theme.palette.background.default} 99%)`,

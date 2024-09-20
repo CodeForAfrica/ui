@@ -28,15 +28,15 @@ function ScrollStyle({ children, sx, ...other }: ScrollStyleProps) {
 
   return children
     ? React.cloneElement(children, {
-      ...other,
-      sx: trigger
-        ? {
-          ...sx,
-          backgroundColor: alpha(theme.palette.background.default, 0.95),
-          borderBottom: `1px solid ${theme.palette.divider}`,
-        }
-        : sx,
-    })
+        ...other,
+        sx: trigger
+          ? {
+              ...sx,
+              backgroundColor: alpha(theme.palette.background.default, 0.95),
+              borderBottom: `1px solid ${theme.palette.divider}`,
+            }
+          : sx,
+      })
     : null;
 }
 

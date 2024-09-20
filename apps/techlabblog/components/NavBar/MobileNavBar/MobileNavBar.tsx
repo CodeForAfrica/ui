@@ -31,7 +31,7 @@ const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   },
 }));
 
-interface TransitionProps extends SlideProps { }
+interface TransitionProps extends SlideProps {}
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps,
