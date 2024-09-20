@@ -50,7 +50,7 @@ jobs:
     secrets: inherit
     with:
       tags: ${{ github.sha }}
-      target: "techlabblog"
+      target: "techlabblog-runner"
       build_args: |
         SENTRY_AUTH_TOKEN=${{ needs.env-setup.outputs.SENTRY_AUTH_TOKEN }}
         SENTRY_ENVIRONMENT=${{ needs.env-setup.outputs.SENTRY_ENVIRONMENT }}
