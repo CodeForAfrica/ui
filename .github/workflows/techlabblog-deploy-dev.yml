@@ -23,18 +23,18 @@ jobs:
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
     with:
-      tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+      tags: "$env:IMAGE_NAME:$env:github.sha"
       target: "techlabblog"
       build_args: |
-        SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}
-        SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-        SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-        SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+        SENTRY_DSN=$env:TECHLABBLOG_SENTRY_DSN
+        SENTRY_AUTH_TOKEN=$env:SENTRY_AUTH_TOKEN
+        SENTRY_ENVIRONMENT=$env:SENTRY_ENVIRONMENT
+        SENTRY_ORG: $secrets:SENTRY_ORG
 
-  # push-to-dokku:
-  #   secrets: inherit
-  #   uses: ./.github/workflows/push-to-dokku.yml
-  #   with:
-  #     remote_url: ${{ env.DOKKU_REMOTE_URL }}
-  #     private_key: ${{ secrets.DOKKU_PRIVATE_KEY }}
-  #     image_name: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+  push-to-dokku:
+    secrets: inherit
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog"
+      private_key: $secrets.DOKKU_PRIVATE_KEY
+      image_name: "codeforafrica/techlabblog:${{ github.sha }}"
