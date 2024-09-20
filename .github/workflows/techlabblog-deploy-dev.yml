@@ -49,7 +49,7 @@ jobs:
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
     with:
-      tags: ${{needs.env-setup.outputs.IMAGE_NAME}}-${{ github.sha }}
+      tags: ${{ github.sha }}
       target: "techlabblog"
       build_args: |
         SENTRY_AUTH_TOKEN=${{ needs.env-setup.outputs.SENTRY_AUTH_TOKEN }}
