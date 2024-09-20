@@ -98,7 +98,6 @@ export default buildConfig({
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
     components: {
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
       beforeDashboard: [BeforeDashboard],
     },
     livePreview: {

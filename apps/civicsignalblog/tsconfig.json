@@ -20,13 +20,7 @@
       "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/payload/access/canAccessApplication.js",
-    "src/payload/access/applications/researchBlog.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["build", "dist", "node_modules"],
   "ts-node": {
     "swc": true
