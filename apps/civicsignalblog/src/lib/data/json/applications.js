@@ -1,4 +1,5 @@
 const applications = [
+  "CivicSignal",
   "Explorer",
   "Topic Mapper",
   "Source Manager",

@@ -3,14 +3,20 @@ import formatDraftUrl from "../utils/formatDraftUrl";
 import fullTitle from "./fullTitle";
 import slug from "./slug";
 
-const Pages = ({ pageSlug, group, defaultColumns, blocks }) => {
+const Pages = ({
+  pageSlug,
+  group,
+  defaultColumns,
+  blocks,
+  access = {
+    read: () => true,
+    create: () => true,
+    update: () => true,
+  },
+}) => {
   return {
     slug: pageSlug,
-    access: {
-      read: () => true,
-      create: () => true,
-      update: () => true,
-    },
+    access,
     labels: {
       singular: "Page",
       plural: "Pages",

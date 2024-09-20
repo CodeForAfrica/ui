@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/researchBlog";
 import authors from "../../fields/authors";
 import content from "../../fields/content";
 import image from "../../fields/image";
@@ -17,12 +18,12 @@ const Posts = {
     },
   },
   access: {
-    read: () => true,
+    read: canRead,
   },
   admin: {
     defaultColumns: ["title", "authors", "publishedOn"],
     description: "Stories",
-    group: "Research Blog",
+    group: "Publication",
     preview: (doc, options) => formatDraftUrl("posts/stories", doc, options),
     useAsTitle: "title",
     listSearchableFields: ["content", "excerpt"],

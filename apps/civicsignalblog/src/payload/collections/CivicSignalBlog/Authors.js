@@ -1,12 +1,14 @@
+import canRead from "../../access/applications/researchBlog";
+
 const Authors = {
   slug: "author",
   access: {
-    read: () => true,
+    read: canRead,
   },
   admin: {
     defaultColumns: ["fullName", "updatedAt"],
     enableRichTextLink: false,
-    group: "Research Blog",
+    group: "Publication",
     useAsTitle: "fullName",
   },
   fields: [

@@ -1,3 +1,4 @@
+import canRead from "../../access/applications/researchBlog";
 import slug from "../../fields/slug";
 
 const Tags = {
@@ -5,11 +6,11 @@ const Tags = {
   admin: {
     defaultColumns: ["name", "updatedAt"],
     enableRichTextLink: false,
-    group: "Research Blog",
+    group: "Publication",
     useAsTitle: "name",
   },
   access: {
-    read: () => true,
+    read: canRead,
   },
   fields: [
     {

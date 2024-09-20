@@ -9,10 +9,10 @@ const BeforeDashboard: React.FC = () => {
     user.currentlyManagedApplication || user.defaultManagedApplication,
   );
 
-  const updateCurrentlyManagedApp = async (selectedApp) => {
+  const updateCurrentlyManagedApp = async (app) => {
     try {
       const response = await fetch(
-        `/api/users/update-current-managed-app?newApplication=${selectedApp}`,
+        `/api/users/update-current-managed-app?newApplication=${app}`,
         {
           method: "GET",
           headers: {
