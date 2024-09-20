@@ -25,5 +25,5 @@ jobs:
         uses: dokku/github-action@v1.4.0
         with:
           git_remote_url: ${{ inputs.remote_url }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_private_key: ${{ secrets.private_key }}
           deploy_docker_image: ${{ inputs.image_name }}
