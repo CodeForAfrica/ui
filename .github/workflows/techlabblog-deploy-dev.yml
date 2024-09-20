@@ -33,13 +33,13 @@ jobs:
       - name: Environment Setup
         id: env-setup
         run: |
-          echo "DOKKU_REMOTE_URL=ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog" >> $GITHUB_ENV
-          echo "SSH_PRIVATE_KEY=${{ secrets.SSH_PRIVATE_KEY }}" >> $GITHUB_ENV
-          echo "IMAGE_NAME=${{ env.IMAGE_NAME }}" >> $GITHUB_ENV
-          echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> $GITHUB_ENV
-          echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
-          echo "TECHLABBLOG_SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}" >> $GITHUB_ENV
-          echo "SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}" >> $GITHUB_ENV
+          echo "DOKKU_REMOTE_URL=${{env.DOKKU_REMOTE_URL}}" >> "$GITHUB_ENV"
+          echo "SSH_PRIVATE_KEY=${{ secrets.SSH_PRIVATE_KEY }}" >> "$GITHUB_ENV"
+          echo "IMAGE_NAME=${{ env.IMAGE_NAME }}" >> "$GITHUB_ENV"
+          echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> "$GITHUB_ENV"
+          echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> "$GITHUB_ENV"
+          echo "TECHLABBLOG_SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}" >> "$GITHUB_ENV"
+          echo "SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}" >> "$GITHUB_ENV"
 
   build-docker-image:
     needs: [env-setup]
