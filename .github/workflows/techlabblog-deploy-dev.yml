@@ -26,6 +26,7 @@ jobs:
       DOKKU_PRIVATE_KEY: ${{ steps.env-setup.outputs.DOKKU_PRIVATE_KEY }}
       IMAGE_NAME: ${{ steps.env-setup.outputs.IMAGE_NAME }}
       SENTRY_ORG: ${{ steps.env-setup.outputs.SENTRY_ORG }}
+      SENTRY_DSN: ${{ steps.env-setup.outputs.SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ steps.env-setup.outputs.SENTRY_AUTH_TOKEN }}
       SENTRY_ENVIRONMENT: ${{ steps.env-setup.outputs.SENTRY_ENVIRONMENT }}
     steps:
@@ -39,6 +40,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
           echo "IMAGE_NAME=${{ env.IMAGE_NAME }}" >> $GITHUB_ENV
           echo "SENTRY_ORG=${{ secrets.SENTRY_ORG }}" >> $GITHUB_ENV
+          echo "SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}" >> $GITHUB_ENV
           echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
           echo "SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}" >> $GITHUB_ENV
 
@@ -47,12 +49,13 @@ jobs:
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
     with:
-      tags: ${{needs.env-setup.outputs.IMAGE_NAME}}:${{ github.sha }}
+      tags: "${{needs.env-setup.outputs.IMAGE_NAME}}:${{ github.sha }}"
       target: "techlabblog"
       build_args: |
         SENTRY_AUTH_TOKEN=${{ needs.env-setup.outputs.SENTRY_AUTH_TOKEN }}
         SENTRY_ENVIRONMENT=${{ needs.env-setup.outputs.SENTRY_ENVIRONMENT }}
         SENTRY_ORG: ${{ needs.env-setup.outputs.SENTRY_ORG }}
+        SENTRY_DSN: ${{ needs.env-setup.outputs.SENTRY_DSN }}
 
   push-to-dokku:
     needs: [build-docker-image, env-setup]
