@@ -30,6 +30,8 @@ import Users from "./src/payload/collections/Users";
 import MediaData from "./src/payload/collections/CivicSignalTools/MediaData";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
+import BeforeDashboard from "./src/payload/components/BeforeDashboard";
+
 const dev = process.env.NODE_ENV !== "production";
 const projectDir = process.cwd();
 loadEnvConfig(projectDir, dev);
@@ -95,6 +97,10 @@ export default buildConfig({
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
+    components: {
+      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
+      beforeDashboard: [BeforeDashboard],
+    },
     livePreview: {
       breakpoints: [
         {
