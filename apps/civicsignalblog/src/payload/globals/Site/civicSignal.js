@@ -1,12 +1,12 @@
-import canRead from "../../access/applications/sourceManager";
+import canRead from "../../access/applications/civicSignal";
 import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
 import NavigationTab from "./Components/NavigationTab";
 
-const Sources = settings({
-  slug: "settings-sources-site",
+const CivicSignal = settings({
+  slug: "settings-civicsignal-site",
   label: "Site",
   group: "Settings",
   access: {
@@ -15,4 +15,4 @@ const Sources = settings({
   tabs: [GeneralTab, NavigationTab, EngagementTab],
 });
 
-export default Sources;
+export default CivicSignal;

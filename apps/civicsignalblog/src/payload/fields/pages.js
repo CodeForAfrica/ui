@@ -13,6 +13,7 @@ const Pages = ({
     create: () => true,
     update: () => true,
   },
+  adminOptions = {},
 }) => {
   return {
     slug: pageSlug,
@@ -30,6 +31,7 @@ const Pages = ({
         url: ({ data }) =>
           `${process.env.PAYLOAD_PUBLIC_APP_URL}/${data.slug !== "index" ? `${data.slug}` : ""}`,
       },
+      ...adminOptions,
     },
     fields: [
       {

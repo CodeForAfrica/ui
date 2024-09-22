@@ -15,19 +15,14 @@ import { loadEnvConfig } from "@next/env";
 import Authors from "./src/payload/collections/CivicSignalBlog/Authors";
 import Media from "./src/payload/collections/CivicSignalBlog/Media";
 import Pages from "./src/payload/collections/CivicSignalBlog/Pages";
-import ExplorerPages from "./src/payload/collections/CivicSignalTools/ExplorerPages";
-import TopicMapperPages from "./src/payload/collections/CivicSignalTools/TopicMapperPages";
-import SourcesManagerPages from "./src/payload/collections/CivicSignalTools/SourceManagerPages";
+import CivicSignalPages from "./src/payload/collections/CivicSignalTools/CivicSignalPages";
 
 import Posts from "./src/payload/collections/CivicSignalBlog/Posts";
 import Publication from "./src/payload/globals/Publication";
-import Explorer from "./src/payload/globals/Site/explorer";
-import Sources from "./src/payload/globals/Site/sources";
-import TopicMapper from "./src/payload/globals/Site/topicMapper";
 import ResearchBlog from "./src/payload/globals/Site/researchBlog";
+import CivicSignal from "./src/payload/globals/Site/civicSignal";
 import Tags from "./src/payload/collections/CivicSignalBlog/Tags";
 import Users from "./src/payload/collections/Users";
-import MediaData from "./src/payload/collections/CivicSignalTools/MediaData";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 import BeforeDashboard from "./src/payload/components/BeforeDashboard";
@@ -72,19 +67,10 @@ export default buildConfig({
     Pages,
     Posts,
     Tags,
-    ExplorerPages,
-    TopicMapperPages,
-    SourcesManagerPages,
-    MediaData,
+    CivicSignalPages,
     Users,
   ] as CollectionConfig[],
-  globals: [
-    Publication,
-    ResearchBlog,
-    Explorer,
-    Sources,
-    TopicMapper,
-  ] as GlobalConfig[],
+  globals: [Publication, ResearchBlog, CivicSignal] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {

@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/topicMapper";
+import canRead from "../../access/applications/civicSignal";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
@@ -8,7 +8,7 @@ import Posts from "../../blocks/Posts";
 import pages from "../../fields/pages";
 
 const Pages = pages({
-  pageSlug: "topic-mapper-pages",
+  pageSlug: "civicsignal-pages",
   label: "Pages",
   group: "Publication",
   defaultColumns: ["fullTitle", "updatedAt"],

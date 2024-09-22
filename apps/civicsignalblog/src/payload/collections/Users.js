@@ -82,6 +82,12 @@ const Users = {
       path: "/current-managed-app",
       method: "get",
       handler: async (req, res) => {
+        if (!req.user) {
+          res.status(401).send({
+            error: "You need to be authenticated to perform this action",
+          });
+        }
+
         const userId = req.user.id;
         const currentUser = await payload.findByID({
           collection: "users",
@@ -95,16 +101,31 @@ const Users = {
         if (currentUser) {
           res.status(200).send({ currentApplication });
         } else {
-          res.status(404).send({ error: "User not found" });
+          res
+            .status(404)
+            .send({ error: "User with specified ID was not found" });
         }
       },
     },
     {
       path: "/update-current-managed-app",
-      method: "get",
+      method: "patch",
       handler: async (req, res) => {
+        if (!req.user) {
+          res.status(401).send({
+            error: "You need to be authenticated to perform this action",
+          });
+        }
+
         const userId = req.user.id;
-        const { newApplication } = req.query;
+
+        const { newApplication } = req.body;
+
+        if (!newApplication) {
+          res.status(400).send({
+            error: "Incorrect message format was received",
+          });
+        }
 
         const currentUser = await payload.findByID({
           collection: "users",
@@ -113,7 +134,9 @@ const Users = {
         });
 
         if (!currentUser) {
-          return res.status(404).send({ error: "User not found" });
+          res
+            .status(404)
+            .send({ error: "User with specified ID was not found" });
         }
 
         const updatedUser = await payload.update({
@@ -124,7 +147,8 @@ const Users = {
               newApplication || currentUser.defaultManagedApplication,
           },
         });
-        return res.status(200).send({
+
+        res.status(200).send({
           message: "Application updated successfully",
           currentlyManagedApplication: updatedUser.currentlyManagedApplication,
         });

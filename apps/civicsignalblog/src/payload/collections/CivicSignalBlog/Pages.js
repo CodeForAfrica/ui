@@ -23,6 +23,9 @@ const Pages = pages({
   access: {
     read: canRead,
   },
+  adminOptions: {
+    description: "Research Blog",
+  },
 });
 
 export default Pages;
