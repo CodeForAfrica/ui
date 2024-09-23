@@ -1,5 +1,5 @@
 import { useAuth } from "payload/components/utilities";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import applications from "../../../lib/data/json/applications";
 
@@ -14,34 +14,36 @@ function BeforeDashboard() {
 
   const [loading, setLoading] = useState(false);
 
-  const updateCurrentlyManagedApp = async (newApplication: string) => {
-    fetch(`/api/users/update-current-managed-app`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ newApplication }),
-    })
-      .then((response) => {
-        setLoading(false);
-        if (response.ok) {
-          // eslint-disable-next-line no-undef
-          window.location.reload();
-        } else {
-          console.log("Invalid response was returned from the server");
-        }
+  useEffect(() => {
+    if (
+      selectedApp &&
+      selectedApp !== "select" &&
+      selectedApp !== String(user.currentlyManagedApplication)
+    ) {
+      setLoading(true);
+      fetch(`/api/users/update-current-managed-app`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedApp }),
       })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-      });
-  };
+        .then((response) => {
+          setLoading(false);
+          if (response.ok) {
+            // eslint-disable-next-line no-undef
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          setLoading(false);
+        });
+    }
+  }, [selectedApp]);
 
   const handleChange = (event) => {
-    setLoading(true);
     const selectedValue = event.target.value;
     setSelectedApp(selectedValue);
-    updateCurrentlyManagedApp(selectedValue);
   };
 
   return (

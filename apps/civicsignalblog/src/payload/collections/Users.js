@@ -119,11 +119,11 @@ const Users = {
 
         const userId = req.user.id;
 
-        const { newApplication } = req.body;
+        const { selectedApp } = req.body;
 
-        if (!newApplication) {
+        if (!selectedApp) {
           res.status(400).send({
-            error: "Incorrect message format was received",
+            error: `Incorrect message format was received:${JSON.stringify(req.body)}`,
           });
         }
 
@@ -144,7 +144,7 @@ const Users = {
           id: userId,
           data: {
             currentlyManagedApplication:
-              newApplication || currentUser.defaultManagedApplication,
+              selectedApp || currentUser.defaultManagedApplication,
           },
         });
 
