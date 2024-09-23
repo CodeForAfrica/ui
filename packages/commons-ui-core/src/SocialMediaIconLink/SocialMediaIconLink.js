@@ -51,7 +51,7 @@ const SocialMediaIconLink = React.forwardRef(function SocialMediaIconLink(
         },
       }}
       sx={{
-        display: "block",
+        display: "flex",
         pr: "10px",
         ":last-of-type": {
           pr: 0,
