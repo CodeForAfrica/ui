@@ -6,6 +6,7 @@ const settings = ({
   access = {
     read: () => true,
   },
+  settingsOptions = {},
 }) => {
   return {
     slug,
@@ -20,6 +21,7 @@ const settings = ({
         tabs,
       },
     ],
+    ...settingsOptions,
   };
 };
 
