@@ -1,6 +1,7 @@
 import Statistics from "@/vpnmanager/components/Statistics";
 import { Data } from "@/vpnmanager/components/Statistics/Statistics";
 import { getStats } from "@/vpnmanager/lib/statistics";
+import { GetSessionParams, getSession } from "next-auth/react";
 
 interface Props {
   data: Data[];
@@ -10,8 +11,19 @@ export default function Home(props: Props) {
   return <Statistics data={data} />;
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(
+  context: GetSessionParams | undefined,
+) {
   const data = await getStats({ query: { orderBy: "date DESC" } });
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
       data,

@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { Avatar, Menu, MenuItem, IconButton, Typography } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 
 export default function UserAvatar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const { data: session } = useSession();
   const open = Boolean(anchorEl);
-  const router = useRouter();
 
   const handleMenuClick = (event: React.MouseEvent<any>) => {
     setAnchorEl(event.currentTarget);
@@ -22,11 +20,6 @@ export default function UserAvatar() {
     handleMenuClose();
     signOut();
   };
-  useEffect(() => {
-    if (!session) {
-      router.push("/login");
-    }
-  }, [router, session]);
 
   if (!session) {
     return null;
