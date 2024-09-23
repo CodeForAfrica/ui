@@ -5,5 +5,4 @@ async function main() {
   return response;
 }
 
-const responseJson = await main();
-console.log(responseJson);
+await main();
