@@ -1,7 +1,8 @@
+import { RESEARCH } from "../../../lib/data/json/applications";
 import canAccessApplication from "../canAccessApplication";
 
 const canRead = ({ req: { user } }) => {
-  return canAccessApplication(user, "research_blog");
+  return canAccessApplication(user, RESEARCH);
 };
 
 export default canRead;
