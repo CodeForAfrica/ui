@@ -57,7 +57,7 @@ const Users = {
       options: ROLE_OPTIONS,
     },
     {
-      name: "defaultManagedApplication",
+      name: "defaultApp",
       type: "select",
       hasMany: false,
       admin: {
@@ -67,7 +67,7 @@ const Users = {
       options: applications,
     },
     {
-      name: "currentlyManagedApplication",
+      name: "currentApp",
       type: "select",
       hasMany: false,
       admin: {
@@ -79,36 +79,7 @@ const Users = {
   ],
   endpoints: [
     {
-      path: "/current-managed-app",
-      method: "get",
-      handler: async (req, res) => {
-        if (!req.user) {
-          res.status(401).send({
-            error: "You need to be authenticated to perform this action",
-          });
-        }
-
-        const userId = req.user.id;
-        const currentUser = await payload.findByID({
-          collection: "users",
-          id: userId,
-        });
-
-        const currentApplication =
-          currentUser.currentlyManagedApplication ||
-          currentUser.defaultManagedApplication;
-
-        if (currentUser) {
-          res.status(200).send({ currentApplication });
-        } else {
-          res
-            .status(404)
-            .send({ error: "User with specified ID was not found" });
-        }
-      },
-    },
-    {
-      path: "/update-current-managed-app",
+      path: "/update-current-app",
       method: "patch",
       handler: async (req, res) => {
         if (!req.user) {
@@ -143,14 +114,13 @@ const Users = {
           collection: "users",
           id: userId,
           data: {
-            currentlyManagedApplication:
-              selectedApp || currentUser.defaultManagedApplication,
+            currentApp: selectedApp || currentUser.defaultApp,
           },
         });
 
         res.status(200).send({
           message: "Application updated successfully",
-          currentlyManagedApplication: updatedUser.currentlyManagedApplication,
+          currentApp: updatedUser.currentApp,
         });
       },
     },

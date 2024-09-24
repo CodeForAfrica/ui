@@ -25,7 +25,7 @@ import Tags from "./src/payload/collections/CivicSignalBlog/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
-import BeforeDashboard from "./src/payload/components/BeforeDashboard";
+import Actions from "./src/payload/components/actions";
 
 const dev = process.env.NODE_ENV !== "production";
 const projectDir = process.cwd();
@@ -84,7 +84,7 @@ export default buildConfig({
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
     components: {
-      beforeDashboard: [BeforeDashboard],
+      actions: [Actions],
     },
     livePreview: {
       breakpoints: [
