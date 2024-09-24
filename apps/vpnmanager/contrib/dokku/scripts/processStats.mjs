@@ -1,7 +1,7 @@
-import { apiClient } from "./apiClient.mjs";
+import { fetchApi } from "./fetchApi.mjs";
 
 async function main() {
-  const response = await apiClient("/api/statistics");
+  const response = await fetchApi("/api/statistics");
   return response;
 }
 

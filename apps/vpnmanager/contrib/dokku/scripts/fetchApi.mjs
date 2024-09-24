@@ -1,4 +1,4 @@
-export async function apiClient(endpoint, method = "POST", body = null) {
+export async function fetchApi(endpoint, method = "POST", body = null) {
   const NEXT_PUBLIC_APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const API_SECRET_KEY = process.env.API_SECRET_KEY;
 
