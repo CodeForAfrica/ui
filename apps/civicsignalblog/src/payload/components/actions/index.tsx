@@ -19,7 +19,7 @@ function BeforeDashboard() {
       selectedApp !== String(user.currentApp)
     ) {
       setLoading(true);
-      fetch(`/api/users/update-current-app`, {
+      fetch(`/api/users/current-app`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

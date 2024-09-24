@@ -79,7 +79,7 @@ const Users = {
   ],
   endpoints: [
     {
-      path: "/update-current-app",
+      path: "/current-app",
       method: "patch",
       handler: async (req, res) => {
         if (!req.user) {
