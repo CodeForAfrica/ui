@@ -2,6 +2,7 @@ import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import type { LinkProps } from "@mui/material";
 import React from "react";
+import UserAvatar from "@/vpnmanager/components/UserAvatar";
 
 interface NavListItemProps extends LinkProps {}
 
@@ -20,7 +21,6 @@ type SocialMediaPlatform =
 
 interface SocialMediaLink {
   platform: SocialMediaPlatform;
-  // TODO(koech): Confirm why we chose url instead of href in the CMS
   url: string;
 }
 
@@ -88,6 +88,9 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(
           </NavListItem>
         );
       })}
+      <NavListItem>
+        <UserAvatar />
+      </NavListItem>
     </NavList>
   );
 });

@@ -1,4 +1,5 @@
 import { CacheProvider } from "@emotion/react";
+import { SessionProvider } from "next-auth/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
@@ -23,10 +24,12 @@ function MyApp(props: AppProps | any) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />, pageProps)}
-      </ThemeProvider>
+      <SessionProvider session={pageProps.session}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />, pageProps)}
+        </ThemeProvider>
+      </SessionProvider>
     </CacheProvider>
   );
 }

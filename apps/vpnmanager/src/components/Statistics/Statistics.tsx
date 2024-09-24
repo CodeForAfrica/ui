@@ -151,12 +151,16 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
               label="Date"
               name="date"
               type="date"
-              InputLabelProps={{ shrink: true }}
               variant="outlined"
               value={filters["date"]}
               onChange={handleFilterChange}
               placeholder="Date Start"
               size="small"
+              sx={{
+                "& .MuiFormLabel-root": {
+                  color: "inherit",
+                },
+              }}
               fullWidth
             />
           </Grid>
@@ -168,6 +172,12 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
               onChange={handleFilterChange}
               InputLabelProps={{ shrink: true }}
               placeholder="Email"
+              label="Email"
+              sx={{
+                "& .MuiFormLabel-root": {
+                  color: "inherit",
+                },
+              }}
               size="small"
               fullWidth
             />
@@ -176,12 +186,18 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
             <TextField
               name="date.start"
               type="date"
+              label="Start Date"
               InputLabelProps={{ shrink: true }}
               variant="outlined"
               value={filters["date.start"]}
               onChange={handleFilterChange}
               placeholder="Date Start"
               size="small"
+              sx={{
+                "& .MuiFormLabel-root": {
+                  color: "inherit",
+                },
+              }}
               fullWidth
             />
           </Grid>
@@ -189,6 +205,7 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
             <TextField
               name="date.end"
               type="date"
+              label="End Date"
               InputLabelProps={{ shrink: true }}
               variant="outlined"
               value={filters["date.end"]}
@@ -196,6 +213,11 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
               size="small"
               placeholder="Date End"
               fullWidth
+              sx={{
+                "& .MuiFormLabel-root": {
+                  color: "inherit",
+                },
+              }}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={3}>

@@ -1,8 +1,8 @@
 import type { NextRequest } from "next/server";
 
-// Limit the middleware to paths starting with `/api/`
 export const config = {
-  matcher: "/api/:function*",
+  // We are adding an authentication [API KEY] to endpoints that involve writing to the database to ensure the APIs are not misused.
+  matcher: ["/api/statistics/:path*", "/api/users/:path*"],
 };
 
 export function middleware(req: NextRequest) {

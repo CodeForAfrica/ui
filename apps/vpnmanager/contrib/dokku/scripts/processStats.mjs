@@ -1,7 +1,7 @@
 import { fetchJson } from "./fetchJson.mjs";
 
 async function main() {
-  return fetchJson("/api/users");
+  return fetchJson("/api/statistics");
 }
 
 await main();
