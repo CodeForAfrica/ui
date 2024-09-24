@@ -26,7 +26,6 @@ export async function getServerSideProps(
   }
 
   const yesterday = startOfYesterday();
-
   const data = await getStats({
     query: { orderBy: "date DESC", date: format(yesterday, "yyyy-MM-dd") },
   });
