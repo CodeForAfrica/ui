@@ -1,4 +1,4 @@
-export async function fetchApi(endpoint, method = "POST", body = null) {
+export async function fetchJson(path, method = "POST", body = null) {
   const NEXT_PUBLIC_APP_URL = process.env.NEXT_PUBLIC_APP_URL;
   const API_SECRET_KEY = process.env.API_SECRET_KEY;
 
@@ -11,16 +11,12 @@ export async function fetchApi(endpoint, method = "POST", body = null) {
     method,
     headers,
   };
-
   if (body) {
     options.body = JSON.stringify(body);
   }
-
-  const res = await fetch(`${NEXT_PUBLIC_APP_URL}${endpoint}`, options);
-
+  const res = await fetch(`${NEXT_PUBLIC_APP_URL}${path}`, options);
   if (!res.ok) {
     throw new Error(`API call failed with status ${res.status}`);
   }
-
   return res.json();
 }

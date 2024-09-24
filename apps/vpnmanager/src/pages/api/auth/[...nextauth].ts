@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth({
   secret: process.env.SECRET,
-  debug: true,
+  debug: process.env.NODE_ENV === "development",
   providers: [
     GoogleProvider({
       clientId: process.env.NEXT_APP_GOOGLE_CLIENT_ID ?? "",
@@ -21,12 +21,11 @@ export default NextAuth({
   },
   callbacks: {
     async signIn({ profile }) {
-      const allowedEmails = (process.env.ALLOWED_EMAILS ?? "").split(",");
-      if (allowedEmails.includes(profile?.email || "")) {
-        return true;
-      } else {
+      if (!profile?.email) {
         return false;
       }
+      const allowedEmails = process.env.ALLOWED_EMAILS?.split?.(",") ?? [];
+      return allowedEmails?.includes(profile.email);
     },
   },
 });

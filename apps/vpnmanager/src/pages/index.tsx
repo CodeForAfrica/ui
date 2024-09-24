@@ -15,11 +15,6 @@ export default function Home(props: Props) {
 export async function getServerSideProps(
   context: GetSessionParams | undefined,
 ) {
-  const yesterday = startOfYesterday();
-
-  const data = await getStats({
-    query: { orderBy: "date DESC", date: format(yesterday, "yyyy-MM-dd") },
-  });
   const session = await getSession(context);
   if (!session) {
     return {
@@ -29,6 +24,12 @@ export async function getServerSideProps(
       },
     };
   }
+
+  const yesterday = startOfYesterday();
+
+  const data = await getStats({
+    query: { orderBy: "date DESC", date: format(yesterday, "yyyy-MM-dd") },
+  });
   return {
     props: {
       data,

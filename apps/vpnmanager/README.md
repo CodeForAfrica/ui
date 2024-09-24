@@ -28,7 +28,7 @@ Google requires certain scopes to retrieve the necessary user information for au
 
 After the app is created, take note of the Client ID and Client Secret. These will be used in your environment variables(.env.local).
 
-```bash
+```sh
   NEXT_APP_GOOGLE_CLIENT_ID=
   GOOGLE_CLIENT_SECRET=
 ```
@@ -37,7 +37,7 @@ After the app is created, take note of the Client ID and Client Secret. These wi
 
 First create `.env.local` file in the root directory of the project.
 
-```bash
+```sh
 cp env.template .env.local
 ```
 
@@ -51,33 +51,33 @@ The default `.env` file is for the 'Publicly' visible environment variables.
 
 - Install dependancies
 
-```bash
+```sh
 pnpm install
 ```
 
 - if you are in the `apps/vpnmanager` directory
 
-```bash
+```sh
 pnpm dev
 ```
 
 or
 
-```bash
-pnpm dev --filter=vpnmanager
+```sh
+pnpm --filter=vpnmanager dev
 ```
 
 if you are executing from ui directory.
 
 ### Deployment
 
-```bash
+```sh
 docker-compose up --build vpnmanager
 ```
 
 or
 
-```bash
+```sh
 make vpnmanager
 ```
 
@@ -88,13 +88,13 @@ make vpnmanager
 2. Persist storage database.
    Docker in their [best practices](https://docs.docker.com/build/building/best-practices/#containers-should-be-ephemeral) opine that containers be treated as ephemeral. In order to manage persistent storage for database, a directory outside the container should be mounted. Vpnmanager uses sqlite to locally store data as obtained from Outline VPN API. To persist this data, run the command below
 
-```bash
+```sh
 dokku storage:mount vpnmanager /var/lib/dokku/data/storage/vpnmanager/data:/workspace/apps/vpnmanager/data
 ```
 
 3. Build docker image and tag.
 
-```bash
+```sh
 docker build --target vpnmanager-runner \
   --build-arg SENTRY_ORG=$SENTRY_ORG \
   --build-arg SENTRY_PROJECT=$SENTRY_PROJECT \
@@ -105,6 +105,6 @@ docker build --target vpnmanager-runner \
 
 4. Deploy to dokku.
 
-```bash
+```sh
 dokku git:from-image vpnmanager codeforafrica/vpnmanager:latest
 ```
