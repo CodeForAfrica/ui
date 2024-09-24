@@ -1,6 +1,6 @@
 import payload from "payload";
 
-import applications from "../../lib/data/json/applications";
+import applications, { RESEARCH } from "../../lib/data/json/applications";
 import { isAdmin, isAdminFieldLevel } from "../access/isAdmin";
 import {
   isAdminOrSelf,
@@ -59,6 +59,7 @@ const Users = {
     {
       name: "defaultApp",
       type: "select",
+      defaultValue: RESEARCH,
       hasMany: false,
       admin: {
         isClearable: true,
@@ -68,6 +69,7 @@ const Users = {
     },
     {
       name: "currentApp",
+      defaultValue: RESEARCH,
       type: "select",
       hasMany: false,
       admin: {
