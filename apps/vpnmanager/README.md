@@ -1,10 +1,39 @@
 # VPN Manager
 
-This is the cfa Outline VPN Manager
+VPN Manager is designed to manage and track usage statistics for Outline VPN users.
 
-### Development
+- The app retrieves usage statistics from Outline VPN and stores them in a local database for efficient querying and analysis.
+- Users can access a user-friendly UI to query and analyze their VPN usage data over specific time periods.
+- VPN Manager automatically generates VPN keys for new hires and sends them an email with detailed setup instructions for configuring their VPN access.
 
-## Getting Started
+## Development
+
+### Configuring Google Provider for Authentication
+
+1. Visit the Google Cloud Console.
+2. Select or create a new project.
+3. In the navigation menu, go to APIs & Services > Credentials.
+4. Click on Create Credentials and choose OAuth 2.0 Client IDs.
+5. Set the Application type to Web Application.
+6. In the Authorized redirect URIs, add the following URIs:
+
+- `http://localhost:3000/login` (for local development)
+- Any other production URLs such as `https://vpnmanager.dev.codeforafrica.org/login`
+
+Google requires certain scopes to retrieve the necessary user information for authentication. You must explicitly set the following scopes:
+
+- `openid`: To obtain information about the authenticated user's identity.
+- `email`: To retrieve the user's email address.
+- `profile`: To get basic profile information, such as the user's name and profile picture.
+
+After the app is created, take note of the Client ID and Client Secret. These will be used in your environment variables(.env.local).
+
+```bash
+  NEXT_APP_GOOGLE_CLIENT_ID=
+  GOOGLE_CLIENT_SECRET=
+```
+
+### Getting Started
 
 First create `.env.local` file in the root directory of the project.
 
@@ -18,21 +47,29 @@ and modify the `.env.local` file according to your needs.
 
 The default `.env` file is for the 'Publicly' visible environment variables.
 
-## Script
+## Run the development server
+
+- Install dependancies
 
 ```bash
-pnpm process-new-hires
+pnpm install
 ```
 
-## Web
-
-Run the development server:
+- if you are in the `apps/vpnmanager` directory
 
 ```bash
 pnpm dev
 ```
 
-### Deployment.
+or
+
+```bash
+pnpm dev --filter=vpnmanager
+```
+
+if you are executing from ui directory.
+
+### Deployment
 
 ```bash
 docker-compose up --build vpnmanager

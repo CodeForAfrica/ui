@@ -2,6 +2,7 @@ import Statistics from "@/vpnmanager/components/Statistics";
 import { Data } from "@/vpnmanager/components/Statistics/Statistics";
 import { getStats } from "@/vpnmanager/lib/statistics";
 import { GetSessionParams, getSession } from "next-auth/react";
+import { format, startOfYesterday } from "date-fns";
 
 interface Props {
   data: Data[];
@@ -14,7 +15,11 @@ export default function Home(props: Props) {
 export async function getServerSideProps(
   context: GetSessionParams | undefined,
 ) {
-  const data = await getStats({ query: { orderBy: "date DESC" } });
+  const yesterday = startOfYesterday();
+
+  const data = await getStats({
+    query: { orderBy: "date DESC", date: format(yesterday, "yyyy-MM-dd") },
+  });
   const session = await getSession(context);
   if (!session) {
     return {
@@ -39,19 +44,8 @@ export async function getServerSideProps(
           url: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
           src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
         },
-        menus: [
-          {
-            label: "Our Work",
-            href: "/",
-          },
-        ],
-        socialLinks: [
-          {
-            platform: "Github",
-            url: "https://github.com/CodeForAfrica",
-            id: "651e89dec938b817cab85676",
-          },
-        ],
+        menus: [],
+        socialLinks: [],
       },
     },
   };
