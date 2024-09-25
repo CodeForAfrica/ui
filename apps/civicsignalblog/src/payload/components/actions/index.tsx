@@ -54,17 +54,15 @@ function BeforeDashboard() {
   return (
     <div>
       {loading ? (
-        <>
-          <p
-            style={{
-              padding: "5px 10px",
-              marginTop: "30px",
-              background: "var(--theme-input-bg)",
-            }}
-          >
-            Loading...
-          </p>
-        </>
+        <p
+          style={{
+            padding: "5px 10px",
+            marginTop: "30px",
+            background: "var(--theme-input-bg)",
+          }}
+        >
+          Loading...
+        </p>
       ) : (
         <>
           <label
