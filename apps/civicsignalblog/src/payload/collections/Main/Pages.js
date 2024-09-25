@@ -1,14 +1,14 @@
-import canRead from "../../access/applications/research";
+import canRead from "../../access/applications/main";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
 import LongForm from "../../blocks/LongForm";
 import PageHeader from "../../blocks/PageHeader";
 import Posts from "../../blocks/Posts";
-import pages from "../../fields/pages";
+import pages from "../../utils/createPagesCollection";
 
 const Pages = pages({
-  pageSlug: "pages",
+  pageSlug: "main-pages",
   label: "Pages",
   group: "Publication",
   defaultColumns: ["fullTitle", "updatedAt"],
@@ -22,9 +22,6 @@ const Pages = pages({
   ],
   access: {
     read: canRead,
-  },
-  adminOptions: {
-    description: "Research",
   },
 });
 

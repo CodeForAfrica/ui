@@ -73,7 +73,7 @@ function BeforeDashboard() {
           <select
             id="lang"
             onChange={handleChange}
-            value={selectedApp}
+            value={String(selectedApp)}
             style={{
               padding: "5px",
               width: "auto",

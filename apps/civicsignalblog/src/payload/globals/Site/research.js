@@ -1,5 +1,5 @@
 import canRead from "../../access/applications/research";
-import settings from "../../fields/settings";
+import settings from "../../utils/createGlobalSettings";
 
 import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
