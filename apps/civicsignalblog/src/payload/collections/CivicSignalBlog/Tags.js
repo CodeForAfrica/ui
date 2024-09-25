@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/researchBlog";
+import canRead from "../../access/applications/research";
 import slug from "../../fields/slug";
 
 const Tags = {

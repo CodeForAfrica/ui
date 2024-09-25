@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/researchBlog";
+import canRead from "../../access/applications/research";
 
 import PostTab from "./PostTab";
 

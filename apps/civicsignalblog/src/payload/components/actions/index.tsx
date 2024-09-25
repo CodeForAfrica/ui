@@ -1,7 +1,7 @@
 import { useAuth } from "payload/components/utilities";
 import React, { useEffect, useState } from "react";
 
-import applications from "../../../lib/data/json/applications";
+import applications, { RESEARCH } from "../../../lib/data/json/applications";
 
 function BeforeDashboard() {
   const { user } = useAuth();
@@ -19,7 +19,7 @@ function BeforeDashboard() {
       selectedApp !== String(user.currentApp)
     ) {
       setLoading(true);
-      fetch(`/api/users/current-app`, {
+      fetch(`/api/users/apps/current`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

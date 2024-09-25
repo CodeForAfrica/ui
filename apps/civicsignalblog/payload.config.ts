@@ -19,8 +19,8 @@ import CivicSignalPages from "./src/payload/collections/CivicSignalTools/CivicSi
 
 import Posts from "./src/payload/collections/CivicSignalBlog/Posts";
 import Publication from "./src/payload/globals/Publication";
-import ResearchBlog from "./src/payload/globals/Site/researchBlog";
-import CivicSignal from "./src/payload/globals/Site/civicSignal";
+import Research from "./src/payload/globals/Site/research";
+import Main from "./src/payload/globals/Site/main";
 import Tags from "./src/payload/collections/CivicSignalBlog/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
@@ -70,7 +70,7 @@ export default buildConfig({
     CivicSignalPages,
     Users,
   ] as CollectionConfig[],
-  globals: [Publication, ResearchBlog, CivicSignal] as GlobalConfig[],
+  globals: [Publication, Research, Main] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {

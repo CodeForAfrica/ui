@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/researchBlog";
+import canRead from "../../access/applications/research";
 import authors from "../../fields/authors";
 import content from "../../fields/content";
 import image from "../../fields/image";

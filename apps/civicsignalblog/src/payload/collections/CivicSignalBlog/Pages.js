@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/researchBlog";
+import canRead from "../../access/applications/research";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
@@ -24,7 +24,7 @@ const Pages = pages({
     read: canRead,
   },
   adminOptions: {
-    description: "Research Blog",
+    description: "Research",
   },
 });
 

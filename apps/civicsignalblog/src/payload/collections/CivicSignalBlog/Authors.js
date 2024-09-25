@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/researchBlog";
+import canRead from "../../access/applications/research";
 
 const Authors = {
   slug: "author",

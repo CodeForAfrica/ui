@@ -1,13 +1,13 @@
-import canRead from "../../access/applications/researchBlog";
+import canRead from "../../access/applications/main";
 import settings from "../../fields/settings";
 
 import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
 import NavigationTab from "./Components/NavigationTab";
 
-const Research = settings({
-  slug: "settings-site",
-  label: " Site",
+const Main = settings({
+  slug: "settings-main-site",
+  label: "Site",
   group: "Settings",
   access: {
     read: canRead,
@@ -15,4 +15,4 @@ const Research = settings({
   tabs: [GeneralTab, NavigationTab, EngagementTab],
 });
 
-export default ResearchBlog;
+export default Main;

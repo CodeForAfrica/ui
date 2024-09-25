@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/civicSignal";
+import canRead from "../../access/applications/main";
 import CustomPageHeader from "../../blocks/CustomPageHeader";
 import Error from "../../blocks/Error";
 import FeaturedStories from "../../blocks/FeaturedStories";
