@@ -5,7 +5,7 @@ import EngagementTab from "./Components/EngagementTab";
 import GeneralTab from "./Components/GeneralTab";
 import NavigationTab from "./Components/NavigationTab";
 
-const ResearchBlog = settings({
+const Research = settings({
   slug: "settings-site",
   label: " Site",
   group: "Settings",
