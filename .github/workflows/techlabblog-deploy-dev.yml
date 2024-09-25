@@ -18,18 +18,18 @@ env:
 
 jobs:
   env-setup:
+    name: Environment Setup
     runs-on: ubuntu-latest
     outputs:
-      SENTRY_AUTH_TOKEN: ${{ steps.env-setup.outputs.SENTRY_AUTH_TOKEN }}
       SENTRY_ENVIRONMENT: ${{ steps.env-setup.outputs.SENTRY_ENVIRONMENT }}
     steps:
       - name: Environment Setup
         id: env-setup
         run: |
-          echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
           echo "SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}" >> $GITHUB_ENV
 
   build-docker-image:
+    name: Build Docker Image
     needs: [env-setup]
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
@@ -37,12 +37,11 @@ jobs:
       tags: "codeforafrica/techlabblog:${{ github.sha }}"
       target: "techlabblog-runner"
       build_args: |
-        SENTRY_AUTH_TOKEN=${{ needs.env-setup.outputs.SENTRY_AUTH_TOKEN }}
         SENTRY_ENVIRONMENT=${{ needs.env-setup.outputs.SENTRY_ENVIRONMENT }}
-        SENTRY_ORG: ${{ vars.SENTRY_ORG }}
         SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
 
   push-to-dokku:
+    name: Push to Dokku
     needs: [build-docker-image, env-setup]
     uses: ./.github/workflows/push-to-dokku.yml
     secrets: inherit
