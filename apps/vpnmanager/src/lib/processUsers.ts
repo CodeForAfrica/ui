@@ -50,4 +50,5 @@ export async function processNewUsers() {
   if (fulfilled.length) {
     updateSheet(fulfilled);
   }
+  return fulfilled;
 }

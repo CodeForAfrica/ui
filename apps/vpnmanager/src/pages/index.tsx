@@ -1,6 +1,8 @@
 import Statistics from "@/vpnmanager/components/Statistics";
 import { Data } from "@/vpnmanager/components/Statistics/Statistics";
 import { getStats } from "@/vpnmanager/lib/statistics";
+import { GetSessionParams, getSession } from "next-auth/react";
+import { format, startOfYesterday } from "date-fns";
 
 interface Props {
   data: Data[];
@@ -10,8 +12,23 @@ export default function Home(props: Props) {
   return <Statistics data={data} />;
 }
 
-export async function getStaticProps() {
-  const data = await getStats({ query: { orderBy: "date DESC" } });
+export async function getServerSideProps(
+  context: GetSessionParams | undefined,
+) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  const yesterday = startOfYesterday();
+  const data = await getStats({
+    query: { orderBy: "date DESC", date: format(yesterday, "yyyy-MM-dd") },
+  });
   return {
     props: {
       data,
@@ -27,19 +44,8 @@ export async function getStaticProps() {
           url: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
           src: "https://cfa.dev.codeforafrica.org/media/cfa-logo.svg",
         },
-        menus: [
-          {
-            label: "Our Work",
-            href: "/",
-          },
-        ],
-        socialLinks: [
-          {
-            platform: "Github",
-            url: "https://github.com/CodeForAfrica",
-            id: "651e89dec938b817cab85676",
-          },
-        ],
+        menus: [],
+        socialLinks: [],
       },
     },
   };
