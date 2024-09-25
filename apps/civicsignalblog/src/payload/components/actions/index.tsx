@@ -7,7 +7,7 @@ function BeforeDashboard() {
   const { user } = useAuth();
 
   const [selectedApp, setSelectedApp] = useState(
-    String(user.currentApp ?? user.defaultApp) ?? "",
+    user.currentApp || user.defaultApp || RESEARCH,
   );
 
   const [loading, setLoading] = useState(false);
