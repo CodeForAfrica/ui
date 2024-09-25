@@ -81,7 +81,7 @@ const Users = {
   ],
   endpoints: [
     {
-      path: "/current-app",
+      path: "/apps/current",
       method: "patch",
       handler: async (req, res) => {
         if (!req.user) {
