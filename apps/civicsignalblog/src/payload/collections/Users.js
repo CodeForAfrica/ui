@@ -6,7 +6,7 @@ import {
   isAdminOrSelfFieldLevel,
 } from "../access/isAdminOrSelf";
 import { ROLE_DEFAULT, ROLE_OPTIONS } from "../access/roles";
-import applications, { RESEARCH } from "../data/common/applications";
+import applications, { RESEARCH } from "../lib/data/common/applications";
 
 const Users = {
   slug: "users",

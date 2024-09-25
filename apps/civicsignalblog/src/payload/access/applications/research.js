@@ -1,4 +1,4 @@
-import { RESEARCH } from "../../data/common/applications";
+import { RESEARCH } from "../../lib/data/common/applications";
 import canAccessApplication from "../canAccessApplication";
 
 const canRead = ({ req: { user } }) => {
