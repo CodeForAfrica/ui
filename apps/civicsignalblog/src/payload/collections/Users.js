@@ -1,12 +1,12 @@
 import payload from "payload";
 
-import applications, { RESEARCH } from "../../lib/data/json/applications";
 import { isAdmin, isAdminFieldLevel } from "../access/isAdmin";
 import {
   isAdminOrSelf,
   isAdminOrSelfFieldLevel,
 } from "../access/isAdminOrSelf";
 import { ROLE_DEFAULT, ROLE_OPTIONS } from "../access/roles";
+import applications, { RESEARCH } from "../data/common/applications";
 
 const Users = {
   slug: "users",

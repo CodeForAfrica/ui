@@ -1,7 +1,7 @@
 import { useAuth } from "payload/components/utilities";
 import React, { useEffect, useState } from "react";
 
-import applications, { RESEARCH } from "../../../lib/data/json/applications";
+import applications, { RESEARCH } from "../../data/common/applications";
 
 function BeforeDashboard() {
   const { user } = useAuth();
