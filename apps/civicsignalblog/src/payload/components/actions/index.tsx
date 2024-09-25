@@ -52,7 +52,7 @@ function BeforeDashboard() {
   };
 
   return (
-    <div style={{}}>
+    <div>
       {loading ? (
         <>
           <p
