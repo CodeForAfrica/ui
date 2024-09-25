@@ -2,7 +2,7 @@ name: Techlab Blog | Deploy Dev
 
 on:
   push:
-    branches: [main]
+    branches: [ft/techlabblog-workflow]
     paths:
       - "apps/techlabblog/**"
       - "Dockerfile"
@@ -15,27 +15,18 @@ concurrency:
 
 env:
   SENTRY_ENVIRONMENT: "development"
-  SENTRY_ORG: "codeforafrica"
-  SENTRY_DSN: ${{ secrets.TECHLABBLOG_SENTRY_DSN }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
 jobs:
   env-setup:
     runs-on: ubuntu-latest
     outputs:
-      DOKKU_REMOTE_URL: ${{ steps.env-setup.outputs.DOKKU_REMOTE_URL }}
-      DOKKU_PRIVATE_KEY: ${{ steps.env-setup.outputs.DOKKU_PRIVATE_KEY }}
-      SENTRY_ORG: ${{ steps.env-setup.outputs.SENTRY_ORG }}
-      SENTRY_DSN: ${{ steps.env-setup.outputs.SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ steps.env-setup.outputs.SENTRY_AUTH_TOKEN }}
       SENTRY_ENVIRONMENT: ${{ steps.env-setup.outputs.SENTRY_ENVIRONMENT }}
     steps:
       - name: Environment Setup
         id: env-setup
         run: |
-          echo "SENTRY_ORG=${{ env.SENTRY_ORG }}" >> $GITHUB_ENV
-          echo "SENTRY_DSN=${{ env.TECHLABBLOG_SENTRY_DSN }}" >> $GITHUB_ENV
-          echo "SENTRY_AUTH_TOKEN=${{ env.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
+          echo "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}" >> $GITHUB_ENV
           echo "SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}" >> $GITHUB_ENV
 
   build-docker-image:
@@ -48,8 +39,8 @@ jobs:
       build_args: |
         SENTRY_AUTH_TOKEN=${{ needs.env-setup.outputs.SENTRY_AUTH_TOKEN }}
         SENTRY_ENVIRONMENT=${{ needs.env-setup.outputs.SENTRY_ENVIRONMENT }}
-        SENTRY_ORG: ${{ needs.env-setup.outputs.SENTRY_ORG }}
-        SENTRY_DSN: ${{ needs.env-setup.outputs.SENTRY_DSN }}
+        SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+        SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
 
   push-to-dokku:
     needs: [build-docker-image, env-setup]
