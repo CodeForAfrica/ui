@@ -90,22 +90,19 @@ const Users = {
           });
         }
 
-        const userId = req.user.id;
-
         const { selectedApp } = req.body;
-
         if (!selectedApp) {
           res.status(400).send({
             error: `Incorrect message format was received:${JSON.stringify(req.body)}`,
           });
         }
 
+        const userId = req.user.id;
         const currentUser = await payload.findByID({
           collection: "users",
           id: userId,
           showHiddenFields: true,
         });
-
         if (!currentUser) {
           res
             .status(404)
@@ -119,7 +116,6 @@ const Users = {
             currentApp: selectedApp || currentUser.defaultApp,
           },
         });
-
         res.status(200).send({
           message: "Application updated successfully",
           currentApp: updatedUser.currentApp,
