@@ -13,35 +13,37 @@ function BeforeDashboard() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (
-      selectedApp &&
-      selectedApp !== "select" &&
-      selectedApp !== String(user.currentApp)
-    ) {
-      setLoading(true);
-      fetch(`/api/users/apps/current`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ selectedApp }),
-      })
-        .then((response) => {
-          setLoading(false);
-          if (response.ok) {
-            return response.json();
-          } else {
+    const updateCurrentApp = async () => {
+      if (
+        selectedApp &&
+        selectedApp !== "select" &&
+        selectedApp !== String(user.currentApp)
+      ) {
+        try {
+          setLoading(true);
+          const response = await fetch(`/api/users/apps/current`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ selectedApp }),
+          });
+
+          if (!response.ok) {
             throw new Error("Network response was not ok");
           }
-        })
-        .then((data) => {
+
+          const data = await response.json();
           window.location.replace(`/admin?app=${encodeURI(data.currentApp)}`);
-        })
-        .catch((error) => {
+        } catch (error) {
+          console.error("Error updating current app:", error);
+        } finally {
           setLoading(false);
-          throw error;
-        });
-    }
+        }
+      }
+    };
+
+    updateCurrentApp();
   }, [selectedApp]);
 
   const handleChange = (event) => {
