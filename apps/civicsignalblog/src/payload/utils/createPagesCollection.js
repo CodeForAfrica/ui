@@ -1,7 +1,7 @@
-import formatDraftUrl from "../utils/formatDraftUrl";
+import fullTitle from "../fields/fullTitle";
+import slug from "../fields/slug";
 
-import fullTitle from "./fullTitle";
-import slug from "./slug";
+import formatDraftUrl from "./formatDraftUrl";
 
 const Pages = ({
   pageSlug,
