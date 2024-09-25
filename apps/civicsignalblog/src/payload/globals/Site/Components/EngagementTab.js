@@ -1,4 +1,4 @@
-import socialLinks from "../../fields/socialLinks";
+import socialLinks from "../../../fields/socialLinks";
 
 const EngagementTab = {
   label: "Engagement",

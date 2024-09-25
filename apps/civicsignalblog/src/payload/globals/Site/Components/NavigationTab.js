@@ -1,6 +1,6 @@
-import link from "../../fields/links/link";
-import linkArray from "../../fields/links/linkArray";
-import { socialMediaOptions } from "../../fields/socialLinks";
+import link from "../../../fields/links/link";
+import linkArray from "../../../fields/links/linkArray";
+import { socialMediaOptions } from "../../../fields/socialLinks";
 
 const linkField = link({
   disableOpenInNewTab: true,

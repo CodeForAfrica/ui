@@ -1,4 +1,5 @@
-import slug from "../fields/slug";
+import canRead from "../../access/applications/research";
+import slug from "../../fields/slug";
 
 const Tags = {
   slug: "tag",
@@ -9,7 +10,7 @@ const Tags = {
     useAsTitle: "name",
   },
   access: {
-    read: () => true,
+    read: canRead,
   },
   fields: [
     {

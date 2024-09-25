@@ -1,5 +1,5 @@
-import image from "../../fields/image";
-import richText from "../../fields/richText";
+import image from "../../../fields/image";
+import richText from "../../../fields/richText";
 
 const GeneralTab = {
   label: "General",
