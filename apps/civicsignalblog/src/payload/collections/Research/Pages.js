@@ -5,10 +5,11 @@ import FeaturedStories from "../../blocks/FeaturedStories";
 import LongForm from "../../blocks/LongForm";
 import PageHeader from "../../blocks/PageHeader";
 import Posts from "../../blocks/Posts";
+import { RESEARCH } from "../../lib/data/common/applications";
 import pages from "../../utils/createPagesCollection";
 
 const Pages = pages({
-  pageSlug: "pages",
+  pageSlug: `${RESEARCH}-pages`,
   label: "Pages",
   group: "Publication",
   defaultColumns: ["fullTitle", "updatedAt"],
