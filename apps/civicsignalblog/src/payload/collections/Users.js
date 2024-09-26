@@ -1,9 +1,12 @@
+import payload from "payload";
+
 import { isAdmin, isAdminFieldLevel } from "../access/isAdmin";
 import {
   isAdminOrSelf,
   isAdminOrSelfFieldLevel,
 } from "../access/isAdminOrSelf";
 import { ROLE_DEFAULT, ROLE_OPTIONS } from "../access/roles";
+import applications, { RESEARCH } from "../lib/data/common/applications";
 
 const Users = {
   slug: "users",
@@ -52,6 +55,72 @@ const Users = {
         update: isAdminFieldLevel,
       },
       options: ROLE_OPTIONS,
+    },
+    {
+      name: "defaultApp",
+      type: "select",
+      defaultValue: RESEARCH,
+      hasMany: false,
+      admin: {
+        isClearable: true,
+        isSortable: true,
+      },
+      options: applications,
+    },
+    {
+      name: "currentApp",
+      defaultValue: RESEARCH,
+      type: "select",
+      hasMany: false,
+      admin: {
+        isClearable: true,
+        isSortable: true,
+      },
+      options: applications,
+    },
+  ],
+  endpoints: [
+    {
+      path: "/apps/current",
+      method: "patch",
+      handler: async (req, res) => {
+        if (!req.user) {
+          res.status(401).send({
+            error: "You need to be authenticated to perform this action",
+          });
+        }
+
+        const { selectedApp } = req.body;
+        if (!selectedApp) {
+          res.status(400).send({
+            error: `Incorrect message format was received:${JSON.stringify(req.body)}`,
+          });
+        }
+
+        const userId = req.user.id;
+        const currentUser = await payload.findByID({
+          collection: "users",
+          id: userId,
+          showHiddenFields: true,
+        });
+        if (!currentUser) {
+          res
+            .status(404)
+            .send({ error: "User with specified ID was not found" });
+        }
+
+        const updatedUser = await payload.update({
+          collection: "users",
+          id: userId,
+          data: {
+            currentApp: selectedApp || currentUser.defaultApp,
+          },
+        });
+        res.status(200).send({
+          message: "Application updated successfully",
+          currentApp: updatedUser.currentApp,
+        });
+      },
     },
   ],
 };

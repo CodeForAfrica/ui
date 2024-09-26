@@ -1,9 +1,11 @@
 import payload from "payload";
 
+import { RESEARCH } from "../../payload/lib/data/common/applications";
+
 async function findPage(slug, options) {
   return payload.find({
     ...options,
-    collection: "pages",
+    collection: `${RESEARCH}-pages`,
     where: {
       ...options?.where,
       slug: {
@@ -24,7 +26,7 @@ async function getCollection(collection, options) {
 async function findGlobal(slug, options) {
   return payload.findGlobal({
     ...options,
-    slug,
+    slug: `settings-${RESEARCH}-site`,
   });
 }
 

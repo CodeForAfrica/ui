@@ -12,15 +12,20 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import { loadEnvConfig } from "@next/env";
 
-import Authors from "./src/payload/collections/Authors";
-import Media from "./src/payload/collections/Media";
-import Pages from "./src/payload/collections/Pages";
-import Posts from "./src/payload/collections/Posts";
+import Authors from "./src/payload/collections/Research/Authors";
+import Media from "./src/payload/collections/Research/Media";
+import Pages from "./src/payload/collections/Research/Pages";
+import CivicSignalPages from "./src/payload/collections/Main/Pages";
+
+import Posts from "./src/payload/collections/Research/Posts";
 import Publication from "./src/payload/globals/Publication";
-import Site from "./src/payload/globals/Site";
-import Tags from "./src/payload/collections/Tags";
+import Research from "./src/payload/globals/Site/research";
+import Main from "./src/payload/globals/Site/main";
+import Tags from "./src/payload/collections/Research/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+
+import Actions from "./src/payload/components/actions";
 
 const dev = process.env.NODE_ENV !== "production";
 const projectDir = process.cwd();
@@ -62,9 +67,10 @@ export default buildConfig({
     Pages,
     Posts,
     Tags,
+    CivicSignalPages,
     Users,
   ] as CollectionConfig[],
-  globals: [Publication, Site] as GlobalConfig[],
+  globals: [Publication, Research, Main] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
@@ -77,6 +83,9 @@ export default buildConfig({
   admin: {
     css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
+    components: {
+      actions: [Actions],
+    },
     livePreview: {
       breakpoints: [
         {

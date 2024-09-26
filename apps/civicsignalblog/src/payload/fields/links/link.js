@@ -1,5 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
+import { RESEARCH, MAIN } from "../../lib/data/common/applications";
 import mapLinkTypeToHref from "../../utils/mapLinkTypeToHref";
 
 export async function mapLinkToHrefBeforeValidate({
@@ -72,7 +73,7 @@ const link = ({
             pt: "Documento para link para",
           },
           type: "relationship",
-          relationTo: ["pages"],
+          relationTo: [`${RESEARCH}-pages`, `${MAIN}-pages`],
           required,
           maxDepth: 1,
           admin: {
