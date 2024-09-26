@@ -4,7 +4,7 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": [
       "warn",
-      { extensions: [".jsx", ".tsx", "ts", ".tsx"] },
+      { extensions: [".js", ".jsx", "ts", ".tsx"] },
     ],
   },
   settings: {

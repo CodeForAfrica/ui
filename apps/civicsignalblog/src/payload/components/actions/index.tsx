@@ -34,6 +34,7 @@ function BeforeDashboard() {
           }
 
           const data = await response.json();
+          // eslint-disable-next-line no-undef
           window.location.replace(`/admin?app=${encodeURI(data.currentApp)}`);
         } catch (error) {
           console.error("Error updating current app:", error);
@@ -44,7 +45,7 @@ function BeforeDashboard() {
     };
 
     updateCurrentApp();
-  }, [selectedApp]);
+  }, [selectedApp, user.currentApp]);
 
   const handleChange = (event) => {
     const selectedValue = event.target.value;
@@ -64,12 +65,11 @@ function BeforeDashboard() {
           Loading...
         </p>
       ) : (
-        <>
-          <label
-            style={{ marginRight: "10px", color: "var(--theme-elevation-500)" }}
-          >
-            Application:
-          </label>
+        <label
+          htmlFor="lang"
+          style={{ marginRight: "10px", color: "var(--theme-elevation-500)" }}
+        >
+          Application:
           <select
             id="lang"
             onChange={handleChange}
@@ -89,7 +89,7 @@ function BeforeDashboard() {
               </option>
             ))}
           </select>
-        </>
+        </label>
       )}
     </div>
   );
