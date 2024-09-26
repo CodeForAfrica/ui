@@ -1,5 +1,3 @@
-import path from "path";
-
 import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
@@ -11,12 +9,11 @@ import seo from "@payloadcms/plugin-seo";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import { loadEnvConfig } from "@next/env";
-
+import resolveTsconfigPathsToAlias from "./tsconfigPathToWebpackAlias";
 import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
 import CivicSignalPages from "./src/payload/collections/Main/Pages";
-
 import Posts from "./src/payload/collections/Research/Posts";
 import Publication from "./src/payload/globals/Publication";
 import Research from "./src/payload/globals/Site/research";
@@ -24,7 +21,6 @@ import Main from "./src/payload/globals/Site/main";
 import Tags from "./src/payload/collections/Research/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
-
 import Actions from "./src/payload/components/actions";
 
 const dev = process.env.NODE_ENV !== "production";
@@ -99,6 +95,13 @@ export default buildConfig({
       ...config,
       resolve: {
         ...config.resolve,
+        alias: {
+          ...(config.resolve.alias || {}),
+          ...resolveTsconfigPathsToAlias({
+            tsConfigPath: "tsconfig.json",
+            webpackConfigBasePath: "./",
+          }),
+        },
         fallback: {
           ...config?.resolve?.fallback,
           fs: false,
