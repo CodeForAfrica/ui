@@ -2,7 +2,7 @@ name: Techlab Blog | Dev | Deploy
 
 on:
   push:
-    branches: [ft/techlabblog-workflow]
+    branches: [main]
     paths:
       - "apps/techlabblog/**"
       - "Dockerfile"
