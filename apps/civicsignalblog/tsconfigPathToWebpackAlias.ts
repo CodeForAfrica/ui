@@ -26,7 +26,7 @@ export default function resolveTsconfigPathsToAlias({
     const key = item.replace("/*", "");
     aliases[key] = resolve(
       webpackConfigBasePath,
-      paths[item][0].replace("/*", "").replace("*", ""),
+      paths[item][0].replace(/\/\*/g, "").replace(/\*/g, ""),
     );
   });
 
