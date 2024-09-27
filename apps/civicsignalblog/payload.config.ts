@@ -97,10 +97,7 @@ export default buildConfig({
         ...config.resolve,
         alias: {
           ...(config.resolve.alias || {}),
-          ...resolveTsconfigPathsToAlias({
-            tsConfigPath: "tsconfig.json",
-            webpackConfigBasePath: "./",
-          }),
+          ...resolveTsconfigPathsToAlias(),
         },
         fallback: {
           ...config?.resolve?.fallback,
