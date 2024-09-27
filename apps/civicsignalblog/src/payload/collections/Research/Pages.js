@@ -1,12 +1,12 @@
-import canRead from "../../access/applications/research";
-import CustomPageHeader from "../../blocks/CustomPageHeader";
-import Error from "../../blocks/Error";
-import FeaturedStories from "../../blocks/FeaturedStories";
-import LongForm from "../../blocks/LongForm";
-import PageHeader from "../../blocks/PageHeader";
-import Posts from "../../blocks/Posts";
-import { RESEARCH } from "../../lib/data/common/applications";
-import pages from "../../utils/createPagesCollection";
+import canRead from "@/civicsignalblog/payload/access/applications/research";
+import CustomPageHeader from "@/civicsignalblog/payload/blocks/CustomPageHeader";
+import Error from "@/civicsignalblog/payload/blocks/Error";
+import FeaturedStories from "@/civicsignalblog/payload/blocks/FeaturedStories";
+import LongForm from "@/civicsignalblog/payload/blocks/LongForm";
+import PageHeader from "@/civicsignalblog/payload/blocks/PageHeader";
+import Posts from "@/civicsignalblog/payload/blocks/Posts";
+import { RESEARCH } from "@/civicsignalblog/payload/lib/data/common/applications";
+import pages from "@/civicsignalblog/payload/utils/createPagesCollection";
 
 const Pages = pages({
   pageSlug: `${RESEARCH}-pages`,

@@ -1,5 +1,4 @@
-import canAccessApplication from "../canAccessApplication";
-
+import canAccessApplication from "@/civicsignalblog/payload/access/canAccessApplication";
 import { MAIN } from "@/civicsignalblog/payload/lib/data/common/applications";
 
 const canRead = ({ req: { user } }) => {

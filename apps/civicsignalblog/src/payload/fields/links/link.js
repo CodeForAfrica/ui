@@ -1,7 +1,10 @@
 import { deepmerge } from "@mui/utils";
 
-import { RESEARCH, MAIN } from "../../lib/data/common/applications";
-import mapLinkTypeToHref from "../../utils/mapLinkTypeToHref";
+import {
+  RESEARCH,
+  MAIN,
+} from "@/civicsignalblog/payload/lib/data/common/applications";
+import mapLinkTypeToHref from "@/civicsignalblog/payload/utils/mapLinkTypeToHref";
 
 export async function mapLinkToHrefBeforeValidate({
   siblingData,

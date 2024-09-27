@@ -1,11 +1,11 @@
-import canRead from "../../access/applications/research";
-import authors from "../../fields/authors";
-import content from "../../fields/content";
-import image from "../../fields/image";
-import publishedOn from "../../fields/publishedOn";
-import slug from "../../fields/slug";
-import tags from "../../fields/tags";
-import formatDraftUrl from "../../utils/formatDraftUrl";
+import canRead from "@/civicsignalblog/payload/access/applications/research";
+import authors from "@/civicsignalblog/payload/fields/authors";
+import content from "@/civicsignalblog/payload/fields/content";
+import image from "@/civicsignalblog/payload/fields/image";
+import publishedOn from "@/civicsignalblog/payload/fields/publishedOn";
+import slug from "@/civicsignalblog/payload/fields/slug";
+import tags from "@/civicsignalblog/payload/fields/tags";
+import formatDraftUrl from "@/civicsignalblog/payload/utils/formatDraftUrl";
 
 const Posts = {
   slug: "posts",

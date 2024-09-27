@@ -1,4 +1,4 @@
-import canRead from "../../access/applications/research";
+import canRead from "@/civicsignalblog/payload/access/applications/research";
 
 const Authors = {
   slug: "author",

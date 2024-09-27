@@ -659,31 +659,31 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.7.23(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.7.23(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.2(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
+        version: 1.7.2(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.621.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.1.3(@aws-sdk/client-s3@3.645.0)(@aws-sdk/lib-storage@3.645.0(@aws-sdk/client-s3@3.645.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
+        version: 1.1.3(@aws-sdk/client-s3@3.645.0)(@aws-sdk/lib-storage@3.645.0(@aws-sdk/client-s3@3.645.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
+        version: 1.0.12(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(react@18.3.1)
+        version: 0.0.6(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(react@18.3.1)
+        version: 2.3.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-spring/web':
         specifier: 'catalog:'
         version: 9.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 8.28.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5)))
+        version: 8.28.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
       airtable:
         specifier: 'catalog:'
         version: 0.12.2(encoding@0.1.13)
@@ -698,7 +698,7 @@ importers:
         version: 1.9.4
       migrate-mongo:
         specifier: 'catalog:'
-        version: 11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0)))
+        version: 11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.621.0)))
       monaco-editor:
         specifier: 'catalog:'
         version: 0.51.0
@@ -713,7 +713,7 @@ importers:
         version: 1.0.3
       payload:
         specifier: 'catalog:'
-        version: 2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5)))
+        version: 2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -798,7 +798,7 @@ importers:
         version: link:../../packages/eslint-config-commons-ui
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.29.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5)))
+        version: 0.13.9(eslint-plugin-import@2.29.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.29.1(eslint-import-resolver-webpack@0.13.9)(eslint@8.57.0)
@@ -828,7 +828,7 @@ importers:
         version: 5.5.4
       webpack:
         specifier: 'catalog:'
-        version: 5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
+        version: 5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)
 
   apps/civicsignalblog:
     dependencies:
@@ -873,10 +873,10 @@ importers:
         version: 14.2.8(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.7.23(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.7.23(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.2(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
+        version: 1.7.2(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
       '@payloadcms/live-preview':
         specifier: 'catalog:'
         version: 0.2.2
@@ -885,22 +885,22 @@ importers:
         version: 0.2.0(react@18.3.1)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.1.3(@aws-sdk/client-s3@3.645.0)(@aws-sdk/lib-storage@3.645.0(@aws-sdk/client-s3@3.645.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
+        version: 1.1.3(@aws-sdk/client-s3@3.645.0)(@aws-sdk/lib-storage@3.645.0(@aws-sdk/client-s3@3.645.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
+        version: 1.0.12(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(react@18.3.1)
+        version: 0.0.6(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(react@18.3.1)
+        version: 2.3.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 8.28.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
+        version: 8.28.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.52.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.25.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@14.2.8(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5)))
       camelcase-keys:
         specifier: 'catalog:'
         version: 9.1.3
@@ -933,7 +933,7 @@ importers:
         version: 1.0.3
       payload:
         specifier: 'catalog:'
-        version: 2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
+        version: 2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5)))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -997,7 +997,7 @@ importers:
         version: link:../../packages/eslint-config-commons-ui
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.29.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
+        version: 0.13.9(eslint-plugin-import@2.29.1)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5)))
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.29.1(eslint-import-resolver-webpack@0.13.9)(eslint@8.57.0)
@@ -1022,15 +1022,18 @@ importers:
       ts-node:
         specifier: 'catalog:'
         version: 10.9.2(@swc/core@1.7.23(@swc/helpers@0.5.5))(@types/node@20.14.14)(typescript@5.5.4)
+      tsc-alias:
+        specifier: 'catalog:'
+        version: 1.8.10
       tsconfig-paths:
-        specifier: ^4.2.0
+        specifier: 'catalog:'
         version: 4.2.0
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
       webpack:
         specifier: 'catalog:'
-        version: 5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)
+        version: 5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))))
 
   apps/climatemappedafrica:
     dependencies:
@@ -14670,7 +14673,7 @@ snapshots:
       '@aws-crypto/sha1-browser': 5.2.0
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
-      '@aws-sdk/client-sso-oidc': 3.645.0(@aws-sdk/client-sts@3.645.0)
+      '@aws-sdk/client-sso-oidc': 3.645.0(@aws-sdk/client-sts@3.621.0)
       '@aws-sdk/client-sts': 3.645.0
       '@aws-sdk/core': 3.635.0
       '@aws-sdk/credential-provider-node': 3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.645.0)
@@ -14772,7 +14775,51 @@ snapshots:
       tslib: 2.6.3
     transitivePeerDependencies:
       - aws-crt
-    optional: true
+
+  '@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.621.0)':
+    dependencies:
+      '@aws-crypto/sha256-browser': 5.2.0
+      '@aws-crypto/sha256-js': 5.2.0
+      '@aws-sdk/client-sts': 3.621.0
+      '@aws-sdk/core': 3.635.0
+      '@aws-sdk/credential-provider-node': 3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.621.0)
+      '@aws-sdk/middleware-host-header': 3.620.0
+      '@aws-sdk/middleware-logger': 3.609.0
+      '@aws-sdk/middleware-recursion-detection': 3.620.0
+      '@aws-sdk/middleware-user-agent': 3.645.0
+      '@aws-sdk/region-config-resolver': 3.614.0
+      '@aws-sdk/types': 3.609.0
+      '@aws-sdk/util-endpoints': 3.645.0
+      '@aws-sdk/util-user-agent-browser': 3.609.0
+      '@aws-sdk/util-user-agent-node': 3.614.0
+      '@smithy/config-resolver': 3.0.5
+      '@smithy/core': 2.4.0
+      '@smithy/fetch-http-handler': 3.2.4
+      '@smithy/hash-node': 3.0.3
+      '@smithy/invalid-dependency': 3.0.3
+      '@smithy/middleware-content-length': 3.0.5
+      '@smithy/middleware-endpoint': 3.1.0
+      '@smithy/middleware-retry': 3.0.15
+      '@smithy/middleware-serde': 3.0.3
+      '@smithy/middleware-stack': 3.0.3
+      '@smithy/node-config-provider': 3.1.4
+      '@smithy/node-http-handler': 3.1.4
+      '@smithy/protocol-http': 4.1.0
+      '@smithy/smithy-client': 3.2.0
+      '@smithy/types': 3.3.0
+      '@smithy/url-parser': 3.0.3
+      '@smithy/util-base64': 3.0.0
+      '@smithy/util-body-length-browser': 3.0.0
+      '@smithy/util-body-length-node': 3.0.0
+      '@smithy/util-defaults-mode-browser': 3.0.15
+      '@smithy/util-defaults-mode-node': 3.0.15
+      '@smithy/util-endpoints': 2.0.5
+      '@smithy/util-middleware': 3.0.3
+      '@smithy/util-retry': 3.0.3
+      '@smithy/util-utf8': 3.0.0
+      tslib: 2.6.3
+    transitivePeerDependencies:
+      - aws-crt
 
   '@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0)':
     dependencies:
@@ -14861,7 +14908,6 @@ snapshots:
       tslib: 2.6.3
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/client-sso@3.645.0':
     dependencies:
@@ -14950,7 +14996,6 @@ snapshots:
       tslib: 2.6.3
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/client-sts@3.645.0':
     dependencies:
@@ -15008,7 +15053,6 @@ snapshots:
       '@smithy/util-middleware': 3.0.3
       fast-xml-parser: 4.4.1
       tslib: 2.6.3
-    optional: true
 
   '@aws-sdk/core@3.635.0':
     dependencies:
@@ -15052,7 +15096,6 @@ snapshots:
       '@smithy/types': 3.3.0
       '@smithy/util-stream': 3.1.3
       tslib: 2.6.3
-    optional: true
 
   '@aws-sdk/credential-provider-http@3.635.0':
     dependencies:
@@ -15083,7 +15126,6 @@ snapshots:
     transitivePeerDependencies:
       - '@aws-sdk/client-sso-oidc'
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-ini@3.621.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.621.0)':
     dependencies:
@@ -15103,6 +15145,24 @@ snapshots:
       - '@aws-sdk/client-sso-oidc'
       - aws-crt
     optional: true
+
+  '@aws-sdk/credential-provider-ini@3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.621.0)':
+    dependencies:
+      '@aws-sdk/client-sts': 3.621.0
+      '@aws-sdk/credential-provider-env': 3.620.1
+      '@aws-sdk/credential-provider-http': 3.635.0
+      '@aws-sdk/credential-provider-process': 3.620.1
+      '@aws-sdk/credential-provider-sso': 3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))
+      '@aws-sdk/credential-provider-web-identity': 3.621.0(@aws-sdk/client-sts@3.621.0)
+      '@aws-sdk/types': 3.609.0
+      '@smithy/credential-provider-imds': 3.2.0
+      '@smithy/property-provider': 3.1.3
+      '@smithy/shared-ini-file-loader': 3.1.4
+      '@smithy/types': 3.3.0
+      tslib: 2.6.3
+    transitivePeerDependencies:
+      - '@aws-sdk/client-sso-oidc'
+      - aws-crt
 
   '@aws-sdk/credential-provider-ini@3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.645.0)':
     dependencies:
@@ -15140,7 +15200,6 @@ snapshots:
       - '@aws-sdk/client-sso-oidc'
       - '@aws-sdk/client-sts'
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-node@3.621.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.621.0)':
     dependencies:
@@ -15161,6 +15220,25 @@ snapshots:
       - '@aws-sdk/client-sts'
       - aws-crt
     optional: true
+
+  '@aws-sdk/credential-provider-node@3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.621.0)':
+    dependencies:
+      '@aws-sdk/credential-provider-env': 3.620.1
+      '@aws-sdk/credential-provider-http': 3.635.0
+      '@aws-sdk/credential-provider-ini': 3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.621.0)
+      '@aws-sdk/credential-provider-process': 3.620.1
+      '@aws-sdk/credential-provider-sso': 3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))
+      '@aws-sdk/credential-provider-web-identity': 3.621.0(@aws-sdk/client-sts@3.621.0)
+      '@aws-sdk/types': 3.609.0
+      '@smithy/credential-provider-imds': 3.2.0
+      '@smithy/property-provider': 3.1.3
+      '@smithy/shared-ini-file-loader': 3.1.4
+      '@smithy/types': 3.3.0
+      tslib: 2.6.3
+    transitivePeerDependencies:
+      - '@aws-sdk/client-sso-oidc'
+      - '@aws-sdk/client-sts'
+      - aws-crt
 
   '@aws-sdk/credential-provider-node@3.645.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))(@aws-sdk/client-sts@3.645.0)':
     dependencies:
@@ -15201,7 +15279,6 @@ snapshots:
     transitivePeerDependencies:
       - '@aws-sdk/client-sso-oidc'
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-sso@3.621.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))':
     dependencies:
@@ -15237,7 +15314,6 @@ snapshots:
       '@smithy/property-provider': 3.1.3
       '@smithy/types': 3.3.0
       tslib: 2.6.3
-    optional: true
 
   '@aws-sdk/credential-provider-web-identity@3.621.0(@aws-sdk/client-sts@3.645.0)':
     dependencies:
@@ -15246,29 +15322,6 @@ snapshots:
       '@smithy/property-provider': 3.1.3
       '@smithy/types': 3.3.0
       tslib: 2.6.3
-
-  '@aws-sdk/credential-providers@3.621.0(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))':
-    dependencies:
-      '@aws-sdk/client-cognito-identity': 3.621.0
-      '@aws-sdk/client-sso': 3.621.0
-      '@aws-sdk/client-sts': 3.621.0
-      '@aws-sdk/credential-provider-cognito-identity': 3.621.0
-      '@aws-sdk/credential-provider-env': 3.620.1
-      '@aws-sdk/credential-provider-http': 3.621.0
-      '@aws-sdk/credential-provider-ini': 3.621.0(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))(@aws-sdk/client-sts@3.621.0)
-      '@aws-sdk/credential-provider-node': 3.621.0(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))(@aws-sdk/client-sts@3.621.0)
-      '@aws-sdk/credential-provider-process': 3.620.1
-      '@aws-sdk/credential-provider-sso': 3.621.0(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))
-      '@aws-sdk/credential-provider-web-identity': 3.621.0(@aws-sdk/client-sts@3.621.0)
-      '@aws-sdk/types': 3.609.0
-      '@smithy/credential-provider-imds': 3.2.0
-      '@smithy/property-provider': 3.1.3
-      '@smithy/types': 3.3.0
-      tslib: 2.6.3
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-    optional: true
 
   '@aws-sdk/credential-providers@3.621.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))':
     dependencies:
@@ -15388,7 +15441,6 @@ snapshots:
       '@smithy/protocol-http': 4.1.0
       '@smithy/types': 3.3.0
       tslib: 2.6.3
-    optional: true
 
   '@aws-sdk/middleware-user-agent@3.645.0':
     dependencies:
@@ -15424,11 +15476,10 @@ snapshots:
       '@smithy/shared-ini-file-loader': 3.1.4
       '@smithy/types': 3.3.0
       tslib: 2.6.3
-    optional: true
 
   '@aws-sdk/token-providers@3.614.0(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))':
     dependencies:
-      '@aws-sdk/client-sso-oidc': 3.645.0(@aws-sdk/client-sts@3.645.0)
+      '@aws-sdk/client-sso-oidc': 3.645.0(@aws-sdk/client-sts@3.621.0)
       '@aws-sdk/types': 3.609.0
       '@smithy/property-provider': 3.1.3
       '@smithy/shared-ini-file-loader': 3.1.4
@@ -15450,7 +15501,6 @@ snapshots:
       '@smithy/types': 3.3.0
       '@smithy/util-endpoints': 2.0.5
       tslib: 2.6.3
-    optional: true
 
   '@aws-sdk/util-endpoints@3.645.0':
     dependencies:
@@ -18357,13 +18407,13 @@ snapshots:
       - utf-8-validate
       - webpack-dev-server
 
-  '@payloadcms/db-mongodb@1.7.2(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))':
+  '@payloadcms/db-mongodb@1.7.2(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.621.0))(payload@2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))':
     dependencies:
       bson-objectid: 2.0.4
       deepmerge: 4.3.1
       get-port: 5.1.1
       http-status: 1.6.2
-      mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))
+      mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
       payload: 2.28.0(@swc/helpers@0.5.5)(@types/react@18.3.5)(encoding@0.1.13)(typescript@5.5.4)(webpack@5.93.0(@swc/core@1.7.23(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
@@ -26252,7 +26302,7 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  migrate-mongo@11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0))):
+  migrate-mongo@11.0.0(mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.621.0))):
     dependencies:
       cli-table3: 0.6.5
       commander: 9.5.0
@@ -26398,18 +26448,6 @@ snapshots:
       '@types/whatwg-url': 8.2.2
       whatwg-url: 11.0.0
 
-  mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0)):
-    dependencies:
-      bson: 4.7.2
-      mongodb-connection-string-url: 2.6.0
-      socks: 2.8.3
-    optionalDependencies:
-      '@aws-sdk/credential-providers': 3.621.0(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))
-      '@mongodb-js/saslprep': 1.1.8
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-
   mongodb@4.17.1(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0)):
     dependencies:
       bson: 4.7.2
@@ -26425,20 +26463,6 @@ snapshots:
   mongoose-aggregate-paginate-v2@1.0.6: {}
 
   mongoose-paginate-v2@1.7.22: {}
-
-  mongoose@6.12.3(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0)):
-    dependencies:
-      bson: 4.7.2
-      kareem: 2.5.1
-      mongodb: 4.17.1(@aws-sdk/client-sso-oidc@3.621.0(@aws-sdk/client-sts@3.621.0))
-      mpath: 0.9.0
-      mquery: 4.0.3
-      ms: 2.1.3
-      sift: 16.0.1
-    transitivePeerDependencies:
-      - '@aws-sdk/client-sso-oidc'
-      - aws-crt
-      - supports-color
 
   mongoose@6.12.3(@aws-sdk/client-sso-oidc@3.645.0(@aws-sdk/client-sts@3.645.0)):
     dependencies:

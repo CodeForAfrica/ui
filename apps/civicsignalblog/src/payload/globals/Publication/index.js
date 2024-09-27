@@ -1,6 +1,6 @@
-import canRead from "../../access/applications/research";
-
 import PostTab from "./PostTab";
+
+import canRead from "@/civicsignalblog/payload/access/applications/research";
 
 const Publication = {
   slug: "settings-publication",
