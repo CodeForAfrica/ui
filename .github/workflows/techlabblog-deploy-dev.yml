@@ -1,4 +1,4 @@
-name: Techlab Blog | Deploy Dev
+name: Techlab Blog | Dev | Deploy
 
 on:
   push:
@@ -13,38 +13,23 @@ concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: true
 
-env:
-  SENTRY_ENVIRONMENT: "development"
-
 jobs:
-  env-setup:
-    name: Environment Setup
-    runs-on: ubuntu-latest
-    outputs:
-      SENTRY_ENVIRONMENT: ${{ steps.env-setup.outputs.SENTRY_ENVIRONMENT }}
-    steps:
-      - name: Environment Setup
-        id: env-setup
-        run: |
-          echo "SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}" >> $GITHUB_ENV
-
   build-docker-image:
     name: Build Docker Image
-    needs: [env-setup]
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
     with:
       tags: "codeforafrica/techlabblog:${{ github.sha }}"
       target: "techlabblog-runner"
       build_args: |
-        SENTRY_ENVIRONMENT=${{ needs.env-setup.outputs.SENTRY_ENVIRONMENT }}
+        SENTRY_ENVIRONMENT=development
         SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
 
   push-to-dokku:
     name: Push to Dokku
-    needs: [build-docker-image, env-setup]
+    needs: [build-docker-image]
     uses: ./.github/workflows/push-to-dokku.yml
     secrets: inherit
     with:
-      remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog"
-      image_name: "codeforafrica/techlabblog:${{ github.sha }}"
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog-ui"
+      deploy_docker_image: "codeforafrica/techlabblog:${{ github.sha }}"
