@@ -24,7 +24,7 @@ module.exports = {
     extensions: [".js"],
   },
   typescript: {
-    alwaysTryTypes: true,
+    alwaysTryTypes: false,
     project: "./",
   },
 };

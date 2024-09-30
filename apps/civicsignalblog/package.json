@@ -110,7 +110,7 @@
       "dev": [
         "./src/*.js"
       ],
-      "prod": [
+      "default": [
         "./dist/src/*.js"
       ]
     }
