@@ -4,8 +4,12 @@ import { getPost } from "@/techlabblog/lib/data";
 import PostHeader from "@/techlabblog/components/PostHeader";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const { default: PostContent, frontmatter } = await getPost(params.slug);
-
+  const postModule = await getPost(params.slug);
+  if (!postModule) {
+    // TODO(kilemensi): 404
+    return null;
+  }
+  const { default: PostContent, frontmatter } = postModule;
   return (
     <Section
       sx={{
@@ -13,7 +17,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         py: { xs: 2.5, sm: 5 },
       }}
     >
-      <PostHeader {...frontmatter} />
+      {frontmatter ? <PostHeader {...frontmatter} /> : null}
       <PostContent />
     </Section>
   );

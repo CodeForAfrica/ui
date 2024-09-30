@@ -1,8 +1,8 @@
 import type { SxProps, Theme } from "@mui/material/styles";
 
-import { PostFrontMatterProps } from "@/techlabblog/lib/data";
+import { Post } from "@/techlabblog/lib/data";
 
-interface PostSxProps extends PostFrontMatterProps {
+interface PostSxProps extends Post {
   sx?: SxProps<Theme>;
 }
 

@@ -33,7 +33,7 @@ function createHeading(variant: Variant): HTMLHeadingElement {
   );
 }
 
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function useMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     h1: createHeading("h1"),
     h2: createHeading("h2"),
