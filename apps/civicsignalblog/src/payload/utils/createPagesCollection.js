@@ -1,7 +1,7 @@
 import formatDraftUrl from "./formatDraftUrl";
 
-import fullTitle from "@/civicsignalblog/payload/fields/fullTitle";
-import slug from "@/civicsignalblog/payload/fields/slug";
+import fullTitle from "#civicsignalblog/payload/fields/fullTitle/index";
+import slug from "#civicsignalblog/payload/fields/slug/index";
 
 const Pages = ({
   pageSlug,

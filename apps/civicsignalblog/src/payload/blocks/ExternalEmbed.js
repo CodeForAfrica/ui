@@ -1,4 +1,4 @@
-import blockFields from "@/civicsignalblog/payload/fields/blockFields";
+import blockFields from "#civicsignalblog/payload/fields/blockFields";
 
 const ExternalEmbed = {
   slug: "external-embed",

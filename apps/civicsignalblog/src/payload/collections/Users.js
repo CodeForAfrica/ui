@@ -3,18 +3,18 @@ import payload from "payload";
 import {
   isAdmin,
   isAdminFieldLevel,
-} from "@/civicsignalblog/payload/access/isAdmin";
+} from "#civicsignalblog/payload/access/isAdmin";
 import {
   isAdminOrSelf,
   isAdminOrSelfFieldLevel,
-} from "@/civicsignalblog/payload/access/isAdminOrSelf";
+} from "#civicsignalblog/payload/access/isAdminOrSelf";
 import {
   ROLE_DEFAULT,
   ROLE_OPTIONS,
-} from "@/civicsignalblog/payload/access/roles";
+} from "#civicsignalblog/payload/access/roles";
 import applications, {
   RESEARCH,
-} from "@/civicsignalblog/payload/lib/data/common/applications";
+} from "#civicsignalblog/payload/lib/data/common/applications";
 
 const Users = {
   slug: "users",

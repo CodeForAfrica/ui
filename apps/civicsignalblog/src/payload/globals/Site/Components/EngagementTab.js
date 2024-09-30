@@ -1,4 +1,4 @@
-import socialLinks from "@/civicsignalblog/payload/fields/socialLinks";
+import socialLinks from "#civicsignalblog/payload/fields/socialLinks";
 
 const EngagementTab = {
   label: "Engagement",

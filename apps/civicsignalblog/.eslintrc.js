@@ -12,6 +12,10 @@ module.exports = {
       webpack: {
         config: "./eslint.webpack.config.js",
       },
+      typescript: {
+        alwaysTryTypes: false,
+        project: "./tsconfig.json",
+      },
     },
   },
 };

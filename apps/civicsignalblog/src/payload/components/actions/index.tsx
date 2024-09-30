@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import applications, {
   RESEARCH,
-} from "@/civicsignalblog/payload/lib/data/common/applications";
+} from "#civicsignalblog/payload/lib/data/common/applications";
 
 function BeforeDashboard() {
   const { user } = useAuth();

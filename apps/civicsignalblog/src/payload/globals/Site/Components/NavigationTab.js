@@ -1,6 +1,6 @@
-import link from "@/civicsignalblog/payload/fields/links/link";
-import linkArray from "@/civicsignalblog/payload/fields/links/linkArray";
-import { socialMediaOptions } from "@/civicsignalblog/payload/fields/socialLinks";
+import link from "#civicsignalblog/payload/fields/links/link";
+import linkArray from "#civicsignalblog/payload/fields/links/linkArray";
+import { socialMediaOptions } from "#civicsignalblog/payload/fields/socialLinks";
 
 const linkField = link({
   disableOpenInNewTab: true,

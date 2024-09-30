@@ -21,11 +21,11 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "build-server": "tsc --project tsconfig.server.json && tsc-alias -p tsconfig.server.json",
+    "build-server": "tsc --project tsconfig.server.json",
     "build-next": "NEXT_BUILD=true pnpm build-server && NEXT_BUILD=true PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} node dist/server.js",
     "build-payload": "payload build",
     "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
-    "dev": "NODE_OPTIONS='--inspect' ts-node --project tsconfig.server.json -r tsconfig-paths/register server.ts",
+    "dev": "NODE_OPTIONS='--inspect --conditions=dev' ts-node --project tsconfig.server.json server.ts",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
     "jest": "jest",
@@ -89,6 +89,7 @@
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
+    "eslint-import-resolver-typescript": "catalog:",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
     "identity-obj-proxy": "catalog:",
@@ -98,12 +99,20 @@
     "prettier": "catalog:",
     "react-test-renderer": "catalog:",
     "ts-node": "catalog:",
-    "tsc-alias": "catalog:",
-    "tsconfig-paths": "catalog:",
     "typescript": "catalog:",
     "webpack": "catalog:"
   },
   "engines": {
     "node": "20.x"
+  },
+  "imports": {
+    "#civicsignalblog/*": {
+      "dev": [
+        "./src/*.js"
+      ],
+      "prod": [
+        "./dist/src/*.js"
+      ]
+    }
   }
 }

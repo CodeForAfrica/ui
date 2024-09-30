@@ -1,6 +1,6 @@
 import { slateEditor } from "@payloadcms/richtext-slate";
 
-import richText from "@/civicsignalblog/payload/fields/richText";
+import richText from "#civicsignalblog/payload/fields/richText";
 
 const Error = {
   slug: "error",

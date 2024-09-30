@@ -9,7 +9,6 @@ import seo from "@payloadcms/plugin-seo";
 import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import { loadEnvConfig } from "@next/env";
-import resolveTsconfigPathsToAlias from "./tsconfigPathToWebpackAlias";
 import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
@@ -22,6 +21,7 @@ import Tags from "./src/payload/collections/Research/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import Actions from "./src/payload/components/actions";
+import path from "path";
 
 const dev = process.env.NODE_ENV !== "production";
 const projectDir = process.cwd();
@@ -96,8 +96,8 @@ export default buildConfig({
       resolve: {
         ...config.resolve,
         alias: {
-          ...(config.resolve.alias || {}),
-          ...resolveTsconfigPathsToAlias(),
+          ...config.resolve.alias,
+          "#civicsignalblog": path.resolve(__dirname, "src"),
         },
         fallback: {
           ...config?.resolve?.fallback,
