@@ -17,8 +17,7 @@
     "paths": {
       "@/civicsignalblog/*": ["./src/*"],
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
-      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"],
-      "#civicsignalblog/*": ["./src/*.js"]
+      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
