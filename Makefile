@@ -33,5 +33,9 @@ pesayetu:
 roboshield:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/roboshield/.env.local up roboshield --build
 
+techlabblog:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/techlabblog/.env.local up techlabblog --build
+
 vpnmanager:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/vpnmanager/.env.local up vpnmanager --build
+

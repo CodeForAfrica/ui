@@ -1,7 +1,9 @@
+import canRead from "../../access/applications/research";
+
 const Authors = {
   slug: "author",
   access: {
-    read: () => true,
+    read: canRead,
   },
   admin: {
     defaultColumns: ["fullName", "updatedAt"],

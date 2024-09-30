@@ -4,6 +4,10 @@
     {
       "command": "node contrib/dokku/scripts/processGsheet.mjs",
       "schedule": "@hourly"
+    },
+    {
+      "command": "node contrib/dokku/scripts/processStats.mjs",
+      "schedule": "0 23 * * *"
     }
   ]
 }

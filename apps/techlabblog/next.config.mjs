@@ -4,6 +4,7 @@ import { rehypePlugins, remarkPlugins } from "./mdx.config.mjs";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   pageExtensions: ["mdx", "tsx"],
   reactStrictMode: true,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],

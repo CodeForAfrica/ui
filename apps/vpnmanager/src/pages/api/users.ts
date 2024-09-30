@@ -1,10 +1,9 @@
 import { NextApiResponse, NextApiRequest } from "next";
-import { processUserStats, getStats } from "@/vpnmanager/lib/statistics";
+import { processNewUsers } from "@/vpnmanager/lib/processUsers";
 import { RestMethodFunctions, RestMethods } from "@/vpnmanager/types";
 
 const methodToFunction: RestMethodFunctions = {
-  POST: processUserStats,
-  GET: getStats,
+  POST: processNewUsers,
 };
 
 export async function handler(req: NextApiRequest, res: NextApiResponse) {
