@@ -1,0 +1,35 @@
+name: Techlab Blog | Dev | Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/techlabblog/**"
+      - "Dockerfile"
+      - ".github/workflows/techlabblog-deploy-dev.yml"
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build-docker-image:
+    name: Build Docker Image
+    uses: ./.github/workflows/build-docker-image.yml
+    secrets: inherit
+    with:
+      tags: "codeforafrica/techlabblog:${{ github.sha }}"
+      target: "techlabblog-runner"
+      build_args: |
+        SENTRY_ENVIRONMENT=development
+        SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
+
+  push-to-dokku:
+    name: Push to Dokku
+    needs: [build-docker-image]
+    uses: ./.github/workflows/push-to-dokku.yml
+    secrets: inherit
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog-ui"
+      deploy_docker_image: "codeforafrica/techlabblog:${{ github.sha }}"

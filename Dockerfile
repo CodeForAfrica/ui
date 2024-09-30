@@ -813,4 +813,78 @@ USER nextjs
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/vpnmanager/server.js"]
 
+# ============================================================================
+# Techlab Blog
+# ============================================================================
+
+#
+# techlabblog-deps: image with all techlabblog dependencies
+# -----------------------------------------------------
+
+FROM base-deps AS techlabblog-deps
+
+COPY apps/techlabblog/package.json ./apps/techlabblog/package.json
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/techlabblog" install --offline --frozen-lockfile
+
+#
+# techlabblog-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS techlabblog-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="Techlab Blog" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=techlabblog-deps /workspace/node_modules ./node_modules
+
+COPY --from=techlabblog-deps /workspace/apps/techlabblog/node_modules ./apps/techlabblog/node_modules
+
+COPY apps/techlabblog ./apps/techlabblog
+
+RUN pnpm --filter "./apps/techlabblog" build
+
+#
+# techlabblog-runner: final deployable image
+# -----------------------------------------
+
+FROM base-runner AS techlabblog-runner
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/techlabblog/.next \
+  && chown nextjs:nodejs ./apps/techlabblog/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Next.js
+# Public assets
+COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/public ./apps/techlabblog/public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/standalone ./apps/techlabblog
+COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/static ./apps/techlabblog/.next/static
+USER nextjs
+
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/techlabblog/server.js"]
+
 

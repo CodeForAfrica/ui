@@ -1537,7 +1537,7 @@ importers:
         version: 14.2.13
       '@next/third-parties':
         specifier: 'catalog:'
-        version: 14.2.13(next@14.2.13(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
+        version: 14.2.13(next@14.2.13(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.7.26(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.5)(@types/react@18.3.10)(encoding@0.1.13)(typescript@5.6.2)(webpack@5.95.0(@swc/core@1.7.26(@swc/helpers@0.5.5))))(sass@1.69.4)
@@ -1713,6 +1713,9 @@ importers:
       '@next/mdx':
         specifier: 'catalog:'
         version: 14.2.13(@mdx-js/loader@3.0.1(webpack@5.95.0))(@mdx-js/react@3.0.1(@types/react@18.3.10)(react@18.3.1))
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 14.2.13(next@14.2.13(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@types/mdx':
         specifier: 'catalog:'
         version: 2.0.13
@@ -16855,6 +16858,12 @@ snapshots:
       react: 18.3.1
       third-party-capital: 1.0.20
 
+  '@next/third-parties@14.2.13(next@14.2.13(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)':
+    dependencies:
+      next: 14.2.13(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
+      react: 18.3.1
+      third-party-capital: 1.0.20
+
   '@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1':
     dependencies:
       eslint-scope: 5.1.1
@@ -19238,7 +19247,7 @@ snapshots:
 
   '@types/better-sqlite3@7.6.11':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/body-parser@1.19.5':
     dependencies:
@@ -19249,7 +19258,7 @@ snapshots:
 
   '@types/concat-stream@2.0.3':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/connect@3.4.36':
     dependencies:
@@ -19261,7 +19270,7 @@ snapshots:
 
   '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/d3-array@3.2.1': {}
 
@@ -19337,7 +19346,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/hast@2.3.10':
     dependencies:
@@ -19427,7 +19436,7 @@ snapshots:
 
   '@types/nodemailer@6.4.16':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/parse-json@4.0.2': {}
 
@@ -19508,7 +19517,7 @@ snapshots:
 
   '@types/whatwg-url@8.2.2':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       '@types/webidl-conversions': 7.0.3
 
   '@types/yargs-parser@21.0.3': {}
@@ -20488,7 +20497,7 @@ snapshots:
   buffer@4.9.2:
     dependencies:
       base64-js: 1.5.1
-      ieee754: 1.1.13
+      ieee754: 1.2.1
       isarray: 1.0.0
 
   buffer@5.6.0:
@@ -23997,7 +24006,7 @@ snapshots:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.3(babel-plugin-macros@3.1.0)
@@ -24106,7 +24115,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -24298,7 +24307,7 @@ snapshots:
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -29981,7 +29990,7 @@ snapshots:
 
   xml2js@0.6.2:
     dependencies:
-      sax: 1.2.1
+      sax: 1.4.1
       xmlbuilder: 11.0.1
 
   xmlbuilder@11.0.1: {}
