@@ -1,5 +1,6 @@
 import { compile, run } from "@mdx-js/mdx";
 import { promises as fs } from "fs";
+import type { PathLike } from "fs";
 import type { MDXModule } from "mdx/types";
 import path from "path";
 import * as runtime from "react/jsx-runtime";
@@ -7,23 +8,37 @@ import * as runtime from "react/jsx-runtime";
 import { useMDXComponents } from "@/techlabblog/mdx-components";
 import { rehypePlugins, remarkPlugins } from "@/techlabblog/mdx.config.mjs";
 
-export type AuthorFrontMatterProps = {
+const PUBLICATION_DIR = ["content", "publication"];
+
+export type Author = {
   fullName: string;
   twitter: string;
   slug: string;
 };
 
-export type PostFrontMatterProps = {
+type PostFrontMatter = {
   title: string;
   excerpt: string;
   publishedDate: string;
   featuredImage: string;
   slug: string;
-  authors: AuthorFrontMatterProps[] | null;
+  authors: string[] | null;
 };
 
-async function readMdFile(filePath: string): Promise<MDXModule> {
-  const fileContent = await fs.readFile(filePath, "utf8");
+export interface Post extends Omit<PostFrontMatter, "authors"> {
+  authors: Author[] | null;
+}
+
+export interface MDXFrontMatterModule<T> extends MDXModule {
+  frontmatter?: T;
+}
+
+export type PostModule = MDXFrontMatterModule<Post>;
+
+async function readMdFile<T>(
+  ...paths: string[]
+): Promise<MDXFrontMatterModule<T>> {
+  const fileContent = await fs.readFile(path.join(...paths), "utf8");
   const vfile = await compile(fileContent, {
     outputFormat: "function-body",
     providerImportSource: "../../mdx-components.tsx",
@@ -33,70 +48,99 @@ async function readMdFile(filePath: string): Promise<MDXModule> {
   return run(vfile, { ...runtime, useMDXComponents });
 }
 
-async function listMdxFilesRecursively(dir: string): Promise<string[]> {
+async function listMdxFilesRecursively(dir: PathLike): Promise<string[]> {
   const files = await fs.readdir(dir, { recursive: true });
   return files.filter((f) =>
     [".md", ".mdx"].includes(path.extname(f.toLowerCase())),
   );
 }
 
-export async function getAuthors(): Promise<PostFrontMatterProps[]> {
+export async function getAuthors(): Promise<Author[]> {
   const cwd = process.cwd();
-  const postsDir = path.join(cwd, "content", "publication", "authors");
-  const mdxFiles = await listMdxFilesRecursively(postsDir);
-  const authorsPromises = mdxFiles.map(async (fileName) => {
-    const filePath = path.join(postsDir, fileName);
-    const { frontmatter } = await readMdFile(filePath);
-
+  const authorsDir = path.join(cwd, ...PUBLICATION_DIR, "authors");
+  const mdxFiles = await listMdxFilesRecursively(authorsDir);
+  const promises = mdxFiles.map(async (fileName) => {
+    const { frontmatter } = await readMdFile<Author>(authorsDir, fileName);
+    if (!frontmatter) {
+      return frontmatter;
+    }
     return {
       ...frontmatter,
       slug: fileName.replace(/\.mdx$/, ""),
     };
   });
+  const settledPromises = await Promise.allSettled<Author | undefined>(
+    promises,
+  );
   return (
-    (await Promise.allSettled<PostFrontMatterProps>(authorsPromises))
+    settledPromises
       // TODO: log/send to Sentry those that fail
       .filter((p) => p.status === "fulfilled")
       .map((p) => p.value)
-      .sort(
-        (a, b) =>
-          new Date(b.publishedDate).getTime() -
-          new Date(a.publishedDate).getTime(),
-      )
+      // NOTE: The !== undefined is just to satify TS
+      .filter((a) => a !== undefined)
   );
 }
 
-export async function getPosts(): Promise<PostFrontMatterProps[]> {
-  const postsDir = path.join(process.cwd(), "content", "publication", "posts");
-  const mdxFiles = await listMdxFilesRecursively(postsDir);
-  const postsPromises = mdxFiles.map(async (fileName) => {
-    const filePath = path.join(postsDir, fileName);
-    const { frontmatter } = await readMdFile(filePath);
+function getPostAuthors(
+  post: PostFrontMatter,
+  authors: Author[],
+): Author[] | null {
+  const { authors: authorsSlugs } = post;
+  if (!(authorsSlugs?.length && authors?.length)) {
+    // TODO(kilemensi): log a warning to sentry
+    return null;
+  }
 
+  const postAuthors =
+    authorsSlugs.flatMap((aS) => {
+      return authors.find((a) => a.slug == aS) || [];
+    }) || null;
+  if (!postAuthors?.length) {
+    // TODO(kilemensi): log a warning to sentry (authors slugs without author details)
+    return null;
+  }
+  return postAuthors;
+}
+
+export async function getPosts(): Promise<Post[]> {
+  const cwd = process.cwd();
+  const postsDir = path.join(cwd, ...PUBLICATION_DIR, "posts");
+  const mdxFiles = await listMdxFilesRecursively(postsDir);
+  const promises = mdxFiles.map(async (fileName) => {
+    const { frontmatter } = await readMdFile<PostFrontMatter>(
+      postsDir,
+      fileName,
+    );
+
+    if (!frontmatter) {
+      return frontmatter;
+    }
     return {
       ...frontmatter,
       slug: fileName.replace(/\.mdx$/, ""),
     };
   });
-  const posts = (await Promise.allSettled<PostFrontMatterProps>(postsPromises))
+  const settledPromises = await Promise.allSettled<PostFrontMatter | undefined>(
+    promises,
+  );
+  const posts = settledPromises
     // TODO: log/send to Sentry those that fail
     .filter((p) => p.status === "fulfilled")
     .map((p) => p.value)
+    // NOTE: The !== undefined is just to satify TS
+    .filter((a) => a !== undefined)
     .sort(
       (a, b) =>
         new Date(b.publishedDate).getTime() -
         new Date(a.publishedDate).getTime(),
     );
   if (!posts.length) {
-    return posts;
+    return [];
   }
   const authors = await getAuthors();
   return posts.map((post) => {
-    const { authors: authorsSlugs } = post;
-    const postAuthors =
-      authorsSlugs?.flatMap((aS) => {
-        return authors.find((a) => a.slug == aS) || [];
-      }) ?? null;
+    const postAuthors = getPostAuthors(post, authors);
     return {
       ...post,
       authors: postAuthors,
@@ -104,8 +148,9 @@ export async function getPosts(): Promise<PostFrontMatterProps[]> {
   });
 }
 
-export async function getPost(slug: string): Promise<MDXModule | void> {
-  const postsDir = path.join(process.cwd(), "content", "publication", "posts");
+export async function getPost(slug: string): Promise<PostModule | void> {
+  const cwd = process.cwd();
+  const postsDir = path.join(cwd, ...PUBLICATION_DIR, "posts");
   const mdxFiles = await listMdxFilesRecursively(postsDir);
   const postFiles = mdxFiles.filter(
     (f) => f.toLowerCase().replace(/\.mdx?$/, "") === slug,
@@ -115,19 +160,20 @@ export async function getPost(slug: string): Promise<MDXModule | void> {
   }
 
   const postPath = path.join(postsDir, postFiles[0]);
-  const post = await readMdFile(postPath);
-  const authors = await getAuthors();
-  if (!authors?.length) {
-    return post;
+  const postFrontMatterModule = await readMdFile<PostFrontMatter>(postPath);
+  if (!postFrontMatterModule.frontmatter) {
+    return postFrontMatterModule as PostModule;
   }
-  const { frontmatter } = post;
-  const { authors: authorsSlugs } = frontmatter;
-  const postAuthors =
-    authorsSlugs?.flatMap((aS) => {
-      return authors.find((a) => a.slug == aS) || [];
-    }) ?? null;
+
+  const authors = await getAuthors();
+  const postAuthors = getPostAuthors(
+    postFrontMatterModule.frontmatter,
+    authors,
+  );
+
+  const { frontmatter, ...others } = postFrontMatterModule;
   return {
-    ...post,
+    ...others,
     frontmatter: {
       ...frontmatter,
       authors: postAuthors,
@@ -182,19 +228,14 @@ type SettingsProps = {
   analytics: AnalyticsProps;
 };
 
-async function readSettingsFile(filePath: string): Promise<SettingsProps> {
-  const { frontmatter } = await readMdFile(filePath);
+export async function getSettings(): Promise<SettingsProps | undefined> {
+  const cwd = process.cwd();
+  const { frontmatter } = await readMdFile<SettingsProps>(
+    cwd,
+    "content",
+    "site",
+    "settings.mdx",
+  );
 
-  return {
-    analytics: frontmatter.analytics,
-    connect: frontmatter.connect,
-    primaryNavigation: frontmatter.primaryNavigation,
-    secondaryNavigation: frontmatter.secondaryNavigation,
-    title: frontmatter.title,
-  };
-}
-
-export async function getSettings(): Promise<SettingsProps> {
-  const filePath = path.join(process.cwd(), "content", "site", "settings.mdx");
-  return readSettingsFile(filePath);
+  return frontmatter;
 }
