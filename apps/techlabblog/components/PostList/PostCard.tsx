@@ -1,6 +1,6 @@
 "use client";
 
-import { StyledLink } from "@/commons-ui/next/Link";
+import { StyledLink as Link } from "@commons-ui/next";
 import {
   Card,
   CardActionArea,
@@ -8,14 +8,21 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
-import { ArticleWithoutContentProps } from "@/techlabblog/lib/data";
+import { PostFrontMatterProps } from "@/techlabblog/lib/data";
 
-const ArticleCard = React.forwardRef(function ArticleCard(
-  { title, publishedDate, featuredImage, slug }: ArticleWithoutContentProps,
+interface PostCardProps extends PostFrontMatterProps {
+  sx?: SxProps<Theme>;
+}
+
+const PostCard = React.forwardRef(function ArticleCard(
+  props: PostCardProps,
   ref: React.Ref<HTMLDivElement>,
 ) {
+  const { title, publishedDate, featuredImage, slug, sx } = props;
+
   return (
     <Card
       elevation={0}
@@ -30,10 +37,11 @@ const ArticleCard = React.forwardRef(function ArticleCard(
         },
         border: "1px solid #DAD5D5",
         filter: "drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.1))",
+        ...sx,
       }}
       ref={ref}
     >
-      <CardActionArea component={slug ? StyledLink : "div"} href={slug}>
+      <CardActionArea component={slug ? Link : "div"} href={slug}>
         <CardMedia
           component="img"
           src={featuredImage}
@@ -57,4 +65,5 @@ const ArticleCard = React.forwardRef(function ArticleCard(
   );
 });
 
-export default ArticleCard;
+export type { PostCardProps };
+export default PostCard;
