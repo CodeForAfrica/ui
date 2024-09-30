@@ -1,10 +1,10 @@
 import { Section } from "@commons-ui/core";
 
-import ArticleList from "@/techlabblog/components/ArticleList";
-import { getAllContents } from "@/techlabblog/lib/data";
+import PostList from "@/techlabblog/components/PostList";
+import { getPosts } from "@/techlabblog/lib/data";
 
-export default async function index() {
-  const posts = await getAllContents();
+async function Page() {
+  const posts = await getPosts();
 
   return (
     <Section
@@ -13,7 +13,9 @@ export default async function index() {
         py: { xs: 2.5, sm: 5 },
       }}
     >
-      <ArticleList articles={posts} />
+      <PostList posts={posts} />
     </Section>
   );
 }
+
+export default Page;

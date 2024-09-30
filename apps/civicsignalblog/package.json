@@ -60,7 +60,6 @@
     "dotenv": "catalog:",
     "express": "catalog:",
     "fast-equals": "catalog:",
-    "gray-matter": "catalog:",
     "js-yaml": "catalog:",
     "jsdom": "catalog:",
     "next": "catalog:",

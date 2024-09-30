@@ -1,11 +1,20 @@
-import { Box } from "@mui/material";
+import { Section } from "@commons-ui/core";
 
-import Article from "@/techlabblog/components/Article";
-import { ArticleProps, getContent } from "@/techlabblog/lib/data";
+import { getPost } from "@/techlabblog/lib/data";
+import PostHeader from "@/techlabblog/components/PostHeader";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const post: ArticleProps = await getContent(params.slug);
+  const { default: PostContent, frontmatter } = await getPost(params.slug);
 
-  // TODO: Check that the post does exist, return 404 otherwise
-  return <Article {...post} />;
+  return (
+    <Section
+      sx={{
+        px: { xs: 2.5, sm: 0 },
+        py: { xs: 2.5, sm: 5 },
+      }}
+    >
+      <PostHeader {...frontmatter} />
+      <PostContent />
+    </Section>
+  );
 }

@@ -39,9 +39,9 @@ export default async function RootLayout({
             <NavBar {...primaryNavigation} logo={logo} />
             {children}
             <Footer
-              copyright={secondaryNavigation.copyright}
               connect={connect}
-              secondaryMenus={secondaryNavigation.menus}
+              copyright={secondaryNavigation?.copyright}
+              secondaryMenus={secondaryNavigation?.menus}
             />
           </ThemeProvider>
         </AppRouterCacheProvider>
