@@ -25,6 +25,6 @@ module.exports = {
   },
   typescript: {
     alwaysTryTypes: false,
-    project: "./",
+    project: "./tsconfig.json",
   },
 };
