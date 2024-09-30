@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 import { useAuth } from "payload/components/utilities";
 import React, { useEffect, useState } from "react";
 
@@ -34,9 +36,7 @@ function BeforeDashboard() {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
-
           const data = await response.json();
-          // eslint-disable-next-line no-undef
           window.location.replace(`/admin?app=${encodeURI(data.currentApp)}`);
         } catch (error) {
           console.error("Error updating current app:", error);
