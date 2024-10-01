@@ -470,6 +470,20 @@ deepmerge(
       // Ensure footer is always attached to the bottom of the screen
       // regardless of content size: https://stackoverflow.com/a/20352949
       styleOverrides: `
+      code[data-theme*=" "],
+      code[data-theme*=" "] span {
+        color: var(--shiki-light);
+        background-color: var(--shiki-light-bg);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        code[data-theme*=" "],
+        code[data-theme*=" "] span {
+          color: var(--shiki-dark);
+          background-color: var(--shiki-dark-bg);
+        }
+      }
+
       body {
         min-height: 100vh;
         margin: 0;
@@ -482,6 +496,39 @@ deepmerge(
       body>footer {
         min-height: 32px;
       }
+
+      code[data-line-numbers] {
+        counter-reset: line;
+      }
+
+      code[data-line-numbers] > [data-line]::before {
+        counter-increment: line;
+        content: counter(line);
+
+        /* Other styling */
+        display: inline-block;
+        width: 0.75rem;
+        margin-right: 2rem;
+        text-align: right;
+        color: gray;
+      }
+
+      code[data-line-numbers-max-digits="2"] > [data-line]::before {
+        width: 1.25rem;
+      }
+
+      code[data-line-numbers-max-digits="3"] > [data-line]::before {
+        width: 1.75rem;
+      }
+
+      code[data-line-numbers-max-digits="4"] > [data-line]::before {
+        width: 2.25rem;
+      }
+
+      a {
+        color: "inherit";
+      }
+
       blockquote {
         background-color: ${palette.background.default};
         font-size: ${pxToRem(16)};
@@ -566,6 +613,7 @@ deepmerge(
     MuiLink: {
       styleOverrides: {
         root: {
+          color: "inherit",
           "&:hover": {
             color: "currentcolor",
             opacity: 0.65,

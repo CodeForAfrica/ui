@@ -1,5 +1,7 @@
 import createMDX from "@next/mdx";
 
+import { rehypePlugins, remarkPlugins } from "./mdx.config.mjs";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
@@ -31,7 +33,10 @@ const nextConfig = {
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins,
+    rehypePlugins,
+  },
 });
 
 export default withMDX(nextConfig);

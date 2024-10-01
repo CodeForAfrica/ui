@@ -2,7 +2,9 @@
 title: "Understanding JavaScript Generators: A Deep Dive"
 publishedDate: "2020-02-02"
 excerpt: "JavaScript is a versatile language, and one of its lesser-known yet powerful features is Generators. Introduced in ECMAScript 6 (ES6), Generators provide a unique way to handle functions, offering more control over the execution flow. In this blog, we'll explore what generators are, how they work, and practical use cases."
-featuredImage: "/blog/javascript-generators.jpeg"
+featuredImage: "/blog/javascript-generators.jpg"
+authors:
+  - kelvinkipruto
 ---
 
 ### What are Generators?
@@ -11,9 +13,9 @@ Generators are a special type of function in JavaScript that can be paused and r
 
 ### Syntax
 
-A generator function is defined using the `function*`syntax, where the asterisk (\*) distinguishes it from a regular function. Inside the function body, the yield keyword is used to pause the function and return a value.
+A generator function is defined using the `function*` syntax, where the asterisk (\*) distinguishes it from a regular function. Inside the function body, the yield keyword is used to pause the function and return a value.
 
-```javascript
+```js showLineNumbers {1-3,4} caption="Caption is here" title="Title is here"
 function* myGenerator() {
   yield 1;
   yield 2;
