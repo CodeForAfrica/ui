@@ -1,11 +1,12 @@
 import { Section } from "@commons-ui/core";
 
-import { getPost } from "@/techlabblog/lib/data";
 import PostHeader from "@/techlabblog/components/PostHeader";
+import { getPost } from "@/techlabblog/lib/data";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const postModule = await getPost(params.slug);
-  if (!postModule) {
+
+  if (!(postModule && postModule.frontmatter)) {
     // TODO(kilemensi): 404
     return null;
   }
@@ -17,7 +18,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         py: { xs: 2.5, sm: 5 },
       }}
     >
-      {frontmatter ? <PostHeader {...frontmatter} /> : null}
+      <PostHeader {...frontmatter} />
       <PostContent />
     </Section>
   );

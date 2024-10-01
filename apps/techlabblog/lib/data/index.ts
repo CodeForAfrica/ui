@@ -1,6 +1,6 @@
 import { compile, run } from "@mdx-js/mdx";
-import { promises as fs } from "fs";
 import type { PathLike } from "fs";
+import { promises as fs } from "fs";
 import type { MDXModule } from "mdx/types";
 import path from "path";
 import * as runtime from "react/jsx-runtime";
@@ -42,9 +42,11 @@ async function readMdFile<T>(
   const vfile = await compile(fileContent, {
     outputFormat: "function-body",
     providerImportSource: "../../mdx-components.tsx",
+    // @ts-ignore https://mdxjs.com/packages/mdx/#processoroptions
     rehypePlugins,
     remarkPlugins,
   });
+  // @ts-ignore https://mdxjs.com/packages/mdx/#examples-1
   return run(vfile, { ...runtime, useMDXComponents });
 }
 

@@ -2,11 +2,12 @@ import { Grid } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
-import type { PostCardProps } from "./PostCard";
+import type { PostProps } from "@/techlabblog/components/Post";
+
 import PostCard from "./PostCard";
 
 interface PostListProps {
-  posts?: PostCardProps[];
+  posts?: PostProps[];
   sx?: SxProps<Theme>;
 }
 
@@ -36,4 +37,5 @@ const PostList = React.forwardRef(function PostList(
   );
 });
 
+export type { PostListProps };
 export default PostList;

@@ -8,17 +8,12 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
-import { PostFrontMatterProps } from "@/techlabblog/lib/data";
-
-interface PostCardProps extends PostFrontMatterProps {
-  sx?: SxProps<Theme>;
-}
+import type { PostProps } from "@/techlabblog/components/Post";
 
 const PostCard = React.forwardRef(function ArticleCard(
-  props: PostCardProps,
+  props: PostProps,
   ref: React.Ref<HTMLDivElement>,
 ) {
   const { title, publishedDate, featuredImage, slug, sx } = props;
@@ -65,5 +60,4 @@ const PostCard = React.forwardRef(function ArticleCard(
   );
 });
 
-export type { PostCardProps };
 export default PostCard;

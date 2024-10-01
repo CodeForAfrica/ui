@@ -20,9 +20,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSettings();
+  if (!settings) {
+    // TODO(kilemensi): log to sentry
+    return null;
+  }
   const { analytics, connect, primaryNavigation, secondaryNavigation } =
-    await getSettings();
-  // TODO: blurWidth/blurHeight https://github.com/vercel/next.js/issues/56511
+    settings;
+  // TODO(kilemensi): blurWidth/blurHeight https://github.com/vercel/next.js/issues/56511
   const { blurWidth, blurHeight, ...logoProps } = logoLight;
   const logo = {
     ...logoProps,

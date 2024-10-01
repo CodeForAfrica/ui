@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-import type { PostSxProps } from "./PostSxProps";
+import type { PostProps } from "@/techlabblog/components/Post";
 
 const PostHeader = React.forwardRef(function ArticleHeader(
-  props: PostSxProps,
+  props: PostProps,
   ref: React.Ref<HTMLDivElement>,
 ) {
   const { publishedDate, excerpt, sx, title } = props;

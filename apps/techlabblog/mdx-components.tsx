@@ -1,12 +1,15 @@
+import type { LinkProps, TypographyProps } from "@mui/material";
+// TODO(kilemensi): Switch to @cui/next/Link
 import { Link, Typography } from "@mui/material";
-import type { Variant } from "@mui/material/styles/createTypography";
 import type { MDXComponents } from "mdx/types";
 
-function createHeading(variant: Variant): HTMLHeadingElement {
-  return ({ children, ...others }) => (
+type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+
+function createHeading(level: HeadingLevel) {
+  const Heading = ({ children, ...others }: TypographyProps) => (
     <Typography
       {...others}
-      variant={variant}
+      variant={`h${level}`}
       sx={{
         scrollMarginTop: 48 + 16, // Toolbar height + 1M
         "&>a": {
@@ -15,7 +18,6 @@ function createHeading(variant: Variant): HTMLHeadingElement {
         "& .icon.icon-link": {
           display: "none",
           paddingLeft: 1,
-          // position: "relative"
         },
         "&:hover": {
           "& .icon.icon-link": {
@@ -23,7 +25,6 @@ function createHeading(variant: Variant): HTMLHeadingElement {
           },
         },
         "& .icon.icon-link:before": {
-          // position: "absolute",
           content: '"#"',
         },
       }}
@@ -31,26 +32,33 @@ function createHeading(variant: Variant): HTMLHeadingElement {
       {children}
     </Typography>
   );
+  Heading.displayName = `Heading${level}`;
+
+  return Heading;
 }
 
-export function useMDXComponents(components?: MDXComponents): MDXComponents {
+const customComponents = {
+  h1: createHeading(1),
+  h2: createHeading(2),
+  h3: createHeading(3),
+  h4: createHeading(4),
+  h5: createHeading(5),
+  h6: createHeading(6),
+  p: ({ children, ...others }: TypographyProps) => (
+    <Typography variant="body1" {...others}>
+      {children}
+    </Typography>
+  ),
+  a: ({ children, ...others }: LinkProps) => (
+    <Link underline="none" color="inherit" {...others}>
+      {children}
+    </Link>
+  ),
+};
+
+export function useMDXComponents(components?: MDXComponents) {
   return {
-    h1: createHeading("h1"),
-    h2: createHeading("h2"),
-    h3: createHeading("h3"),
-    h4: createHeading("h4"),
-    h5: createHeading("h5"),
-    h6: createHeading("h6"),
-    p: ({ children, ...others }) => (
-      <Typography variant="body1" {...others}>
-        {children}
-      </Typography>
-    ),
-    a: ({ children, ...others }) => (
-      <Link underline="none" color="inherit" {...others}>
-        {children}
-      </Link>
-    ),
+    ...customComponents,
     ...components,
   };
 }
