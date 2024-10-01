@@ -89,7 +89,6 @@
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "eslint-import-resolver-custom-alias": "catalog:",
     "eslint-import-resolver-typescript": "catalog:",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
