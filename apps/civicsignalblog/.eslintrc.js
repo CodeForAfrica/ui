@@ -7,7 +7,7 @@ module.exports = {
         config: "./eslint.webpack.config.js",
       },
       typescript: {
-        alwaysTryTypes: false,
+        alwaysTryTypes: false, // we mostly have JS thus we don't need types automatically resolved
         project: "./tsconfig.json",
       },
     },
