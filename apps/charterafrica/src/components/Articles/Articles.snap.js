@@ -64,7 +64,7 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary  css-a46zki-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-a46zki-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
                 aria-controls=":r0:"
