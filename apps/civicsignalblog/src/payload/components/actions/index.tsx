@@ -1,7 +1,11 @@
+/* eslint-env browser */
+
 import { useAuth } from "payload/components/utilities";
 import React, { useEffect, useState } from "react";
 
-import applications, { RESEARCH } from "../../lib/data/common/applications";
+import applications, {
+  RESEARCH,
+} from "#civicsignalblog/payload/lib/data/common/applications";
 
 function BeforeDashboard() {
   const { user } = useAuth();
@@ -32,7 +36,6 @@ function BeforeDashboard() {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
-
           const data = await response.json();
           window.location.replace(`/admin?app=${encodeURI(data.currentApp)}`);
         } catch (error) {
@@ -44,7 +47,7 @@ function BeforeDashboard() {
     };
 
     updateCurrentApp();
-  }, [selectedApp]);
+  }, [selectedApp, user.currentApp]);
 
   const handleChange = (event) => {
     const selectedValue = event.target.value;
@@ -64,12 +67,11 @@ function BeforeDashboard() {
           Loading...
         </p>
       ) : (
-        <>
-          <label
-            style={{ marginRight: "10px", color: "var(--theme-elevation-500)" }}
-          >
-            Application:
-          </label>
+        <label
+          htmlFor="lang"
+          style={{ marginRight: "10px", color: "var(--theme-elevation-500)" }}
+        >
+          Application:
           <select
             id="lang"
             onChange={handleChange}
@@ -89,7 +91,7 @@ function BeforeDashboard() {
               </option>
             ))}
           </select>
-        </>
+        </label>
       )}
     </div>
   );

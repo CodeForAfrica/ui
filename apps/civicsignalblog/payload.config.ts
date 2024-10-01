@@ -12,11 +12,11 @@ import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import { loadEnvConfig } from "@next/env";
 
+import Actions from "./src/payload/components/actions";
 import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
 import CivicSignalPages from "./src/payload/collections/Main/Pages";
-
 import Posts from "./src/payload/collections/Research/Posts";
 import Publication from "./src/payload/globals/Publication";
 import Research from "./src/payload/globals/Site/research";
@@ -24,8 +24,6 @@ import Main from "./src/payload/globals/Site/main";
 import Tags from "./src/payload/collections/Research/Tags";
 import Users from "./src/payload/collections/Users";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
-
-import Actions from "./src/payload/components/actions";
 
 const dev = process.env.NODE_ENV !== "production";
 const projectDir = process.cwd();
@@ -81,7 +79,6 @@ export default buildConfig({
       }
     : undefined),
   admin: {
-    css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
     user: Users.slug,
     components: {
       actions: [Actions],
@@ -100,6 +97,10 @@ export default buildConfig({
       ...config,
       resolve: {
         ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          "#civicsignalblog": path.resolve(__dirname, "src"),
+        },
         fallback: {
           ...config?.resolve?.fallback,
           fs: false,

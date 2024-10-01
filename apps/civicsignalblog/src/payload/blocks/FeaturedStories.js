@@ -1,4 +1,4 @@
-import linkGroup from "../fields/links/linkGroup";
+import linkGroup from "#civicsignalblog/payload/fields/links/linkGroup";
 
 const FeaturedStories = {
   slug: "featured-stories",

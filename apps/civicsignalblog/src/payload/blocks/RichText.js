@@ -1,7 +1,7 @@
 import { slateEditor } from "@payloadcms/richtext-slate";
 
-import blockFields from "../fields/blockFields";
-import richText from "../fields/richText";
+import blockFields from "#civicsignalblog/payload/fields/blockFields";
+import richText from "#civicsignalblog/payload/fields/richText";
 
 const RichText = {
   slug: "richText",

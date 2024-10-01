@@ -1,5 +1,5 @@
-import canRead from "../../access/applications/research";
-import slug from "../../fields/slug";
+import canRead from "#civicsignalblog/payload/access/applications/research";
+import slug from "#civicsignalblog/payload/fields/slug/index";
 
 const Tags = {
   slug: "tag",

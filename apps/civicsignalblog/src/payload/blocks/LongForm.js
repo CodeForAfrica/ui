@@ -1,4 +1,4 @@
-import content from "../fields/content";
+import content from "#civicsignalblog/payload/fields/content";
 
 const LongForm = {
   slug: "longform",

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "target": "ES2015",
     "noEmit": false,
-    "module": "CommonJS",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "jsx": "react",
     "outDir": "./dist",
     "rootDir": "./"

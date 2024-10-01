@@ -8,8 +8,8 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -17,7 +17,8 @@
     "paths": {
       "@/civicsignalblog/*": ["./src/*"],
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
-      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
+      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"],
+      "#civicsignalblog*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -1,4 +1,4 @@
-import image from "../fields/image";
+import image from "#civicsignalblog/payload/fields/image";
 
 const CustomPageHeader = {
   slug: "custom-page-header",
