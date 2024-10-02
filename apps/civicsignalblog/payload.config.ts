@@ -17,12 +17,14 @@ import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
 import CivicSignalPages from "./src/payload/collections/Main/Pages";
+import MediaData from "./src/payload/collections/Main/MediaData";
 import Posts from "./src/payload/collections/Research/Posts";
 import Publication from "./src/payload/globals/Publication";
 import Research from "./src/payload/globals/Site/research";
 import Main from "./src/payload/globals/Site/main";
 import Tags from "./src/payload/collections/Research/Tags";
 import Users from "./src/payload/collections/Users";
+import { applicationPages } from "./src/payload/lib/data/common/applications";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 const dev = process.env.NODE_ENV !== "production";
@@ -66,6 +68,7 @@ export default buildConfig({
     Posts,
     Tags,
     CivicSignalPages,
+    MediaData,
     Users,
   ] as CollectionConfig[],
   globals: [Publication, Research, Main] as GlobalConfig[],
@@ -137,7 +140,7 @@ export default buildConfig({
       dsn: process?.env?.NEXT_PUBLIC_SENTRY_DSN,
     }),
     seo({
-      collections: ["pages", "posts"],
+      collections: [...applicationPages, "posts"],
       globals: ["settings-site"],
       uploadsCollection: "media",
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
@@ -145,7 +148,7 @@ export default buildConfig({
         doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
     } as any),
     nestedDocs({
-      collections: ["pages"],
+      collections: applicationPages,
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
