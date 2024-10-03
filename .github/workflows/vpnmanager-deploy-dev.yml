@@ -53,7 +53,6 @@ jobs:
         with:
           build-args: |
             SENTRY_DSN=${{ secrets.VPNMANAGER_SENTRY_DSN }}
-            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}
@@ -61,9 +60,11 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          target: vpnmanager-runner
           push: true
+          secrets: |
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          target: vpnmanager-runner
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
