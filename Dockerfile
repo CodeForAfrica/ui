@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1.10.0
+
 # ============================================================================
 #  Node
 # ============================================================================
@@ -13,8 +15,6 @@ ARG \
   NEXT_PUBLIC_APP_URL=http://localhost:3000 \
   NEXT_PUBLIC_SENTRY_DSN="" \
   NEXT_PUBLIC_SEO_DISABLED="true" \
-  # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT="local" \
   SENTRY_ORG="code-for-africa" \
   SENTRY_PROJECT=""
@@ -169,7 +169,8 @@ COPY apps/charterafrica ./apps/charterafrica/
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
-RUN pnpm --filter "./apps/charterafrica/" build-next
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/charterafrica/" build-next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -372,7 +373,8 @@ COPY apps/civicsignalblog ./apps/civicsignalblog/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN pnpm --filter "./apps/civicsignalblog/" build-next
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/civicsignalblog/" build-next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -433,7 +435,6 @@ USER nextjs
 # Custom server to run Payload and Next.js in the same app
 CMD ["node", "dist/server.js"]
 
-
 # ============================================================================
 # Code for Africa
 # ============================================================================
@@ -485,7 +486,8 @@ COPY apps/codeforafrica ./apps/codeforafrica/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN pnpm --filter "./apps/codeforafrica/" build-next
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/codeforafrica/" build-next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -538,7 +540,6 @@ USER nextjs
 
 # Custom server to run Payload and Next.js in the same app
 CMD ["node", "dist/server.js"]
-
 
 # ============================================================================
 # PesaYetu
@@ -640,7 +641,6 @@ USER nextjs
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/pesayetu/server.js"]
 
-
 # ============================================================================
 # Roboshield
 # ============================================================================
@@ -686,7 +686,8 @@ COPY apps/roboshield ./apps/roboshield/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN pnpm --filter "./apps/roboshield/" build-next
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/roboshield/" build-next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -735,83 +736,6 @@ USER nextjs
 
 # Custom server to run Payload and Next.js in the same app
 CMD ["node", "dist/server.js"]
-
-
-# ============================================================================
-# VPN Manager
-# ============================================================================
-
-#
-# vpnmanager-desp: image with all pesayetu dependencies
-# -----------------------------------------------------
-
-FROM base-deps AS vpnmanager-deps
-
-COPY apps/vpnmanager/package.json ./apps/vpnmanager/package.json
-
-# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/vpnmanager" install --offline --frozen-lockfile
-
-#
-# vpnmanager-builder: image that uses deps to build shippable output
-# ------------------------------------------------------------------
-
-FROM base-builder AS vpnmanager-builder
-
-ARG NEXT_TELEMETRY_DISABLED \
-  # Next.js / Payload (build time)
-  PORT \
-  # Next.js (runtime)
-  NEXT_PUBLIC_APP_NAME="VPN Manager" \
-  NEXT_PUBLIC_APP_URL \
-  NEXT_PUBLIC_SENTRY_DSN \
-  NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
-  # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
-
-# This is in app-builder instead of base-builder just incase app-deps adds deps
-COPY --from=vpnmanager-deps /workspace/node_modules ./node_modules
-
-COPY --from=vpnmanager-deps /workspace/apps/vpnmanager/node_modules ./apps/vpnmanager/node_modules
-
-COPY apps/vpnmanager ./apps/vpnmanager
-
-RUN pnpm --filter "./apps/vpnmanager" build
-
-#
-# vpnmanager-runner: final deployable image
-# -----------------------------------------
-
-FROM base-runner AS vpnmanager-runner
-
-ARG API_SECRET_KEY
-RUN set -ex \
-  # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/vpnmanager/.next \
-  && chown nextjs:nodejs ./apps/vpnmanager/.next
-
-# PNPM
-# symlink some dependencies
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-
-# Next.js
-# Public assets
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/public ./apps/vpnmanager/public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/contrib/dokku ./contrib/dokku
-USER nextjs
-
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD ["node", "apps/vpnmanager/server.js"]
 
 # ============================================================================
 # Techlab Blog
@@ -887,4 +811,79 @@ USER nextjs
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/techlabblog/server.js"]
 
+# ============================================================================
+# VPN Manager
+# ============================================================================
 
+#
+# vpnmanager-desp: image with all pesayetu dependencies
+# -----------------------------------------------------
+
+FROM base-deps AS vpnmanager-deps
+
+COPY apps/vpnmanager/package.json ./apps/vpnmanager/package.json
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/vpnmanager" install --offline --frozen-lockfile
+
+#
+# vpnmanager-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS vpnmanager-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="VPN Manager" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=vpnmanager-deps /workspace/node_modules ./node_modules
+
+COPY --from=vpnmanager-deps /workspace/apps/vpnmanager/node_modules ./apps/vpnmanager/node_modules
+
+COPY apps/vpnmanager ./apps/vpnmanager
+
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/vpnmanager" build
+
+#
+# vpnmanager-runner: final deployable image
+# -----------------------------------------
+
+FROM base-runner AS vpnmanager-runner
+
+ARG API_SECRET_KEY
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/vpnmanager/.next \
+  && chown nextjs:nodejs ./apps/vpnmanager/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Next.js
+# Public assets
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/public ./apps/vpnmanager/public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/contrib/dokku ./contrib/dokku
+USER nextjs
+
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/vpnmanager/server.js"]
