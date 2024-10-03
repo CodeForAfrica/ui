@@ -1,12 +1,13 @@
 services:
   charterafrica:
     build:
+      secrets:
+        - sentry_auth_token
       context: .
       target: charterafrica-runner
       args:
         - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
         - PAYLOAD_SECRET_KEY
-        - SENTRY_AUTH_TOKEN
         - SENTRY_ENVIRONMENT
         - SENTRY_ORG
         - SENTRY_PROJECT
@@ -17,7 +18,6 @@ services:
       S3_REGION: ${S3_REGION}
       MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
       PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
@@ -26,12 +26,13 @@ services:
 
   civicsignalblog:
     build:
+      secrets:
+        - sentry_auth_token
       context: .
       target: civicsignalblog-runner
       args:
         - MONGO_URL=${MONGO_URL}
         - PAYLOAD_SECRET
-        - SENTRY_AUTH_TOKEN
         - SENTRY_ENVIRONMENT
         - SENTRY_ORG
         - SENTRY_PROJECT
@@ -42,7 +43,6 @@ services:
       S3_REGION: ${S3_REGION}
       MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
@@ -54,12 +54,13 @@ services:
       mongodb:
         condition: service_healthy
     build:
+      secrets:
+        - sentry_auth_token
       context: .
       target: codeforafrica-runner
       args:
         - MONGODB_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
         - PAYLOAD_SECRET
-        - SENTRY_AUTH_TOKEN
         - SENTRY_ENVIRONMENT
         - SENTRY_ORG
         - SENTRY_PROJECT
@@ -70,7 +71,6 @@ services:
       S3_REGION: ${S3_REGION}
       MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
@@ -113,6 +113,7 @@ services:
       retries: 30
     command:
       ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
+
   pesayetu:
     build:
       context: .
@@ -140,12 +141,13 @@ services:
 
   roboshield:
     build:
+      secrets:
+        - sentry_auth_token
       context: .
       target: roboshield-runner
       args:
         - MONGO_URL
         - PAYLOAD_SECRET
-        - SENTRY_AUTH_TOKEN
         - SENTRY_ORG
         - SENTRY_ENV
         - SENTRY_PROJECT
@@ -156,7 +158,6 @@ services:
       S3_REGION: ${S3_REGION}
       MONGO_URL: ${MONGO_URL}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
@@ -168,12 +169,10 @@ services:
       context: .
       target: techlabblog-runner
       args:
-        - SENTRY_AUTH_TOKEN
         - SENTRY_ORG
         - SENTRY_ENV
         - SENTRY_PROJECT
     environment:
-      SENTRY_AUTH_TOKEN: ${SENTRY_AUTH_TOKEN}
       SENTRY_ORG: ${SENTRY_ORG}
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
       SENTRY_PROJECT: ${SENTRY_PROJECT}
@@ -182,6 +181,8 @@ services:
 
   vpnmanager:
     build:
+      secrets:
+        - sentry_auth_token
       context: .
       target: vpnmanager-runner
       args:
@@ -197,5 +198,8 @@ services:
       - ${VPN_MANAGER_PORT:-3000}:3000
     volumes:
       - ./db_data:/apps/vpnmanager/data
+secrets:
+  sentry_auth_token:
+    environment: SENTRY_AUTH_TOKEN
 volumes:
   db_data:
