@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - chore/ui_docker_build_secrets
+      - chore/ui_docker_multi_platform
     paths:
       - "apps/vpnmanager/**"
       - "Dockerfile.vpnmanager"
