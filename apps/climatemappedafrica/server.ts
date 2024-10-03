@@ -32,7 +32,8 @@ const start = async (): Promise<void> => {
               transportOptions: nodemailerSendgrid({
                 apiKey: sendGridAPIKey,
               }),
-              fromName: process.env.SENDGRID_FROM_NAME || "ClimateMapped Africa CMS",
+              fromName:
+                process.env.SENDGRID_FROM_NAME || "ClimateMapped Africa CMS",
               fromAddress:
                 process.env.SENDGRID_FROM_EMAIL || "noreply@dodeforafrica.org",
             },

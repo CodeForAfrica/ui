@@ -16,7 +16,6 @@ import { defaultLocale, locales } from "./src/payload/utils/locales";
 import Media from "./src/payload/collections/Media";
 import Users from "./src/payload/collections/Users";
 
-
 dotenv.config();
 dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
 
@@ -32,7 +31,7 @@ const csrf =
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
 
-    const adapter = s3Adapter({
+const adapter = s3Adapter({
   config: {
     region: process?.env?.S3_REGION,
     credentials: {
@@ -44,20 +43,17 @@ const csrf =
 } as any);
 
 export default buildConfig({
-    serverURL: appURL,
-    editor: slateEditor({}),
-      routes: {
+  serverURL: appURL,
+  editor: slateEditor({}),
+  routes: {
     admin: "/admin",
   },
   db: mongooseAdapter({
     url: process.env.MONGO_URL,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
-  collections:[
-    Media,
-    Users,
-  ]as CollectionConfig[],
-  globals: []as GlobalConfig[],
+  collections: [Media, Users] as CollectionConfig[],
+  globals: [] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
@@ -67,7 +63,7 @@ export default buildConfig({
         },
       }
     : undefined),
- admin: {
+  admin: {
     webpack: (config) => ({
       ...config,
       resolve: {
@@ -82,7 +78,7 @@ export default buildConfig({
     }),
     bundler: webpackBundler(),
   },
-   cors,
+  cors,
   csrf,
   i18n: {
     fallbackLng: "en", // default
@@ -122,4 +118,4 @@ export default buildConfig({
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ],
-})
+});
