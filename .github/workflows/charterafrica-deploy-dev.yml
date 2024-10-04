@@ -57,16 +57,17 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
             PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
-            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          target: charterafrica-runner
           push: true
+          secrets: |
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          target: charterafrica-runner
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
