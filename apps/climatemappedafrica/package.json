@@ -28,7 +28,7 @@
     "dev": "NODE_OPTIONS='--inspect' ts-node --project tsconfig.server.json server.ts",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
-    "jest": "jest",
+    "jest": "jest --passWithNoTests",
     "playwright": "npx playwright test",
     "clean": "rm -rf .next .turbo node_modules"
   },
