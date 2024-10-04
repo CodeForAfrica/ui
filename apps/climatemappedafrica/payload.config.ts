@@ -14,6 +14,7 @@ import { sentry } from "@payloadcms/plugin-sentry";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 import Media from "./src/payload/collections/Media";
+import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 
 dotenv.config();
@@ -52,7 +53,7 @@ export default buildConfig({
     url: process.env.MONGO_URL,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
-  collections: [Media, Users] as CollectionConfig[],
+  collections: [Media, Pages, Users] as CollectionConfig[],
   globals: [] as GlobalConfig[],
   ...(locales?.length
     ? {
