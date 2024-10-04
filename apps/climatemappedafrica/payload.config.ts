@@ -1,7 +1,5 @@
-import path from "path";
-
 import { buildConfig } from "payload/config";
-import dotenv from "dotenv";
+import { loadEnvConfig } from "@next/env";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import { slateEditor } from "@payloadcms/richtext-slate";
@@ -17,8 +15,8 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 
-dotenv.config();
-dotenv.config({ path: path.resolve(__dirname, "./.env.local") });
+const projectDir = process.cwd();
+loadEnvConfig(projectDir);
 
 const appURL = process.env.PAYLOAD_PUBLIC_APP_URL;
 

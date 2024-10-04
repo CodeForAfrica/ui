@@ -1112,9 +1112,6 @@ importers:
       deepmerge:
         specifier: 'catalog:'
         version: 4.3.1
-      dotenv:
-        specifier: 'catalog:'
-        version: 16.4.5
       express:
         specifier: 'catalog:'
         version: 4.21.0
