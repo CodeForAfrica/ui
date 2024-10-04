@@ -17,7 +17,9 @@
     "paths": {
       "@/climatemappedafrica/*": ["./src/*"],
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
-      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
+      "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"],
+      "@/hurumap/core/*": ["../../packages/hurumap-core/src/*"],
+      "@/hurumap/next/*": ["../../packages/hurumap-next/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

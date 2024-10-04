@@ -1073,6 +1073,9 @@ importers:
       '@mui/utils':
         specifier: catalog:mui-styles
         version: 5.16.6(@types/react@18.3.10)(react@18.3.1)
+      '@next/env':
+        specifier: 'catalog:'
+        version: 14.2.13
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.7.26(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.5)(@types/react@18.3.10)(encoding@0.1.13)(typescript@5.6.2)(webpack@5.95.0(@swc/core@1.7.26(@swc/helpers@0.5.5))))(sass@1.69.4)
@@ -1112,6 +1115,9 @@ importers:
       dotenv:
         specifier: 'catalog:'
         version: 16.4.5
+      express:
+        specifier: 'catalog:'
+        version: 4.21.0
       leaflet:
         specifier: 'catalog:'
         version: 1.9.4
@@ -1127,6 +1133,9 @@ importers:
       next-seo:
         specifier: 'catalog:'
         version: 6.6.0(next@14.2.13(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nodemailer-sendgrid:
+        specifier: 'catalog:'
+        version: 1.0.3
       papaparse:
         specifier: 'catalog:'
         version: 5.4.1
@@ -16777,7 +16786,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -16862,7 +16871,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -19882,7 +19891,7 @@ snapshots:
 
   '@types/connect@3.4.36':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/connect@3.4.38':
     dependencies:
@@ -20032,7 +20041,7 @@ snapshots:
 
   '@types/mysql@2.15.26':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
 
   '@types/node@12.20.55': {}
 
@@ -20062,7 +20071,7 @@ snapshots:
 
   '@types/pg@8.6.1':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       pg-protocol: 1.7.0
       pg-types: 2.2.0
 
@@ -20092,7 +20101,7 @@ snapshots:
   '@types/request@2.48.12':
     dependencies:
       '@types/caseless': 0.12.5
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       '@types/tough-cookie': 4.0.5
       form-data: 2.5.1
 
@@ -24903,7 +24912,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -24931,7 +24940,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       chalk: 4.1.2
       cjs-module-lexer: 1.4.1
       collect-v8-coverage: 1.0.2
@@ -24996,7 +25005,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -25005,7 +25014,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 22.7.4
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
