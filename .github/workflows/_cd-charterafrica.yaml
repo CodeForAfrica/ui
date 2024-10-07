@@ -1,0 +1,53 @@
+name: CD | charterafrica
+
+on:
+  workflow_call:
+    inputs:
+      app_url:
+        required: true
+        type: string
+        description: "App final URL"
+      NODE_ENV:
+        required: true
+        type: string
+        description: "development|production"
+      build_args:
+        required: false
+        type: string
+        description: "List of build-time variables"
+      tags:
+        required: true
+        type: string
+        description: "List of tags"
+      git_remote_url:
+        required: true
+        type: string
+        description: "The dokku app's git repository url in SSH format"
+
+jobs:
+  build-docker-image:
+    name: Build Docker Image
+    uses: ./.github/workflows/build-docker-image.yml
+    secrets: inherit
+    with:
+      build_args: |
+        ${{ inputs.build_args }}
+        MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
+        NEXT_PUBLIC_APP_URL=${{ inputs.app_url }}
+        NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
+        NODE_ENV=${{ inputs.NODE_ENV }}
+        PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+        SENTRY_ENVIRONMENT=${{ inputs.NODE_ENV }}
+        SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+        SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
+      tags: ${{ inputs.tags }}
+      target: charterafrica-runner
+
+  push-to-dokku:
+    name: Push to Dokku
+    needs: [build-docker-image]
+    uses: ./.github/workflows/push-to-dokku.yml
+    secrets: inherit
+    with:
+      git_remote_url: ${{ inputs.git_remote_url }}
+      deploy_docker_image: ${{ inputs.tags }}
