@@ -2,8 +2,8 @@ name: CI/CD [Main]
 
 on:
   pull_request:
-    branches:
-      - chore/ui_callable_workflows
+    branches: # PRs to the following branches will trigger the workflow
+      - main
     paths:
       - ".github/workflows/**"
       - "Dockerfile"
