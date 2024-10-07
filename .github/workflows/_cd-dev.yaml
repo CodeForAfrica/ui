@@ -1,0 +1,33 @@
+name: DEV | CD
+
+on:
+  workflow_call:
+
+jobs:
+  apps-path-filter:
+    name:
+    uses: ./.github/workflows/_app-path-filter.yaml
+
+  cd-dev-charterafrica:
+    needs:
+      - apps-path-filter
+    if: ${{ needs.apps-path-filter.outputs.charterafrica == 'true' }}
+    uses: ./.github/workflows/_cd-codeforafrica.yaml
+    with:
+      NODE_ENV: "development"
+      app_url: "https://charterafrica.dev.codeforafrica.org"
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/charterafrica-ui"
+      tags: "codeforafrica/charterafrica-ui:${{ github.sha }}"
+    secrets: inherit
+
+  cd-dev-codeforafrica:
+    needs:
+      - apps-path-filter
+    if: ${{ needs.apps-path-filter.outputs.codeforafrica == 'true' }}
+    uses: ./.github/workflows/_cd-codeforafrica.yaml
+    with:
+      NODE_ENV: "development"
+      app_url: "https://codeforafrica-ui.dev.codeforafrica.org"
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/codeofrafrica-ui"
+      tags: "codeforafrica/codeforafrica-ui:${{ github.sha }}"
+    secrets: inherit
