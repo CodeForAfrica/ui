@@ -21,13 +21,12 @@ jobs:
     uses: ./.github/workflows/_ci.yaml
 
   apps-path-filter:
-    needs:
-      - ci
     name:
     uses: ./.github/workflows/_app-path-filter.yaml
 
   cd-dev:
     needs:
+      - ci
       - apps-path-filter
     if: ${{ needs.apps-path-filter.outputs.apps == 'true' }}
     uses: ./.github/workflows/_cd-dev.yaml
@@ -35,6 +34,7 @@ jobs:
 
   cd-prod:
     needs:
+      - ci
       - apps-path-filter
     if: ${{ needs.apps-path-filter.outputs.apps == 'true' }}
     uses: ./.github/workflows/_cd-prod.yaml
