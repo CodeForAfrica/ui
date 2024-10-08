@@ -3,8 +3,8 @@ import CustomPageHeader from "#civicsignalblog/payload/blocks/CustomPageHeader";
 import Error from "#civicsignalblog/payload/blocks/Error";
 import FeaturedStories from "#civicsignalblog/payload/blocks/FeaturedStories";
 import LongForm from "#civicsignalblog/payload/blocks/LongForm";
-import PageHeader from "#civicsignalblog/payload/blocks/PageHeader";
 import Posts from "#civicsignalblog/payload/blocks/Posts";
+import PageHeader from "#civicsignalblog/payload/blocks/Research/PageHeader";
 import { RESEARCH } from "#civicsignalblog/payload/lib/data/common/applications";
 import pages from "#civicsignalblog/payload/utils/createPagesCollection";
 

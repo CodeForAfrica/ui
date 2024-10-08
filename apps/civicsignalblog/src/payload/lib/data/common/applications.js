@@ -1,7 +1,7 @@
-export const MAIN = "main";
+export const MAIN = "tools";
 export const EXPLORER = "explorer";
-export const TOPIC_MAPPER = "topic-mapper";
-export const SOURCE_MAPPER = "source-manager";
+export const TOPIC_MAPPER = "topics";
+export const SOURCE_MAPPER = "sources";
 export const RESEARCH = "research";
 
 const applicationLabels = {
@@ -18,5 +18,8 @@ const applications = Object.entries(applicationLabels).map(
     value,
   }),
 );
+
+// We'll iterate over applicationLabels once we have all the pages defined
+export const applicationPages = [`${MAIN}-pages`, `${RESEARCH}-pages`];
 
 export default applications;
