@@ -46,7 +46,6 @@
     "@reactour/tour": "catalog:",
     "aws-sdk": "catalog:",
     "clsx": "catalog:",
-    "d3-format": "catalog:",
     "deepmerge": "catalog:",
     "leaflet": "catalog:",
     "lodash": "catalog:",

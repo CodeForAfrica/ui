@@ -1,22 +1,19 @@
-import { format } from "d3-format";
-
-import { hurumap } from "@/climatemappedafrica/config";
-
 function formatNumericalValue({ value, method }) {
-  const { formatting } = hurumap;
-  let fn = format(formatting.percentage);
-  // Percentage formatting multiplies by 100 first.
-  // see: https://github.com/d3/d3-format#locale_format
+  let options = {};
   let multipler = 100;
+
   if (method === "absolute_value") {
-    fn = format(formatting.integer);
+    options = { style: "decimal", maximumFractionDigits: 0 };
     multipler = 1;
   } else if (method === "decimal") {
+    options = { style: "decimal", maximumFractionDigits: 2 };
     multipler = 1;
-    fn = format(formatting.decimal);
+  } else {
+    options = { style: "percent", maximumFractionDigits: 2 };
   }
 
-  return fn(value / multipler);
+  const formatter = new Intl.NumberFormat(undefined, options);
+  return formatter.format(value / multipler);
 }
 
 export default formatNumericalValue;
