@@ -23,8 +23,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["build", "dist", "node_modules"],
-  "ts-node": {
-    "swc": true
-  }
+  "exclude": ["build", "dist", "node_modules"]
 }
