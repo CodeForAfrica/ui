@@ -2,7 +2,9 @@ name: Pesayetu | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - chore/build-arm-image
     paths:
       - "apps/pesayetu/**"
       - "Dockerfile.pesayetu"
@@ -33,6 +35,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      # Add support for more platforms with QEMU (optional)
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -68,6 +74,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: pesayetu-runner
