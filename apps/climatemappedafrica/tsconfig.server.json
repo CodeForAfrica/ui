@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2015",
+    "noEmit": false,
+    "module": "CommonJS",
+    "jsx": "react",
+    "outDir": "./dist",
+    "rootDir": "./"
+  },
+  "include": ["payload.config.ts", "server.ts"]
+}

@@ -1,4 +1,4 @@
-name: Techlab Blog | Dev | Deploy
+name: Techlab Blog | Deploy | DEV
 
 on:
   push:

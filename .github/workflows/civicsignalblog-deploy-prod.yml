@@ -79,15 +79,16 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             PAYLOAD_SECRET=${{ secrets.CIVICSIGNALBLOG_PAYLOAD_SECRET }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
-            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.CIVICSIGNALBLOG_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          target: civicsignalblog-runner
           push: true
+          secrets: |
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
           tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
+          target: civicsignalblog-runner
 
       - name: Move cache
         if: steps.version-check.outputs.changed == 'true'
