@@ -55,6 +55,7 @@
     "@reactour/tour": "catalog:",
     "aws-sdk": "catalog:",
     "clsx": "catalog:",
+    "d3-format": "catalog:",
     "deepmerge": "catalog:",
     "express": "catalog:",
     "leaflet": "catalog:",
