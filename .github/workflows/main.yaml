@@ -23,6 +23,7 @@ jobs:
   apps-path-filter:
     name:
     uses: ./.github/workflows/_app-path-filter.yaml
+    secrets: inherit
 
   cd-dev:
     needs:

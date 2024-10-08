@@ -9,12 +9,14 @@ jobs:
     uses: ./.github/workflows/_app-version-check.yaml
     with:
       file-name: "./apps/charterafrica/package.json"
+    secrets: inherit
 
   version-check-codeforafrica:
     name: Version Check | codeforafrica
     uses: ./.github/workflows/_app-version-check.yaml
     with:
       file-name: "./apps/codeforafrica/package.json"
+    secrets: inherit
 
   prod-cd-charterafrica:
     name: Deploy | charterafrica
@@ -25,8 +27,9 @@ jobs:
     with:
       NODE_ENV: production
       app_url: https://charter.africa
-      git_remote_url: ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica-ui
+      seo_disabled: false
       tags: "codeforafrica/charterafrica-ui:${{ needs.version-check-charterafrica.outputs.version }}"
+      git_remote_url: ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica-ui
     secrets: inherit
 
   prod-cd-codeforafrica:
@@ -38,6 +41,6 @@ jobs:
     with:
       NODE_ENV: production
       app_url: https://cfa.dev.codeforafrica.org
-      git_remote_url: ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui
       tags: "codeforafrica/codeforafrica-ui:${{ needs.version-check-codeforafrica.outputs.version }}"
+      git_remote_url: ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui
     secrets: inherit
