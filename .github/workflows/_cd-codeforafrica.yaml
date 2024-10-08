@@ -31,15 +31,16 @@ on:
 
 jobs:
   # This seem to be needed because GitHub doesn't support access `secrets` in a `with` clause
+  # when calling reusable workflows
   # https://github.com/github/roadmap/issues/636
   secrets:
     runs-on: ubuntu-latest
     outputs:
-      MONGODB_URL: ${{ steps.output-secrets.outputs.test.CODEFORAFRICA_MONGODB_URL }}
-      NEXT_PUBLIC_APP_LOGO_URL: ${{ steps.output-secrets.outputs.test.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
-      NEXT_PUBLIC_APP_NAME: ${{ steps.output-secrets.outputs.test.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
-      PAYLOAD_SECRET: ${{ steps.output-secrets.outputs.test.CODEFORAFRICA_PAYLOAD_SECRET }}
-      SENTRY_PROJECT: ${{ steps.output-secrets.outputs.test.CODEFORAFRICA_SENTRY_PROJECT }}
+      MONGODB_URL: ${{ steps.output-secrets.outputs.CODEFORAFRICA_MONGODB_URL }}
+      NEXT_PUBLIC_APP_LOGO_URL: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+      NEXT_PUBLIC_APP_NAME: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+      PAYLOAD_SECRET: ${{ steps.output-secrets.outputs.CODEFORAFRICA_PAYLOAD_SECRET }}
+      SENTRY_PROJECT: ${{ steps.output-secrets.outputs.CODEFORAFRICA_SENTRY_PROJECT }}
     steps:
       - id: output-secrets
         run: |

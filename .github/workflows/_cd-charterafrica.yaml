@@ -30,17 +30,18 @@ on:
 
 jobs:
   # This seem to be needed because GitHub doesn't support access `secrets` in a `with` clause
+  # when calling reusable workflows
   # https://github.com/github/roadmap/issues/636
   secrets:
     runs-on: ubuntu-latest
     outputs:
-      MONGO_URL: ${{ steps.output-secrets.outputs.test.CHARTERAFRICA_MONGO_URL }}
-      NEXT_PUBLIC_APP_LOGO_URL: ${{ steps.output-secrets.outputs.test.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
-      NEXT_PUBLIC_APP_NAME: ${{ steps.output-secrets.outputs.test.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
-      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ steps.output-secrets.outputs.test.CHARTERAFRICA_GA_MEASUREMENT_ID }}
-      NEXT_PUBLIC_SENTRY_DSN: ${{ steps.output-secrets.outputs.test.CHARTERAFRICA_SENTRY_DSN }}
-      PAYLOAD_SECRET: ${{ steps.output-secrets.outputs.test.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
-      SENTRY_PROJECT: ${{ steps.output-secrets.outputs.test.CODEFORAFRICA_SENTRY_PROJECT }}
+      MONGO_URL: ${{ steps.output-secrets.outputs.CHARTERAFRICA_MONGO_URL }}
+      NEXT_PUBLIC_APP_LOGO_URL: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+      NEXT_PUBLIC_APP_NAME: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ steps.output-secrets.outputs.CHARTERAFRICA_GA_MEASUREMENT_ID }}
+      NEXT_PUBLIC_SENTRY_DSN: ${{ steps.output-secrets.outputs.CHARTERAFRICA_SENTRY_DSN }}
+      PAYLOAD_SECRET: ${{ steps.output-secrets.outputs.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+      SENTRY_PROJECT: ${{ steps.output-secrets.outputs.CODEFORAFRICA_SENTRY_PROJECT }}
     steps:
       - id: output-secrets
         run: |

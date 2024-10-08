@@ -1,8 +1,8 @@
 name: CI/CD [Main]
 
 on:
-  pull_request:
-    branches: # PRs to the following branches will trigger the workflow
+  push:
+    branches:
       - main
     paths:
       - ".github/workflows/**"
@@ -21,7 +21,6 @@ jobs:
     uses: ./.github/workflows/_ci.yaml
 
   apps-path-filter:
-    name:
     uses: ./.github/workflows/_app-path-filter.yaml
     secrets: inherit
 
