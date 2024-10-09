@@ -88,13 +88,6 @@ function Footer(props) {
                   }}
                   sx={{ gap: 2 }}
                   direction="column"
-                  // classes={{
-                  //   root: classes.stayInTouch,
-                  //   icon: classes.stayInTouchIcon,
-                  //   links: classes.stayInTouchLinks,
-                  //   text: classes.stayInTouchText,
-                  //   link: classes.stayInTouchLink,
-                  // }}
                 />
               </Grid>
             </Grid>
