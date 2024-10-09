@@ -20,10 +20,8 @@ export async function getPageProps(api, context) {
 
   const blocks = await blockify(page.blocks, api);
 
-  const siteSettings = await api.findGlobal("settings-site");
-
   return {
     blocks,
-    siteSettings,
+    siteSettings: {},
   };
 }

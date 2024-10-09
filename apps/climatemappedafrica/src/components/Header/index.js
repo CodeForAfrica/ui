@@ -4,6 +4,8 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "@/climatemappedafrica/components/RichText";
+
 const useStyles = makeStyles(({ palette, typography }) => ({
   root: {},
   overline: {
@@ -40,9 +42,13 @@ function Header({ className, overline, subtitle, children, ...props }) {
       <RichTypography variant="h1" className={classes.title}>
         {children}
       </RichTypography>
-      <RichTypography variant="subtitle1" className={classes.subtitle}>
-        {subtitle}
-      </RichTypography>
+      {typeof subtitle === "string" ? (
+        <RichTypography variant="subtitle1" className={classes.subtitle}>
+          {subtitle}
+        </RichTypography>
+      ) : (
+        <RichText className={classes.subtitle} elements={subtitle} />
+      )}
     </header>
   );
 }
@@ -51,12 +57,6 @@ Header.propTypes = {
   className: PropTypes.string,
   overline: PropTypes.string,
   subtitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  className: undefined,
-  overline: undefined,
-  subtitle: undefined,
 };
 
 export default Header;

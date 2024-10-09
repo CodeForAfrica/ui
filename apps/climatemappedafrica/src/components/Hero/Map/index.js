@@ -34,16 +34,25 @@ function Map({
   center,
   zoom,
   boundary,
-  styles,
-  geoJSONStyles,
+  styles = {
+    height: "100%",
+    width: "100%",
+  },
+  geoJSONStyles = {
+    color: "#2A2A2C",
+    weight: 1,
+    opacity: 1,
+    fillColor: "#fff",
+    dashArray: "2",
+  },
   setHoverGeo,
-  featuredCounties,
+  featuredLocations,
   ...props
 }) {
   const classes = useStyles(props);
   const router = useRouter();
 
-  const countyCodes = featuredCounties?.map(({ code }) => code);
+  const countyCodes = featuredLocations?.map(({ code }) => code);
 
   const onEachFeature = (feature, layer) => {
     layer.setStyle({
@@ -117,28 +126,9 @@ Map.propTypes = {
   boundary: PropTypes.shape({}),
   geoJSONStyles: PropTypes.shape({}),
   setHoverGeo: PropTypes.func,
-  featuredCounties: PropTypes.arrayOf(
+  featuredLocations: PropTypes.arrayOf(
     PropTypes.shape({ code: PropTypes.string }),
   ),
-};
-
-Map.defaultProps = {
-  boundary: undefined,
-  center: undefined,
-  zoom: undefined,
-  styles: {
-    height: "100%",
-    width: "100%",
-  },
-  geoJSONStyles: {
-    color: "#2A2A2C",
-    weight: 1,
-    opacity: 1,
-    fillColor: "#fff",
-    dashArray: "2",
-  },
-  setHoverGeo: undefined,
-  featuredCounties: undefined,
 };
 
 export default Map;

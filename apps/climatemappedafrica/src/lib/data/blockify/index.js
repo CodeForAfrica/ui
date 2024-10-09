@@ -1,6 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 
-const propsifyBlockBySlug = {};
+import hero from "./hero";
+
+const propsifyBlockBySlug = {
+  "page-hero": hero,
+};
 
 export const blockify = async (blocks, api) => {
   const promises = blocks?.map(async (block) => {

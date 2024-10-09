@@ -86,7 +86,8 @@ function Hero({
   title,
   subtitle,
   searchLabel,
-  featuredCounties,
+  featuredLocations,
+  searchPlaceholder,
   ...props
 }) {
   const classes = useStyles(props);
@@ -122,7 +123,8 @@ function Hero({
             </Header>
             <DropdownSearch
               label={searchLabel}
-              locations={featuredCounties}
+              locations={featuredLocations}
+              placeholder={searchPlaceholder}
               classes={{
                 label: classes.dropdownTitle,
               }}
@@ -151,7 +153,7 @@ function Hero({
                   url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
                 }}
                 setHoverGeo={setHoverGeo}
-                featuredCounties={featuredCounties}
+                featuredLocations={featuredLocations}
                 {...props}
               />
               {hoverGeo && (
@@ -172,7 +174,7 @@ Hero.propTypes = {
   subtitle: PropTypes.string,
   searchLabel: PropTypes.string,
   title: PropTypes.string,
-  featuredCounties: PropTypes.arrayOf(PropTypes.shape({})),
+  featuredLocations: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
 export default Hero;
