@@ -2,7 +2,9 @@ name: charterAFRICA | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - chore/build-arm-image
     paths:
       - "apps/charterafrica/**"
       - "Dockerfile"
