@@ -2513,6 +2513,9 @@ importers:
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
+      slate:
+        specifier: 'catalog:'
+        version: 0.103.0
     devDependencies:
       '@babel/core':
         specifier: 'catalog:'
