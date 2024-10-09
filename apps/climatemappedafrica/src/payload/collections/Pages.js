@@ -1,6 +1,7 @@
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
+import PageHero from "../blocks/PageHero";
 
 const Pages = {
   slug: "pages",
@@ -27,7 +28,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [],
+      blocks: [PageHero],
       localized: true,
       admin: {
         initCollapsed: true,
