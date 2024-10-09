@@ -45,13 +45,20 @@ const NavigationTab = {
       ],
     },
     {
-      name: "secondaryNavigation",
+      name: "footerNavigation",
       type: "group",
       localized: true,
       fields: [
         {
+          type: "text",
+          name: "title",
+          required: true,
+          localized: true,
+          label: "Title",
+        },
+        {
           type: "collapsible",
-          label: "Title & Links",
+          label: "Links",
           fields: [
             linkArray({
               overrides: {

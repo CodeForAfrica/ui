@@ -1,6 +1,37 @@
-/* eslint-disable import/prefer-default-export */
-
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
+
+export function imageFromMedia(alt, url) {
+  return { alt, src: url };
+}
+
+function getFooter(siteSettings) {
+  const {
+    connect,
+    footerNavigation,
+    newsletter,
+    primaryLogo,
+    secondaryLogo,
+    description,
+    title,
+  } = siteSettings;
+
+  const { menus: footerMenus, ...footerProps } = footerNavigation;
+
+  const media = secondaryLogo || primaryLogo;
+  const footerLogoUrl = typeof media === "string" ? null : media.url;
+
+  return {
+    connect,
+    description,
+    logo: imageFromMedia(title, footerLogoUrl),
+    links: {
+      ...footerProps,
+      links: footerMenus,
+    },
+    newsletter,
+    title,
+  };
+}
 
 export async function getPageProps(api, context) {
   // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
@@ -21,9 +52,10 @@ export async function getPageProps(api, context) {
   const blocks = await blockify(page.blocks, api);
 
   const siteSettings = await api.findGlobal("settings-site");
+  const footer = getFooter(siteSettings);
 
   return {
     blocks,
-    siteSettings,
+    footer,
   };
 }

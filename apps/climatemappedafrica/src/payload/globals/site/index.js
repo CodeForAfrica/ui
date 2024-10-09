@@ -1,6 +1,5 @@
 import EngagementTab from "./EngagementTab";
 import GeneralTab from "./GeneralTab";
-import InitiativeTab from "./InitiativeTab";
 import NavigationTab from "./NavigationTab";
 
 const Site = {
@@ -15,7 +14,7 @@ const Site = {
   fields: [
     {
       type: "tabs",
-      tabs: [GeneralTab, NavigationTab, EngagementTab, InitiativeTab],
+      tabs: [GeneralTab, NavigationTab, EngagementTab],
     },
   ],
 };
