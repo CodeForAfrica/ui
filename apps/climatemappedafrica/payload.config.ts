@@ -15,6 +15,8 @@ import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 
+import Site from "./src/payload/globals/Site";
+
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
 
@@ -52,7 +54,7 @@ export default buildConfig({
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
   collections: [Media, Pages, Users] as CollectionConfig[],
-  globals: [] as GlobalConfig[],
+  globals: [Site] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {

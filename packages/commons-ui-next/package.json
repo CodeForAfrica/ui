@@ -56,7 +56,8 @@
     "next": "catalog:",
     "prop-types": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "slate": "catalog:"
   },
   "dependencies": {
     "clsx": "catalog:"
