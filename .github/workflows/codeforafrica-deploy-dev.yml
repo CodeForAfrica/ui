@@ -2,7 +2,9 @@ name: Code for Africa | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - chore/build-arm-image
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile"

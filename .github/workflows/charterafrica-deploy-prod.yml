@@ -30,9 +30,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
       # Set up Node since it's required by version-check
       # https://github.com/EndBug/version-check#github-workflow
       - name: Setup Node.js
@@ -95,7 +92,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          platforms: linux/amd64,linux/arm64
           push: true
           secrets: |
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
