@@ -1,6 +1,6 @@
 import richText from "../fields/richText";
 
-export const PageHero = {
+const PageHero = {
   slug: "page-hero",
   imageURL: "/images/cms/blocks/hero.png",
   imageAltText: "Used in homepage",

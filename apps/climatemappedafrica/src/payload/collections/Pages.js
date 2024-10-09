@@ -1,7 +1,7 @@
+import PageHero from "../blocks/PageHero";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
-import PageHero from "../blocks/PageHero";
 
 const Pages = {
   slug: "pages",
