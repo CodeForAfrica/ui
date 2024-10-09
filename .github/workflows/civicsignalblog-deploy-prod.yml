@@ -2,7 +2,9 @@ name: CivicSignal Blog | Deploy | PROD
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - chore/build-arm-image
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
