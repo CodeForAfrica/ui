@@ -5,10 +5,9 @@ const PageHero = {
   imageURL: "/images/cms/blocks/hero.png",
   imageAltText: "Used in homepage",
   labels: {
-    singular: "Site Hero",
-    plural: "Site Hero",
+    singular: "Hero",
+    plural: "Hero",
   },
-  interfaceName: "SiteHero",
   fields: [
     {
       name: "title",
@@ -36,7 +35,6 @@ const PageHero = {
       name: "comment",
       type: "text",
       label: "Comment",
-      required: true,
     },
   ],
 };
