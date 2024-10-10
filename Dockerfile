@@ -403,8 +403,12 @@ ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/civicsignalblog//.next \
+  && mkdir -p ./apps/civicsignalblog/.next \
   && chown nextjs:nodejs ./apps/civicsignalblog/.next
+
+# Node
+# Subpath imports definitions
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/package.json ./apps/civicsignalblog/package.json
 
 # PNPM
 # symlink some dependencies
@@ -424,8 +428,8 @@ COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civics
 COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/.next ./apps/civicsignalblog/.next
 
 # Payload
-COPY --from=civicsignalblog-builder /workspace/apps/civicsignalblog/dist ./apps/civicsignalblog/dist
-COPY --from=civicsignalblog-builder /workspace/apps/civicsignalblog/build ./apps/civicsignalblog/build
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/dist ./apps/civicsignalblog/dist
+COPY --from=civicsignalblog-builder --chown=nextjs:nodejs /workspace/apps/civicsignalblog/build ./apps/civicsignalblog/build
 
 # Since we can't use output: "standalone", switch to specific app's folder
 WORKDIR /workspace/apps/civicsignalblog
