@@ -59,17 +59,17 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.ROBOSHIELD_SENTRY_DSN }}
             PAYLOAD_SECRET=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
-            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          target: roboshield-runner
-          file: Dockerfile
           push: true
+          secrets: |
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          target: roboshield-runner
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
