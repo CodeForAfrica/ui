@@ -60,7 +60,7 @@ function Map({
       fillOpacity: 1,
     });
 
-    if (countyCodes.includes(feature.properties.code)) {
+    if (countyCodes.includes(feature.properties.code?.toLowerCase())) {
       layer.setStyle({
         weight: 1.5,
         dashArray: 0,
