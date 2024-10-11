@@ -75,5 +75,6 @@ export async function getPageProps(api, context) {
     blocks,
     footer,
     menus,
+    variant: page?.variant,
   };
 }

@@ -33,6 +33,18 @@ const Pages = {
         initCollapsed: true,
       },
     },
+    {
+      name: "variant",
+      type: "select",
+      options: [
+        { label: "Default", value: "default" },
+        { label: "Explore", value: "explore" },
+      ],
+      defaultValue: "default",
+      admin: {
+        position: "sidebar",
+      },
+    },
   ],
   versions: {
     drafts: true,
