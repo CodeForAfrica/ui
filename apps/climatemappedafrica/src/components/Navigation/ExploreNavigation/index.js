@@ -1,6 +1,5 @@
 import LogoButton from "@commons-ui/core/LogoButton";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Grid, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
@@ -59,19 +58,8 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
 }));
 
-function ExploreNavigation({
-  logoProps,
-  menuProps,
-  onOpenHelp,
-  socialLinks,
-  desktopLogoProps,
-  mobileLogoProps,
-  ...props
-}) {
-  const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const logoArgs = isDesktop ? desktopLogoProps : mobileLogoProps;
+function ExploreNavigation({ logo, variant }) {
+  const classes = useStyles({});
   const { setIsOpen } = useTour();
 
   const openTooltip = () => {
@@ -87,7 +75,7 @@ function ExploreNavigation({
               component={Link}
               className={classes.logoButton}
             >
-              <Image {...logoArgs} />
+              <Image {...logo} width={200} height={80} />
             </LogoButton>
           </Grid>
           <Grid
@@ -99,9 +87,9 @@ function ExploreNavigation({
             alignItems="center"
           >
             <DropdownSearch
-              {...props}
               icon={SearchIcon}
               placeholder="Search for a Location" // TODO: Read from cms
+              variant={variant}
               classes={{
                 inputRoot: classes.searchInputRoot,
                 input: classes.searchInput,

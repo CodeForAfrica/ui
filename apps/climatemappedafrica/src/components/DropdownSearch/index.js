@@ -6,7 +6,6 @@ import {
   ListItem,
 } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
@@ -66,7 +65,7 @@ function DropdownSearch({
   label = "Search for a location",
   locations,
   onClick,
-  icon: iconProp = SearchIcon,
+  icon: IconProp = SearchIcon,
   placeholder,
   variant,
   ...props
@@ -112,8 +111,6 @@ function DropdownSearch({
     }
   };
 
-  const icon =
-    !suggestions?.length || variant === "explore" ? iconProp : SearchIcon;
   const searchIconButton = (
     <IconButton
       color="primary"
@@ -121,7 +118,11 @@ function DropdownSearch({
       size="small"
       className={classes.button}
     >
-      <Image src={icon} width={48} height={48} alt="search" />
+      {variant === "explore" ? (
+        <IconProp viewBox="0 0 48 48" />
+      ) : (
+        <SearchIcon viewBox="0 0 48 48" />
+      )}
     </IconButton>
   );
 
@@ -171,7 +172,7 @@ DropdownSearch.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  icon: PropTypes.string,
+  icon: PropTypes.elementType,
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   variant: PropTypes.string,
   placeholder: PropTypes.string,
