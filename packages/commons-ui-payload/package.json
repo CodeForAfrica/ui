@@ -1,13 +1,11 @@
 {
-  "name": "@commons-ui/next",
-  "version": "2.0.1",
+  "name": "@commons-ui/payload",
+  "version": "0.0.1",
   "private": false,
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "",
-  "main": "./src/index.js",
+  "main": "src/index.js",
   "keywords": [
-    "next",
-    "next.js",
     "react",
     "react-component",
     "mui",
@@ -17,7 +15,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/codeforafrica/ui.git",
-    "directory": "packages/commons-ui-next"
+    "directory": "packages/commons-ui-core"
   },
   "license": "MIT",
   "bugs": {
@@ -32,18 +30,22 @@
   "devDependencies": {
     "@babel/core": "catalog:",
     "@babel/preset-react": "catalog:",
-    "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
+    "@mui/utils": "catalog:",
+    "@types/react": "catalog:",
     "babel-loader": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
+    "identity-obj-proxy": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "next": "catalog:",
-    "prop-types": "catalog:",
+    "prettier": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "react-test-renderer": "catalog:",
     "require-from-string": "catalog:",
     "typescript": "catalog:",
     "webpack": "catalog:"
@@ -51,6 +53,7 @@
   "peerDependencies": {
     "@babel/core": "catalog:",
     "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
     "@mui/material": "catalog:",
     "clsx": "catalog:",
     "next": "catalog:",
@@ -59,7 +62,5 @@
     "react-dom": "catalog:",
     "slate": "catalog:"
   },
-  "dependencies": {
-    "clsx": "catalog:"
-  }
+  "dependencies": {}
 }

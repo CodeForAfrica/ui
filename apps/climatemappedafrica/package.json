@@ -36,6 +36,7 @@
     "@apollo/client": "catalog:",
     "@commons-ui/core": "catalog:",
     "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@hurumap/core": "workspace:*",
