@@ -276,33 +276,9 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
 }
 
 MobileNavigation.propTypes = {
-  drawerLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
-  href: PropTypes.string,
-  logoProps: PropTypes.shape({}),
-  menuProps: PropTypes.arrayOf(PropTypes.shape({})),
-  mobileLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
+  logo: PropTypes.shape({}),
+  menus: PropTypes.arrayOf(PropTypes.shape({})),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
-};
-
-MobileNavigation.defaultProps = {
-  drawerLogoProps: undefined,
-  href: "/explore",
-  logoProps: undefined,
-  menuProps: undefined,
-  mobileLogoProps: undefined,
-  socialLinks: undefined,
 };
 
 export default MobileNavigation;
