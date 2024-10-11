@@ -1,10 +1,10 @@
+import { StayInTouch } from "@commons-ui/next";
 import { Grid, Button, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import Link from "@/climatemappedafrica/components/Link";
-import SocialMediaIcons from "@/climatemappedafrica/components/SocialMediaIcons";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   root: {
@@ -137,7 +137,23 @@ function Menu({ links, children, socialLinks, ...props }) {
         </Grid>
       ))}
       {children}
-      <SocialMediaIcons socialLinks={socialLinks} />
+      <StayInTouch
+        links={socialLinks}
+        LinkProps={{
+          component: Link,
+          sx: {
+            color: "text.primary",
+            backgroundColor: "#EBEBEB",
+            borderRadius: 50,
+            width: 42,
+            height: 42,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "3.2px",
+          },
+        }}
+      />
     </Grid>
   );
 }
