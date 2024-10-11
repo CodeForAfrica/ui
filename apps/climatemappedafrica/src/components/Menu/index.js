@@ -57,6 +57,7 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
     [breakpoints.up("lg")]: {
       fontSize: typography.pxToRem(16),
     },
+    textTransform: "uppercase",
   },
   menu: {
     margin: 0,
@@ -125,10 +126,14 @@ function Menu({ links, children, socialLinks, ...props }) {
               root: index !== 0 ? classes.menuLinks : classes.links,
               text: classes.text,
             }}
-            sx={{
+            sx={(theme) => ({
               borderRadius: 20,
               border: index !== 0 ? 0 : "3px solid",
-            }}
+              color: {
+                xs: theme.palette.text.secondary,
+                lg: theme.palette.primary.main,
+              },
+            })}
           >
             <Typography variant="body1" className={classes.label}>
               {item.label}

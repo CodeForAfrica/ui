@@ -1,17 +1,31 @@
 import LogoButton from "@commons-ui/core/LogoButton";
-import { Grid } from "@mui/material";
+import {
+  Grid,
+  Slide,
+  Dialog,
+  DialogActions,
+  IconButton,
+  DialogContent,
+} from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 
+import SearchIcon from "@/climatemappedafrica/assets/icons/search-open.svg";
+import MenuCloseIcon from "@/climatemappedafrica/assets/menu_close.svg";
+import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
+import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Link from "@/climatemappedafrica/components/Link";
+import Menu from "@/climatemappedafrica/components/Menu";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   root: {},
   logoButton: {
     padding: 0,
+    width: typography.pxToRem(254),
   },
   section: {},
   dialog: {
@@ -140,14 +154,34 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
 }));
 
-function MobileNavigation({ logo, ...props }) {
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="left" timeout={1000} ref={ref} {...props} />;
+});
+
+function MobileNavigation({ logo, menus, socialLinks, ...props }) {
   const classes = useStyles(props);
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const handleClickOpen = (e) => {
+    e?.preventDefault();
+    setOpen(true);
+  };
+  const handleClose = (e) => {
+    e?.preventDefault();
+    setOpen(false);
+  };
+
+  const handleClickSearch = (code) => {
+    setOpen(false);
+    router.push(`explore/${code}`);
+  };
 
   return (
     <div className={classes.root}>
       <Section className={classes.section}>
         <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item container justifyContent="center">
+          <Grid item xs={10}>
             <LogoButton
               href="/"
               component={Link}
@@ -156,6 +190,85 @@ function MobileNavigation({ logo, ...props }) {
               <Image {...logo} width={180} height={70} />
             </LogoButton>
           </Grid>
+          <Grid item>
+            <IconButton
+              aria-label="Open drawer"
+              edge="start"
+              size="medium"
+              onClick={handleClickOpen}
+              className={classes.menuButton}
+            >
+              <MenuOpenIcon viewBox="0 0 24 24" className={classes.open} />
+            </IconButton>
+          </Grid>
+          <Dialog
+            fullScreen
+            open={open}
+            onClose={handleClose}
+            BackdropProps={{
+              classes: {
+                root: classes.backdrop,
+              },
+            }}
+            TransitionComponent={Transition}
+            classes={{ root: classes.dialog, paper: classes.dialogPaper }}
+          >
+            <DialogActions className={classes.dialogActions}>
+              <Section className={classes.section}>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  className={classes.logoSection}
+                >
+                  <Grid item xs={10}>
+                    <LogoButton
+                      href="/"
+                      component={Link}
+                      className={classes.logoButton}
+                    >
+                      <Image {...logo} width={240} height={40} />
+                    </LogoButton>
+                  </Grid>
+                  <Grid item>
+                    <IconButton
+                      aria-label="Close drawer"
+                      edge="end"
+                      size="medium"
+                      onClick={handleClose}
+                      className={classes.closeButton}
+                    >
+                      <MenuCloseIcon />
+                    </IconButton>
+                  </Grid>
+                </Grid>
+              </Section>
+            </DialogActions>
+            <DialogContent className={classes.dialogContent}>
+              <Section className={classes.section}>
+                <Menu
+                  links={menus}
+                  socialLinks={socialLinks}
+                  classes={{
+                    root: classes.mainMenu,
+                    menuLinks: classes.menuLinks,
+                    label: classes.label,
+                    menu: classes.buttonMenu,
+                  }}
+                >
+                  <DropdownSearch
+                    classes={{
+                      root: classes.search,
+                      inputRoot: classes.searchInput,
+                    }}
+                    icon={SearchIcon}
+                    onClick={handleClickSearch}
+                    {...props}
+                  />
+                </Menu>
+              </Section>
+            </DialogContent>
+          </Dialog>
         </Grid>
       </Section>
     </div>
@@ -163,6 +276,14 @@ function MobileNavigation({ logo, ...props }) {
 }
 
 MobileNavigation.propTypes = {
+  drawerLogoProps: PropTypes.shape({
+    alt: PropTypes.string,
+    href: PropTypes.string,
+    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
+    width: PropTypes.number,
+    height: PropTypes.number,
+  }),
+  href: PropTypes.string,
   logoProps: PropTypes.shape({}),
   menuProps: PropTypes.arrayOf(PropTypes.shape({})),
   mobileLogoProps: PropTypes.shape({
@@ -173,6 +294,15 @@ MobileNavigation.propTypes = {
     height: PropTypes.number,
   }),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
+};
+
+MobileNavigation.defaultProps = {
+  drawerLogoProps: undefined,
+  href: "/explore",
+  logoProps: undefined,
+  menuProps: undefined,
+  mobileLogoProps: undefined,
+  socialLinks: undefined,
 };
 
 export default MobileNavigation;
