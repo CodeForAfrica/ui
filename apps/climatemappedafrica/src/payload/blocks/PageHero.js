@@ -1,3 +1,4 @@
+import LocationSelect, { validateLocation } from "../fields/LocationSelect";
 import richText from "../fields/richText";
 
 const PageHero = {
@@ -30,6 +31,31 @@ const PageHero = {
       name: "searchPlaceholder",
       type: "text",
       label: "Search Placeholder",
+    },
+    {
+      name: "location",
+      label: "Featured Location",
+      type: "group",
+      fields: [
+        {
+          name: "name",
+          type: "select",
+          options: ["-"],
+          required: true,
+          hasMany: false,
+          validate: validateLocation,
+          admin: {
+            components: {
+              Field: LocationSelect,
+            },
+          },
+        },
+        {
+          name: "center",
+          label: "Center Point",
+          type: "point",
+        },
+      ],
     },
     {
       name: "comment",

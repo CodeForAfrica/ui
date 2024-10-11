@@ -88,6 +88,9 @@ function Hero({
   searchLabel,
   featuredLocations,
   searchPlaceholder,
+  properties,
+  location: { center },
+  level,
   ...props
 }) {
   const classes = useStyles(props);
@@ -96,7 +99,10 @@ function Hero({
 
   const [hoverGeo, setHoverGeo] = useState(null);
 
-  const zoom = isUpLg ? 2.4 : 2.1;
+  const continentLevelZoom = isUpLg ? 2.4 : 2.1;
+  const countryLevelZoom = isUpLg ? 6 : 5.25;
+  const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
+
   return (
     <div className={classes.root}>
       <div className={classes.background}>
@@ -147,7 +153,7 @@ function Hero({
           >
             <Grid item md={5}>
               <Map
-                center={[2.0, 20.0]}
+                center={center ?? [2.0, 20.0]}
                 zoom={zoom}
                 tileLayer={{
                   url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
@@ -175,6 +181,8 @@ Hero.propTypes = {
   searchLabel: PropTypes.string,
   title: PropTypes.string,
   featuredLocations: PropTypes.arrayOf(PropTypes.shape({})),
+  properties: PropTypes.shape({}),
+  level: PropTypes.string,
 };
 
 export default Hero;
