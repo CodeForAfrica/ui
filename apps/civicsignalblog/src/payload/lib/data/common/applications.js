@@ -19,4 +19,7 @@ const applications = Object.entries(applicationLabels).map(
   }),
 );
 
+// We'll iterate over applicationLabels once we have all the pages defined
+export const applicationPages = [`${MAIN}-pages`, `${RESEARCH}-pages`];
+
 export default applications;
