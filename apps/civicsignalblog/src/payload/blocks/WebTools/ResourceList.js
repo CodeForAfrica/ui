@@ -5,7 +5,7 @@ const PageHeader = {
     plural: "Resource Lists",
   },
   imageURL: "/images/cms/blocks/resource_list.png",
-  imageAltText: "A list of resrouces to display",
+  imageAltText: "A list of resources to display",
   fields: [
     {
       name: "resourceListType",
