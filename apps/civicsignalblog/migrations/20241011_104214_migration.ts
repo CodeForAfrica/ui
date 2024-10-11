@@ -1,7 +1,6 @@
 import { MigrateUpArgs, MigrateDownArgs } from "@payloadcms/db-mongodb";
 import mongoose from "mongoose";
 
-
 const mongoURL = process.env.MONGO_URL;
 const oldCollectionName = "pages";
 const newCollectionName = "research-pages";
@@ -48,5 +47,4 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   );
 }
 
-export async function down({ payload }: MigrateDownArgs): Promise<void> {
-}
+export async function down({ payload }: MigrateDownArgs): Promise<void> {}
