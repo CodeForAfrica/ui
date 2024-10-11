@@ -6,29 +6,15 @@ import React from "react";
 
 import Footer from "@/climatemappedafrica/components/Footer";
 import Navigation from "@/climatemappedafrica/components/Navigation";
-import { navigationArgs } from "@/climatemappedafrica/config";
-import getNavigationMenu from "@/climatemappedafrica/functions/menus/getNavigationMenu";
 
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, menus, variant, footer: footerProps, ...props }) {
+function BasePage({ children, menus, variant, footer: footerProps }) {
   const seo = {};
-  const navigation = getNavigationMenu(menus?.primaryMenu || []);
-  const { menuProps, socialLinks } = navigation;
-  const { desktopLogoProps, mobileLogoProps, drawerLogoProps } = navigationArgs;
   const theme = useTheme();
 
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const navigationProps = {
-    ...props,
-    ...menus,
-    menuProps,
-    socialLinks,
-    desktopLogoProps,
-    mobileLogoProps,
-    drawerLogoProps,
-  };
 
   const pageSeo = {};
   pageSeo.title = seo?.title || undefined;
@@ -51,7 +37,7 @@ function BasePage({ children, menus, variant, footer: footerProps, ...props }) {
 
   return (
     <>
-      <Navigation {...navigationProps} variant={variant} />
+      <Navigation {...menus} variant={variant} />
       <NextSeo
         {...pageSeo}
         nofollow={seo?.metaRobotsNofollow !== "follow"}

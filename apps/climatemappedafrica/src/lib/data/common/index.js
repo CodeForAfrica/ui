@@ -33,6 +33,22 @@ function getFooter(siteSettings) {
   };
 }
 
+function getMenus(siteSettings) {
+  const {
+    connect: { links = [] },
+    primaryNavigation: { menus = [], connect = [] },
+    primaryLogo,
+    title,
+  } = siteSettings;
+  const socialLinks = links?.filter((link) => connect.includes(link.platform));
+
+  return {
+    logo: imageFromMedia(title, primaryLogo.url),
+    menus,
+    socialLinks,
+  };
+}
+
 export async function getPageProps(api, context) {
   // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
   // so params.slug[0] is good enough
@@ -53,9 +69,11 @@ export async function getPageProps(api, context) {
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings);
+  const menus = getMenus(siteSettings);
 
   return {
     blocks,
     footer,
+    menus,
   };
 }

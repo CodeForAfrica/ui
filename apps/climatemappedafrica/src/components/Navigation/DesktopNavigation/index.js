@@ -17,13 +17,7 @@ const useStyles = makeStyles(() => ({
   section: {},
 }));
 
-function DesktopNavigation({
-  logoProps,
-  menuProps,
-  desktopLogoProps,
-  socialLinks,
-  ...props
-}) {
+function DesktopNavigation({ logo, menus, socialLinks, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -36,7 +30,7 @@ function DesktopNavigation({
               component={Link}
               className={classes.logoButton}
             >
-              <Image {...desktopLogoProps} />
+              <Image {...logo} width={200} height={80} />
             </LogoButton>
           </Grid>
           <Grid
@@ -47,7 +41,7 @@ function DesktopNavigation({
             justifyContent="flex-end"
             alignItems="center"
           >
-            <Menu links={menuProps} socialLinks={socialLinks} />
+            <Menu links={menus} socialLinks={socialLinks} />
           </Grid>
           <Grid />
         </Grid>
@@ -57,16 +51,9 @@ function DesktopNavigation({
 }
 
 DesktopNavigation.propTypes = {
-  logoProps: PropTypes.shape({}),
-  menuProps: PropTypes.arrayOf(PropTypes.shape({})),
+  logo: PropTypes.shape({}),
+  menus: PropTypes.arrayOf(PropTypes.shape({})),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
-  desktopLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
 };
 
 export default DesktopNavigation;
