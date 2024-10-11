@@ -140,14 +140,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
 }));
 
-function MobileNavigation({
-  logoProps,
-  menuProps,
-  mobileLogoProps,
-  drawerLogoProps,
-  socialLinks,
-  ...props
-}) {
+function MobileNavigation({ logo, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -160,7 +153,7 @@ function MobileNavigation({
               component={Link}
               className={classes.logoButton}
             >
-              <Image {...mobileLogoProps} />
+              <Image {...logo} width={180} height={70} />
             </LogoButton>
           </Grid>
         </Grid>
