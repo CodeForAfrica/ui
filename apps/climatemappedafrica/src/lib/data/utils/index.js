@@ -1,4 +1,4 @@
-export * from "./getMembers";
+export * from "./get-members";
 
 export function imageFromMedia({ alt = null, url = null }) {
   return { alt, src: url };
