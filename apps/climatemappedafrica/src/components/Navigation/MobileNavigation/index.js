@@ -174,7 +174,9 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
 
   const handleClickSearch = (code) => {
     setOpen(false);
-    router.push(`explore/${code}`);
+    if (code) {
+      router.push(`explore/${code}`);
+    }
   };
 
   return (
@@ -227,7 +229,7 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
                       component={Link}
                       className={classes.logoButton}
                     >
-                      <Image {...logo} width={240} height={40} />
+                      <Image {...logo} width={240} height={80} />
                     </LogoButton>
                   </Grid>
                   <Grid item>
