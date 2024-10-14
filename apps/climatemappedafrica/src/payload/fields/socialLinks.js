@@ -57,7 +57,7 @@ function socialLinks(overrides) {
           if (
             data?.[linksName]?.filter((l) => l.platform === val)?.length > 1
           ) {
-            return t("codeforafrica.validation:uniquePlatforms");
+            return t("climatemappedafrica.validation:uniquePlatforms");
           }
 
           const {
