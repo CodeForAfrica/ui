@@ -4,6 +4,7 @@ import {
   Typography,
   List,
   ListItem,
+  SvgIcon,
 } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import { useRouter } from "next/router";
@@ -119,9 +120,25 @@ function DropdownSearch({
       className={classes.button}
     >
       {variant === "explore" ? (
-        <IconProp viewBox="0 0 48 48" />
+        <SvgIcon
+          component={IconProp}
+          viewBox="0 0 48 48"
+          sx={{
+            width: 48,
+            height: 48,
+          }}
+        />
       ) : (
-        <SearchIcon viewBox="0 0 48 48" />
+        <SvgIcon
+          component={SearchIcon}
+          viewBox="0 0 48 48"
+          sx={{
+            width: 48,
+            height: 48,
+            borderRadius: "50%",
+            border: "2px solid #fff",
+          }}
+        />
       )}
     </IconButton>
   );
