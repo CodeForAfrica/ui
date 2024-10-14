@@ -3,7 +3,7 @@ import Page from "@/climatemappedafrica/components/Page";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
-  "visualisation-guide": DataVisualisationGuide,
+  "data-visualisation-guide": DataVisualisationGuide,
 };
 export default function Index({ blocks, fallback, ...props }) {
   if (!blocks?.length) {

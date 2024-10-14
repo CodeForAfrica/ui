@@ -1,4 +1,4 @@
-import VisualisationGuide from "../blocks/VisualisationGuide";
+import DataVisualisationGuide from "../blocks/DataVisualisationGuide";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -28,7 +28,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [VisualisationGuide],
+      blocks: [DataVisualisationGuide],
       localized: true,
       admin: {
         initCollapsed: true,

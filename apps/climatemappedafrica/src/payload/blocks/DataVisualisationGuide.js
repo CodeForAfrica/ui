@@ -1,13 +1,13 @@
 import image from "../fields/image";
 
-const VisualisationGuide = {
-  slug: "visualisation-guide",
+const DataVisualisationGuide = {
+  slug: "data-visualisation-guide",
+  imageURL: "/images/cms/blocks/data-visualisation-guide.png",
   fields: [
     {
       name: "title",
       type: "text",
       required: true,
-      localized: true,
     },
     {
       name: "items",
@@ -29,4 +29,4 @@ const VisualisationGuide = {
   ],
 };
 
-export default VisualisationGuide;
+export default DataVisualisationGuide;
