@@ -1,14 +1,16 @@
-/* eslint-disable import/prefer-default-export */
+import team from "./team";
 
-const propsifyBlockBySlug = {};
+const propsifyBlockBySlug = {
+  team,
+};
 
-export const blockify = async (blocks, api) => {
+export const blockify = async (blocks, api, context) => {
   const promises = blocks?.map(async (block) => {
     const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
 
     if (propsifyBlock) {
-      return propsifyBlock(block, api);
+      return propsifyBlock(block, api, context);
     }
     return {
       ...block,
@@ -21,3 +23,5 @@ export const blockify = async (blocks, api) => {
   }
   return blocks ?? null;
 };
+
+export default undefined;
