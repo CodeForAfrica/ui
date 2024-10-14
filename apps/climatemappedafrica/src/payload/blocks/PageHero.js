@@ -39,8 +39,7 @@ const PageHero = {
       fields: [
         {
           name: "name",
-          type: "select",
-          options: ["-"],
+          type: "text",
           required: true,
           hasMany: false,
           validate: validateLocation,

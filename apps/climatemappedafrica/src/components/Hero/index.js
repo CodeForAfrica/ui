@@ -153,7 +153,7 @@ function Hero({
           >
             <Grid item md={5}>
               <Map
-                center={center ?? [2.0, 20.0]}
+                center={center?.reverse?.() ?? [2.0, 20.0]}
                 zoom={zoom}
                 tileLayer={{
                   url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
@@ -162,11 +162,13 @@ function Hero({
                 featuredLocations={featuredLocations}
                 {...props}
               />
-              {hoverGeo && (
-                <Typography variant="h6" className={classes.geoName}>
-                  {hoverGeo}
-                </Typography>
-              )}
+              <Box sx={{ height: 80 }}>
+                {hoverGeo && (
+                  <Typography variant="h6" className={classes.geoName}>
+                    {hoverGeo}
+                  </Typography>
+                )}
+              </Box>
             </Grid>
           </Box>
         </Grid>
