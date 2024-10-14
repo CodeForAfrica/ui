@@ -1,12 +1,14 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
 import Hero from "@/climatemappedafrica/components/Hero";
 import Page from "@/climatemappedafrica/components/Page";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
   "page-hero": Hero,
+  "data-indicators": DataIndicators,
 };
 
 export default function Index({ blocks, fallback }) {

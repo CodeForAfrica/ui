@@ -1,3 +1,4 @@
+import DataIndicators from "../blocks/DataIndicators";
 import PageHero from "../blocks/PageHero";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
@@ -28,7 +29,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHero],
+      blocks: [DataIndicators, PageHero],
       localized: true,
       admin: {
         initCollapsed: true,
