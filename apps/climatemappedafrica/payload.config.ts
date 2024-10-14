@@ -12,8 +12,11 @@ import { sentry } from "@payloadcms/plugin-sentry";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
 import Media from "./src/payload/collections/Media";
+import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
+
+import Site from "./src/payload/globals/Site";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -51,8 +54,18 @@ export default buildConfig({
     url: process.env.MONGO_URL,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
-  collections: [Media, Pages, Users] as CollectionConfig[],
-  globals: [] as GlobalConfig[],
+  // the order here is the order that appears in the admin dashobard
+  // we wnat publication to be first, then project, and lastly settings
+  collections: [
+    // Publication
+    Media,
+    Pages,
+    // Project
+    Members,
+    // Settings
+    Users,
+  ] as CollectionConfig[],
+  globals: [Site] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
@@ -84,7 +97,7 @@ export default buildConfig({
     debug: false, // default
     resources: {
       en: {
-        "codeforafrica.validation": {
+        "climatemappedafrica.validation": {
           uniquePlatforms: "Please select a unique platform",
         },
       },
@@ -95,6 +108,8 @@ export default buildConfig({
       collections: {
         media: {
           adapter,
+          // TODO(kilemensi): Toogle this depending on ENV?
+          disableLocalStorage: false,
           prefix: "media",
         },
       },
