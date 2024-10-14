@@ -158,6 +158,7 @@ function Menu({ links, children, socialLinks, ...props }) {
             margin: "3.2px",
           },
         }}
+        alignItems="flex-start"
       />
     </Grid>
   );
