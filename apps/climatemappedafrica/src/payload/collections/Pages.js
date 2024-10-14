@@ -1,3 +1,4 @@
+import HowItWorks from "../blocks/HowItWorks";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import formatDraftUrl from "../utils/formatDraftUrl";
@@ -27,7 +28,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [],
+      blocks: [HowItWorks],
       localized: true,
       admin: {
         initCollapsed: true,
