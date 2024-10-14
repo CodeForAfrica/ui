@@ -66,15 +66,4 @@ Content.propTypes = {
   linkProps: PropTypes.shape({}),
 };
 
-Content.defaultProps = {
-  className: undefined,
-  description: undefined,
-  descriptionProps: undefined,
-  title: undefined,
-  titleProps: undefined,
-  href: undefined,
-  ctaText: undefined,
-  linkProps: undefined,
-};
-
 export default Content;

@@ -1,23 +1,40 @@
+import React from "react";
+import { SWRConfig } from "swr";
+
+import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
 import Page from "@/climatemappedafrica/components/Page";
+import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
   "data-visualisation-guide": DataVisualisationGuide,
+  summary: Summary,
+  team: AboutTeam,
 };
-export default function Index({ blocks, fallback, ...props }) {
+
+function Index({ blocks, fallback, ...props }) {
   if (!blocks?.length) {
     return null;
   }
+
+  let PageConfig = React.Fragment;
+  let pageConfigProps;
+  if (fallback) {
+    PageConfig = SWRConfig;
+    pageConfigProps = { value: { fallback } };
+  }
   return (
     <Page {...props}>
-      {blocks.map((block) => {
-        const Component = componentsBySlugs[block.slug];
-        if (!Component) {
-          return null;
-        }
-        return <Component key={block.id} {...block} />;
-      })}
+      <PageConfig {...pageConfigProps}>
+        {blocks.map((block) => {
+          const Component = componentsBySlugs[block.slug];
+          if (!Component) {
+            return null;
+          }
+          return <Component {...block} key={block.slug} />;
+        })}
+      </PageConfig>
     </Page>
   );
 }
@@ -25,3 +42,5 @@ export default function Index({ blocks, fallback, ...props }) {
 export async function getServerSideProps(context) {
   return getPageServerSideProps(context);
 }
+
+export default Index;

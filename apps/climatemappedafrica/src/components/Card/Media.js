@@ -52,6 +52,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
 }));
 
 function Media({
+  alt,
   chart,
   embed,
   image,
@@ -71,27 +72,25 @@ function Media({
   }
   return (
     <div className={classes.root}>
-      <Image layout="fill" src={media} unoptimized className={classes.image} />
+      <Image
+        layout="fill"
+        alt={alt}
+        src={media}
+        unoptimized
+        className={classes.image}
+      />
     </div>
   );
 }
 
 Media.propTypes = {
+  alt: PropTypes.string,
   chart: PropTypes.node,
   embed: PropTypes.node,
   image: PropTypes.node,
   imageProps: PropTypes.shape({}),
   media: PropTypes.node,
   variant: PropTypes.string,
-};
-
-Media.defaultProps = {
-  chart: undefined,
-  embed: undefined,
-  image: undefined,
-  imageProps: undefined,
-  media: undefined,
-  variant: undefined,
 };
 
 export default Media;
