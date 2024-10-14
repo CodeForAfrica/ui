@@ -1,5 +1,6 @@
 import { QuickLinks, LogoButton, Copyright } from "@commons-ui/core";
-import { Link, RichText, StayInTouch } from "@commons-ui/next";
+import { Link, StayInTouch } from "@commons-ui/next";
+import { RichText } from "@commons-ui/payload";
 import { Grid } from "@mui/material";
 import React from "react";
 

@@ -1,10 +1,8 @@
 /* eslint-disable react/no-array-index-key */
+import { Link, RichTypography } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import React, { Fragment } from "react";
 import { Text } from "slate";
-
-import Link from "@/commons-ui/next/Link";
-import RichTypography from "@/commons-ui/next/RichTypography";
 
 const DEFAULT_PROPS = {
   html: false,
