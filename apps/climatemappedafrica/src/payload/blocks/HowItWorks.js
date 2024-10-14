@@ -1,3 +1,4 @@
+import image from "../fields/image";
 import linkGroup from "../fields/links/linkGroup";
 
 const HowItWorks = {
@@ -38,6 +39,24 @@ const HowItWorks = {
     linkGroup({
       overrides: {
         label: "Link Text",
+      },
+    }),
+    image({
+      overrides: {
+        name: "foregroundImage",
+        required: true,
+        admin: {
+          description: "Image to display on the right side of the video.",
+        },
+      },
+    }),
+    image({
+      overrides: {
+        name: "backgroundImage",
+        required: true,
+        admin: {
+          description: "Image to display in the background.",
+        },
       },
     }),
   ],
