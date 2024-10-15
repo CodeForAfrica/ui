@@ -65,6 +65,11 @@ export async function getPageProps(api, context) {
     return null;
   }
 
+  const hurumap = await api.findGlobal("settings-hurumap");
+  const {
+    page: { value: explorePage },
+  } = hurumap;
+
   const blocks = await blockify(page.blocks, api, context);
 
   const siteSettings = await api.findGlobal("settings-site");
@@ -75,6 +80,6 @@ export async function getPageProps(api, context) {
     blocks,
     footer,
     menus,
-    variant: page?.variant,
+    variant: page.slug === explorePage.slug ? "explore" : "default",
   };
 }

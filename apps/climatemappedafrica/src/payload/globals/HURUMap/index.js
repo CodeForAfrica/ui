@@ -1,5 +1,5 @@
 const HURUMap = {
-  slug: "hurumap",
+  slug: "settings-hurumap",
   label: "HURUMap",
   access: {
     read: () => true,
@@ -14,6 +14,7 @@ const HURUMap = {
       type: "relationship",
       relationTo: ["pages"],
       maxDepth: 1,
+      required: true,
     },
   ],
 };
