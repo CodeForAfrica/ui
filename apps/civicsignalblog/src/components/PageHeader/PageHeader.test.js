@@ -10,7 +10,16 @@ const render = createRender({ theme });
 
 const defaultProps = {
   title: "Contact",
-  subtitle: "Let’s start something together!",
+  subtitle: [
+    {
+      children: [
+        { text: "Let's", children: null },
+        { children: null, bold: true, text: " start " },
+        { children: null, text: "something" },
+        { children: null, bold: true, text: " together" },
+      ],
+    },
+  ],
 };
 
 describe("<PageHeader />", () => {
