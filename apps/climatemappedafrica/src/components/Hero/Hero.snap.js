@@ -68,17 +68,27 @@ exports[`Hero Component renders unchanged 1`] = `
             <div
               blocktype="hero"
               boundary="[object Object]"
-              class="MuiInputBase-root makeStyles-inputRoot-17 MuiInputBase-colorPrimary css-1illudf-MuiInputBase-root"
+              class="MuiInputBase-root makeStyles-inputRoot-17 MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1illudf-MuiInputBase-root"
               slug="hero"
             >
               <input
                 aria-label="search"
-                class="MuiInputBase-input makeStyles-input-21 css-yz9k0d-MuiInputBase-input"
+                class="MuiInputBase-input makeStyles-input-21 MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
                 id="670e3996766697e7feb349d5"
                 placeholder="Search for a location"
                 type="text"
                 value=""
               />
+              <button
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall makeStyles-button-20 css-13dk0vd-MuiButtonBase-root-MuiIconButton-root"
+                tabindex="0"
+                type="button"
+              >
+                <div />
+                <span
+                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                />
+              </button>
             </div>
             <div
               class="makeStyles-suggestions-22"
