@@ -18,15 +18,15 @@ export default function Index({ blocks, fallback }) {
     return null;
   }
 
-  let PageComponent = React.Fragment;
-  let pageComponentProps;
+  let PageConfig = React.Fragment;
+  let pageConfigProps;
   if (fallback) {
-    PageComponent = SWRConfig;
-    pageComponentProps = { value: { fallback } };
+    PageConfig = SWRConfig;
+    pageConfigProps = { value: { fallback } };
   }
   return (
-    <Page {...pageComponentProps}>
-      <PageComponent {...pageComponentProps}>
+    <Page {...pageConfigProps}>
+      <PageConfig {...pageConfigProps}>
         {blocks.map((block) => {
           const Component = componentsBySlugs[block.slug];
           if (!Component) {
@@ -34,7 +34,7 @@ export default function Index({ blocks, fallback }) {
           }
           return <Component {...block} key={block.slug} />;
         })}
-      </PageComponent>
+      </PageConfig>
     </Page>
   );
 }
