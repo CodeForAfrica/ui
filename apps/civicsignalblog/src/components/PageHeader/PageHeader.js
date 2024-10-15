@@ -4,6 +4,8 @@ import React from "react";
 
 import TwoToneBackground from "../TwoToneBackground";
 
+import RichText from "@/civicsignalblog/components/RichText";
+
 const PageHeader = React.forwardRef(function PageHeader(props, ref) {
   const { title, subtitle } = props;
 
@@ -31,9 +33,14 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
         >
           {title}
         </RichTypography>
-        <RichTypography component="h2" variant="h2">
-          {subtitle}
-        </RichTypography>
+        <RichText
+          ref={ref}
+          typographyProps={{
+            fontWeight: "normal",
+            variant: "h2",
+          }}
+          elements={subtitle}
+        />
       </Section>
     </TwoToneBackground>
   );
