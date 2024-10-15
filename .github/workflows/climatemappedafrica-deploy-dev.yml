@@ -2,7 +2,9 @@ name: Climate Mapped Africa | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - chore/arm-build
     paths:
       - "apps/climatemappedafrica/**"
       - "Dockerfile"
