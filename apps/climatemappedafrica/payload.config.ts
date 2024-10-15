@@ -17,6 +17,7 @@ import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 
 import Site from "./src/payload/globals/Site";
+import HURUMap from "./src/payload/globals/HURUMap";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -65,7 +66,7 @@ export default buildConfig({
     // Settings
     Users,
   ] as CollectionConfig[],
-  globals: [Site] as GlobalConfig[],
+  globals: [HURUMap, Site] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
