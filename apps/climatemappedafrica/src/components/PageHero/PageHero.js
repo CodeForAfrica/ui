@@ -7,7 +7,7 @@ import useStyles from "./useStyles";
 import RichHeader from "@/climatemappedafrica/components/RichHeader";
 import Section from "@/climatemappedafrica/components/Section";
 
-function AboutHero({ background, overline, subtitle, title, ...props }) {
+function PageHero({ background, overline, subtitle, title, ...props }) {
   const classes = useStyles(props);
   let backgroundSx;
   if (background?.src?.length) {
@@ -69,11 +69,11 @@ function AboutHero({ background, overline, subtitle, title, ...props }) {
   );
 }
 
-AboutHero.propTypes = {
+PageHero.propTypes = {
   background: PropTypes.shape({}),
   overline: PropTypes.string,
   subtitle: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-export default AboutHero;
+export default PageHero;

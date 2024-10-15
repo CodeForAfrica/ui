@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Header = React.forwardRef(function Header(props, ref) {
+const RichHeader = React.forwardRef(function RichHeader(props, ref) {
   const {
     OverlineProps,
     SubtitleProps,
@@ -79,10 +79,10 @@ const Header = React.forwardRef(function Header(props, ref) {
   );
 });
 
-Header.propTypes = {
+RichHeader.propTypes = {
   className: PropTypes.string,
   overline: PropTypes.string,
   subtitle: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-export default Header;
+export default RichHeader;
