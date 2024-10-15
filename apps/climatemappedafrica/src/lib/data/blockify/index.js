@@ -3,7 +3,7 @@
 import hero from "./hero";
 
 const propsifyBlockBySlug = {
-  "page-hero": hero,
+  hero,
 };
 
 export const blockify = async (blocks, api) => {

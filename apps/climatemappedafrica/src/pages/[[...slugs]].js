@@ -6,7 +6,7 @@ import Page from "@/climatemappedafrica/components/Page";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
-  "page-hero": Hero,
+  hero: Hero,
 };
 
 export default function Index({ blocks, fallback }) {
