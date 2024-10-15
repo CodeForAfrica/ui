@@ -4,47 +4,48 @@ import mongoose from "mongoose";
 const mongoURL = process.env.MONGO_URL;
 const oldCollectionName = "pages";
 const newCollectionName = "research-pages";
+const oldCollectionVersionName = `_${oldCollectionName}_versions`;
+const newCollectionVersionName = `_${newCollectionName}_versions`;
 
 export async function up({ payload }: MigrateUpArgs): Promise<void> {
   // Connect to the database
   await mongoose.connect(mongoURL);
   const db = mongoose.connection.db;
 
-  // We will need the admin database for rename operation see https://www.mongodb.com/docs/manual/reference/command/renameCollection/
-  const adminDb = mongoose.connection.getClient().db("admin");
+  // Find all records in oldCollection
+  let records = await db.collection(oldCollectionName).find().toArray();
 
-  const oldCollectionVersionName = `_${oldCollectionName}_versions`;
-  const newCollectionVersionName = `_${newCollectionName}_versions`;
+  // Store all the records in oldCollection to newCollection
+  for (const record of records) {
+    try {
+      await db.collection(newCollectionName).insertOne(record);
+      payload.logger.info(
+        `Successfully migrated collection with slug: ${record.slug} from ${oldCollectionName} to ${newCollectionName}`,
+      );
+    } catch (error) {
+      payload.logger.error(
+        `Error migrating collection with slug: ${record.slug}, ${error.message}`,
+      );
+    }
+  }
 
-  // Drop the new collection, since it has nothing and we cant rename the old collection to new name when this exists
-  await db.command({ drop: newCollectionName });
-  payload.logger.info(`Dropped the existing ${newCollectionName} collection.`);
+  // Finding all versions of the collections
+  records = await db.collection(oldCollectionVersionName).find().toArray();
 
-  // Switch to admin DB for the rename operation
-  await adminDb.command({
-    renameCollection: `${db.databaseName}.${oldCollectionName}`,
-    to: `${db.databaseName}.${newCollectionName}`,
-  });
-
-  payload.logger.info(
-    `Renamed collections from ${oldCollectionName} to ${newCollectionName}`,
-  );
-
-  // Dealing with versions of the collections, we shall start by deleting the new collection name
-  await db.command({ drop: newCollectionVersionName });
-  payload.logger.info(
-    `Dropped the existing ${newCollectionVersionName} collection.`,
-  );
-  // Update the collection version name
-  await adminDb.command({
-    renameCollection: `${db.databaseName}.${oldCollectionVersionName}`,
-    to: `${db.databaseName}.${newCollectionVersionName}`,
-  });
-
-  payload.logger.info(`Renamed collection versions.`);
-  payload.logger.info(
-    `✓ Successfully renamed collection from ${oldCollectionName} to ${newCollectionName}`,
-  );
+  // Store all oldCollectionVersionName in newCollectionVersionName
+  for (const record of records) {
+    try {
+      await db.collection(newCollectionVersionName).insertOne(record);
+      payload.logger.info(
+        `Successfully migrated version collection with slug: ${record.slug} from ${oldCollectionVersionName} to ${newCollectionVersionName}`,
+      );
+    } catch (error) {
+      payload.logger.error(
+        `Error migrating version collection with slug: ${record.slug} from ${oldCollectionVersionName} to ${newCollectionVersionName}`,
+      );
+    }
+  }
+  payload.logger.info(`✓ Successfully completed migration`);
 }
 
 export async function down({ payload }: MigrateDownArgs): Promise<void> {}
