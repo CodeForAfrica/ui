@@ -66,6 +66,7 @@ RUN pnpm fetch
 COPY *.yaml *.json ./
 COPY packages/commons-ui-core/package.json ./packages/commons-ui-core/package.json
 COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.json
+COPY packages/commons-ui-payload/package.json ./packages/commons-ui-payload/package.json
 # Next.js lints when doing production build
 COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
 # TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica)
@@ -235,7 +236,7 @@ CMD ["node", "dist/server.js"]
 # ============================================================================
 
 #
-# climatemappedafrica-desp: image with all climatemappedafrica dependencies
+# climatemappedafrica-deps: image with all climatemappedafrica dependencies
 # -------------------------------------------------------------------------
 
 FROM base-deps AS climatemappedafrica-deps
@@ -245,7 +246,7 @@ COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
 COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/climatemappedafrica/" install --offline --frozen-lockfile
 
 #
 # climatemappedafrica-builder: image that uses deps to build shippable output
@@ -264,6 +265,9 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
   NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
   NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  # Payload (runtime)
+  MONGO_URL \
+  PAYLOAD_SECRET \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -277,9 +281,17 @@ COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
 
 COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
 
-COPY apps/climatemappedafrica ./apps/climatemappedafrica
+COPY apps/climatemappedafrica ./apps/climatemappedafrica/
 
-RUN pnpm --filter "./apps/climatemappedafrica" build
+# When building Next.js app, Next.js needs to connect to local Payload
+ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
+ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/climatemappedafrica/" build-next
+
+# When building Payload app, Payload needs to have final app URL
+ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+RUN pnpm --filter "./apps/climatemappedafrica/" build-payload
 
 #
 # climatemappedafrica-runner: final deployable image
@@ -287,15 +299,16 @@ RUN pnpm --filter "./apps/climatemappedafrica" build
 
 FROM base-runner AS climatemappedafrica-runner
 
-ARG NEXT_PUBLIC_IMAGE_DOMAINS \
-  NEXT_PUBLIC_IMAGE_SCALE_FACTOR \
-  NEXT_PUBLIC_OPENAFRICA_DOMAINS \
-  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS
+ARG PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
+  PAYLOAD_PUBLIC_APP_URL
 
-ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
-  NEXT_PUBLIC_IMAGE_SCALE_FACTOR=${NEXT_PUBLIC_IMAGE_SCALE_FACTOR} \
-  NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
-  NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
+# DO NOT initialise ENV vars using ARG for secrets!!!!
+# These include:
+#                i. Mongo DB URL
+#                ii. Payload Secret
+# ENV are persisted in the image & may lead to security issues
+ENV PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
+  PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH}
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
@@ -306,21 +319,29 @@ RUN set -ex \
 # symlink some dependencies
 COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
+# Since we can't use output: "standalone", copy all app's dependencies
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/next.config.js ./apps/climatemappedafrica/next.config.js
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.env ./apps/climatemappedafrica/.env
 # Next.js
 # Public assets
 COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/public ./apps/climatemappedafrica/public
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/standalone ./apps/climatemappedafrica
-COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next/static ./apps/climatemappedafrica/.next/static
+# Since we can't use output: "standalone", copy the whole app's .next folder
+# TODO(kilemensi): Figure out which files in .next folder are not needed
+COPY --from=climatemappedafrica-builder --chown=nextjs:nodejs /workspace/apps/climatemappedafrica/.next ./apps/climatemappedafrica/.next
+
+# Payload
+COPY --from=climatemappedafrica-builder /workspace/apps/climatemappedafrica/dist ./apps/climatemappedafrica/dist
+COPY --from=climatemappedafrica-builder /workspace/apps/climatemappedafrica/build ./apps/climatemappedafrica/build
+
+# Since we can't use output: "standalone", switch to specific app's folder
+WORKDIR /workspace/apps/climatemappedafrica
 
 USER nextjs
 
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD ["node", "apps/climatemappedafrica/server.js"]
-
+# Custom server to run Payload and Next.js in the same app
+CMD ["node", "dist/server.js"]
 
 # ============================================================================
 # CivicSignal Blog
