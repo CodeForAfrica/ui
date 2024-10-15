@@ -33,6 +33,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Add support for more platforms with QEMU (optional)
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -54,10 +58,13 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            HURUMAP_API_URL=${{ secrets.HURUMAP_HURUMAP_API_URL }}
+            HURUMAP_API_URL=${{ secrets.CLIMATEMAPPEDAFRICA_HURUMAP_API_URL }}
+            MONGO_URL=${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
+            PAYLOAD_SECRET=${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
+          platforms: linux/amd64,linux/arm64
           target: climatemappedafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"

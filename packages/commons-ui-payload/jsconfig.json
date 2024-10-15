@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/commons-ui/payload/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
