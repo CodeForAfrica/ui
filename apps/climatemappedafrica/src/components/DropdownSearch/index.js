@@ -114,7 +114,7 @@ function DropdownSearch({
 
   const icon =
     !suggestions?.length || variant === "explore" ? iconProp : SearchIcon;
-  const searchIconButton = (
+  const searchIconButton = icon ? (
     <IconButton
       color="primary"
       onClick={handleClickSearch}
@@ -123,7 +123,7 @@ function DropdownSearch({
     >
       <Image src={icon} width={48} height={48} alt="search" />
     </IconButton>
-  );
+  ) : null;
 
   return (
     <div id="location-search" className={classes.root}>
