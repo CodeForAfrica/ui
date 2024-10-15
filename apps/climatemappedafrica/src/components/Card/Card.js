@@ -28,6 +28,7 @@ function Card({
   title,
   titleProps,
   variant,
+  sx,
   ...props
 }) {
   const squareMedia = mediaProps?.square;
@@ -43,7 +44,12 @@ function Card({
   };
 
   return (
-    <MuiCard elevation={0} square className={clsx(classes.root, className)}>
+    <MuiCard
+      elevation={0}
+      square
+      className={clsx(classes.root, className)}
+      sx={sx}
+    >
       <CardActionArea
         {...actionAreaProps}
         classes={{

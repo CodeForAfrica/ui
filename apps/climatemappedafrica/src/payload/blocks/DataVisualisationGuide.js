@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import image from "../fields/image";
 
 const DataVisualisationGuide = {
@@ -8,6 +10,7 @@ const DataVisualisationGuide = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "items",
@@ -21,8 +24,14 @@ const DataVisualisationGuide = {
         }),
         {
           name: "description",
-          type: "text",
+          type: "richText",
           required: true,
+          editor: slateEditor({
+            admin: {
+              elements: ["link"],
+              leaves: ["bold", "code", "italic", "underline"],
+            },
+          }),
         },
       ],
     },
