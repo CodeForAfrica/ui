@@ -6,6 +6,7 @@ import {
   DialogActions,
   IconButton,
   DialogContent,
+  SvgIcon,
 } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import Image from "next/image";
@@ -22,12 +23,6 @@ import Menu from "@/climatemappedafrica/components/Menu";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
-  root: {},
-  logoButton: {
-    padding: 0,
-    width: typography.pxToRem(254),
-  },
-  section: {},
   dialog: {
     padding: 0,
   },
@@ -180,14 +175,17 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
   };
 
   return (
-    <div className={classes.root}>
-      <Section className={classes.section}>
+    <div>
+      <Section>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item xs={10}>
             <LogoButton
               href="/"
               component={Link}
-              className={classes.logoButton}
+              sx={(theme) => ({
+                padding: 0,
+                width: theme.typography.pxToRem(254),
+              })}
             >
               <Image {...logo} width={180} height={70} />
             </LogoButton>
@@ -198,9 +196,27 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
               edge="start"
               size="medium"
               onClick={handleClickOpen}
-              className={classes.menuButton}
+              sx={(theme) => ({
+                color: theme.palette.grey.dark,
+                background: "#F0F0F0",
+                borderRadius: theme.typography.pxToRem(50),
+                height: theme.typography.pxToRem(34),
+                padding: 0,
+                width: theme.typography.pxToRem(34),
+                "&:hover": {
+                  background: "#F0F0F0",
+                  borderRadius: theme.typography.pxToRem(50),
+                },
+              })}
             >
-              <MenuOpenIcon viewBox="0 0 24 24" className={classes.open} />
+              <SvgIcon
+                component={MenuOpenIcon}
+                viewBox="0 0 48 48"
+                sx={{
+                  width: 48,
+                  height: 48,
+                }}
+              />
             </IconButton>
           </Grid>
           <Dialog
@@ -240,7 +256,14 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
                       onClick={handleClose}
                       className={classes.closeButton}
                     >
-                      <MenuCloseIcon />
+                      <SvgIcon
+                        component={MenuCloseIcon}
+                        viewBox="0 0 48 48"
+                        sx={{
+                          width: 48,
+                          height: 48,
+                        }}
+                      />
                     </IconButton>
                   </Grid>
                 </Grid>
