@@ -1,12 +1,16 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import Hero from "@/climatemappedafrica/components/Hero";
 import Page from "@/climatemappedafrica/components/Page";
+import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
   hero: Hero,
+  summary: Summary,
+  team: AboutTeam,
 };
 
 export default function Index({ blocks, fallback }) {

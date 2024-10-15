@@ -3,6 +3,8 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
+import RichText from "@/climatemappedafrica/components/RichText";
+
 const Header = React.forwardRef(function Header(props, ref) {
   const {
     OverlineProps,
@@ -50,16 +52,26 @@ const Header = React.forwardRef(function Header(props, ref) {
       >
         {children}
       </RichTypography>
-      <RichTypography
-        variant="subtitle1"
-        {...SubtitleProps}
-        sx={{
-          mt: 20,
-          ...SubtitleProps?.sx,
-        }}
-      >
-        {subtitle}
-      </RichTypography>
+      {typeof subtitle === "string" ? (
+        <RichTypography
+          variant="subtitle1"
+          {...SubtitleProps}
+          sx={{
+            mt: 20,
+            ...SubtitleProps?.sx,
+          }}
+        >
+          {subtitle}
+        </RichTypography>
+      ) : (
+        <RichText
+          sx={{
+            mt: 20,
+            ...SubtitleProps?.sx,
+          }}
+          elements={subtitle}
+        />
+      )}
     </Box>
   );
 });
