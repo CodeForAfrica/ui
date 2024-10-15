@@ -54,7 +54,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            HURUMAP_API_URL=${{ secrets.HURUMAP_HURUMAP_API_URL }}
+            HURUMAP_API_URL=${{ secrets.CLIMATEMAPPEDAFRICA_HURUMAP_API_URL }}
+            MONGO_URL=${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
+            PAYLOAD_SECRET=${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .

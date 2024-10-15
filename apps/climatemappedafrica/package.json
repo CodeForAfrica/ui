@@ -28,14 +28,15 @@
     "dev": "NODE_OPTIONS='--inspect' TS_NODE_PROJECT=tsconfig.server.json tsx server.ts",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --fix './'",
-    "jest": "jest --passWithNoTests",
+    "jest": "jest",
     "playwright": "npx playwright test",
-    "clean": "rm -rf .next .turbo node_modules"
+    "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
     "@apollo/client": "catalog:",
     "@commons-ui/core": "catalog:",
     "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@hurumap/core": "workspace:*",

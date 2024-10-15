@@ -1,0 +1,66 @@
+{
+  "name": "@commons-ui/payload",
+  "version": "0.0.1",
+  "private": false,
+  "author": "Code for Africa <tech@codeforafrica.org>",
+  "description": "",
+  "main": "src/index.js",
+  "keywords": [
+    "react",
+    "react-component",
+    "mui",
+    "material-ui",
+    "material design"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeforafrica/ui.git",
+    "directory": "packages/commons-ui-core"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeforafrica/ui/issues"
+  },
+  "scripts": {
+    "jest": "jest",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --fix './'",
+    "clean": "rm -rf .turbo node_modules dist"
+  },
+  "devDependencies": {
+    "@babel/core": "catalog:",
+    "@babel/preset-react": "catalog:",
+    "@commons-ui/testing-library": "workspace:*",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
+    "@mui/material": "catalog:",
+    "@mui/utils": "catalog:",
+    "@types/react": "catalog:",
+    "babel-loader": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-commons-ui": "workspace:*",
+    "identity-obj-proxy": "catalog:",
+    "jest": "catalog:",
+    "jest-config-commons-ui": "workspace:*",
+    "prettier": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-test-renderer": "catalog:",
+    "require-from-string": "catalog:",
+    "typescript": "catalog:",
+    "webpack": "catalog:"
+  },
+  "peerDependencies": {
+    "@babel/core": "catalog:",
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
+    "@mui/material": "catalog:",
+    "clsx": "catalog:",
+    "next": "catalog:",
+    "prop-types": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "slate": "catalog:"
+  },
+  "dependencies": {}
+}

@@ -32,16 +32,25 @@ module.exports = {
     "@hurumap/next",
   ],
   webpack: (config) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        "@svgr/webpack",
-        {
-          loader: "svg-url-loader",
-          options: {},
-        },
-      ],
-    });
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      rule.test?.test?.(".svg"),
+    );
+    config.module.rules.push(
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        use: ["@svgr/webpack"],
+      },
+    );
+    // Since *.svg files are now handled ☝️, we can safely ignore file loader rule.
+    fileLoaderRule.exclude = /\.svg$/i;
+    config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     // eslint-disable-next-line no-param-reassign
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -50,19 +59,5 @@ module.exports = {
       child_process: false,
     };
     return config;
-  },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/explore/af",
-        permanent: true,
-      },
-      {
-        source: "/explore",
-        destination: "/explore/af",
-        permanent: true,
-      },
-    ];
   },
 };
