@@ -7,8 +7,8 @@ import React, { useState } from "react";
 
 import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import Header from "@/climatemappedafrica/components/Header";
 import Image from "@/climatemappedafrica/components/Image";
+import RichHeader from "@/climatemappedafrica/components/RichHeader";
 import Section from "@/climatemappedafrica/components/Section";
 
 const Map = dynamic(() => import("./Map"), { ssr: false });
@@ -121,12 +121,12 @@ function Hero({
             <Grid item lg={1} />
           </Box>
           <Grid item xs={12} md={7} lg={6}>
-            <Header
+            <RichHeader
               subtitle={subtitle}
               classes={{ title: classes.title, subtitle: classes.subtitle }}
             >
               {title}
-            </Header>
+            </RichHeader>
             <DropdownSearch
               label={searchLabel}
               locations={featuredLocations}

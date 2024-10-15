@@ -10,12 +10,11 @@ const Hero = {
     plural: "Hero",
   },
   fields: [
-    {
+    richText({
       name: "title",
-      type: "text",
-      label: "Title",
       required: true,
-    },
+      label: "Title",
+    }),
     richText({
       name: "subtitle",
       required: true,

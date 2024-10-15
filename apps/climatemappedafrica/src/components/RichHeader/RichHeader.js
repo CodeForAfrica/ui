@@ -1,9 +1,10 @@
 import { RichTypography } from "@commons-ui/core";
+import { RichText } from "@commons-ui/payload";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Header = React.forwardRef(function Header(props, ref) {
+const RichHeader = React.forwardRef(function RichHeader(props, ref) {
   const {
     OverlineProps,
     SubtitleProps,
@@ -21,22 +22,27 @@ const Header = React.forwardRef(function Header(props, ref) {
         variant="overline"
         {...OverlineProps}
         sx={{
-          mb: 12,
+          mb: 1.5,
           ...OverlineProps?.sx,
         }}
       >
         {overline}
       </RichTypography>
-      <RichTypography
-        variant="h1"
+      <RichText
         {...TitleProps}
+        typographyProps={{
+          variant: "h1",
+          ...TitleProps?.typographyProps,
+        }}
+        elements={children}
         sx={{
-          "& .highlight": {
+          "& strong": {
             display: "inline-block",
+            font: "inherit",
             position: "relative",
             "&:after": {
+              borderBottom: "30px solid",
               borderColor: "primary.main",
-              borderBottom: "30 solid",
               bottom: 0,
               content: '""',
               left: 0,
@@ -47,27 +53,36 @@ const Header = React.forwardRef(function Header(props, ref) {
             ...TitleProps?.sx,
           },
         }}
-      >
-        {children}
-      </RichTypography>
-      <RichTypography
-        variant="subtitle1"
+      />
+      <RichText
         {...SubtitleProps}
+        typographyProps={{
+          variant: "subtitle1",
+          sx: (theme) => ({
+            textDecorationColor: theme.palette.text.primary,
+          }),
+          LinkProps: {
+            color: "text.primary",
+            sx: {
+              textDecoration: "underline",
+            },
+          },
+          ...SubtitleProps?.typographyProps,
+        }}
+        elements={subtitle}
         sx={{
-          mt: 20,
+          mt: 2.5,
           ...SubtitleProps?.sx,
         }}
-      >
-        {subtitle}
-      </RichTypography>
+      />
     </Box>
   );
 });
 
-Header.propTypes = {
+RichHeader.propTypes = {
   className: PropTypes.string,
   overline: PropTypes.string,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-export default Header;
+export default RichHeader;
