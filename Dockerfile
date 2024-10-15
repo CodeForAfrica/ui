@@ -66,7 +66,6 @@ RUN pnpm fetch
 COPY *.yaml *.json ./
 COPY packages/commons-ui-core/package.json ./packages/commons-ui-core/package.json
 COPY packages/commons-ui-next/package.json ./packages/commons-ui-next/package.json
-COPY packages/commons-ui-payload/package.json ./packages/commons-ui-payload/package.json
 # Next.js lints when doing production build
 COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-commons-ui/package.json
 # TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica)
@@ -244,9 +243,10 @@ FROM base-deps AS climatemappedafrica-deps
 COPY packages/hurumap-core/package.json ./packages/hurumap-core/package.json
 COPY packages/hurumap-next/package.json ./packages/hurumap-next/package.json
 COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
+COPY packages/commons-ui-payload/package.json ./packages/commons-ui-payload/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/climatemappedafrica/" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
 
 #
 # climatemappedafrica-builder: image that uses deps to build shippable output
@@ -281,17 +281,17 @@ COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules
 
 COPY --from=climatemappedafrica-deps /workspace/apps/climatemappedafrica/node_modules ./apps/climatemappedafrica/node_modules
 
-COPY apps/climatemappedafrica ./apps/climatemappedafrica/
+COPY apps/climatemappedafrica ./apps/climatemappedafrica
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
-  pnpm --filter "./apps/climatemappedafrica/" build-next
+  pnpm --filter "./apps/climatemappedafrica" build-next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-RUN pnpm --filter "./apps/climatemappedafrica/" build-payload
+RUN pnpm --filter "./apps/climatemappedafrica" build-payload
 
 #
 # climatemappedafrica-runner: final deployable image
