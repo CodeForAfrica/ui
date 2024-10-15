@@ -5,6 +5,7 @@ import richText from "../fields/richText";
 
 const PageHero = {
   slug: "page-hero",
+  imageURL: "/images/payload/blocks/page-hero.jpg",
   fields: [
     {
       name: "overline",
@@ -43,6 +44,9 @@ const PageHero = {
       required: true,
       localized: true,
     }),
+    // NOTE(kilemensi): We can add a 'variant' / 'select' here to support
+    //                  different page heros e.g. 2 background images as in
+    //                  /data or /stories pages
     image({
       overrides: {
         name: "background",

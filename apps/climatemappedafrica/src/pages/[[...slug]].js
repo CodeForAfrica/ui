@@ -32,7 +32,7 @@ function Index({ blocks, fallback, ...props }) {
           if (!Component) {
             return null;
           }
-          // Just in case same block appears twice on the same page, use id
+          // Just in case a block appears twice on the same page, use id as key
           return <Component {...block} key={block.id} />;
         })}
       </PageConfig>
