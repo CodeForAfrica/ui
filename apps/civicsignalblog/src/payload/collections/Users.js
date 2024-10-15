@@ -32,6 +32,7 @@ const Users = {
   },
   auth: {
     verify: true,
+    useAPIKey: true,
   },
   fields: [
     {
