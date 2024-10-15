@@ -49,7 +49,7 @@ export async function getPageProps(api, context) {
     return null;
   }
 
-  const blocks = await blockify(page.blocks, api);
+  const blocks = await blockify(page.blocks, api, context);
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings);
