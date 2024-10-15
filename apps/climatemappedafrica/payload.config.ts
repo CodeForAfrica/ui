@@ -16,8 +16,8 @@ import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 
-import Site from "./src/payload/globals/Site";
 import HURUMap from "./src/payload/globals/HURUMap";
+import Site from "./src/payload/globals/site";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
