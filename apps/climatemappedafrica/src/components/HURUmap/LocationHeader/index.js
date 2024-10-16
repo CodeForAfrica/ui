@@ -10,7 +10,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/climatemappedafrica/assets/icons/closeBlack.svg";
+import CloseIcon from "@/climatemappedafrica/assets/icons/closeBlack.svg";
 import Image from "@/climatemappedafrica/components/Image";
 import slugify from "@/climatemappedafrica/utils/slugify";
 
