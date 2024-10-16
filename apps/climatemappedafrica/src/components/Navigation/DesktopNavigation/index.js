@@ -1,11 +1,9 @@
-import LogoButton from "@commons-ui/core/LogoButton";
 import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Image from "@/climatemappedafrica/components/Image";
-import Link from "@/climatemappedafrica/components/Link";
 import Menu from "@/climatemappedafrica/components/Menu";
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 function DesktopNavigation({ logo, menus, socialLinks }) {
@@ -14,9 +12,13 @@ function DesktopNavigation({ logo, menus, socialLinks }) {
       <Section>
         <Grid container alignItems="center">
           <Grid item xs={3}>
-            <LogoButton href="/" component={Link} sx={{ paddingLeft: 0 }}>
-              <Image {...logo} width={200} height={80} />
-            </LogoButton>
+            <NextImageButton
+              href="/"
+              {...logo}
+              width={200}
+              height={100}
+              priority
+            />
           </Grid>
           <Grid
             item

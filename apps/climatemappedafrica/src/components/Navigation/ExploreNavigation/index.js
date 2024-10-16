@@ -1,4 +1,3 @@
-import LogoButton from "@commons-ui/core/LogoButton";
 import { Grid, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import { useTour } from "@reactour/tour";
@@ -7,8 +6,7 @@ import React from "react";
 
 import SearchIcon from "@/climatemappedafrica/assets/icons/search-explore.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import Image from "@/climatemappedafrica/components/Image";
-import Link from "@/climatemappedafrica/components/Link";
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -55,9 +53,13 @@ function ExploreNavigation({ logo, variant }) {
       <Section>
         <Grid container alignItems="center">
           <Grid item xs={3}>
-            <LogoButton href="/" component={Link} sx={{ paddingLeft: 0 }}>
-              <Image {...logo} width={200} height={80} />
-            </LogoButton>
+            <NextImageButton
+              href="/"
+              {...logo}
+              width={200}
+              height={100}
+              priority
+            />
           </Grid>
           <Grid
             item

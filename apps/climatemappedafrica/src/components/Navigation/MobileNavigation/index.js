@@ -1,4 +1,3 @@
-import LogoButton from "@commons-ui/core/LogoButton";
 import {
   Grid,
   Slide,
@@ -9,7 +8,6 @@ import {
   SvgIcon,
 } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -18,8 +16,8 @@ import SearchIcon from "@/climatemappedafrica/assets/icons/search-open.svg";
 import MenuCloseIcon from "@/climatemappedafrica/assets/menu_close.svg";
 import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import Link from "@/climatemappedafrica/components/Link";
 import Menu from "@/climatemappedafrica/components/Menu";
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
@@ -179,16 +177,13 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
       <Section>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item xs={10}>
-            <LogoButton
+            <NextImageButton
               href="/"
-              component={Link}
-              sx={(theme) => ({
-                padding: 0,
-                width: theme.typography.pxToRem(254),
-              })}
-            >
-              <Image {...logo} width={180} height={70} />
-            </LogoButton>
+              {...logo}
+              width={180}
+              height={80}
+              priority
+            />
           </Grid>
           <Grid item>
             <IconButton
@@ -240,13 +235,13 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
                   className={classes.logoSection}
                 >
                   <Grid item xs={10}>
-                    <LogoButton
+                    <NextImageButton
                       href="/"
-                      component={Link}
-                      className={classes.logoButton}
-                    >
-                      <Image {...logo} width={240} height={80} />
-                    </LogoButton>
+                      {...logo}
+                      width={180}
+                      height={80}
+                      priority
+                    />
                   </Grid>
                   <Grid item>
                     <IconButton
