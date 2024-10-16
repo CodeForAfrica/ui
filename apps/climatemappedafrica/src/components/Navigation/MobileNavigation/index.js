@@ -206,10 +206,10 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
             >
               <SvgIcon
                 component={MenuOpenIcon}
-                viewBox="0 0 48 48"
+                viewBox="0 0 24 24"
                 sx={{
-                  width: 48,
-                  height: 48,
+                  width: 24,
+                  height: 24,
                 }}
               />
             </IconButton>
@@ -255,8 +255,8 @@ function MobileNavigation({ logo, menus, socialLinks, ...props }) {
                         component={MenuCloseIcon}
                         viewBox="0 0 48 48"
                         sx={{
-                          width: 48,
-                          height: 48,
+                          width: 32,
+                          height: 32,
                         }}
                       />
                     </IconButton>
