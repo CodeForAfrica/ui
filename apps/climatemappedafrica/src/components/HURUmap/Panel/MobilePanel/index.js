@@ -4,7 +4,7 @@ import React from "react";
 
 import RichData from "./RichData";
 
-import Print from "@/climatemappedafrica/assets/icons/print.svg";
+import PrintIcon from "@/climatemappedafrica/assets/icons/print.svg";
 import TopIcon from "@/climatemappedafrica/assets/icons/top.svg";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
@@ -52,7 +52,7 @@ function MobilePanel({ scrollToTopLabel, activeType, ...props }) {
         <Section>
           <LocationHeader
             variant="primary"
-            icon={Print}
+            icon={PrintIcon}
             title={geography.name}
             {...geography}
           />
