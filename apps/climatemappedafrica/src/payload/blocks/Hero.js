@@ -1,8 +1,8 @@
 import LocationSelect, { validateLocation } from "../fields/LocationSelect";
 import richText from "../fields/richText";
 
-const PageHero = {
-  slug: "page-hero",
+const Hero = {
+  slug: "hero",
   imageURL: "/images/cms/blocks/hero.png",
   imageAltText: "Used in homepage",
   labels: {
@@ -10,12 +10,11 @@ const PageHero = {
     plural: "Hero",
   },
   fields: [
-    {
+    richText({
       name: "title",
-      type: "text",
-      label: "Title",
       required: true,
-    },
+      label: "Title",
+    }),
     richText({
       name: "subtitle",
       required: true,
@@ -64,4 +63,4 @@ const PageHero = {
   ],
 };
 
-export default PageHero;
+export default Hero;

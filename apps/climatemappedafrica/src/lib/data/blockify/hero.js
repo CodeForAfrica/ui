@@ -23,7 +23,7 @@ export default async function hero(block) {
     children[level === "country" ? "County" : childLevel] ?? null;
   return {
     ...block,
-    slug: "page-hero",
+    slug: "hero",
     boundary,
     featuredLocations,
     level,
