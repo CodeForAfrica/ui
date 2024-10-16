@@ -2,7 +2,7 @@ import { MigrateUpArgs, MigrateDownArgs } from "@payloadcms/db-mongodb";
 import mongoose from "mongoose";
 
 const mongoURL = process.env.MONGO_URL;
-const oldCollectionName = "pages-pages";
+const oldCollectionName = "pages";
 const newCollectionName = "research-pages";
 const oldCollectionVersionName = `_${oldCollectionName}_versions`;
 const newCollectionVersionName = `_${newCollectionName}_versions`;
