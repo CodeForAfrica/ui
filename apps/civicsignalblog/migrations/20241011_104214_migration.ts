@@ -48,8 +48,10 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
       failedInserts++;
     }
   }
-  if (failedInserts > 0){
-    payload.logger.warn(`⚠ Migrations completed with [${failedInserts}] errors`);
+  if (failedInserts > 0) {
+    payload.logger.warn(
+      `⚠ Migrations completed with [${failedInserts}] errors`,
+    );
   } else {
     payload.logger.info(`✓ Successfully completed migration`);
   }
