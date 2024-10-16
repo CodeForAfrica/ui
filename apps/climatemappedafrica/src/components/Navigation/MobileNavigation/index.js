@@ -296,6 +296,7 @@ function MobileNavigation({ drawerLogo, logo, menus, socialLinks, ...props }) {
 }
 
 MobileNavigation.propTypes = {
+  drawerLogo: PropTypes.shape({}),
   logo: PropTypes.shape({}),
   menus: PropTypes.arrayOf(PropTypes.shape({})),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
