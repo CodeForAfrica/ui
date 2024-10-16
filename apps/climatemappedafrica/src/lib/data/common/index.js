@@ -38,12 +38,14 @@ function getMenus(siteSettings) {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
     primaryLogo,
+    drawerLogo,
     title,
   } = siteSettings;
   const socialLinks = links?.filter((link) => connect.includes(link.platform));
 
   return {
     logo: imageFromMedia(title, primaryLogo.url),
+    drawerLogo: imageFromMedia(title, drawerLogo.url),
     menus,
     socialLinks,
   };
