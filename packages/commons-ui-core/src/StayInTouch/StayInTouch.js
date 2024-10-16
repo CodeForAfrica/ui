@@ -8,7 +8,14 @@ import RichTypography from "@/commons-ui/core/RichTypography";
 import SocialMediaIconLink from "@/commons-ui/core/SocialMediaIconLink";
 
 const StayInTouch = React.forwardRef(function StayInTouch(
-  { LinkProps, TitleProps, links, sx, title },
+  {
+    LinkProps,
+    TitleProps,
+    links,
+    sx,
+    title,
+    direction = { xs: "column", md: "row" },
+  },
   ref,
 ) {
   if (!links?.length) {
@@ -16,7 +23,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
   }
   return (
     <Stack
-      direction={{ xs: "column", md: "row" }}
+      direction={direction}
       alignItems={{ xs: "center" }}
       sx={sx}
       ref={ref}
@@ -58,6 +65,7 @@ StayInTouch.propTypes = {
     }),
   ),
   title: PropTypes.string,
+  direction: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 export default StayInTouch;
