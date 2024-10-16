@@ -1,10 +1,9 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+import { RichText } from "@commons-ui/payload";
 import React from "react";
 
 import TwoToneBackground from "../TwoToneBackground";
-
-import RichText from "@/civicsignalblog/components/RichText";
 
 const PageHeader = React.forwardRef(function PageHeader(props, ref) {
   const { title, subtitle } = props;

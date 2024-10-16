@@ -1,6 +1,5 @@
+import { RichText } from "@commons-ui/payload";
 import React from "react";
-
-import RichText from "@/civicsignalblog/components/RichText";
 
 const LongFormRichText = React.forwardRef((props, ref) => {
   const { richTextBlockFields: { content } = {} } = props;
