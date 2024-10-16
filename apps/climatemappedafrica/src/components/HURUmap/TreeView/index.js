@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CheckIcon } from "@/climatemappedafrica/assets/icons/checked.svg";
+import CheckIcon from "@/climatemappedafrica/assets/icons/checked.svg";
 import slugify from "@/climatemappedafrica/utils/slugify";
 
 function TreeView({ items, onLabelClick, ...props }) {
