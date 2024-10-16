@@ -1,6 +1,8 @@
+import hero from "./hero";
 import team from "./team";
 
 const propsifyBlockBySlug = {
+  hero,
   team,
 };
 

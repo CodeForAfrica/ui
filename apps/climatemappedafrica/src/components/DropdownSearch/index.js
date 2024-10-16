@@ -66,7 +66,7 @@ function DropdownSearch({
   label = "Search for a location",
   locations,
   onClick,
-  icon: iconProp = SearchIcon,
+  icon,
   placeholder,
   variant,
   ...props
@@ -112,8 +112,6 @@ function DropdownSearch({
     }
   };
 
-  const icon =
-    !suggestions?.length || variant === "explore" ? iconProp : SearchIcon;
   const searchIconButton = (
     <IconButton
       color="primary"
@@ -121,7 +119,11 @@ function DropdownSearch({
       size="small"
       className={classes.button}
     >
-      <Image src={icon} width={48} height={48} alt="search" />
+      {icon && (!suggestions?.length || variant === "explore") ? (
+        <Image src={icon} width={48} height={48} alt="search" />
+      ) : (
+        <SearchIcon />
+      )}
     </IconButton>
   );
 
