@@ -4,7 +4,7 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { ReactComponent as Caret } from "@/climatemappedafrica/assets/icons/caret.svg";
+import Caret from "@/climatemappedafrica/assets/icons/caret.svg";
 import Link from "@/climatemappedafrica/components/Link";
 import slugify from "@/climatemappedafrica/utils/slugify";
 
