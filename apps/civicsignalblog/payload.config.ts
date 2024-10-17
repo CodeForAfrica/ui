@@ -17,6 +17,7 @@ import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
 import CivicSignalPages from "./src/payload/collections/Main/Pages";
+import MediaData from "./src/payload/collections/Main/MediaData";
 import Posts from "./src/payload/collections/Research/Posts";
 import Publication from "./src/payload/globals/Publication";
 import Research from "./src/payload/globals/Site/research";
@@ -67,6 +68,7 @@ export default buildConfig({
     Posts,
     Tags,
     CivicSignalPages,
+    MediaData,
     Users,
   ] as CollectionConfig[],
   globals: [Publication, Research, Main] as GlobalConfig[],

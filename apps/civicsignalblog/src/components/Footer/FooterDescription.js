@@ -1,10 +1,9 @@
 /* eslint-env browser */
 import { Figure, Link } from "@commons-ui/next";
+import { RichText } from "@commons-ui/payload";
 import { Stack } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import RichText from "@/civicsignalblog/components/RichText";
 
 const FooterDescription = React.forwardRef(
   function FooterDescription(props, ref) {

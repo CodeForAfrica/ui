@@ -13,6 +13,10 @@ const Main = settings({
   access: {
     read: canRead,
   },
+  auth: {
+    verify: true,
+    useAPIKey: true,
+  },
   tabs: [GeneralTab, NavigationTab, EngagementTab],
 });
 
