@@ -175,7 +175,7 @@ function Hero({
 
 Hero.propTypes = {
   comment: PropTypes.string,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.arrayOf(PropTypes.shape({})),
   searchLabel: PropTypes.string,
   title: PropTypes.string,
   featuredLocations: PropTypes.arrayOf(PropTypes.shape({})),
