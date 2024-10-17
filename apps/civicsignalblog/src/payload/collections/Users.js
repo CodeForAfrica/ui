@@ -87,6 +87,16 @@ const Users = {
       },
       options: applications,
     },
+    {
+      name: "allowedApps",
+      defaultValue: RESEARCH,
+      type: "select",
+      hasMany: true,
+      admin: {
+        isClearable: true,
+      },
+      options: applications,
+    },
   ],
   endpoints: [
     {
