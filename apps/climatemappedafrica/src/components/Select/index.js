@@ -14,7 +14,7 @@ import React, { useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as ExpandMore } from "@/climatemappedafrica/assets/icons/expand_more.svg";
+import ExpandMore from "@/climatemappedafrica/assets/icons/expand_more.svg";
 
 function ExpandMoreIcon(props) {
   return <SvgIcon {...props} component={ExpandMore} />;

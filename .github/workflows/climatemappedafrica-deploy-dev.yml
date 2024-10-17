@@ -18,7 +18,7 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/climatemappedafrica-ui"
-  NEXT_PUBLIC_APP_URL: "https://climatemapped-africa-ui.dev.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://climatemapped-africa.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   APP_NAME: climatemapped-africa-ui
 
@@ -60,7 +60,10 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           build-args: |
-            HURUMAP_API_URL=${{ secrets.HURUMAP_HURUMAP_API_URL }}
+            HURUMAP_API_URL=${{ secrets.CLIMATEMAPPEDAFRICA_HURUMAP_API_URL }}
+            MONGO_URL=${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            PAYLOAD_SECRET=${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
