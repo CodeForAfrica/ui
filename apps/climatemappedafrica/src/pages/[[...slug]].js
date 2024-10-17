@@ -1,5 +1,3 @@
-import { useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { SWRConfig } from "swr";
@@ -15,18 +13,7 @@ const componentsBySlugs = {
   team: AboutTeam,
 };
 
-function Index({
-  blocks,
-  menus,
-  footer: footerProps,
-  seo = {},
-  variant,
-  fallback,
-}) {
-  const theme = useTheme();
-
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-
+function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
   const pageSeo = {};
   pageSeo.title = seo?.title || undefined;
   pageSeo.description = seo?.metaDesc || undefined;
@@ -54,7 +41,7 @@ function Index({
   }
   return (
     <>
-      <Navigation {...menus} variant={variant} />
+      <Navigation {...menus} />
       <NextSeo
         {...pageSeo}
         nofollow={seo?.metaRobotsNofollow !== "follow"}
@@ -69,7 +56,7 @@ function Index({
           return <Component {...block} key={block.slug} />;
         })}
       </PageConfig>
-      {!(variant === "explore" && isDesktop) && <Footer {...footerProps} />}
+      <Footer {...footerProps} />
     </>
   );
 }

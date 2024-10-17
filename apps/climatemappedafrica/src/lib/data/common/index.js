@@ -4,7 +4,7 @@ export function imageFromMedia(alt, url) {
   return { alt, src: url };
 }
 
-function getFooter(siteSettings) {
+function getFooter(siteSettings, variant) {
   const {
     connect,
     footerNavigation,
@@ -30,10 +30,11 @@ function getFooter(siteSettings) {
     },
     newsletter,
     title,
+    variant,
   };
 }
 
-function getNavBar(siteSettings) {
+function getNavBar(siteSettings, variant) {
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -48,6 +49,7 @@ function getNavBar(siteSettings) {
     drawerLogo: imageFromMedia(title, drawerLogo.url),
     menus,
     socialLinks,
+    variant,
   };
 }
 
@@ -73,15 +75,15 @@ export async function getPageProps(api, context) {
   } = hurumap;
 
   const blocks = await blockify(page.blocks, api, context);
+  const variant = page.slug === explorePage.slug ? "explore" : "default";
 
   const siteSettings = await api.findGlobal("settings-site");
-  const footer = getFooter(siteSettings);
-  const menus = getNavBar(siteSettings);
+  const footer = getFooter(siteSettings, variant);
+  const menus = getNavBar(siteSettings, variant);
 
   return {
     blocks,
     footer,
     menus,
-    variant: page.slug === explorePage.slug ? "explore" : "default",
   };
 }
