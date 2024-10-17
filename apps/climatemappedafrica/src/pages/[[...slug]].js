@@ -1,8 +1,12 @@
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { NextSeo } from "next-seo";
 import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
-import Page from "@/climatemappedafrica/components/Page";
+import Footer from "@/climatemappedafrica/components/Footer";
+import Navigation from "@/climatemappedafrica/components/Navigation";
 import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
@@ -11,9 +15,35 @@ const componentsBySlugs = {
   team: AboutTeam,
 };
 
-function Index({ blocks, fallback, ...props }) {
-  if (!blocks?.length) {
-    return null;
+function Index({
+  blocks,
+  menus,
+  footer: footerProps,
+  seo = {},
+  variant,
+  fallback,
+}) {
+  const theme = useTheme();
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+
+  const pageSeo = {};
+  pageSeo.title = seo?.title || undefined;
+  pageSeo.description = seo?.metaDesc || undefined;
+  pageSeo.canonical = seo?.canonical || undefined;
+  if (seo?.opengraphType || seo?.opengraphImage) {
+    pageSeo.openGraph = {};
+    if (seo.opengraphImage) {
+      pageSeo.openGraph.images = [
+        {
+          url: seo.opengraphImage,
+          alt: seo.title || undefined,
+        },
+      ];
+    }
+    if (seo.opengraphType) {
+      pageSeo.openGraph.type = seo.opengraphType;
+    }
   }
 
   let PageConfig = React.Fragment;
@@ -23,7 +53,13 @@ function Index({ blocks, fallback, ...props }) {
     pageConfigProps = { value: { fallback } };
   }
   return (
-    <Page {...props}>
+    <>
+      <Navigation {...menus} variant={variant} />
+      <NextSeo
+        {...pageSeo}
+        nofollow={seo?.metaRobotsNofollow !== "follow"}
+        noindex={seo?.metaRobotsNoindex !== "index"}
+      />
       <PageConfig {...pageConfigProps}>
         {blocks.map((block) => {
           const Component = componentsBySlugs[block.slug];
@@ -33,7 +69,8 @@ function Index({ blocks, fallback, ...props }) {
           return <Component {...block} key={block.slug} />;
         })}
       </PageConfig>
-    </Page>
+      {!(variant === "explore" && isDesktop) && <Footer {...footerProps} />}
+    </>
   );
 }
 
