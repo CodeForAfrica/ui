@@ -1,3 +1,4 @@
+import Hero from "../blocks/Hero";
 import PageHero from "../blocks/PageHero";
 import Summary from "../blocks/Summary";
 import Team from "../blocks/Team";
@@ -30,7 +31,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHero, Summary, Team],
+      blocks: [Hero, PageHero, Summary, Team],
       localized: true,
       admin: {
         initCollapsed: true,

@@ -2,18 +2,20 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
+import Hero from "@/climatemappedafrica/components/Hero";
 import Page from "@/climatemappedafrica/components/Page";
 import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  hero: Hero,
   "page-hero": PageHero,
   summary: Summary,
   team: AboutTeam,
 };
 
-function Index({ blocks, fallback, ...props }) {
+export default function Index({ blocks, fallback, ...props }) {
   if (!blocks?.length) {
     return null;
   }
@@ -43,5 +45,3 @@ function Index({ blocks, fallback, ...props }) {
 export async function getServerSideProps(context) {
   return getPageServerSideProps(context);
 }
-
-export default Index;
