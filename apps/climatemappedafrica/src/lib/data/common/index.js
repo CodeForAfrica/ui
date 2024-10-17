@@ -33,7 +33,7 @@ function getFooter(siteSettings) {
   };
 }
 
-function getMenus(siteSettings) {
+function getNavBar(siteSettings) {
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -76,7 +76,7 @@ export async function getPageProps(api, context) {
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings);
-  const menus = getMenus(siteSettings);
+  const menus = getNavBar(siteSettings);
 
   return {
     blocks,
