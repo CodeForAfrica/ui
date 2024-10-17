@@ -1,19 +1,26 @@
-import LogoButton from "@commons-ui/core/LogoButton";
-import { Grid } from "@mui/material";
+import {
+  Grid,
+  Slide,
+  Dialog,
+  DialogActions,
+  IconButton,
+  DialogContent,
+  SvgIcon,
+} from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 
-import Link from "@/climatemappedafrica/components/Link";
+import SearchIcon from "@/climatemappedafrica/assets/icons/search-open.svg";
+import MenuCloseIcon from "@/climatemappedafrica/assets/menu_close.svg";
+import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
+import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
+import Menu from "@/climatemappedafrica/components/Menu";
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
-  root: {},
-  logoButton: {
-    padding: 0,
-  },
-  section: {},
   dialog: {
     padding: 0,
   },
@@ -140,29 +147,148 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
 }));
 
-function MobileNavigation({
-  logoProps,
-  menuProps,
-  mobileLogoProps,
-  drawerLogoProps,
-  socialLinks,
-  ...props
-}) {
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="left" timeout={1000} ref={ref} {...props} />;
+});
+
+function MobileNavigation({ drawerLogo, logo, menus, socialLinks, ...props }) {
   const classes = useStyles(props);
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const handleClickOpen = (e) => {
+    e?.preventDefault();
+    setOpen(true);
+  };
+  const handleClose = (e) => {
+    e?.preventDefault();
+    setOpen(false);
+  };
+
+  const handleClickSearch = (code) => {
+    setOpen(false);
+    if (code) {
+      router.push(`explore/${code}`);
+    }
+  };
 
   return (
-    <div className={classes.root}>
-      <Section className={classes.section}>
+    <div>
+      <Section>
         <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item container justifyContent="center">
-            <LogoButton
+          <Grid item xs={10}>
+            <NextImageButton
               href="/"
-              component={Link}
-              className={classes.logoButton}
-            >
-              <Image {...mobileLogoProps} />
-            </LogoButton>
+              {...logo}
+              width={180}
+              height={80}
+              priority
+            />
           </Grid>
+          <Grid item>
+            <IconButton
+              aria-label="Open drawer"
+              edge="start"
+              size="medium"
+              onClick={handleClickOpen}
+              sx={(theme) => ({
+                color: theme.palette.grey.dark,
+                background: "#F0F0F0",
+                borderRadius: theme.typography.pxToRem(50),
+                height: theme.typography.pxToRem(34),
+                padding: 0,
+                width: theme.typography.pxToRem(34),
+                "&:hover": {
+                  background: "#F0F0F0",
+                  borderRadius: theme.typography.pxToRem(50),
+                },
+              })}
+            >
+              <SvgIcon
+                component={MenuOpenIcon}
+                viewBox="0 0 24 24"
+                sx={{
+                  width: 24,
+                  height: 24,
+                }}
+              />
+            </IconButton>
+          </Grid>
+          <Dialog
+            fullScreen
+            open={open}
+            onClose={handleClose}
+            BackdropProps={{
+              classes: {
+                root: classes.backdrop,
+              },
+            }}
+            TransitionComponent={Transition}
+            classes={{ root: classes.dialog, paper: classes.dialogPaper }}
+          >
+            <DialogActions className={classes.dialogActions}>
+              <Section className={classes.section}>
+                <Grid
+                  container
+                  direction="row"
+                  justifyContent="space-between"
+                  className={classes.logoSection}
+                >
+                  <Grid item xs={10}>
+                    <NextImageButton
+                      href="/"
+                      {...drawerLogo}
+                      width={180}
+                      height={80}
+                      priority
+                    />
+                  </Grid>
+                  <Grid item>
+                    <IconButton
+                      aria-label="Close drawer"
+                      edge="end"
+                      size="medium"
+                      onClick={handleClose}
+                      className={classes.closeButton}
+                    >
+                      <SvgIcon
+                        component={MenuCloseIcon}
+                        viewBox="0 0 48 48"
+                        sx={{
+                          width: 32,
+                          height: 32,
+                        }}
+                      />
+                    </IconButton>
+                  </Grid>
+                </Grid>
+              </Section>
+            </DialogActions>
+            <DialogContent className={classes.dialogContent}>
+              <Section className={classes.section}>
+                <Menu
+                  links={menus}
+                  socialLinks={socialLinks}
+                  classes={{
+                    root: classes.mainMenu,
+                    menuLinks: classes.menuLinks,
+                    label: classes.label,
+                    menu: classes.buttonMenu,
+                  }}
+                >
+                  <DropdownSearch
+                    classes={{
+                      root: classes.search,
+                      inputRoot: classes.searchInput,
+                    }}
+                    icon={SearchIcon}
+                    onClick={handleClickSearch}
+                    {...props}
+                  />
+                </Menu>
+              </Section>
+            </DialogContent>
+          </Dialog>
         </Grid>
       </Section>
     </div>
@@ -170,15 +296,9 @@ function MobileNavigation({
 }
 
 MobileNavigation.propTypes = {
-  logoProps: PropTypes.shape({}),
-  menuProps: PropTypes.arrayOf(PropTypes.shape({})),
-  mobileLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
+  drawerLogo: PropTypes.shape({}),
+  logo: PropTypes.shape({}),
+  menus: PropTypes.arrayOf(PropTypes.shape({})),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
 };
 

@@ -37,6 +37,16 @@ const GeneralTab = {
         }),
         image({
           overrides: {
+            name: "drawerLogo",
+            required: true,
+            localized: true,
+            admin: {
+              description: "Shown on mobile navigation drawer.",
+            },
+          },
+        }),
+        image({
+          overrides: {
             name: "secondaryLogo",
             localized: true,
             admin: {

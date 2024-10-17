@@ -1,6 +1,4 @@
-import LogoButton from "@commons-ui/core/LogoButton";
-import { Grid, Typography, useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Grid, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
@@ -8,26 +6,10 @@ import React from "react";
 
 import SearchIcon from "@/climatemappedafrica/assets/icons/search-explore.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import Image from "@/climatemappedafrica/components/Image";
-import Link from "@/climatemappedafrica/components/Link";
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ palette, typography }) => ({
-  root: {},
-  section: {},
-  logoButton: {
-    padding: 0,
-  },
-  help: {
-    color: "#666666",
-    textAlign: "center",
-    backgroundColor: "#EBEBEB",
-    borderRadius: typography.pxToRem(60),
-    marginLeft: typography.pxToRem(20),
-    width: typography.pxToRem(48),
-    height: typography.pxToRem(48),
-    cursor: "pointer",
-  },
   searchLabel: {
     display: "none",
   },
@@ -59,36 +41,25 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
 }));
 
-function ExploreNavigation({
-  logoProps,
-  menuProps,
-  onOpenHelp,
-  socialLinks,
-  desktopLogoProps,
-  mobileLogoProps,
-  ...props
-}) {
-  const classes = useStyles(props);
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
-  const logoArgs = isDesktop ? desktopLogoProps : mobileLogoProps;
+function ExploreNavigation({ logo, variant }) {
+  const classes = useStyles();
   const { setIsOpen } = useTour();
 
   const openTooltip = () => {
     setIsOpen(true);
   };
   return (
-    <div className={classes.root}>
-      <Section classes={{ root: classes.section }}>
+    <div>
+      <Section>
         <Grid container alignItems="center">
           <Grid item xs={3}>
-            <LogoButton
+            <NextImageButton
               href="/"
-              component={Link}
-              className={classes.logoButton}
-            >
-              <Image {...logoArgs} />
-            </LogoButton>
+              {...logo}
+              width={200}
+              height={100}
+              priority
+            />
           </Grid>
           <Grid
             item
@@ -99,9 +70,9 @@ function ExploreNavigation({
             alignItems="center"
           >
             <DropdownSearch
-              {...props}
               icon={SearchIcon}
               placeholder="Search for a Location" // TODO: Read from cms
+              variant={variant}
               classes={{
                 inputRoot: classes.searchInputRoot,
                 input: classes.searchInput,
@@ -115,7 +86,16 @@ function ExploreNavigation({
               id="nav-help"
               onClick={openTooltip}
               variant="h3"
-              className={classes.help}
+              sx={(theme) => ({
+                color: "#666666",
+                textAlign: "center",
+                backgroundColor: "#EBEBEB",
+                borderRadius: theme.typography.pxToRem(60),
+                marginLeft: theme.typography.pxToRem(20),
+                width: theme.typography.pxToRem(48),
+                height: theme.typography.pxToRem(48),
+                cursor: "pointer",
+              })}
             >
               ?
             </Typography>
@@ -128,22 +108,8 @@ function ExploreNavigation({
 }
 
 ExploreNavigation.propTypes = {
-  logoProps: PropTypes.shape({}),
-  menuProps: PropTypes.arrayOf(PropTypes.shape({})),
-  onOpenHelp: PropTypes.func,
-  socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
-  desktopLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
-  mobileLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-  }),
+  logo: PropTypes.shape({}),
+  variant: PropTypes.string,
 };
 
 export default ExploreNavigation;

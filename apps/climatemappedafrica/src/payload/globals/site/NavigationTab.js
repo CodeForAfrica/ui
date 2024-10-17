@@ -38,6 +38,7 @@ const NavigationTab = {
             {
               name: "connect",
               type: "select",
+              hasMany: true,
               options: socialMediaOptions,
             },
           ],
