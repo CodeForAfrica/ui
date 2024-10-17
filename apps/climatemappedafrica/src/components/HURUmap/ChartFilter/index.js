@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import useStyles from "./useStyles";
 
-import { ReactComponent as CloseIcon } from "@/climatemappedafrica/assets/icons/x.svg";
+import CloseIcon from "@/climatemappedafrica/assets/icons/x.svg";
 import Select from "@/climatemappedafrica/components/Select";
 
 function ChartFilter({
