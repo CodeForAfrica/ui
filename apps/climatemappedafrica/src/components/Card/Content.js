@@ -1,4 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
+import { RichText } from "@commons-ui/payload";
 import { CardContent } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
@@ -44,13 +45,22 @@ function Content({
       <RichTypography variant="h5" {...titleProps} className={classes.title}>
         {title}
       </RichTypography>
-      <RichTypography
-        variant="subtitle2"
-        {...descriptionProps}
-        className={classes.description}
-      >
-        {description}
-      </RichTypography>
+      {/* Support for rich text while keeping backwards compatibility */}
+      {Array.isArray(description) ? (
+        <RichText
+          {...descriptionProps}
+          className={classes.description}
+          elements={description}
+        />
+      ) : (
+        <RichTypography
+          variant="subtitle2"
+          {...descriptionProps}
+          className={classes.description}
+        >
+          {description}
+        </RichTypography>
+      )}
     </CardContent>
   );
 }

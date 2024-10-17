@@ -2,11 +2,13 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
+import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
 import Page from "@/climatemappedafrica/components/Page";
 import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  "data-visualisation-guide": DataVisualisationGuide,
   summary: Summary,
   team: AboutTeam,
 };
