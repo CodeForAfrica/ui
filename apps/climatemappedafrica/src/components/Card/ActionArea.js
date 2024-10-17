@@ -43,10 +43,4 @@ ActionArea.propTypes = {
   onClick: PropTypes.func,
 };
 
-ActionArea.defaultProps = {
-  children: undefined,
-  href: undefined,
-  onClick: undefined,
-};
-
 export default ActionArea;

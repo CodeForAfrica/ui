@@ -4,6 +4,7 @@ import richText from "../fields/richText";
 
 const Summary = {
   slug: "summary",
+  imageURL: "/images/payload/blocks/summary.jpg",
   fields: [
     {
       name: "title",

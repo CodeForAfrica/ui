@@ -1,5 +1,6 @@
 const Team = {
   slug: "team",
+  imageURL: "/images/payload/blocks/team.jpg",
   fields: [
     {
       name: "title",
