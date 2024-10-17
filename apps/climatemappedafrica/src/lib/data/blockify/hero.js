@@ -5,7 +5,7 @@ import {
 
 export default async function hero(block) {
   const { geometries } = await fetchProfileGeography(
-    block.location?.name?.toLowerCase() ?? "af",
+    block.location?.name?.toLowerCase(),
   );
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {

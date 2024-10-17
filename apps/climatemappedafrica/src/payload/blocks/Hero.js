@@ -41,6 +41,7 @@ const Hero = {
           type: "text",
           required: true,
           hasMany: false,
+          defaultValue: "af",
           validate: validateLocation,
           admin: {
             components: {

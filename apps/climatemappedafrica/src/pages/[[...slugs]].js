@@ -13,7 +13,7 @@ const componentsBySlugs = {
   team: AboutTeam,
 };
 
-export default function Index({ blocks, fallback }) {
+export default function Index({ blocks, fallback, ...props }) {
   if (!blocks?.length) {
     return null;
   }
@@ -25,7 +25,7 @@ export default function Index({ blocks, fallback }) {
     pageConfigProps = { value: { fallback } };
   }
   return (
-    <Page {...pageConfigProps}>
+    <Page {...props}>
       <PageConfig {...pageConfigProps}>
         {blocks.map((block) => {
           const Component = componentsBySlugs[block.slug];

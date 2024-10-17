@@ -1,6 +1,6 @@
-import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
+import { RichTypography } from "@commons-ui/core";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import makeStyles from "@mui/styles/makeStyles";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -12,74 +12,6 @@ import RichHeader from "@/climatemappedafrica/components/RichHeader";
 import Section from "@/climatemappedafrica/components/Section";
 
 const Map = dynamic(() => import("./Map"), { ssr: false });
-
-const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
-  root: {
-    position: "relative",
-  },
-  background: {
-    position: "absolute",
-    zIndex: -1,
-    height: typography.pxToRem(468),
-    width: "100%",
-    [breakpoints.up("md")]: {
-      height: typography.pxToRem(456),
-    },
-    [breakpoints.up("lg")]: {
-      height: typography.pxToRem(600),
-    },
-  },
-  comment: {
-    fontSize: typography.pxToRem(11),
-    color: "#707070",
-    marginTop: typography.pxToRem(20),
-    [breakpoints.up("lg")]: {
-      marginTop: typography.pxToRem(40),
-    },
-  },
-  section: {
-    paddingBottom: typography.pxToRem(40),
-    [breakpoints.up("md")]: {
-      paddingBottom: typography.pxToRem(22),
-    },
-    [breakpoints.up("lg")]: {
-      paddingBottom: typography.pxToRem(64),
-    },
-  },
-  slabel: {
-    marginBottom: typography.pxToRem(10),
-  },
-  subtitle: {
-    margin: `${typography.pxToRem(20)} 0`,
-    [breakpoints.up("md")]: {
-      maxWidth: typography.pxToRem(335),
-    },
-    [breakpoints.up("lg")]: {
-      margin: `${typography.pxToRem(40)} 0`,
-      maxWidth: typography.pxToRem(474),
-    },
-  },
-  title: {
-    marginTop: typography.pxToRem(40),
-    [breakpoints.up("md")]: {
-      marginTop: typography.pxToRem(46),
-    },
-    [breakpoints.up("lg")]: {
-      marginTop: typography.pxToRem(65),
-    },
-  },
-  dropdownTitle: {
-    color: palette.text.hint,
-  },
-  geoName: {
-    lineHeight: 23 / 18,
-    lineSpacing: typography.pxToRem(0.9),
-    fontWeight: "normal",
-    textTransform: "capitalize",
-    display: "flex",
-    justifyContent: "flex-end",
-  },
-}));
 
 function Hero({
   comment,
@@ -93,8 +25,8 @@ function Hero({
   level,
   ...props
 }) {
-  const classes = useStyles(props);
   const theme = useTheme();
+  const { typography, breakpoints } = theme;
   const isUpLg = useMediaQuery(theme.breakpoints.up("lg"));
 
   const [hoverGeo, setHoverGeo] = useState(null);
@@ -104,11 +36,38 @@ function Hero({
   const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
 
   return (
-    <div className={classes.root}>
-      <div className={classes.background}>
+    <Box
+      sx={{
+        position: "relative",
+      }}
+    >
+      <Box
+        sx={{
+          position: "absolute",
+          zIndex: -1,
+          height: typography.pxToRem(468),
+          width: "100%",
+          [breakpoints.up("md")]: {
+            height: typography.pxToRem(456),
+          },
+          [breakpoints.up("lg")]: {
+            height: typography.pxToRem(600),
+          },
+        }}
+      >
         <Image src={heroBg} layout="fill" unoptimized />
-      </div>
-      <Section classes={{ root: classes.section }}>
+      </Box>
+      <Section
+        sx={{
+          paddingBottom: typography.pxToRem(40),
+          [breakpoints.up("md")]: {
+            paddingBottom: typography.pxToRem(22),
+          },
+          [breakpoints.up("lg")]: {
+            paddingBottom: typography.pxToRem(64),
+          },
+        }}
+      >
         <Grid container>
           <Box
             sx={{
@@ -123,7 +82,29 @@ function Hero({
           <Grid item xs={12} md={7} lg={6}>
             <RichHeader
               subtitle={subtitle}
-              classes={{ title: classes.title, subtitle: classes.subtitle }}
+              TitleProps={{
+                sx: {
+                  marginTop: typography.pxToRem(40),
+                  [breakpoints.up("md")]: {
+                    marginTop: typography.pxToRem(46),
+                  },
+                  [breakpoints.up("lg")]: {
+                    marginTop: typography.pxToRem(65),
+                  },
+                },
+              }}
+              SubtitleProps={{
+                sx: {
+                  margin: `${typography.pxToRem(20)} 0`,
+                  [breakpoints.up("md")]: {
+                    maxWidth: typography.pxToRem(335),
+                  },
+                  [breakpoints.up("lg")]: {
+                    margin: `${typography.pxToRem(40)} 0`,
+                    maxWidth: typography.pxToRem(474),
+                  },
+                },
+              }}
             >
               {title}
             </RichHeader>
@@ -131,16 +112,21 @@ function Hero({
               label={searchLabel}
               locations={featuredLocations}
               placeholder={searchPlaceholder}
-              classes={{
-                label: classes.dropdownTitle,
-              }}
               {...props}
             />
-            {comment && (
-              <Typography variant="subtitle1" className={classes.comment}>
-                {comment}
-              </Typography>
-            )}
+            <RichTypography
+              variant="subtitle1"
+              sx={{
+                fontSize: typography.pxToRem(11),
+                color: "#707070",
+                marginTop: typography.pxToRem(20),
+                [breakpoints.up("lg")]: {
+                  marginTop: typography.pxToRem(40),
+                },
+              }}
+            >
+              {comment}
+            </RichTypography>
           </Grid>
           {/* Since map is dynamic-ally loaded, no need for implementation="css" */}
           <Box
@@ -159,23 +145,31 @@ function Hero({
                   tileLayer={{
                     url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
                   }}
-                  setHoverGeo={setHoverGeo}
+                  onLayerMouseOver={setHoverGeo}
                   featuredLocations={featuredLocations}
                   {...props}
                 />
               ) : null}
               <Box sx={{ height: 80 }}>
-                {hoverGeo && (
-                  <Typography variant="h6" className={classes.geoName}>
-                    {hoverGeo}
-                  </Typography>
-                )}
+                <RichTypography
+                  variant="h6"
+                  className={{
+                    lineHeight: 23 / 18,
+                    lineSpacing: typography.pxToRem(0.9),
+                    fontWeight: "normal",
+                    textTransform: "capitalize",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  {hoverGeo}
+                </RichTypography>
               </Box>
             </Grid>
           </Box>
         </Grid>
       </Section>
-    </div>
+    </Box>
   );
 }
 
