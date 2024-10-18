@@ -59,11 +59,8 @@ function DataVisualisationGuide({ title, items }) {
           <Grid
             container
             sx={{
-              flexDirection: "column",
-              [theme.breakpoints.up("md")]: {
-                flexDirection: "row",
-                justifyContent: "space-between",
-              },
+              flexDirection: { xs: "column", md: "row" },
+              justifyContent: { md: "space-between" },
             }}
           >
             {items.map((item) => (
