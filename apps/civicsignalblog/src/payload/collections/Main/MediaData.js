@@ -36,7 +36,7 @@ const MediaData = {
     }),
     document({
       overrides: {
-        name: "mediaDataDocument",
+        name: "document",
         required: true,
       },
     }),
