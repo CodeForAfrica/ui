@@ -53,7 +53,7 @@ function getNavBar(siteSettings, variant) {
   };
 }
 
-async function processExplorePage(slugs, hurumap) {
+async function processExplorePage(slugs, hurumap, explorePage) {
   const {
     initialLocation: { name, center },
   } = hurumap;
@@ -63,6 +63,7 @@ async function processExplorePage(slugs, hurumap) {
       blockType: "explore-page",
       center,
       slug: slug.trim().toLowerCase(),
+      explorePageUrl: explorePage.slug,
     },
     {
       blockType: "tutorial",
@@ -101,7 +102,7 @@ export async function getPageProps(api, context) {
   const menus = getNavBar(siteSettings, variant);
 
   if (slug === explorePage.slug) {
-    blocks = await processExplorePage(slugs.slice(1), hurumap);
+    blocks = await processExplorePage(slugs.slice(1), hurumap, explorePage);
   }
 
   return {

@@ -22,6 +22,7 @@ function initialState(profiles, onClick) {
 }
 
 function ExplorePage({
+  explorePageUrl,
   panel: panelProps = {},
   profile: profileProp,
   ...props
@@ -37,6 +38,7 @@ function ExplorePage({
   };
   const [state, dispatch] = useExplore(
     initialState(profileProp, handleClickTag),
+    explorePageUrl,
   );
   useEffect(() => {
     dispatch({
@@ -69,7 +71,7 @@ function ExplorePage({
       state.isPinning || state.isCompare
         ? `${state.primary.geography.code}-vs-${code}`
         : `${code}`;
-    const href = `/explore/${newPath.toLowerCase()}`;
+    const href = `/${explorePageUrl}/${newPath.toLowerCase()}`;
     router.push(href, href, { shallow: true });
     const type = state.isPinning && state.isCompare ? "compare" : "fetch";
     dispatch({ type, payload });
@@ -92,7 +94,7 @@ function ExplorePage({
   };
   useEffect(() => {
     if (state.slug) {
-      const href = `/explore/${state.slug}`;
+      const href = `/${explorePageUrl}/${state.slug}`;
       router.push(href, href, { shallow: true });
     }
     // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
