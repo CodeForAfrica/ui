@@ -38,7 +38,7 @@ const HowItWorks = {
     },
     linkGroup({
       overrides: {
-        label: "Link Text",
+        label: "Find out more",
       },
     }),
     image({
