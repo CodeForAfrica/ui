@@ -1,4 +1,5 @@
 import canRead from "#civicsignalblog/payload/access/applications/research";
+import isAdminOrEditor from "#civicsignalblog/payload/access/isAdminOrEditor";
 import slug from "#civicsignalblog/payload/fields/slug/index";
 
 const Tags = {
@@ -11,6 +12,9 @@ const Tags = {
   },
   access: {
     read: canRead,
+    update: isAdminOrEditor,
+    create: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   fields: [
     {

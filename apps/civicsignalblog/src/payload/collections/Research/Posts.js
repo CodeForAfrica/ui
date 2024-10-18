@@ -1,4 +1,5 @@
 import canRead from "#civicsignalblog/payload/access/applications/research";
+import isAdminOrEditor from "#civicsignalblog/payload/access/isAdminOrEditor";
 import authors from "#civicsignalblog/payload/fields/authors";
 import content from "#civicsignalblog/payload/fields/content";
 import image from "#civicsignalblog/payload/fields/image";
@@ -19,6 +20,9 @@ const Posts = {
   },
   access: {
     read: canRead,
+    update: isAdminOrEditor,
+    create: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   admin: {
     defaultColumns: ["title", "authors", "publishedOn"],
