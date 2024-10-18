@@ -53,6 +53,22 @@ function getNavBar(siteSettings, variant) {
   };
 }
 
+async function processExplorePage(slugs, hurumap) {
+  const {
+    initialLocation: { name, center },
+  } = hurumap;
+  const slug = slugs.length ? slugs[0] : name;
+  const blocks = await blockify([
+    {
+      blockType: "explore-page",
+      center,
+      slug: slug.trim().toLowerCase(),
+    },
+  ]);
+
+  return blocks;
+}
+
 export async function getPageProps(api, context) {
   // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
   // so params.slug[0] is good enough
@@ -74,12 +90,16 @@ export async function getPageProps(api, context) {
     page: { value: explorePage },
   } = hurumap;
 
-  const blocks = await blockify(page.blocks, api, context);
+  let blocks = await blockify(page.blocks, api, context);
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
   const menus = getNavBar(siteSettings, variant);
+
+  if (slug === explorePage.slug) {
+    blocks = await processExplorePage(slugs.slice(1), hurumap);
+  }
 
   return {
     blocks,

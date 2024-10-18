@@ -3,6 +3,7 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
+import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";
@@ -10,6 +11,7 @@ import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  "explore-page": ExplorePage,
   "page-hero": PageHero,
   summary: Summary,
   team: AboutTeam,
