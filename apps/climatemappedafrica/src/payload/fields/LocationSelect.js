@@ -27,16 +27,18 @@ function LocationSelect(props) {
     revalidateOnFocus: false,
   });
   const { locations } = data ?? {};
-  const memoOptions = () =>
-    (
-      locations
-        ?.filter(({ level }) => level !== "region")
-        ?.map((location) => ({
-          label: location.name,
-          value: location.code,
-        })) || []
-    ).sort((a, b) => a.label.localeCompare(b.label));
-  const options = useMemo(memoOptions, [locations]);
+  const options = useMemo(
+    () =>
+      (
+        locations
+          ?.filter(({ level }) => level !== "region")
+          ?.map((location) => ({
+            label: location.name,
+            value: location.code,
+          })) || []
+      ).sort((a, b) => a.label.localeCompare(b.label)),
+    [locations],
+  );
   return createElement(Select, { ...props, options });
 }
 
