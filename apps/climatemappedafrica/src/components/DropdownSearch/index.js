@@ -119,27 +119,15 @@ function DropdownSearch({
       size="small"
       className={classes.button}
     >
-      {variant === "explore" ? (
-        <SvgIcon
-          component={IconProp}
-          viewBox="0 0 48 48"
-          sx={{
-            width: 48,
-            height: 48,
-          }}
-        />
-      ) : (
-        <SvgIcon
-          component={SearchIcon}
-          viewBox="0 0 48 48"
-          sx={{
-            width: 48,
-            height: 48,
-            borderRadius: "50%",
-            border: "2px solid #fff",
-          }}
-        />
-      )}
+      <SvgIcon
+        component={iconComponent}
+        viewBox="0 0 48 48"
+        sx={{
+          width: 48,
+          height: 48,
+          ...iconBorder,
+        }}
+      />
     </IconButton>
   );
 
