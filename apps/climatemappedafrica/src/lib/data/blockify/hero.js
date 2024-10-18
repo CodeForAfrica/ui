@@ -13,16 +13,15 @@ export default async function hero(block) {
     country: "region",
   };
   const childLevel = childLevelMaps[level];
-  const { locations } = await fetchProfile();
+  const { locations, preferredChildren } = await fetchProfile();
+  const preferredChildrenPerLevel = preferredChildren[level];
+  const { children } = geometries;
+  const preferredLevel =
+    preferredChildrenPerLevel?.find((l) => children[l]) ?? null;
   const featuredLocations = locations.filter(
     (location) => location.level === childLevel,
   );
-
-  const { children } = geometries;
-  const boundary =
-    level === "country"
-      ? children.Region || children.County || null
-      : (children[childLevel] ?? null);
+  const boundary = children[preferredLevel];
   return {
     ...block,
     slug: "hero",

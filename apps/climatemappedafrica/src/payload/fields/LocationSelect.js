@@ -28,12 +28,14 @@ function LocationSelect(props) {
   });
   const { locations } = data ?? {};
   const memoOptions = () =>
-    locations
-      ?.filter(({ level }) => level !== "region")
-      ?.map((location) => ({
-        label: location.name,
-        value: location.code,
-      })) || [];
+    (
+      locations
+        ?.filter(({ level }) => level !== "region")
+        ?.map((location) => ({
+          label: location.name,
+          value: location.code,
+        })) || []
+    ).sort((a, b) => a.label.localeCompare(b.label));
   const options = useMemo(memoOptions, [locations]);
   return createElement(Select, { ...props, options });
 }
