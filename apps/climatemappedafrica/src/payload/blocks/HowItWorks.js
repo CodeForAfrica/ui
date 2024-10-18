@@ -35,8 +35,11 @@ const HowItWorks = {
         {
           name: "url",
           type: "text",
-          label: "Video Source",
+          label: {
+            en: "Youtube Video URL",
+          },
           required: true,
+          localized: true,
         },
         {
           name: "type",
@@ -45,6 +48,7 @@ const HowItWorks = {
           defaultValue: "video/youtube",
           admin: {
             description: "The type of video. e.g. video/mp4, video/youtube",
+            hidden: true,
           },
         },
       ],
