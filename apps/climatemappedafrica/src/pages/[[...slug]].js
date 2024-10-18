@@ -17,16 +17,16 @@ const componentsBySlugs = {
 
 function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
   const pageSeo = {};
-  pageSeo.title = seo?.title || undefined;
-  pageSeo.description = seo?.metaDesc || undefined;
-  pageSeo.canonical = seo?.canonical || undefined;
+  pageSeo.title = seo?.title || null;
+  pageSeo.description = seo?.metaDesc || null;
+  pageSeo.canonical = seo?.canonical || null;
   if (seo?.opengraphType || seo?.opengraphImage) {
     pageSeo.openGraph = {};
     if (seo.opengraphImage) {
       pageSeo.openGraph.images = [
         {
           url: seo.opengraphImage,
-          alt: seo.title || undefined,
+          alt: seo.title || null,
         },
       ];
     }
