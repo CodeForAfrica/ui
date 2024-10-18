@@ -85,7 +85,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-103t5j3-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kzlhbf-MuiSvgIcon-root"
                   focusable="false"
                   viewBox="0 0 48 48"
                 />
