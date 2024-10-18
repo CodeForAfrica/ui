@@ -1,5 +1,8 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import image from "../fields/image";
 import linkGroup from "../fields/links/linkGroup";
+import richText from "../fields/richText";
 
 const HowItWorks = {
   slug: "how-it-works",
@@ -9,12 +12,22 @@ const HowItWorks = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
-    {
+    richText({
       name: "description",
-      type: "text",
+      label: {
+        en: "Description",
+      },
+      editor: slateEditor({
+        admin: {
+          elements: ["link"],
+          leaves: ["bold", "code", "italic", "underline"],
+        },
+      }),
       required: true,
-    },
+      localized: true,
+    }),
     {
       name: "video",
       type: "group",
@@ -35,10 +48,14 @@ const HowItWorks = {
           },
         },
       ],
+      localized: true,
     },
     linkGroup({
       overrides: {
-        label: "Find out more",
+        label: {
+          en: "Find out more",
+        },
+        localized: true,
       },
     }),
     image({

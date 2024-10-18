@@ -1,3 +1,4 @@
+import { RichText } from "@commons-ui/payload";
 import { useMediaQuery, Box, Button, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -133,8 +134,8 @@ function HowItWorks({
             >
               {title}
             </Typography>
-            <Typography
-              variant="h6"
+            <RichText
+              elements={description}
               sx={{
                 fontFamily: theme.typography.body1.fontFamily,
                 margin: `${theme.typography.pxToRem(16.5)} 0`,
@@ -143,9 +144,7 @@ function HowItWorks({
                   width: theme.typography.pxToRem(278),
                 },
               }}
-            >
-              {description}
-            </Typography>
+            />
             <Button href={link.href} variant="text">
               {link.label}
             </Button>
