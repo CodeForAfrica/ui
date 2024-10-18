@@ -158,6 +158,7 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  // We need to add a postMiddleware function to add support for custom headers in Payload
   express: {
     postMiddleware: [
       (_req: Request, res: Response, next: NextFunction) => {

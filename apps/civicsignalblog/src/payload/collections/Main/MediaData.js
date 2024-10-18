@@ -29,7 +29,7 @@ const MediaData = {
     },
     image({
       overrides: {
-        name: "mediaDataImage",
+        name: "thumbnail",
         required: true,
         localized: true,
       },
