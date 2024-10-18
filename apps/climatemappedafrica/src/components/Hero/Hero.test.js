@@ -50,7 +50,7 @@ const defaultProps = {
   icon: null,
 };
 
-describe("Hero Component", () => {
+describe("<Hero />", () => {
   it("renders unchanged", () => {
     const { container } = render(<Hero {...defaultProps} />);
     expect(container).toMatchSnapshot();

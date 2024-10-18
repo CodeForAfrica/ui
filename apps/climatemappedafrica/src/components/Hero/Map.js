@@ -45,7 +45,7 @@ function Map({
     fillColor: "#fff",
     dashArray: "2",
   },
-  setHoverGeo,
+  onLayerMouseOver,
   featuredLocations,
   ...props
 }) {
@@ -66,14 +66,14 @@ function Map({
         dashArray: 0,
       });
       layer.on("mouseover", () => {
-        setHoverGeo(feature.properties.name.toLowerCase());
+        onLayerMouseOver(feature.properties.name.toLowerCase());
         layer.setStyle({
           fillColor: theme.palette.primary.main,
           fillOpacity: 0.5,
         });
       });
       layer.on("mouseout", () => {
-        setHoverGeo(null);
+        onLayerMouseOver(null);
         layer.setStyle({
           fillOpacity: 1,
           fillColor: theme.palette.background.default,
@@ -125,7 +125,7 @@ Map.propTypes = {
   styles: PropTypes.shape({}),
   boundary: PropTypes.shape({}),
   geoJSONStyles: PropTypes.shape({}),
-  setHoverGeo: PropTypes.func,
+  onLayerMouseOver: PropTypes.func,
   featuredLocations: PropTypes.arrayOf(
     PropTypes.shape({ code: PropTypes.string }),
   ),

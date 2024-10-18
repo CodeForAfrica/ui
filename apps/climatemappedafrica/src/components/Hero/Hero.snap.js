@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hero Component renders unchanged 1`] = `
+exports[`<Hero /> renders unchanged 1`] = `
 <div>
   <div
-    class="makeStyles-root-1"
+    class="MuiBox-root css-79elbk"
   >
     <div
-      class="makeStyles-background-2"
+      class="MuiBox-root css-ia70v6"
     >
       <img
         data-nimg="fill"
@@ -17,7 +17,7 @@ exports[`Hero Component renders unchanged 1`] = `
       />
     </div>
     <div
-      class="makeStyles-root-14 makeStyles-root-12 makeStyles-root-10 makeStyles-section-4 makeStyles-fixed-11 MuiBox-root css-0"
+      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-pb574h"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -34,10 +34,9 @@ exports[`Hero Component renders unchanged 1`] = `
         >
           <header
             class="MuiBox-root css-0"
-            classes="[object Object]"
           >
             <div
-              class="MuiBox-root css-1ki7zn5"
+              class="MuiBox-root css-xjdu17"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"
@@ -46,7 +45,7 @@ exports[`Hero Component renders unchanged 1`] = `
               </h1>
             </div>
             <div
-              class="MuiBox-root css-1xaekgw"
+              class="MuiBox-root css-l8opnc"
             >
               <h6
                 class="MuiTypography-root MuiTypography-subtitle1 css-1d1ipbv-MuiTypography-root"
@@ -57,41 +56,46 @@ exports[`Hero Component renders unchanged 1`] = `
             </div>
           </header>
           <div
-            class="makeStyles-root-16"
+            class="makeStyles-root-7"
             id="location-search"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 makeStyles-label-19 makeStyles-dropdownTitle-8 css-6hq4le-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 makeStyles-label-10 css-6hq4le-MuiTypography-root"
             >
               Search for a location
             </p>
             <div
               blocktype="hero"
               boundary="[object Object]"
-              class="MuiInputBase-root makeStyles-inputRoot-17 MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1illudf-MuiInputBase-root"
+              class="MuiInputBase-root makeStyles-inputRoot-8 MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1illudf-MuiInputBase-root"
               slug="hero"
             >
               <input
                 aria-label="search"
-                class="MuiInputBase-input makeStyles-input-21 MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
+                class="MuiInputBase-input makeStyles-input-12 MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
                 id="670e3996766697e7feb349d5"
                 placeholder="Search for a location"
                 type="text"
                 value=""
               />
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall makeStyles-button-20 css-13dk0vd-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall makeStyles-button-11 css-13dk0vd-MuiButtonBase-root-MuiIconButton-root"
                 tabindex="0"
                 type="button"
               >
-                <div />
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-103t5j3-MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 48 48"
+                />
                 <span
                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                 />
               </button>
             </div>
             <div
-              class="makeStyles-suggestions-22"
+              class="makeStyles-suggestions-13"
             />
           </div>
         </div>

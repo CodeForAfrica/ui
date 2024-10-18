@@ -5,7 +5,7 @@ import {
 
 export default async function hero(block) {
   const { geometries } = await fetchProfileGeography(
-    block.location?.name?.toLowerCase() ?? "af",
+    block.location?.name?.toLowerCase(),
   );
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
@@ -20,7 +20,9 @@ export default async function hero(block) {
 
   const { children } = geometries;
   const boundary =
-    children[level === "country" ? "County" : childLevel] ?? null;
+    level === "country"
+      ? children.Region || children.County || null
+      : (children[childLevel] ?? null);
   return {
     ...block,
     slug: "hero",

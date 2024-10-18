@@ -16,7 +16,7 @@ import Members from "./src/payload/collections/Members";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 
-import Site from "./src/payload/globals/Site";
+import Site from "./src/payload/globals/site";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
