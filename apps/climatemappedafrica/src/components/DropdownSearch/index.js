@@ -112,6 +112,15 @@ function DropdownSearch({
     }
   };
 
+  let iconComponent = SearchIcon;
+  let iconBorder;
+  if (variant === "explore") {
+    iconComponent = IconProp;
+    iconBorder = {
+      borderRadius: "50%",
+      border: "2px solid #fff",
+    };
+  }
   const searchIconButton = (
     <IconButton
       color="primary"
