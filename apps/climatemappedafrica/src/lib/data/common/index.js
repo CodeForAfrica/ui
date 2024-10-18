@@ -64,6 +64,9 @@ async function processExplorePage(slugs, hurumap) {
       center,
       slug: slug.trim().toLowerCase(),
     },
+    {
+      blockType: "tutorial",
+    },
   ]);
 
   return blocks;

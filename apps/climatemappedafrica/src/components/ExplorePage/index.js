@@ -21,7 +21,11 @@ function initialState(profiles, onClick) {
   };
 }
 
-function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
+function ExplorePage({
+  panel: panelProps = {},
+  profile: profileProp,
+  ...props
+}) {
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -166,8 +170,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
 }
 
 ExplorePage.propTypes = {
-  apiUri: PropTypes.string,
-  panelProps: PropTypes.shape({}),
+  panel: PropTypes.shape({}),
   profile: PropTypes.oneOfType([
     PropTypes.shape({
       geography: PropTypes.shape({}),

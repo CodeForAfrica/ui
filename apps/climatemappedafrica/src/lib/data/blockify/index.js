@@ -1,11 +1,13 @@
 import explorePage from "./explore-page";
 import pageHero from "./page-hero";
 import team from "./team";
+import tutorial from "./tutorial";
 
 const propsifyBlockBySlug = {
   "explore-page": explorePage,
   "page-hero": pageHero,
   team,
+  tutorial,
 };
 
 export const blockify = async (blocks, api, context) => {
