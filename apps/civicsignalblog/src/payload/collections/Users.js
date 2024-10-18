@@ -74,6 +74,11 @@ const Users = {
         isClearable: true,
         isSortable: true,
       },
+      access: {
+        read: isAdminOrSelfFieldLevel,
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
+      },
       options: applications,
     },
     {
@@ -85,6 +90,11 @@ const Users = {
         isClearable: true,
         isSortable: true,
       },
+      access: {
+        read: isAdminOrSelfFieldLevel,
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
+      },
       options: applications,
     },
     {
@@ -94,6 +104,11 @@ const Users = {
       hasMany: true,
       admin: {
         isClearable: true,
+      },
+      access: {
+        read: isAdminOrSelfFieldLevel,
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
       },
       options: applications,
     },
