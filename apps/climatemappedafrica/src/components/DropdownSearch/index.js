@@ -4,9 +4,9 @@ import {
   Typography,
   List,
   ListItem,
+  SvgIcon,
 } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
@@ -66,7 +66,7 @@ function DropdownSearch({
   label = "Search for a location",
   locations,
   onClick,
-  icon: iconProp = SearchIcon,
+  icon: IconProp = SearchIcon,
   placeholder,
   variant,
   ...props
@@ -112,8 +112,15 @@ function DropdownSearch({
     }
   };
 
-  const icon =
-    !suggestions?.length || variant === "explore" ? iconProp : SearchIcon;
+  let iconComponent = SearchIcon;
+  let iconBorder;
+  if (variant === "explore") {
+    iconComponent = IconProp;
+    iconBorder = {
+      borderRadius: "50%",
+      border: "2px solid #fff",
+    };
+  }
   const searchIconButton = (
     <IconButton
       color="primary"
@@ -121,7 +128,15 @@ function DropdownSearch({
       size="small"
       className={classes.button}
     >
-      <Image src={icon} width={48} height={48} alt="search" />
+      <SvgIcon
+        component={iconComponent}
+        viewBox="0 0 48 48"
+        sx={{
+          width: 48,
+          height: 48,
+          ...iconBorder,
+        }}
+      />
     </IconButton>
   );
 
@@ -171,7 +186,7 @@ DropdownSearch.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  icon: PropTypes.string,
+  icon: PropTypes.elementType,
   locations: PropTypes.arrayOf(PropTypes.shape({})),
   variant: PropTypes.string,
   placeholder: PropTypes.string,
