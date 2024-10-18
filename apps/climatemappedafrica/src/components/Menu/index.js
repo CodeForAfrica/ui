@@ -1,10 +1,10 @@
+import { StayInTouch } from "@commons-ui/next";
 import { Grid, Button, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
 import Link from "@/climatemappedafrica/components/Link";
-import SocialMediaIcons from "@/climatemappedafrica/components/SocialMediaIcons";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   root: {
@@ -57,6 +57,7 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
     [breakpoints.up("lg")]: {
       fontSize: typography.pxToRem(16),
     },
+    textTransform: "uppercase",
   },
   menu: {
     margin: 0,
@@ -125,10 +126,14 @@ function Menu({ links, children, socialLinks, ...props }) {
               root: index !== 0 ? classes.menuLinks : classes.links,
               text: classes.text,
             }}
-            sx={{
+            sx={(theme) => ({
               borderRadius: 20,
               border: index !== 0 ? 0 : "3px solid",
-            }}
+              color: {
+                xs: theme.palette.text.secondary,
+                lg: theme.palette.primary.main,
+              },
+            })}
           >
             <Typography variant="body1" className={classes.label}>
               {item.label}
@@ -137,7 +142,24 @@ function Menu({ links, children, socialLinks, ...props }) {
         </Grid>
       ))}
       {children}
-      <SocialMediaIcons socialLinks={socialLinks} />
+      <StayInTouch
+        links={socialLinks}
+        LinkProps={{
+          component: Link,
+          sx: {
+            color: "text.primary",
+            backgroundColor: "#EBEBEB",
+            borderRadius: 50,
+            width: 42,
+            height: 42,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "3.2px",
+          },
+        }}
+        alignItems="flex-start"
+      />
     </Grid>
   );
 }
