@@ -15,6 +15,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
     sx,
     title,
     direction = { xs: "column", md: "row" },
+    alignItems = { xs: "center" },
   },
   ref,
 ) {
@@ -22,12 +23,7 @@ const StayInTouch = React.forwardRef(function StayInTouch(
     return null;
   }
   return (
-    <Stack
-      direction={direction}
-      alignItems={{ xs: "center" }}
-      sx={sx}
-      ref={ref}
-    >
+    <Stack direction={direction} alignItems={alignItems} sx={sx} ref={ref}>
       <RichTypography
         variant="overline"
         {...TitleProps}
