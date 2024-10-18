@@ -33,12 +33,34 @@ const DataIndicators = {
           required: true,
           label: "Description",
         }),
-        image({
-          overrides: {
-            name: "icon",
-            required: true,
+        {
+          type: "collapsible",
+          label: "Icon",
+          admin: {
+            hideGutter: true,
           },
-        }),
+          fields: [
+            image({
+              overrides: {
+                name: "primaryIcon",
+                required: true,
+                localized: true,
+                admin: {
+                  description: "Shown by default",
+                },
+              },
+            }),
+            image({
+              overrides: {
+                name: "secondaryIcon",
+                localized: true,
+                admin: {
+                  description: "Shown when active",
+                },
+              },
+            }),
+          ],
+        },
       ],
     },
   ],
