@@ -1,43 +1,24 @@
-import LogoButton from "@commons-ui/core/LogoButton";
 import { Grid } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Image from "@/climatemappedafrica/components/Image";
-import Link from "@/climatemappedafrica/components/Link";
 import Menu from "@/climatemappedafrica/components/Menu";
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
-const useStyles = makeStyles(() => ({
-  root: {},
-  logoButton: {
-    paddingLeft: 0,
-  },
-  section: {},
-}));
-
-function DesktopNavigation({
-  logoProps,
-  menuProps,
-  desktopLogoProps,
-  socialLinks,
-  ...props
-}) {
-  const classes = useStyles(props);
-
+function DesktopNavigation({ logo, menus, socialLinks }) {
   return (
-    <div className={classes.root}>
-      <Section classes={{ root: classes.section }}>
+    <div>
+      <Section>
         <Grid container alignItems="center">
           <Grid item xs={3}>
-            <LogoButton
+            <NextImageButton
               href="/"
-              component={Link}
-              className={classes.logoButton}
-            >
-              <Image {...desktopLogoProps} />
-            </LogoButton>
+              {...logo}
+              width={200}
+              height={100}
+              priority
+            />
           </Grid>
           <Grid
             item
@@ -47,7 +28,7 @@ function DesktopNavigation({
             justifyContent="flex-end"
             alignItems="center"
           >
-            <Menu links={menuProps} socialLinks={socialLinks} />
+            <Menu links={menus} socialLinks={socialLinks} />
           </Grid>
           <Grid />
         </Grid>
@@ -57,16 +38,9 @@ function DesktopNavigation({
 }
 
 DesktopNavigation.propTypes = {
-  logoProps: PropTypes.shape({}),
-  menuProps: PropTypes.arrayOf(PropTypes.shape({})),
+  logo: PropTypes.shape({}),
+  menus: PropTypes.arrayOf(PropTypes.shape({})),
   socialLinks: PropTypes.arrayOf(PropTypes.shape({})),
-  desktopLogoProps: PropTypes.shape({
-    alt: PropTypes.string,
-    href: PropTypes.string,
-    src: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
-    width: PropTypes.number,
-    height: PropTypes.number,
-  }),
 };
 
 export default DesktopNavigation;

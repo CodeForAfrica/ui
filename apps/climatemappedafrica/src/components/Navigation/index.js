@@ -45,7 +45,7 @@ function Navigation({ variant, ...props }) {
         >
           {variant?.toLowerCase() === "explore" ? (
             <ExploreNavigation
-              variant="explore"
+              variant={variant}
               {...props}
               classes={{ section: classes.section }}
             />
