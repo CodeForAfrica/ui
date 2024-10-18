@@ -39,7 +39,7 @@ const cors =
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
 
-const customHeaders: string[] = ["x-current-app"];
+const customHeaders: string[] = ["CS-App"];
 
 const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
