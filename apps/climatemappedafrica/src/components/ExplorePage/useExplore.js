@@ -2,7 +2,7 @@ import { useReducer } from "react";
 
 import Link from "@/climatemappedafrica/components/Link";
 
-function extendProfileTags(profile, options) {
+function extendProfileTags(profile, options, explorePageUrl) {
   const { tags: originalTags, ...other } = profile || {};
   if (!originalTags) {
     return profile;
@@ -12,7 +12,7 @@ function extendProfileTags(profile, options) {
     ...otherTags,
     code,
     component: Link,
-    href: `/explore/${code.toLowerCase()}`,
+    href: `/${explorePageUrl}/${code.toLowerCase()}`,
     shallow: true,
     underline: "none",
     ...options,
@@ -32,7 +32,7 @@ function initializer({ profiles, options }) {
   };
 }
 
-function reducer(state, action) {
+function reducer(state, action, explorePageUrl) {
   switch (action.type) {
     case "fetch": {
       const code = action.payload?.code;
@@ -67,10 +67,14 @@ function reducer(state, action) {
         );
         if (profileType) {
           const newState = { ...state };
-          newState[profileType] = extendProfileTags(profile, {
-            ...others,
-            color: profileType,
-          });
+          newState[profileType] = extendProfileTags(
+            profile,
+            {
+              ...others,
+              color: profileType,
+            },
+            explorePageUrl,
+          );
           return newState;
         }
       }
@@ -118,8 +122,8 @@ function reducer(state, action) {
   }
 }
 
-function useExplore(initializerArg) {
-  return useReducer(reducer, initializerArg, initializer);
+function useExplore(initializerArg, explorePageUrl) {
+  return useReducer(reducer, initializerArg, initializer, explorePageUrl);
 }
 
 export default useExplore;

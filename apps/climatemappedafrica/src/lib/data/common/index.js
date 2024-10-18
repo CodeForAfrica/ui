@@ -34,7 +34,7 @@ function getFooter(siteSettings, variant) {
   };
 }
 
-function getNavBar(siteSettings, variant) {
+function getNavBar(siteSettings, variant, { slug }) {
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -47,10 +47,31 @@ function getNavBar(siteSettings, variant) {
   return {
     logo: imageFromMedia(title, primaryLogo.url),
     drawerLogo: imageFromMedia(title, drawerLogo.url),
+    explorePageUrl: slug,
     menus,
     socialLinks,
     variant,
   };
+}
+
+async function processExplorePage(slugs, hurumap, explorePage) {
+  const {
+    initialLocation: { name, center },
+  } = hurumap;
+  const slug = slugs.length ? slugs[0] : name;
+  const blocks = await blockify([
+    {
+      blockType: "explore-page",
+      center,
+      slug: slug.trim().toLowerCase(),
+      explorePageUrl: explorePage.slug,
+    },
+    {
+      blockType: "tutorial",
+    },
+  ]);
+
+  return blocks;
 }
 
 export async function getPageProps(api, context) {
@@ -74,12 +95,16 @@ export async function getPageProps(api, context) {
     page: { value: explorePage },
   } = hurumap;
 
-  const blocks = await blockify(page.blocks, api, context);
+  let blocks = await blockify(page.blocks, api, context);
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
-  const menus = getNavBar(siteSettings, variant);
+  const menus = getNavBar(siteSettings, variant, explorePage);
+
+  if (slug === explorePage.slug) {
+    blocks = await processExplorePage(slugs.slice(1), hurumap, explorePage);
+  }
 
   return {
     blocks,

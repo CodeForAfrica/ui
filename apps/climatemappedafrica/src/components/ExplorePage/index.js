@@ -21,7 +21,12 @@ function initialState(profiles, onClick) {
   };
 }
 
-function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
+function ExplorePage({
+  explorePageUrl,
+  panel: panelProps = {},
+  profile: profileProp,
+  ...props
+}) {
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -33,6 +38,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
   };
   const [state, dispatch] = useExplore(
     initialState(profileProp, handleClickTag),
+    explorePageUrl,
   );
   useEffect(() => {
     dispatch({
@@ -65,7 +71,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
       state.isPinning || state.isCompare
         ? `${state.primary.geography.code}-vs-${code}`
         : `${code}`;
-    const href = `/explore/${newPath.toLowerCase()}`;
+    const href = `/${explorePageUrl}/${newPath.toLowerCase()}`;
     router.push(href, href, { shallow: true });
     const type = state.isPinning && state.isCompare ? "compare" : "fetch";
     dispatch({ type, payload });
@@ -88,7 +94,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
   };
   useEffect(() => {
     if (state.slug) {
-      const href = `/explore/${state.slug}`;
+      const href = `/${explorePageUrl}/${state.slug}`;
       router.push(href, href, { shallow: true });
     }
     // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
@@ -166,8 +172,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
 }
 
 ExplorePage.propTypes = {
-  apiUri: PropTypes.string,
-  panelProps: PropTypes.shape({}),
+  panel: PropTypes.shape({}),
   profile: PropTypes.oneOfType([
     PropTypes.shape({
       geography: PropTypes.shape({}),
