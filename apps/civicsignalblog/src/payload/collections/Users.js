@@ -32,6 +32,7 @@ const Users = {
   },
   auth: {
     verify: true,
+    useAPIKey: true,
   },
   fields: [
     {
@@ -73,6 +74,11 @@ const Users = {
         isClearable: true,
         isSortable: true,
       },
+      access: {
+        read: isAdminOrSelfFieldLevel,
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
+      },
       options: applications,
     },
     {
@@ -83,6 +89,26 @@ const Users = {
       admin: {
         isClearable: true,
         isSortable: true,
+      },
+      access: {
+        read: isAdminOrSelfFieldLevel,
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
+      },
+      options: applications,
+    },
+    {
+      name: "allowedApps",
+      defaultValue: RESEARCH,
+      type: "select",
+      hasMany: true,
+      admin: {
+        isClearable: true,
+      },
+      access: {
+        read: isAdminOrSelfFieldLevel,
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
       },
       options: applications,
     },

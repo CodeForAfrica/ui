@@ -15,6 +15,7 @@ function BeforeDashboard() {
   );
 
   const [loading, setLoading] = useState(false);
+  const allowedApps = Array.isArray(user.allowedApps) ? user.allowedApps : [];
 
   useEffect(() => {
     const updateCurrentApp = async () => {
@@ -85,11 +86,14 @@ function BeforeDashboard() {
             }}
           >
             <option value="select">Select app...</option>
-            {applications.map((app) => (
-              <option key={app.value} value={app.value}>
-                {app.label}
-              </option>
-            ))}
+            {applications.map(
+              (app) =>
+                allowedApps.includes(app.value) && (
+                  <option key={app.value} value={app.value}>
+                    {app.label}
+                  </option>
+                ),
+            )}
           </select>
         </label>
       )}

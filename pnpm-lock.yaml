@@ -853,6 +853,9 @@ importers:
       '@commons-ui/next':
         specifier: workspace:*
         version: link:../../packages/commons-ui-next
+      '@commons-ui/payload':
+        specifier: workspace:*
+        version: link:../../packages/commons-ui-payload
       '@emotion/cache':
         specifier: 'catalog:'
         version: 11.13.1

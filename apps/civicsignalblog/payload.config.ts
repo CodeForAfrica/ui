@@ -1,3 +1,4 @@
+import { Request, Response, NextFunction } from "express";
 import path from "path";
 
 import { buildConfig } from "payload/config";
@@ -17,6 +18,7 @@ import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
 import CivicSignalPages from "./src/payload/collections/Main/Pages";
+import MediaData from "./src/payload/collections/Main/MediaData";
 import Posts from "./src/payload/collections/Research/Posts";
 import Publication from "./src/payload/globals/Publication";
 import Research from "./src/payload/globals/Site/research";
@@ -36,6 +38,8 @@ const cors =
   process?.env?.PAYLOAD_CORS?.split(",")
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
+
+const customHeaders: string[] = ["CS-App"];
 
 const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
@@ -67,6 +71,7 @@ export default buildConfig({
     Posts,
     Tags,
     CivicSignalPages,
+    MediaData,
     Users,
   ] as CollectionConfig[],
   globals: [Publication, Research, Main] as GlobalConfig[],
@@ -153,4 +158,19 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  // We need to add a postMiddleware function to add support for custom headers in Payload
+  express: {
+    postMiddleware: [
+      (_req: Request, res: Response, next: NextFunction) => {
+        const existingHeaders =
+          res.getHeader("Access-Control-Allow-Headers") || "";
+        const additionalHeaders = customHeaders.join(", ");
+        res.header(
+          "Access-Control-Allow-Headers",
+          `${existingHeaders}, ${additionalHeaders}`,
+        );
+        next();
+      },
+    ],
+  },
 });

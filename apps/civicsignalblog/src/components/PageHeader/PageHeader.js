@@ -1,5 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+import { RichText } from "@commons-ui/payload";
 import React from "react";
 
 import TwoToneBackground from "../TwoToneBackground";
@@ -31,9 +32,13 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
         >
           {title}
         </RichTypography>
-        <RichTypography component="h2" variant="h2">
-          {subtitle}
-        </RichTypography>
+        <RichText
+          typographyProps={{
+            fontWeight: "normal",
+            variant: "h2",
+          }}
+          elements={subtitle}
+        />
       </Section>
     </TwoToneBackground>
   );
