@@ -5,10 +5,12 @@ import { SWRConfig } from "swr";
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Navigation from "@/climatemappedafrica/components/Navigation";
+import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  "page-hero": PageHero,
   summary: Summary,
   team: AboutTeam,
 };
@@ -49,11 +51,12 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
       />
       <PageConfig {...pageConfigProps}>
         {blocks.map((block) => {
-          const Component = componentsBySlugs[block.slug];
+          const Component = componentsBySlugs[block.blockType];
           if (!Component) {
             return null;
           }
-          return <Component {...block} key={block.slug} />;
+          // Just in case a block appears twice on the same page, use id as key
+          return <Component {...block} key={block.id} />;
         })}
       </PageConfig>
       <Footer {...footerProps} />
