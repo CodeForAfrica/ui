@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from "express";
 import path from "path";
 
 import { buildConfig } from "payload/config";
@@ -39,7 +39,7 @@ const cors =
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
 
-const customHeaders: string[] = [ 'x-current-app',];
+const customHeaders: string[] = ["x-current-app"];
 
 const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
@@ -161,11 +161,12 @@ export default buildConfig({
   express: {
     postMiddleware: [
       (_req: Request, res: Response, next: NextFunction) => {
-        const existingHeaders = res.getHeader("Access-Control-Allow-Headers") || '';
-        const additionalHeaders = customHeaders.join(', ');
+        const existingHeaders =
+          res.getHeader("Access-Control-Allow-Headers") || "";
+        const additionalHeaders = customHeaders.join(", ");
         res.header(
           "Access-Control-Allow-Headers",
-          `${existingHeaders}, ${additionalHeaders}`
+          `${existingHeaders}, ${additionalHeaders}`,
         );
         next();
       },
