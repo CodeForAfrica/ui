@@ -39,16 +39,6 @@ const useStyles = makeStyles(
       background: palette.background.default,
       display: "flex",
     },
-    treeView: {
-      width: `calc((100vw - ${widths.values.lg}px)/2 + 79px)`,
-      minWidth: typography.pxToRem(300),
-      paddingTop: typography.pxToRem(76),
-      flexShrink: 0,
-      top: typography.pxToRem(110),
-      bottom: 0,
-      position: "fixed",
-      left: 0,
-    },
   }),
 );
 
