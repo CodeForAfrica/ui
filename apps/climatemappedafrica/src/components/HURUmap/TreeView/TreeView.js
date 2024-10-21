@@ -30,7 +30,6 @@ const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
     background: "inherit",
   },
   "&.expanded": {
-    borderRadius: 0,
     backgroundColor: theme.palette.background.default,
     borderRight: `2px solid ${theme.palette.primary.main}`,
     borderBottom: `1px solid ${theme.palette.grey.main}`,
