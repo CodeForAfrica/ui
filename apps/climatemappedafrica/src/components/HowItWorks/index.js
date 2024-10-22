@@ -26,20 +26,18 @@ function HowItWorks({
       }}
     >
       <Box
-        sx={(theme) => ({
+        sx={{
           position: "absolute",
-          height: theme.typography.pxToRem(390),
+          height: {
+            xs: "390px",
+            md: "618px",
+            lg: "728px",
+          },
           width: "100%",
           zIndex: -1,
-          [theme.breakpoints.up("md")]: {
-            height: theme.typography.pxToRem(618),
-          },
-          [theme.breakpoints.up("lg")]: {
-            height: theme.typography.pxToRem(728),
-          },
           backgroundImage: `url(${backgroundImage.src})`,
           backgroundSize: "cover",
-        })}
+        }}
       />
       <Box
         sx={(theme) => ({
@@ -64,27 +62,33 @@ function HowItWorks({
             md={7}
             lg={6}
             sx={(theme) => ({
-              [theme.breakpoints.up("md")]: {
-                position: "relative",
-                top: 0,
-                height: theme.typography.pxToRem(524),
-                padding: `${theme.typography.pxToRem(66)} ${theme.typography.pxToRem(
+              position: {
+                md: "relative",
+              },
+              top: {
+                md: 0,
+              },
+              backgroundColor: {
+                lg: theme.palette.background.default,
+              },
+              opacity: {
+                md: 0.9,
+              },
+              height: {
+                md: theme.typography.pxToRem(524),
+                lg: theme.typography.pxToRem(600),
+              },
+              padding: {
+                md: `${theme.typography.pxToRem(66)} ${theme.typography.pxToRem(
                   77,
                 )} ${theme.typography.pxToRem(69)} 0`,
-              },
-              [theme.breakpoints.up("lg")]: {
-                backgroundColor: theme.palette.background.default,
-                height: theme.typography.pxToRem(600),
-                opacity: 0.9,
-                padding: `${theme.typography.pxToRem(81)} ${theme.typography.pxToRem(98)}`,
+                lg: `${theme.typography.pxToRem(81)} ${theme.typography.pxToRem(98)}`,
               },
             })}
           >
             <Box
               sx={(theme) => ({
                 position: "relative",
-                height: theme.typography.pxToRem(227),
-                width: "100%",
                 "& .video-js": {
                   width: "100%",
                   height: "100%",
@@ -97,15 +101,19 @@ function HowItWorks({
                   display: "none",
                 },
                 [theme.breakpoints.up("md")]: {
-                  height: theme.typography.pxToRem(194),
-                  width: theme.typography.pxToRem(299),
                   "& .vjs-poster": {
                     backgroundSize: "auto",
                   },
                 },
-                [theme.breakpoints.up("lg")]: {
-                  height: theme.typography.pxToRem(244),
-                  width: theme.typography.pxToRem(376),
+                height: {
+                  xs: theme.typography.pxToRem(227),
+                  md: theme.typography.pxToRem(194),
+                  lg: theme.typography.pxToRem(244),
+                },
+                width: {
+                  xs: "100%",
+                  md: theme.typography.pxToRem(299),
+                  lg: theme.typography.pxToRem(376),
                 },
               })}
             >
@@ -125,8 +133,8 @@ function HowItWorks({
                 fontFamily: theme.typography.body1.fontFamily,
                 margin: `${theme.typography.pxToRem(16.5)} 0`,
                 color: theme.palette.grey.dark,
-                [theme.breakpoints.up("lg")]: {
-                  width: theme.typography.pxToRem(278),
+                width: {
+                  md: theme.typography.pxToRem(278),
                 },
               })}
             />
@@ -142,25 +150,25 @@ function HowItWorks({
             sx={(theme) => ({
               display: "flex",
               alignItems: "center",
-              justifyContent: "center",
-              marginBottom: theme.typography.pxToRem(23),
-              [theme.breakpoints.up("md")]: {
-                justifyContent: "flex-end",
+              justifyContent: {
+                xs: "center",
+                md: "flex-end",
               },
+              marginBottom: theme.typography.pxToRem(23),
             })}
           >
             <Box
               sx={(theme) => ({
                 position: "relative",
-                height: theme.typography.pxToRem(265),
-                width: theme.typography.pxToRem(253.6),
-                [theme.breakpoints.up("md")]: {
-                  height: theme.typography.pxToRem(211),
-                  width: theme.typography.pxToRem(202),
+                height: {
+                  xs: theme.typography.pxToRem(265),
+                  md: theme.typography.pxToRem(211),
+                  lg: theme.typography.pxToRem(441.6),
                 },
-                [theme.breakpoints.up("lg")]: {
-                  height: theme.typography.pxToRem(441.6),
-                  width: theme.typography.pxToRem(422.5),
+                width: {
+                  xs: theme.typography.pxToRem(253.6),
+                  md: theme.typography.pxToRem(202),
+                  lg: theme.typography.pxToRem(422.5),
                 },
                 backgroundImage: `url(${foregroundImage.src})`,
                 backgroundSize: "contain",
