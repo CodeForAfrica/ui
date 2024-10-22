@@ -12,6 +12,8 @@ import {
   ROLE_DEFAULT,
   ROLE_OPTIONS,
 } from "#civicsignalblog/payload/access/roles";
+import CurrentAppSelectField from "#civicsignalblog/payload/fields/customSelect/currentApp";
+import DefaultAppSelectField from "#civicsignalblog/payload/fields/customSelect/defaultApp";
 import applications, {
   RESEARCH,
 } from "#civicsignalblog/payload/lib/data/common/applications";
@@ -65,38 +67,8 @@ const Users = {
       },
       options: ROLE_OPTIONS,
     },
-    {
-      name: "defaultApp",
-      type: "select",
-      defaultValue: RESEARCH,
-      hasMany: false,
-      admin: {
-        isClearable: true,
-        isSortable: true,
-      },
-      access: {
-        read: isAdminOrSelfFieldLevel,
-        create: isAdminFieldLevel,
-        update: isAdminFieldLevel,
-      },
-      options: applications,
-    },
-    {
-      name: "currentApp",
-      defaultValue: RESEARCH,
-      type: "select",
-      hasMany: false,
-      admin: {
-        isClearable: true,
-        isSortable: true,
-      },
-      access: {
-        read: isAdminOrSelfFieldLevel,
-        create: isAdminFieldLevel,
-        update: isAdminFieldLevel,
-      },
-      options: applications,
-    },
+    DefaultAppSelectField,
+    CurrentAppSelectField,
     {
       name: "allowedApps",
       defaultValue: RESEARCH,
@@ -104,11 +76,6 @@ const Users = {
       hasMany: true,
       admin: {
         isClearable: true,
-      },
-      access: {
-        read: isAdminOrSelfFieldLevel,
-        create: isAdminFieldLevel,
-        update: isAdminFieldLevel,
       },
       options: applications,
     },
