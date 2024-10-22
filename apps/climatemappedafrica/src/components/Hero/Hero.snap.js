@@ -6,7 +6,7 @@ exports[`<Hero /> renders unchanged 1`] = `
     class="MuiBox-root css-79elbk"
   >
     <div
-      class="MuiBox-root css-ia70v6"
+      class="MuiBox-root css-141q424"
     >
       <img
         data-nimg="fill"
@@ -17,18 +17,14 @@ exports[`<Hero /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-pb574h"
+      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-ihladk"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-h9r63z"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-1 css-9jo7xm-MuiGrid-root"
-          />
-        </div>
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-1 css-1jqjbj5-MuiGrid-root"
+        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-1totwg2-MuiGrid-root"
         >
@@ -36,7 +32,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiBox-root css-xjdu17"
+              class="MuiBox-root css-pps1ft"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"
@@ -45,7 +41,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               </h1>
             </div>
             <div
-              class="MuiBox-root css-l8opnc"
+              class="MuiBox-root css-1733xbc"
             >
               <h6
                 class="MuiTypography-root MuiTypography-subtitle1 css-1d1ipbv-MuiTypography-root"

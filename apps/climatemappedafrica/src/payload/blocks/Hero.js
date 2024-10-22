@@ -14,22 +14,25 @@ const Hero = {
       name: "title",
       required: true,
       label: "Title",
+      localized: true,
     }),
     richText({
       name: "subtitle",
       required: true,
-      label: "Sub Title",
+      localized: true,
     }),
     {
       name: "searchLabel",
       type: "text",
       label: "Search Label",
+      localized: true,
       required: true,
     },
     {
       name: "searchPlaceholder",
       type: "text",
       label: "Search Placeholder",
+      localized: true,
     },
     {
       name: "location",
@@ -43,6 +46,7 @@ const Hero = {
           hasMany: false,
           defaultValue: "af",
           validate: validateLocation,
+          localized: true,
           admin: {
             components: {
               Field: LocationSelect,
@@ -60,6 +64,7 @@ const Hero = {
       name: "comment",
       type: "text",
       label: "Comment",
+      localized: true,
     },
   ],
 };

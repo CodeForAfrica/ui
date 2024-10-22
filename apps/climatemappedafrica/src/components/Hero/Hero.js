@@ -1,6 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
 import { Box, Grid, useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -25,12 +24,8 @@ function Hero({
   level,
   ...props
 }) {
-  const theme = useTheme();
-  const { typography, breakpoints } = theme;
-  const isUpLg = useMediaQuery(theme.breakpoints.up("lg"));
-
+  const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const [hoverGeo, setHoverGeo] = useState(null);
-
   const continentLevelZoom = isUpLg ? 2.4 : 2.1;
   const countryLevelZoom = isUpLg ? 6 : 5.25;
   const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
@@ -45,63 +40,45 @@ function Hero({
         sx={{
           position: "absolute",
           zIndex: -1,
-          height: typography.pxToRem(468),
           width: "100%",
-          [breakpoints.up("md")]: {
-            height: typography.pxToRem(456),
-          },
-          [breakpoints.up("lg")]: {
-            height: typography.pxToRem(600),
-          },
+          height: { xs: "468px", md: "456px", lg: "600px" },
         }}
       >
         <Image src={heroBg} layout="fill" unoptimized />
       </Box>
       <Section
         sx={{
-          paddingBottom: typography.pxToRem(40),
-          [breakpoints.up("md")]: {
-            paddingBottom: typography.pxToRem(22),
-          },
-          [breakpoints.up("lg")]: {
-            paddingBottom: typography.pxToRem(64),
-          },
+          paddingBottom: { xs: "40px", md: "22px", lg: "22px" },
         }}
       >
         <Grid container>
-          <Box
+          <Grid
             sx={{
               display: {
                 xs: "none",
                 md: "block",
               },
             }}
-          >
-            <Grid item lg={1} />
-          </Box>
+            item
+            lg={1}
+          />
           <Grid item xs={12} md={7} lg={6}>
             <RichHeader
               subtitle={subtitle}
               TitleProps={{
                 sx: {
-                  marginTop: typography.pxToRem(40),
-                  [breakpoints.up("md")]: {
-                    marginTop: typography.pxToRem(46),
-                  },
-                  [breakpoints.up("lg")]: {
-                    marginTop: typography.pxToRem(65),
-                  },
+                  marginTop: { xs: "40px", md: "46px", lg: "65px" },
                 },
               }}
               SubtitleProps={{
                 sx: {
-                  margin: `${typography.pxToRem(20)} 0`,
-                  [breakpoints.up("md")]: {
-                    maxWidth: typography.pxToRem(335),
+                  margin: {
+                    xs: `20px 0`,
+                    lg: `40px 0`,
                   },
-                  [breakpoints.up("lg")]: {
-                    margin: `${typography.pxToRem(40)} 0`,
-                    maxWidth: typography.pxToRem(474),
+                  maxWidth: {
+                    md: "335px",
+                    lg: "474px",
                   },
                 },
               }}
@@ -117,11 +94,11 @@ function Hero({
             <RichTypography
               variant="subtitle1"
               sx={{
-                fontSize: typography.pxToRem(11),
+                fontSize: "11px",
                 color: "#707070",
-                marginTop: typography.pxToRem(20),
-                [breakpoints.up("lg")]: {
-                  marginTop: typography.pxToRem(40),
+                marginTop: {
+                  sm: "20px",
+                  xs: "40px",
                 },
               }}
             >
@@ -153,9 +130,9 @@ function Hero({
               <Box sx={{ height: 80 }}>
                 <RichTypography
                   variant="h6"
-                  className={{
+                  sx={{
                     lineHeight: 23 / 18,
-                    lineSpacing: typography.pxToRem(0.9),
+                    lineSpacing: "0.9px",
                     fontWeight: "normal",
                     textTransform: "capitalize",
                     display: "flex",

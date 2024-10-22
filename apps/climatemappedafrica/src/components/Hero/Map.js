@@ -1,4 +1,4 @@
-import makeStyles from "@mui/styles/makeStyles";
+import { Box } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React from "react";
@@ -6,29 +6,6 @@ import { MapContainer, GeoJSON } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
 import theme from "@/climatemappedafrica/theme";
-
-const useStyles = makeStyles(({ breakpoints, typography }) => ({
-  root: {
-    position: "relative",
-    height: typography.pxToRem(299),
-    width: typography.pxToRem(236),
-    marginTop: typography.pxToRem(55),
-    [breakpoints.up("lg")]: {
-      height: typography.pxToRem(471),
-      marginTop: typography.pxToRem(42),
-      width: typography.pxToRem(371),
-    },
-    "& .leaflet-container": {
-      background: "transparent",
-    },
-  },
-  tooltip: {
-    fontFamily: typography.body1.fontFamily,
-    fontSize: typography.pxToRem(13),
-    color: "#2A2A2C",
-    textTransform: "capitalize",
-  },
-}));
 
 function Map({
   center,
@@ -47,9 +24,7 @@ function Map({
   },
   onLayerMouseOver,
   featuredLocations,
-  ...props
 }) {
-  const classes = useStyles(props);
   const router = useRouter();
 
   const countyCodes = featuredLocations?.map(({ code }) => code);
@@ -86,7 +61,17 @@ function Map({
   };
 
   return (
-    <div className={classes.root}>
+    <Box
+      sx={() => ({
+        position: "relative",
+        height: { sm: "299px", lg: "471px" },
+        width: { sm: "236px", lg: "371px" },
+        marginTop: { sm: "55px", lg: "42px" },
+        "& .leaflet-container": {
+          background: "transparent",
+        },
+      })}
+    >
       <MapContainer
         center={center}
         zoom={zoom}
@@ -106,7 +91,7 @@ function Map({
           onEachFeature={onEachFeature}
         />
       </MapContainer>
-    </div>
+    </Box>
   );
 }
 
