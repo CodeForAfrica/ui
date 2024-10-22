@@ -4,12 +4,14 @@ import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import Footer from "@/climatemappedafrica/components/Footer";
+import Hero from "@/climatemappedafrica/components/Hero";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  hero: Hero,
   "page-hero": PageHero,
   summary: Summary,
   team: AboutTeam,

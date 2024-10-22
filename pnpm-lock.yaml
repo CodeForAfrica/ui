@@ -1175,6 +1175,9 @@ importers:
       simplebar-react:
         specifier: 'catalog:'
         version: 3.2.6(react@18.3.1)
+      slate:
+        specifier: 'catalog:'
+        version: 0.103.0
       swr:
         specifier: 'catalog:'
         version: 2.2.5(react@18.3.1)
@@ -22808,7 +22811,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.30.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@8.57.1)
+      eslint-plugin-import: 2.30.0(eslint-import-resolver-webpack@0.13.9)(eslint@8.57.1)
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
