@@ -1,6 +1,5 @@
 import { RichTypography } from "@commons-ui/core";
 import { useMediaQuery, Box, Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -9,17 +8,16 @@ import Carousel from "@/climatemappedafrica/components/Carousel";
 import Section from "@/climatemappedafrica/components/Section";
 
 function DataVisualisationGuide({ title, items }) {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   if (!items?.length) {
     return null;
   }
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         padding: `${theme.typography.pxToRem(40)} 0`,
-      }}
+      })}
     >
       <Section>
         <RichTypography component="h4" variant="h4">
@@ -38,12 +36,12 @@ function DataVisualisationGuide({ title, items }) {
               <Card
                 key={item.id}
                 {...item}
-                sx={{
+                sx={(theme) => ({
                   marginTop: theme.typography.pxToRem(40),
                   "& .bold": {
                     fontWeight: "bold",
                   },
-                }}
+                })}
               />
             ))}
           </Carousel>
@@ -67,12 +65,12 @@ function DataVisualisationGuide({ title, items }) {
               <Grid item xs={12} key={item.id}>
                 <Card
                   {...item}
-                  sx={{
+                  sx={(theme) => ({
                     marginTop: theme.typography.pxToRem(40),
                     "& .bold": {
                       fontWeight: "bold",
                     },
-                  }}
+                  })}
                 />
               </Grid>
             ))}
