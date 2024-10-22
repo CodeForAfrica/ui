@@ -36,12 +36,12 @@ function DataVisualisationGuide({ title, items }) {
               <Card
                 key={item.id}
                 {...item}
-                sx={(theme) => ({
-                  marginTop: theme.typography.pxToRem(40),
+                sx={{
+                  marginTop: "40px",
                   "& .bold": {
                     fontWeight: "bold",
                   },
-                })}
+                }}
               />
             ))}
           </Carousel>
