@@ -1,6 +1,5 @@
 import { RichText } from "@commons-ui/payload";
-import { useMediaQuery, Box, Button, Grid, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -19,24 +18,15 @@ function HowItWorks({
 }) {
   const classes = useStyles(props);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
   return (
     <Box
       sx={{
-        height: theme.typography.pxToRem(820),
+        height: { xs: "820px", md: "618px", lg: "728px" },
         position: "relative",
-        [theme.breakpoints.up("md")]: {
-          height: theme.typography.pxToRem(618),
-        },
-        [theme.breakpoints.up("lg")]: {
-          height: theme.typography.pxToRem(728),
-        },
       }}
     >
       <Box
-        sx={{
+        sx={(theme) => ({
           position: "absolute",
           height: theme.typography.pxToRem(390),
           width: "100%",
@@ -49,36 +39,31 @@ function HowItWorks({
           },
           backgroundImage: `url(${backgroundImage.src})`,
           backgroundSize: "cover",
-        }}
+        })}
       />
       <Box
-        sx={{
+        sx={(theme) => ({
           display: {
             xs: "none",
             md: "block",
             lg: "none",
           },
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            left: 0,
-            top: theme.typography.pxToRem(42),
-            width: "100%",
-            background: `linear-gradient(to right, #ffffffE6 0%, #ffffffE6 56%, transparent 56%, transparent 100%)`,
-            height: theme.typography.pxToRem(524),
-          }}
-        />
-      </Box>
+          position: "absolute",
+          left: 0,
+          top: theme.typography.pxToRem(42),
+          width: "100%",
+          background: `linear-gradient(to right, #ffffffE6 0%, #ffffffE6 56%, transparent 56%, transparent 100%)`,
+          height: theme.typography.pxToRem(524),
+        })}
+      />
       <Section classes={{ root: classes.section }}>
-        <Grid container direction={isMobile ? "column-reverse" : "row"}>
+        <Grid container direction={{ xs: "column-reverse", lg: "row" }}>
           <Grid
             item
             xs={12}
             md={7}
             lg={6}
-            sx={{
+            sx={(theme) => ({
               [theme.breakpoints.up("md")]: {
                 position: "relative",
                 top: 0,
@@ -93,10 +78,10 @@ function HowItWorks({
                 opacity: 0.9,
                 padding: `${theme.typography.pxToRem(81)} ${theme.typography.pxToRem(98)}`,
               },
-            }}
+            })}
           >
             <Box
-              sx={{
+              sx={(theme) => ({
                 position: "relative",
                 height: theme.typography.pxToRem(227),
                 width: "100%",
@@ -122,28 +107,28 @@ function HowItWorks({
                   height: theme.typography.pxToRem(244),
                   width: theme.typography.pxToRem(376),
                 },
-              }}
+              })}
             >
               <Player {...video} />
             </Box>
             <Typography
-              sx={{
+              sx={(theme) => ({
                 marginTop: theme.typography.pxToRem(18),
-              }}
+              })}
               variant="h4"
             >
               {title}
             </Typography>
             <RichText
               elements={description}
-              sx={{
+              sx={(theme) => ({
                 fontFamily: theme.typography.body1.fontFamily,
                 margin: `${theme.typography.pxToRem(16.5)} 0`,
                 color: theme.palette.grey.dark,
                 [theme.breakpoints.up("lg")]: {
                   width: theme.typography.pxToRem(278),
                 },
-              }}
+              })}
             />
             <Button href={link.href} variant="text">
               {link.label}
@@ -154,19 +139,18 @@ function HowItWorks({
             item
             xs={12}
             md={5}
-            sx={{
+            sx={(theme) => ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               marginBottom: theme.typography.pxToRem(23),
               [theme.breakpoints.up("md")]: {
                 justifyContent: "flex-end",
-                marginBottom: 0,
               },
-            }}
+            })}
           >
             <Box
-              sx={{
+              sx={(theme) => ({
                 position: "relative",
                 height: theme.typography.pxToRem(265),
                 width: theme.typography.pxToRem(253.6),
@@ -181,7 +165,7 @@ function HowItWorks({
                 backgroundImage: `url(${foregroundImage.src})`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-              }}
+              })}
             />
           </Grid>
         </Grid>
