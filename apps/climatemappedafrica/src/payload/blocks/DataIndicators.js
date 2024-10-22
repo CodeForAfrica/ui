@@ -36,9 +36,6 @@ const DataIndicators = {
         {
           type: "collapsible",
           label: "Icon",
-          admin: {
-            hideGutter: true,
-          },
           fields: [
             image({
               overrides: {
