@@ -19,7 +19,6 @@ const Hero = {
     richText({
       name: "subtitle",
       required: true,
-      label: "Sub Title",
       localized: true,
     }),
     {
