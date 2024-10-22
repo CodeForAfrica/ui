@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: "@typescript-eslint/parser",
   extends: ["eslint-config-commons-ui/next"],
   settings: {
     "import/resolver": {

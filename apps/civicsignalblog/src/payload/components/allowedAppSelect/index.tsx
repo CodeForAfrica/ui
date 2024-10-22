@@ -1,6 +1,6 @@
 import { SelectInput, useField } from "payload/components/forms";
-import React, { useState, useEffect } from "react";
 import { useAuth } from "payload/components/utilities";
+import React, { useState, useEffect } from "react";
 
 import applications from "#civicsignalblog/payload/lib/data/common/applications";
 
@@ -8,9 +8,9 @@ function CustomSelectComponent({ path, label }) {
   const { user } = useAuth();
   const { value, setValue } = useField({ path });
   const [options, setOptions] = useState([]);
-  const allowedApps = (user?.allowedApps || []) as string[];
 
   useEffect(() => {
+    const allowedApps = (user?.allowedApps || []) as string[];
     const filteredApps = applications
       .filter((app) => allowedApps.includes(app.value))
       .map((app) => ({
@@ -20,7 +20,7 @@ function CustomSelectComponent({ path, label }) {
 
     console.log(filteredApps);
     setOptions(filteredApps);
-  }, [applications, allowedApps]);
+  }, [user?.allowedApps]);
 
   return (
     <div>
