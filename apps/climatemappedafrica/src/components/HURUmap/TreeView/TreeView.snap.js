@@ -20,7 +20,7 @@ exports[`<TreeView /> renders unchanged 1`] = `
         tabindex="0"
       >
         <div
-          class="content css-18bv9m6-MuiTreeItem2-content"
+          class="content css-tbaszv-MuiTreeItem2-content"
         >
           <div
             class="css-d6m21r-MuiTreeItem2-label"
@@ -46,7 +46,7 @@ exports[`<TreeView /> renders unchanged 1`] = `
         tabindex="-1"
       >
         <div
-          class="content css-18bv9m6-MuiTreeItem2-content"
+          class="content css-tbaszv-MuiTreeItem2-content"
         >
           <div
             class="css-d6m21r-MuiTreeItem2-label"

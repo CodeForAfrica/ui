@@ -1,5 +1,5 @@
 import { Box, SvgIcon } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { alpha, styled } from "@mui/material/styles";
 import { SimpleTreeView } from "@mui/x-tree-view/SimpleTreeView";
 import {
   TreeItem2Checkbox,
@@ -25,11 +25,11 @@ const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   borderBottom: `1px solid transparent`,
   borderRight: `2px solid transparent`,
   padding: 0,
+  paddingRight: theme.spacing(2.5),
   "&:hover": {
     background: "inherit",
   },
   "&.expanded": {
-    borderRadius: 0,
     backgroundColor: theme.palette.background.default,
     borderRight: `2px solid ${theme.palette.primary.main}`,
     borderBottom: `1px solid ${theme.palette.grey.main}`,
@@ -59,9 +59,14 @@ const CustomTreeItem = React.forwardRef(function CustomTreeItem(props, ref) {
               selected: status.selected,
               focused: status.focused,
             }),
-            sx: {
-              ...(children && { paddingRight: 2.5 }),
-            },
+            sx: (theme) => ({
+              ...(!children && {
+                pr: 0,
+                "&: hover": {
+                  background: alpha(theme.palette.common.black, 0.04),
+                },
+              }),
+            }),
           })}
         >
           <TreeItem2Checkbox {...getCheckboxProps()} />
