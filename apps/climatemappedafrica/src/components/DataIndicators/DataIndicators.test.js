@@ -9,7 +9,12 @@ import theme from "@/climatemappedafrica/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Indicators",
+  title: [
+    {
+      text: "Indicators",
+      children: null,
+    },
+  ],
   indicators: [
     {
       title: "Overview",
@@ -18,7 +23,7 @@ const defaultProps = {
   ],
 };
 
-describe("<RichText />", () => {
+describe("<DataIndicators />", () => {
   it("renders unchanged", () => {
     const { container } = render(<DataIndicators {...defaultProps} />);
     expect(container).toMatchSnapshot();

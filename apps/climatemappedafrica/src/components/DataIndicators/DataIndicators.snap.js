@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RichText /> renders unchanged 1`] = `
+exports[`<DataIndicators /> renders unchanged 1`] = `
 <div>
   <div
-    class="makeStyles-root-1"
+    class="MuiBox-root css-gc54c8"
   >
     <div
-      class="makeStyles-background-3"
+      class="MuiBox-root css-b4kcmh"
     >
       <img
         data-nimg="fill"
@@ -19,16 +19,16 @@ exports[`<RichText /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="makeStyles-section-2"
+      class="MuiBox-root css-gn696"
     >
       <div
-        class="makeStyles-indicatorsContainer-4"
+        class="MuiBox-root css-1mt5vqc"
       >
         <header
-          class="makeStyles-header-6 MuiBox-root css-0"
+          class="MuiBox-root css-0"
         >
           <div
-            class="MuiTypography-root makeStyles-root-20 MuiTypography-h1 css-1kdpf0m-MuiTypography-root"
+            class="MuiBox-root css-6aok1d"
           >
             Indicators
           </div>
@@ -37,15 +37,15 @@ exports[`<RichText /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item makeStyles-iconContainer-8 css-13i4rnv-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-j3rr61-MuiGrid-root"
           >
             <button
-              class="MuiButtonBase-root makeStyles-iconRoot-10 css-10d1a0h-MuiButtonBase-root"
+              class="MuiButtonBase-root css-1td29ph-MuiButtonBase-root"
               tabindex="0"
               type="button"
             >
               <div
-                class="makeStyles-image-12"
+                class="MuiBox-root css-5vc0ni"
               >
                 <img
                   data-nimg="fill"
@@ -55,7 +55,7 @@ exports[`<RichText /> renders unchanged 1`] = `
                 />
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 makeStyles-text-13 css-6hq4le-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-qga4z5-MuiTypography-root"
               >
                 Overview
               </p>

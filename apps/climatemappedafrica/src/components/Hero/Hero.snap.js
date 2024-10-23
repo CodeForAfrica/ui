@@ -32,7 +32,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiBox-root css-pps1ft"
+              class="MuiBox-root css-1c55nth"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"

@@ -1,39 +1,39 @@
 import { RichTypography } from "@commons-ui/core";
 import { RichText } from "@commons-ui/payload";
 import { ButtonBase, Slide } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-const useStyles = makeStyles(() => ({
-  root: {},
-  paper: {},
-  content: {},
-  title: {},
-  description: {},
-}));
-
-function IndicatorPanel({ currentItem, onClick, component, ...props }) {
+function IndicatorPanel({
+  currentItem,
+  onClick,
+  component,
+  classes,
+  ...props
+}) {
   const Component = component || Slide;
-  const classes = useStyles(props);
-  const { content, description, title, ...otherClasses } = classes;
-
   return (
-    <Component {...props} classes={otherClasses}>
+    <Component {...props} classes={classes}>
       <ButtonBase
         disableRipple
         disableTouchRipple
+        sx={({ palette }) => ({
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          flexDirection: "column",
+          color: palette.text.secondary,
+        })}
         onClick={onClick}
-        className={classes.content}
       >
         {currentItem?.title && (
-          <RichTypography variant="h3" className={classes.title}>
+          <RichTypography sx={{ color: "inherit" }} variant="h3">
             {currentItem.title}
           </RichTypography>
         )}
         {currentItem?.description && (
           <RichText
-            className={classes.description}
+            sx={{ lineHeight: 30 / 16, textAlign: "initial" }}
             elements={currentItem.description}
           />
         )}

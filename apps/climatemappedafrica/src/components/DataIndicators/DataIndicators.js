@@ -7,13 +7,11 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import Icon from "./Icon";
 import IndicatorPanel from "./IndicatorPanel";
-import useStyles from "./useStyles";
 
 import bg from "@/climatemappedafrica/assets/images/Mask Group 8.png";
 import Image from "@/climatemappedafrica/components/Image";
@@ -23,8 +21,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={300} ref={ref} {...props} />;
 });
 
-function DataIndicators({ indicators, title, ...props }) {
-  const classes = useStyles(props);
+function DataIndicators({ indicators, title }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
 
@@ -51,12 +48,22 @@ function DataIndicators({ indicators, title, ...props }) {
         component: Slide,
         direction: "left",
         timeout: 300,
-        classes: {
-          root: classes.slide,
-          content: classes.content,
-          title: classes.title,
-          description: classes.description,
-        },
+        sx: ({ palette, breakpoints, typography }) => ({
+          position: "absolute",
+          right: 0,
+          top: 0,
+          backgroundColor: palette.primary.main,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          flexDirection: "column",
+          color: palette.text.secondary,
+          ...(breakpoints.up("lg") && {
+            width: typography.pxToRem(480),
+            height: typography.pxToRem(600),
+            padding: `${typography.pxToRem(76)} ${typography.pxToRem(84)}`,
+          }),
+        }),
       }
     : {
         open: checked,
@@ -69,13 +76,22 @@ function DataIndicators({ indicators, title, ...props }) {
           }),
         },
         TransitionComponent: Transition,
-        classes: {
-          root: classes.dialog,
-          paper: classes.dialogPaper,
-          content: classes.content,
-          title: classes.title,
-          description: classes.description,
-        },
+        sx: ({ palette, typography, breakpoints }) => ({
+          borderRadius: 0,
+          boxShadow: "none",
+          position: "absolute",
+          backgroundColor: palette.primary.main,
+          right: 0,
+          top: typography.pxToRem(160),
+          overflow: "hidden",
+          margin: "auto 0",
+          height: typography.pxToRem(528),
+          padding: typography.pxToRem(15),
+          ...(breakpoints.up("md") && {
+            width: typography.pxToRem(355),
+            padding: `${typography.pxToRem(50)} ${typography.pxToRem(36)}`,
+          }),
+        }),
       };
 
   return (
@@ -84,9 +100,9 @@ function DataIndicators({ indicators, title, ...props }) {
         backgroundColor: "#F0F0F0",
         height: typography.pxToRem(672),
         position: "relative",
-        [breakpoints.up("lg")]: {
+        ...(breakpoints.up("lg") && {
           height: typography.pxToRem(600),
-        },
+        }),
       })}
     >
       <Box
@@ -102,14 +118,23 @@ function DataIndicators({ indicators, title, ...props }) {
         sx={({ breakpoints }) => ({
           display: "flex",
           overflow: "hidden",
-          [breakpoints.up("lg")]: {
+          ...(breakpoints.up("lg") && {
             position: "relative",
-          },
+          }),
         })}
       >
-        <div
-          className={clsx(classes.indicatorsContainer, {
-            [classes.slideIn]: checked,
+        <Box
+          sx={({ breakpoints, typography }) => ({
+            width: "100%",
+            height: typography.pxToRem(672),
+            transition: "width 0.3s ease-out",
+            ...(breakpoints.up("lg") && {
+              height: typography.pxToRem(600),
+            }),
+            ...(checked && {
+              ...(breakpoints.up("md") && { width: "calc(100% - 355px)" }),
+              ...(breakpoints.up("lg") && { width: "calc(100% - 480px)" }),
+            }),
           })}
         >
           <RichHeader
@@ -129,8 +154,29 @@ function DataIndicators({ indicators, title, ...props }) {
                 <Grid
                   item
                   key={item.title}
-                  className={clsx(classes.iconContainer, {
-                    [classes.slideInIconContainer]: checked,
+                  sx={({ typography, breakpoints }) => ({
+                    width: "100%",
+                    marginBottom: typography.pxToRem(16),
+                    display: "flex",
+                    justifyContent: "center",
+                    transition: "margin-right 0.3s ease-out",
+                    ...(breakpoints.up("lg") && {
+                      display: "initial",
+                      width: "auto",
+                      marginRight: typography.pxToRem(60),
+                      "&:last-of-type": {
+                        marginRight: 0,
+                      },
+                    }),
+
+                    ...(checked && {
+                      ...(breakpoints.up("lg") && {
+                        marginRight: typography.pxToRem(20),
+                        "&:last-of-type": {
+                          marginRight: 0,
+                        },
+                      }),
+                    }),
                   })}
                 >
                   <Icon
@@ -144,7 +190,7 @@ function DataIndicators({ indicators, title, ...props }) {
               ))}
             </Grid>
           </ClickAwayListener>
-        </div>
+        </Box>
         <IndicatorPanel
           {...panelProps}
           onClick={resetItemClick}

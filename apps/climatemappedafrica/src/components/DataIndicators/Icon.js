@@ -1,23 +1,52 @@
-import { ButtonBase, Typography } from "@mui/material";
+import { Box, ButtonBase, Typography } from "@mui/material";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import useStyles from "./useStyles";
-
-function Icon({ item, handleIconClick, currentItemIndex, index, ...props }) {
-  const classes = useStyles(props);
+function Icon({ item, handleIconClick, currentItemIndex, index }) {
   const { title, primaryIcon, secondaryIcon } = item;
 
   return (
-    <ButtonBase onClick={handleIconClick} className={classes.iconRoot}>
-      <div className={classes.image}>
+    <ButtonBase
+      onClick={handleIconClick}
+      sx={({ breakpoints }) => ({
+        display: "flex",
+        ...(breakpoints.up("lg") && {
+          display: "block",
+        }),
+      })}
+    >
+      <Box
+        sx={({ typography, breakpoints }) => ({
+          position: "relative",
+          height: typography.pxToRem(88.8),
+          width: typography.pxToRem(88.8),
+          ...(breakpoints.up("lg") && {
+            height: typography.pxToRem(140),
+            width: typography.pxToRem(140),
+          }),
+        })}
+      >
         <Image
           src={index === currentItemIndex ? secondaryIcon : primaryIcon}
           layout="fill"
         />
-      </div>
-      <Typography className={classes.text}>{title}</Typography>
+      </Box>
+      <Typography
+        sx={({ typography, breakpoints }) => ({
+          display: "flex",
+          marginLeft: typography.pxToRem(31),
+          fontSize: typography.pxToRem(20),
+          width: typography.pxToRem(200),
+          ...(breakpoints.up("lg") && {
+            width: "auto",
+            display: "block",
+            margin: `${typography.pxToRem(20)} auto 0`,
+          }),
+        })}
+      >
+        {title}
+      </Typography>
     </ButtonBase>
   );
 }
