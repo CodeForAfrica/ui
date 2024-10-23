@@ -76,9 +76,9 @@ async function processExplorePage(slugs, hurumap, explorePage) {
 
 export async function getPageProps(api, context) {
   // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
-  // so params.slug[0] is good enough
-  const slugs = context.params?.slug || undefined;
-  const [slug] = slugs || ["index"];
+  // so params.slugs[0] is good enough
+  const slugs = context.params?.slugs || ["index"];
+  const [slug] = slugs;
   const { draftMode = false } = context;
   const options = { draft: draftMode };
 
@@ -103,11 +103,7 @@ export async function getPageProps(api, context) {
   const menus = getNavBar(siteSettings, variant, explorePage);
 
   if (slug === explorePage.slug) {
-    blocks = await processExplorePage(
-      slugs?.slice(1) || [],
-      hurumap,
-      explorePage,
-    );
+    blocks = await processExplorePage(slugs.slice(1), hurumap, explorePage);
   }
 
   return {
