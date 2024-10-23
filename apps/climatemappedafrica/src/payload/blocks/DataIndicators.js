@@ -10,12 +10,12 @@ const DataIndicators = {
     plural: "Data Indicators",
   },
   fields: [
-    {
+    richText({
       name: "title",
-      type: "text",
-      label: "Title",
       required: true,
-    },
+      label: "Title",
+      localized: true,
+    }),
     {
       name: "indicators",
       type: "array",
@@ -27,11 +27,13 @@ const DataIndicators = {
           type: "text",
           label: "Title",
           required: true,
+          localized: true,
         },
         richText({
           name: "description",
           required: true,
           label: "Description",
+          localized: true,
         }),
         {
           type: "collapsible",
@@ -41,7 +43,6 @@ const DataIndicators = {
               overrides: {
                 name: "primaryIcon",
                 required: true,
-                localized: true,
                 admin: {
                   description: "Shown by default",
                 },

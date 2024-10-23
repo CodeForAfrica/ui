@@ -1,26 +1,9 @@
 import makeStyles from "@mui/styles/makeStyles";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
-  root: {
-    backgroundColor: "#F0F0F0",
-    height: typography.pxToRem(672),
-    position: "relative",
-    [breakpoints.up("lg")]: {
-      height: typography.pxToRem(600),
-    },
-  },
-  section: {
-    display: "flex",
-    overflow: "hidden",
-    [breakpoints.up("lg")]: {
-      position: "relative",
-    },
-  },
-  background: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-  },
+  root: {},
+  section: {},
+  background: {},
   indicatorsContainer: {
     width: "100%",
     height: typography.pxToRem(672),
@@ -37,14 +20,7 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
       width: "calc(100% - 480px)",
     },
   },
-  header: {
-    width: "100%",
-    textAlign: "center",
-    padding: `${typography.pxToRem(40)} 0`,
-    [breakpoints.up("lg")]: {
-      padding: `${typography.pxToRem(102)} 0 ${typography.pxToRem(80)}`,
-    },
-  },
+  header: {},
   align: {
     textAlign: "center",
   },

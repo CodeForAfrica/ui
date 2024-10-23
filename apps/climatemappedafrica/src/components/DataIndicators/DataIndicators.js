@@ -1,4 +1,5 @@
 import {
+  Box,
   ClickAwayListener,
   Grid,
   Dialog,
@@ -15,8 +16,8 @@ import IndicatorPanel from "./IndicatorPanel";
 import useStyles from "./useStyles";
 
 import bg from "@/climatemappedafrica/assets/images/Mask Group 8.png";
-import Header from "@/climatemappedafrica/components/Header";
 import Image from "@/climatemappedafrica/components/Image";
+import RichHeader from "@/climatemappedafrica/components/RichHeader";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={300} ref={ref} {...props} />;
@@ -62,9 +63,10 @@ function DataIndicators({ indicators, title, ...props }) {
         onClose: resetItemClick,
         component: Dialog,
         BackdropProps: {
-          classes: {
-            root: classes.backdrop,
-          },
+          sx: ({ typography }) => ({
+            maxHeight: typography.pxToRem(844),
+            backgroundColor: "transparent",
+          }),
         },
         TransitionComponent: Transition,
         classes: {
@@ -77,20 +79,53 @@ function DataIndicators({ indicators, title, ...props }) {
       };
 
   return (
-    <div className={classes.root}>
-      <div className={classes.background}>
+    <Box
+      sx={({ typography, breakpoints }) => ({
+        backgroundColor: "#F0F0F0",
+        height: typography.pxToRem(672),
+        position: "relative",
+        [breakpoints.up("lg")]: {
+          height: typography.pxToRem(600),
+        },
+      })}
+    >
+      <Box
+        sx={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <Image objectFit="cover" src={bg} layout="fill" />
-      </div>
-      <div className={classes.section}>
+      </Box>
+      <Box
+        sx={({ breakpoints }) => ({
+          display: "flex",
+          overflow: "hidden",
+          [breakpoints.up("lg")]: {
+            position: "relative",
+          },
+        })}
+      >
         <div
           className={clsx(classes.indicatorsContainer, {
             [classes.slideIn]: checked,
           })}
         >
-          <Header className={classes.header}>{title}</Header>
+          <RichHeader
+            TitleProps={{
+              sx: {
+                width: "100%",
+                textAlign: "center",
+                padding: `${theme.typography.pxToRem(40)} 0`,
+              },
+            }}
+          >
+            {title}
+          </RichHeader>
           <ClickAwayListener onClickAway={resetItemClick}>
             <Grid container alignItems="center" justifyContent="center">
-              {indicators?.map((item, index) => (
+              {indicators.map((item, index) => (
                 <Grid
                   item
                   key={item.title}
@@ -115,8 +150,8 @@ function DataIndicators({ indicators, title, ...props }) {
           onClick={resetItemClick}
           currentItem={currentItem}
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
