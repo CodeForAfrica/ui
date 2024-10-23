@@ -69,7 +69,7 @@ function Footer(props) {
                   },
                 })}
                 elements={description}
-                typographyProps={{
+                TypographyProps={{
                   LinkProps: {
                     color: "text.secondary",
                     sx: {
