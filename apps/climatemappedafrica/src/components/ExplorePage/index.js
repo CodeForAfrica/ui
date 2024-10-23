@@ -27,7 +27,7 @@ function ExplorePage({
   center,
   initialLocation,
   explorePageUrl,
-  panel: panelProps = {},
+  panel: PanelProps = {},
   profile: profileProp,
   ...props
 }) {
@@ -168,7 +168,7 @@ function ExplorePage({
         onSelectLocation={handleSelectLocation}
         primaryProfile={state.primary}
         secondaryProfile={state.secondary}
-        {...panelProps}
+        {...PanelProps}
       />
     </>
   );
