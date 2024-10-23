@@ -18,7 +18,6 @@ function CustomSelectComponent({ path, label }) {
         value: app.value,
       }));
 
-    console.log(filteredApps);
     setOptions(filteredApps);
   }, [user?.allowedApps]);
 
