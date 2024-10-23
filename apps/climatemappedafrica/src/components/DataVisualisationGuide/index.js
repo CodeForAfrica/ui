@@ -56,10 +56,8 @@ function DataVisualisationGuide({ title, items }) {
         >
           <Grid
             container
-            sx={{
-              flexDirection: { xs: "column", md: "row" },
-              justifyContent: { md: "space-between" },
-            }}
+            direction={{ xs: "column", md: "row" }}
+            justifyContent={{ md: "space-between" }}
           >
             {items.map((item) => (
               <Grid item xs={12} key={item.id}>
