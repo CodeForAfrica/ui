@@ -11,13 +11,14 @@ import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-function initialState(profiles, onClick) {
+function initialState(profiles, onClick, explorePageUrl) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
     options: [
       { color: "primary", onClick },
       { color: "secondary", onClick },
     ],
+    explorePageUrl,
   };
 }
 
@@ -37,15 +38,14 @@ function ExplorePage({
     setGeoCode(code);
   };
   const [state, dispatch] = useExplore(
-    initialState(profileProp, handleClickTag),
-    explorePageUrl,
+    initialState(profileProp, handleClickTag, explorePageUrl),
   );
   useEffect(() => {
     dispatch({
       type: "reset",
-      payload: initialState(profileProp, handleClickTag),
+      payload: initialState(profileProp, handleClickTag, explorePageUrl),
     });
-  }, [dispatch, profileProp]);
+  }, [dispatch, profileProp, explorePageUrl]);
   useEffect(() => {
     if (geoCode) {
       dispatch({ type: "fetch", payload: { code: geoCode } });

@@ -20,19 +20,21 @@ function extendProfileTags(profile, options, explorePageUrl) {
   return { ...other, tags };
 }
 
-function initializer({ profiles, options }) {
+function initializer({ explorePageUrl, profiles, options }) {
   const [primary, secondary] = profiles;
   const [primaryOptions, secondaryOptions] = options;
 
   return {
     isPinning: false,
     isCompare: !!(primary && secondary),
-    primary: extendProfileTags(primary, primaryOptions),
-    secondary: extendProfileTags(secondary, secondaryOptions),
+    primary: extendProfileTags(primary, primaryOptions, explorePageUrl),
+    secondary: extendProfileTags(secondary, secondaryOptions, explorePageUrl),
+    explorePageUrl,
   };
 }
 
-function reducer(state, action, explorePageUrl) {
+function reducer(state, action) {
+  const { explorePageUrl } = state;
   switch (action.type) {
     case "fetch": {
       const code = action.payload?.code;
@@ -105,9 +107,13 @@ function reducer(state, action, explorePageUrl) {
         newState.secondary = undefined;
       } else if (state.primary?.geography?.code === code && state.secondary) {
         // NOTE: need to reset color from secondary back to primary as well
-        newState.primary = extendProfileTags(state.secondary, {
-          color: "primary",
-        });
+        newState.primary = extendProfileTags(
+          state.secondary,
+          {
+            color: "primary",
+          },
+          explorePageUrl,
+        );
         newState.secondary = undefined;
       }
       newState.secondary = undefined;
@@ -122,8 +128,8 @@ function reducer(state, action, explorePageUrl) {
   }
 }
 
-function useExplore(initializerArg, explorePageUrl) {
-  return useReducer(reducer, initializerArg, initializer, explorePageUrl);
+function useExplore(initializerArg) {
+  return useReducer(reducer, initializerArg, initializer);
 }
 
 export default useExplore;
