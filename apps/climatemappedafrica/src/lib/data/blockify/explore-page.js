@@ -11,7 +11,12 @@ const fetchProfileGeography = async (geoCode) => {
   return data;
 };
 
-async function explorePage({ slug: code, center, explorePageUrl }) {
+async function explorePage({
+  slug: code,
+  center,
+  initialLocation,
+  explorePageUrl,
+}) {
   const hurumapProfile = await fetchProfile();
 
   const { locations, preferredChildren, mapType, choropleth } = hurumapProfile;
@@ -83,6 +88,7 @@ async function explorePage({ slug: code, center, explorePageUrl }) {
     blockType: "explore-page",
     center,
     choropleth,
+    initialLocation,
     explorePageUrl,
     locations,
     mapType,

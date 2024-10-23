@@ -11,7 +11,7 @@ import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-function initialState(profiles, onClick, explorePageUrl) {
+function initialState(profiles, onClick, explorePageUrl, initialLocation) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
     options: [
@@ -19,10 +19,13 @@ function initialState(profiles, onClick, explorePageUrl) {
       { color: "secondary", onClick },
     ],
     explorePageUrl,
+    initialLocation,
   };
 }
 
 function ExplorePage({
+  center,
+  initialLocation,
   explorePageUrl,
   panel: panelProps = {},
   profile: profileProp,
@@ -38,7 +41,7 @@ function ExplorePage({
     setGeoCode(code);
   };
   const [state, dispatch] = useExplore(
-    initialState(profileProp, handleClickTag, explorePageUrl),
+    initialState(profileProp, handleClickTag, explorePageUrl, initialLocation),
   );
   useEffect(() => {
     dispatch({
@@ -125,7 +128,7 @@ function ExplorePage({
       >
         <div className={classes.root}>
           <Map
-            center={[0.3051933453207569, 37.908818734483155]}
+            center={center}
             geography={geography}
             secondaryGeography={state.secondary?.geography}
             geometries={geometries}
@@ -172,6 +175,9 @@ function ExplorePage({
 }
 
 ExplorePage.propTypes = {
+  center: PropTypes.arrayOf(PropTypes.number),
+  initialLocation: PropTypes.string,
+  explorePageUrl: PropTypes.string,
   panel: PropTypes.shape({}),
   profile: PropTypes.oneOfType([
     PropTypes.shape({

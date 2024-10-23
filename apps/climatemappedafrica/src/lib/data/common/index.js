@@ -63,6 +63,7 @@ async function processExplorePage(slugs, hurumap, explorePage) {
     {
       blockType: "explore-page",
       center,
+      initialLocation: name,
       slug: slug.trim().toLowerCase(),
       explorePageUrl: explorePage.slug,
     },
