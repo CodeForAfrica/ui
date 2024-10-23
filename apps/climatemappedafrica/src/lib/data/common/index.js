@@ -103,7 +103,11 @@ export async function getPageProps(api, context) {
   const menus = getNavBar(siteSettings, variant, explorePage);
 
   if (slug === explorePage.slug) {
-    blocks = await processExplorePage(slugs.slice(1), hurumap, explorePage);
+    blocks = await processExplorePage(
+      slugs?.slice(1) || [],
+      hurumap,
+      explorePage,
+    );
   }
 
   return {
