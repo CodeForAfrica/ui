@@ -14,7 +14,6 @@ function DesktopPanel({ sx, ...props }) {
     setValue(undefined);
   };
   const handleValueChange = useCallback((newValue) => {
-    console.log("BOOM H: ", newValue);
     // toggle value if the same
     setValue((oldValue) => (oldValue !== newValue ? newValue : undefined));
   }, []);
