@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  parser: "@typescript-eslint/parser",
+  parser: "@typescript-eslint/parser", // Required to parse TypeScript (.ts and .tsx) files in the project e.g. allowedAppSelect
   extends: ["eslint-config-commons-ui/next"],
   settings: {
     "import/resolver": {
