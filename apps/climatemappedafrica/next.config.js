@@ -28,6 +28,7 @@ module.exports = {
   transpilePackages: [
     "@commons-ui/core",
     "@commons-ui/next",
+    "@commons-ui/payload",
     "@hurumap/core",
     "@hurumap/next",
   ],
