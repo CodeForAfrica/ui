@@ -1,9 +1,5 @@
-import { useTour } from "@reactour/tour";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-
-import useStyles from "./useStyles";
 
 import PanelButtonGroup from "@/climatemappedafrica/components/HURUmap/PanelButtonGroup";
 
@@ -12,28 +8,28 @@ function PanelButtons({
   isCompare,
   onClickPin,
   onClickUnpin,
+  onValueChange,
+  open,
   panelItems: panelItemsProp,
   primaryProfile,
   secondaryProfile,
-  drawerRef,
-  ...props
+  value,
 }) {
-  const [value, setValue] = useState();
   const [pins, setPins] = useState([]);
   const [panelItems, setPanelItems] = useState([]);
-  const classes = useStyles({ ...props });
-  const { isOpen: tutorialOpen } = useTour();
 
   useEffect(() => {
-    if (primaryProfile.items.length || secondaryProfile?.items?.length) {
-      const timeoutId = setTimeout(() => setValue("rich-data"), 200);
+    if (
+      (primaryProfile.items.length || secondaryProfile?.items?.length) &&
+      onValueChange
+    ) {
+      const timeoutId = setTimeout(() => onValueChange("rich-data"), 200);
       return () => {
         clearTimeout(timeoutId);
       };
     }
-    // useEffect requires a return statement
     return () => {};
-  }, [primaryProfile.items, secondaryProfile?.items]);
+  }, [onValueChange, primaryProfile.items, secondaryProfile?.items]);
 
   useEffect(() => {
     const pItems =
@@ -86,13 +82,14 @@ function PanelButtons({
     }
   }, [isPinning, isCompare]);
 
+  if (!panelItems?.length) {
+    return null;
+  }
+
   const isPin = (current) => {
     const found = panelItems.find((item) => item.value === current);
     return !!found?.pin;
   };
-  if (!panelItems?.length) {
-    return null;
-  }
 
   function addOrRemovePin(array, pin) {
     const newArray = [...array];
@@ -118,44 +115,44 @@ function PanelButtons({
       setPins([]);
     }
 
-    setValue(nextValue);
+    if (onValueChange) {
+      onValueChange(nextValue);
+    }
   };
-
-  const open = value === "rich-data" && !tutorialOpen;
-  /* eslint-disable no-param-reassign */
-  if (open) {
-    drawerRef.current.style.visibility = "visible";
-  } else {
-    drawerRef.current.style.visibility = "hidden";
-  }
 
   return (
     <PanelButtonGroup
       onChange={handleChange}
       items={panelItems}
-      value={open ? value : undefined}
+      value={value}
       pins={pins}
-      classes={{
-        root: clsx(classes.panelButtons, {
-          [classes.panelButtonsOpen]: open,
+      sx={[
+        ({ typography, transitions, zIndex }) => ({
+          marginTop: typography.pxToRem(52),
+          width: typography.pxToRem(44),
+          position: "fixed",
+          left: 0,
+          zIndex: zIndex.drawer + 1,
+          transition: transitions.create(["left"], {
+            duration: transitions.duration.shorter, // average-ish of entering & leaving screen
+          }),
         }),
-      }}
+        ({ widths }) =>
+          open && {
+            left: `max(calc((100vw - ${widths.values.lg}px)/2 + 833px),1100px)`,
+          },
+      ]}
     />
   );
 }
 
 PanelButtons.propTypes = {
-  drawerRef: PropTypes.shape({
-    current: PropTypes.shape({
-      style: PropTypes.shape({
-        visibility: PropTypes.string,
-      }),
-    }),
-  }),
   isCompare: PropTypes.bool,
   isPinning: PropTypes.bool,
   onClickPin: PropTypes.func,
   onClickUnpin: PropTypes.func,
+  onValueChange: PropTypes.func,
+  open: PropTypes.bool,
   panelItems: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
@@ -169,6 +166,7 @@ PanelButtons.propTypes = {
   secondaryProfile: PropTypes.shape({
     items: PropTypes.arrayOf(PropTypes.shape({})),
   }),
+  value: PropTypes.string,
 };
 
 export default PanelButtons;

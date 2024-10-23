@@ -4,6 +4,7 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
+import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
@@ -15,6 +16,7 @@ import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  "data-visualisation-guide": DataVisualisationGuide,
   "explore-page": ExplorePage,
   hero: Hero,
   "how-it-works": HowItWorks,

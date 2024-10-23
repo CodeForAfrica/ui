@@ -149,7 +149,7 @@ function ExplorePage({
                 position: "absolute",
                 right: 0,
                 top: theme.typography.pxToRem(52),
-                zIndex: theme.zIndex.appBar,
+                zIndex: theme.zIndex.appBar - 1,
               },
             }}
           />
