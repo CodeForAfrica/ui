@@ -1,5 +1,6 @@
+import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -13,7 +14,7 @@ function HowItWorks({
   link,
   video,
   backgroundImage,
-  foregroundImage,
+  image: foregroundImage,
   ...props
 }) {
   const classes = useStyles(props);
@@ -95,15 +96,13 @@ function HowItWorks({
                 },
                 "& .vjs-poster": {
                   backgroundColor: "#ffffffE6",
-                  backgroundSize: "120%",
+                  backgroundSize: {
+                    xs: "120%",
+                    md: "auto",
+                  },
                 },
                 "& .video-js .vjs-big-play-button": {
                   display: "none",
-                },
-                [theme.breakpoints.up("md")]: {
-                  "& .vjs-poster": {
-                    backgroundSize: "auto",
-                  },
                 },
                 height: {
                   xs: theme.typography.pxToRem(227),
@@ -138,24 +137,27 @@ function HowItWorks({
                 },
               })}
             />
-            <Button href={link.href} variant="text">
-              {link.label}
-            </Button>
+            <Link
+              href={link.href}
+              sx={{
+                textDecoration: "none",
+              }}
+            >
+              <Typography variant="button">{link.label}</Typography>
+            </Link>
           </Grid>
           <Grid item lg={1} />
           <Grid
             item
             xs={12}
             md={5}
-            sx={(theme) => ({
-              display: "flex",
+            sx={{
               alignItems: "center",
               justifyContent: {
                 xs: "center",
                 md: "flex-end",
               },
-              marginBottom: theme.typography.pxToRem(23),
-            })}
+            }}
           >
             <Box
               sx={(theme) => ({
@@ -173,6 +175,7 @@ function HowItWorks({
                 backgroundImage: `url(${foregroundImage.src})`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
+                marginBottom: theme.typography.pxToRem(23),
               })}
             />
           </Grid>

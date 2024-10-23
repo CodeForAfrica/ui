@@ -64,7 +64,7 @@ const HowItWorks = {
     }),
     image({
       overrides: {
-        name: "foregroundImage",
+        name: "image",
         required: true,
         admin: {
           description: "Image to display on the right side of the video.",
