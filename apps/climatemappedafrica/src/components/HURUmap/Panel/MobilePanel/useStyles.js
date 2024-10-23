@@ -1,22 +1,8 @@
 import makeStyles from "@mui/styles/makeStyles";
 
+// We can't migrate these styles to sx until components/Tabs is upgraded
 const useStyles = makeStyles(
   ({ typography, palette, zIndex, breakpoints }) => ({
-    root: {},
-    dataNotAvailable: {
-      color: "#666666",
-      fontWeight: "bold",
-      fontSize: typography.pxToRem(10),
-      lineHeight: 16 / 10,
-      letterSpacing: typography.pxToRem(0.8),
-      margin: `${typography.pxToRem(20)} 0`,
-      textTransform: "uppercase",
-    },
-    locationRoot: {
-      scrollMargin: typography.pxToRem(200),
-    },
-    divider: { display: "none" },
-    indicator: { display: "none" },
     tabs: {
       paddingTop: typography.pxToRem(16),
       paddingBottom: typography.pxToRem(16),
@@ -56,32 +42,14 @@ const useStyles = makeStyles(
       marginTop: 0,
     },
     tabSelected: {
-      color: palette.background.default,
+      "&.Mui-selected": {
+        color: palette.background.default,
+      },
       backgroundColor: "#666666",
       "&:hover, &:focus, &$selected": {
         color: palette.background.default,
         backgroundColor: "#666666",
       },
-    },
-    scrollButton: {
-      padding: `${typography.pxToRem(58)} ${typography.pxToRem(100)} `,
-      backgroundColor: palette.background.paper,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      cursor: "pointer",
-      color: "#666666",
-      textTransform: "uppercase",
-      "&:after": {
-        display: "none",
-      },
-      "&:hover": {
-        backgroundColor: palette.background.paper,
-        fontWeight: 600,
-      },
-    },
-    topIcon: {
-      marginRight: typography.pxToRem(20),
     },
   }),
 );

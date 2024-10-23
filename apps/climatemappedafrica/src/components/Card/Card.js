@@ -1,6 +1,5 @@
 import { Link } from "@commons-ui/next";
 import { Card as MuiCard } from "@mui/material";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -28,6 +27,7 @@ function Card({
   title,
   titleProps,
   variant,
+  sx,
   ...props
 }) {
   const squareMedia = mediaProps?.square;
@@ -43,7 +43,29 @@ function Card({
   };
 
   return (
-    <MuiCard elevation={0} square className={clsx(classes.root, className)}>
+    <MuiCard
+      elevation={0}
+      square
+      sx={(theme) => ({
+        backgroundColor: "inherit",
+        boxShadow: "none",
+        borderRadius: 0,
+        padding: {
+          xs: squareMedia ? `0 ${theme.typography.pxToRem(36)}` : 0,
+          md: 0,
+        },
+        minWidth: {
+          xs: theme.typography.pxToRem(350),
+          md: "unset",
+        },
+        width: {
+          xs: "100%",
+          md: theme.typography.pxToRem(squareMedia ? 278 : 296),
+          lg: theme.typography.pxToRem(squareMedia ? 278 : 376),
+        },
+        ...sx,
+      })}
+    >
       <CardActionArea
         {...actionAreaProps}
         classes={{

@@ -16,9 +16,6 @@ function RichData({ item, geography, ...props }) {
 
 RichData.propTypes = {
   item: PropTypes.shape({
-    icon: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.shape({})),
   }),
   geography: PropTypes.shape({

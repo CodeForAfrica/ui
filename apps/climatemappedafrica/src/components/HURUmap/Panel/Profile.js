@@ -1,4 +1,4 @@
-import makeStyles from "@mui/styles/makeStyles";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 
@@ -9,29 +9,6 @@ import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHea
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
 import Loading from "@/climatemappedafrica/components/Loading";
 import { hurumapArgs } from "@/climatemappedafrica/config";
-
-const useStyles = makeStyles(({ typography, breakpoints, zIndex }) => ({
-  profile: {
-    marginLeft: typography.pxToRem(20),
-    marginRight: typography.pxToRem(20),
-    marginTop: typography.pxToRem(21),
-    [breakpoints.up("md")]: {
-      paddingLeft: typography.pxToRem(80),
-      marginRight: typography.pxToRem(80),
-    },
-    [breakpoints.up("lg")]: {
-      marginLeft: `max(calc((100vw - 1160px)/2 + 79px), 300px)`,
-      marginTop: typography.pxToRem(0),
-      marginRight: 0,
-      width: typography.pxToRem(800),
-      minHeight: "100%",
-      paddingTop: typography.pxToRem(67.7),
-      paddingLeft: typography.pxToRem(17),
-      paddingRight: typography.pxToRem(17),
-      zIndex: zIndex.drawer,
-    },
-  },
-}));
 
 const Profile = forwardRef(function Profile(
   {
@@ -44,11 +21,11 @@ const Profile = forwardRef(function Profile(
     onSelectLocation,
     primaryProfile,
     secondaryProfile,
+    sx,
     ...props
   },
   ref,
 ) {
-  const classes = useStyles(props);
   const { pinAndCompare } = hurumapArgs;
 
   const handleClickPin = (e) => {
@@ -106,7 +83,37 @@ const Profile = forwardRef(function Profile(
   }
 
   return (
-    <div className={classes.profile} ref={ref}>
+    <Box
+      sx={[
+        ({ palette, typography, zIndex }) => ({
+          backgroundColor: palette.background.default,
+          marginLeft: {
+            xs: typography.pxToRem(20),
+            lg: `max(calc((100vw - 1160px)/2 + 79px), 300px)`,
+          },
+          marginRight: {
+            xs: typography.pxToRem(20),
+            md: typography.pxToRem(80),
+            lg: 0,
+          },
+          marginTop: {
+            xs: typography.pxToRem(21),
+            lg: typography.pxToRem(0),
+          },
+          paddingLeft: {
+            md: typography.pxToRem(80),
+            lg: typography.pxToRem(17),
+          },
+          width: { lg: typography.pxToRem(800) },
+          minHeight: { lg: "100%" },
+          paddingTop: { lg: typography.pxToRem(67.7) },
+          paddingRight: { lg: typography.pxToRem(17) },
+          zIndex: { lg: zIndex.drawer },
+        }),
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
+      ref={ref}
+    >
       {isLoading && <Loading />}
       <LocationHeader
         variant="primary"
@@ -141,7 +148,7 @@ const Profile = forwardRef(function Profile(
         secondaryProfile={secondaryProfile}
         geoCode={geoCode}
       />
-    </div>
+    </Box>
   );
 });
 

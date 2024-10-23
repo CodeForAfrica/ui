@@ -1,58 +1,67 @@
-import { Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 
 export default function Legend({ legend, title = "Average Temperature", sx }) {
+  if (!legend?.length) {
+    return null;
+  }
   return (
-    <Grid
-      spacing={2}
-      sx={(theme) => ({
+    <Box
+      rowGap={1}
+      display="flex"
+      flexDirection="column"
+      sx={({ palette, typography, zIndex }) => ({
+        // match zoom control border color
+        border: "1px solid #ccc",
+        borderRadius: "5px",
+        boxShadow: `0px 3px 6px ${alpha(palette.common.black, 0.16)}`,
         position: "absolute",
-        zIndex: 1000,
-        width: "fit-content",
-        bottom: theme.spacing(30),
-        right: theme.spacing(20),
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(1),
-        boxShadow: theme.shadows[3],
+        top: typography.pxToRem(52),
+        // match zoom control position
+        right: 10,
+        background: alpha(palette.background.default, 0.9),
+        pb: 1,
+        zIndex: zIndex.appBar - 1,
         ...sx,
       })}
     >
       <Typography
-        variant="subtitle2"
-        sx={(theme) => ({
-          color: theme.palette.text.primary,
-          marginBottom: theme.spacing(2),
-        })}
+        display="flex"
+        alignItems="center"
+        minHeight={52}
+        variant="caption"
+        fontWeight={600}
+        sx={{
+          borderBottom: `1px solid #ccc`,
+          m: 0,
+          px: 1,
+        }}
       >
         {title}
       </Typography>
-      {legend?.map(({ min, max, color }) => (
-        <Grid
-          container
-          key={`${min}-${max}`}
+      {legend.map(({ min, max, color }) => (
+        <Box
+          display="flex"
           alignItems="center"
-          spacing={1}
-          sx={(theme) => ({
-            padding: theme.spacing(1),
-          })}
+          justifyContent="flex-start"
+          gap={1}
+          px={1}
+          key={`${min}-${max}`}
         >
-          <Grid
-            item
-            sx={(theme) => ({
+          <Box
+            borderColor={color}
+            borderRadius={1}
+            height={24}
+            width={24}
+            sx={{
               backgroundColor: color,
-              width: theme.spacing(4),
-              height: theme.spacing(4),
-            })}
+            }}
           />
-          <Grid item xs>
-            <Typography
-              variant="subtitle1"
-              sx={(theme) => ({ color: theme.palette.text.primary })}
-            >
-              {min} - {max}
-            </Typography>
-          </Grid>
-        </Grid>
+          <Typography color="text.primary" variant="caption">
+            {min} - {max}
+          </Typography>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   );
 }

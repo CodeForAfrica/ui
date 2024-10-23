@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useRef } from "react";
 
@@ -15,7 +16,17 @@ function RichData({ primaryProfile, ...props }) {
   };
 
   return (
-    <>
+    <Paper
+      elevation={0}
+      square
+      sx={({ palette }) => ({
+        bgcolor: "background.paper",
+        border: `1px solid ${palette.grey.main}`,
+        borderLeft: "none",
+        borderRight: "none",
+        scrollMargin: "40px",
+      })}
+    >
       <TreeView
         items={primaryProfile.items}
         onLabelClick={handleLabelClick}
@@ -24,7 +35,7 @@ function RichData({ primaryProfile, ...props }) {
           minWidth: theme.typography.pxToRem(300),
           paddingTop: theme.typography.pxToRem(76),
           flexShrink: 0,
-          top: theme.typography.pxToRem(110),
+          top: theme.typography.pxToRem(104),
           bottom: 0,
           position: "fixed",
           left: 0,
@@ -34,9 +45,10 @@ function RichData({ primaryProfile, ...props }) {
         {...props}
         categories={primaryProfile.items}
         primaryProfile={primaryProfile}
+        sx={{}}
         ref={profileRef}
       />
-    </>
+    </Paper>
   );
 }
 
