@@ -6,7 +6,6 @@ import {
   Slide,
   useMediaQuery,
 } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -22,8 +21,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function DataIndicators({ indicators, title }) {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   const [checked, setChecked] = useState(false);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
@@ -124,16 +122,15 @@ function DataIndicators({ indicators, title }) {
         })}
       >
         <Box
-          sx={({ breakpoints, typography }) => ({
+          sx={({ typography }) => ({
             width: "100%",
-            height: typography.pxToRem(672),
+            height: {
+              xs: typography.pxToRem(672),
+              lg: typography.pxToRem(600),
+            },
             transition: "width 0.3s ease-out",
-            ...(breakpoints.up("lg") && {
-              height: typography.pxToRem(600),
-            }),
             ...(checked && {
-              ...(breakpoints.up("md") && { width: "calc(100% - 355px)" }),
-              ...(breakpoints.up("lg") && { width: "calc(100% - 480px)" }),
+              width: { md: "calc(100% - 355px)", lg: "calc(100% - 480px)" },
             }),
           })}
         >
@@ -142,7 +139,7 @@ function DataIndicators({ indicators, title }) {
               sx: {
                 width: "100%",
                 textAlign: "center",
-                padding: `${theme.typography.pxToRem(40)} 0`,
+                padding: `40px 0`,
               },
             }}
           >
@@ -184,7 +181,7 @@ function DataIndicators({ indicators, title }) {
                     item={item}
                     index={index}
                     currentItemIndex={currentItemIndex}
-                    handleClickAway={() => resetItemClick()}
+                    handleClickAway={resetItemClick}
                   />
                 </Grid>
               ))}

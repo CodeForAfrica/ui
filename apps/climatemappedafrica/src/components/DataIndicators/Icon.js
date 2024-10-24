@@ -9,22 +9,15 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
   return (
     <ButtonBase
       onClick={handleIconClick}
-      sx={({ breakpoints }) => ({
-        display: "flex",
-        ...(breakpoints.up("lg") && {
-          display: "block",
-        }),
-      })}
+      sx={{
+        display: { xs: "flex", lg: "block" },
+      }}
     >
       <Box
-        sx={({ typography, breakpoints }) => ({
+        sx={({ typography }) => ({
           position: "relative",
-          height: typography.pxToRem(88.8),
-          width: typography.pxToRem(88.8),
-          ...(breakpoints.up("lg") && {
-            height: typography.pxToRem(140),
-            width: typography.pxToRem(140),
-          }),
+          height: { xs: typography.pxToRem(88.8), lg: typography.pxToRem(140) },
+          width: { xs: typography.pxToRem(88.8), lg: typography.pxToRem(140) },
         })}
       >
         <Image
@@ -33,16 +26,11 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
         />
       </Box>
       <Typography
-        sx={({ typography, breakpoints }) => ({
+        sx={({ typography }) => ({
           display: "flex",
           marginLeft: typography.pxToRem(31),
           fontSize: typography.pxToRem(20),
-          width: typography.pxToRem(200),
-          ...(breakpoints.up("lg") && {
-            width: "auto",
-            display: "block",
-            margin: `${typography.pxToRem(20)} auto 0`,
-          }),
+          width: { xs: typography.pxToRem(200), lg: "auto" },
         })}
       >
         {title}

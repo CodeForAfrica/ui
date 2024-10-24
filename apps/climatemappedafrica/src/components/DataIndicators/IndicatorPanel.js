@@ -43,12 +43,6 @@ function IndicatorPanel({
 }
 
 IndicatorPanel.propTypes = {
-  classes: PropTypes.shape({
-    root: PropTypes.string,
-    content: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-  }),
   component: PropTypes.elementType,
   currentItem: PropTypes.shape({
     title: PropTypes.string,
