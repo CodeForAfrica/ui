@@ -10,15 +10,16 @@ function CustomSelectComponent({ path, label }) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    const allowedApps = (user?.allowedApps || []) as string[];
-    const filteredApps = applications
-      .filter((app) => allowedApps.includes(app.value))
-      .map((app) => ({
-        label: app.label,
-        value: app.value,
-      }));
-
-    setOptions(filteredApps);
+    const allowedApps = user?.allowedApps || []; // We could cast this using as string[]; but this can't be parsed without adding a ts parser
+    if (Array.isArray(allowedApps)) {
+      const filteredApps = applications
+        .filter((app) => allowedApps.includes(app.value))
+        .map((app) => ({
+          label: app.label,
+          value: app.value,
+        }));
+      setOptions(filteredApps);
+    }
   }, [user?.allowedApps]);
 
   return (
