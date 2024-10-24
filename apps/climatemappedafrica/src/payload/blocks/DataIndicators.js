@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import image from "../fields/image";
 import richText from "../fields/richText";
 
@@ -14,6 +16,12 @@ const DataIndicators = {
       name: "title",
       required: true,
       label: "Title",
+      editor: slateEditor({
+        admin: {
+          elements: ["link"],
+          leaves: ["bold", "code", "italic", "underline"],
+        },
+      }),
       localized: true,
     }),
     {

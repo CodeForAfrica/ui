@@ -22,13 +22,13 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
       class="MuiBox-root css-gn696"
     >
       <div
-        class="MuiBox-root css-1mt5vqc"
+        class="MuiBox-root css-5raypf"
       >
         <header
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-6aok1d"
+            class="MuiBox-root css-1lz18kf"
           >
             Indicators
           </div>
@@ -40,12 +40,12 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-j3rr61-MuiGrid-root"
           >
             <button
-              class="MuiButtonBase-root css-1td29ph-MuiButtonBase-root"
+              class="MuiButtonBase-root css-72d9li-MuiButtonBase-root"
               tabindex="0"
               type="button"
             >
               <div
-                class="MuiBox-root css-5vc0ni"
+                class="MuiBox-root css-g5rc5c"
               >
                 <img
                   data-nimg="fill"
@@ -55,7 +55,7 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
                 />
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 css-qga4z5-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-1eogcpa-MuiTypography-root"
               >
                 Overview
               </p>
