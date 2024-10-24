@@ -24,6 +24,7 @@ function initializer({
   explorePagePath,
   initialLocationCode,
   profiles,
+  pinInitialLocation,
   options,
 }) {
   const [primary, secondary] = profiles;
@@ -36,11 +37,12 @@ function initializer({
     secondary: extendProfileTags(secondary, secondaryOptions, explorePagePath),
     explorePagePath,
     initialLocationCode,
+    pinInitialLocation,
   };
 }
 
 function reducer(state, action) {
-  const { explorePagePath, initialLocationCode } = state;
+  const { explorePagePath, initialLocationCode, pinInitialLocation } = state;
   switch (action.type) {
     case "fetch": {
       const code = action.payload?.code;
@@ -93,7 +95,7 @@ function reducer(state, action) {
       if (state.primary.geography.code.toLowerCase() !== initialLocationCode) {
         return { ...state, isPinning: true };
       }
-      return { ...state, isPinning: false };
+      return { ...state, isPinning: pinInitialLocation };
     case "compare": {
       const code = action.payload?.code;
       if (code) {

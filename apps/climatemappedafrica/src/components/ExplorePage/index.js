@@ -11,7 +11,13 @@ import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-function initialState(profiles, onClick, explorePagePath, initialLocationCode) {
+function initialState(
+  profiles,
+  onClick,
+  explorePagePath,
+  initialLocationCode,
+  pinInitialLocation,
+) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
     options: [
@@ -20,6 +26,7 @@ function initialState(profiles, onClick, explorePagePath, initialLocationCode) {
     ],
     explorePagePath,
     initialLocationCode,
+    pinInitialLocation,
   };
 }
 
@@ -30,7 +37,11 @@ function ExplorePage({
   profile: profileProp,
   ...props
 }) {
-  const { center, name: initialLocationCode } = initialLocation;
+  const {
+    center,
+    name: initialLocationCode,
+    pinInitialLocation,
+  } = initialLocation;
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -46,23 +57,38 @@ function ExplorePage({
       handleClickTag,
       explorePagePath,
       initialLocationCode,
+      pinInitialLocation,
     ),
   );
   useEffect(() => {
     dispatch({
       type: "reset",
-      payload: initialState(profileProp, handleClickTag, explorePagePath),
+      payload: initialState(
+        profileProp,
+        handleClickTag,
+        explorePagePath,
+        initialLocationCode,
+        pinInitialLocation,
+      ),
     });
-  }, [dispatch, profileProp, explorePagePath]);
+  }, [
+    dispatch,
+    profileProp,
+    explorePagePath,
+    initialLocationCode,
+    pinInitialLocation,
+  ]);
   useEffect(() => {
     if (geoCode) {
       dispatch({ type: "fetch", payload: { code: geoCode } });
     }
   }, [dispatch, geoCode]);
+
   const router = useRouter();
   const shouldFetch = () =>
     (state.primary.shouldFetch && state.primary.code) ||
     (state.secondary?.shouldFetch && state.secondary?.code);
+
   const { data, error } = useProfileGeography(shouldFetch);
   useEffect(() => {
     if (data) {
@@ -72,6 +98,16 @@ function ExplorePage({
       });
     }
   }, [dispatch, data]);
+
+  // Update URL when state.slug changes
+  useEffect(() => {
+    if (state.slug) {
+      const href = `/${explorePagePath}/${state.slug}`;
+      router.push(href, href, { shallow: true });
+    }
+    // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.slug]);
 
   const handleSelectLocation = (payload) => {
     const { code } = payload;
@@ -100,14 +136,6 @@ function ExplorePage({
     }
     dispatch({ type: "unpin", payload });
   };
-  useEffect(() => {
-    if (state.slug) {
-      const href = `/${explorePagePath}/${state.slug}`;
-      router.push(href, href, { shallow: true });
-    }
-    // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.slug]);
 
   const isLoading = shouldFetch() && !(data || error);
   const {
@@ -184,6 +212,7 @@ ExplorePage.propTypes = {
   initialLocation: PropTypes.shape({
     center: PropTypes.arrayOf(PropTypes.number),
     name: PropTypes.string,
+    pinInitialLocation: PropTypes.bool,
   }),
   explorePagePath: PropTypes.string,
   panel: PropTypes.shape({}),
