@@ -2,7 +2,7 @@ import { useReducer } from "react";
 
 import Link from "@/climatemappedafrica/components/Link";
 
-function extendProfileTags(profile, options, explorePageUrl) {
+function extendProfileTags(profile, options, explorePagePath) {
   const { tags: originalTags, ...other } = profile || {};
   if (!originalTags) {
     return profile;
@@ -12,7 +12,7 @@ function extendProfileTags(profile, options, explorePageUrl) {
     ...otherTags,
     code,
     component: Link,
-    href: `/${explorePageUrl}/${code.toLowerCase()}`,
+    href: `/${explorePagePath}/${code.toLowerCase()}`,
     shallow: true,
     underline: "none",
     ...options,
@@ -20,22 +20,22 @@ function extendProfileTags(profile, options, explorePageUrl) {
   return { ...other, tags };
 }
 
-function initializer({ explorePageUrl, initialLocation, profiles, options }) {
+function initializer({ explorePagePath, initialLocation, profiles, options }) {
   const [primary, secondary] = profiles;
   const [primaryOptions, secondaryOptions] = options;
 
   return {
     isPinning: false,
     isCompare: !!(primary && secondary),
-    primary: extendProfileTags(primary, primaryOptions, explorePageUrl),
-    secondary: extendProfileTags(secondary, secondaryOptions, explorePageUrl),
-    explorePageUrl,
+    primary: extendProfileTags(primary, primaryOptions, explorePagePath),
+    secondary: extendProfileTags(secondary, secondaryOptions, explorePagePath),
+    explorePagePath,
     initialLocation,
   };
 }
 
 function reducer(state, action) {
-  const { explorePageUrl, initialLocation } = state;
+  const { explorePagePath, initialLocation } = state;
   switch (action.type) {
     case "fetch": {
       const code = action.payload?.code;
@@ -76,7 +76,7 @@ function reducer(state, action) {
               ...others,
               color: profileType,
             },
-            explorePageUrl,
+            explorePagePath,
           );
           return newState;
         }
@@ -113,7 +113,7 @@ function reducer(state, action) {
           {
             color: "primary",
           },
-          explorePageUrl,
+          explorePagePath,
         );
         newState.secondary = undefined;
       }

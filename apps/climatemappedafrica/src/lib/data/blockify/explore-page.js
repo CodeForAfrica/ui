@@ -15,7 +15,7 @@ async function explorePage({
   slug: code,
   center,
   initialLocation,
-  explorePageUrl,
+  explorePagePath,
 }) {
   const hurumapProfile = await fetchProfile();
 
@@ -89,7 +89,7 @@ async function explorePage({
     center,
     choropleth,
     initialLocation,
-    explorePageUrl,
+    explorePagePath,
     locations,
     mapType,
     panel,

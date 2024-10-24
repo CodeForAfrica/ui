@@ -11,14 +11,14 @@ import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-function initialState(profiles, onClick, explorePageUrl, initialLocation) {
+function initialState(profiles, onClick, explorePagePath, initialLocation) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
     options: [
       { color: "primary", onClick },
       { color: "secondary", onClick },
     ],
-    explorePageUrl,
+    explorePagePath,
     initialLocation,
   };
 }
@@ -26,7 +26,7 @@ function initialState(profiles, onClick, explorePageUrl, initialLocation) {
 function ExplorePage({
   center,
   initialLocation,
-  explorePageUrl,
+  explorePagePath,
   panel: PanelProps = {},
   profile: profileProp,
   ...props
@@ -41,14 +41,14 @@ function ExplorePage({
     setGeoCode(code);
   };
   const [state, dispatch] = useExplore(
-    initialState(profileProp, handleClickTag, explorePageUrl, initialLocation),
+    initialState(profileProp, handleClickTag, explorePagePath, initialLocation),
   );
   useEffect(() => {
     dispatch({
       type: "reset",
-      payload: initialState(profileProp, handleClickTag, explorePageUrl),
+      payload: initialState(profileProp, handleClickTag, explorePagePath),
     });
-  }, [dispatch, profileProp, explorePageUrl]);
+  }, [dispatch, profileProp, explorePagePath]);
   useEffect(() => {
     if (geoCode) {
       dispatch({ type: "fetch", payload: { code: geoCode } });
@@ -74,7 +74,7 @@ function ExplorePage({
       state.isPinning || state.isCompare
         ? `${state.primary.geography.code}-vs-${code}`
         : `${code}`;
-    const href = `/${explorePageUrl}/${newPath.toLowerCase()}`;
+    const href = `/${explorePagePath}/${newPath.toLowerCase()}`;
     router.push(href, href, { shallow: true });
     const type = state.isPinning && state.isCompare ? "compare" : "fetch";
     dispatch({ type, payload });
@@ -97,7 +97,7 @@ function ExplorePage({
   };
   useEffect(() => {
     if (state.slug) {
-      const href = `/${explorePageUrl}/${state.slug}`;
+      const href = `/${explorePagePath}/${state.slug}`;
       router.push(href, href, { shallow: true });
     }
     // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
@@ -177,7 +177,7 @@ function ExplorePage({
 ExplorePage.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number),
   initialLocation: PropTypes.string,
-  explorePageUrl: PropTypes.string,
+  explorePagePath: PropTypes.string,
   panel: PropTypes.shape({}),
   profile: PropTypes.oneOfType([
     PropTypes.shape({

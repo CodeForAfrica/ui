@@ -47,7 +47,7 @@ function getNavBar(siteSettings, variant, { slug }) {
   return {
     logo: imageFromMedia(title, primaryLogo.url),
     drawerLogo: imageFromMedia(title, drawerLogo.url),
-    explorePageUrl: slug,
+    explorePagePath: slug,
     menus,
     socialLinks,
     variant,
@@ -65,7 +65,7 @@ async function processExplorePage(slugs, hurumap, explorePage) {
       center,
       initialLocation: name,
       slug: slug.trim().toLowerCase(),
-      explorePageUrl: explorePage.slug,
+      explorePagePath: explorePage.slug,
     },
     {
       blockType: "tutorial",

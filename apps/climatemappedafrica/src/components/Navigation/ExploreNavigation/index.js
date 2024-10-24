@@ -41,7 +41,7 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
 }));
 
-function ExploreNavigation({ explorePageUrl, logo, variant }) {
+function ExploreNavigation({ explorePagePath, logo, variant }) {
   const classes = useStyles();
   const { setIsOpen } = useTour();
 
@@ -71,7 +71,7 @@ function ExploreNavigation({ explorePageUrl, logo, variant }) {
           >
             <DropdownSearch
               icon={SearchIcon}
-              href={explorePageUrl}
+              href={explorePagePath}
               placeholder="Search for a Location" // TODO: Read from cms
               variant={variant}
               classes={{

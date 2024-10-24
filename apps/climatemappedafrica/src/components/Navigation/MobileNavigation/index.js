@@ -153,7 +153,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function MobileNavigation({
   drawerLogo,
-  explorePageUrl,
+  explorePagePath,
   logo,
   menus,
   socialLinks,
@@ -284,7 +284,7 @@ function MobileNavigation({
                   }}
                 >
                   <DropdownSearch
-                    href={explorePageUrl}
+                    href={explorePagePath}
                     classes={{
                       root: classes.search,
                       inputRoot: classes.searchInput,
