@@ -1,12 +1,15 @@
+import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
+import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
 import HowItWorks from "@/climatemappedafrica/components/HowItWorks";
+import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
@@ -14,6 +17,7 @@ import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
   "data-visualisation-guide": DataVisualisationGuide,
+  "explore-page": ExplorePage,
   hero: Hero,
   "how-it-works": HowItWorks,
   "page-hero": PageHero,
@@ -22,6 +26,10 @@ const componentsBySlugs = {
 };
 
 function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
+  const {
+    query: { showTutorial },
+  } = useRouter();
+
   const pageSeo = {};
   pageSeo.title = seo?.title || null;
   pageSeo.description = seo?.metaDesc || null;
@@ -41,6 +49,13 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
     }
   }
 
+  const tutorialBlock = blocks.find((block) => block.blockType === "tutorial");
+
+  let TutorialComponent = React.Fragment;
+  if (tutorialBlock) {
+    TutorialComponent = Tutorial;
+  }
+
   let PageConfig = React.Fragment;
   let pageConfigProps;
   if (fallback) {
@@ -48,7 +63,11 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
     pageConfigProps = { value: { fallback } };
   }
   return (
-    <>
+    <TutorialComponent
+      key={showTutorial}
+      {...tutorialBlock}
+      defaultOpen={Number.parseInt(showTutorial, 10) === 1}
+    >
       <Navigation {...menus} />
       <NextSeo
         {...pageSeo}
@@ -66,7 +85,7 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
         })}
       </PageConfig>
       <Footer {...footerProps} />
-    </>
+    </TutorialComponent>
   );
 }
 

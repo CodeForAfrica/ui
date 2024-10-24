@@ -1,4 +1,3 @@
-import LocationSelect, { validateLocation } from "../fields/LocationSelect";
 import richText from "../fields/richText";
 
 const Hero = {
@@ -33,32 +32,6 @@ const Hero = {
       type: "text",
       label: "Search Placeholder",
       localized: true,
-    },
-    {
-      name: "location",
-      label: "Featured Location",
-      type: "group",
-      fields: [
-        {
-          name: "name",
-          type: "text",
-          required: true,
-          hasMany: false,
-          defaultValue: "af",
-          validate: validateLocation,
-          localized: true,
-          admin: {
-            components: {
-              Field: LocationSelect,
-            },
-          },
-        },
-        {
-          name: "center",
-          label: "Center Point",
-          type: "point",
-        },
-      ],
     },
     {
       name: "comment",

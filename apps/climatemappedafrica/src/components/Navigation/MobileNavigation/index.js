@@ -151,7 +151,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={1000} ref={ref} {...props} />;
 });
 
-function MobileNavigation({ drawerLogo, logo, menus, socialLinks, ...props }) {
+function MobileNavigation({
+  drawerLogo,
+  explorePagePath,
+  logo,
+  menus,
+  socialLinks,
+  ...props
+}) {
   const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const router = useRouter();
@@ -277,6 +284,7 @@ function MobileNavigation({ drawerLogo, logo, menus, socialLinks, ...props }) {
                   }}
                 >
                   <DropdownSearch
+                    href={explorePagePath}
                     classes={{
                       root: classes.search,
                       inputRoot: classes.searchInput,
