@@ -3,15 +3,19 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
+import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
+import HowItWorks from "@/climatemappedafrica/components/HowItWorks";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
 import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
+  "data-visualisation-guide": DataVisualisationGuide,
   hero: Hero,
+  "how-it-works": HowItWorks,
   "page-hero": PageHero,
   summary: Summary,
   team: AboutTeam,
