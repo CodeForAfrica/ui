@@ -1,32 +1,57 @@
-import { QuickLinks, LogoButton, Copyright } from "@commons-ui/core";
+import { QuickLinks, Copyright } from "@commons-ui/core";
 import { Link, StayInTouch } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 
 import useStyles from "./useStyles";
 
+import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 function Footer(props) {
-  const { title, connect, description, logo: logoProps, links } = props;
+  const {
+    title,
+    connect,
+    description,
+    logo: logoProps,
+    links,
+    variant,
+  } = props;
   const classes = useStyles(props);
+
   return (
-    <div className={classes.root}>
-      <Section
-        classes={{
-          root: classes.section,
-        }}
-      >
+    <Box
+      sx={(theme) => ({
+        display: {
+          xs: "block",
+          lg: variant !== "explore" ? "block" : "none",
+        },
+        background: theme.palette.grey.dark,
+        height: "auto",
+        padding: `${theme.typography.pxToRem(80)} 0`,
+        [theme.breakpoints.up("md")]: {
+          paddingTop: `${theme.typography.pxToRem(58)}`,
+          paddingBottom: `${theme.typography.pxToRem(82)}`,
+        },
+      })}
+    >
+      <Section>
         <Grid container direction="row" justifyContent="space-between">
           <Grid item xs={12} container>
             {logoProps && (
-              <LogoButton
+              <NextImageButton
                 {...logoProps}
-                component="a"
-                classes={{
-                  root: classes.logoButton,
-                }}
+                width={220}
+                height={120}
+                priority
+                sx={(theme) => ({
+                  margin: "0 auto",
+                  padding: 0,
+                  [theme.breakpoints.up("lg")]: {
+                    margin: 0,
+                  },
+                })}
               />
             )}
           </Grid>
@@ -34,7 +59,15 @@ function Footer(props) {
             {description && (
               <RichText
                 variant="body1"
-                className={classes.description}
+                sx={(theme) => ({
+                  color: theme.palette.text.secondary,
+                  padding: `${theme.typography.pxToRem(32)} 0`,
+                  fontSize: theme.typography.subtitle1.fontSize,
+                  textAlign: "center",
+                  [theme.breakpoints.up("lg")]: {
+                    textAlign: "left",
+                  },
+                })}
                 elements={description}
                 typographyProps={{
                   LinkProps: {
@@ -58,9 +91,12 @@ function Footer(props) {
           <Grid item xs={12} lg={4}>
             <Grid
               container
-              classes={{
-                root: classes.allLinks,
-              }}
+              sx={(theme) => ({
+                margin: "0 auto",
+                flexDirection: "row",
+                justifyContent: "center",
+                marginTop: theme.typography.pxToRem(44.19),
+              })}
             >
               <Grid item xs={12} lg={6}>
                 {links && (
@@ -95,7 +131,7 @@ function Footer(props) {
           </Grid>
         </Grid>
       </Section>
-    </div>
+    </Box>
   );
 }
 

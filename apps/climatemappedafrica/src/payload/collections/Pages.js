@@ -1,3 +1,4 @@
+import PageHero from "../blocks/PageHero";
 import Summary from "../blocks/Summary";
 import Team from "../blocks/Team";
 import fullTitle from "../fields/fullTitle";
@@ -29,7 +30,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Summary, Team],
+      blocks: [PageHero, Summary, Team],
       localized: true,
       admin: {
         initCollapsed: true,
