@@ -4,16 +4,10 @@ import { ButtonBase, Slide } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-function IndicatorPanel({
-  currentItem,
-  onClick,
-  component,
-  classes,
-  ...props
-}) {
+function IndicatorPanel({ currentItem, onClick, component, ...props }) {
   const Component = component || Slide;
   return (
-    <Component {...props} classes={classes}>
+    <Component {...props}>
       <ButtonBase
         disableRipple
         disableTouchRipple
