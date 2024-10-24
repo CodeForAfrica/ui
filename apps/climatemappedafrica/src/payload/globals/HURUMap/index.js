@@ -51,12 +51,9 @@ const HURUMap = {
         },
         {
           name: "center",
-          localized: true,
-          label: {
-            en: "Center",
-          },
+          label: "Center Point",
           type: "point",
-          defaultValue: [0.3051933453207569, 37.908818734483155],
+          defaultValue: [20.0, 4.25],
         },
       ],
     },

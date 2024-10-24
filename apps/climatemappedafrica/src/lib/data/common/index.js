@@ -96,7 +96,7 @@ export async function getPageProps(api, context) {
     page: { value: explorePage },
   } = hurumap;
 
-  let blocks = await blockify(page.blocks, api, context);
+  let blocks = await blockify(page.blocks, api, context, hurumap);
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
   const siteSettings = await api.findGlobal("settings-site");
