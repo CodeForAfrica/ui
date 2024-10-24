@@ -118,7 +118,7 @@ const serialize = (children, props) =>
         return <blockquote key={i}>{serialize(node.children)}</blockquote>;
       case "upload":
         if (node.relationTo === "media") {
-          const { caption } = node.fields;
+          const caption = node.fields?.caption;
 
           return (
             <Media {...props.MediaProps} media={node.value} caption={caption} />
