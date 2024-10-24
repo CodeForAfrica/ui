@@ -162,14 +162,13 @@ export default buildConfig({
   express: {
     postMiddleware: [
       (_req: Request, res: Response, next: NextFunction) => {
+        const existingHeaders =
+          res.getHeader("Access-Control-Allow-Headers") || "";
         const controlHeaders = customHeaders
-          .concat(res.getHeader("Access-Control-Allow-Headers")
+          .concat((existingHeaders as string).split(","))
           .filter((h) => h)
-          .join(",");
-        res.header(
-          "Access-Control-Allow-Headers",
-          `${existingHeaders}, ${additionalHeaders}`,
-        );
+          .join(", ");
+        res.header("Access-Control-Allow-Headers", controlHeaders);
         next();
       },
     ],
