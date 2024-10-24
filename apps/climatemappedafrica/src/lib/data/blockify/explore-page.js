@@ -1,15 +1,7 @@
-const apiUrl = process.env.PAYLOAD_PUBLIC_APP_URL;
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
-const fetchProfile = async () => {
-  const data = await fetcher(`${apiUrl}/api/hurumap/profiles`);
-  return data;
-};
-
-const fetchProfileGeography = async (geoCode) => {
-  const data = await fetcher(`${apiUrl}/api/hurumap/geographies/${geoCode}`);
-  return data;
-};
+import {
+  fetchProfile,
+  fetchProfileGeography,
+} from "@/climatemappedafrica/lib/hurumap";
 
 async function explorePage({ slugs }, _, __, hurumap) {
   const {
