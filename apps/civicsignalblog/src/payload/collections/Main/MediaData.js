@@ -45,6 +45,7 @@ const MediaData = {
       editor: slateEditor({
         admin: {
           elements: ["link"],
+          leaves: ["bold", "italic", "underline"],
         },
       }),
     }),
