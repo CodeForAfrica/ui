@@ -1,3 +1,4 @@
+import DataIndicators from "../blocks/DataIndicators";
 import DataVisualisationGuide from "../blocks/DataVisualisationGuide";
 import Hero from "../blocks/Hero";
 import HowItWorks from "../blocks/HowItWorks";
@@ -34,6 +35,7 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [
+        DataIndicators,
         DataVisualisationGuide,
         Hero,
         HowItWorks,

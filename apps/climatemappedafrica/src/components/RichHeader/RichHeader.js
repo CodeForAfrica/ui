@@ -50,8 +50,8 @@ const RichHeader = React.forwardRef(function RichHeader(props, ref) {
               position: "absolute",
               width: "100%",
             },
-            ...TitleProps?.sx,
           },
+          ...TitleProps?.sx,
         }}
       />
       <RichText
