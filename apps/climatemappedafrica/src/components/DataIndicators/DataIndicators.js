@@ -1,11 +1,4 @@
-import {
-  Box,
-  ClickAwayListener,
-  Grid,
-  Dialog,
-  Slide,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, ClickAwayListener, Grid, Slide } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -16,13 +9,7 @@ import bg from "@/climatemappedafrica/assets/images/Mask Group 8.png";
 import Image from "@/climatemappedafrica/components/Image";
 import RichHeader from "@/climatemappedafrica/components/RichHeader";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="left" timeout={300} ref={ref} {...props} />;
-});
-
 function DataIndicators({ indicators, title }) {
-  const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-
   const [checked, setChecked] = useState(false);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
 
@@ -38,69 +25,44 @@ function DataIndicators({ indicators, title }) {
     setCurrentItemIndex(null);
   };
   const currentItem = indicators[currentItemIndex];
-  const panelProps = isDesktop
-    ? {
-        in: checked,
-        mountOnEnter: true,
-        unmountOnExit: true,
-        component: Slide,
-        direction: "left",
-        timeout: 300,
-        sx: ({ palette, breakpoints, typography }) => ({
-          position: "absolute",
-          right: 0,
-          top: 0,
-          backgroundColor: palette.primary.main,
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          flexDirection: "column",
-          color: palette.text.secondary,
-          ...(breakpoints.up("lg") && {
-            width: typography.pxToRem(480),
-            height: typography.pxToRem(600),
-            padding: `${typography.pxToRem(76)} ${typography.pxToRem(84)}`,
-          }),
-        }),
-      }
-    : {
-        open: checked,
-        onClose: resetItemClick,
-        component: Dialog,
-        BackdropProps: {
-          sx: ({ typography }) => ({
-            maxHeight: typography.pxToRem(844),
-            backgroundColor: "transparent",
-          }),
-        },
-        TransitionComponent: Transition,
-        sx: ({ palette, typography, breakpoints }) => ({
-          borderRadius: 0,
-          boxShadow: "none",
-          position: "absolute",
-          backgroundColor: palette.primary.main,
-          right: 0,
-          top: typography.pxToRem(160),
-          overflow: "hidden",
-          margin: "auto 0",
-          height: typography.pxToRem(528),
-          padding: typography.pxToRem(15),
-          ...(breakpoints.up("md") && {
-            width: typography.pxToRem(355),
-            padding: `${typography.pxToRem(50)} ${typography.pxToRem(36)}`,
-          }),
-        }),
-      };
+  const panelProps = {
+    in: checked,
+    mountOnEnter: true,
+    unmountOnExit: true,
+    component: Slide,
+    direction: "left",
+    timeout: 300,
+    sx: ({ palette, typography }) => ({
+      position: "absolute",
+      right: 0,
+      top: { lg: 0, xs: typography.pxToRem(124) },
+      backgroundColor: palette.primary.main,
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
+      flexDirection: "column",
+      color: palette.text.secondary,
+      margin: { xs: "auto 0" },
+      width: { lg: typography.pxToRem(480), xs: typography.pxToRem(390) },
+      height: {
+        md: typography.pxToRem(672),
+        xs: typography.pxToRem(528),
+        lg: typography.pxToRem(600),
+      },
+      padding: {
+        xs: typography.pxToRem(15),
+        md: `${typography.pxToRem(50)} ${typography.pxToRem(36)}`,
+        lg: `${typography.pxToRem(76)} ${typography.pxToRem(84)}`,
+      },
+    }),
+  };
 
   return (
     <Box
-      sx={({ typography, breakpoints }) => ({
+      sx={({ typography }) => ({
         backgroundColor: "#F0F0F0",
-        height: typography.pxToRem(672),
+        height: { xs: typography.pxToRem(672), lg: typography.pxToRem(600) },
         position: "relative",
-        ...(breakpoints.up("lg") && {
-          height: typography.pxToRem(600),
-        }),
       })}
     >
       <Box
@@ -113,13 +75,11 @@ function DataIndicators({ indicators, title }) {
         <Image objectFit="cover" src={bg} layout="fill" />
       </Box>
       <Box
-        sx={({ breakpoints }) => ({
+        sx={{
           display: "flex",
           overflow: "hidden",
-          ...(breakpoints.up("lg") && {
-            position: "relative",
-          }),
-        })}
+          position: { lg: "relative" },
+        }}
       >
         <Box
           sx={({ typography }) => ({
@@ -151,28 +111,22 @@ function DataIndicators({ indicators, title }) {
                 <Grid
                   item
                   key={item.title}
-                  sx={({ typography, breakpoints }) => ({
-                    width: "100%",
+                  sx={({ typography }) => ({
                     marginBottom: typography.pxToRem(16),
-                    display: "flex",
                     justifyContent: "center",
                     transition: "margin-right 0.3s ease-out",
-                    ...(breakpoints.up("lg") && {
-                      display: "initial",
-                      width: "auto",
-                      marginRight: typography.pxToRem(60),
+                    display: { xs: "flex", lg: "initial" },
+                    width: { xs: "100%", lg: "auto" },
+                    mr: { lg: 7.5 },
+                    "&:last-of-type": {
+                      marginRight: 0,
+                    },
+
+                    ...(checked && {
+                      mr: { lg: 2.5 },
                       "&:last-of-type": {
                         marginRight: 0,
                       },
-                    }),
-
-                    ...(checked && {
-                      ...(breakpoints.up("lg") && {
-                        marginRight: typography.pxToRem(20),
-                        "&:last-of-type": {
-                          marginRight: 0,
-                        },
-                      }),
                     }),
                   })}
                 >
@@ -199,11 +153,11 @@ function DataIndicators({ indicators, title }) {
 }
 
 DataIndicators.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.arrayOf(PropTypes.shape({})),
   indicators: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      description: PropTypes.string,
+      description: PropTypes.arrayOf(PropTypes.shape({})),
     }),
   ),
 };

@@ -42,6 +42,12 @@ const DataIndicators = {
           required: true,
           label: "Description",
           localized: true,
+          editor: slateEditor({
+            admin: {
+              elements: ["link"],
+              leaves: ["bold", "code", "italic", "underline"],
+            },
+          }),
         }),
         {
           type: "collapsible",

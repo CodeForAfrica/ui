@@ -3,7 +3,7 @@
 exports[`<DataIndicators /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-gc54c8"
+    class="MuiBox-root css-8h5fdo"
   >
     <div
       class="MuiBox-root css-b4kcmh"
@@ -19,7 +19,7 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="MuiBox-root css-gn696"
+      class="MuiBox-root css-18h5v7w"
     >
       <div
         class="MuiBox-root css-5raypf"
@@ -37,7 +37,7 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-go2vvz-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item css-j3rr61-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-18bgkre-MuiGrid-root"
           >
             <button
               class="MuiButtonBase-root css-72d9li-MuiButtonBase-root"
