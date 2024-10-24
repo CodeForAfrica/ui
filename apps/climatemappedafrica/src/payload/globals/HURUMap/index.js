@@ -26,12 +26,19 @@ const HURUMap = {
     },
     {
       name: "initialLocation",
-      label: "Initial Location",
+      label: {
+        en: "Initial Location",
+      },
       type: "group",
+      localized: true,
       fields: [
         {
           name: "name",
           type: "text",
+          label: {
+            en: "Name",
+          },
+          localized: true,
           required: true,
           hasMany: false,
           defaultValue: "af",
@@ -44,7 +51,10 @@ const HURUMap = {
         },
         {
           name: "center",
-          label: "Center Point",
+          localized: true,
+          label: {
+            en: "Center",
+          },
           type: "point",
           defaultValue: [0.3051933453207569, 37.908818734483155],
         },
