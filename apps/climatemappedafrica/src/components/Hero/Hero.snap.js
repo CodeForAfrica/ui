@@ -76,6 +76,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               />
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall makeStyles-button-11 css-13dk0vd-MuiButtonBase-root-MuiIconButton-root"
+                root="[object Object]"
                 tabindex="0"
                 type="button"
               >
