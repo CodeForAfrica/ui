@@ -17,7 +17,11 @@ const nextConfig = {
   },
   pageExtensions: ["page.js"],
   reactStrictMode: true,
-  transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
+  transpilePackages: [
+    "@commons-ui/core",
+    "@commons-ui/next",
+    "@commons-ui/payload",
+  ],
   webpack: (config) => {
     config.module.rules.push(
       {

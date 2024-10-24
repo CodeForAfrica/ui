@@ -1,7 +1,7 @@
-export const MAIN = "main";
+export const MAIN = "tools";
 export const EXPLORER = "explorer";
-export const TOPIC_MAPPER = "topic-mapper";
-export const SOURCE_MAPPER = "source-manager";
+export const TOPIC_MAPPER = "topics";
+export const SOURCE_MAPPER = "sources";
 export const RESEARCH = "research";
 
 const applicationLabels = {

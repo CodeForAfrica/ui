@@ -41,6 +41,7 @@
     "@aws-sdk/lib-storage": "catalog:",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
     "@emotion/server": "catalog:",

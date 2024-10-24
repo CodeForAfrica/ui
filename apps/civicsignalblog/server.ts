@@ -1,11 +1,12 @@
-import path from "path";
 import { spawn } from "child_process";
+import path from "path";
+
+import { loadEnvConfig } from "@next/env";
 import express from "express";
 import next from "next";
 import nodemailerSendgrid from "nodemailer-sendgrid";
 import payload from "payload";
 import { Payload } from "payload/dist/payload";
-import { loadEnvConfig } from "@next/env";
 
 const dev = process.env.NODE_ENV !== "production";
 const projectDir = process.cwd();
