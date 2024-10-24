@@ -91,7 +91,6 @@ async function explorePage({ slugs }, _, __, hurumap) {
   };
 
   return res;
-  // return {}
 }
 
 export default explorePage;
