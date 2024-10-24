@@ -45,7 +45,6 @@ function DataIndicators({ indicators, title }) {
       margin: { xs: "auto 0" },
       width: { lg: typography.pxToRem(480), xs: typography.pxToRem(390) },
       height: {
-        md: typography.pxToRem(672),
         xs: typography.pxToRem(528),
         lg: typography.pxToRem(600),
       },
