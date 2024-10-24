@@ -11,7 +11,7 @@ import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-function initialState(profiles, onClick, explorePagePath, initialLocation) {
+function initialState(profiles, onClick, explorePagePath, initialLocationCode) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
     options: [
@@ -19,18 +19,18 @@ function initialState(profiles, onClick, explorePagePath, initialLocation) {
       { color: "secondary", onClick },
     ],
     explorePagePath,
-    initialLocation,
+    initialLocationCode,
   };
 }
 
 function ExplorePage({
-  center,
   initialLocation,
   explorePagePath,
   panel: PanelProps = {},
   profile: profileProp,
   ...props
 }) {
+  const { center, name: initialLocationCode } = initialLocation;
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -41,7 +41,12 @@ function ExplorePage({
     setGeoCode(code);
   };
   const [state, dispatch] = useExplore(
-    initialState(profileProp, handleClickTag, explorePagePath, initialLocation),
+    initialState(
+      profileProp,
+      handleClickTag,
+      explorePagePath,
+      initialLocationCode,
+    ),
   );
   useEffect(() => {
     dispatch({
@@ -176,7 +181,10 @@ function ExplorePage({
 
 ExplorePage.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number),
-  initialLocation: PropTypes.string,
+  initialLocation: PropTypes.shape({
+    center: PropTypes.arrayOf(PropTypes.number),
+    name: PropTypes.string,
+  }),
   explorePagePath: PropTypes.string,
   panel: PropTypes.shape({}),
   profile: PropTypes.oneOfType([

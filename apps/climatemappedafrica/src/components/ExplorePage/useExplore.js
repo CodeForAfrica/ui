@@ -20,7 +20,12 @@ function extendProfileTags(profile, options, explorePagePath) {
   return { ...other, tags };
 }
 
-function initializer({ explorePagePath, initialLocation, profiles, options }) {
+function initializer({
+  explorePagePath,
+  initialLocationCode,
+  profiles,
+  options,
+}) {
   const [primary, secondary] = profiles;
   const [primaryOptions, secondaryOptions] = options;
 
@@ -30,12 +35,12 @@ function initializer({ explorePagePath, initialLocation, profiles, options }) {
     primary: extendProfileTags(primary, primaryOptions, explorePagePath),
     secondary: extendProfileTags(secondary, secondaryOptions, explorePagePath),
     explorePagePath,
-    initialLocation,
+    initialLocationCode,
   };
 }
 
 function reducer(state, action) {
-  const { explorePagePath, initialLocation } = state;
+  const { explorePagePath, initialLocationCode } = state;
   switch (action.type) {
     case "fetch": {
       const code = action.payload?.code;
@@ -85,7 +90,7 @@ function reducer(state, action) {
       return state;
     }
     case "pin":
-      if (state.primary.geography.code.toLowerCase() !== initialLocation) {
+      if (state.primary.geography.code.toLowerCase() !== initialLocationCode) {
         return { ...state, isPinning: true };
       }
       return { ...state, isPinning: false };

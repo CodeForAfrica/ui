@@ -54,27 +54,6 @@ function getNavBar(siteSettings, variant, { slug }) {
   };
 }
 
-async function processExplorePage(slugs, hurumap, explorePage) {
-  const {
-    initialLocation: { name, center },
-  } = hurumap;
-  const slug = slugs.length ? slugs[0] : name;
-  const blocks = await blockify([
-    {
-      blockType: "explore-page",
-      center,
-      initialLocation: name,
-      slug: slug.trim().toLowerCase(),
-      explorePagePath: explorePage.slug,
-    },
-    {
-      blockType: "tutorial",
-    },
-  ]);
-
-  return blocks;
-}
-
 export async function getPageProps(api, context) {
   // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
   // so params.slugs[0] is good enough
@@ -104,7 +83,17 @@ export async function getPageProps(api, context) {
   const menus = getNavBar(siteSettings, variant, explorePage);
 
   if (slug === explorePage.slug) {
-    blocks = await processExplorePage(slugs.slice(1), hurumap, explorePage);
+    // The explore page is a special case. The only block we need to render is map and tutorial.
+    const explorePageBlocks = [
+      {
+        blockType: "explore-page",
+        slugs: slugs.slice(1),
+      },
+      {
+        blockType: "tutorial",
+      },
+    ];
+    blocks = await blockify(explorePageBlocks, api, context, hurumap);
   }
 
   return {

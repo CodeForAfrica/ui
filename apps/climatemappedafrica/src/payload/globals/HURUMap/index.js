@@ -55,6 +55,15 @@ const HURUMap = {
           type: "point",
           defaultValue: [20.0, 4.25],
         },
+        {
+          name: "pinInitialLocation",
+          type: "checkbox",
+          localized: true,
+          label: {
+            en: "Allow pinning of initial location",
+          },
+          defaultValue: false,
+        },
       ],
     },
   ],

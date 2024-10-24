@@ -11,12 +11,13 @@ const fetchProfileGeography = async (geoCode) => {
   return data;
 };
 
-async function explorePage({
-  slug: code,
-  center,
-  initialLocation,
-  explorePagePath,
-}) {
+async function explorePage({ slugs }, _, __, hurumap) {
+  const {
+    initialLocation,
+    page: { value },
+  } = hurumap;
+  const { name } = initialLocation;
+  const code = slugs.length ? slugs[0] : name;
   const hurumapProfile = await fetchProfile();
 
   const { locations, preferredChildren, mapType, choropleth } = hurumapProfile;
@@ -86,10 +87,9 @@ async function explorePage({
   const res = {
     id: "explore-page",
     blockType: "explore-page",
-    center,
     choropleth,
     initialLocation,
-    explorePagePath,
+    explorePagePath: value.slug,
     locations,
     mapType,
     panel,
@@ -99,6 +99,7 @@ async function explorePage({
   };
 
   return res;
+  // return {}
 }
 
 export default explorePage;
