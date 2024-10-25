@@ -87,8 +87,8 @@ const HURUMap = {
           localized: true,
           required: true,
           admin: {
+            initCollapsed: true,
             components: {
-              initCollapsed: true,
               RowLabel: ({ data, index }) => {
                 return data?.title || `Item ${String(index).padStart(2, "0")}`;
               },
