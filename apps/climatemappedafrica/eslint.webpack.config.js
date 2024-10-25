@@ -19,7 +19,6 @@ module.exports = {
   resolve: {
     alias: {
       "@/climatemappedafrica": path.resolve(__dirname, "src/"),
-      content: path.resolve(__dirname, "content/"),
     },
     extensions: [".js"],
   },

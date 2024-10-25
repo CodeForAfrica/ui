@@ -6,7 +6,7 @@ const LocationTagRoot = styled(Box, {
   shouldForwardProp: (prop) =>
     !["active", "highlight", "variant"].includes(prop),
 })(({ active, theme, variant }) => {
-  const { palette, typography } = theme;
+  const { palette, spacing, typography } = theme;
   let color = palette.text.primary;
   let backgroundColor = palette.background.default;
   if (variant === "highlight") {
@@ -20,6 +20,7 @@ const LocationTagRoot = styled(Box, {
     boxShadow: "0px 3px 6px #00000029",
     color,
     height: typography.pxToRem(36),
+    padding: `0 ${spacing(1.25)}`,
     position: "relative",
     minWidth: typography.pxToRem(88),
   };
@@ -49,7 +50,7 @@ const LevelTypography = styled("h6", {
     borderRadius: typography.pxToRem(4),
     color: palette.text.secondary,
     fontSize: typography.pxToRem(7),
-    fontWeight: "bold",
+    fontWeight: 600,
     letterSpacing: "0.56px",
     lineHeight: 10 / 7,
     margin: 0,
@@ -64,7 +65,7 @@ const LevelTypography = styled("h6", {
 const NameTypography = styled("div")(({ theme }) => {
   return {
     fontSize: theme.typography.pxToRem(9),
-    fontWeight: "bold",
+    fontWeight: 600,
     lineHeight: 13 / 9,
     margin: "auto",
     textTransform: "capitalize",

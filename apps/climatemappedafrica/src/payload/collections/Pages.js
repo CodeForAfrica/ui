@@ -1,3 +1,7 @@
+import DataIndicators from "../blocks/DataIndicators";
+import DataVisualisationGuide from "../blocks/DataVisualisationGuide";
+import Hero from "../blocks/Hero";
+import HowItWorks from "../blocks/HowItWorks";
 import PageHero from "../blocks/PageHero";
 import Summary from "../blocks/Summary";
 import Team from "../blocks/Team";
@@ -30,7 +34,15 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [PageHero, Summary, Team],
+      blocks: [
+        DataIndicators,
+        DataVisualisationGuide,
+        Hero,
+        HowItWorks,
+        PageHero,
+        Summary,
+        Team,
+      ],
       localized: true,
       admin: {
         initCollapsed: true,

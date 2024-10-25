@@ -1067,9 +1067,6 @@ importers:
       '@hurumap/next':
         specifier: workspace:*
         version: link:../../packages/hurumap-next
-      '@mui/lab':
-        specifier: catalog:mui-styles
-        version: 5.0.0-alpha.173(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@mui/material@5.16.7(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material':
         specifier: catalog:mui-styles
         version: 5.16.7(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1079,6 +1076,9 @@ importers:
       '@mui/utils':
         specifier: catalog:mui-styles
         version: 5.16.6(@types/react@18.3.10)(react@18.3.1)
+      '@mui/x-tree-view':
+        specifier: 'catalog:'
+        version: 7.18.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@mui/material@5.16.7(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@5.16.7(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react@18.3.1))(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@next/env':
         specifier: 'catalog:'
         version: 14.2.13
@@ -1178,6 +1178,9 @@ importers:
       simplebar-react:
         specifier: 'catalog:'
         version: 3.2.6(react@18.3.1)
+      slate:
+        specifier: 'catalog:'
+        version: 0.103.0
       swr:
         specifier: 'catalog:'
         version: 2.2.5(react@18.3.1)
@@ -22812,7 +22815,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.30.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@8.57.1)
+      eslint-plugin-import: 2.30.0(eslint-import-resolver-webpack@0.13.9)(eslint@8.57.1)
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0

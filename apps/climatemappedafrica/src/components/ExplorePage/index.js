@@ -11,17 +11,37 @@ import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
-function initialState(profiles, onClick) {
+function initialState(
+  profiles,
+  onClick,
+  explorePagePath,
+  initialLocationCode,
+  pinInitialLocation,
+) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
     options: [
       { color: "primary", onClick },
       { color: "secondary", onClick },
     ],
+    explorePagePath,
+    initialLocationCode,
+    pinInitialLocation,
   };
 }
 
-function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
+function ExplorePage({
+  initialLocation,
+  explorePagePath,
+  panel: PanelProps = {},
+  profile: profileProp,
+  ...props
+}) {
+  const {
+    center,
+    name: initialLocationCode,
+    pinInitialLocation,
+  } = initialLocation;
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -32,23 +52,43 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
     setGeoCode(code);
   };
   const [state, dispatch] = useExplore(
-    initialState(profileProp, handleClickTag),
+    initialState(
+      profileProp,
+      handleClickTag,
+      explorePagePath,
+      initialLocationCode,
+      pinInitialLocation,
+    ),
   );
   useEffect(() => {
     dispatch({
       type: "reset",
-      payload: initialState(profileProp, handleClickTag),
+      payload: initialState(
+        profileProp,
+        handleClickTag,
+        explorePagePath,
+        initialLocationCode,
+        pinInitialLocation,
+      ),
     });
-  }, [dispatch, profileProp]);
+  }, [
+    dispatch,
+    profileProp,
+    explorePagePath,
+    initialLocationCode,
+    pinInitialLocation,
+  ]);
   useEffect(() => {
     if (geoCode) {
       dispatch({ type: "fetch", payload: { code: geoCode } });
     }
   }, [dispatch, geoCode]);
+
   const router = useRouter();
   const shouldFetch = () =>
     (state.primary.shouldFetch && state.primary.code) ||
     (state.secondary?.shouldFetch && state.secondary?.code);
+
   const { data, error } = useProfileGeography(shouldFetch);
   useEffect(() => {
     if (data) {
@@ -59,13 +99,23 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
     }
   }, [dispatch, data]);
 
+  // Update URL when state.slug changes
+  useEffect(() => {
+    if (state.slug) {
+      const href = `/${explorePagePath}/${state.slug}`;
+      router.push(href, href, { shallow: true });
+    }
+    // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.slug]);
+
   const handleSelectLocation = (payload) => {
     const { code } = payload;
     const newPath =
       state.isPinning || state.isCompare
         ? `${state.primary.geography.code}-vs-${code}`
         : `${code}`;
-    const href = `/explore/${newPath.toLowerCase()}`;
+    const href = `/${explorePagePath}/${newPath.toLowerCase()}`;
     router.push(href, href, { shallow: true });
     const type = state.isPinning && state.isCompare ? "compare" : "fetch";
     dispatch({ type, payload });
@@ -86,14 +136,6 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
     }
     dispatch({ type: "unpin", payload });
   };
-  useEffect(() => {
-    if (state.slug) {
-      const href = `/explore/${state.slug}`;
-      router.push(href, href, { shallow: true });
-    }
-    // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.slug]);
 
   const isLoading = shouldFetch() && !(data || error);
   const {
@@ -119,7 +161,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
       >
         <div className={classes.root}>
           <Map
-            center={[0.3051933453207569, 37.908818734483155]}
+            center={center}
             geography={geography}
             secondaryGeography={state.secondary?.geography}
             geometries={geometries}
@@ -143,7 +185,7 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
                 position: "absolute",
                 right: 0,
                 top: theme.typography.pxToRem(52),
-                zIndex: theme.zIndex.appBar,
+                zIndex: theme.zIndex.appBar - 1,
               },
             }}
           />
@@ -159,15 +201,21 @@ function ExplorePage({ panelProps, profile: profileProp, apiUri, ...props }) {
         onSelectLocation={handleSelectLocation}
         primaryProfile={state.primary}
         secondaryProfile={state.secondary}
-        {...panelProps}
+        {...PanelProps}
       />
     </>
   );
 }
 
 ExplorePage.propTypes = {
-  apiUri: PropTypes.string,
-  panelProps: PropTypes.shape({}),
+  center: PropTypes.arrayOf(PropTypes.number),
+  initialLocation: PropTypes.shape({
+    center: PropTypes.arrayOf(PropTypes.number),
+    name: PropTypes.string,
+    pinInitialLocation: PropTypes.bool,
+  }),
+  explorePagePath: PropTypes.string,
+  panel: PropTypes.shape({}),
   profile: PropTypes.oneOfType([
     PropTypes.shape({
       geography: PropTypes.shape({}),
