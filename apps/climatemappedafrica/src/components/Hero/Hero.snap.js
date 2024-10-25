@@ -23,13 +23,13 @@ exports[`<Hero /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-aq6k25-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-1totwg2-MuiGrid-root"
         >
           <header
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiBox-root css-1c55nth"
+              class="MuiBox-root css-b8dxf0"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"
