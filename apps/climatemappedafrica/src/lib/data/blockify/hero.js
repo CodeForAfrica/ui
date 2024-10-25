@@ -3,7 +3,7 @@ import {
   fetchProfileGeography,
 } from "@/climatemappedafrica/lib/hurumap";
 
-export default async function hero(block, _, __, hurumap) {
+export default async function hero({ block, hurumap }) {
   const {
     initialLocation: { center, name },
   } = hurumap;

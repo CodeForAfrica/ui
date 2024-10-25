@@ -18,7 +18,7 @@ export const blockify = async (blocks, api, context, hurumap) => {
     const propsifyBlock = propsifyBlockBySlug[slug];
 
     if (propsifyBlock) {
-      return propsifyBlock(block, api, context, hurumap);
+      return propsifyBlock({ block, api, context, hurumap });
     }
     return {
       ...block,

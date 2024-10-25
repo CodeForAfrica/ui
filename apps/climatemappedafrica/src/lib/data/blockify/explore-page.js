@@ -3,7 +3,7 @@ import {
   fetchProfileGeography,
 } from "@/climatemappedafrica/lib/hurumap";
 
-async function explorePage({ slugs }, _, __, hurumap) {
+async function explorePage({ block: { slugs }, hurumap }) {
   const {
     initialLocation,
     page: { value },
