@@ -13,6 +13,7 @@ import Section from "@/climatemappedafrica/components/Section";
 const Map = dynamic(() => import("./Map"), { ssr: false });
 
 function Hero({
+  center,
   comment,
   title,
   subtitle,
@@ -20,7 +21,6 @@ function Hero({
   featuredLocations,
   searchPlaceholder,
   properties,
-  location: { center },
   level,
   ...props
 }) {
@@ -151,6 +151,7 @@ function Hero({
 }
 
 Hero.propTypes = {
+  center: PropTypes.arrayOf(PropTypes.number),
   comment: PropTypes.string,
   subtitle: PropTypes.arrayOf(PropTypes.shape({})),
   searchLabel: PropTypes.string,

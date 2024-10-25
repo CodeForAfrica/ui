@@ -2,7 +2,7 @@ import { useReducer } from "react";
 
 import Link from "@/climatemappedafrica/components/Link";
 
-function extendProfileTags(profile, options) {
+function extendProfileTags(profile, options, explorePagePath) {
   const { tags: originalTags, ...other } = profile || {};
   if (!originalTags) {
     return profile;
@@ -12,7 +12,7 @@ function extendProfileTags(profile, options) {
     ...otherTags,
     code,
     component: Link,
-    href: `/explore/${code.toLowerCase()}`,
+    href: `/${explorePagePath}/${code.toLowerCase()}`,
     shallow: true,
     underline: "none",
     ...options,
@@ -20,19 +20,29 @@ function extendProfileTags(profile, options) {
   return { ...other, tags };
 }
 
-function initializer({ profiles, options }) {
+function initializer({
+  explorePagePath,
+  initialLocationCode,
+  profiles,
+  pinInitialLocation,
+  options,
+}) {
   const [primary, secondary] = profiles;
   const [primaryOptions, secondaryOptions] = options;
 
   return {
     isPinning: false,
     isCompare: !!(primary && secondary),
-    primary: extendProfileTags(primary, primaryOptions),
-    secondary: extendProfileTags(secondary, secondaryOptions),
+    primary: extendProfileTags(primary, primaryOptions, explorePagePath),
+    secondary: extendProfileTags(secondary, secondaryOptions, explorePagePath),
+    explorePagePath,
+    initialLocationCode,
+    pinInitialLocation,
   };
 }
 
 function reducer(state, action) {
+  const { explorePagePath, initialLocationCode, pinInitialLocation } = state;
   switch (action.type) {
     case "fetch": {
       const code = action.payload?.code;
@@ -67,10 +77,14 @@ function reducer(state, action) {
         );
         if (profileType) {
           const newState = { ...state };
-          newState[profileType] = extendProfileTags(profile, {
-            ...others,
-            color: profileType,
-          });
+          newState[profileType] = extendProfileTags(
+            profile,
+            {
+              ...others,
+              color: profileType,
+            },
+            explorePagePath,
+          );
           return newState;
         }
       }
@@ -78,10 +92,10 @@ function reducer(state, action) {
       return state;
     }
     case "pin":
-      if (state.primary.geography.code.toLowerCase() !== "af") {
+      if (state.primary.geography.code.toLowerCase() !== initialLocationCode) {
         return { ...state, isPinning: true };
       }
-      return { ...state, isPinning: false };
+      return { ...state, isPinning: pinInitialLocation };
     case "compare": {
       const code = action.payload?.code;
       if (code) {
@@ -101,9 +115,13 @@ function reducer(state, action) {
         newState.secondary = undefined;
       } else if (state.primary?.geography?.code === code && state.secondary) {
         // NOTE: need to reset color from secondary back to primary as well
-        newState.primary = extendProfileTags(state.secondary, {
-          color: "primary",
-        });
+        newState.primary = extendProfileTags(
+          state.secondary,
+          {
+            color: "primary",
+          },
+          explorePagePath,
+        );
         newState.secondary = undefined;
       }
       newState.secondary = undefined;

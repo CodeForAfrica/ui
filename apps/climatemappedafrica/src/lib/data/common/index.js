@@ -34,7 +34,7 @@ function getFooter(siteSettings, variant) {
   };
 }
 
-function getNavBar(siteSettings, variant) {
+function getNavBar(siteSettings, variant, { slug }) {
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -47,6 +47,7 @@ function getNavBar(siteSettings, variant) {
   return {
     logo: imageFromMedia(title, primaryLogo.url),
     drawerLogo: imageFromMedia(title, drawerLogo.url),
+    explorePagePath: slug,
     menus,
     socialLinks,
     variant,
@@ -74,12 +75,26 @@ export async function getPageProps(api, context) {
     page: { value: explorePage },
   } = hurumap;
 
-  const blocks = await blockify(page.blocks, api, context);
+  let blocks = await blockify(page.blocks, api, context, hurumap);
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
-  const menus = getNavBar(siteSettings, variant);
+  const menus = getNavBar(siteSettings, variant, explorePage);
+
+  if (slug === explorePage.slug) {
+    // The explore page is a special case. The only block we need to render is map and tutorial.
+    const explorePageBlocks = [
+      {
+        blockType: "explore-page",
+        slugs: slugs.slice(1),
+      },
+      {
+        blockType: "tutorial",
+      },
+    ];
+    blocks = await blockify(explorePageBlocks, api, context, hurumap);
+  }
 
   return {
     blocks,

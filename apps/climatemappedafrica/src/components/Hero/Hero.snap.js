@@ -64,6 +64,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               blocktype="hero"
               boundary="[object Object]"
               class="MuiInputBase-root makeStyles-inputRoot-8 MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1illudf-MuiInputBase-root"
+              location="[object Object]"
               slug="hero"
             >
               <input

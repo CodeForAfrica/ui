@@ -8,7 +8,7 @@ import { equalsIgnoreCase } from "@/climatemappedafrica/utils";
 const getCountryFromCode = (alpha3) =>
   countries.find((c) => equalsIgnoreCase(c.alpha3, alpha3)) ?? null;
 
-async function team(block, api, context) {
+async function team({ block, api, context }) {
   const { query } = context;
   const data = await getMembers(api, query);
   let members = null;

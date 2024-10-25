@@ -3,10 +3,11 @@ import {
   fetchProfileGeography,
 } from "@/climatemappedafrica/lib/hurumap";
 
-export default async function hero(block) {
-  const { geometries } = await fetchProfileGeography(
-    block.location?.name?.toLowerCase(),
-  );
+export default async function hero({ block, hurumap }) {
+  const {
+    initialLocation: { center, name },
+  } = hurumap;
+  const { geometries } = await fetchProfileGeography(name.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
     continent: "country",
@@ -24,6 +25,7 @@ export default async function hero(block) {
   const boundary = children[preferredLevel];
   return {
     ...block,
+    center,
     slug: "hero",
     boundary,
     featuredLocations,
