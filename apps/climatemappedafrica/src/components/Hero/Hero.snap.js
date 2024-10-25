@@ -17,7 +17,7 @@ exports[`<Hero /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-ihladk"
+      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-1gf8bce"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -26,7 +26,7 @@ exports[`<Hero /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-1 css-1jqjbj5-MuiGrid-root"
         />
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-1m8qxtw-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-aq6k25-MuiGrid-root"
         >
           <header
             class="MuiBox-root css-0"

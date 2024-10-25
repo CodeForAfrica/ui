@@ -49,6 +49,7 @@ function Hero({
       <Section
         sx={{
           paddingBottom: { xs: "40px", md: "22px", lg: "22px" },
+          px: 0,
         }}
       >
         <Grid container>
@@ -62,13 +63,7 @@ function Hero({
             item
             lg={1}
           />
-          <Grid
-            sx={{ px: { xs: 2.5 }, pb: { xs: 5 } }}
-            item
-            xs={12}
-            md={7}
-            lg={6}
-          >
+          <Grid sx={{ pb: { xs: 5 } }} item xs={12} md={7} lg={6}>
             <RichHeader
               subtitle={subtitle}
               TitleProps={{
