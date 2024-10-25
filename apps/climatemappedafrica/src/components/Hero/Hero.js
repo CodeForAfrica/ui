@@ -53,11 +53,12 @@ function Hero({
         }}
       >
         <Grid container>
-          <Grid sx={{ pb: { xs: 5 } }} item xs={12} md={7} lg={6}>
+          <Grid item xs={12} md={7} lg={6}>
             <RichHeader
               subtitle={subtitle}
               TitleProps={{
                 sx: {
+                  pb: { xs: 5 },
                   marginTop: { xs: "40px", md: "46px", lg: "65px" },
                 },
               }}
