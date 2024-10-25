@@ -1,4 +1,4 @@
-import RichTypography from "@commons-ui/core/RichTypography";
+import { RichText } from "@commons-ui/payload";
 import { Grid, Typography, IconButton, Avatar } from "@mui/material";
 import { useTour } from "@reactour/tour";
 import Image from "next/image";
@@ -56,9 +56,18 @@ function TutorialStep({ description, title, image, selector, ...props }) {
             </Avatar>
           </Grid>
           <Grid item xs={8}>
-            <RichTypography className={classes.description}>
-              {description}
-            </RichTypography>
+            <RichText
+              elements={description}
+              sx={(theme) => ({
+                marginLeft: theme.typography.pxToRem(16),
+                width: theme.typography.pxToRem(278),
+                lineHeight: 30 / 16,
+                "& p": {
+                  marginTop: 0,
+                  marginBottom: theme.typography.pxToRem(32),
+                },
+              })}
+            />
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -70,7 +79,7 @@ function TutorialStep({ description, title, image, selector, ...props }) {
 }
 
 TutorialStep.propTypes = {
-  description: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   image: PropTypes.string,
   onClose: PropTypes.func,
   title: PropTypes.string,

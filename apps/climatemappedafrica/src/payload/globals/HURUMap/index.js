@@ -86,6 +86,14 @@ const HURUMap = {
           type: "array",
           localized: true,
           required: true,
+          admin: {
+            components: {
+              initCollapsed: true,
+              RowLabel: ({ data, index }) => {
+                return data?.title || `Item ${String(index).padStart(2, "0")}`;
+              },
+            },
+          },
           fields: [
             {
               name: "title",
@@ -127,6 +135,9 @@ const HURUMap = {
               type: "text",
               localized: true,
               required: true,
+              admin: {
+                description: "CSS selector for the element to highlight",
+              },
             },
             image({
               overrides: {
