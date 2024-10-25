@@ -85,11 +85,15 @@ const Profile = forwardRef(function Profile(
   return (
     <Box
       sx={[
-        ({ palette, typography, zIndex }) => ({
+        ({ palette, typography, widths, zIndex }) => ({
           backgroundColor: palette.background.default,
+          // must match min width of TreeView
+          left: {
+            lg: `max(calc((100vw - ${widths.values.lg}px)/2 + 79px), 300px)`,
+          },
           marginLeft: {
             xs: typography.pxToRem(20),
-            lg: `max(calc((100vw - 1160px)/2 + 79px), 300px)`,
+            lg: 0,
           },
           marginRight: {
             xs: typography.pxToRem(20),
@@ -104,10 +108,11 @@ const Profile = forwardRef(function Profile(
             md: typography.pxToRem(80),
             lg: typography.pxToRem(17),
           },
-          width: { lg: typography.pxToRem(800) },
-          minHeight: { lg: "100%" },
           paddingTop: { lg: typography.pxToRem(67.7) },
           paddingRight: { lg: typography.pxToRem(17) },
+          position: { lg: "absolute" },
+          width: { lg: typography.pxToRem(800) },
+          minHeight: { lg: "100%" },
           zIndex: { lg: zIndex.drawer },
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
