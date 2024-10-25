@@ -1,4 +1,8 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
+import image from "../../fields/image";
 import LocationSelect, { validateLocation } from "../../fields/LocationSelect";
+import richText from "../../fields/richText";
 
 const HURUMap = {
   slug: "settings-hurumap",
@@ -66,44 +70,74 @@ const HURUMap = {
         },
       ],
     },
-    // {
-    //   name: 'tutorialPanel',
-    //   label: {
-    //     en: 'Tutorial Panel',
-    //   },
-    //   type: 'group',
-    //   localized: true,
-    //   fields: [
-    //     {
-    //       name: 'title',
-    //       label: {
-    //         en: 'Title',
-    //       },
-    //       type: 'text',
-    //       localized: true,
-    //       required: true,
-    //     },
-    //     {
-    //       name: 'description',
-    //       label: {
-    //         en: 'Description',
-    //       },
-    //       type: 'textarea',
-    //       localized: true,
-    //       required: true,
-    //     },
-    //     {
-    //       name: 'image',
-    //       label: {
-    //         en: 'Image',
-    //       },
-    //       type: 'image',
-    //       localized: true,
-    //       required: true,
-
-    //     }
-    //   ]
-    // }
+    {
+      name: "tutorialPanel",
+      label: {
+        en: "Tutorial Panel",
+      },
+      type: "group",
+      localized: true,
+      fields: [
+        {
+          name: "items",
+          label: {
+            en: "Items",
+          },
+          type: "array",
+          localized: true,
+          required: true,
+          fields: [
+            {
+              name: "title",
+              label: {
+                en: "Title",
+              },
+              type: "text",
+              localized: true,
+              required: true,
+            },
+            richText({
+              name: "description",
+              label: {
+                en: "Description",
+              },
+              editor: slateEditor({
+                admin: {
+                  elements: [
+                    "h3",
+                    "h4",
+                    "h5",
+                    "h6",
+                    "link",
+                    "ol",
+                    "ul",
+                    "indent",
+                  ],
+                  leaves: ["bold", "code", "italic", "underline"],
+                },
+              }),
+              required: true,
+              localized: true,
+            }),
+            {
+              name: "selector",
+              label: {
+                en: "Selector",
+              },
+              type: "text",
+              localized: true,
+              required: true,
+            },
+            image({
+              overrides: {
+                name: "image",
+                required: true,
+              },
+            }),
+          ],
+        },
+      ],
+    },
   ],
 };
 
