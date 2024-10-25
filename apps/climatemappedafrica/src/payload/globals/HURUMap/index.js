@@ -66,6 +66,44 @@ const HURUMap = {
         },
       ],
     },
+    // {
+    //   name: 'tutorialPanel',
+    //   label: {
+    //     en: 'Tutorial Panel',
+    //   },
+    //   type: 'group',
+    //   localized: true,
+    //   fields: [
+    //     {
+    //       name: 'title',
+    //       label: {
+    //         en: 'Title',
+    //       },
+    //       type: 'text',
+    //       localized: true,
+    //       required: true,
+    //     },
+    //     {
+    //       name: 'description',
+    //       label: {
+    //         en: 'Description',
+    //       },
+    //       type: 'textarea',
+    //       localized: true,
+    //       required: true,
+    //     },
+    //     {
+    //       name: 'image',
+    //       label: {
+    //         en: 'Image',
+    //       },
+    //       type: 'image',
+    //       localized: true,
+    //       required: true,
+
+    //     }
+    //   ]
+    // }
   ],
 };
 
