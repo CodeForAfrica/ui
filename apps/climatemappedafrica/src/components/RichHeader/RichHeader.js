@@ -30,7 +30,7 @@ const RichHeader = React.forwardRef(function RichHeader(props, ref) {
       </RichTypography>
       <RichText
         {...TitleProps}
-        typographyProps={{
+        TypographyProps={{
           variant: "h1",
           ...TitleProps?.typographyProps,
         }}
@@ -50,13 +50,13 @@ const RichHeader = React.forwardRef(function RichHeader(props, ref) {
               position: "absolute",
               width: "100%",
             },
-            ...TitleProps?.sx,
           },
+          ...TitleProps?.sx,
         }}
       />
       <RichText
         {...SubtitleProps}
-        typographyProps={{
+        TypographyProps={{
           variant: "subtitle1",
           sx: (theme) => ({
             textDecorationColor: theme.palette.text.primary,

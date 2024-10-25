@@ -138,7 +138,7 @@ const theme = createTheme({
   },
 });
 
-const { palette, typography, breakpoints, overrides } = theme;
+const { breakpoints, components, palette, typography } = theme;
 const { pxToRem } = typography;
 // Typography
 deepmerge(
@@ -247,7 +247,7 @@ deepmerge(
 
 // Overrides
 deepmerge(
-  overrides,
+  components,
   {
     MuiCssBaseline: {
       "@global": {
@@ -255,6 +255,14 @@ deepmerge(
           cursor: `url(${hoverIcon.src}), pointer !important`,
         },
       },
+      styleOverrides: `
+        blockquote {
+          border-left: 2px solid #333333;
+          /* MuiTypography-root has margin-left: 0 that we must override */
+          margin-left: -8px !important;
+          padding-left: 6px;
+        }
+      `,
     },
     MuiButton: {
       root: {

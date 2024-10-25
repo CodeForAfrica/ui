@@ -56,9 +56,9 @@ function getNavBar(siteSettings, variant, { slug }) {
 
 export async function getPageProps(api, context) {
   // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
-  // so params.slugs[0] is good enough
-  const slugs = context.params?.slugs || ["index"];
-  const [slug] = slugs;
+  // so params.slug[0] is good enough
+  const slugs = context.params?.slugs || undefined;
+  const [slug] = slugs || ["index"];
   const { draftMode = false } = context;
   const options = { draft: draftMode };
 

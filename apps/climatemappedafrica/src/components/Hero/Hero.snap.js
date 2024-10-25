@@ -32,7 +32,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiBox-root css-pps1ft"
+              class="MuiBox-root css-1c55nth"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"
@@ -77,6 +77,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               />
               <button
                 class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall makeStyles-button-11 css-13dk0vd-MuiButtonBase-root-MuiIconButton-root"
+                root="[object Object]"
                 tabindex="0"
                 type="button"
               >
