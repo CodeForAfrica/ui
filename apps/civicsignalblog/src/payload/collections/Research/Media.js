@@ -1,3 +1,5 @@
+import isAdminOrEditor from "#civicsignalblog/payload/access/isAdminOrEditor";
+
 const Media = {
   slug: "media",
   admin: {
@@ -8,6 +10,9 @@ const Media = {
   },
   access: {
     read: () => true, // Everyone can read Media
+    update: isAdminOrEditor,
+    create: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   upload: {
     staticURL: "/media",

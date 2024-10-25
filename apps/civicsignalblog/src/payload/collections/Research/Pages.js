@@ -1,4 +1,5 @@
 import canRead from "#civicsignalblog/payload/access/applications/research";
+import isAdminOrEditor from "#civicsignalblog/payload/access/isAdminOrEditor";
 import CustomPageHeader from "#civicsignalblog/payload/blocks/CustomPageHeader";
 import Error from "#civicsignalblog/payload/blocks/Error";
 import FeaturedStories from "#civicsignalblog/payload/blocks/FeaturedStories";
@@ -23,6 +24,9 @@ const Pages = pages({
   ],
   access: {
     read: canRead,
+    update: isAdminOrEditor,
+    create: isAdminOrEditor,
+    delete: isAdminOrEditor,
   },
   adminOptions: {
     description: "Research",
