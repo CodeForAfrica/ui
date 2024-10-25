@@ -4,7 +4,7 @@ import React from "react";
 
 import RichData from "./RichData";
 
-import PrintIcon from "@/climatemappedafrica/assets/icons/print.svg";
+import PrintIcon from "@/climatemappedafrica/assets/icons/print.svg?url";
 import TopIcon from "@/climatemappedafrica/assets/icons/top.svg";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";

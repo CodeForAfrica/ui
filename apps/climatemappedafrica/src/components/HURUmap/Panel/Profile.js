@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 
 import ProfileItems from "./ProfileItems";
 
-import Print from "@/climatemappedafrica/assets/icons/print.svg";
+import Print from "@/climatemappedafrica/assets/icons/print.svg?url";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
 import Loading from "@/climatemappedafrica/components/Loading";
