@@ -4,6 +4,7 @@ import richText from "../fields/richText";
 
 const Summary = {
   slug: "summary",
+  imageURL: "/images/payload/blocks/summary.jpg",
   fields: [
     {
       name: "title",
@@ -30,8 +31,35 @@ const Summary = {
       },
       editor: slateEditor({
         admin: {
-          elements: ["link", "ol", "ul", "indent"],
-          leaves: ["bold", "code", "italic", "underline"],
+          elements: [
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "blockquote",
+            "link",
+            "ol",
+            "ul",
+            "indent",
+            "relationship",
+            "upload",
+            "textAlign",
+          ],
+          leaves: ["bold", "code", "italic", "strikethrough", "underline"],
+          upload: {
+            collections: {
+              media: {
+                fields: [
+                  {
+                    name: "caption",
+                    type: "text",
+                    localized: true,
+                  },
+                ],
+              },
+            },
+          },
         },
       }),
       required: true,

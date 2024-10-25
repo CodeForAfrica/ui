@@ -3,7 +3,7 @@ import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
-import React, { memo, Fragment } from "react";
+import React, { Fragment, memo } from "react";
 
 import CategoryHeader from "@/climatemappedafrica/components/HURUmap/CategoryHeader";
 import KeyMetric from "@/climatemappedafrica/components/HURUmap/KeyMetric";

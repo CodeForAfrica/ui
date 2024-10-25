@@ -76,7 +76,7 @@ function AboutTeam({ title, members: membersProp, ...props }) {
               key={uniqueId("team-chunk-")}
             >
               {membersChunks.map((member) => (
-                <Grid item key={title}>
+                <Grid item key={member.title}>
                   <Card {...member} mediaProps={{ square: true }} />
                 </Grid>
               ))}

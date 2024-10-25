@@ -4,8 +4,20 @@ import { Box } from "@mui/material";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
+import Media from "./Media";
+
 const DEFAULT_PROPS = {
   html: false,
+};
+
+const mostIndentedNode = (node) => {
+  let level = 1;
+  let indentedNode = node;
+  while (indentedNode.children?.type === "indent") {
+    level += 1;
+    indentedNode = indentedNode.children;
+  }
+  return { level, indentedNode };
 };
 
 const serialize = (children, props) =>
@@ -21,6 +33,12 @@ const serialize = (children, props) =>
       if (node.italic) {
         text = <em key={i}>{text}</em>;
       }
+      if (node.strikethrough) {
+        text = <s key={i}>{text}</s>;
+      }
+      if (node.underline) {
+        text = <u key={i}>{text}</u>;
+      }
 
       // Handle other leaf types here...
 
@@ -30,75 +48,109 @@ const serialize = (children, props) =>
     if (!node) {
       return null;
     }
-    // TODO(kilemensi): handle node.type === indent
+    const TypographyProps = { ...DEFAULT_PROPS, ...props.TypographyProps };
     switch (node.type) {
       case "h1":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h1" key={i}>
+          <RichTypography {...TypographyProps} variant="h1" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h2":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h2" key={i}>
+          <RichTypography {...TypographyProps} variant="h2" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h3":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h3" key={i}>
+          <RichTypography {...TypographyProps} variant="h3" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h4":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h4" key={i}>
+          <RichTypography {...TypographyProps} variant="h4" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h5":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h5" key={i}>
+          <RichTypography {...TypographyProps} variant="h5" key={i}>
             {serialize(node.children)}
           </RichTypography>
         );
       case "h6":
         return (
-          <RichTypography {...DEFAULT_PROPS} {...props} variant="h6" key={i}>
+          <RichTypography {...TypographyProps} variant="h6" key={i}>
+            {serialize(node.children)}
+          </RichTypography>
+        );
+      case "indent": {
+        const { level, indentedNode } = mostIndentedNode(node);
+        // TODO(kilemensi): Can we pass `level` to children & use `text-indent`?
+        return (
+          <Box
+            sx={{
+              pl: `${level * 16}px`, // 1 indention = 16px
+            }}
+            key={i}
+          >
+            {serialize(indentedNode.children, props)}
+          </Box>
+        );
+      }
+      case "link":
+        // We use RichTypography instead of Link directly just incase props
+        // such as LinkProps, etc. were passed in.
+        // TODO(kilemensi): Figure out a better way so that we can use Link directly
+        return (
+          <RichTypography
+            {...TypographyProps}
+            component={Link}
+            href={node.href}
+            key={i}
+          >
             {serialize(node.children)}
           </RichTypography>
         );
       case "quote":
         return <blockquote key={i}>{serialize(node.children)}</blockquote>;
-      case "link":
-        return (
-          <RichTypography component={Link} href={node.href} key={i} {...props}>
-            {serialize(node.children)}
-          </RichTypography>
-        );
-      default:
+      case "upload":
+        if (node.relationTo === "media") {
+          const caption = node.fields?.caption;
+
+          return (
+            <Media {...props.MediaProps} media={node.value} caption={caption} />
+          );
+        }
+        // TODO(kilemensi): Do we need to handle other types of uploads such as documents?
+        return null;
+      default: {
+        const { textAlign, type: component } = node;
         return (
           <RichTypography
-            component={node.type}
-            {...DEFAULT_PROPS}
-            {...props}
+            {...TypographyProps}
+            component={component}
+            textAlign={textAlign}
             key={i}
           >
             {serialize(node.children, props)}
           </RichTypography>
         );
+      }
     }
   });
 
 const RichText = React.forwardRef(function RichText(props, ref) {
-  const { elements, variant, typographyProps, ...other } = props;
+  const { elements, variant, MediaProps, TypographyProps, ...other } = props;
 
   if (!elements?.length) {
     return null;
   }
   return (
     <Box {...other} ref={ref}>
-      {serialize(elements, typographyProps)}
+      {serialize(elements, { MediaProps, TypographyProps })}
     </Box>
   );
 });

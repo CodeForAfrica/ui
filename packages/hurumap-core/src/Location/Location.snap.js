@@ -3,7 +3,7 @@
 exports[`Location renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container css-i1hvcb-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-qt78am-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 css-s2k0j8-MuiGrid-root"
@@ -12,16 +12,16 @@ exports[`Location renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-1gxyb0r"
+          class="MuiBox-root css-n4mvxv"
           href="/explore"
         >
           <h6
-            class="css-pxh4k6"
+            class="css-1oasef2"
           >
             Country
           </h6>
           <div
-            class="css-k6p9om"
+            class="css-11iump4"
           >
             Kenya
           </div>
@@ -31,16 +31,16 @@ exports[`Location renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item css-1dran7o-MuiGrid-root"
       >
         <div
-          class="MuiBox-root css-tv63qx"
+          class="MuiBox-root css-bly1z2"
           href="/explore/county-11"
         >
           <h6
-            class="css-pxh4k6"
+            class="css-1oasef2"
           >
             County
           </h6>
           <div
-            class="css-k6p9om"
+            class="css-11iump4"
           >
             Isiolo
           </div>

@@ -1,28 +1,25 @@
 import { RichText } from "@commons-ui/payload";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, alpha } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import useStyles from "./useStyles";
 
 import Section from "@/climatemappedafrica/components/Section";
 
 const Summary = React.forwardRef(function Summary(props, ref) {
   const { content, title, subtitle } = props;
-  const classes = useStyles(props);
 
   if (!content) {
     return null;
   }
   return (
     <Box
-      className={classes.root}
       sx={{
         bgcolor: "background.paper",
+        py: { xs: 5, md: 10 },
       }}
       ref={ref}
     >
-      <Section classes={{ root: classes.section }}>
+      <Section>
         <Grid justifyContent="space-between" container>
           <Grid item xs={12} lg={4}>
             <Typography
@@ -45,15 +42,25 @@ const Summary = React.forwardRef(function Summary(props, ref) {
           <Grid item xs={12} lg={6}>
             <RichText
               elements={content}
-              typographyProps={{
-                variant: "body2",
+              MediaProps={{
+                ImageProps: {
+                  sx: (theme) => ({
+                    border: `1px solid ${theme.palette.divider}`,
+                    borderRadius: 1,
+                  }),
+                },
+                CaptionProps: {
+                  sx: (theme) => ({
+                    color: alpha(theme.palette.text.primary, 0.75),
+                  }),
+                },
+              }}
+              TypographyProps={{
                 LinkProps: {
                   color: "text.primary",
-                  sx: {
-                    textDecorationColor: "text.primary",
-                    textDecoration: "underline",
-                  },
+                  // TODO(kilemensi): Figure out why textDecorationColor doesn't change
                 },
+                variant: "body2",
               }}
               sx={{
                 "&>p": {
@@ -63,9 +70,7 @@ const Summary = React.forwardRef(function Summary(props, ref) {
                   mb: 0,
                 },
               }}
-            >
-              {content}
-            </RichText>
+            />
           </Grid>
         </Grid>
       </Section>

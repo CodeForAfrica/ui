@@ -3,10 +3,10 @@
 exports[`<Summary /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1fs22e1"
+    class="MuiBox-root css-dx4cvz"
   >
     <div
-      class="makeStyles-root-7 makeStyles-root-5 makeStyles-root-3 makeStyles-section-1 makeStyles-fixed-4 MuiBox-root css-0"
+      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-0"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
