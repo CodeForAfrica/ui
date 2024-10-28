@@ -80,7 +80,10 @@ function ExplorePage({
   ]);
   useEffect(() => {
     if (geoCode) {
-      dispatch({ type: "fetch", payload: { code: geoCode } });
+      dispatch({
+        type: "fetch",
+        payload: { code: geoCode, onClick: handleClickTag },
+      });
     }
   }, [dispatch, geoCode]);
 
@@ -94,7 +97,7 @@ function ExplorePage({
     if (data) {
       dispatch({
         type: "show",
-        payload: { profile: data, options: { onClick: handleClickTag } },
+        payload: { profile: data, onClick: handleClickTag },
       });
     }
   }, [dispatch, data]);
