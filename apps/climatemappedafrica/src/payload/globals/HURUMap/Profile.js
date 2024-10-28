@@ -5,7 +5,7 @@ const Profile = {
   fields: [
     {
       name: "page",
-      label: "Explore Page",
+      label: "Show on Page",
       type: "relationship",
       relationTo: ["pages"],
       maxDepth: 1,
@@ -18,7 +18,7 @@ const Profile = {
     {
       name: "initialLocation",
       label: {
-        en: "Initial Location",
+        en: "Root Geography",
       },
       type: "group",
       localized: true,
