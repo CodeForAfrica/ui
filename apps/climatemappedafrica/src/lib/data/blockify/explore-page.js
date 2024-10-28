@@ -6,6 +6,15 @@ import {
 async function explorePage({ block: { slugs }, hurumap }) {
   const {
     rootGeography,
+    align,
+    anchor,
+    lazyblock,
+    blockUniqueClass,
+    ghostkitSpacings,
+    ghostkitSR,
+    scrollToTopLabel,
+    dataNotAvailable,
+    items: panelItems,
     page: { value },
   } = hurumap;
   const { code: name, rootGeographyHasData: pinRootGeography } = rootGeography;
@@ -35,46 +44,16 @@ async function explorePage({ block: { slugs }, hurumap }) {
 
   // TODO: Move this to a PayloadCMS
   const panel = {
-    panelItems: [
-      {
-        value: "rich-data",
-        icon: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/11/Group-4505.svg",
-        iconProps: {
-          src: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/11/Group-4505.svg",
-          width: 44,
-          height: 44,
-          type: "svg",
-          blurDataURL:
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGElEQVR4nGNgQAP/T///f/o/jHMWiQMHACIVCyeABSwfAAAAAElFTkSuQmCC",
-          placeholder: "blur",
-        },
-      },
-      {
-        value: "pin",
-        icon: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2022/01/Path-210-1-1.svg",
-        pin: true,
-        iconProps: {
-          src: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2022/01/Path-210-1-1.svg",
-          width: 44,
-          height: 44,
-          type: "svg",
-          blurDataURL:
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAH0lEQVR4nGNgQAP/L/z/f/r//4P/wZzT//+fBbOQAQBvnQ3r6iVM4QAAAABJRU5ErkJggg==",
-          placeholder: "blur",
-        },
-      },
-    ],
-    scrollToTopLabel: "Back To Top",
-    dataNotAvailable: "— DATA NOT AVAILABLE",
-    lazyblock: {
-      slug: "lazyblock/panel",
-    },
-    align: "",
-    anchor: "",
-    blockId: "20amuc",
-    blockUniqueClass: "lazyblock-panel-20amuc",
-    ghostkitSpacings: "",
-    ghostkitSR: "",
+    panelItems,
+    scrollToTopLabel,
+    dataNotAvailable,
+    lazyblock,
+    align,
+    anchor,
+    blockId: "explore-page",
+    blockUniqueClass,
+    ghostkitSpacings,
+    ghostkitSR,
   };
   const res = {
     id: "explore-page",

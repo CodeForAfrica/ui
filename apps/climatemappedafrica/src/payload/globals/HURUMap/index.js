@@ -1,4 +1,5 @@
 import Geography from "./Geography";
+import PanelOptions from "./PanelOptions";
 import Profile from "./Profile";
 import Tutorial from "./Tutorial";
 
@@ -22,7 +23,7 @@ const HURUMap = {
     },
     {
       type: "tabs",
-      tabs: [Profile, Geography, Tutorial],
+      tabs: [Profile, Geography, Tutorial, PanelOptions],
       admin: {
         condition: (_, siblingData) => !!siblingData?.enableHURUMap,
       },
