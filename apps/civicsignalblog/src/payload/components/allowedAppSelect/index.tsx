@@ -32,7 +32,7 @@ function CustomSelectComponent({ path, label }) {
         path={path}
         name={path}
         options={options}
-        value={String(value)}
+        value={value ? String(value) : ``}
         onChange={(e) => setValue(e.value)}
       />
     </div>
