@@ -57,7 +57,7 @@ storybook-static
 
 mongo-keyfile
 
-#Google credentials
+# Google credentials
 credentials.json
 
 # Sentry Config File
@@ -67,3 +67,6 @@ credentials.json
 # SQLite files
 **.db
 **.sqlite
+
+# Payload media folder
+media

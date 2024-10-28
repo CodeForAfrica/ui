@@ -13,11 +13,23 @@ exports[`<PageHeader /> renders unchanged 1`] = `
       >
         Contact
       </h2>
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-1w3bpx1-MuiTypography-root"
+      <div
+        class="MuiBox-root css-0"
+        typographyprops="[object Object]"
       >
-        Let’s start something together!
-      </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-oo170e-MuiTypography-root"
+        >
+          Let's
+          <strong>
+             start 
+          </strong>
+          something
+          <strong>
+             together
+          </strong>
+        </p>
+      </div>
     </div>
   </div>
 </div>

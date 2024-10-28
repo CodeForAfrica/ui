@@ -17,14 +17,11 @@ exports[`<Hero /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-ihladk"
+      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-1gf8bce"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-1 css-1jqjbj5-MuiGrid-root"
-        />
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-1totwg2-MuiGrid-root"
         >
@@ -32,7 +29,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiBox-root css-1c55nth"
+              class="MuiBox-root css-b8dxf0"
             >
               <h1
                 class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"
@@ -52,30 +49,31 @@ exports[`<Hero /> renders unchanged 1`] = `
             </div>
           </header>
           <div
-            class="makeStyles-root-7"
+            class="MuiBox-root css-0"
             id="location-search"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 makeStyles-label-10 css-6hq4le-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 css-1u0kiq2-MuiTypography-root"
             >
               Search for a location
             </p>
             <div
               blocktype="hero"
               boundary="[object Object]"
-              class="MuiInputBase-root makeStyles-inputRoot-8 MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1illudf-MuiInputBase-root"
+              class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-78q71b-MuiInputBase-root"
+              location="[object Object]"
               slug="hero"
             >
               <input
                 aria-label="search"
-                class="MuiInputBase-input makeStyles-input-12 MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
+                class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
                 id="670e3996766697e7feb349d5"
                 placeholder="Search for a location"
                 type="text"
                 value=""
               />
               <button
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall makeStyles-button-11 css-13dk0vd-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-oru44q-MuiButtonBase-root-MuiIconButton-root"
                 root="[object Object]"
                 tabindex="0"
                 type="button"
@@ -92,7 +90,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               </button>
             </div>
             <div
-              class="makeStyles-suggestions-13"
+              class="MuiBox-root css-79elbk"
             />
           </div>
         </div>

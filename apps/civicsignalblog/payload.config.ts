@@ -1,28 +1,30 @@
 import path from "path";
 
-import { buildConfig } from "payload/config";
-import { slateEditor } from "@payloadcms/richtext-slate";
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { loadEnvConfig } from "@next/env";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
-import { CollectionConfig, GlobalConfig } from "payload/types";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+import nestedDocs from "@payloadcms/plugin-nested-docs";
 import { sentry } from "@payloadcms/plugin-sentry";
 import seo from "@payloadcms/plugin-seo";
-import nestedDocs from "@payloadcms/plugin-nested-docs";
-import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
-import { loadEnvConfig } from "@next/env";
+import { slateEditor } from "@payloadcms/richtext-slate";
+import { Request, Response, NextFunction } from "express";
+import { buildConfig } from "payload/config";
+import { CollectionConfig, GlobalConfig } from "payload/types";
 
-import Actions from "./src/payload/components/actions";
+import MediaData from "./src/payload/collections/Main/MediaData";
+import CivicSignalPages from "./src/payload/collections/Main/Pages";
 import Authors from "./src/payload/collections/Research/Authors";
 import Media from "./src/payload/collections/Research/Media";
 import Pages from "./src/payload/collections/Research/Pages";
-import CivicSignalPages from "./src/payload/collections/Main/Pages";
 import Posts from "./src/payload/collections/Research/Posts";
-import Publication from "./src/payload/globals/Publication";
-import Research from "./src/payload/globals/Site/research";
-import Main from "./src/payload/globals/Site/main";
 import Tags from "./src/payload/collections/Research/Tags";
 import Users from "./src/payload/collections/Users";
+import Actions from "./src/payload/components/actions";
+import Publication from "./src/payload/globals/Publication";
+import Main from "./src/payload/globals/Site/main";
+import Research from "./src/payload/globals/Site/research";
 import { applicationPages } from "./src/payload/lib/data/common/applications";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
@@ -36,6 +38,8 @@ const cors =
   process?.env?.PAYLOAD_CORS?.split(",")
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
+
+const customHeaders: string[] = ["CS-App"];
 
 const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
@@ -67,6 +71,7 @@ export default buildConfig({
     Posts,
     Tags,
     CivicSignalPages,
+    MediaData,
     Users,
   ] as CollectionConfig[],
   globals: [Publication, Research, Main] as GlobalConfig[],
@@ -153,4 +158,19 @@ export default buildConfig({
     }),
   ] as any[],
   telemetry: process?.env?.NODE_ENV !== "production",
+  // We need to add a postMiddleware function to add support for custom headers in Payload
+  express: {
+    postMiddleware: [
+      (_req: Request, res: Response, next: NextFunction) => {
+        const existingHeaders =
+          res.getHeader("Access-Control-Allow-Headers") || "";
+        const controlHeaders = customHeaders
+          .concat((existingHeaders as string).split(","))
+          .filter((h) => h)
+          .join(", ");
+        res.header("Access-Control-Allow-Headers", controlHeaders);
+        next();
+      },
+    ],
+  },
 });

@@ -1,4 +1,5 @@
-import LocationSelect, { validateLocation } from "../fields/LocationSelect";
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const Hero = {
@@ -13,13 +14,24 @@ const Hero = {
     richText({
       name: "title",
       required: true,
-      label: "Title",
       localized: true,
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold"],
+        },
+      }),
     }),
     richText({
       name: "subtitle",
       required: true,
       localized: true,
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold", "code", "italic", "strikethrough", "underline"],
+        },
+      }),
     }),
     {
       name: "searchLabel",
@@ -33,32 +45,6 @@ const Hero = {
       type: "text",
       label: "Search Placeholder",
       localized: true,
-    },
-    {
-      name: "location",
-      label: "Featured Location",
-      type: "group",
-      fields: [
-        {
-          name: "name",
-          type: "text",
-          required: true,
-          hasMany: false,
-          defaultValue: "af",
-          validate: validateLocation,
-          localized: true,
-          admin: {
-            components: {
-              Field: LocationSelect,
-            },
-          },
-        },
-        {
-          name: "center",
-          label: "Center Point",
-          type: "point",
-        },
-      ],
     },
     {
       name: "comment",
