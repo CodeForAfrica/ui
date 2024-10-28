@@ -51,11 +51,15 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
     }
   }
 
-  const tutorialBlock = blocks.find((block) => block.blockType === "tutorial");
-
   let TutorialComponent = React.Fragment;
+  let TutorialComponentProps;
+  const tutorialBlock = blocks.find((block) => block.blockType === "tutorial");
   if (tutorialBlock) {
     TutorialComponent = Tutorial;
+    TutorialComponentProps = {
+      ...tutorialBlock,
+      defaultOpen: Number.parseInt(showTutorial, 10) === 1,
+    };
   }
 
   let PageConfig = React.Fragment;
@@ -65,11 +69,7 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
     pageConfigProps = { value: { fallback } };
   }
   return (
-    <TutorialComponent
-      key={showTutorial}
-      {...tutorialBlock}
-      defaultOpen={Number.parseInt(showTutorial, 10) === 1}
-    >
+    <TutorialComponent key={showTutorial} {...TutorialComponentProps}>
       <Navigation {...menus} />
       <NextSeo
         {...pageSeo}

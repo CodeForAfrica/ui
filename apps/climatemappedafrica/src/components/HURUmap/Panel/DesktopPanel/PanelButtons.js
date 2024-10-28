@@ -139,7 +139,8 @@ function PanelButtons({
         }),
         ({ widths }) =>
           open && {
-            left: `max(calc((100vw - ${widths.values.lg}px)/2 + 833px),1100px)`,
+            // must match min width of TreeView + Profile
+            left: `max(calc((100vw - ${widths.values.lg}px)/2 + 79px + 800px),1100px)`,
           },
       ]}
     />

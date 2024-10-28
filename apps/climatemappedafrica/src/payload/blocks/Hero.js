@@ -1,3 +1,5 @@
+import { slateEditor } from "@payloadcms/richtext-slate";
+
 import richText from "../fields/richText";
 
 const Hero = {
@@ -12,13 +14,24 @@ const Hero = {
     richText({
       name: "title",
       required: true,
-      label: "Title",
       localized: true,
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold"],
+        },
+      }),
     }),
     richText({
       name: "subtitle",
       required: true,
       localized: true,
+      editor: slateEditor({
+        admin: {
+          elements: [],
+          leaves: ["bold", "code", "italic", "strikethrough", "underline"],
+        },
+      }),
     }),
     {
       name: "searchLabel",
