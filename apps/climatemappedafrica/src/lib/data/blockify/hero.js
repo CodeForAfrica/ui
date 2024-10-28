@@ -5,9 +5,9 @@ import {
 
 export default async function hero({ block, hurumap }) {
   const {
-    initialLocation: { center, name },
+    rootGeography: { center, code, rootGeographyHasData: pinRootGeography },
   } = hurumap;
-  const { geometries } = await fetchProfileGeography(name.toLowerCase());
+  const { geometries } = await fetchProfileGeography(code.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
     continent: "country",
@@ -31,5 +31,6 @@ export default async function hero({ block, hurumap }) {
     featuredLocations,
     level,
     properties: geometries.boundary?.properties,
+    pinRootGeography,
   };
 }

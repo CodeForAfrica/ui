@@ -33,15 +33,12 @@ function initialState(
 function ExplorePage({
   initialLocation,
   explorePagePath,
+  pinRootGeography: pinInitialLocation,
   panel: PanelProps = {},
   profile: profileProp,
   ...props
 }) {
-  const {
-    center,
-    name: initialLocationCode,
-    pinInitialLocation,
-  } = initialLocation;
+  const { center, code: initialLocationCode } = initialLocation;
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at

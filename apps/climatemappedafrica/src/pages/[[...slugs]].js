@@ -54,7 +54,7 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
   const tutorialBlock = blocks.find((block) => block.blockType === "tutorial");
 
   let TutorialComponent = React.Fragment;
-  if (tutorialBlock) {
+  if (tutorialBlock && tutorialBlock?.enableTutorial) {
     TutorialComponent = Tutorial;
   }
 
