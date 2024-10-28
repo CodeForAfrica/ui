@@ -3,9 +3,37 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import image from "../../fields/image";
 import richText from "../../fields/richText";
 
+const selectors = [
+  {
+    value: "none",
+    label: "None",
+  },
+  {
+    value: "location-search",
+    label: "Location Search",
+  },
+  {
+    value: "rich-data",
+    label: "Rich Data",
+  },
+  {
+    value: "pin",
+    label: "Pin",
+  },
+];
+
 const Tutorial = {
   label: "Tutorial",
   fields: [
+    {
+      name: "enableTutorial",
+      label: {
+        en: "Enable Tutorial",
+      },
+      type: "checkbox",
+      defaultValue: true,
+      localized: true,
+    },
     {
       name: "tutorialPanel",
       label: {
@@ -13,11 +41,14 @@ const Tutorial = {
       },
       type: "group",
       localized: true,
+      admin: {
+        condition: (_, siblingData) => !!siblingData?.enableTutorial,
+      },
       fields: [
         {
-          name: "items",
+          name: "steps",
           label: {
-            en: "Items",
+            en: "Steps",
           },
           type: "array",
           localized: true,
@@ -68,8 +99,8 @@ const Tutorial = {
               label: {
                 en: "Selector",
               },
-              type: "text",
-              localized: true,
+              type: "select",
+              options: selectors,
               required: true,
               admin: {
                 description: "CSS selector for the element to highlight",

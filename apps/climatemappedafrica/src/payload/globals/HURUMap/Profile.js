@@ -5,18 +5,20 @@ const Profile = {
   fields: [
     {
       name: "page",
-      label: "Show on Page",
+      label: {
+        en: "Show on Page",
+      },
+      localized: true,
       type: "relationship",
       relationTo: ["pages"],
       maxDepth: 1,
       required: true,
       admin: {
-        description:
-          "The page to use as the Explore page. It will contain the interactive map.",
+        description: "The page to show the interactive map on.",
       },
     },
     {
-      name: "initialLocation",
+      name: "rootGeography",
       label: {
         en: "Root Geography",
       },
@@ -24,10 +26,10 @@ const Profile = {
       localized: true,
       fields: [
         {
-          name: "name",
+          name: "code",
           type: "text",
           label: {
-            en: "Name",
+            en: "Location Code",
           },
           localized: true,
           required: true,
@@ -47,13 +49,17 @@ const Profile = {
           defaultValue: [20.0, 4.25],
         },
         {
-          name: "pinInitialLocation",
+          name: "rootGeographyHasData",
           type: "checkbox",
           localized: true,
           label: {
-            en: "Allow pinning of initial location",
+            en: "Root geography has data",
           },
           defaultValue: false,
+          admin: {
+            description:
+              "Indicates whether the root geography itself has data. If checked, pinning will be enabled; if unchecked, only child locations will have data and pinning will be disabled.",
+          },
         },
       ],
     },
