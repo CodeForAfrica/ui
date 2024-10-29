@@ -1,4 +1,4 @@
-import { QuickLinks, Copyright } from "@commons-ui/core";
+import { QuickLinks, Copyright } from "@commons-ui/legacy";
 import { Link, StayInTouch } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid } from "@mui/material";

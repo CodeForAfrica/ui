@@ -1,4 +1,4 @@
-import RichTypography from "@commons-ui/core/RichTypography";
+import RichTypography from "@commons-ui/legacy/RichTypography";
 import { Grid, Typography, IconButton, Avatar } from "@mui/material";
 import { useTour } from "@reactour/tour";
 import Image from "next/image";

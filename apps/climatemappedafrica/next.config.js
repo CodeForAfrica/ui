@@ -25,7 +25,6 @@ module.exports = {
       transform: "@mui/material/{{member}}",
     },
   },
-  output: "standalone",
   reactStrictMode: false,
   transpilePackages: [
     "@commons-ui/core",

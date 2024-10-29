@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import React from "react";
 
 import Section from ".";
@@ -23,8 +23,8 @@ function Template(args) {
           <h1>Lorem Ipsum</h1>
           <h4>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</h4>
           <h5>"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</h5>
-          
-          
+
+
           <hr />
           <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in lectus ut lectus sagittis aliquet. Phasellus felis metus, suscipit eu ligula vitae, dapibus pretium sapien. Integer feugiat luctus metus, vitae aliquam magna euismod et. Quisque massa augue, hendrerit id pharetra ut, dictum vel elit. Morbi id velit pretium, vestibulum sapien eget, suscipit ex. Quisque varius consequat cursus. Duis vitae nunc vel lacus ullamcorper finibus. Sed lobortis a velit in ultricies. Phasellus eleifend est vel auctor cursus. Ut dapibus posuere aliquam. Mauris scelerisque libero sit amet felis faucibus, vel faucibus dolor suscipit. Maecenas venenatis turpis ut vulputate viverra.

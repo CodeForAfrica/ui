@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import Hero from "./Hero";
+import Hero from ".";
 
 import theme from "@/climatemappedafrica/theme";
 
