@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import { Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";

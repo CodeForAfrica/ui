@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import { useMediaQuery, Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -83,7 +83,7 @@ DataVisualisationGuide.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      description: PropTypes.string || PropTypes.array,
+      description: PropTypes.oneOfType(PropTypes.string, PropTypes.shape({})),
       image: PropTypes.string,
     }),
   ),
