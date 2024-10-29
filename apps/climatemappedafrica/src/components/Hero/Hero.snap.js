@@ -60,7 +60,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             <div
               blocktype="hero"
               boundary="[object Object]"
-              class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-78q71b-MuiInputBase-root"
+              class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1f7prdq-MuiInputBase-root"
               location="[object Object]"
               slug="hero"
             >
@@ -80,7 +80,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kzlhbf-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ny0eu4-MuiSvgIcon-root"
                   focusable="false"
                   viewBox="0 0 48 48"
                 />
