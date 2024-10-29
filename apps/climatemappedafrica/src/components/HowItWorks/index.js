@@ -187,7 +187,7 @@ function HowItWorks({
 
 HowItWorks.propTypes = {
   ctaText: PropTypes.string,
-  description: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.shape({})),
   href: PropTypes.string,
   title: PropTypes.string,
 };

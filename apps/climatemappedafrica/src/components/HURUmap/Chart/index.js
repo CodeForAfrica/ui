@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import { ChartTooltip, IndicatorTitle, Download, Share } from "@hurumap/core";
 import { Source } from "@hurumap/next";
 import { useMediaQuery, useTheme } from "@mui/material";
