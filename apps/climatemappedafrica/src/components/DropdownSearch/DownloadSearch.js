@@ -87,8 +87,8 @@ function DropdownSearch({
         component={iconComponent}
         viewBox="0 0 48 48"
         sx={{
-          width: 48,
-          height: 48,
+          width: 40,
+          height: 40,
           ...iconBorder,
         }}
       />
