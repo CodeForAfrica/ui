@@ -8,7 +8,7 @@ async function explorePage({ block: { slugs }, hurumap }) {
     rootGeography,
     page: { value },
   } = hurumap;
-  const { code: name, rootGeographyHasData: pinRootGeography } = rootGeography;
+  const { code: name } = rootGeography;
   const code = slugs.length ? slugs[0] : name;
   const hurumapProfile = await fetchProfile();
 
@@ -80,7 +80,7 @@ async function explorePage({ block: { slugs }, hurumap }) {
     id: "explore-page",
     blockType: "explore-page",
     choropleth,
-    initialLocation: rootGeography,
+    rootGeography,
     explorePagePath: value.slug,
     locations,
     mapType,
@@ -88,7 +88,6 @@ async function explorePage({ block: { slugs }, hurumap }) {
     profile,
     variant: "explore",
     preferredChildren,
-    pinRootGeography,
   };
 
   return res;

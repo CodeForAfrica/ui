@@ -55,7 +55,7 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
   let TutorialComponentProps;
   const tutorialBlock = blocks.find((block) => block.blockType === "tutorial");
 
-  if (tutorialBlock && tutorialBlock?.enableTutorial) {
+  if (tutorialBlock && tutorialBlock?.enabled) {
     TutorialComponent = Tutorial;
     TutorialComponentProps = {
       ...tutorialBlock,
