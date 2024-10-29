@@ -16,7 +16,7 @@ function initialState(
   onClick,
   explorePagePath,
   initialLocationCode,
-  pinInitialLocation,
+  rootGeographyHasData,
 ) {
   return {
     profiles: Array.isArray(profiles) ? profiles : [profiles],
@@ -26,12 +26,12 @@ function initialState(
     ],
     explorePagePath,
     initialLocationCode,
-    pinInitialLocation,
+    rootGeographyHasData,
   };
 }
 
 function ExplorePage({
-  initialLocation,
+  rootGeography,
   explorePagePath,
   panel: PanelProps = {},
   profile: profileProp,
@@ -39,9 +39,9 @@ function ExplorePage({
 }) {
   const {
     center,
-    name: initialLocationCode,
-    pinInitialLocation,
-  } = initialLocation;
+    code: initialLocationCode,
+    rootGeographyHasData,
+  } = rootGeography;
   const theme = useTheme();
   const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
@@ -57,7 +57,7 @@ function ExplorePage({
       handleClickTag,
       explorePagePath,
       initialLocationCode,
-      pinInitialLocation,
+      rootGeographyHasData,
     ),
   );
   useEffect(() => {
@@ -68,7 +68,7 @@ function ExplorePage({
         handleClickTag,
         explorePagePath,
         initialLocationCode,
-        pinInitialLocation,
+        rootGeographyHasData,
       ),
     });
   }, [
@@ -76,7 +76,7 @@ function ExplorePage({
     profileProp,
     explorePagePath,
     initialLocationCode,
-    pinInitialLocation,
+    rootGeographyHasData,
   ]);
   useEffect(() => {
     if (geoCode) {
@@ -209,10 +209,10 @@ function ExplorePage({
 
 ExplorePage.propTypes = {
   center: PropTypes.arrayOf(PropTypes.number),
-  initialLocation: PropTypes.shape({
+  rootGeography: PropTypes.shape({
     center: PropTypes.arrayOf(PropTypes.number),
     name: PropTypes.string,
-    pinInitialLocation: PropTypes.bool,
+    rootGeographyHasData: PropTypes.bool,
   }),
   explorePagePath: PropTypes.string,
   panel: PropTypes.shape({}),
