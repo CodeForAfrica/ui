@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import { RichText } from "@commons-ui/payload";
 import { ButtonBase, Slide } from "@mui/material";
 import PropTypes from "prop-types";
