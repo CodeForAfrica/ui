@@ -1,4 +1,5 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
+import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 
 export function imageFromMedia(alt, url) {
   return { alt, src: url };
@@ -34,7 +35,8 @@ function getFooter(siteSettings, variant) {
   };
 }
 
-function getNavBar(siteSettings, variant, { slug }) {
+async function getNavBar(siteSettings, variant, { slug }) {
+  const { locations } = await fetchProfile();
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -51,6 +53,7 @@ function getNavBar(siteSettings, variant, { slug }) {
     menus,
     socialLinks,
     variant,
+    locations,
   };
 }
 
@@ -80,7 +83,7 @@ export async function getPageProps(api, context) {
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
-  const menus = getNavBar(siteSettings, variant, explorePage);
+  const menus = await getNavBar(siteSettings, variant, explorePage);
 
   if (slug === explorePage.slug) {
     // The explore page is a special case. The only block we need to render is map and tutorial.
