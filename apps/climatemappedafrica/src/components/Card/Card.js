@@ -124,7 +124,7 @@ Card.propTypes = {
   descriptionProps: PropTypes.shape({}),
   embed: PropTypes.string,
   href: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.oneOfType(PropTypes.string, PropTypes.shape({})),
   imageProps: PropTypes.shape({}),
   linkProps: PropTypes.shape({}),
   media: PropTypes.string,
