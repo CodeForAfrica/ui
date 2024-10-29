@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import React from "react";
 
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";

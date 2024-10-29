@@ -1,7 +1,7 @@
 import LocationSelect, { validateLocation } from "../../fields/LocationSelect";
 
-const Geography = {
-  label: "Geography",
+const RootGeography = {
+  label: "Root Geography",
   fields: [
     {
       name: "rootGeography",
@@ -44,7 +44,7 @@ const Geography = {
           defaultValue: false,
           admin: {
             description:
-              "Indicates whether the root geography itself has data. If checked, pinning will be enabled; if unchecked, only child locations will have data and pinning will be disabled.",
+              "Indicates whether the root geography itself has data that can be used for comparison with its children",
           },
         },
       ],
@@ -52,4 +52,4 @@ const Geography = {
   ],
 };
 
-export default Geography;
+export default RootGeography;

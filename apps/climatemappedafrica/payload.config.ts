@@ -34,12 +34,16 @@ const csrf =
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
 
-const adapter = s3Adapter({
+const accessKeyId = process?.env?.S3_ACCESS_KEY_ID;
+const secretAccessKey = process?.env?.S3_SECRET_ACCESS_KEY;
+const enableCloudStorage = Boolean(accessKeyId && secretAccessKey);
+
+const cloudStorageAdapter = s3Adapter({
   config: {
     region: process?.env?.S3_REGION,
     credentials: {
-      accessKeyId: process?.env?.S3_ACCESS_KEY_ID,
-      secretAccessKey: process?.env?.S3_SECRET_ACCESS_KEY,
+      accessKeyId,
+      secretAccessKey,
     },
   },
   bucket: process?.env?.S3_BUCKET,
@@ -106,11 +110,11 @@ export default buildConfig({
   },
   plugins: [
     cloudStorage({
+      enabled: enableCloudStorage,
       collections: {
         media: {
-          adapter,
-          // TODO(kilemensi): Toogle this depending on ENV?
-          disableLocalStorage: false,
+          adapter: cloudStorageAdapter,
+          disableLocalStorage: enableCloudStorage,
           prefix: "media",
         },
       },

@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/legacy";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
@@ -147,7 +147,7 @@ Hero.propTypes = {
   comment: PropTypes.string,
   subtitle: PropTypes.arrayOf(PropTypes.shape({})),
   searchLabel: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.arrayOf(PropTypes.shape({})),
   featuredLocations: PropTypes.arrayOf(PropTypes.shape({})),
   properties: PropTypes.shape({}),
   level: PropTypes.string,

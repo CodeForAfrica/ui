@@ -13,6 +13,8 @@ module.exports = {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())
       ?.filter((d) => d),
+    loader: "custom",
+    loaderFile: "./payload.image.loader.js",
     unoptimized:
       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
       "true",
@@ -23,7 +25,6 @@ module.exports = {
       transform: "@mui/material/{{member}}",
     },
   },
-  output: "standalone",
   reactStrictMode: false,
   transpilePackages: [
     "@commons-ui/core",

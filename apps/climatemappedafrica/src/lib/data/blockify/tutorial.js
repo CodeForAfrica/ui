@@ -1,7 +1,7 @@
 async function tutorial({ hurumap }) {
   const {
-    tutorialPanel: { steps },
-    enableTutorial,
+    panel: { steps },
+    enabled,
   } = hurumap;
 
   const items = steps.map((step) => ({
@@ -11,7 +11,7 @@ async function tutorial({ hurumap }) {
   return {
     blockType: "tutorial",
     id: "tutorial",
-    enableTutorial,
+    enabled,
     items,
   };
 }

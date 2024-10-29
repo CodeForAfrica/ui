@@ -8,14 +8,15 @@ exports[`<TreeView /> renders unchanged 1`] = `
     <ul
       aria-multiselectable="false"
       class="MuiSimpleTreeView-root css-rejl51-MuiSimpleTreeView-root"
-      id=":r0:"
+      id="mui-tree-view-1"
       role="tree"
       style="--TreeView-itemChildrenIndentation: 12px;"
     >
       <li
         aria-expanded="false"
+        aria-selected="false"
         class="css-1uhp40g-MuiTreeItem2-root"
-        id=":r0:-annual-temperature"
+        id="mui-tree-view-1-annual-temperature"
         role="treeitem"
         tabindex="0"
       >
@@ -40,8 +41,9 @@ exports[`<TreeView /> renders unchanged 1`] = `
       </li>
       <li
         aria-expanded="false"
+        aria-selected="false"
         class="css-1uhp40g-MuiTreeItem2-root"
-        id=":r0:-temperature-variation"
+        id="mui-tree-view-1-temperature-variation"
         role="treeitem"
         tabindex="-1"
       >

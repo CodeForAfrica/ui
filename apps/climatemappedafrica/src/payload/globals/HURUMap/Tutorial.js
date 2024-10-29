@@ -26,7 +26,7 @@ const Tutorial = {
   label: "Tutorial",
   fields: [
     {
-      name: "enableTutorial",
+      name: "enabled",
       label: {
         en: "Enable Tutorial",
       },
@@ -35,14 +35,14 @@ const Tutorial = {
       localized: true,
     },
     {
-      name: "tutorialPanel",
+      name: "panel",
       label: {
         en: "Tutorial Panel",
       },
       type: "group",
       localized: true,
       admin: {
-        condition: (_, siblingData) => !!siblingData?.enableTutorial,
+        condition: (_, siblingData) => !!siblingData?.enabled,
       },
       fields: [
         {
@@ -57,7 +57,7 @@ const Tutorial = {
             initCollapsed: true,
             components: {
               RowLabel: ({ data, index }) => {
-                return data?.title || `Item ${String(index).padStart(2, "0")}`;
+                return data?.title || `Step ${String(index).padStart(2, "0")}`;
               },
             },
           },
