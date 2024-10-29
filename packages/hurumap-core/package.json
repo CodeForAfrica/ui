@@ -33,11 +33,12 @@
   "devDependencies": {
     "@babel/core": "catalog:",
     "@babel/preset-react": "catalog:",
+    "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
+    "@mui/icons-material": "catalog:",
     "@mui/material": "catalog:",
-    "@mui/utils": "catalog:",
     "@types/react": "catalog:",
     "babel-loader": "catalog:",
     "deepmerge": "catalog:",
@@ -58,27 +59,20 @@
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
+    "@commons-ui/core": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
+    "@mui/icons-material": "catalog:",
     "@mui/material": "catalog:",
-    "@mui/utils": "catalog:",
+    "clsx": "catalog:",
     "deepmerge": "catalog:",
     "papaparse": "catalog:",
     "react": "catalog:",
     "react-copy-to-clipboard": "catalog:",
     "react-dom": "catalog:",
     "react-share": "catalog:",
-    "xlsx": "catalog:"
-  },
-  "dependencies": {
-    "@commons-ui/core": "workspace:*",
-    "@mui/icons-material": "catalog:",
-    "clsx": "catalog:",
-    "papaparse": "catalog:",
-    "prop-types": "catalog:",
-    "react-copy-to-clipboard": "catalog:",
-    "react-share": "catalog:",
     "vega": "catalog:",
     "xlsx": "catalog:"
-  }
+  },
+  "dependencies": {}
 }
