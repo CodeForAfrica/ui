@@ -3,9 +3,10 @@
 import site from "@/climatemappedafrica/utils/site";
 
 export default function payloadImageLoader({ src }) {
-  // Handle relative paths (/media) only
+  // Handle relative paths (i.e. `/media`) only
   if (src?.startsWith("/media")) {
-    return `${site.url}${src}`;
+    // site.url has a trailing `/`
+    return `${site.url}${src.substring(1)}`;
   }
   return src;
 }
