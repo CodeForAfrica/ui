@@ -83,7 +83,7 @@ DataVisualisationGuide.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      description: PropTypes.oneOfType(PropTypes.string, PropTypes.shape({})),
+      description: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
       image: PropTypes.string,
     }),
   ),
