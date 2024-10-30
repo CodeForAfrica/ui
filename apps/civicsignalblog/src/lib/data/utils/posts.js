@@ -90,8 +90,9 @@ export async function getPosts(api, params, primaryTag) {
   };
 }
 
-export async function getPost(api, slug, primaryTag) {
+export async function getPost(api, slug, primaryTag, options) {
   const { docs } = await api.getCollection("posts", {
+    ...options,
     where: {
       slug: {
         equals: slug,
