@@ -1,11 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
-import theme from "@/climatemappedafrica/theme";
 
 function Map({
   center,
@@ -19,7 +18,6 @@ function Map({
     color: "#2A2A2C",
     weight: 1,
     opacity: 1,
-    fillColor: "#fff",
     dashArray: "2",
   },
   onLayerMouseOver,
@@ -29,6 +27,7 @@ function Map({
 
   const countyCodes = featuredLocations?.map(({ code }) => code);
 
+  const theme = useTheme();
   const onEachFeature = (feature, layer) => {
     layer.setStyle({
       fillColor: theme.palette.background.default,
