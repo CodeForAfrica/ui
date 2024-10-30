@@ -22,6 +22,7 @@ function Hero({
   searchPlaceholder,
   properties,
   level,
+  explorePageSlug,
   ...props
 }) {
   const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
@@ -116,6 +117,7 @@ function Hero({
                   }}
                   onLayerMouseOver={setHoverGeo}
                   featuredLocations={featuredLocations}
+                  explorePageSlug={explorePageSlug}
                   {...props}
                 />
               ) : null}

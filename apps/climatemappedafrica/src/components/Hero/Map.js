@@ -22,6 +22,7 @@ function Map({
   },
   onLayerMouseOver,
   featuredLocations,
+  explorePageSlug,
 }) {
   const router = useRouter();
 
@@ -54,7 +55,9 @@ function Map({
         });
       });
       layer.on("click", () => {
-        router.push(`/explore/${feature.properties.code.toLowerCase()}`);
+        router.push(
+          `/${explorePageSlug}/${feature.properties.code.toLowerCase()}`,
+        );
       });
     }
   };
@@ -113,6 +116,7 @@ Map.propTypes = {
   featuredLocations: PropTypes.arrayOf(
     PropTypes.shape({ code: PropTypes.string }),
   ),
+  explorePageSlug: PropTypes.string,
 };
 
 export default Map;
