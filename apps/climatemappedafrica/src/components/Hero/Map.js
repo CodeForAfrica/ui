@@ -62,15 +62,15 @@ function Map({
 
   return (
     <Box
-      sx={() => ({
+      sx={{
         position: "relative",
-        height: { sm: "299px", lg: "471px" },
-        width: { sm: "236px", lg: "371px" },
+        height: { sm: "350px", lg: "471px" },
+        width: { sm: "300px", lg: "500px" },
         marginTop: { sm: "55px", lg: "42px" },
         "& .leaflet-container": {
           background: "transparent",
         },
-      })}
+      }}
     >
       <MapContainer
         center={center}

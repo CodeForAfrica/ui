@@ -26,14 +26,14 @@ function Hero({
 }) {
   const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
   const [hoverGeo, setHoverGeo] = useState(null);
-  const continentLevelZoom = isUpLg ? 2.4 : 2.1;
+  const continentLevelZoom = isUpLg ? 3 : 2.1; // We have to reduce the zoom level for continent so that all countries(Including islands) are visible within the designs
   const countryLevelZoom = isUpLg ? 6 : 5.25;
   const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
-
   return (
     <Box
       sx={{
         position: "relative",
+        pb: 5,
       }}
     >
       <Box
@@ -53,7 +53,7 @@ function Hero({
         }}
       >
         <Grid container>
-          <Grid item xs={12} md={7} lg={6}>
+          <Grid item xs={12} md={6}>
             <RichHeader
               subtitle={subtitle}
               TitleProps={{
@@ -84,9 +84,9 @@ function Hero({
               {...props}
             />
             <RichTypography
-              variant="subtitle1"
+              variant="caption"
               sx={{
-                fontSize: "11px",
+                fontSize: { xs: "11px" },
                 color: "#707070",
                 marginTop: {
                   sm: "20px",
@@ -109,7 +109,7 @@ function Hero({
             <Grid item md={5}>
               {center ? (
                 <Map
-                  center={center.reverse?.()}
+                  center={[center[1], center[0]]}
                   zoom={zoom}
                   tileLayer={{
                     url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
