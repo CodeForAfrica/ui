@@ -1,16 +1,12 @@
-import {
-  fetchProfile,
-  fetchProfileGeography,
-} from "@/climatemappedafrica/lib/hurumap";
+import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
-async function explorePage({ block: { slugs }, hurumap }) {
+async function explorePage({ block: { slugs }, hurumap, hurumapProfile }) {
   const {
     rootGeography,
     page: { value },
   } = hurumap;
   const { code: name } = rootGeography;
   const code = slugs.length ? slugs[0] : name;
-  const hurumapProfile = await fetchProfile();
 
   const { locations, preferredChildren, mapType, choropleth } = hurumapProfile;
 

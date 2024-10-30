@@ -35,8 +35,8 @@ function getFooter(siteSettings, variant) {
   };
 }
 
-async function getNavBar(siteSettings, variant, { slug }) {
-  const { locations } = await fetchProfile();
+async function getNavBar(siteSettings, variant, { slug }, hurumapProfile) {
+  const { locations } = hurumapProfile;
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -65,6 +65,8 @@ export async function getPageProps(api, context) {
   const { draftMode = false } = context;
   const options = { draft: draftMode };
 
+  const hurumapProfile = await fetchProfile();
+
   const {
     docs: [page],
   } = await api.findPage(slug, options);
@@ -78,12 +80,23 @@ export async function getPageProps(api, context) {
     page: { value: explorePage },
   } = hurumap;
 
-  let blocks = await blockify(page.blocks, api, context, hurumap);
+  let blocks = await blockify(
+    page.blocks,
+    api,
+    context,
+    hurumap,
+    hurumapProfile,
+  );
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
   const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
-  const menus = await getNavBar(siteSettings, variant, explorePage);
+  const menus = await getNavBar(
+    siteSettings,
+    variant,
+    explorePage,
+    hurumapProfile,
+  );
 
   if (slug === explorePage.slug) {
     // The explore page is a special case. The only block we need to render is map and tutorial.
@@ -96,7 +109,13 @@ export async function getPageProps(api, context) {
         blockType: "tutorial",
       },
     ];
-    blocks = await blockify(explorePageBlocks, api, context, hurumap);
+    blocks = await blockify(
+      explorePageBlocks,
+      api,
+      context,
+      hurumap,
+      hurumapProfile,
+    );
   }
 
   return {

@@ -12,13 +12,19 @@ const propsifyBlockBySlug = {
   tutorial,
 };
 
-export const blockify = async (blocks, api, context, hurumap) => {
+export const blockify = async (
+  blocks,
+  api,
+  context,
+  hurumap,
+  hurumapProfile,
+) => {
   const promises = blocks?.map(async (block) => {
     const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
 
     if (propsifyBlock) {
-      return propsifyBlock({ block, api, context, hurumap });
+      return propsifyBlock({ block, api, context, hurumap, hurumapProfile });
     }
     return {
       ...block,
