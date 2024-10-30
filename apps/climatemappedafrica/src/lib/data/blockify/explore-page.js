@@ -6,12 +6,6 @@ import {
 async function explorePage({ block: { slugs }, hurumap }) {
   const {
     rootGeography,
-    align,
-    anchor,
-    lazyblock,
-    blockUniqueClass,
-    ghostkitSpacings,
-    ghostkitSR,
     scrollToTopLabel,
     dataNotAvailable,
     items: panelItems,
@@ -47,13 +41,7 @@ async function explorePage({ block: { slugs }, hurumap }) {
     panelItems,
     scrollToTopLabel,
     dataNotAvailable,
-    lazyblock,
-    align,
-    anchor,
     blockId: "explore-page",
-    blockUniqueClass,
-    ghostkitSpacings,
-    ghostkitSR,
   };
   const res = {
     id: "explore-page",
