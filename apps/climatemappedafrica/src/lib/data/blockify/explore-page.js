@@ -5,10 +5,10 @@ import {
 
 async function explorePage({ block: { slugs }, hurumap }) {
   const {
-    initialLocation,
+    rootGeography,
     page: { value },
   } = hurumap;
-  const { name } = initialLocation;
+  const { code: name } = rootGeography;
   const code = slugs.length ? slugs[0] : name;
   const hurumapProfile = await fetchProfile();
 
@@ -80,7 +80,7 @@ async function explorePage({ block: { slugs }, hurumap }) {
     id: "explore-page",
     blockType: "explore-page",
     choropleth,
-    initialLocation,
+    rootGeography,
     explorePagePath: value.slug,
     locations,
     mapType,
