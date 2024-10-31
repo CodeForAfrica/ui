@@ -113,7 +113,6 @@ function DropdownSearch({
         onChange={handleChange}
         placeholder={placeholder}
         value={query}
-        {...props}
         sx={({ typography, palette }) => ({
           borderRadius: typography.pxToRem(10),
           color: palette.primary.main,

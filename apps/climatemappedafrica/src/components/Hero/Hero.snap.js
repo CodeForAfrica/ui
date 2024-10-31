@@ -3,7 +3,7 @@
 exports[`<Hero /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-79elbk"
+    class="MuiBox-root css-n1k24p"
   >
     <div
       class="MuiBox-root css-141q424"
@@ -23,7 +23,7 @@ exports[`<Hero /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-1totwg2-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-18w5b2b-MuiGrid-root"
         >
           <header
             class="MuiBox-root css-0"
@@ -67,7 +67,6 @@ exports[`<Hero /> renders unchanged 1`] = `
               <input
                 aria-label="search"
                 class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
-                id="670e3996766697e7feb349d5"
                 placeholder="Search for a location"
                 type="text"
                 value=""
