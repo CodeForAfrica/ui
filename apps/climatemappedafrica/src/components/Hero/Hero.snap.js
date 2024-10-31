@@ -58,11 +58,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               Search for a location
             </p>
             <div
-              blocktype="hero"
-              boundary="[object Object]"
               class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1f7prdq-MuiInputBase-root"
-              location="[object Object]"
-              slug="hero"
             >
               <input
                 aria-label="search"
