@@ -79,17 +79,17 @@ export async function getPageProps(api, context) {
   const {
     page: { value: explorePage },
   } = hurumap;
+  const siteSettings = await api.findGlobal("settings-site");
 
-  let blocks = await blockify(
-    page.blocks,
-    api,
-    context,
+  const settings = {
     hurumap,
     hurumapProfile,
-  );
+    siteSettings,
+  };
+
+  let blocks = await blockify(page.blocks, api, context, settings);
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
-  const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
   const menus = await getNavBar(
     siteSettings,
@@ -109,13 +109,7 @@ export async function getPageProps(api, context) {
         blockType: "tutorial",
       },
     ];
-    blocks = await blockify(
-      explorePageBlocks,
-      api,
-      context,
-      hurumap,
-      hurumapProfile,
-    );
+    blocks = await blockify(explorePageBlocks, api, context, settings);
   }
 
   return {
