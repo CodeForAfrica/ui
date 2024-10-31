@@ -165,12 +165,6 @@ function HowItWorks({
               xs: "center",
               md: "flex-end",
             }}
-            sx={(theme) => ({
-              marginBottom: {
-                xs: theme.typography.pxToRem(23),
-                md: 0,
-              },
-            })}
           >
             <Box
               sx={(theme) => ({
