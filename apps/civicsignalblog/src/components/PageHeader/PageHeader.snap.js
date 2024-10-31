@@ -15,10 +15,9 @@ exports[`<PageHeader /> renders unchanged 1`] = `
       </h2>
       <div
         class="MuiBox-root css-0"
-        typographyprops="[object Object]"
       >
-        <p
-          class="MuiTypography-root MuiTypography-body1 css-oo170e-MuiTypography-root"
+        <h2
+          class="MuiTypography-root MuiTypography-h2 css-hd3436-MuiTypography-root"
         >
           Let's
           <strong>
@@ -28,7 +27,7 @@ exports[`<PageHeader /> renders unchanged 1`] = `
           <strong>
              together
           </strong>
-        </p>
+        </h2>
       </div>
     </div>
   </div>
