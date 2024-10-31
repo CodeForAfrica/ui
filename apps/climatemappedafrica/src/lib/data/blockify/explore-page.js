@@ -6,8 +6,7 @@ import {
 async function explorePage({ block: { slugs }, hurumap }) {
   const {
     rootGeography,
-    scrollToTopLabel,
-    dataNotAvailable,
+    labels: { dataNotAvailable, scrollToTop: scrollToTopLabel },
     items: panelItems,
     page: { value },
   } = hurumap;
@@ -36,12 +35,10 @@ async function explorePage({ block: { slugs }, hurumap }) {
     profile.push(secondaryProfile);
   }
 
-  // TODO: Move this to a PayloadCMS
   const panel = {
     panelItems,
     scrollToTopLabel,
     dataNotAvailable,
-    blockId: "explore-page",
   };
   const res = {
     id: "explore-page",

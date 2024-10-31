@@ -27,27 +27,34 @@ const PanelOptions = {
       ],
     },
     {
-      type: "row",
+      type: "group",
+      label: "Labels",
+      name: "labels",
       fields: [
         {
-          name: "scrollToTopLabel",
-          type: "text",
-          label: "Scroll To Top Label",
-          defaultValue: "Scroll To Top",
-          admin: {
-            width: "50%",
-          },
-          localized: true,
-        },
-        {
-          name: "dataNotAvailable",
-          type: "text",
-          label: "Data Not Available",
-          defaultValue: "DATA NOT AVAILABLE",
-          admin: {
-            width: "50%",
-          },
-          localized: true,
+          type: "row",
+          fields: [
+            {
+              name: "scrollToTop",
+              type: "text",
+              label: "Scroll To Top",
+              defaultValue: "Scroll To Top",
+              admin: {
+                width: "50%",
+              },
+              localized: true,
+            },
+            {
+              name: "dataNotAvailable",
+              type: "text",
+              label: "Data Not Available",
+              defaultValue: "DATA NOT AVAILABLE",
+              admin: {
+                width: "50%",
+              },
+              localized: true,
+            },
+          ],
         },
       ],
     },
