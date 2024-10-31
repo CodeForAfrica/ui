@@ -6,6 +6,9 @@ import {
 export default async function hero({ block, hurumap }) {
   const {
     rootGeography: { center, code, rootGeographyHasData: pinRootGeography },
+    page: {
+      value: { slug: explorePageSlug },
+    },
   } = hurumap;
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
@@ -32,5 +35,6 @@ export default async function hero({ block, hurumap }) {
     level,
     properties: geometries.boundary?.properties,
     pinRootGeography,
+    explorePageSlug,
   };
 }
