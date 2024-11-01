@@ -1,4 +1,5 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
+import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 
 export function imageFromMedia(alt, url) {
   return { alt, src: url };
@@ -34,7 +35,8 @@ function getFooter(siteSettings, variant) {
   };
 }
 
-function getNavBar(siteSettings, variant, { slug }) {
+async function getNavBar(siteSettings, variant, { slug }, hurumapProfile) {
+  const { locations } = hurumapProfile;
   const {
     connect: { links = [] },
     primaryNavigation: { menus = [], connect = [] },
@@ -51,6 +53,7 @@ function getNavBar(siteSettings, variant, { slug }) {
     menus,
     socialLinks,
     variant,
+    locations,
   };
 }
 
@@ -61,6 +64,8 @@ export async function getPageProps(api, context) {
   const [slug] = slugs || ["index"];
   const { draftMode = false } = context;
   const options = { draft: draftMode };
+
+  const hurumapProfile = await fetchProfile();
 
   const {
     docs: [page],
@@ -74,13 +79,24 @@ export async function getPageProps(api, context) {
   const {
     page: { value: explorePage },
   } = hurumap;
+  const siteSettings = await api.findGlobal("settings-site");
 
-  let blocks = await blockify(page.blocks, api, context, hurumap);
+  const settings = {
+    hurumap,
+    hurumapProfile,
+    siteSettings,
+  };
+
+  let blocks = await blockify(page.blocks, api, context, settings);
   const variant = page.slug === explorePage.slug ? "explore" : "default";
 
-  const siteSettings = await api.findGlobal("settings-site");
   const footer = getFooter(siteSettings, variant);
-  const menus = getNavBar(siteSettings, variant, explorePage);
+  const menus = await getNavBar(
+    siteSettings,
+    variant,
+    explorePage,
+    hurumapProfile,
+  );
 
   if (slug === explorePage.slug) {
     // The explore page is a special case. The only block we need to render is map and tutorial.
@@ -93,7 +109,7 @@ export async function getPageProps(api, context) {
         blockType: "tutorial",
       },
     ];
-    blocks = await blockify(explorePageBlocks, api, context, hurumap);
+    blocks = await blockify(explorePageBlocks, api, context, settings);
   }
 
   return {

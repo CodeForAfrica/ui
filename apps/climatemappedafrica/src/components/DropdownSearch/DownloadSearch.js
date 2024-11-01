@@ -16,7 +16,7 @@ import Link from "@/climatemappedafrica/components/Link";
 
 function DropdownSearch({
   href: hrefProp = "/explore",
-  label = "Search for a location",
+  label,
   locations,
   onClick,
   icon: IconProp = SearchIcon,
@@ -87,8 +87,8 @@ function DropdownSearch({
         component={iconComponent}
         viewBox="0 0 48 48"
         sx={{
-          width: 48,
-          height: 48,
+          width: 40,
+          height: 40,
           ...iconBorder,
         }}
       />
@@ -97,15 +97,17 @@ function DropdownSearch({
 
   return (
     <Box id="location-search">
-      <Typography
-        variant="body1"
-        sx={({ palette, typography }) => ({
-          color: palette.text.primary,
-          marginBottom: typography.pxToRem(10),
-        })}
-      >
-        {label}
-      </Typography>
+      {label && (
+        <Typography
+          variant="body1"
+          sx={({ palette, typography }) => ({
+            color: palette.text.primary,
+            marginBottom: typography.pxToRem(10),
+          })}
+        >
+          {label}
+        </Typography>
+      )}
       <InputBase
         inputProps={{ "aria-label": "search" }}
         onChange={handleChange}
@@ -118,12 +120,12 @@ function DropdownSearch({
           width: typography.pxToRem(278),
           backgroundColor: "inherit",
           height: typography.pxToRem(48),
-          padding: `0 ${typography.pxToRem(20)}`,
+          padding: 0,
           "&.MuiInputBase-input": {
             backgroundColor: "inherit",
             height: typography.pxToRem(48),
             borderRadius: typography.pxToRem(10),
-            padding: `0 ${typography.pxToRem(20)}`,
+            padding: 0,
             textTransform: "capitalize",
           },
           "&.Mui-focused": {
