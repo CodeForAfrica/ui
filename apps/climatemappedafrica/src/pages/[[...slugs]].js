@@ -14,7 +14,10 @@ import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
-import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
+import {
+  getPageStaticPaths,
+  getPageStaticProps,
+} from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
   "data-indicators": DataIndicators,
@@ -27,7 +30,7 @@ const componentsBySlugs = {
   team: AboutTeam,
 };
 
-function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
+function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
   const {
     query: { showTutorial },
   } = useRouter();
@@ -54,7 +57,8 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
   let TutorialComponent = React.Fragment;
   let TutorialComponentProps;
   const tutorialBlock = blocks.find((block) => block.blockType === "tutorial");
-  if (tutorialBlock) {
+
+  if (tutorialBlock && tutorialBlock?.enabled) {
     TutorialComponent = Tutorial;
     TutorialComponentProps = {
       ...tutorialBlock,
@@ -91,8 +95,12 @@ function Index({ blocks, menus, footer: footerProps, seo = {}, fallback }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  return getPageServerSideProps(context);
+export async function getStaticPaths() {
+  return getPageStaticPaths();
 }
 
-export default Index;
+export async function getStaticProps(context) {
+  return getPageStaticProps(context);
+}
+
+export default Page;

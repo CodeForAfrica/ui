@@ -17,7 +17,8 @@ function getQueryFromParams(params) {
   };
 }
 
-export async function getMembers(api, params) {
+// TODO(kilemensi): Confirm if params is undefined when using static build
+export async function getMembers(api, params = {}) {
   const { page: queryPage = 1 } = params;
   const options = {
     limit: 18,

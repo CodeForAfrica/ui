@@ -56,7 +56,15 @@ function HowItWorks({
         })}
       />
       <Section classes={{ root: classes.section }}>
-        <Grid container direction={{ xs: "column-reverse", lg: "row" }}>
+        <Grid
+          container
+          direction={{
+            xs: "column-reverse",
+            md: "row",
+          }}
+          wrap="nowrap"
+          alignItems="center"
+        >
           <Grid
             item
             xs={12}
@@ -148,15 +156,14 @@ function HowItWorks({
           </Grid>
           <Grid item lg={1} />
           <Grid
+            container
             item
             xs={12}
             md={5}
-            sx={{
-              alignItems: "center",
-              justifyContent: {
-                xs: "center",
-                md: "flex-end",
-              },
+            alignItems="center"
+            justifyContent={{
+              xs: "center",
+              md: "flex-end",
             }}
           >
             <Box
