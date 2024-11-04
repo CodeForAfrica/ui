@@ -1,11 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
-import theme from "@/climatemappedafrica/theme";
 
 function Map({
   center,
@@ -19,16 +18,17 @@ function Map({
     color: "#2A2A2C",
     weight: 1,
     opacity: 1,
-    fillColor: "#fff",
     dashArray: "2",
   },
   onLayerMouseOver,
   featuredLocations,
+  explorePageSlug,
 }) {
   const router = useRouter();
 
   const countyCodes = featuredLocations?.map(({ code }) => code);
 
+  const theme = useTheme();
   const onEachFeature = (feature, layer) => {
     layer.setStyle({
       fillColor: theme.palette.background.default,
@@ -55,22 +55,24 @@ function Map({
         });
       });
       layer.on("click", () => {
-        router.push(`/explore/${feature.properties.code.toLowerCase()}`);
+        router.push(
+          `/${explorePageSlug}/${feature.properties.code.toLowerCase()}`,
+        );
       });
     }
   };
 
   return (
     <Box
-      sx={() => ({
+      sx={{
         position: "relative",
-        height: { sm: "299px", lg: "471px" },
-        width: { sm: "236px", lg: "371px" },
+        height: { sm: "350px", lg: "471px" },
+        width: { sm: "300px", lg: "500px" },
         marginTop: { sm: "55px", lg: "42px" },
         "& .leaflet-container": {
           background: "transparent",
         },
-      })}
+      }}
     >
       <MapContainer
         center={center}
@@ -114,6 +116,7 @@ Map.propTypes = {
   featuredLocations: PropTypes.arrayOf(
     PropTypes.shape({ code: PropTypes.string }),
   ),
+  explorePageSlug: PropTypes.string,
 };
 
 export default Map;
