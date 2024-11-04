@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
-  "description": "Climate Mapped Africa ",
+  "description": "ClimateMapped Africa",
   "keywords": [
     "climatemappedafrica",
     "next",
@@ -65,7 +65,6 @@
     "next": "catalog:",
     "next-images": "catalog:",
     "next-seo": "catalog:",
-    "nodemailer-sendgrid": "catalog:",
     "papaparse": "catalog:",
     "payload": "catalog:",
     "plaiceholder": "catalog:",
