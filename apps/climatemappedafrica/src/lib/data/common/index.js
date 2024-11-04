@@ -1,6 +1,11 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
 import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 
+// TODO(kilemensi): Use HURUmap APIs (or CMS) to pick geographies we'd like to
+//                  build pages for at build time (It can't be all geographies
+//                  as that will take forever)
+const GEOGRAPHIES = ["af", "ke", "tz"];
+
 export function imageFromMedia(alt, url) {
   return { alt, src: url };
 }
@@ -57,9 +62,37 @@ async function getNavBar(siteSettings, variant, { slug }, hurumapProfile) {
   };
 }
 
+export async function getPagePaths(api) {
+  const hurumapSettings = await api.findGlobal("settings-hurumap");
+  const { docs: pages } = await api.getCollection("pages");
+  const {
+    page: { value: explorePage },
+  } = hurumapSettings;
+  const paths = pages.flatMap(({ slug }) => {
+    // TODO(kilemensi): Handle parent > child page relation e.g. /insights/news
+    if (slug !== explorePage?.slug) {
+      return {
+        params: {
+          slugs: [slug === "index" ? "" : slug],
+        },
+      };
+    }
+    // HURUmap profile page
+    return GEOGRAPHIES.map((code) => ({
+      params: {
+        slugs: [explorePage.slug, code],
+      },
+    }));
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
 export async function getPageProps(api, context) {
-  // For now, ClimatemappedAfrica only supports single paths i.e. /, /about, etc.,
-  // so params.slug[0] is good enough
+  // For now, ClimateMappedAfrica only supports single paths i.e. /, /about, etc.,
+  // so params.slugs[0] is good enough
   const slugs = context.params?.slugs || undefined;
   const [slug] = slugs || ["index"];
   const { draftMode = false } = context;

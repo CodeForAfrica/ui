@@ -1,7 +1,7 @@
 import { RichText } from "@commons-ui/payload";
 import { Grid, Typography, IconButton, Avatar } from "@mui/material";
 import { useTour } from "@reactour/tour";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import PropTypes from "prop-types";
 import React from "react";
 
