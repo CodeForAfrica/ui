@@ -65,9 +65,12 @@ async function getNavBar(siteSettings, variant, { slug }, hurumapProfile) {
 export async function getPagePaths(api) {
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   const { docs: pages } = await api.getCollection("pages");
-  const {
-    page: { value: explorePage },
-  } = hurumapSettings;
+  let explorePage;
+  if (hurumapSettings.page) {
+    explorePage = hurumapSettings.page.value;
+  } else {
+    explorePage = null;
+  }
   const paths = pages.flatMap(({ slug }) => {
     // TODO(kilemensi): Handle parent > child page relation e.g. /insights/news
     if (slug !== explorePage?.slug) {
