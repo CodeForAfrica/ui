@@ -6,10 +6,9 @@ import {
 export default async function hero({ block, hurumap }) {
   const {
     rootGeography: { center, code, rootGeographyHasData: pinRootGeography },
-    page: {
-      value: { slug: explorePageSlug },
-    },
+    page,
   } = hurumap;
+  const explorePageSlug = page?.value?.slug ?? null;
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
