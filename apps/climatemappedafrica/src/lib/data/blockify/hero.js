@@ -3,12 +3,19 @@ import {
   fetchProfileGeography,
 } from "@/climatemappedafrica/lib/hurumap";
 
-export default async function hero({ block, hurumap }) {
+/**
+ * This function will be called even when HURUmap is disabled.
+ * @see @/climatemappedafrica/lib/data/common/index.js
+ *
+ * TODO(koech): Handle the case when hurumap?.enabled is undefined/false
+ *              Should we hide the map?
+ */
+export default async function hero(block, _api, _context, { hurumap }) {
   const {
-    rootGeography: { center, code, rootGeographyHasData: pinRootGeography },
-    page,
+    profilePage,
+    rootGeography: { center, code, hasData: pinRootGeography },
   } = hurumap;
-  const explorePageSlug = page?.value?.slug ?? null;
+  const { slug: explorePageSlug } = profilePage;
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
@@ -25,15 +32,16 @@ export default async function hero({ block, hurumap }) {
     (location) => location.level === childLevel,
   );
   const boundary = children[preferredLevel];
+
   return {
     ...block,
-    center,
-    slug: "hero",
     boundary,
+    center,
+    explorePageSlug,
     featuredLocations,
     level,
-    properties: geometries.boundary?.properties,
     pinRootGeography,
-    explorePageSlug,
+    properties: geometries.boundary?.properties,
+    slug: "hero",
   };
 }

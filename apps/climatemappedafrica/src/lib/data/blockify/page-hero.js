@@ -1,6 +1,6 @@
 import { imageFromMedia } from "@/climatemappedafrica/lib/data/utils";
 
-async function pageHero({ block }) {
+async function pageHero(block) {
   const { background: media, ...others } = block;
   let background = null;
   if (media) {
