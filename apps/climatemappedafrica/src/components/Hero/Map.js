@@ -55,9 +55,11 @@ function Map({
         });
       });
       layer.on("click", () => {
-        router.push(
-          `/${explorePageSlug}/${feature.properties.code.toLowerCase()}`,
-        );
+        if (explorePageSlug) {
+          router.push(
+            `/${explorePageSlug}/${feature.properties.code.toLowerCase()}`,
+          );
+        }
       });
     }
   };
