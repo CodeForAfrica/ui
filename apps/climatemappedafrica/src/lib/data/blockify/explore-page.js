@@ -1,13 +1,19 @@
 import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
-async function explorePage({ block: { slugs }, hurumap, hurumapProfile }) {
+/**
+ * This function will be called only when HURUmap is enabled.
+ * @see @/climatemappedafrica/lib/data/common/index.js
+ */
+async function explorePage(block, _api, _context, { hurumap }) {
   const {
-    rootGeography,
-    labels: { dataNotAvailable, scrollToTop: scrollToTopLabel },
     items: panelItems,
-    page: { value },
+    labels: { dataNotAvailable, scrollToTop: scrollToTopLabel },
+    profile: hurumapProfile,
+    profilePage,
+    rootGeography,
   } = hurumap;
   const { code: name } = rootGeography;
+  const { slugs } = block;
   const code = slugs.length ? slugs[0] : name;
 
   const { locations, preferredChildren, mapType, choropleth } = hurumapProfile;
@@ -41,7 +47,7 @@ async function explorePage({ block: { slugs }, hurumap, hurumapProfile }) {
     blockType: "explore-page",
     choropleth,
     rootGeography,
-    explorePagePath: value.slug,
+    explorePagePath: profilePage.slug,
     locations,
     mapType,
     panel,
