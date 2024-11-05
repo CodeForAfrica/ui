@@ -9,7 +9,6 @@ const RootGeography = {
         en: "Root Geography",
       },
       type: "group",
-      localized: true,
       fields: [
         {
           name: "code",
@@ -17,7 +16,6 @@ const RootGeography = {
           label: {
             en: "Location Code",
           },
-          localized: true,
           required: true,
           hasMany: false,
           defaultValue: "af",
@@ -35,9 +33,8 @@ const RootGeography = {
           defaultValue: [20.0, 4.25],
         },
         {
-          name: "rootGeographyHasData",
+          name: "hasData",
           type: "checkbox",
-          localized: true,
           label: {
             en: "Root geography has data",
           },

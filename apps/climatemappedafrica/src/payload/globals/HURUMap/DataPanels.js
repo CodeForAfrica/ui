@@ -1,12 +1,13 @@
 import image from "../../fields/image";
 
-const PanelOptions = {
-  label: "Panel Options",
+const DataPanels = {
+  label: "Data Panels",
   fields: [
     {
       name: "items",
       type: "array",
       label: "Panel Items",
+      required: true,
       fields: [
         {
           type: "select",
@@ -61,4 +62,4 @@ const PanelOptions = {
   ],
 };
 
-export default PanelOptions;
+export default DataPanels;
