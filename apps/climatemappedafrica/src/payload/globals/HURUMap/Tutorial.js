@@ -26,25 +26,17 @@ const Tutorial = {
   label: "Tutorial",
   fields: [
     {
-      name: "enabled",
-      label: {
-        en: "Enable Tutorial",
-      },
-      type: "checkbox",
-      defaultValue: true,
-      localized: true,
-    },
-    {
-      name: "panel",
-      label: {
-        en: "Tutorial Panel",
-      },
+      name: "tutorial",
       type: "group",
-      localized: true,
-      admin: {
-        condition: (_, siblingData) => !!siblingData?.enabled,
-      },
       fields: [
+        {
+          name: "enabled",
+          label: {
+            en: "Enable HURUmap Tutorial",
+          },
+          type: "checkbox",
+          defaultValue: true,
+        },
         {
           name: "steps",
           label: {
@@ -60,6 +52,7 @@ const Tutorial = {
                 return data?.title || `Step ${String(index).padStart(2, "0")}`;
               },
             },
+            condition: (_, siblingData) => !!siblingData?.enabled,
           },
           fields: [
             {
