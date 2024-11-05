@@ -5,9 +5,9 @@ import formatNumericalValue from "@/climatemappedafrica/utils/formatNumericalVal
 
 const apiUrl = process.env.HURUMAP_API_URL || hurumap?.api?.url;
 
-export async function fetchProfile() {
+export async function fetchProfile(id) {
   const { configuration } = await fetchJson(
-    new URL("/api/v1/profiles/1/?format=json", apiUrl),
+    new URL(`/api/v1/profiles/${id}/?format=json`, apiUrl),
   );
 
   const locations = configuration?.featured_locations?.map(
@@ -22,6 +22,12 @@ export async function fetchProfile() {
     mapType: configuration?.map_type ?? "default",
     choropleth: configuration?.choropleth ?? null,
   };
+}
+
+export async function fetchProfiles() {
+  const { results } = await fetchJson(new URL("/api/v1/profiles", apiUrl));
+  const profiles = results.map(({ name, id }) => ({ name, id }));
+  return profiles;
 }
 
 function formatProfileGeographyData(data, parent) {
