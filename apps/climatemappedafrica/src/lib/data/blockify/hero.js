@@ -14,6 +14,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
   const {
     profilePage,
     rootGeography: { center, code, hasData: pinRootGeography },
+    enableHURUMap,
   } = hurumap;
   const { slug: explorePageSlug } = profilePage;
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
@@ -37,7 +38,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     ...block,
     boundary,
     center,
-    explorePageSlug,
+    explorePageSlug: enableHURUMap ? explorePageSlug : null,
     featuredLocations,
     level,
     pinRootGeography,

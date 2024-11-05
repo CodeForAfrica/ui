@@ -42,10 +42,12 @@ function Map({
       });
       layer.on("mouseover", () => {
         onLayerMouseOver(feature.properties.name.toLowerCase());
-        layer.setStyle({
-          fillColor: theme.palette.primary.main,
-          fillOpacity: 0.5,
-        });
+        if (explorePageSlug) {
+          layer.setStyle({
+            fillColor: theme.palette.primary.main,
+            fillOpacity: 0.5,
+          });
+        }
       });
       layer.on("mouseout", () => {
         onLayerMouseOver(null);
