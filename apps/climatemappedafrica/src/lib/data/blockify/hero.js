@@ -12,7 +12,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
   const {
     profilePage,
     rootGeography: { center, code, hasData: pinRootGeography },
-  } = hurumap;
+  } = hurumap ?? { rootGeography: {} };
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
