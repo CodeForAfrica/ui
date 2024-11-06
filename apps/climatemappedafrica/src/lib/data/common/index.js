@@ -118,7 +118,7 @@ export async function getPageProps(api, context) {
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
-    const profile = await fetchProfile();
+    const profile = await fetchProfile(hurumapSettings.profile);
     const { page: hurumapPage, ...otherHurumapSettings } = hurumapSettings;
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
