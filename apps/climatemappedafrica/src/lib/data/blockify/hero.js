@@ -7,15 +7,12 @@ import {
  * This function will be called even when HURUmap is disabled.
  * @see @/climatemappedafrica/lib/data/common/index.js
  *
- * TODO(koech): Handle the case when hurumap?.enabled is undefined/false
- *              Should we hide the map?
  */
 export default async function hero(block, _api, _context, { hurumap }) {
   const {
     profilePage,
     rootGeography: { center, code, hasData: pinRootGeography },
-  } = hurumap;
-  const { slug: explorePageSlug } = profilePage;
+  } = hurumap ?? { rootGeography: {} };
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
@@ -37,7 +34,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     ...block,
     boundary,
     center,
-    explorePageSlug,
+    explorePageSlug: profilePage?.slug || null,
     featuredLocations,
     level,
     pinRootGeography,

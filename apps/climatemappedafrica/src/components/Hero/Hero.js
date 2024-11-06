@@ -153,6 +153,7 @@ Hero.propTypes = {
   featuredLocations: PropTypes.arrayOf(PropTypes.shape({})),
   properties: PropTypes.shape({}),
   level: PropTypes.string,
+  explorePageSlug: PropTypes.string,
 };
 
 export default Hero;
