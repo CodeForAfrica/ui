@@ -48,8 +48,8 @@ function Map({
         onLayerMouseOver(feature.properties.name.toLowerCase());
         if (explorePageSlug) {
           layer.setStyle({
-            fillColor: theme.palette.primary.main,
-            fillOpacity: 0.5,
+            fillColor: choroplethColor?.fillColor,
+            fillOpacity: 0.4,
           });
         }
       });
