@@ -48,6 +48,15 @@ const defaultProps = {
   },
   variant: "explore",
   icon: null,
+  legend: [
+    { min: 10, max: 13, color: "#021AFE" },
+    { min: 13, max: 16, color: "#5455FF" },
+    { min: 16, max: 19, color: "#928EFD" },
+    { min: 19, max: 22, color: "#B494DF" },
+    { min: 22, max: 25, color: "#FA9B9B" },
+    { min: 25, max: 28, color: "#F96264" },
+    { min: 28, max: 31, color: "#F80701" },
+  ],
 };
 
 describe("<Hero />", () => {

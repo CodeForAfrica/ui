@@ -23,19 +23,23 @@ function Map({
   onLayerMouseOver,
   featuredLocations,
   explorePageSlug,
+  choropleth,
 }) {
   const router = useRouter();
 
-  const countyCodes = featuredLocations?.map(({ code }) => code);
-
+  const regionCodes = featuredLocations?.map(({ code }) => code);
   const theme = useTheme();
   const onEachFeature = (feature, layer) => {
+    const choroplethColor = choropleth?.find?.(
+      (c) => c.code.toLowerCase() === feature.properties.code.toLowerCase(),
+    );
     layer.setStyle({
       fillColor: theme.palette.background.default,
+      ...choroplethColor,
       fillOpacity: 1,
     });
 
-    if (countyCodes.includes(feature.properties.code?.toLowerCase())) {
+    if (regionCodes.includes(feature.properties.code?.toLowerCase())) {
       layer.setStyle({
         weight: 1.5,
         dashArray: 0,
@@ -51,10 +55,7 @@ function Map({
       });
       layer.on("mouseout", () => {
         onLayerMouseOver(null);
-        layer.setStyle({
-          fillOpacity: 1,
-          fillColor: theme.palette.background.default,
-        });
+        layer.setStyle({ ...choroplethColor, fillOpacity: 1 });
       });
       layer.on("click", () => {
         if (explorePageSlug) {
@@ -67,36 +68,38 @@ function Map({
   };
 
   return (
-    <Box
-      sx={{
-        position: "relative",
-        height: { sm: "350px", lg: "471px" },
-        width: { sm: "300px", lg: "500px" },
-        marginTop: { sm: "55px", lg: "42px" },
-        "& .leaflet-container": {
-          background: "transparent",
-        },
-      }}
-    >
-      <MapContainer
-        center={center}
-        zoom={zoom}
-        boxZoom={false}
-        dragging={false}
-        doubleClickZoom={false}
-        zoomControl={false}
-        scrollWheelZoom={false}
-        touchZoom={false}
-        trackResize={false}
-        zoomSnap={0.25}
-        style={styles}
+    <Box display="flex" justifyContent="center">
+      <Box
+        sx={{
+          position: "relative",
+          height: { sm: "350px", lg: "471px" },
+          width: { xs: "100%", sm: "300px", lg: "500px" },
+          marginTop: { sm: "55px", lg: "42px" },
+          "& .leaflet-container": {
+            background: "transparent",
+          },
+        }}
       >
-        <GeoJSON
-          data={boundary}
-          style={geoJSONStyles}
-          onEachFeature={onEachFeature}
-        />
-      </MapContainer>
+        <MapContainer
+          center={center}
+          zoom={zoom}
+          boxZoom={false}
+          dragging={false}
+          doubleClickZoom={false}
+          zoomControl={false}
+          scrollWheelZoom={false}
+          touchZoom={false}
+          trackResize={false}
+          zoomSnap={0.25}
+          style={styles}
+        >
+          <GeoJSON
+            data={boundary}
+            style={geoJSONStyles}
+            onEachFeature={onEachFeature}
+          />
+        </MapContainer>
+      </Box>
     </Box>
   );
 }
