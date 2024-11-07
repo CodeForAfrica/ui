@@ -1,0 +1,89 @@
+import { Button } from "payload/components/elements";
+import { Label, TextInput, useField } from "payload/components/forms";
+import { createElement, useState, useEffect } from "react";
+
+function HURUMapURL(props) {
+  const {
+    admin: { description },
+    name,
+    path,
+  } = props;
+  const { value, setValue } = useField({ path });
+  const [isValid, setIsValid] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const validateURL = async () => {
+    if (!value) return;
+    setLoading(true);
+    try {
+      const response = await fetch(value);
+      setIsValid(response.ok);
+    } catch (error) {
+      setIsValid(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const isURLValid = (url) => {
+    const urlPattern = new RegExp(
+      "^(https?:\\/\\/)" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i", // fragment locator
+    );
+    return !!urlPattern.test(url);
+  };
+
+  const handleInputChange = (e) => {
+    const newUrl = e.target.value;
+    setValue(newUrl);
+    setIsValid(null);
+    setIsButtonDisabled(!isURLValid(newUrl));
+  };
+
+  useEffect(() => {
+    setIsButtonDisabled(!isURLValid(value));
+  }, [value]);
+
+  return createElement(
+    "div",
+    {
+      id: "hurumap-url-wrapper",
+    },
+    createElement(TextInput, {
+      ...props,
+      value,
+      onChange: handleInputChange,
+    }),
+    description &&
+      createElement(
+        "span",
+        {
+          className: "field-description",
+        },
+        description,
+      ),
+    createElement(
+      Button,
+      {
+        type: "button",
+        onClick: () => validateURL(),
+        className: "btn btn--style-primary",
+        disabled: loading || isButtonDisabled,
+      },
+      loading ? "Checking..." : "Validate URL",
+    ),
+    isValid !== null &&
+      createElement(Label, {
+        label: isValid ? "✓ URL is valid" : "✗ Invalid URL",
+        htmlFor: `field-${name}`,
+      }),
+  );
+}
+
+export default HURUMapURL;
