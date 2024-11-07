@@ -12,7 +12,7 @@ exports[`<DropdownSearch /> renders unchanged 1`] = `
       Search for a location
     </p>
     <div
-      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1f7prdq-MuiInputBase-root"
+      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-49e042-MuiInputBase-root"
     >
       <input
         aria-label="search"
