@@ -38,11 +38,20 @@ const HURUMap = {
       required: true,
     },
     {
+      name: "isHURUMapAPIURLValid",
+      type: "checkbox",
+      admin: {
+        hidden: true,
+        readOnly: true,
+        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
+      },
+    },
+    {
       type: "tabs",
       tabs: [Profile, DataPanels, RootGeography, Tutorial],
       admin: {
         condition: (_, siblingData) =>
-          !!siblingData?.enableHURUMap && !!siblingData?.hurumapAPIURL,
+          !!siblingData?.enableHURUMap && !!siblingData?.isHURUMapAPIURLValid,
       },
     },
   ],

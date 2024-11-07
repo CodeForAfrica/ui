@@ -1,5 +1,10 @@
 import { Button } from "payload/components/elements";
-import { Label, TextInput, useField } from "payload/components/forms";
+import {
+  Label,
+  TextInput,
+  useField,
+  useFormFields,
+} from "payload/components/forms";
 import { createElement, useState, useEffect } from "react";
 
 function HURUMapURL(props) {
@@ -12,15 +17,29 @@ function HURUMapURL(props) {
   const [isValid, setIsValid] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const isHURUMapAPIURLValid = useFormFields(([_, dispatch]) => dispatch);
 
   const validateURL = async () => {
     if (!value) return;
     setLoading(true);
     try {
-      const response = await fetch(value);
+      // For now we can use the profiles endpoint to check if the URL is validate
+      // Ideally we should have a dedicated endpoint for this
+      const response = await fetch(`${value}/profiles`);
       setIsValid(response.ok);
+      isHURUMapAPIURLValid({
+        type: "UPDATE",
+        path: "isHURUMapAPIURLValid",
+        value: response.ok,
+      });
     } catch (error) {
       setIsValid(false);
+      isHURUMapAPIURLValid({
+        type: "UPDATE",
+        path: "isHURUMapAPIURLValid",
+        value: false,
+      });
     } finally {
       setLoading(false);
     }
