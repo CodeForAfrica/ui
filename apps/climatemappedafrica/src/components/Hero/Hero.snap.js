@@ -90,14 +90,40 @@ exports[`<Hero /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root css-h9r63z"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-g8r332-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-5 css-1f9gci5-MuiGrid-root"
+            class="MuiBox-root css-ljsg2c"
           >
             <div
-              class="MuiBox-root css-4tnojn"
-            />
+              class="MuiBox-root css-0"
+            >
+              <div
+                class="MuiBox-root css-70qvj9"
+              >
+                <div
+                  class="MuiBox-root css-1wok3bd"
+                />
+                <div
+                  class="MuiBox-root css-1fg12k3"
+                />
+                <div
+                  class="MuiBox-root css-55biq3"
+                />
+                <div
+                  class="MuiBox-root css-9qafv7"
+                />
+                <div
+                  class="MuiBox-root css-5srxm6"
+                />
+                <div
+                  class="MuiBox-root css-1kw6r8l"
+                />
+                <div
+                  class="MuiBox-root css-oi5eih"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

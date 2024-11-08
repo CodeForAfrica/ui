@@ -1,3 +1,5 @@
+import { generateChoropleth } from "@hurumap/next";
+
 import {
   fetchProfile,
   fetchProfileGeography,
@@ -14,6 +16,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     profileId,
     profilePage,
     rootGeography: { center, code, hasData: pinRootGeography },
+    profile: hurumapProfile,
   } = hurumap ?? { rootGeography: {} };
   const { geometries } = await fetchProfileGeography(code.toLowerCase(), {
     BASE_URL: hurumapAPIURL,
@@ -29,6 +32,12 @@ export default async function hero(block, _api, _context, { hurumap }) {
     BASE_URL: hurumapAPIURL,
     profileId,
   });
+  const chloropleth = hurumapProfile?.choropleth ?? null;
+  const { choropleth, legend } = generateChoropleth(
+    chloropleth,
+    locations,
+    "choropleth",
+  );
   const preferredChildrenPerLevel = preferredChildren[level];
   const { children } = geometries;
   const preferredLevel =
@@ -48,5 +57,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     pinRootGeography,
     properties: geometries.boundary?.properties,
     slug: "hero",
+    choropleth,
+    legend,
   };
 }
