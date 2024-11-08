@@ -68,8 +68,8 @@ function Map({
       <Box
         sx={{
           position: "relative",
-          height: { sm: "350px", lg: "471px" },
-          width: { xs: "100%", sm: "300px", lg: "500px" },
+          height: "471px",
+          width: { xs: "100%", md: "300px", lg: "500px" },
           marginTop: { sm: "55px", lg: "42px" },
           "& .leaflet-container": {
             background: "transparent",
