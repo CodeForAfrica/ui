@@ -9,9 +9,6 @@ const RootGeography = {
         en: "Root Geography",
       },
       type: "group",
-      admin: {
-        condition: (data) => Boolean(data?.profile),
-      },
       fields: [
         {
           name: "code",

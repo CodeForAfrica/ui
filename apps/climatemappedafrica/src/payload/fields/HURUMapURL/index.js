@@ -7,6 +7,7 @@ import {
 } from "payload/components/forms";
 import { createElement, useState, useEffect } from "react";
 
+// TODO: @kelvinkipruto Handle i18n
 function HURUMapURL(props) {
   const {
     admin: { description },
