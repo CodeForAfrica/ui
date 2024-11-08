@@ -4,6 +4,8 @@ import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
+import Legend from "./Legend";
+
 import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Image from "@/climatemappedafrica/components/Image";
@@ -23,6 +25,8 @@ function Hero({
   properties,
   level,
   explorePageSlug,
+  averageTemperature,
+  legend,
   ...props
 }) {
   const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
@@ -99,45 +103,44 @@ function Hero({
             </RichTypography>
           </Grid>
           {/* Since map is dynamic-ally loaded, no need for implementation="css" */}
-          <Box
-            sx={{
-              display: {
-                xs: "none",
-                md: "block",
-              },
-            }}
-          >
-            <Grid item md={5}>
-              {center ? (
-                <Map
-                  center={[center[1], center[0]]}
-                  zoom={zoom}
-                  tileLayer={{
-                    url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
-                  }}
-                  onLayerMouseOver={setHoverGeo}
-                  featuredLocations={featuredLocations}
-                  explorePageSlug={explorePageSlug}
-                  {...props}
-                />
-              ) : null}
-              <Box sx={{ height: 80 }}>
-                <RichTypography
-                  variant="h6"
-                  sx={{
-                    lineHeight: 23 / 18,
-                    lineSpacing: "0.9px",
-                    fontWeight: "normal",
-                    textTransform: "capitalize",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  {hoverGeo}
-                </RichTypography>
-              </Box>
-            </Grid>
-          </Box>
+
+          <Grid item md={6} xs={12} justifyContent="flex-end">
+            {center ? (
+              <Map
+                center={[center[1], center[0]]}
+                zoom={zoom}
+                tileLayer={{
+                  url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                }}
+                onLayerMouseOver={setHoverGeo}
+                featuredLocations={featuredLocations}
+                explorePageSlug={explorePageSlug}
+                {...props}
+              />
+            ) : null}
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              gap={2}
+              sx={{ height: 80, width: "100%" }}
+            >
+              <Legend title={averageTemperature} data={legend} />
+              <RichTypography
+                variant="h6"
+                sx={{
+                  lineHeight: 23 / 18,
+                  lineSpacing: "0.9px",
+                  fontWeight: "normal",
+                  textTransform: "capitalize",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                {hoverGeo}
+              </RichTypography>
+            </Box>
+          </Grid>
         </Grid>
       </Section>
     </Box>
@@ -154,6 +157,7 @@ Hero.propTypes = {
   properties: PropTypes.shape({}),
   level: PropTypes.string,
   explorePageSlug: PropTypes.string,
+  averageTemperature: PropTypes.string,
 };
 
 export default Hero;
