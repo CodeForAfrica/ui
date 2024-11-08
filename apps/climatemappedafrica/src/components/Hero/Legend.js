@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/legacy";
-import { Box, Tooltip } from "@mui/material";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState, forwardRef } from "react";
 
@@ -21,23 +21,17 @@ const Legend = forwardRef(function Legend({ data, title }, ref) {
       </RichTypography>
       <Box ref={ref} display="flex" alignItems="center">
         {data.map((item) => (
-          <Tooltip
+          <Box
             key={`${item.min} - ${item.max}`}
-            title={`${item.min} - ${item.max}`}
-            placement="top"
-            arrow
-          >
-            <Box
-              onMouseEnter={() => handleMouseEnter(`${item.min} - ${item.max}`)}
-              onMouseLeave={handleMouseLeave}
-              sx={{
-                backgroundColor: item.color,
-                height: 24,
-                minWidth: 24,
-                cursor: "pointer",
-              }}
-            />
-          </Tooltip>
+            onMouseEnter={() => handleMouseEnter(`${item.min} - ${item.max}`)}
+            onMouseLeave={handleMouseLeave}
+            sx={{
+              backgroundColor: item.color,
+              height: 24,
+              minWidth: 24,
+              cursor: "pointer",
+            }}
+          />
         ))}
         {hoveredValue && (
           <RichTypography

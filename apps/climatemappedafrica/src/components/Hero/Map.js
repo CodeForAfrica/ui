@@ -17,7 +17,6 @@ function Map({
   geoJSONStyles = {
     color: "#2A2A2C",
     weight: 1,
-    opacity: 1,
     dashArray: "2",
   },
   onLayerMouseOver,
@@ -40,10 +39,7 @@ function Map({
     });
 
     if (regionCodes.includes(feature.properties.code?.toLowerCase())) {
-      layer.setStyle({
-        weight: 1.5,
-        dashArray: 0,
-      });
+      layer.setStyle(geoJSONStyles);
       layer.on("mouseover", () => {
         onLayerMouseOver(feature.properties.name.toLowerCase());
         if (explorePageSlug) {
@@ -55,7 +51,7 @@ function Map({
       });
       layer.on("mouseout", () => {
         onLayerMouseOver(null);
-        layer.setStyle({ ...choroplethColor, fillOpacity: 1 });
+        layer.setStyle({ ...choroplethColor, fillOpacity: 1, weight: 1 });
       });
       layer.on("click", () => {
         if (explorePageSlug) {
@@ -68,7 +64,7 @@ function Map({
   };
 
   return (
-    <Box display="flex" justifyContent="center">
+    <Box display="flex" justifyContent={{ xs: "center", md: "flex-end" }}>
       <Box
         sx={{
           position: "relative",

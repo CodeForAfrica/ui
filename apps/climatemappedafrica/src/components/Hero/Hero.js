@@ -104,7 +104,7 @@ function Hero({
           </Grid>
           {/* Since map is dynamic-ally loaded, no need for implementation="css" */}
 
-          <Grid item md={6} xs={12} justifyContent="center">
+          <Grid item md={6} xs={12} justifyContent="flex-end">
             {center ? (
               <Map
                 center={[center[1], center[0]]}

@@ -90,7 +90,7 @@ exports[`<Hero /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1uu4n02-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-g8r332-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-ljsg2c"
@@ -102,39 +102,25 @@ exports[`<Hero /> renders unchanged 1`] = `
                 class="MuiBox-root css-70qvj9"
               >
                 <div
-                  aria-label="10 - 13"
                   class="MuiBox-root css-1wok3bd"
-                  data-mui-internal-clone-element="true"
                 />
                 <div
-                  aria-label="13 - 16"
                   class="MuiBox-root css-1fg12k3"
-                  data-mui-internal-clone-element="true"
                 />
                 <div
-                  aria-label="16 - 19"
                   class="MuiBox-root css-55biq3"
-                  data-mui-internal-clone-element="true"
                 />
                 <div
-                  aria-label="19 - 22"
                   class="MuiBox-root css-9qafv7"
-                  data-mui-internal-clone-element="true"
                 />
                 <div
-                  aria-label="22 - 25"
                   class="MuiBox-root css-5srxm6"
-                  data-mui-internal-clone-element="true"
                 />
                 <div
-                  aria-label="25 - 28"
                   class="MuiBox-root css-1kw6r8l"
-                  data-mui-internal-clone-element="true"
                 />
                 <div
-                  aria-label="28 - 31"
                   class="MuiBox-root css-oi5eih"
-                  data-mui-internal-clone-element="true"
                 />
               </div>
             </div>
