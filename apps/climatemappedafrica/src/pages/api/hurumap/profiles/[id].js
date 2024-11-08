@@ -4,8 +4,7 @@ let cache = null;
 let cacheExpiry = 0;
 
 export default async function handler(req, res) {
-  const { id } = req.query;
-  const { BASE_URL } = req.query;
+  const { id, BASE_URL } = req.query;
   if (req.method === "GET") {
     const now = Date.now();
 
