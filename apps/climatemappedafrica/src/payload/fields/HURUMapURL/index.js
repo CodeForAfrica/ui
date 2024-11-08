@@ -24,8 +24,8 @@ function HURUMapURL(props) {
     if (!value) return;
     setLoading(true);
     try {
-      // For now we can use the profiles endpoint to check if the URL is validate
-      // Ideally we should have a dedicated endpoint for this
+      // For now we can use the profiles endpoint to check if the URL is valid
+      // Ideally we should have a dedicated endpoint for this, like /api/v1/validate or /api/v1/health
       const response = await fetch(`${value}/profiles`);
       setIsValid(response.ok);
       HURUMapAPIURLValid({

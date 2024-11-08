@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const result = await fetchProfile(BASE_URL, id);
+      const result = await fetchProfile({ BASE_URL, profileId: id });
       cache = result;
       cacheExpiry = now + 5 * 60 * 1000;
       return res.status(200).json(result);

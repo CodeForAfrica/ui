@@ -127,7 +127,7 @@ export async function getPageProps(api, context) {
       profile: profileId,
       ...otherHurumapSettings
     } = hurumapSettings;
-    const profile = await fetchProfile(hurumapAPIURL, profileId);
+    const profile = await fetchProfile({ BASE_URL: hurumapAPIURL, profileId });
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";
