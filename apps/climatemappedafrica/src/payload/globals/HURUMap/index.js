@@ -38,7 +38,7 @@ const HURUMap = {
       required: true,
     },
     {
-      name: "isHURUMapAPIURLValid",
+      name: "HURUMapAPIURLValid",
       type: "checkbox",
       admin: {
         hidden: true,
@@ -51,7 +51,7 @@ const HURUMap = {
       tabs: [Profile, DataPanels, RootGeography, Tutorial],
       admin: {
         condition: (_, siblingData) =>
-          !!siblingData?.enableHURUMap && !!siblingData?.isHURUMapAPIURLValid,
+          !!siblingData?.enableHURUMap && !!siblingData?.HURUMapAPIURLValid,
       },
     },
   ],

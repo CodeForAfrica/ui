@@ -3,7 +3,6 @@ import {
   useAllFormFields,
   reduceFieldsToValues,
 } from "payload/components/forms";
-import { select } from "payload/dist/fields/validations";
 import { createElement, useMemo } from "react";
 import useSWR from "swr";
 
@@ -18,18 +17,12 @@ const getOptions = (locations) =>
       value: location.code,
     })) || [];
 
-export async function validateLocation(value, { data, hasMany, required, t }) {
-  const { profile } = data;
-  const res = await fetcher(`${apiUrl}/api/hurumap/profiles/${profile}`);
-  const options = getOptions(res.locations);
-  return select(value, { hasMany, options, required, t });
-}
-
 function LocationSelect(props) {
   const [fields] = useAllFormFields();
   const formData = reduceFieldsToValues(fields, true);
+  const BASE_URL = formData.hurumapAPIURL;
   const { data } = useSWR(
-    `${apiUrl}/api/hurumap/profiles/${formData.profile}`,
+    `${apiUrl}/api/hurumap/profiles/${formData.profile}?BASE_URL=${BASE_URL}`,
     fetcher,
     {
       dedupingInterval: 60000,

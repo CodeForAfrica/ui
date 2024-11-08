@@ -5,6 +5,7 @@ let cacheExpiry = 0;
 
 export default async function handler(req, res) {
   const { id } = req.query;
+  const { BASE_URL } = req.query;
   if (req.method === "GET") {
     const now = Date.now();
 
@@ -13,7 +14,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const result = await fetchProfile(id);
+      const result = await fetchProfile(BASE_URL, id);
       cache = result;
       cacheExpiry = now + 5 * 60 * 1000;
       return res.status(200).json(result);

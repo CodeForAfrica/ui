@@ -122,11 +122,12 @@ export async function getPageProps(api, context) {
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
     const {
+      hurumapAPIURL,
       page: hurumapPage,
       profile: profileId,
       ...otherHurumapSettings
     } = hurumapSettings;
-    const profile = await fetchProfile(profileId);
+    const profile = await fetchProfile(hurumapAPIURL, profileId);
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";

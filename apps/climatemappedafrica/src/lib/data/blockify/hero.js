@@ -10,6 +10,7 @@ import {
  */
 export default async function hero(block, _api, _context, { hurumap }) {
   const {
+    hurumapAPIURL,
     profileId,
     profilePage,
     rootGeography: { center, code, hasData: pinRootGeography },
@@ -21,7 +22,10 @@ export default async function hero(block, _api, _context, { hurumap }) {
     country: "region",
   };
   const childLevel = childLevelMaps[level];
-  const { locations, preferredChildren } = await fetchProfile(profileId);
+  const { locations, preferredChildren } = await fetchProfile(
+    hurumapAPIURL,
+    profileId,
+  );
   const preferredChildrenPerLevel = preferredChildren[level];
   const { children } = geometries;
   const preferredLevel =

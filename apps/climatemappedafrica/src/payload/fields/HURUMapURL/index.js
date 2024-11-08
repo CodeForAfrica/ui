@@ -18,7 +18,7 @@ function HURUMapURL(props) {
   const [loading, setLoading] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   // eslint-disable-next-line no-unused-vars
-  const isHURUMapAPIURLValid = useFormFields(([_, dispatch]) => dispatch);
+  const HURUMapAPIURLValid = useFormFields(([_, dispatch]) => dispatch);
 
   const validateURL = async () => {
     if (!value) return;
@@ -28,16 +28,16 @@ function HURUMapURL(props) {
       // Ideally we should have a dedicated endpoint for this
       const response = await fetch(`${value}/profiles`);
       setIsValid(response.ok);
-      isHURUMapAPIURLValid({
+      HURUMapAPIURLValid({
         type: "UPDATE",
-        path: "isHURUMapAPIURLValid",
+        path: "HURUMapAPIURLValid",
         value: response.ok,
       });
     } catch (error) {
       setIsValid(false);
-      isHURUMapAPIURLValid({
+      HURUMapAPIURLValid({
         type: "UPDATE",
-        path: "isHURUMapAPIURLValid",
+        path: "HURUMapAPIURLValid",
         value: false,
       });
     } finally {

@@ -1,4 +1,4 @@
-import LocationSelect, { validateLocation } from "../../fields/LocationSelect";
+import LocationSelect from "../../fields/LocationSelect";
 
 const RootGeography = {
   label: "Root Geography",
@@ -22,7 +22,6 @@ const RootGeography = {
           required: true,
           hasMany: false,
           defaultValue: "af",
-          validate: validateLocation,
           admin: {
             components: {
               Field: LocationSelect,
