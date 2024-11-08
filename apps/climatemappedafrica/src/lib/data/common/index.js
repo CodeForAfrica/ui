@@ -143,6 +143,7 @@ export async function getPageProps(api, context) {
     }
     settings.hurumap = {
       ...otherHurumapSettings,
+      hurumapAPIURL,
       profile,
       profileId,
       profilePage,
