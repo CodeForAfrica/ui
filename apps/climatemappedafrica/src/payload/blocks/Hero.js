@@ -52,6 +52,13 @@ const Hero = {
       label: "Comment",
       localized: true,
     },
+    {
+      name: "averageTemperature",
+      type: "text",
+      label: "Average Temperature",
+      defaultValue: "Average Temperature",
+      localized: true,
+    },
   ],
 };
 

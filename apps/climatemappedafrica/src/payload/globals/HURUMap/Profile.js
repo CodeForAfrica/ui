@@ -12,7 +12,7 @@ const Profile = {
       maxDepth: 1,
       required: true,
       admin: {
-        description: "The page to show the interactive map on.",
+        description: "The page to show the HURUmap profile on.",
       },
     },
   ],
