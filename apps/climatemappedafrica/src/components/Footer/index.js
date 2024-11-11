@@ -117,11 +117,15 @@ function Footer(props) {
                   {...connect}
                   LinkProps={{
                     component: Link,
-                    sx: { color: "text.secondary" },
+                    sx: {
+                      color: "text.secondary",
+                      alignItems: { xs: "center", lg: "flex-end" },
+                    },
                   }}
+                  alignItems={{ xs: "center", lg: "flex-end" }}
                   TitleProps={{
                     variant: "footerCap",
-                    sx: { color: "text.secondary" },
+                    sx: { color: "text.secondary", mr: 0 },
                   }}
                   sx={{ gap: 2 }}
                   direction="column"

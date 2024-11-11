@@ -2,9 +2,7 @@ import { RichTypography } from "@commons-ui/legacy";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
-
-import Legend from "./Legend";
+import React from "react";
 
 import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
@@ -26,11 +24,9 @@ function Hero({
   level,
   explorePageSlug,
   averageTemperature,
-  legend,
   ...props
 }) {
   const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-  const [hoverGeo, setHoverGeo] = useState(null);
   const continentLevelZoom = isUpLg ? 3 : 2.1; // We have to reduce the zoom level for continent so that all countries(Including islands) are visible within the designs
   const countryLevelZoom = isUpLg ? 6 : 5.25;
   const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
@@ -58,7 +54,14 @@ function Hero({
         }}
       >
         <Grid container>
-          <Grid item xs={12} md={6}>
+          <Grid
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            item
+            xs={12}
+            md={6}
+          >
             <RichHeader
               subtitle={subtitle}
               TitleProps={{
@@ -82,25 +85,24 @@ function Hero({
             >
               {title}
             </RichHeader>
-            <DropdownSearch
-              label={searchLabel}
-              locations={featuredLocations}
-              placeholder={searchPlaceholder}
-              {...props}
-            />
-            <RichTypography
-              variant="caption"
-              sx={{
-                fontSize: { xs: "11px" },
-                color: "#707070",
-                marginTop: {
-                  sm: "20px",
-                  xs: "40px",
-                },
-              }}
-            >
-              {comment}
-            </RichTypography>
+            <Box>
+              <DropdownSearch
+                label={searchLabel}
+                locations={featuredLocations}
+                placeholder={searchPlaceholder}
+                sx={{ mb: 1 }}
+                {...props}
+              />
+              <RichTypography
+                variant="caption"
+                sx={{
+                  fontSize: { xs: "11px" },
+                  color: "#707070",
+                }}
+              >
+                {comment}
+              </RichTypography>
+            </Box>
           </Grid>
           {/* Since map is dynamic-ally loaded, no need for implementation="css" */}
 
@@ -112,34 +114,11 @@ function Hero({
                 tileLayer={{
                   url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
                 }}
-                onLayerMouseOver={setHoverGeo}
                 featuredLocations={featuredLocations}
                 explorePageSlug={explorePageSlug}
                 {...props}
               />
             ) : null}
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              gap={2}
-              sx={{ height: 80, width: "100%" }}
-            >
-              <Legend title={averageTemperature} data={legend} />
-              <RichTypography
-                variant="h6"
-                sx={{
-                  lineHeight: 23 / 18,
-                  lineSpacing: "0.9px",
-                  fontWeight: "normal",
-                  textTransform: "capitalize",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}
-              >
-                {hoverGeo}
-              </RichTypography>
-            </Box>
           </Grid>
         </Grid>
       </Section>

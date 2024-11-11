@@ -108,6 +108,9 @@ function HowItWorks({
                     xs: "120%",
                     md: "auto",
                   },
+                  img: {
+                    objectFit: "cover",
+                  },
                 },
                 "& .video-js .vjs-big-play-button": {
                   display: "none",
