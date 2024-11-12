@@ -40,6 +40,7 @@ const Profile = {
         components: {
           Field: ProfileSelect,
         },
+        condition: (_, siblingData) => !!siblingData?.HURUMapAPIURLValid,
       },
     },
     {
@@ -48,6 +49,9 @@ const Profile = {
         en: "Root Geography",
       },
       type: "group",
+      admin: {
+        condition: (_, siblingData) => !!siblingData?.HURUMapAPIURLValid,
+      },
       fields: [
         {
           name: "code",
