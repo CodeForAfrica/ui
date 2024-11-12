@@ -1,8 +1,5 @@
-import HURUMapURL from "../../fields/HURUMapURL";
-
 import DataPanels from "./DataPanels";
 import Profile from "./Profile";
-import RootGeography from "./RootGeography";
 import Tutorial from "./Tutorial";
 
 const HURUMap = {
@@ -24,34 +21,10 @@ const HURUMap = {
       defaultValue: false,
     },
     {
-      name: "hurumapAPIURL",
-      label: "HURUMap API BASE URL",
-      type: "text",
-      admin: {
-        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
-        components: {
-          Field: HURUMapURL,
-        },
-        description:
-          "The base URL for the HURUmap API. For example, https://hurumap.org/api/v1",
-      },
-      required: true,
-    },
-    {
-      name: "HURUMapAPIURLValid",
-      type: "checkbox",
-      admin: {
-        hidden: true,
-        readOnly: true,
-        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
-      },
-    },
-    {
       type: "tabs",
-      tabs: [Profile, DataPanels, RootGeography, Tutorial],
+      tabs: [Profile, DataPanels, Tutorial],
       admin: {
-        condition: (_, siblingData) =>
-          !!siblingData?.enableHURUMap && !!siblingData?.HURUMapAPIURLValid,
+        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
       },
     },
   ],
