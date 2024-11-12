@@ -12,14 +12,14 @@ import {
  */
 export default async function hero(block, _api, _context, { hurumap }) {
   const {
-    hurumapAPIURL,
+    hurumapUrl,
     profileId,
     profilePage,
     rootGeography: { center, code, hasData: pinRootGeography },
     profile: hurumapProfile,
   } = hurumap ?? { rootGeography: {} };
   const { geometries } = await fetchProfileGeography(code.toLowerCase(), {
-    BASE_URL: hurumapAPIURL,
+    BASE_URL: hurumapUrl,
     profileId,
   });
   const { level } = geometries.boundary?.properties ?? {};
@@ -29,7 +29,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
   };
   const childLevel = childLevelMaps[level];
   const { locations, preferredChildren } = await fetchProfile({
-    BASE_URL: hurumapAPIURL,
+    BASE_URL: hurumapUrl,
     profileId,
   });
   const chloropleth = hurumapProfile?.choropleth ?? null;

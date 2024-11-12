@@ -122,12 +122,12 @@ export async function getPageProps(api, context) {
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
     const {
-      url: hurumapAPIURL,
+      url: hurumapUrl,
       page: hurumapPage,
       profile: profileId,
       ...otherHurumapSettings
     } = hurumapSettings;
-    const profile = await fetchProfile({ BASE_URL: hurumapAPIURL, profileId });
+    const profile = await fetchProfile({ BASE_URL: hurumapUrl, profileId });
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";
@@ -143,7 +143,7 @@ export async function getPageProps(api, context) {
     }
     settings.hurumap = {
       ...otherHurumapSettings,
-      hurumapAPIURL,
+      hurumapUrl,
       profile,
       profileId,
       profilePage,
