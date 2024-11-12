@@ -111,10 +111,10 @@ function Map({
       <Box
         display="flex"
         justifyContent="space-between"
-        alignItems="center"
+        alignItems="flex-end"
         gap={2}
         sx={{
-          height: 80,
+          height: 108,
           width: "100%",
           mb: 1,
         }}
