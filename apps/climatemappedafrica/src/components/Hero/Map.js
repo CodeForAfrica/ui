@@ -116,7 +116,6 @@ function Map({
         sx={{
           height: 108,
           width: "100%",
-          mb: 1,
         }}
       >
         <Legend title={averageTemperature} data={legend} />
