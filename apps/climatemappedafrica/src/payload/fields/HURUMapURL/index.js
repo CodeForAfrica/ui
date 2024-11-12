@@ -5,22 +5,21 @@ import {
   useField,
   useFormFields,
 } from "payload/components/forms";
-import { createElement, useState, useEffect } from "react";
+import { createElement, useState } from "react";
 
 // TODO: @kelvinkipruto Handle i18n
-function HURUMapURL(props) {
+function HURUmapURL(props) {
   const {
     admin: { description },
     path,
   } = props;
   const { value, setValue } = useField({ path });
   const [loading, setLoading] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [formFields, updateFormField] = useFormFields(([fields, dispatch]) => [
     fields,
     dispatch,
   ]);
-  const { HURUMapAPIURLValid } = reduceFieldsToValues(formFields, true);
+  const { urlValid } = reduceFieldsToValues(formFields, true);
 
   const validateURL = async () => {
     if (!value) return;
@@ -31,13 +30,13 @@ function HURUMapURL(props) {
       const response = await fetch(`${value}/profiles`);
       updateFormField({
         type: "UPDATE",
-        path: "HURUMapAPIURLValid",
+        path: "urlValid",
         value: response.ok,
       });
     } catch (error) {
       updateFormField({
         type: "UPDATE",
-        path: "HURUMapAPIURLValid",
+        path: "urlValid",
         value: false,
       });
     } finally {
@@ -45,28 +44,10 @@ function HURUMapURL(props) {
     }
   };
 
-  const isURLValid = (url) => {
-    const urlPattern = new RegExp(
-      "^(https?:\\/\\/)" + // protocol
-        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|" + // domain name
-        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-        "(\\#[-a-z\\d_]*)?$",
-      "i", // fragment locator
-    );
-    return !!urlPattern.test(url);
-  };
-
   const handleInputChange = (e) => {
     const newUrl = e.target.value;
     setValue(newUrl);
-    setIsButtonDisabled(!isURLValid(newUrl));
   };
-
-  useEffect(() => {
-    setIsButtonDisabled(!isURLValid(value));
-  }, [value]);
 
   return createElement(
     "div",
@@ -79,9 +60,9 @@ function HURUMapURL(props) {
       onChange: handleInputChange,
       description,
       errorMessage:
-        !HURUMapAPIURLValid &&
+        !urlValid &&
         "Invalid URL. Please enter a valid URL to continue configuration.",
-      showError: !HURUMapAPIURLValid,
+      showError: !urlValid,
     }),
     createElement(
       Button,
@@ -89,11 +70,11 @@ function HURUMapURL(props) {
         type: "button",
         onClick: () => validateURL(),
         className: "btn btn--style-primary",
-        disabled: loading || isButtonDisabled,
+        disabled: loading,
       },
       loading ? "Checking..." : "Validate URL",
     ),
   );
 }
 
-export default HURUMapURL;
+export default HURUmapURL;

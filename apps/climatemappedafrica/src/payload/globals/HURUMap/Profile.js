@@ -1,4 +1,4 @@
-import HURUMapURL from "../../fields/HURUMapURL";
+import HURUmapURL from "../../fields/HURUmapURL";
 import LocationSelect from "../../fields/LocationSelect";
 import ProfileSelect from "../../fields/ProfileSelect";
 
@@ -6,13 +6,13 @@ const Profile = {
   label: "Profile",
   fields: [
     {
-      name: "hurumapAPIURL",
-      label: "HURUMap API BASE URL",
+      name: "url",
+      label: "HURUMap NG URL",
       type: "text",
       admin: {
-        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
+        condition: (_, siblingData) => !!siblingData?.enabled,
         components: {
-          Field: HURUMapURL,
+          Field: HURUmapURL,
         },
         description:
           "The base URL for the HURUmap API. For example, https://hurumap.org/api/v1",
@@ -20,12 +20,12 @@ const Profile = {
       required: true,
     },
     {
-      name: "HURUMapAPIURLValid",
+      name: "urlValid",
       type: "checkbox",
       admin: {
         hidden: true,
         readOnly: true,
-        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
+        condition: (_, siblingData) => !!siblingData?.enabled,
       },
     },
     {
@@ -40,7 +40,7 @@ const Profile = {
         components: {
           Field: ProfileSelect,
         },
-        condition: (_, siblingData) => !!siblingData?.HURUMapAPIURLValid,
+        condition: (_, siblingData) => !!siblingData?.urlValid,
       },
     },
     {
@@ -50,7 +50,7 @@ const Profile = {
       },
       type: "group",
       admin: {
-        condition: (_, siblingData) => !!siblingData?.HURUMapAPIURLValid,
+        condition: (_, siblingData) => !!siblingData?.urlValid,
       },
       fields: [
         {

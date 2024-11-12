@@ -15,7 +15,7 @@ const HURUMap = {
   },
   fields: [
     {
-      name: "enableHURUMap",
+      name: "enabled",
       label: "Enable HURUMap",
       type: "checkbox",
       defaultValue: false,
@@ -24,7 +24,7 @@ const HURUMap = {
       type: "tabs",
       tabs: [Profile, DataPanels, Tutorial],
       admin: {
-        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
+        condition: (_, siblingData) => !!siblingData?.enabled,
       },
     },
   ],

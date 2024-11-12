@@ -11,10 +11,9 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function ProfileSelect(props) {
   const [fields] = useAllFormFields();
-  const formData = reduceFieldsToValues(fields, true);
-  const BASE_URL = formData.hurumapAPIURL;
+  const { url } = reduceFieldsToValues(fields, true);
   const { data } = useSWR(
-    `${apiUrl}/api/hurumap/profiles?BASE_URL=${BASE_URL}`,
+    `${apiUrl}/api/hurumap/profiles?BASE_URL=${url}`,
     fetcher,
     {
       dedupingInterval: 60000,

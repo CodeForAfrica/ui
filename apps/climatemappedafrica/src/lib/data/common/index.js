@@ -122,7 +122,7 @@ export async function getPageProps(api, context) {
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
     const {
-      hurumapAPIURL,
+      url: hurumapAPIURL,
       page: hurumapPage,
       profile: profileId,
       ...otherHurumapSettings

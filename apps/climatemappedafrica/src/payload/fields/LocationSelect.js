@@ -19,10 +19,9 @@ const getOptions = (locations) =>
 
 function LocationSelect(props) {
   const [fields] = useAllFormFields();
-  const formData = reduceFieldsToValues(fields, true);
-  const BASE_URL = formData.hurumapAPIURL;
+  const { profile, url } = reduceFieldsToValues(fields, true);
   const { data } = useSWR(
-    `${apiUrl}/api/hurumap/profiles/${formData.profile}?BASE_URL=${BASE_URL}`,
+    `${apiUrl}/api/hurumap/profiles/${profile}?BASE_URL=${url}`,
     fetcher,
     {
       dedupingInterval: 60000,
