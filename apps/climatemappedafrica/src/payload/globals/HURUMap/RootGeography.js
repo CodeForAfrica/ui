@@ -44,6 +44,42 @@ const RootGeography = {
               "Indicates whether the root geography itself has data that can be used for comparison with its children",
           },
         },
+        {
+          name: "zoom",
+          type: "group",
+          fields: [
+            {
+              type: "row",
+              fields: [
+                {
+                  name: "desktop",
+                  label: "Zoom Level for Desktop",
+                  type: "number",
+                  defaultValue: 3.05,
+                  required: true,
+                  admin: {
+                    description:
+                      "Indicates how the map should appear on desktop devices",
+                  },
+                },
+                {
+                  name: "mobile",
+                  label: "Zoom Level for Mobile",
+                  type: "number",
+                  required: true,
+                  defaultValue: 2.7,
+                  admin: {
+                    description:
+                      "Indicates how the map should appear on small devices",
+                  },
+                },
+              ],
+            },
+          ],
+          admin: {
+            hideGutter: true,
+          },
+        },
       ],
     },
   ],

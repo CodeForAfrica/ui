@@ -13,7 +13,7 @@ import {
 export default async function hero(block, _api, _context, { hurumap }) {
   const {
     profilePage,
-    rootGeography: { center, code, hasData: pinRootGeography },
+    rootGeography: { center, code, hasData: pinRootGeography, zoom },
     profile: hurumapProfile,
   } = hurumap ?? { rootGeography: {} };
   const { geometries } = await fetchProfileGeography(code.toLowerCase());
@@ -51,5 +51,6 @@ export default async function hero(block, _api, _context, { hurumap }) {
     slug: "hero",
     choropleth,
     legend,
+    zoom,
   };
 }
