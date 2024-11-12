@@ -54,10 +54,8 @@ async function explorePage(block, _api, _context, { hurumap }) {
     id: "explore-page",
     blockType: "explore-page",
     choropleth,
-    hurumapConfig: {
-      hurumapAPIURL,
-      profileId,
-    },
+    hurumapAPIURL,
+    profileId,
     rootGeography,
     explorePagePath: profilePage.slug,
     locations,

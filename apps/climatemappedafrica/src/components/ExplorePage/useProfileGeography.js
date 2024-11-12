@@ -2,11 +2,10 @@ import useSWR from "swr";
 
 import fetchJson from "@/climatemappedafrica/utils/fetchJson";
 
-function useProfileGeography(shouldFetch, hurumapConfig) {
-  const { BASE_URL, profileId } = hurumapConfig;
+function useProfileGeography(shouldFetch, hurumapAPIURL, profileId) {
   const fetcher = (code) => {
     return fetchJson(
-      `/api/hurumap/geographies/${code}?profileId=${profileId}&BASE_URL=${BASE_URL}`,
+      `/api/hurumap/geographies/${code}?profileId=${profileId}&BASE_URL=${hurumapAPIURL}`,
     );
   };
   const { data, error } = useSWR(shouldFetch, fetcher);

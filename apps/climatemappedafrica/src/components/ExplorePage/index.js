@@ -34,8 +34,10 @@ function ExplorePage({
   rootGeography,
   explorePagePath,
   hurumapConfig,
+  hurumapAPIURL,
   panel: PanelProps = {},
   profile: profileProp,
+  profileId,
   ...props
 }) {
   const {
@@ -93,7 +95,11 @@ function ExplorePage({
     (state.primary.shouldFetch && state.primary.code) ||
     (state.secondary?.shouldFetch && state.secondary?.code);
 
-  const { data, error } = useProfileGeography(shouldFetch, hurumapConfig);
+  const { data, error } = useProfileGeography(
+    shouldFetch,
+    hurumapAPIURL,
+    profileId,
+  );
   useEffect(() => {
     if (data) {
       dispatch({
@@ -236,10 +242,8 @@ ExplorePage.propTypes = {
       }),
     ),
   ]),
-  hurumapConfig: PropTypes.shape({
-    hurumapAPIURL: PropTypes.string,
-    profileId: PropTypes.number,
-  }),
+  hurumapAPIURL: PropTypes.string,
+  profileId: PropTypes.number,
 };
 
 export default ExplorePage;
