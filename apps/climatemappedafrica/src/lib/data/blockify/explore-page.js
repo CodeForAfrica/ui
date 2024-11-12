@@ -33,13 +33,13 @@ async function explorePage(block, _api, _context, { hurumap }) {
 
   const [primaryCode, secondaryCode] = geoCodes;
   const primaryProfile = await fetchProfileGeography(primaryCode, {
-    BASE_URL: hurumapUrl,
+    baseUrl: hurumapUrl,
     profileId,
   });
   const profile = [primaryProfile];
   if (secondaryCode) {
     const secondaryProfile = await fetchProfileGeography(secondaryCode, {
-      BASE_URL: hurumapUrl,
+      baseUrl: hurumapUrl,
       profileId,
     });
     profile.push(secondaryProfile);

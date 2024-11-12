@@ -2,9 +2,9 @@ import defaultIcon from "@/climatemappedafrica/assets/icons/eye-white.svg";
 import fetchJson from "@/climatemappedafrica/utils/fetchJson";
 import formatNumericalValue from "@/climatemappedafrica/utils/formatNumericalValue";
 
-export async function fetchProfile({ BASE_URL, profileId }) {
+export async function fetchProfile({ baseUrl, profileId }) {
   const { configuration } = await fetchJson(
-    new URL(`/api/v1/profiles/${profileId}/?format=json`, BASE_URL),
+    new URL(`/api/v1/profiles/${profileId}/?format=json`, baseUrl),
   );
 
   const locations = configuration?.featured_locations?.map(
@@ -21,8 +21,8 @@ export async function fetchProfile({ BASE_URL, profileId }) {
   };
 }
 
-export async function fetchProfiles(BASE_URL) {
-  const { results } = await fetchJson(new URL("/api/v1/profiles", BASE_URL));
+export async function fetchProfiles(baseUrl) {
+  const { results } = await fetchJson(new URL("/api/v1/profiles", baseUrl));
   const profiles = results.map(({ name, id }) => ({ name, id }));
   return profiles;
 }
@@ -90,13 +90,13 @@ function formatProfileGeographyData(data, parent) {
 
 export async function fetchProfileGeography(
   geoCode,
-  { BASE_URL, profileId, version = "Climate" },
+  { baseUrl, profileId, version = "Climate" },
 ) {
   // HURUmap codes are uppercased in the API
   const json = await fetchJson(
     new URL(
       `/api/v1/all_details/profile/${profileId}/geography/${geoCode.toUpperCase()}/?version=${version}`,
-      BASE_URL,
+      baseUrl,
     ),
   );
   const { boundary, children, parent_layers: parents } = json;
@@ -142,7 +142,7 @@ export async function fetchProfileGeography(
     const parentJson = await fetchJson(
       new URL(
         `/api/v1/all_details/profile/${profileId}/geography/${parentCode.toUpperCase()}/?version=${version}`,
-        BASE_URL,
+        baseUrl,
       ),
     );
     parent.data = parentJson.profile.profile_data;

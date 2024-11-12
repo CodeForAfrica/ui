@@ -13,7 +13,7 @@ function ProfileSelect(props) {
   const [fields] = useAllFormFields();
   const { url } = reduceFieldsToValues(fields, true);
   const { data } = useSWR(
-    `${apiUrl}/api/hurumap/profiles?BASE_URL=${url}`,
+    `${apiUrl}/api/hurumap/profiles?baseUrl=${url}`,
     fetcher,
     {
       dedupingInterval: 60000,

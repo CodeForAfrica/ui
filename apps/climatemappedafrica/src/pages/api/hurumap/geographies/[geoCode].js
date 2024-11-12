@@ -1,12 +1,12 @@
 import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
 export default async function index(req, res) {
-  const { profileId, BASE_URL } = req.query;
+  const { profileId, baseUrl } = req.query;
   if (req.method === "GET") {
     try {
       const { geoCode } = req.query;
       const result = await fetchProfileGeography(geoCode, {
-        BASE_URL,
+        baseUrl,
         profileId,
       });
       return res.status(200).json(result);

@@ -19,7 +19,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     profile: hurumapProfile,
   } = hurumap ?? { rootGeography: {} };
   const { geometries } = await fetchProfileGeography(code.toLowerCase(), {
-    BASE_URL: hurumapUrl,
+    baseUrl: hurumapUrl,
     profileId,
   });
   const { level } = geometries.boundary?.properties ?? {};
@@ -29,7 +29,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
   };
   const childLevel = childLevelMaps[level];
   const { locations, preferredChildren } = await fetchProfile({
-    BASE_URL: hurumapUrl,
+    baseUrl: hurumapUrl,
     profileId,
   });
   const chloropleth = hurumapProfile?.choropleth ?? null;
