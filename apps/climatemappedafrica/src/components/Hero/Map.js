@@ -15,6 +15,8 @@ function Map({
   styles = {
     height: "100%",
     width: "100%",
+    display: "flex",
+    justifyContent: "flex-start",
   },
   geoJSONStyles = {
     color: "#2A2A2C",
@@ -74,9 +76,11 @@ function Map({
       justifyContent={{ xs: "center", md: "flex-end" }}
     >
       <Box
+        display="flex"
+        justifyContent={{ xs: "center", md: "flex-start" }}
         sx={{
           position: "relative",
-          height: "471px",
+          height: "500px",
           width: "100%",
           marginTop: { sm: "55px", lg: "42px" },
           "& .leaflet-container": {

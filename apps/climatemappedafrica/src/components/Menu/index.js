@@ -168,9 +168,11 @@ function Menu({ links, children, socialLinks, ...props }) {
             justifyContent: "center",
             alignItems: "center",
             margin: "3.2px",
+            pr: 0,
+            mt: { xs: 2, lg: 0 },
           },
         }}
-        alignItems="flex-start"
+        alignItems={{ xs: "flex-start", lg: "center" }}
       />
     </Grid>
   );

@@ -27,7 +27,7 @@ function Hero({
   ...props
 }) {
   const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-  const continentLevelZoom = isUpLg ? 3 : 2.1; // We have to reduce the zoom level for continent so that all countries(Including islands) are visible within the designs
+  const continentLevelZoom = isUpLg ? 3.05 : 2.1; // We have to reduce the zoom level for continent so that all countries(Including islands) are visible within the designs
   const countryLevelZoom = isUpLg ? 6 : 5.25;
   const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
   return (
