@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "private": true,
   "author": "Code for Africa <tech@codeforafrica.org>",
-  "description": "Climate Mapped Africa ",
+  "description": "ClimateMapped Africa",
   "keywords": [
     "climatemappedafrica",
     "next",
@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "@apollo/client": "catalog:",
-    "@commons-ui/core": "catalog:",
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/legacy": "catalog:",
     "@commons-ui/next": "workspace:*",
     "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
@@ -64,7 +65,6 @@
     "next": "catalog:",
     "next-images": "catalog:",
     "next-seo": "catalog:",
-    "nodemailer-sendgrid": "catalog:",
     "papaparse": "catalog:",
     "payload": "catalog:",
     "plaiceholder": "catalog:",

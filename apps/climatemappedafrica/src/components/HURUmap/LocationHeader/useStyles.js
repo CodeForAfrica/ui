@@ -1,9 +1,12 @@
 import makeStyles from "@mui/styles/makeStyles";
 
-const useStyles = makeStyles(({ typography, palette }) => ({
+const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   root: {
     borderBottom: `solid 1px ${palette.divider}`,
     paddingTop: typography.pxToRem(20),
+    [breakpoints.up("lg")]: {
+      position: "relative",
+    },
   },
   titleContent: {
     display: "flex",
@@ -33,6 +36,10 @@ const useStyles = makeStyles(({ typography, palette }) => ({
     height: typography.pxToRem(44),
     minWidth: typography.pxToRem(44),
     boxShadow: "none",
+    [breakpoints.up("lg")]: {
+      // quick fix to ensure print button aligns with rich data/pin buttons
+      marginTop: "10px",
+    },
   },
   closeButton: {
     marginLeft: typography.pxToRem(20),

@@ -1,16 +1,20 @@
-import {
-  fetchProfile,
-  fetchProfileGeography,
-} from "@/climatemappedafrica/lib/hurumap";
+import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
-async function explorePage({ block: { slugs }, hurumap }) {
+/**
+ * This function will be called only when HURUmap is enabled.
+ * @see @/climatemappedafrica/lib/data/common/index.js
+ */
+async function explorePage(block, _api, _context, { hurumap }) {
   const {
-    initialLocation,
-    page: { value },
+    items: panelItems,
+    labels: { dataNotAvailable, scrollToTop: scrollToTopLabel },
+    profile: hurumapProfile,
+    profilePage,
+    rootGeography,
   } = hurumap;
-  const { name } = initialLocation;
+  const { code: name } = rootGeography;
+  const { slugs } = block;
   const code = slugs.length ? slugs[0] : name;
-  const hurumapProfile = await fetchProfile();
 
   const { locations, preferredChildren, mapType, choropleth } = hurumapProfile;
 
@@ -33,55 +37,17 @@ async function explorePage({ block: { slugs }, hurumap }) {
     profile.push(secondaryProfile);
   }
 
-  // TODO: Move this to a PayloadCMS
   const panel = {
-    panelItems: [
-      {
-        value: "rich-data",
-        icon: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/11/Group-4505.svg",
-        iconProps: {
-          src: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2021/11/Group-4505.svg",
-          width: 44,
-          height: 44,
-          type: "svg",
-          blurDataURL:
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGElEQVR4nGNgQAP/T///f/o/jHMWiQMHACIVCyeABSwfAAAAAElFTkSuQmCC",
-          placeholder: "blur",
-        },
-      },
-      {
-        value: "pin",
-        icon: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2022/01/Path-210-1-1.svg",
-        pin: true,
-        iconProps: {
-          src: "https://cms.dev.codeforafrica.org/pesayetu/wp-content/uploads/sites/2/2022/01/Path-210-1-1.svg",
-          width: 44,
-          height: 44,
-          type: "svg",
-          blurDataURL:
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAH0lEQVR4nGNgQAP/L/z/f/r//4P/wZzT//+fBbOQAQBvnQ3r6iVM4QAAAABJRU5ErkJggg==",
-          placeholder: "blur",
-        },
-      },
-    ],
-    scrollToTopLabel: "Back To Top",
-    dataNotAvailable: "— DATA NOT AVAILABLE",
-    lazyblock: {
-      slug: "lazyblock/panel",
-    },
-    align: "",
-    anchor: "",
-    blockId: "20amuc",
-    blockUniqueClass: "lazyblock-panel-20amuc",
-    ghostkitSpacings: "",
-    ghostkitSR: "",
+    panelItems,
+    scrollToTopLabel,
+    dataNotAvailable,
   };
   const res = {
     id: "explore-page",
     blockType: "explore-page",
     choropleth,
-    initialLocation,
-    explorePagePath: value.slug,
+    rootGeography,
+    explorePagePath: profilePage.slug,
     locations,
     mapType,
     panel,

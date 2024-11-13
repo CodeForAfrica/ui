@@ -2,10 +2,11 @@ import path from "path";
 import { spawn } from "child_process";
 import express from "express";
 import next from "next";
-import nodemailerSendgrid from "nodemailer-sendgrid";
-import payload from "payload";
-import { Payload } from "payload/dist/payload";
 import { loadEnvConfig } from "@next/env";
+import type { Payload } from "payload/dist/payload";
+
+// TODO(kilemensi): Figure out why alias "@/climatemappedafrica" doesn't work here
+import { getClient } from "./src/lib/payload/payload-client";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -13,7 +14,17 @@ loadEnvConfig(projectDir);
 const dev = process.env.NODE_ENV !== "production";
 const hostname = process.env.NEXT_HOSTNAME || "localhost";
 const port = parseInt(process.env.PORT || "3000", 10);
-const sendGridAPIKey = process.env.SENDGRID_API_KEY;
+// TODO(kilemensi): Migrate to SMTP email setup instead of SendGrid specific
+const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
+const smtpFromName =
+  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
+  "ClimateMapped Africa CMS";
+const smtpFromAddress =
+  process.env.SMTP_FROM_ADDRESS ||
+  process.env.SENDGRID_FROM_EMAIL ||
+  "noreply@dodeforafrica.org";
+const smtpPort = Number(process.env.SMTP_PORT || 587);
 
 if (!process.env.NEXT_MANUAL_SIG_HANDLE) {
   process.on("SIGTERM", () => process.exit(0));
@@ -25,24 +36,30 @@ const app = express();
 const start = async (): Promise<void> => {
   let localPayload: Payload;
   try {
-    localPayload = await payload.init({
-      ...(sendGridAPIKey
+    localPayload = await getClient({
+      ...(smtpAuthPass
         ? {
             email: {
-              transportOptions: nodemailerSendgrid({
-                apiKey: sendGridAPIKey,
-              }),
-              fromName:
-                process.env.SENDGRID_FROM_NAME || "ClimateMapped Africa CMS",
-              fromAddress:
-                process.env.SENDGRID_FROM_EMAIL || "noreply@dodeforafrica.org",
+              transportOptions: {
+                auth: {
+                  user: process.env.SMTP_USER || "apikey",
+                  apiKey: smtpAuthPass,
+                },
+                host: process.env.SMTP_HOST || "smtp.sendgrid.net",
+                port: smtpPort,
+                secure: smtpPort === 465, // true for port 465, false (the default) for 587 and others
+              },
+              fromName: smtpFromName,
+              fromAddress: smtpFromAddress,
             },
           }
         : undefined),
-      secret: process.env.PAYLOAD_SECRET,
       express: app,
+      local: false,
       onInit: (initPayload) => {
-        initPayload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
+        initPayload.logger.info(
+          `Payload Admin URL: ${initPayload.getAdminURL()}`,
+        );
       },
     });
   } catch (e: any) {

@@ -1,4 +1,7 @@
-import LocationSelect, { validateLocation } from "../../fields/LocationSelect";
+import DataPanels from "./DataPanels";
+import Profile from "./Profile";
+import RootGeography from "./RootGeography";
+import Tutorial from "./Tutorial";
 
 const HURUMap = {
   slug: "settings-hurumap",
@@ -13,58 +16,17 @@ const HURUMap = {
   },
   fields: [
     {
-      name: "page",
-      label: "Explore Page",
-      type: "relationship",
-      relationTo: ["pages"],
-      maxDepth: 1,
-      required: true,
-      admin: {
-        description:
-          "The page to use as the Explore page. It will contain the interactive map.",
-      },
+      name: "enableHURUMap",
+      label: "Enable HURUMap",
+      type: "checkbox",
+      defaultValue: false,
     },
     {
-      name: "initialLocation",
-      label: {
-        en: "Initial Location",
+      type: "tabs",
+      tabs: [Profile, DataPanels, RootGeography, Tutorial],
+      admin: {
+        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
       },
-      type: "group",
-      localized: true,
-      fields: [
-        {
-          name: "name",
-          type: "text",
-          label: {
-            en: "Name",
-          },
-          localized: true,
-          required: true,
-          hasMany: false,
-          defaultValue: "af",
-          validate: validateLocation,
-          admin: {
-            components: {
-              Field: LocationSelect,
-            },
-          },
-        },
-        {
-          name: "center",
-          label: "Center Point",
-          type: "point",
-          defaultValue: [20.0, 4.25],
-        },
-        {
-          name: "pinInitialLocation",
-          type: "checkbox",
-          localized: true,
-          label: {
-            en: "Allow pinning of initial location",
-          },
-          defaultValue: false,
-        },
-      ],
     },
   ],
 };

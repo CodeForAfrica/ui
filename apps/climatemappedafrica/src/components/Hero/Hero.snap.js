@@ -3,7 +3,7 @@
 exports[`<Hero /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-79elbk"
+    class="MuiBox-root css-n1k24p"
   >
     <div
       class="MuiBox-root css-141q424"
@@ -23,7 +23,7 @@ exports[`<Hero /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 MuiGrid-grid-lg-6 css-1totwg2-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-18w5b2b-MuiGrid-root"
         >
           <header
             class="MuiBox-root css-0"
@@ -58,16 +58,11 @@ exports[`<Hero /> renders unchanged 1`] = `
               Search for a location
             </p>
             <div
-              blocktype="hero"
-              boundary="[object Object]"
-              class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-78q71b-MuiInputBase-root"
-              location="[object Object]"
-              slug="hero"
+              class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-1f7prdq-MuiInputBase-root"
             >
               <input
                 aria-label="search"
                 class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
-                id="670e3996766697e7feb349d5"
                 placeholder="Search for a location"
                 type="text"
                 value=""
@@ -80,7 +75,7 @@ exports[`<Hero /> renders unchanged 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kzlhbf-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ny0eu4-MuiSvgIcon-root"
                   focusable="false"
                   viewBox="0 0 48 48"
                 />
@@ -95,14 +90,40 @@ exports[`<Hero /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root css-h9r63z"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-g8r332-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-5 css-1f9gci5-MuiGrid-root"
+            class="MuiBox-root css-ljsg2c"
           >
             <div
-              class="MuiBox-root css-4tnojn"
-            />
+              class="MuiBox-root css-0"
+            >
+              <div
+                class="MuiBox-root css-70qvj9"
+              >
+                <div
+                  class="MuiBox-root css-1wok3bd"
+                />
+                <div
+                  class="MuiBox-root css-1fg12k3"
+                />
+                <div
+                  class="MuiBox-root css-55biq3"
+                />
+                <div
+                  class="MuiBox-root css-9qafv7"
+                />
+                <div
+                  class="MuiBox-root css-5srxm6"
+                />
+                <div
+                  class="MuiBox-root css-1kw6r8l"
+                />
+                <div
+                  class="MuiBox-root css-oi5eih"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
