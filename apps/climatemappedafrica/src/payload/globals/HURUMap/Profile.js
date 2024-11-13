@@ -41,6 +41,7 @@ const Profile = {
           Field: ProfileSelect,
         },
         condition: (_, siblingData) => !!siblingData?.urlValid,
+        width: "50%",
       },
     },
     {
@@ -54,25 +55,30 @@ const Profile = {
       },
       fields: [
         {
-          name: "code",
-          type: "text",
-          label: {
-            en: "Location Code",
-          },
-          required: true,
-          hasMany: false,
-          defaultValue: "af",
-          admin: {
-            components: {
-              Field: LocationSelect,
+          type: "row",
+          fields: [
+            {
+              name: "code",
+              type: "text",
+              label: {
+                en: "Location Code",
+              },
+              required: true,
+              hasMany: false,
+              defaultValue: "af",
+              admin: {
+                components: {
+                  Field: LocationSelect,
+                },
+              },
             },
-          },
-        },
-        {
-          name: "center",
-          label: "Center Point",
-          type: "point",
-          defaultValue: [20.0, 4.25],
+            {
+              name: "center",
+              label: "Center Point",
+              type: "point",
+              defaultValue: [20.0, 4.25],
+            },
+          ],
         },
         {
           name: "hasData",
@@ -100,6 +106,7 @@ const Profile = {
       required: true,
       admin: {
         description: "The page to show the HURUmap profile on.",
+        width: "50%",
       },
     },
   ],

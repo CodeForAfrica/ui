@@ -53,6 +53,11 @@ function HURUmapURL(props) {
     "div",
     {
       id: "hurumap-url-wrapper",
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+      },
     },
     createElement(TextInput, {
       ...props,
