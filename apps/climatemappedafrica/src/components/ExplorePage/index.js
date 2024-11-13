@@ -33,7 +33,6 @@ function initialState(
 function ExplorePage({
   rootGeography,
   explorePagePath,
-  hurumapConfig,
   hurumapUrl,
   panel: PanelProps = {},
   profile: profileProp,
