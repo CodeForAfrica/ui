@@ -59,12 +59,6 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
     },
     textTransform: "uppercase",
   },
-  menu: {
-    margin: 0,
-    [breakpoints.up("lg")]: {
-      margin: `0 ${typography.pxToRem(12.8)}`,
-    },
-  },
   text: {
     "&::after": {
       content: '""',
@@ -115,7 +109,25 @@ function Menu({ links, children, socialLinks, ...props }) {
   return (
     <Grid container className={classes.root}>
       {links.map((item, index) => (
-        <Grid item key={item.label} className={classes.menu}>
+        <Grid
+          item
+          key={item.label}
+          sx={({ typography }) => ({
+            margin: {
+              xs: 0,
+              lg: `0 ${typography.pxToRem(12.8)}`,
+            },
+            "&:last-child": {
+              margin: {
+                xs: 0,
+                lg: 0,
+              },
+              "& > a": {
+                paddingRight: 0,
+              },
+            },
+          })}
+        >
           <Button
             component={Link}
             color={index !== 0 ? "secondary" : "primary"}
@@ -156,9 +168,11 @@ function Menu({ links, children, socialLinks, ...props }) {
             justifyContent: "center",
             alignItems: "center",
             margin: "3.2px",
+            pr: 0,
+            mt: { xs: 2, lg: 0 },
           },
         }}
-        alignItems="flex-start"
+        alignItems={{ xs: "flex-start", lg: "center" }}
       />
     </Grid>
   );
