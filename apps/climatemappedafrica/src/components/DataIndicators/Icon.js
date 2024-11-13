@@ -22,7 +22,7 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
       >
         <Image
           src={index === currentItemIndex ? secondaryIcon : primaryIcon}
-          layout="fill"
+          fill
         />
       </Box>
       <Typography

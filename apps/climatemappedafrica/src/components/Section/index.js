@@ -1,4 +1,4 @@
-import { Section as CuiSection } from "@commons-ui/core";
+import { Section as CuiSection } from "@commons-ui/legacy";
 import makeStyles from "@mui/styles/makeStyles";
 import clsx from "clsx";
 import PropTypes from "prop-types";

@@ -34,7 +34,10 @@
     "@babel/preset-react": "catalog:",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
+    "@types/react": "catalog:",
     "babel-loader": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
@@ -51,13 +54,14 @@
   "peerDependencies": {
     "@babel/core": "catalog:",
     "@commons-ui/core": "workspace:*",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
     "clsx": "catalog:",
     "next": "catalog:",
     "prop-types": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:",
-    "slate": "catalog:"
+    "react-dom": "catalog:"
   },
   "dependencies": {
     "clsx": "catalog:"
