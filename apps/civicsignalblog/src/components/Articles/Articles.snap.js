@@ -10,7 +10,8 @@ exports[`<Articles /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-teoma9-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1cj7j73-MuiGrid-root"
+          class="MuiBox-root css-1xugy04"
+          xs="12"
         >
           <div
             class="MuiTypography-root MuiTypography-h4 css-7yxv5i-MuiTypography-root"
