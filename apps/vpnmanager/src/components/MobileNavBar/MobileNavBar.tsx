@@ -8,7 +8,7 @@ import {
   SlideProps,
   SvgIcon,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { SxProps, styled } from "@mui/material/styles";
 import React, { ForwardedRef } from "react";
 
 import type {
@@ -24,6 +24,7 @@ interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];
   socialLinks: SocialMediaLink[];
+  sx?: SxProps;
 }
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({

@@ -1,3 +1,5 @@
+const commonConfig = require("./index");
+
 module.exports = [
   {
     ignores: [
@@ -5,11 +7,10 @@ module.exports = [
       "**/.pnp",
       "**/.pnp.js",
       "**/.pnpm-debug.log",
-      "**/dist/",
       "**/coverage",
       "**/.next/",
       "**/out/",
-      "**/build/",
+      "**/build",
       "**/.DS_Store",
       "**/*.pem",
       "**/npm-debug.log*",
@@ -18,8 +19,7 @@ module.exports = [
       "**/.vercel",
       "**/.now",
       "**/.turbo",
-      "**/test-results/",
-      "**/playwright-report/",
     ],
   },
+  ...commonConfig,
 ];

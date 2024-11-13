@@ -1,3 +1,5 @@
+const eslintConfig = require("eslint-config-commons-ui/next");
+
 module.exports = [
   {
     ignores: [
@@ -21,5 +23,15 @@ module.exports = [
       "**/test-results/",
       "**/playwright-report/",
     ],
+  },
+  ...eslintConfig,
+  {
+    settings: {
+      "import/resolver": {
+        webpack: {
+          config: "./eslint.webpack.config.js",
+        },
+      },
+    },
   },
 ];

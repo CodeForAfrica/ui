@@ -20,6 +20,7 @@ catalog:
   "@emotion/react": ^11.13.3
   "@emotion/server": ^11.11.0
   "@emotion/styled": ^11.13.0
+  "@eslint/compat": ^1.1.2
   "@googlemaps/react-wrapper": ^1.1.42
   "@material-ui/codemod": ^4.5.1
   "@mdx-js/loader": ^3.0.1
@@ -90,7 +91,7 @@ catalog:
   date-fns: ^4.1.0
   deepmerge: ^4.3.1
   dotenv: ^16.4.5
-  eslint: ^8.57.0
+  eslint: ^9.0.0
   eslint-config-airbnb: ^19.0.4
   eslint-config-next: ^15.0.3
   eslint-config-prettier: ^9.1.0
