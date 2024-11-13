@@ -9,19 +9,11 @@ import useSWR from "swr";
 const apiUrl = process.env.PAYLOAD_PUBLIC_APP_URL;
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const getOptions = (locations) =>
-  locations
-    ?.filter(({ level }) => level !== "region")
-    ?.map((location) => ({
-      label: location.name,
-      value: location.code,
-    })) || [];
-
-function LocationSelect(props) {
+function ProfileSelect(props) {
   const [fields] = useAllFormFields();
-  const { profile, url } = reduceFieldsToValues(fields, true);
+  const { url } = reduceFieldsToValues(fields, true);
   const { data } = useSWR(
-    `${apiUrl}/api/hurumap/profiles/${profile}?baseUrl=${url}`,
+    `${apiUrl}/api/hurumap/profiles?baseUrl=${url}`,
     fetcher,
     {
       dedupingInterval: 60000,
@@ -30,14 +22,10 @@ function LocationSelect(props) {
   );
 
   const options = useMemo(
-    () =>
-      getOptions(data?.locations).sort((a, b) =>
-        a.label.localeCompare(b.label),
-      ),
+    () => data?.map(({ name, id }) => ({ label: name, value: id })) || [],
     [data],
   );
-
   return createElement(Select, { ...props, options });
 }
 
-export default LocationSelect;
+export default ProfileSelect;
