@@ -22,6 +22,7 @@ function DropdownSearch({
   icon: IconProp = SearchIcon,
   placeholder,
   variant,
+  sx,
   ...props
 }) {
   const router = useRouter();
@@ -96,7 +97,7 @@ function DropdownSearch({
   );
 
   return (
-    <Box id="location-search">
+    <Box id="location-search" sx={sx}>
       {label && (
         <Typography
           variant="body1"
