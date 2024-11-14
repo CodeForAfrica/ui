@@ -1,9 +1,11 @@
+import { RichTypography } from "@commons-ui/legacy";
 import { Box, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 
+import Legend from "./Legend";
 import "leaflet/dist/leaflet.css";
 
 function Map({
@@ -13,20 +15,24 @@ function Map({
   styles = {
     height: "100%",
     width: "100%",
+    display: "flex",
+    justifyContent: "flex-start",
   },
   geoJSONStyles = {
     color: "#2A2A2C",
     weight: 1,
     dashArray: "2",
   },
-  onLayerMouseOver,
   featuredLocations,
   explorePageSlug,
   choropleth,
+  legend,
+  averageTemperature,
 }) {
   const router = useRouter();
 
   const regionCodes = featuredLocations?.map(({ code }) => code);
+  const [hoverGeo, setHoverGeo] = useState(null);
   const theme = useTheme();
   const onEachFeature = (feature, layer) => {
     const choroplethColor = choropleth?.find?.(
@@ -41,7 +47,7 @@ function Map({
     if (regionCodes.includes(feature.properties.code?.toLowerCase())) {
       layer.setStyle(geoJSONStyles);
       layer.on("mouseover", () => {
-        onLayerMouseOver(feature.properties.name.toLowerCase());
+        setHoverGeo(feature.properties.name.toLowerCase());
         if (explorePageSlug) {
           layer.setStyle({
             fillColor: choroplethColor?.fillColor,
@@ -50,7 +56,7 @@ function Map({
         }
       });
       layer.on("mouseout", () => {
-        onLayerMouseOver(null);
+        setHoverGeo(null);
         layer.setStyle({ ...choroplethColor, fillOpacity: 1, weight: 1 });
       });
       layer.on("click", () => {
@@ -64,12 +70,18 @@ function Map({
   };
 
   return (
-    <Box display="flex" justifyContent={{ xs: "center", md: "flex-end" }}>
+    <Box
+      display="flex"
+      flexWrap="wrap"
+      justifyContent={{ xs: "center", md: "flex-end" }}
+    >
       <Box
+        display="flex"
+        justifyContent={{ xs: "center", md: "flex-start" }}
         sx={{
           position: "relative",
-          height: "471px",
-          width: { xs: "100%", md: "300px", lg: "500px" },
+          height: "500px",
+          width: "100%",
           marginTop: { sm: "55px", lg: "42px" },
           "& .leaflet-container": {
             background: "transparent",
@@ -96,6 +108,31 @@ function Map({
           />
         </MapContainer>
       </Box>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="flex-end"
+        gap={2}
+        sx={{
+          height: 108,
+          width: "100%",
+        }}
+      >
+        <Legend title={averageTemperature} data={legend} />
+        <RichTypography
+          variant="h6"
+          sx={{
+            lineHeight: 23 / 18,
+            lineSpacing: "0.9px",
+            fontWeight: "normal",
+            textTransform: "capitalize",
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          {hoverGeo}
+        </RichTypography>
+      </Box>
     </Box>
   );
 }
@@ -115,11 +152,11 @@ Map.propTypes = {
   styles: PropTypes.shape({}),
   boundary: PropTypes.shape({}),
   geoJSONStyles: PropTypes.shape({}),
-  onLayerMouseOver: PropTypes.func,
   featuredLocations: PropTypes.arrayOf(
     PropTypes.shape({ code: PropTypes.string }),
   ),
   explorePageSlug: PropTypes.string,
+  averageTemperature: PropTypes.string,
 };
 
 export default Map;

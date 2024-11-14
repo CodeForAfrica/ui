@@ -50,11 +50,13 @@ async function getNavBar(variant, settings) {
   const socialLinks = links?.filter((link) => connect.includes(link.platform));
   let explorePagePath = null;
   let locations = null;
+  let tutorialEnabled;
   if (hurumap?.enabled) {
     explorePagePath = hurumap.profilePage.slug;
     if (hurumap.profile) {
       locations = hurumap.profile.locations;
     }
+    tutorialEnabled = hurumap.tutorial?.enabled;
   }
 
   return {
@@ -64,6 +66,7 @@ async function getNavBar(variant, settings) {
     logo: imageFromMedia(title, primaryLogo.url),
     menus,
     socialLinks,
+    tutorialEnabled,
     variant,
   };
 }
@@ -118,8 +121,13 @@ export async function getPageProps(api, context) {
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
-    const profile = await fetchProfile();
-    const { page: hurumapPage, ...otherHurumapSettings } = hurumapSettings;
+    const {
+      url: hurumapUrl,
+      page: hurumapPage,
+      profile: profileId,
+      ...otherHurumapSettings
+    } = hurumapSettings;
+    const profile = await fetchProfile({ baseUrl: hurumapUrl, profileId });
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";
@@ -135,7 +143,9 @@ export async function getPageProps(api, context) {
     }
     settings.hurumap = {
       ...otherHurumapSettings,
+      hurumapUrl,
       profile,
+      profileId,
       profilePage,
     };
   }

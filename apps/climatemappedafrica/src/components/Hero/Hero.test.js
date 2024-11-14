@@ -57,6 +57,10 @@ const defaultProps = {
     { min: 25, max: 28, color: "#F96264" },
     { min: 28, max: 31, color: "#F80701" },
   ],
+  zoom: {
+    desktop: 3,
+    mobile: 2,
+  },
 };
 
 describe("<Hero />", () => {

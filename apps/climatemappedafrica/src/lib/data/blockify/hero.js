@@ -12,18 +12,26 @@ import {
  */
 export default async function hero(block, _api, _context, { hurumap }) {
   const {
+    hurumapUrl,
+    profileId,
     profilePage,
-    rootGeography: { center, code, hasData: pinRootGeography },
+    rootGeography: { center, code, hasData: pinRootGeography, zoom },
     profile: hurumapProfile,
   } = hurumap ?? { rootGeography: {} };
-  const { geometries } = await fetchProfileGeography(code.toLowerCase());
+  const { geometries } = await fetchProfileGeography(code.toLowerCase(), {
+    baseUrl: hurumapUrl,
+    profileId,
+  });
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
     continent: "country",
     country: "region",
   };
   const childLevel = childLevelMaps[level];
-  const { locations, preferredChildren } = await fetchProfile();
+  const { locations, preferredChildren } = await fetchProfile({
+    baseUrl: hurumapUrl,
+    profileId,
+  });
   const chloropleth = hurumapProfile?.choropleth ?? null;
   const { choropleth, legend } = generateChoropleth(
     chloropleth,
@@ -51,5 +59,6 @@ export default async function hero(block, _api, _context, { hurumap }) {
     slug: "hero",
     choropleth,
     legend,
+    zoom,
   };
 }
