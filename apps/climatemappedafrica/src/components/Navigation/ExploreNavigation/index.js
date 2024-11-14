@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
@@ -41,7 +41,13 @@ const useStyles = makeStyles(({ palette, typography }) => ({
   },
 }));
 
-function ExploreNavigation({ explorePagePath, locations, logo, variant }) {
+function ExploreNavigation({
+  explorePagePath,
+  locations,
+  logo,
+  tutorialEnabled,
+  variant,
+}) {
   const classes = useStyles();
   const { setIsOpen } = useTour();
 
@@ -83,24 +89,25 @@ function ExploreNavigation({ explorePagePath, locations, logo, variant }) {
                 menuItem: classes.searchMenuItem,
               }}
             />
-            <Typography
-              component="div"
-              id="nav-help"
-              onClick={openTooltip}
-              variant="h3"
-              sx={(theme) => ({
-                color: "#666666",
-                textAlign: "center",
-                backgroundColor: "#EBEBEB",
-                borderRadius: theme.typography.pxToRem(60),
-                marginLeft: theme.typography.pxToRem(20),
-                width: theme.typography.pxToRem(48),
-                height: theme.typography.pxToRem(48),
-                cursor: "pointer",
-              })}
-            >
-              ?
-            </Typography>
+            {tutorialEnabled && (
+              <Button
+                component="button"
+                id="nav-help"
+                onClick={openTooltip}
+                sx={(theme) => ({
+                  color: "#666666",
+                  backgroundColor: "#EBEBEB",
+                  borderRadius: "50%",
+                  marginLeft: theme.typography.pxToRem(20),
+                  width: theme.typography.pxToRem(48),
+                  height: theme.typography.pxToRem(48),
+                  minWidth: theme.typography.pxToRem(48),
+                  cursor: "pointer",
+                })}
+              >
+                ?
+              </Button>
+            )}
           </Grid>
           <Grid />
         </Grid>

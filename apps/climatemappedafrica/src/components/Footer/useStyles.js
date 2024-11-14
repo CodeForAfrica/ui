@@ -47,9 +47,9 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   copyrightText: {
     color: palette.text.secondary,
     order: 5,
-    padding: `0 ${typography.pxToRem(5)}`,
+    padding: `0 ${typography.pxToRem(5)} 0 0`,
     [breakpoints.up("lg")]: {
-      padding: `0 ${typography.pxToRem(10)}`,
+      padding: `0 ${typography.pxToRem(10)} 0 0`,
     },
   },
 }));

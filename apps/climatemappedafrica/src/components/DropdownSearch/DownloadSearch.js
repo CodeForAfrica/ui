@@ -22,6 +22,7 @@ function DropdownSearch({
   icon: IconProp = SearchIcon,
   placeholder,
   variant,
+  sx,
   ...props
 }) {
   const router = useRouter();
@@ -96,7 +97,7 @@ function DropdownSearch({
   );
 
   return (
-    <Box id="location-search">
+    <Box id="location-search" sx={sx}>
       {label && (
         <Typography
           variant="body1"
@@ -115,12 +116,12 @@ function DropdownSearch({
         value={query}
         sx={({ typography, palette }) => ({
           borderRadius: typography.pxToRem(10),
-          color: palette.primary.main,
+          color: palette.text.primary,
           border: `2px solid ${palette.text.hint}`,
           width: typography.pxToRem(278),
           backgroundColor: "inherit",
           height: typography.pxToRem(48),
-          padding: 0,
+          padding: `0 0 0 ${typography.pxToRem(20)}`,
           "&.MuiInputBase-input": {
             backgroundColor: "inherit",
             height: typography.pxToRem(48),
