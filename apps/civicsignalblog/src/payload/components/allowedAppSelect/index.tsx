@@ -6,7 +6,7 @@ import applications from "#civicsignalblog/payload/lib/data/common/applications"
 
 function CustomSelectComponent({ path, label }) {
   const { user } = useAuth();
-  const { value, setValue } =  useField<string>({ path });
+  const { value, setValue } = useField<string>({ path });
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
