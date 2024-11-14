@@ -1,13 +1,13 @@
 import { RichText } from "@commons-ui/payload";
 import { Grid, Typography, IconButton, Avatar } from "@mui/material";
 import { useTour } from "@reactour/tour";
-import Image from "next/legacy/image";
 import PropTypes from "prop-types";
 import React from "react";
 
 import useStyles from "./useStyles";
 
 import CloseIcon from "@/climatemappedafrica/assets/icons/close.svg";
+import Image from "@/climatemappedafrica/components/Image";
 
 function TutorialStep({ description, title, image, selector, ...props }) {
   const classes = useStyles(props);
