@@ -304,14 +304,14 @@ catalogs:
       specifier: ^5.4.0
       version: 5.4.0
     eslint-plugin-json:
-      specifier: ^3.1.0
-      version: 3.1.0
+      specifier: ^4.0.1
+      version: 4.0.1
     eslint-plugin-jsx-a11y:
       specifier: ^6.10.0
       version: 6.10.2
     eslint-plugin-markdown:
-      specifier: ^3.0.1
-      version: 3.0.1
+      specifier: ^5.1.0
+      version: 5.1.0
     eslint-plugin-mdx:
       specifier: ^3.1.5
       version: 3.1.5
@@ -2776,13 +2776,13 @@ importers:
         version: 5.4.0(@testing-library/dom@10.4.0)(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-json:
         specifier: 'catalog:'
-        version: 3.1.0
+        version: 4.0.1
       eslint-plugin-jsx-a11y:
         specifier: 'catalog:'
         version: 6.10.2(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-markdown:
         specifier: 'catalog:'
-        version: 3.0.1(eslint@9.14.0(jiti@1.21.6))
+        version: 5.1.0(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-playwright:
         specifier: 'catalog:'
         version: 1.8.3(eslint-plugin-jest@28.8.3(@typescript-eslint/eslint-plugin@8.12.2(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.14.0(jiti@1.21.6))(jest@29.7.0(babel-plugin-macros@3.1.0))(typescript@5.6.3))(eslint@9.14.0(jiti@1.21.6))
@@ -8959,9 +8959,9 @@ packages:
       jest:
         optional: true
 
-  eslint-plugin-json@3.1.0:
-    resolution: {integrity: sha512-MrlG2ynFEHe7wDGwbUuFPsaT2b1uhuEFhJ+W1f1u+1C2EkXmTYJp4B1aAdQQ8M+CC3t//N/oRKiIVw14L2HR1g==}
-    engines: {node: '>=12.0'}
+  eslint-plugin-json@4.0.1:
+    resolution: {integrity: sha512-3An5ISV5dq/kHfXdNyY5TUe2ONC3yXFSkLX2gu+W8xAhKhfvrRvkSAeKXCxZqZ0KJLX15ojBuLPyj+UikQMkOA==}
+    engines: {node: '>=18.0'}
 
   eslint-plugin-jsx-a11y@6.10.2:
     resolution: {integrity: sha512-scB3nz4WmG75pV8+3eRUQOHZlNSUhFNq37xnpgRkCCELU3XMvXAxLk1eqWWyE22Ki4Q01Fnsw9BA3cJHDPgn2Q==}
@@ -8974,6 +8974,12 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+
+  eslint-plugin-markdown@5.1.0:
+    resolution: {integrity: sha512-SJeyKko1K6GwI0AN6xeCDToXDkfKZfXcexA6B+O2Wr2btUS9GrC+YgwSyVli5DJnctUHjFXcQ2cqTaAmVoLi2A==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: '>=8'
 
   eslint-plugin-mdx@3.1.5:
     resolution: {integrity: sha512-lUE7tP7IrIRHU3gTtASDe5u4YM2SvQveYVJfuo82yn3MLh/B/v05FNySURCK4aIxIYF1QYo3IRemQG/lyQzpAg==}
@@ -23244,7 +23250,7 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-json@3.1.0:
+  eslint-plugin-json@4.0.1:
     dependencies:
       lodash: 4.17.21
       vscode-json-languageservice: 4.2.1
@@ -23269,6 +23275,13 @@ snapshots:
       string.prototype.includes: 2.0.1
 
   eslint-plugin-markdown@3.0.1(eslint@9.14.0(jiti@1.21.6)):
+    dependencies:
+      eslint: 9.14.0(jiti@1.21.6)
+      mdast-util-from-markdown: 0.8.5
+    transitivePeerDependencies:
+      - supports-color
+
+  eslint-plugin-markdown@5.1.0(eslint@9.14.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.14.0(jiti@1.21.6)
       mdast-util-from-markdown: 0.8.5

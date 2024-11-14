@@ -74,7 +74,6 @@ const Articles = React.forwardRef(function Articles(props, ref) {
     }
   }, [data, filtering]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const { pathname } = window.location;
     const url = `${pathname}${queryParams}`;
