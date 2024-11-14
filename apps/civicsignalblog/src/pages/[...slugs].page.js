@@ -20,43 +20,11 @@ const componentsBySlugs = {
 };
 
 function Index(initialData) {
-  let { data: props } = useLivePreview({
+  const { data: props } = useLivePreview({
     serverURL: process.env.NEXT_PUBLIC_APP_URL || "",
     depth: 2,
     initialData,
   });
-
-  // Transform the preview data after receiving it, this is not the cleanest approach
-  props = {
-    ...props,
-    blocks: props?.blocks?.map((block) => {
-      if (block.blockType === "post-list") {
-        return {
-          title: block.stories?.title,
-          featured: block.stories?.featured
-            ? {
-                ...block.stories.featured,
-                image: {
-                  src:
-                    block.stories.featured.coverImage?.url ||
-                    block.stories.featured.meta?.image?.url,
-                  alt:
-                    block.stories.featured.coverImage?.alt ||
-                    block.stories.featured.meta?.image?.alt,
-                },
-              }
-            : null,
-          posts: [],
-          pagination: { count: 1, page: 1 },
-          primaryTag: block.primaryTag,
-          tags: [],
-          slug: block?.primaryTag,
-          labels: block.labels,
-        };
-      }
-      return block;
-    }),
-  };
 
   const { blocks, fallback } = props;
   if (!blocks?.length) {
@@ -72,13 +40,11 @@ function Index(initialData) {
   return (
     <PageComponent {...pageComponentProps}>
       {blocks.map((block) => {
-        const blockType = block.slug || block.blockType;
-        const blockId = block.id || block.name || block.blockType;
-        const Component = componentsBySlugs[blockType];
+        const Component = componentsBySlugs[block.slug];
         if (!Component) {
           return null;
         }
-        return <Component {...block} key={blockId} />;
+        return <Component {...block} key={block.slug} />;
       })}
     </PageComponent>
   );
