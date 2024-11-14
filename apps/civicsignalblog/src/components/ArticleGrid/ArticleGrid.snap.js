@@ -10,7 +10,6 @@ exports[`<ArticleGrid /> renders unchanged 1`] = `
     >
       <div
         class="MuiBox-root css-1xugy04"
-        xs="12"
       >
         <div
           class="MuiStack-root css-kbcct1-MuiStack-root"
