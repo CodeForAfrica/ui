@@ -1,17 +1,15 @@
-const jestDom = require("eslint-plugin-jest-dom");
-const testingLibrary = require("eslint-plugin-testing-library");
 const babelParser = require("@babel/eslint-parser");
-const pluginJest = require("eslint-plugin-jest");
-const playwright = require("eslint-plugin-playwright");
-const markdown = require("eslint-plugin-markdown");
-const json = require("eslint-plugin-json");
-const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
-const globals = require("globals");
-
-const js = require("@eslint/js");
-
-const { FlatCompat } = require("@eslint/eslintrc");
 const { fixupConfigRules } = require("@eslint/compat");
+const { FlatCompat } = require("@eslint/eslintrc");
+const js = require("@eslint/js");
+const pluginJest = require("eslint-plugin-jest");
+const jestDom = require("eslint-plugin-jest-dom");
+const json = require("eslint-plugin-json");
+const markdown = require("eslint-plugin-markdown");
+const playwright = require("eslint-plugin-playwright");
+const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
+const testingLibrary = require("eslint-plugin-testing-library");
+const globals = require("globals");
 
 const flatCompat = new FlatCompat();
 
@@ -89,9 +87,16 @@ module.exports = [
       "react-hooks/exhaustive-deps": "off",
       "import/no-extraneous-dependencies": "off",
       "no-unused-vars": [
-        "warn",
+        "error",
         {
           caughtErrors: "none",
+          ignoreRestSiblings: true,
+        },
+      ],
+      "import/no-unresolved": [
+        "error",
+        {
+          ignore: ["\\.svg\\?url$"],
         },
       ],
     },
