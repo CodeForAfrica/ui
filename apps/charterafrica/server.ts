@@ -4,7 +4,6 @@ import { spawn } from "child_process";
 import { loadEnvConfig } from "@next/env";
 import express from "express";
 import next from "next";
-import nodemailerSendgrid from "nodemailer-sendgrid";
 import payload from "payload";
 import { Payload } from "payload/dist/payload";
 
@@ -20,8 +19,17 @@ const dev = process.env.NODE_ENV !== "production";
 // https://github.com/vercel/next.js/discussions/33835#discussioncomment-2559392
 const hostname = process.env.NEXT_HOSTNAME || "localhost";
 const port = Number.parseInt(process.env.PORT || "3000", 10);
-const sendGridAPIKey = process.env.SENDGRID_API_KEY;
 
+const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
+const smtpFromName =
+  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
+  "Charter Africa CMS";
+const smtpFromAddress =
+  process.env.SMTP_FROM_ADDRESS ||
+  process.env.SENDGRID_FROM_EMAIL ||
+  "noreply@codeforafrica.org";
+const smtpPort = Number(process.env.SMTP_PORT || 587);
 // Make sure commands gracefully respect termination signals (e.g. from Docker)
 // Allow the graceful termination to be manually configurable
 if (!process.env.NEXT_MANUAL_SIG_HANDLE) {
@@ -35,15 +43,20 @@ const start = async (): Promise<void> => {
   let localPayload: Payload;
   try {
     localPayload = await payload.init({
-      ...(sendGridAPIKey
+      ...(smtpAuthPass
         ? {
             email: {
-              transportOptions: nodemailerSendgrid({
-                apiKey: sendGridAPIKey,
-              }),
-              fromName: process.env.SENDGRID_FROM_NAME || "Admin",
-              fromAddress:
-                process.env.SENDGRID_FROM_EMAIL || "admin@example.com",
+              transportOptions: {
+                auth: {
+                  user: process.env.SMTP_USER || "apikey",
+                  pass: smtpAuthPass,
+                },
+                host: process.env.SMTP_HOST || "smtp.sendgrid.net",
+                port: smtpPort,
+                secure: smtpPort === 465, // true for port 465, false (the default) for 587 and others
+              },
+              fromName: smtpFromName,
+              fromAddress: smtpFromAddress,
             },
           }
         : undefined),
