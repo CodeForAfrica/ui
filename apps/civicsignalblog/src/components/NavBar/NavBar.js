@@ -67,8 +67,4 @@ NavBar.propTypes = {
   ),
 };
 
-NavBar.defaultProps = {
-  menus: undefined,
-};
-
 export default NavBar;
