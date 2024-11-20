@@ -15,6 +15,9 @@ import SearchIcon from "@/climatemappedafrica/assets/icons/search.svg";
 import Link from "@/climatemappedafrica/components/Link";
 
 function DropdownSearch({
+  IconButtonProps,
+  InputBaseProps,
+  TypographyProps,
   href: hrefProp = "/explore",
   label,
   locations,
@@ -23,7 +26,6 @@ function DropdownSearch({
   placeholder,
   variant,
   sx,
-  ...props
 }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -77,12 +79,18 @@ function DropdownSearch({
   const searchIconButton = (
     <IconButton
       color="primary"
-      onClick={handleClickSearch}
       size="small"
-      sx={() => ({
-        padding: 0,
-        ml: 2,
-      })}
+      {...IconButtonProps}
+      onClick={handleClickSearch}
+      sx={[
+        () => ({
+          padding: 0,
+          ml: 2,
+        }),
+        ...(Array.isArray(IconButtonProps?.sx)
+          ? IconButtonProps.sx
+          : [IconButtonProps?.sx]),
+      ]}
     >
       <SvgIcon
         component={iconComponent}
@@ -101,40 +109,51 @@ function DropdownSearch({
       {label && (
         <Typography
           variant="body1"
-          sx={({ palette, typography }) => ({
-            color: palette.text.primary,
-            marginBottom: typography.pxToRem(10),
-          })}
+          {...TypographyProps}
+          sx={[
+            ({ palette, typography }) => ({
+              color: palette.text.primary,
+              marginBottom: typography.pxToRem(10),
+            }),
+            ...(Array.isArray(TypographyProps?.sx)
+              ? TypographyProps.sx
+              : [TypographyProps?.sx]),
+          ]}
         >
           {label}
         </Typography>
       )}
       <InputBase
+        {...InputBaseProps}
+        endAdornment={variant === "explore" ? searchIconButton : null}
         inputProps={{ "aria-label": "search" }}
         onChange={handleChange}
         placeholder={placeholder}
         value={query}
-        sx={({ typography, palette }) => ({
-          borderRadius: typography.pxToRem(10),
-          color: palette.text.primary,
-          border: `2px solid ${palette.text.hint}`,
-          width: typography.pxToRem(278),
-          backgroundColor: "inherit",
-          height: typography.pxToRem(48),
-          padding: `0 0 0 ${typography.pxToRem(20)}`,
-          "&.MuiInputBase-input": {
+        sx={[
+          ({ typography, palette }) => ({
+            borderRadius: typography.pxToRem(10),
+            color: palette.text.primary,
+            border: `2px solid ${palette.grey.light}`,
+            width: typography.pxToRem(278),
             backgroundColor: "inherit",
             height: typography.pxToRem(48),
-            borderRadius: typography.pxToRem(10),
-            padding: 0,
-            textTransform: "capitalize",
-          },
-          "&.Mui-focused": {
-            border: `2px solid ${palette.primary.main}`,
-          },
-          ...props.sx,
-        })}
-        endAdornment={variant === "explore" ? searchIconButton : null}
+            padding: `0 0 0 ${typography.pxToRem(20)}`,
+            "&.MuiInputBase-input": {
+              backgroundColor: "inherit",
+              height: typography.pxToRem(48),
+              borderRadius: typography.pxToRem(10),
+              padding: 0,
+              textTransform: "capitalize",
+            },
+            "&.Mui-focused": {
+              border: `2px solid ${palette.grey.main}`,
+            },
+          }),
+          ...(Array.isArray(InputBaseProps?.sx)
+            ? InputBaseProps.sx
+            : [InputBaseProps?.sx]),
+        ]}
       />
       {variant !== "explore" && searchIconButton}
 
@@ -176,6 +195,7 @@ function DropdownSearch({
 }
 
 DropdownSearch.propTypes = {
+  InputBaseProps: PropTypes.shape({}),
   label: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,

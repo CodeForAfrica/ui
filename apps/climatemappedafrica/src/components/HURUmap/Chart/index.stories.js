@@ -29,7 +29,7 @@ Default.args = {
     metadata: {
       source: "StatsSA Census 2011",
       description: "",
-      url: "https://pesayetu.pesacheck.org",
+      url: "https://codeforafrica.org",
       licence: {
         name: null,
         url: null,

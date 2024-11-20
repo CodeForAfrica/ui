@@ -33,7 +33,7 @@ function SubcategoryList({ items }) {
     <Box
       sx={({ zIndex }) => ({
         position: "sticky",
-        top: 64 + 60, // below navbar and category list tab
+        top: 66 + 60, // below navbar and category list tab
         zIndex: zIndex.appBar,
       })}
     >
@@ -42,8 +42,9 @@ function SubcategoryList({ items }) {
         sx={({ palette, typography }) => ({
           alignItems: "center",
           backgroundColor: palette.grey.light,
+          color: "#666666", // Match current tab background
           display: "flex",
-          height: typography.pxToRem(16),
+          height: typography.pxToRem(29), // Match tab height
           justifyContent: "center",
           width: "100%",
           "&:active,&:hover, &:focus, &:focus-within": {
@@ -64,9 +65,17 @@ function SubcategoryList({ items }) {
           vertical: "bottom",
           horizontal: "center",
         }}
+        elevation={0}
         transformOrigin={{
           vertical: "top",
           horizontal: "center",
+        }}
+        slotProps={{
+          paper: {
+            style: {
+              left: "0px",
+            },
+          },
         }}
         sx={({ typography }) => ({
           "& .MuiPopover-paper": {
