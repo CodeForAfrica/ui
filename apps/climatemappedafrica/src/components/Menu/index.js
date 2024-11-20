@@ -1,5 +1,5 @@
 import { StayInTouch } from "@commons-ui/next";
-import { Grid, Button, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -8,47 +8,16 @@ import Link from "@/climatemappedafrica/components/Link";
 
 const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    "& > div:nth-of-type(2)": {
-      order: 4,
-    },
-    "& > div:nth-of-type(3)": {
-      order: 5,
-    },
-    "& > div:nth-of-type(4)": {
-      order: 3,
-    },
-    "& > div:nth-of-type(5)": {
-      order: 2,
-    },
-    "& > div:nth-of-type(6)": {
-      order: 5,
-    },
     [breakpoints.up("lg")]: {
       padding: 0,
-      flexDirection: "row",
-      justifyContent: "flex-end",
-      "& > div:nth-of-type(2)": {
-        order: 0,
-      },
-      "& > div:nth-of-type(3)": {
-        order: 0,
-      },
-      "& > div:nth-of-type(4)": {
-        order: 0,
-      },
-      "& > div:nth-of-type(5)": {
-        order: 0,
-      },
-      "& > div:nth-of-type(6)": {
-        order: 0,
-      },
     },
   },
   links: {
     padding: `${typography.pxToRem(14)} ${typography.pxToRem(28)} `,
+    "&:hover": {
+      padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)} `,
+      border: "1px solid",
+    },
   },
   label: {
     fontWeight: 600,
@@ -100,14 +69,21 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
   },
 }));
 
-function Menu({ links, children, socialLinks, ...props }) {
+function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
   const classes = useStyles(props);
 
   if (!links?.length) {
     return null;
   }
+  const exploreHref = explorePagePath ? `/${explorePagePath}` : undefined;
   return (
-    <Grid container className={classes.root}>
+    <Grid
+      container
+      alignItems={{ lg: "center" }}
+      direction={{ xs: "column", lg: "row" }}
+      justifyContent={{ lg: "flex-end" }}
+      className={classes.root}
+    >
       {links.map((item, index) => (
         <Grid
           item
@@ -117,6 +93,7 @@ function Menu({ links, children, socialLinks, ...props }) {
               xs: 0,
               lg: `0 ${typography.pxToRem(12.8)}`,
             },
+            order: item.href === exploreHref ? 0 : 1,
             "&:last-child": {
               margin: {
                 xs: 0,
@@ -128,34 +105,39 @@ function Menu({ links, children, socialLinks, ...props }) {
             },
           })}
         >
-          <Button
-            component={Link}
-            color={index !== 0 ? "secondary" : "primary"}
-            variant={index !== 0 ? "text" : "outlined"}
-            size="large"
-            href={item.href}
+          <Link
             classes={{
-              root: index !== 0 ? classes.menuLinks : classes.links,
+              root:
+                item.href === exploreHref ? classes.links : classes.menuLinks,
               text: classes.text,
             }}
+            color={index !== 0 ? "secondary" : "primary"}
+            display="inline-flex"
+            href={item.href}
+            size="large"
+            underline="none"
+            variant={index !== 0 ? "text" : "outlined"}
             sx={(theme) => ({
               borderRadius: 20,
-              border: index !== 0 ? 0 : "3px solid",
+              border: item.href === exploreHref ? "3px solid" : 0,
               color: {
                 xs: theme.palette.text.secondary,
                 lg: theme.palette.primary.main,
               },
             })}
           >
-            <Typography variant="body1" className={classes.label}>
+            <Typography
+              component="span"
+              variant="body1"
+              className={classes.label}
+            >
               {item.label}
             </Typography>
-          </Button>
+          </Link>
         </Grid>
       ))}
       {children}
       <StayInTouch
-        links={socialLinks}
         LinkProps={{
           component: Link,
           sx: {
@@ -169,10 +151,14 @@ function Menu({ links, children, socialLinks, ...props }) {
             alignItems: "center",
             margin: "3.2px",
             pr: 0,
-            mt: { xs: 2, lg: 0 },
           },
         }}
         alignItems={{ xs: "flex-start", lg: "center" }}
+        links={socialLinks}
+        sx={{
+          // Ensure it's the last item
+          order: links.length,
+        }}
       />
     </Grid>
   );

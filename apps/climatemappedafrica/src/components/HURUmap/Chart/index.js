@@ -25,10 +25,13 @@ import projectlogo from "@/climatemappedafrica/assets/logos/projectLogo.svg";
 import config, { hurumapArgs } from "@/climatemappedafrica/config";
 import site from "@/climatemappedafrica/utils/site";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(({ typography }) => ({
   root: {
     position: "relative",
     width: "100%",
+    "&:last-of-type": {
+      marginBottom: typography.pxToRem(32),
+    },
   },
   chart: {
     width: "100%",
@@ -97,8 +100,9 @@ function Chart({
       if (chartRef?.current) {
         try {
           const newView = await embed(chartRef.current, spec, {
-            renderer: "canvas",
             actions: false,
+            padding: 0,
+            renderer: "canvas",
             tooltip: handler,
           });
 
@@ -355,12 +359,11 @@ function Chart({
       )}
       <div ref={chartRef} className={classes.chart} />
       <RichTypography
+        variant="body2"
         sx={(theme) => ({
+          color: "#666666",
           fontSize: theme.typography.pxToRem(13),
           lineHeight: 20 / 13,
-          color: "#666666",
-          display: "inline-flex",
-          fontWeight: 500,
         })}
       >
         {description}

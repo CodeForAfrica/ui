@@ -1,6 +1,6 @@
 import { Location } from "@hurumap/core";
 import { Map } from "@hurumap/next";
-import { Box, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
@@ -160,46 +160,35 @@ function ExplorePage({
   }
   return (
     <>
-      <Box
-        sx={{
-          display: {
-            xs: "none",
-            lg: "block",
-          },
-        }}
-      >
-        <div className={classes.root}>
-          <Map
-            center={center}
-            geography={geography}
-            secondaryGeography={state.secondary?.geography}
-            geometries={geometries}
-            isPinOrCompare={state.isPinning || state.isCompare}
-            isPinning={state.isPinning}
-            onClick={handleClickMap}
-            onClickUnpin={handleClickUnpin}
-            zoom={7}
-            {...props}
-          />
-          <Location
-            highlights={highlights}
-            isLoading={isLoading}
-            tags={tags}
-            sx={{
-              display: "none",
-              [theme.breakpoints.up("md")]: {
-                display: "flex",
-                left: 0,
-                margin: "0 auto",
-                position: "absolute",
-                right: 0,
-                top: theme.typography.pxToRem(52),
-                zIndex: theme.zIndex.appBar - 1,
-              },
-            }}
-          />
-        </div>
-      </Box>
+      <div className={classes.root}>
+        <Map
+          center={center}
+          geography={geography}
+          secondaryGeography={state.secondary?.geography}
+          geometries={geometries}
+          isPinOrCompare={state.isPinning || state.isCompare}
+          isPinning={state.isPinning}
+          onClick={handleClickMap}
+          onClickUnpin={handleClickUnpin}
+          zoom={7}
+          {...props}
+        />
+        <Location
+          highlights={highlights}
+          isLoading={isLoading}
+          tags={tags}
+          sx={{
+            [theme.breakpoints.up("lg")]: {
+              left: 0,
+              margin: "0 auto",
+              position: "absolute",
+              right: 0,
+              top: theme.typography.pxToRem(52),
+              zIndex: theme.zIndex.appBar - 1,
+            },
+          }}
+        />
+      </div>
       <Panel
         {...props}
         isCompare={state.isCompare}

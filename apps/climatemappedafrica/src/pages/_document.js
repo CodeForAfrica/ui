@@ -9,6 +9,23 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            rel="icon"
+            type="image/png"
+            href="/favicon-96x96.png"
+            sizes="96x96"
+          />
+          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <meta name="apple-mobile-web-app-title" content="CM A" />
+          <link rel="manifest" href="/site.webmanifest" />
+          {/* PWA primary color */}
+          <meta name="theme-color" content={theme.palette.primary.main} />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
@@ -27,8 +44,6 @@ export default class MyDocument extends Document {
           `,
             }}
           />
-          {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main} />
         </Head>
         <body>
           <Main />

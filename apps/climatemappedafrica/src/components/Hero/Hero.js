@@ -33,16 +33,16 @@ function Hero({
   return (
     <Box
       sx={{
-        position: "relative",
         pb: 5,
+        position: "relative",
       }}
     >
       <Box
         sx={{
-          position: "absolute",
-          zIndex: -1,
-          width: "100%",
           height: { xs: "468px", md: "456px", lg: "600px" },
+          position: "absolute",
+          width: "100%",
+          zIndex: -1,
         }}
       >
         <Image src={heroBg} layout="fill" unoptimized />
@@ -53,60 +53,72 @@ function Hero({
           px: 0,
         }}
       >
-        <Grid container>
+        <Grid container columnSpacing={1}>
           <Grid
-            display="flex"
-            flexDirection="column"
-            justifyContent="space-between"
             item
             xs={12}
             md={6}
+            container
+            direction="column"
+            justifyContent="space-between"
           >
-            <RichHeader
-              subtitle={subtitle}
-              TitleProps={{
-                sx: {
-                  pb: { xs: 5 },
-                  marginTop: { xs: "40px", md: "46px", lg: "65px" },
-                },
-              }}
-              SubtitleProps={{
-                sx: {
-                  margin: {
-                    xs: `20px 0`,
-                    lg: `40px 0`,
+            <Grid item>
+              <RichHeader
+                subtitle={subtitle}
+                TitleProps={{
+                  sx: {
+                    pb: { xs: 5 },
+                    marginTop: { xs: "40px", md: "46px", lg: "65px" },
                   },
-                  maxWidth: {
-                    md: "335px",
-                    lg: "474px",
+                }}
+                SubtitleProps={{
+                  sx: {
+                    margin: {
+                      xs: `20px 0`,
+                      lg: `40px 0`,
+                    },
+                    maxWidth: {
+                      md: "335px",
+                      lg: "474px",
+                    },
                   },
-                },
-              }}
-            >
-              {title}
-            </RichHeader>
-            <Box>
-              <DropdownSearch
-                label={searchLabel}
-                locations={featuredLocations}
-                placeholder={searchPlaceholder}
-                sx={{ mb: 1 }}
-                {...props}
-              />
-              <RichTypography
-                variant="caption"
-                sx={{
-                  fontSize: { xs: "11px" },
-                  color: "#707070",
                 }}
               >
-                {comment}
-              </RichTypography>
-            </Box>
+                {title}
+              </RichHeader>
+            </Grid>
+            <Grid>
+              <Box>
+                <DropdownSearch
+                  InputBaseProps={{
+                    sx: ({ typography }) => ({
+                      width: {
+                        md: typography.pxToRem(238),
+                      },
+                    }),
+                  }}
+                  label={searchLabel}
+                  locations={featuredLocations}
+                  placeholder={searchPlaceholder}
+                  sx={{
+                    mb: 1,
+                  }}
+                  {...props}
+                />
+                <RichTypography
+                  variant="caption"
+                  sx={{
+                    fontSize: { xs: "11px" },
+                    color: "#707070",
+                  }}
+                >
+                  {comment}
+                </RichTypography>
+              </Box>
+            </Grid>
           </Grid>
           {/* Since map is dynamic-ally loaded, no need for implementation="css" */}
-
-          <Grid item md={6} xs={12} justifyContent="flex-end">
+          <Grid item xs={12} md={6}>
             {center ? (
               <Map
                 center={[center[1], center[0]]}
