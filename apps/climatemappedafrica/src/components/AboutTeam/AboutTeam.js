@@ -1,6 +1,5 @@
-import { Box, Grid, Typography, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { chunk, uniqueId } from "lodash";
 import PropTypes from "prop-types";
 import React, { useRef } from "react";
 
@@ -16,10 +15,12 @@ import useStyles from "./useStyles";
 
 const responsive = {
   desktop: {
-    items: 1,
+    items: 4,
+    partialVisibilityGutter: 30,
   },
   tablet: {
-    items: 1,
+    items: 2,
+    partialVisibilityGutter: 30,
   },
 };
 
@@ -33,8 +34,6 @@ function AboutTeam({ title, members: membersProp, ...props }) {
   if (!membersProp?.length) {
     return null;
   }
-  const chunkSize = isMdUp ? 4 : 2;
-  const members = chunk(membersProp, chunkSize);
   const scrollToTeam = () => {
     if (ref.current && !isMdUp) {
       ref.current.scrollIntoView({ behavior: "smooth" });
@@ -69,18 +68,12 @@ function AboutTeam({ title, members: membersProp, ...props }) {
           responsive={responsive}
           classes={{ dotList: classes.dotList }}
         >
-          {members.map((membersChunks) => (
-            <Grid
-              container
-              justifyContent="space-between"
-              key={uniqueId("team-chunk-")}
-            >
-              {membersChunks.map((member) => (
-                <Grid item key={member.title}>
-                  <Card {...member} mediaProps={{ square: true }} />
-                </Grid>
-              ))}
-            </Grid>
+          {membersProp.map((member) => (
+            <Card
+              key={member.title}
+              {...member}
+              mediaProps={{ square: true }}
+            />
           ))}
         </Carousel>
       </Section>

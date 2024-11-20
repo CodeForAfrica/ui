@@ -43,7 +43,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   backdrop: {
     backgroundColor: "transparent",
-    maxHeight: typography.pxToRem(844),
   },
   dialogActions: {
     padding: 0,
@@ -57,7 +56,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   },
   dialogPaper: {
     background: palette.primary.main,
-    maxHeight: typography.pxToRem(844),
     position: "absolute",
     left: 0,
     top: 0,
@@ -73,15 +71,6 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     "&:hover": {
       background: "#F0F0F0",
       borderRadius: typography.pxToRem(50),
-    },
-  },
-  closeButton: {
-    color: palette.background.main,
-    height: typography.pxToRem(34),
-    padding: 0,
-    width: typography.pxToRem(34),
-    "&:hover": {
-      background: "none",
     },
   },
   menuItems: {
@@ -108,9 +97,13 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
   buttonMenu: {
     margin: 0,
   },
+  links: {
+    display: "inline-block",
+  },
   menuLinks: {
     color: palette.text.secondary,
-    margin: `${typography.pxToRem(10)} ${typography.pxToRem(-8)}`,
+    display: "inline-block",
+    margin: `${typography.pxToRem(10)} 0`,
     "&:hover, &:focus, &:focus-within": {
       backgroundColor: "transparent",
       textDecoration: "none",
@@ -121,29 +114,7 @@ const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
     [breakpoints.up("lg")]: {
       flexDirection: "column",
       justifyContent: "flex-start",
-      "& > div:nth-of-type(2)": {
-        order: 4,
-      },
-      "& > div:nth-of-type(3)": {
-        order: 5,
-      },
-      "& > div:nth-of-type(4)": {
-        order: 3,
-      },
-      "& > div:nth-of-type(5)": {
-        order: 2,
-      },
-      "& > div:nth-of-type(6)": {
-        order: 5,
-      },
     },
-  },
-  search: {
-    margin: `${typography.pxToRem(20)} 0 ${typography.pxToRem(60)}`,
-  },
-  searchInput: {
-    border: `2px solid ${palette.background.default}`,
-    backgroundColor: palette.background.default,
   },
 }));
 
@@ -157,6 +128,7 @@ function MobileNavigation({
   logo,
   menus,
   socialLinks,
+  sx,
   ...props
 }) {
   const classes = useStyles(props);
@@ -175,131 +147,148 @@ function MobileNavigation({
   const handleClickSearch = (code) => {
     setOpen(false);
     if (code) {
-      router.push(`explore/${code}`);
+      router.push(`/${explorePagePath}/${code}`);
     }
   };
 
   return (
-    <div>
-      <Section>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item xs={10}>
-            <NextImageButton
-              href="/"
-              {...logo}
-              width={180}
-              height={80}
-              priority
-            />
-          </Grid>
-          <Grid item>
-            <IconButton
-              aria-label="Open drawer"
-              edge="start"
-              size="medium"
-              onClick={handleClickOpen}
-              sx={(theme) => ({
-                color: theme.palette.grey.dark,
-                background: "#F0F0F0",
-                borderRadius: theme.typography.pxToRem(50),
-                height: theme.typography.pxToRem(34),
-                padding: 0,
-                width: theme.typography.pxToRem(34),
-                "&:hover": {
-                  background: "#F0F0F0",
-                  borderRadius: theme.typography.pxToRem(50),
-                },
-              })}
-            >
-              <SvgIcon
-                component={MenuOpenIcon}
-                viewBox="0 0 24 24"
-                sx={{
-                  width: 24,
-                  height: 24,
-                }}
-              />
-            </IconButton>
-          </Grid>
-          <Dialog
-            fullScreen
-            open={open}
-            onClose={handleClose}
-            BackdropProps={{
-              classes: {
-                root: classes.backdrop,
-              },
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="space-between"
+      className={classes.logoSection}
+      sx={sx}
+    >
+      <Grid item xs={10}>
+        <NextImageButton
+          {...logo}
+          href="/"
+          style={{
+            height: 44,
+            width: "auto",
+          }}
+          priority
+        />
+      </Grid>
+      <Grid item>
+        <IconButton
+          aria-label="Open drawer"
+          size="medium"
+          onClick={handleClickOpen}
+          sx={(theme) => ({
+            color: theme.palette.grey.dark,
+            padding: 0,
+          })}
+        >
+          <SvgIcon
+            component={MenuOpenIcon}
+            sx={{
+              fontSize: 32,
             }}
-            TransitionComponent={Transition}
-            classes={{ root: classes.dialog, paper: classes.dialogPaper }}
-          >
-            <DialogActions className={classes.dialogActions}>
-              <Section className={classes.section}>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="space-between"
-                  className={classes.logoSection}
-                >
-                  <Grid item xs={10}>
-                    <NextImageButton
-                      href="/"
-                      {...drawerLogo}
-                      width={180}
-                      height={80}
-                      priority
-                    />
-                  </Grid>
-                  <Grid item>
-                    <IconButton
-                      aria-label="Close drawer"
-                      edge="end"
-                      size="medium"
-                      onClick={handleClose}
-                      className={classes.closeButton}
-                    >
-                      <SvgIcon
-                        component={MenuCloseIcon}
-                        viewBox="0 0 48 48"
-                        sx={{
-                          width: 32,
-                          height: 32,
-                        }}
-                      />
-                    </IconButton>
-                  </Grid>
-                </Grid>
-              </Section>
-            </DialogActions>
-            <DialogContent className={classes.dialogContent}>
-              <Section className={classes.section}>
-                <Menu
-                  links={menus}
-                  socialLinks={socialLinks}
-                  classes={{
-                    root: classes.mainMenu,
-                    menuLinks: classes.menuLinks,
-                    label: classes.label,
-                    menu: classes.buttonMenu,
+          />
+        </IconButton>
+      </Grid>
+      <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        BackdropProps={{
+          classes: {
+            root: classes.backdrop,
+          },
+        }}
+        TransitionComponent={Transition}
+        classes={{ root: classes.dialog, paper: classes.dialogPaper }}
+      >
+        <DialogActions className={classes.dialogActions}>
+          <Section className={classes.section}>
+            <Grid
+              container
+              alignItems="center"
+              justifyContent="space-between"
+              className={classes.logoSection}
+            >
+              <Grid item xs={10}>
+                <NextImageButton
+                  {...logo}
+                  href="/"
+                  style={{
+                    height: 44,
+                    width: "auto",
+                  }}
+                  priority
+                />
+              </Grid>
+              <Grid item>
+                <IconButton
+                  aria-label="Close drawer"
+                  size="medium"
+                  onClick={handleClose}
+                  sx={{
+                    color: "text.secondary",
                   }}
                 >
-                  <DropdownSearch
-                    href={explorePagePath}
-                    classes={{
-                      root: classes.search,
-                      inputRoot: classes.searchInput,
+                  <SvgIcon
+                    component={MenuCloseIcon}
+                    sx={{
+                      fontSize: 32,
                     }}
-                    icon={SearchIcon}
-                    onClick={handleClickSearch}
-                    {...props}
                   />
-                </Menu>
-              </Section>
-            </DialogContent>
-          </Dialog>
-        </Grid>
-      </Section>
-    </div>
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Section>
+        </DialogActions>
+        <DialogContent className={classes.dialogContent}>
+          <Section className={classes.section}>
+            <Menu
+              explorePagePath={explorePagePath}
+              links={menus}
+              socialLinks={socialLinks}
+              classes={{
+                root: classes.mainMenu,
+                links: classes.links,
+                menuLinks: classes.menuLinks,
+                label: classes.label,
+                menu: classes.buttonMenu,
+              }}
+            >
+              <DropdownSearch
+                IconButtonProps={{
+                  sx: ({ palette }) => ({
+                    borderRadius: "50%",
+                    border: `2px solid ${palette.background.default}`,
+                  }),
+                }}
+                InputBaseProps={{
+                  sx: ({ palette, typography }) => ({
+                    border: `2px solid ${palette.background.default}`,
+                    backgroundColor: palette.background.default,
+                    height: typography.pxToRem(44), // match search button
+                    margin: 0,
+                  }),
+                }}
+                TypographyProps={{
+                  sx: ({ palette }) => ({
+                    color: palette.text.secondary,
+                  }),
+                }}
+                href={explorePagePath}
+                icon={SearchIcon}
+                label="Search for a location"
+                onClick={handleClickSearch}
+                sx={{
+                  mb: 1,
+                  mt: 2,
+                  order: 0,
+                }}
+                {...props}
+              />
+            </Menu>
+          </Section>
+        </DialogContent>
+      </Dialog>
+    </Grid>
   );
 }
 

@@ -6,8 +6,10 @@ import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 //                  as that will take forever)
 const GEOGRAPHIES = ["af", "ke", "tz"];
 
-export function imageFromMedia(alt, url) {
-  return { alt, src: url };
+export function imageFromMedia(media, options) {
+  const alt = options?.alt || media.alt;
+  const { height, url: src, width } = media;
+  return { alt, height, src, width };
 }
 
 function getFooter(variant, settings) {
@@ -22,12 +24,11 @@ function getFooter(variant, settings) {
   } = settings.site;
   const { menus: footerMenus, ...footerProps } = footerNavigation;
   const media = secondaryLogo || primaryLogo;
-  const footerLogoUrl = typeof media === "string" ? null : media.url;
 
   return {
     connect,
     description,
-    logo: imageFromMedia(title, footerLogoUrl),
+    logo: imageFromMedia(media, { alt: title }),
     links: {
       ...footerProps,
       links: footerMenus,
@@ -50,20 +51,23 @@ async function getNavBar(variant, settings) {
   const socialLinks = links?.filter((link) => connect.includes(link.platform));
   let explorePagePath = null;
   let locations = null;
+  let tutorialEnabled;
   if (hurumap?.enabled) {
     explorePagePath = hurumap.profilePage.slug;
     if (hurumap.profile) {
       locations = hurumap.profile.locations;
     }
+    tutorialEnabled = hurumap.tutorial?.enabled;
   }
 
   return {
-    drawerLogo: imageFromMedia(title, drawerLogo.url),
+    drawerLogo: imageFromMedia(drawerLogo, { alt: title }),
     explorePagePath,
     locations,
-    logo: imageFromMedia(title, primaryLogo.url),
+    logo: imageFromMedia(primaryLogo, { alt: title }),
     menus,
     socialLinks,
+    tutorialEnabled,
     variant,
   };
 }
@@ -118,8 +122,13 @@ export async function getPageProps(api, context) {
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
-    const profile = await fetchProfile();
-    const { page: hurumapPage, ...otherHurumapSettings } = hurumapSettings;
+    const {
+      url: hurumapUrl,
+      page: hurumapPage,
+      profile: profileId,
+      ...otherHurumapSettings
+    } = hurumapSettings;
+    const profile = await fetchProfile({ baseUrl: hurumapUrl, profileId });
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";
@@ -135,7 +144,9 @@ export async function getPageProps(api, context) {
     }
     settings.hurumap = {
       ...otherHurumapSettings,
+      hurumapUrl,
       profile,
+      profileId,
       profilePage,
     };
   }

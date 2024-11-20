@@ -93,6 +93,7 @@ const Profile = forwardRef(function Profile(
           },
           marginLeft: {
             xs: typography.pxToRem(20),
+            md: typography.pxToRem(80),
             lg: 0,
           },
           marginRight: {
@@ -105,12 +106,12 @@ const Profile = forwardRef(function Profile(
             lg: typography.pxToRem(0),
           },
           paddingLeft: {
-            md: typography.pxToRem(80),
             lg: typography.pxToRem(17),
           },
           paddingTop: { lg: typography.pxToRem(67.7) },
           paddingRight: { lg: typography.pxToRem(17) },
           position: { lg: "absolute" },
+          top: 0,
           width: { lg: typography.pxToRem(800) },
           minHeight: { lg: "100%" },
           zIndex: { lg: zIndex.drawer },

@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -47,7 +47,7 @@ function MobilePanel({ activeType, scrollToTopLabel, sx, ...props }) {
   };
 
   return (
-    <Box sx={sx}>
+    <>
       {items?.length === 0 && (
         <Section>
           <LocationHeader
@@ -124,7 +124,7 @@ function MobilePanel({ activeType, scrollToTopLabel, sx, ...props }) {
           {scrollToTopLabel}
         </Button>
       )}
-    </Box>
+    </>
   );
 }
 

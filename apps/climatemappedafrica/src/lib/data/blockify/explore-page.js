@@ -6,9 +6,11 @@ import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
  */
 async function explorePage(block, _api, _context, { hurumap }) {
   const {
+    hurumapUrl,
     items: panelItems,
     labels: { dataNotAvailable, scrollToTop: scrollToTopLabel },
     profile: hurumapProfile,
+    profileId,
     profilePage,
     rootGeography,
   } = hurumap;
@@ -30,10 +32,16 @@ async function explorePage(block, _api, _context, { hurumap }) {
   }
 
   const [primaryCode, secondaryCode] = geoCodes;
-  const primaryProfile = await fetchProfileGeography(primaryCode);
+  const primaryProfile = await fetchProfileGeography(primaryCode, {
+    baseUrl: hurumapUrl,
+    profileId,
+  });
   const profile = [primaryProfile];
   if (secondaryCode) {
-    const secondaryProfile = await fetchProfileGeography(secondaryCode);
+    const secondaryProfile = await fetchProfileGeography(secondaryCode, {
+      baseUrl: hurumapUrl,
+      profileId,
+    });
     profile.push(secondaryProfile);
   }
 
@@ -46,6 +54,8 @@ async function explorePage(block, _api, _context, { hurumap }) {
     id: "explore-page",
     blockType: "explore-page",
     choropleth,
+    hurumapUrl,
+    profileId,
     rootGeography,
     explorePagePath: profilePage.slug,
     locations,

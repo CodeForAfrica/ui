@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 
 import ArticleCardList from "@/civicsignalblog/components/ArticleCardList";
@@ -26,12 +26,10 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
   return (
     <Section sx={{ px: { xs: "20px", sm: 0 }, ...sx }} {...other} ref={ref}>
       <Grid container sx={{ py: { xs: "28px", md: 8, lg: "105.29px" } }}>
-        <Grid
-          item
-          xs={12}
+        <Box
           sx={{
             order: { xs: 0, md: 1 },
-            display: articles?.length > 0 ? "flex" : "none",
+            width: "100%",
           }}
         >
           {/* title is below featuredArticle in md and above hence needs margin-top */}
@@ -59,7 +57,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
               mb: { xs: 2.5, md: 5 },
             }}
           />
-        </Grid>
+        </Box>
         {featuredArticle ? (
           <Grid
             item

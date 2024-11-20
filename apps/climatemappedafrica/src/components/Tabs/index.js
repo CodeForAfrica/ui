@@ -43,7 +43,7 @@ function Tabs({
         value={value}
         onChange={linkComponent ? undefined : handleChange}
         variant="scrollable"
-        scrollButtons="off"
+        scrollButtons={false}
         aria-label={`${name} tabs`}
         classes={{
           root: classes.tabs,

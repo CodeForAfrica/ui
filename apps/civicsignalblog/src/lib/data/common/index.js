@@ -155,11 +155,13 @@ function getDefaultErrorPageProps(slug = "404") {
 }
 
 export async function getPageProps(api, context) {
-  const { params } = context;
+  const { params, draftMode = false } = context;
+  const options = { draft: draftMode };
+
   const slug = getPageSlug(context);
   let {
     docs: [page],
-  } = await api.findPage(slug);
+  } = await api.findPage(slug, options);
   if (!page) {
     if (["404", "500"].includes(slug)) {
       return getDefaultErrorPageProps(slug);

@@ -1,4 +1,4 @@
-import { Box, Drawer } from "@mui/material";
+import { Drawer } from "@mui/material";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
 import React, { useCallback, useState } from "react";
@@ -20,9 +20,8 @@ function DesktopPanel({ sx, ...props }) {
 
   const open = value === "rich-data" && !tutorialOpen;
   return (
-    <Box sx={sx}>
+    <>
       <Drawer
-        // variant="persistent"
         anchor="left"
         onClose={closeDrawer}
         open={open}
@@ -40,31 +39,24 @@ function DesktopPanel({ sx, ...props }) {
           sx: {
             overflowY: "scroll",
             overscrollBehaviorBlock: "none",
-            top: 104, // Toolbar height
           },
         }}
         PaperProps={{
           elevation: 0,
           square: true,
-          sx: {
+          sx: ({ typography }) => ({
             background: "transparent",
             border: "none",
             display: "flex",
             flexDirection: "row",
             height: "100%",
             overflowY: "visible",
-            position: "absolute",
-          },
+            position: "relative",
+            top: typography.pxToRem(88), // Toolbar height
+          }),
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            height: "100%",
-          }}
-        >
-          <PanelItem {...props} item={{ value: "rich-data" }} />
-        </Box>
+        <PanelItem {...props} item={{ value: "rich-data" }} />
       </Drawer>
       <PanelButtons
         {...props}
@@ -72,7 +64,7 @@ function DesktopPanel({ sx, ...props }) {
         open={open}
         value={value}
       />
-    </Box>
+    </>
   );
 }
 

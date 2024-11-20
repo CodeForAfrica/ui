@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar } from "@mui/material";
+import { AppBar, Toolbar } from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -6,6 +6,8 @@ import React from "react";
 import DesktopNavigation from "./DesktopNavigation";
 import ExploreNavigation from "./ExploreNavigation";
 import MobileNavigation from "./MobileNavigation";
+
+import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(
   ({ palette, typography, zIndex, breakpoints }) => ({
@@ -32,41 +34,46 @@ function Navigation({ variant, ...props }) {
   const classes = useStyles(props);
 
   return (
-    <AppBar color="primary" position="sticky" className={classes.root}>
+    <AppBar color="inherit" position="sticky" className={classes.root}>
       <Toolbar disableGutters className={classes.toolbar}>
-        <Box
-          sx={{
-            display: {
-              xs: "none",
-              lg: "block",
-            },
-            width: "100%",
-          }}
-        >
+        <Section>
           {variant?.toLowerCase() === "explore" ? (
             <ExploreNavigation
               variant={variant}
               {...props}
               classes={{ section: classes.section }}
+              sx={{
+                display: {
+                  xs: "none",
+                  lg: "flex",
+                },
+                width: "100%",
+              }}
             />
           ) : (
             <DesktopNavigation
               {...props}
               classes={{ section: classes.section }}
+              sx={{
+                display: {
+                  xs: "none",
+                  lg: "flex",
+                },
+                width: "100%",
+              }}
             />
           )}
-        </Box>
-        <Box
-          sx={{
-            display: {
-              xs: "block",
-              lg: "none",
-            },
-            width: "100%",
-          }}
-        >
-          <MobileNavigation {...props} />
-        </Box>
+          <MobileNavigation
+            {...props}
+            sx={{
+              display: {
+                xs: "flex",
+                lg: "none",
+              },
+              width: "100%",
+            }}
+          />
+        </Section>
       </Toolbar>
     </AppBar>
   );

@@ -26,7 +26,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
               class="MuiBox-root css-1ki7zn5"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 css-qt60le-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 css-8o8tmo-MuiTypography-root"
               >
                 Project  
                 <strong>

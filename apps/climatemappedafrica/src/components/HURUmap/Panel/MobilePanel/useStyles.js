@@ -4,16 +4,18 @@ import makeStyles from "@mui/styles/makeStyles";
 const useStyles = makeStyles(
   ({ typography, palette, zIndex, breakpoints }) => ({
     tabs: {
-      paddingTop: typography.pxToRem(16),
       paddingBottom: typography.pxToRem(16),
+      paddingTop: typography.pxToRem(16),
       paddingLeft: typography.pxToRem(20),
+      paddingRight: typography.pxToRem(20),
       backgroundColor: palette.background.paper,
       zIndex: zIndex.appBar,
       width: "100%",
       position: "sticky",
-      top: 64, // below navbar
+      top: 66, // below navbar
       [breakpoints.up("md")]: {
-        paddingLeft: typography.pxToRem(62),
+        paddingLeft: typography.pxToRem(80),
+        paddingRight: typography.pxToRem(80),
       },
     },
     tabsDivider: {

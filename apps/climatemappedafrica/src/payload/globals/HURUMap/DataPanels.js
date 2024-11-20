@@ -8,6 +8,11 @@ const DataPanels = {
       type: "array",
       label: "Panel Items",
       required: true,
+      admin: {
+        components: {
+          RowLabel: ({ data }) => data?.value,
+        },
+      },
       fields: [
         {
           type: "select",

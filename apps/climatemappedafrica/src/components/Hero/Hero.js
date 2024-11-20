@@ -2,9 +2,7 @@ import { RichTypography } from "@commons-ui/legacy";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
-
-import Legend from "./Legend";
+import React from "react";
 
 import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
@@ -26,27 +24,25 @@ function Hero({
   level,
   explorePageSlug,
   averageTemperature,
-  legend,
+  zoom: zoomProp,
   ...props
 }) {
   const isUpLg = useMediaQuery((theme) => theme.breakpoints.up("lg"));
-  const [hoverGeo, setHoverGeo] = useState(null);
-  const continentLevelZoom = isUpLg ? 3 : 2.1; // We have to reduce the zoom level for continent so that all countries(Including islands) are visible within the designs
-  const countryLevelZoom = isUpLg ? 6 : 5.25;
-  const zoom = level === "continent" ? continentLevelZoom : countryLevelZoom;
+  const { desktop, mobile } = zoomProp;
+  const zoom = isUpLg ? desktop : mobile;
   return (
     <Box
       sx={{
-        position: "relative",
         pb: 5,
+        position: "relative",
       }}
     >
       <Box
         sx={{
-          position: "absolute",
-          zIndex: -1,
-          width: "100%",
           height: { xs: "468px", md: "456px", lg: "600px" },
+          position: "absolute",
+          width: "100%",
+          zIndex: -1,
         }}
       >
         <Image src={heroBg} layout="fill" unoptimized />
@@ -57,54 +53,72 @@ function Hero({
           px: 0,
         }}
       >
-        <Grid container>
-          <Grid item xs={12} md={6}>
-            <RichHeader
-              subtitle={subtitle}
-              TitleProps={{
-                sx: {
-                  pb: { xs: 5 },
-                  marginTop: { xs: "40px", md: "46px", lg: "65px" },
-                },
-              }}
-              SubtitleProps={{
-                sx: {
-                  margin: {
-                    xs: `20px 0`,
-                    lg: `40px 0`,
+        <Grid container columnSpacing={1}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            container
+            direction="column"
+            justifyContent="space-between"
+          >
+            <Grid item>
+              <RichHeader
+                subtitle={subtitle}
+                TitleProps={{
+                  sx: {
+                    pb: { xs: 5 },
+                    marginTop: { xs: "40px", md: "46px", lg: "65px" },
                   },
-                  maxWidth: {
-                    md: "335px",
-                    lg: "474px",
+                }}
+                SubtitleProps={{
+                  sx: {
+                    margin: {
+                      xs: `20px 0`,
+                      lg: `40px 0`,
+                    },
+                    maxWidth: {
+                      md: "335px",
+                      lg: "474px",
+                    },
                   },
-                },
-              }}
-            >
-              {title}
-            </RichHeader>
-            <DropdownSearch
-              label={searchLabel}
-              locations={featuredLocations}
-              placeholder={searchPlaceholder}
-              {...props}
-            />
-            <RichTypography
-              variant="caption"
-              sx={{
-                fontSize: { xs: "11px" },
-                color: "#707070",
-                marginTop: {
-                  sm: "20px",
-                  xs: "40px",
-                },
-              }}
-            >
-              {comment}
-            </RichTypography>
+                }}
+              >
+                {title}
+              </RichHeader>
+            </Grid>
+            <Grid>
+              <Box>
+                <DropdownSearch
+                  InputBaseProps={{
+                    sx: ({ typography }) => ({
+                      width: {
+                        md: typography.pxToRem(238),
+                      },
+                    }),
+                  }}
+                  label={searchLabel}
+                  locations={featuredLocations}
+                  placeholder={searchPlaceholder}
+                  sx={{
+                    mb: 1,
+                  }}
+                  {...props}
+                />
+                <RichTypography
+                  variant="caption"
+                  sx={{
+                    fontSize: { xs: "11px" },
+                    color: "#707070",
+                  }}
+                >
+                  {comment}
+                </RichTypography>
+              </Box>
+            </Grid>
           </Grid>
           {/* Since map is dynamic-ally loaded, no need for implementation="css" */}
-
-          <Grid item md={6} xs={12} justifyContent="flex-end">
+          <Grid item xs={12} md={6}>
             {center ? (
               <Map
                 center={[center[1], center[0]]}
@@ -112,34 +126,11 @@ function Hero({
                 tileLayer={{
                   url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
                 }}
-                onLayerMouseOver={setHoverGeo}
                 featuredLocations={featuredLocations}
                 explorePageSlug={explorePageSlug}
                 {...props}
               />
             ) : null}
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              gap={2}
-              sx={{ height: 80, width: "100%" }}
-            >
-              <Legend title={averageTemperature} data={legend} />
-              <RichTypography
-                variant="h6"
-                sx={{
-                  lineHeight: 23 / 18,
-                  lineSpacing: "0.9px",
-                  fontWeight: "normal",
-                  textTransform: "capitalize",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}
-              >
-                {hoverGeo}
-              </RichTypography>
-            </Box>
           </Grid>
         </Grid>
       </Section>
