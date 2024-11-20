@@ -173,29 +173,17 @@ function MobileNavigation({
       <Grid item>
         <IconButton
           aria-label="Open drawer"
-          // edge="start"
           size="medium"
           onClick={handleClickOpen}
           sx={(theme) => ({
             color: theme.palette.grey.dark,
-            // background: "#F0F0F0",
-            // borderRadius: theme.typography.pxToRem(50),
-            // height: theme.typography.pxToRem(32),
             padding: 0,
-            // width: theme.typography.pxToRem(),
-            "&:hover": {
-              // background: "#F0F0F0",
-              // borderRadius: theme.typography.pxToRem(50),
-            },
           })}
         >
           <SvgIcon
             component={MenuOpenIcon}
-            // viewBox="0 0 24 24"
             sx={{
               fontSize: 32,
-              // width: 24,
-              // height: 24,
             }}
           />
         </IconButton>
@@ -242,7 +230,6 @@ function MobileNavigation({
                 >
                   <SvgIcon
                     component={MenuCloseIcon}
-                    // viewBox="0 0 48 48"
                     sx={{
                       fontSize: 32,
                     }}
@@ -278,7 +265,6 @@ function MobileNavigation({
                     border: `2px solid ${palette.background.default}`,
                     backgroundColor: palette.background.default,
                     height: typography.pxToRem(44), // match search button
-                    // margin: `${typography.pxToRem(20)} 0 0`,
                     margin: 0,
                   }),
                 }}

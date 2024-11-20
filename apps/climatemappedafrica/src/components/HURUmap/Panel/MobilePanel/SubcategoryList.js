@@ -65,17 +65,9 @@ function SubcategoryList({ items }) {
           vertical: "bottom",
           horizontal: "center",
         }}
-        elevation={0}
         transformOrigin={{
           vertical: "top",
           horizontal: "center",
-        }}
-        slotProps={{
-          paper: {
-            style: {
-              left: "0px",
-            },
-          },
         }}
         sx={({ typography }) => ({
           "& .MuiPopover-paper": {
