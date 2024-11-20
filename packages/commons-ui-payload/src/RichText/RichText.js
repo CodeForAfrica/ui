@@ -48,7 +48,7 @@ const serialize = (children, props) =>
     if (!node) {
       return null;
     }
-    const TypographyProps = { ...DEFAULT_PROPS, ...props.TypographyProps };
+    const TypographyProps = { ...DEFAULT_PROPS, ...props?.TypographyProps };
     switch (node.type) {
       case "h1":
         return (

@@ -12,32 +12,34 @@ const LongFormMedia = React.forwardRef((props, ref) => {
       }}
       ref={ref}
     >
-      <Figure
-        ImageProps={{
-          alt: image.alt,
-          sx: {
-            objectFit: "cover",
-            position: "relative !important",
-          },
-          src: image.src,
-        }}
-        sx={{
-          height: {
-            xs: "200px",
-            md: "500px",
-          },
-          width: "100%",
-        }}
-      >
-        <figcaption
-          style={{
+      {image && (
+        <Figure
+          ImageProps={{
+            alt: image.alt,
+            sx: {
+              objectFit: "cover",
+              position: "relative !important",
+            },
+            src: image.src,
+          }}
+          sx={{
+            height: {
+              xs: "200px",
+              md: "500px",
+            },
             width: "100%",
-            margin: "0 auto",
           }}
         >
-          {image.alt}
-        </figcaption>
-      </Figure>
+          <figcaption
+            style={{
+              width: "100%",
+              margin: "0 auto",
+            }}
+          >
+            {image.alt}
+          </figcaption>
+        </Figure>
+      )}
     </Box>
   );
 });

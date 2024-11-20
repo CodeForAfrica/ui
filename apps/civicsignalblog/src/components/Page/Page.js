@@ -36,12 +36,4 @@ Page.propTypes = {
   title: PropTypes.string,
 };
 
-Page.defaultProps = {
-  children: undefined,
-  navbar: undefined,
-  blocks: undefined,
-  footer: undefined,
-  title: undefined,
-};
-
 export default Page;

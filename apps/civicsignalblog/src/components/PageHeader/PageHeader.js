@@ -33,7 +33,7 @@ const PageHeader = React.forwardRef(function PageHeader(props, ref) {
           {title}
         </RichTypography>
         <RichText
-          typographyProps={{
+          TypographyProps={{
             fontWeight: "normal",
             variant: "h2",
           }}
