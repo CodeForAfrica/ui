@@ -6,8 +6,10 @@ import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 //                  as that will take forever)
 const GEOGRAPHIES = ["af", "ke", "tz"];
 
-export function imageFromMedia(alt, url) {
-  return { alt, src: url };
+export function imageFromMedia(media, options) {
+  const alt = options?.alt || media.alt;
+  const { height, url: src, width } = media;
+  return { alt, height, src, width };
 }
 
 function getFooter(variant, settings) {
@@ -22,12 +24,11 @@ function getFooter(variant, settings) {
   } = settings.site;
   const { menus: footerMenus, ...footerProps } = footerNavigation;
   const media = secondaryLogo || primaryLogo;
-  const footerLogoUrl = typeof media === "string" ? null : media.url;
 
   return {
     connect,
     description,
-    logo: imageFromMedia(title, footerLogoUrl),
+    logo: imageFromMedia(media, { alt: title }),
     links: {
       ...footerProps,
       links: footerMenus,
@@ -60,10 +61,10 @@ async function getNavBar(variant, settings) {
   }
 
   return {
-    drawerLogo: imageFromMedia(title, drawerLogo.url),
+    drawerLogo: imageFromMedia(drawerLogo, { alt: title }),
     explorePagePath,
     locations,
-    logo: imageFromMedia(title, primaryLogo.url),
+    logo: imageFromMedia(primaryLogo, { alt: title }),
     menus,
     socialLinks,
     tutorialEnabled,

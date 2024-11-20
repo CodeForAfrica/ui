@@ -54,7 +54,7 @@ const theme = createTheme({
       paper: "#F8F8F8", // light white
     },
     grey: {
-      dark: "#2A2A2C ", // dark
+      dark: "#2A2A2C", // dark
       main: "#DFDFDF", // grey
       light: "#F0F0F0", // lightgrey
     },
