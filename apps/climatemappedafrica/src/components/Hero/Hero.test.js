@@ -12,7 +12,7 @@ const defaultProps = {
   title: [
     {
       children: [
-        { text: "Data to hold your government accountable", children: null },
+        { text: "Empowering action through climate data.", children: null },
       ],
     },
   ],
@@ -20,7 +20,7 @@ const defaultProps = {
     {
       children: [
         {
-          text: "PesaYetu helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.\n",
+          text: "ClimateMapped.AFRICA helps explore, analyse, and use climate data to advocate for stronger, faster action on climate resilience and sustainability.",
           children: null,
         },
       ],
