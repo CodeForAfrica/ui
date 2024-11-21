@@ -30,6 +30,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
           sx={{
             order: { xs: 0, md: 1 },
             width: "100%",
+            display: articles?.length > 1 ? "block" : "none",
           }}
         >
           {/* title is below featuredArticle in md and above hence needs margin-top */}
@@ -71,7 +72,7 @@ const ArticleGrid = React.forwardRef(function ArticleGrid(props, ref) {
             />
           </Grid>
         ) : null}
-        {articles?.length > 0 ? (
+        {articles?.length > 1 ? (
           <Grid item xs={12} sx={{ order: { xs: 2 } }}>
             <ArticleCardList
               sx={{ pt: { xs: "28px", md: 0 } }}
