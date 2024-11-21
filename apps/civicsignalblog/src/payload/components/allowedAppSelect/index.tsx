@@ -6,7 +6,7 @@ import applications from "#civicsignalblog/payload/lib/data/common/applications"
 
 function CustomSelectComponent({ path, label }) {
   const { user } = useAuth();
-  const { value, setValue } = useField<string>({ path });
+  const { value, setValue } = useField({ path });
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function CustomSelectComponent({ path, label }) {
         path={path}
         name={path}
         options={options}
-        value={value}
+        value={String(value ?? "")}
         onChange={(e) => setValue(e.value)}
       />
     </div>
