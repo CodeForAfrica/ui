@@ -9,7 +9,7 @@ exports[`<ArticleGrid /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-container css-teoma9-MuiGrid-root"
     >
       <div
-        class="MuiBox-root css-1xugy04"
+        class="MuiBox-root css-xvmbfl"
       >
         <div
           class="MuiStack-root css-kbcct1-MuiStack-root"
