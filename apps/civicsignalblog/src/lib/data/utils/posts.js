@@ -121,7 +121,7 @@ export async function getPost(api, slug, primaryTag, options) {
     description: excerpt,
     image: coverImage ?? null,
     article: {
-      authors: authors?.map((a) => a.fullname || a.bio) ?? null,
+      authors: authors?.map((a) => a.fullName || a.bio) ?? null,
       publishedAt: publishedOn,
       tags: tags.length ? tags.map((t) => t.name) : null,
       updatedAt,
