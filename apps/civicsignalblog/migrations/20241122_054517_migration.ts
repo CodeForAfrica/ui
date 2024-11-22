@@ -14,7 +14,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   });
 
   if (!existingOldGlobalConfig) {
-    payload.logger.error(
+    payload.logger.info(
       `No existing global settings [${oldGlobalConfigType}] config found, exiting...`,
     );
     return;
@@ -32,7 +32,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   }
 
   try {
-    const { _id, globalType, ...newGlobalConfig } = existingOldConfig;
+    const { _id, globalType, ...newGlobalConfig } = existingOldGlobalConfig;
     newGlobalConfig.globalType = newGlobalConfigType;
     await db.collection("globals").insertOne(newGlobalConfig);
     payload.logger.info(
