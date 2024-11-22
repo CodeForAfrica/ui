@@ -39,7 +39,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
       `✓ Successfully migrated global config [${oldGlobalConfigType}] to [${newGlobalConfigType}]`,
     );
   } catch (error) {
-    payload.logger.error("Error: Migration failed.");
+    payload.logger.error("Error: Migration 20241122_054517 failed.");
     throw error;
   }
 }
