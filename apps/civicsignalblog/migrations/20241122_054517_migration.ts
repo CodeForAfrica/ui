@@ -20,13 +20,13 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
     return;
   }
 
-  let newGlobalConfig = await db.collection("globals").findOne({
+  const existingNewGlobalConfig = await db.collection("globals").findOne({
     globalType: newGlobalConfigType,
   });
 
-  if (newGlobalConfig) {
+  if (existingNewGlobalConfig) {
     payload.logger.error(
-      `Migration failed: Unable to migrate [${oldGlobalConfigType}] to [${newGlobalConfigType}] because a global configuration with this name already exists.`,
+      `Migration 20241122_054517 failed: Global type [${newGlobalConfigType}] already exists.`,
     );
     return;
   }
