@@ -43,7 +43,7 @@ const start = async (): Promise<void> => {
               transportOptions: {
                 auth: {
                   user: process.env.SMTP_USER || "apikey",
-                  apiKey: smtpAuthPass,
+                  pass: smtpAuthPass,
                 },
                 host: process.env.SMTP_HOST || "smtp.sendgrid.net",
                 port: smtpPort,
