@@ -32,12 +32,8 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   }
 
   try {
-    newGlobalConfig = {
-      ...existingGlobalConfig,
-      globalType: newGlobalConfigType,
-    };
-
-    delete newGlobalConfig._id;
+    const { _id, globalType, ...newGlobalConfig } = existingOldConfig;
+    newGlobalConfig.globalType = newGlobalConfigType;
     await db.collection("globals").insertOne(newGlobalConfig);
     payload.logger.info(
       `✓ Successfully migrated global config [${oldGlobalConfigType}] to [${newGlobalConfigType}]`,
