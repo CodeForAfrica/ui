@@ -9,11 +9,11 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   await mongoose.connect(mongoURL);
   const db = mongoose.connection.db;
 
-  const existingGlobalConfig = await db.collection("globals").findOne({
+  const existingOldGlobalConfig = await db.collection("globals").findOne({
     globalType: oldGlobalConfigType,
   });
 
-  if (!existingGlobalConfig) {
+  if (!existingOldGlobalConfig) {
     payload.logger.error(
       `No existing global settings [${oldGlobalConfigType}] config found, exiting...`,
     );
