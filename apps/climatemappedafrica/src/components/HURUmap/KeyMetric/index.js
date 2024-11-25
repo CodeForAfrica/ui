@@ -1,13 +1,9 @@
 import { Source } from "@hurumap/next";
-import { Tooltip, Typography, LinearProgress } from "@mui/material";
-import clsx from "clsx";
+import { Tooltip, Typography, LinearProgress, Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import useStyles from "./useStyles";
-
 function KeyMetric({
-  className,
   formattedValue: formattedValueProp,
   value: valueProp,
   title,
@@ -17,10 +13,8 @@ function KeyMetric({
   parentName,
   parentFormattedValue,
   metadata: { source, url } = {},
-  ...props
+  sx,
 }) {
-  const classes = useStyles(props);
-
   if (!((valueProp || formattedValueProp) && title)) {
     return null;
   }
@@ -33,13 +27,37 @@ function KeyMetric({
   const tooltipTitle = `${title}: ${formattedValue}`;
 
   return (
-    <div className={clsx(classes.root, className)}>
-      <div className={classes.metric}>
+    <Box
+      sx={({ typography }) => ({
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        marginBottom: typography.pxToRem(20),
+        ...sx,
+      })}
+    >
+      <Box
+        sx={({ palette, typography }) => ({
+          backgroundColor: palette.background.paper,
+          padding: `${typography.pxToRem(10)} ${typography.pxToRem(
+            20,
+          )} ${typography.pxToRem(14)} ${typography.pxToRem(20)}`,
+        })}
+      >
         <Typography variant="h3">{formattedValue}</Typography>
         <Tooltip title={tooltipTitle}>
           <Typography
             variant="caption"
-            className={clsx(classes.text, classes.title)}
+            sx={({ typography }) => ({
+              fontSize: typography.pxToRem(11),
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 1,
+              WebkitBoxOrient: "vertical",
+              textOverflow: "ellipsis",
+              marginBottom: typography.pxToRem(8),
+            })}
           >
             {title}
           </Typography>
@@ -48,20 +66,25 @@ function KeyMetric({
           sensitivity: "accent",
         }) === 0 ? (
           <LinearProgress
-            classes={{
-              root: classes.progressBar,
-              determinate: classes.progressBarDeterminate,
-            }}
+            sx={({ palette }) => ({
+              "&.MuiLinearProgress-determinate": {
+                backgroundColor: palette.grey.main,
+              },
+            })}
             value={parseFloat(`${value}`.replace(",", ""))}
             color={color}
             variant="determinate"
           />
         ) : null}
-      </div>
+      </Box>
       {parentValue && (
         <Typography
           variant="caption"
-          className={clsx(classes.text, classes.description)}
+          sx={({ typography }) => ({
+            fontSize: typography.pxToRem(11),
+            padding: `${typography.pxToRem(6)} 0 0 ${typography.pxToRem(20)}`,
+            color: "#666666",
+          })}
         >
           {parentValue}
         </Typography>
@@ -74,12 +97,11 @@ function KeyMetric({
       >
         {source}
       </Source>
-    </div>
+    </Box>
   );
 }
 
 KeyMetric.propTypes = {
-  className: PropTypes.string,
   color: PropTypes.string,
   description: PropTypes.string,
   displayFormat: PropTypes.string,

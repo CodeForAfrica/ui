@@ -132,11 +132,11 @@ const ProfileItems = memo(
                               value={value}
                               displayFormat={displayFormat}
                               metadata={metadata}
-                              classes={{
-                                root: clsx({
-                                  [classes.secondaryMetric]: secondaryProfile,
-                                }),
-                              }}
+                              sx={({ typography }) => ({
+                                maxWidth: {
+                                  lg: typography.pxToRem(350),
+                                },
+                              })}
                             />
                           </Grid>
                           {secondaryMetric && (
@@ -152,7 +152,11 @@ const ProfileItems = memo(
                                 value={secondaryValue}
                                 displayFormat={secondaryDisplayFormat}
                                 metadata={secondaryMetric.metric}
-                                className={classes.secondaryMetric}
+                                sx={({ typography }) => ({
+                                  maxWidth: {
+                                    lg: typography.pxToRem(350),
+                                  },
+                                })}
                               />
                             </Grid>
                           )}
