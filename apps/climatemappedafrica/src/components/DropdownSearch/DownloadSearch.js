@@ -73,7 +73,7 @@ function DropdownSearch({
     iconComponent = IconProp;
     iconBorder = {
       borderRadius: "50%",
-      border: "2px solid #fff",
+      border: "none",
     };
   }
   const searchIconButton = (

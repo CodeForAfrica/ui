@@ -1,5 +1,4 @@
 import { Grid, Button } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
 import React from "react";
@@ -7,38 +6,6 @@ import React from "react";
 import SearchIcon from "@/climatemappedafrica/assets/icons/search-explore.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
-
-const useStyles = makeStyles(({ palette, typography }) => ({
-  searchLabel: {
-    display: "none",
-  },
-  searchInput: {
-    borderRadius: 0,
-    padding: `0 ${typography.pxToRem(10)}`,
-    color: "#959696",
-    textTransform: "initial",
-    "&::placeholder": {
-      opacity: 1,
-    },
-  },
-  searchInputRoot: {
-    borderRadius: 0,
-    backgroundColor: palette.background.paper,
-    borderColor: palette.background.default,
-  },
-  selectMenu: {
-    borderRadius: 0,
-    border: 0,
-    background: palette.background.paper,
-    marginTop: typography.pxToRem(2),
-  },
-  searchMenuItem: {
-    "&:hover": {
-      color: palette.text.secondary,
-      background: palette.primary.main,
-    },
-  },
-}));
 
 function ExploreNavigation({
   explorePagePath,
@@ -48,7 +15,6 @@ function ExploreNavigation({
   tutorialEnabled,
   variant,
 }) {
-  const classes = useStyles();
   const { setIsOpen } = useTour();
 
   const openTooltip = () => {
@@ -81,12 +47,27 @@ function ExploreNavigation({
           placeholder="Search for a Location"
           variant={variant}
           locations={locations}
-          classes={{
-            inputRoot: classes.searchInputRoot,
-            input: classes.searchInput,
-            label: classes.searchLabel,
-            selectMenu: classes.selectMenu,
-            menuItem: classes.searchMenuItem,
+          TypographyProps={{
+            display: "none",
+          }}
+          InputBaseProps={{
+            sx: ({ typography }) => ({
+              borderRadius: 0,
+              padding: `0 ${typography.pxToRem(10)}`,
+              color: "#959696",
+              textTransform: "initial",
+              "&::placeholder": {
+                opacity: 1,
+              },
+            }),
+          }}
+          IconButtonProps={{
+            sx: ({ palette, typography }) => ({
+              borderRadius: "50%",
+              border: 0,
+              background: palette.background.paper,
+              marginTop: typography.pxToRem(2),
+            }),
           }}
         />
         {tutorialEnabled && (
