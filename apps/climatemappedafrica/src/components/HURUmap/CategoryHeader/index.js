@@ -1,31 +1,43 @@
 import { RichTypography } from "@commons-ui/legacy";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import useStyles from "./useStyles";
 
 import Image from "@/climatemappedafrica/components/Image";
 
 function CategoryHeader({ title, description, icon, ...props }) {
-  const classes = useStyles();
-
   if (!title) {
     return null;
   }
   return (
-    <div className={classes.root}>
-      <Typography {...props} variant="h3" className={classes.title}>
+    <div>
+      <Typography
+        {...props}
+        variant="h3"
+        sx={({ typography }) => ({
+          fontSize: typography.pxToRem(28),
+          display: "flex",
+          alignItems: "center",
+          scrollMarginTop: typography.pxToRem(110),
+          paddingTop: typography.pxToRem(40),
+          paddingBottom: typography.pxToRem(20),
+        })}
+      >
         {icon && (
-          <div className={classes.icon}>
+          <Box
+            sx={({ typography }) => ({
+              position: "relative",
+              height: typography.pxToRem(32),
+              width: typography.pxToRem(32),
+              marginRight: typography.pxToRem(10),
+            })}
+          >
             <Image src={icon} layout="fill" />
-          </div>
+          </Box>
         )}
         {title}
       </Typography>
-      <RichTypography variant="body2" className={classes.description}>
-        {description}
-      </RichTypography>
+      <RichTypography variant="body2">{description}</RichTypography>
     </div>
   );
 }
