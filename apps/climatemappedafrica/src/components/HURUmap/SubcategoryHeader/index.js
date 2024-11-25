@@ -1,50 +1,49 @@
-import { RichTypography } from "@commons-ui/legacy";
-import { Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
-  root: {
-    borderBottom: `solid 1px ${palette.divider}`,
-    borderTop: `solid 1px ${palette.divider}`,
-  },
-  title: {
-    color: "#1c2030",
-    fontWeight: 400,
-    letterSpacing: typography.pxToRem(2),
-    paddingBottom: typography.pxToRem(20),
-    paddingTop: typography.pxToRem(20),
-    // In mobile, we need to account for navbar + category tabs
-    scrollMarginTop: typography.pxToRem(160),
-    textTransform: "uppercase",
-    [breakpoints.up("lg")]: {
-      scrollMarginTop: typography.pxToRem(110),
-    },
-  },
-  description: {
-    paddingBottom: typography.pxToRem(20),
-    "& p": {
-      margin: 0,
-    },
-  },
-}));
-
 function SubcategoryHeader({ title, description, ...props }) {
-  const classes = useStyles(props);
-
   if (!title) {
     return null;
   }
   return (
-    <div className={classes.root}>
-      <Typography {...props} variant="h5" className={classes.title}>
+    <Box
+      sx={({ palette }) => ({
+        borderBottom: `solid 1px ${palette.divider}`,
+        borderTop: `solid 1px ${palette.divider}`,
+      })}
+    >
+      <Typography
+        {...props}
+        variant="h5"
+        sx={({ typography }) => ({
+          color: "#1c2030",
+          fontWeight: 400,
+          letterSpacing: typography.pxToRem(2),
+          paddingBottom: typography.pxToRem(20),
+          paddingTop: typography.pxToRem(20),
+          // In mobile, we need to account for navbar + category tabs
+          scrollMarginTop: {
+            xs: typography.pxToRem(160),
+            lg: typography.pxToRem(110),
+          },
+          textTransform: "uppercase",
+        })}
+      >
         {title}
       </Typography>
-      <RichTypography variant="body2" className={classes.description}>
+      <Typography
+        variant="body2"
+        sx={({ typography }) => ({
+          paddingBottom: typography.pxToRem(20),
+          "& p": {
+            margin: 0,
+          },
+        })}
+      >
         {description}
-      </RichTypography>
-    </div>
+      </Typography>
+    </Box>
   );
 }
 
