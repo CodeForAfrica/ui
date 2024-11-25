@@ -1,4 +1,4 @@
-import { Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
@@ -86,10 +86,18 @@ function ChartFilter({
   }
 
   return (
-    <div className={classes.root}>
+    <Box
+      sx={({ typography }) => ({
+        paddingBottom: typography.pxToRem(10),
+      })}
+    >
       <Grid container alignItems="flex-end">
         {attributeOptions?.length > 0 && (
-          <Grid item className={classes.grid}>
+          <Grid
+            sx={({ typography }) => ({
+              marginRight: { md: typography.pxToRem(10) },
+            })}
+          >
             <Select
               helperText={attributeText}
               options={attributeOptions}
@@ -105,7 +113,12 @@ function ChartFilter({
           </Grid>
         )}
         {valueOptions?.length > 0 && (
-          <Grid item className={classes.grid}>
+          <Grid
+            item
+            sx={({ typography }) => ({
+              marginRight: { md: typography.pxToRem(10) },
+            })}
+          >
             <Select
               helperText={valueText}
               options={valueOptions}
@@ -123,7 +136,15 @@ function ChartFilter({
         {index !== "default" && index !== 0 && (
           <Grid item>
             <IconButton
-              className={classes.icon}
+              sx={({ palette, typography }) => ({
+                padding: 0,
+                background: palette.background.paper,
+                "& :hover": {
+                  background: palette.background.paper,
+                },
+                height: typography.pxToRem(36),
+                width: typography.pxToRem(36),
+              })}
               onClick={removeFilter}
               size="large"
             >
@@ -132,7 +153,7 @@ function ChartFilter({
           </Grid>
         )}
       </Grid>
-    </div>
+    </Box>
   );
 }
 
