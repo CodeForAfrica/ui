@@ -1,4 +1,4 @@
-import { Box, IconButton, SvgIcon } from "@mui/material";
+import { Box, IconButton, SvgIcon, alpha } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -67,11 +67,30 @@ function PinAndCompare({
   const component = open ? PinIconSelected : PinIconDefault;
 
   return (
-    <Box display="flex" alignItems="flex-end" className={classes.root}>
+    <Box
+      display="flex"
+      alignItems="flex-end"
+      sx={({ palette, typography }) => ({
+        padding: `${typography.pxToRem(20)} 0`,
+        borderBottom: `solid 1px ${palette.divider}`,
+      })}
+    >
       {!isMobile && (
         <IconButton
           onClick={handleButtonClick}
-          className={classes.pinButton}
+          sx={({ palette, typography }) => ({
+            maxHeight: typography.pxToRem(40),
+            maxWidth: typography.pxToRem(40),
+            overflow: "hidden",
+            padding: 0,
+            marginRight: typography.pxToRem(14),
+            backgroundColor: palette.grey.light,
+            borderRadius: "0px 2px 2px 0px",
+            boxShadow: `0px 3px 6px ${alpha(palette.common.black, 0.16)}`, // #00000029
+            "&:hover,&:focus,&:focus-within": {
+              backgroundColor: palette.grey.light,
+            },
+          })}
           size="large"
         >
           <PinIcon
