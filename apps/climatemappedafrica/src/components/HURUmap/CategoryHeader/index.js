@@ -1,4 +1,3 @@
-import { RichTypography } from "@commons-ui/legacy";
 import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -37,7 +36,17 @@ function CategoryHeader({ title, description, icon, ...props }) {
         )}
         {title}
       </Typography>
-      <RichTypography variant="body2">{description}</RichTypography>
+      <Typography
+        variant="body2"
+        sx={({ typography }) => ({
+          paddingBottom: typography.pxToRem(20),
+          "& p": {
+            margin: 0,
+          },
+        })}
+      >
+        {description}
+      </Typography>
     </div>
   );
 }
