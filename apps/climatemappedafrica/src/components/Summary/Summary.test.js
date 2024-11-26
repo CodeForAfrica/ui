@@ -5,13 +5,12 @@ import Summary from ".";
 
 import theme from "@/climatemappedafrica/theme";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
 const defaultProps = {
   title: "History",
   subtitle:
-    "The PesaYetu data portal was built as part of the ‘Our County: Our Responsibility’ project, which started back in 2019.",
+    "The ClimateMapped.AFRICA project by the CfA Datalab team is a data storytelling initiative designed to make 120 years of climate sampling data accessible to experts, journalists, concerned citizens, and researchers. This project chronicles Africa's climate history, using data storytelling techniques to present temperature trends and analysis at both national and sub-national levels",
   content: [
     {
       children: [

@@ -1,6 +1,5 @@
 import DataPanels from "./DataPanels";
 import Profile from "./Profile";
-import RootGeography from "./RootGeography";
 import Tutorial from "./Tutorial";
 
 const HURUMap = {
@@ -16,16 +15,16 @@ const HURUMap = {
   },
   fields: [
     {
-      name: "enableHURUMap",
+      name: "enabled",
       label: "Enable HURUMap",
       type: "checkbox",
       defaultValue: false,
     },
     {
       type: "tabs",
-      tabs: [Profile, DataPanels, RootGeography, Tutorial],
+      tabs: [Profile, DataPanels, Tutorial],
       admin: {
-        condition: (_, siblingData) => !!siblingData?.enableHURUMap,
+        condition: (_, siblingData) => !!siblingData?.enabled,
       },
     },
   ],

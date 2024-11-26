@@ -1,6 +1,7 @@
-const commonConfig = require("./index");
-const { FlatCompat } = require("@eslint/eslintrc");
 const { fixupConfigRules } = require("@eslint/compat");
+const { FlatCompat } = require("@eslint/eslintrc");
+
+const commonConfig = require("./index");
 
 const flatCompat = new FlatCompat();
 

@@ -1,5 +1,8 @@
-import { Select } from "payload/components/forms";
-import { select } from "payload/dist/fields/validations";
+import {
+  Select,
+  useAllFormFields,
+  reduceFieldsToValues,
+} from "payload/components/forms";
 import { createElement, useMemo } from "react";
 import useSWR from "swr";
 
@@ -14,17 +17,17 @@ const getOptions = (locations) =>
       value: location.code,
     })) || [];
 
-export async function validateLocation(value, { hasMany, required, t }) {
-  const data = await fetcher(`${apiUrl}/api/hurumap/profiles`);
-  const options = getOptions(data.locations);
-  return select(value, { hasMany, options, required, t });
-}
-
 function LocationSelect(props) {
-  const { data } = useSWR(`${apiUrl}/api/hurumap/profiles`, fetcher, {
-    dedupingInterval: 60000,
-    revalidateOnFocus: false,
-  });
+  const [fields] = useAllFormFields();
+  const { profile, url } = reduceFieldsToValues(fields, true);
+  const { data } = useSWR(
+    `${apiUrl}/api/hurumap/profiles/${profile}?baseUrl=${url}`,
+    fetcher,
+    {
+      dedupingInterval: 60000,
+      revalidateOnFocus: false,
+    },
+  );
 
   const options = useMemo(
     () =>

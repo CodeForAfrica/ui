@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 
 import Chart from "@/climatemappedafrica/components/HURUmap/Chart";
@@ -29,7 +28,7 @@ Default.args = {
     metadata: {
       source: "StatsSA Census 2011",
       description: "",
-      url: "https://pesayetu.pesacheck.org",
+      url: "https://codeforafrica.org",
       licence: {
         name: null,
         url: null,

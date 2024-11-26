@@ -387,9 +387,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
   SENTRY_ORG \
-  SENTRY_PROJECT \
-  # Custom (runtime)
-  HURUMAP_API_URL
+  SENTRY_PROJECT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=climatemappedafrica-deps /workspace/node_modules ./node_modules

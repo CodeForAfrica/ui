@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import site from "@/pesayetu/utils/site";
 
 export default {

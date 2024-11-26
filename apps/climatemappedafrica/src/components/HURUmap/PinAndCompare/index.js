@@ -2,11 +2,13 @@ import { Box, IconButton, SvgIcon } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import useStyles from "./useStyles";
-
 import PinIconDefault from "@/climatemappedafrica/assets/pinBlack.svg";
 import PinIconSelected from "@/climatemappedafrica/assets/pinSelected.svg";
 import Select from "@/climatemappedafrica/components/Select";
+
+// useStyles uses import/definition order to determine how classes are ordered.
+// eslint-disable-next-line import/order
+import useStyles from "./useStyles";
 
 function PinIcon(props) {
   return <SvgIcon {...props} />;

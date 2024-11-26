@@ -29,7 +29,7 @@ const FooterDescription = React.forwardRef(
         </Link>
         <RichText
           variant="footer"
-          typographyProps={{
+          TypographyProps={{
             LinkProps: {
               color: "text.secondary",
               sx: { textDecorationColor: "text.secondary" },

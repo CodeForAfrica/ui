@@ -19,26 +19,30 @@ function RichData({ primaryProfile, ...props }) {
     <Paper
       elevation={0}
       square
-      sx={({ palette }) => ({
+      sx={{
         bgcolor: "background.paper",
-        border: `1px solid ${palette.grey.main}`,
         borderLeft: "none",
         borderRight: "none",
+        position: "relative",
+        display: "flex",
         scrollMargin: "40px",
-      })}
+      }}
     >
       <TreeView
         items={primaryProfile.items}
         onLabelClick={handleLabelClick}
-        sx={(theme) => ({
-          width: `calc((100vw - ${theme.widths.values.lg}px)/2 + 79px)`,
-          minWidth: theme.typography.pxToRem(300),
-          paddingTop: theme.typography.pxToRem(76),
+        sx={({ typography, widths }) => ({
           flexShrink: 0,
-          top: theme.typography.pxToRem(104),
           bottom: 0,
-          position: "fixed",
           left: 0,
+          minWidth: typography.pxToRem(300),
+          paddingTop: typography.pxToRem(76),
+          // by default, fixed is completely taken out of the flow i.e. not
+          // relative to parent. This means we need to to make sure it still
+          // appears below main toolbar
+          position: "fixed",
+          top: typography.pxToRem(88), // Toolbar height
+          width: `calc((100vw - ${widths.values.lg}px)/2 + 79px)`,
         })}
       />
       <Profile

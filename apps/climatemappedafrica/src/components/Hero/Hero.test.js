@@ -5,14 +5,13 @@ import Hero from ".";
 
 import theme from "@/climatemappedafrica/theme";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
 const defaultProps = {
   title: [
     {
       children: [
-        { text: "Data to hold your government accountable", children: null },
+        { text: "Empowering action through climate data.", children: null },
       ],
     },
   ],
@@ -20,7 +19,7 @@ const defaultProps = {
     {
       children: [
         {
-          text: "PesaYetu helps journalists, researchers and activists transform their work with in-depth county-specific information. Get started now with datasets from Kenya.\n",
+          text: "ClimateMapped.AFRICA helps explore, analyse, and use climate data to advocate for stronger, faster action on climate resilience and sustainability.",
           children: null,
         },
       ],
@@ -57,6 +56,10 @@ const defaultProps = {
     { min: 25, max: 28, color: "#F96264" },
     { min: 28, max: 31, color: "#F80701" },
   ],
+  zoom: {
+    desktop: 3,
+    mobile: 2,
+  },
 };
 
 describe("<Hero />", () => {

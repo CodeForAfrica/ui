@@ -90,8 +90,9 @@ export async function getPosts(api, params, primaryTag) {
   };
 }
 
-export async function getPost(api, slug, primaryTag) {
+export async function getPost(api, slug, primaryTag, options) {
   const { docs } = await api.getCollection("posts", {
+    ...options,
     where: {
       slug: {
         equals: slug,
@@ -120,7 +121,7 @@ export async function getPost(api, slug, primaryTag) {
     description: excerpt,
     image: coverImage ?? null,
     article: {
-      authors: authors?.map((a) => a.fullname || a.bio) ?? null,
+      authors: authors?.map((a) => a.fullName || a.bio) ?? null,
       publishedAt: publishedOn,
       tags: tags.length ? tags.map((t) => t.name) : null,
       updatedAt,

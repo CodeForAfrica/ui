@@ -13,7 +13,6 @@ const globals = require("globals");
 
 const flatCompat = new FlatCompat();
 
-console.log();
 module.exports = [
   {
     ...js.configs.recommended,
@@ -72,6 +71,7 @@ module.exports = [
           patterns: ["@mui/*/*/*", "!@mui/material/test-utils/*"],
         },
       ],
+      "no-constant-binary-expression": "off",
 
       "react/jsx-filename-extension": [
         1,

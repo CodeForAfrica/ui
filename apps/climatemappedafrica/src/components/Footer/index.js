@@ -42,8 +42,10 @@ function Footer(props) {
             {logoProps && (
               <NextImageButton
                 {...logoProps}
-                width={220}
-                height={120}
+                style={{
+                  height: "auto",
+                  width: 220,
+                }}
                 priority
                 sx={(theme) => ({
                   margin: "0 auto",
@@ -66,6 +68,12 @@ function Footer(props) {
                   textAlign: "center",
                   [theme.breakpoints.up("lg")]: {
                     textAlign: "left",
+                  },
+                  "& > p": {
+                    mt: 2,
+                  },
+                  "& > p:first-of-type": {
+                    mt: 0,
                   },
                 })}
                 elements={description}
@@ -117,11 +125,16 @@ function Footer(props) {
                   {...connect}
                   LinkProps={{
                     component: Link,
-                    sx: { color: "text.secondary" },
+                    sx: {
+                      color: "text.secondary",
+                      alignItems: { xs: "center", lg: "flex-end" },
+                    },
                   }}
+                  alignItems={{ xs: "center", lg: "flex-end" }}
                   TitleProps={{
-                    variant: "footerCap",
-                    sx: { color: "text.secondary" },
+                    fontWeight: "bold",
+                    variant: "subtitle2",
+                    sx: { color: "text.secondary", mr: 0 },
                   }}
                   sx={{ gap: 2 }}
                   direction="column"
