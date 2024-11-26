@@ -82,7 +82,11 @@ function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
       alignItems={{ lg: "center" }}
       direction={{ xs: "column", lg: "row" }}
       justifyContent={{ lg: "flex-end" }}
-      className={classes.root}
+      sx={{
+        padding: {
+          lg: 0,
+        },
+      }}
     >
       {links.map((item, index) => (
         <Grid
@@ -129,7 +133,15 @@ function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
             <Typography
               component="span"
               variant="body1"
-              className={classes.label}
+              sx={({ typography }) => ({
+                fontWeight: 600,
+                letterSpacing: "1.6px",
+                fontSize: {
+                  xs: typography.pxToRem(20),
+                  lg: typography.pxToRem(16),
+                },
+                textTransform: "uppercase",
+              })}
             >
               {item.label}
             </Typography>

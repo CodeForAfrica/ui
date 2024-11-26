@@ -156,8 +156,11 @@ function MobileNavigation({
       container
       alignItems="center"
       justifyContent="space-between"
-      className={classes.logoSection}
-      sx={sx}
+      sx={({ palette, typography }) => ({
+        borderBottom: `2px solid ${palette.background.default}`,
+        padding: `${typography.pxToRem(10)} 0`,
+        ...sx,
+      })}
     >
       <Grid item xs={10}>
         <NextImageButton
@@ -200,13 +203,21 @@ function MobileNavigation({
         TransitionComponent={Transition}
         classes={{ root: classes.dialog, paper: classes.dialogPaper }}
       >
-        <DialogActions className={classes.dialogActions}>
+        <DialogActions
+          sx={{
+            padding: 0,
+          }}
+        >
           <Section className={classes.section}>
             <Grid
               container
               alignItems="center"
               justifyContent="space-between"
-              className={classes.logoSection}
+              sx={({ palette, typography }) => ({
+                borderBottom: `2px solid ${palette.background.default}`,
+                padding: `${typography.pxToRem(10)} 0`,
+                ...sx,
+              })}
             >
               <Grid item xs={10}>
                 <NextImageButton
@@ -239,7 +250,12 @@ function MobileNavigation({
             </Grid>
           </Section>
         </DialogActions>
-        <DialogContent className={classes.dialogContent}>
+        <DialogContent
+          sx={({ typography }) => ({
+            overflow: "hidden",
+            padding: `${typography.pxToRem(40)} 0`,
+          })}
+        >
           <Section className={classes.section}>
             <Menu
               explorePagePath={explorePagePath}
