@@ -80,6 +80,7 @@ const Datasets = React.forwardRef(function Datasets(
       scroll: false,
       shallow: true,
     });
+    /* eslint react-hooks/exhaustive-deps: "off" */
   }, [query]);
 
   if (filtering && datasetsRef.current) {

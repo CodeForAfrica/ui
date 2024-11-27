@@ -59,6 +59,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
       undefined,
       { scroll: false, shallow: true },
     );
+    /* eslint react-hooks/exhaustive-deps: "off" */
   }, [query]);
 
   if (filtering && articlesRef.current) {

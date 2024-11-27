@@ -31,6 +31,7 @@ const NextPreviousPagination = React.forwardRef(
       }
       // We're only interested in initial isReady and not any subsequent
       // router.query changes e.g. due to pagination
+      /* eslint react-hooks/exhaustive-deps: "off" */
     }, [router.isReady]);
 
     if (!count || count < 2) {

@@ -42,5 +42,6 @@ export function useDeepCompareMemoize(value) {
 }
 
 export function useDeepCompareEffectForMaps(callback, dependencies) {
+  /* eslint react-hooks/exhaustive-deps: "off" */
   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }

@@ -72,6 +72,7 @@ const Opportunities = React.forwardRef(function Opportunities(
     });
     // We don't want to listen to router changes here since we're the ones
     // updating them
+    /* eslint react-hooks/exhaustive-deps: "off" */
   }, [queryParams]);
 
   return (
