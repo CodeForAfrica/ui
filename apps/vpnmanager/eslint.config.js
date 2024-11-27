@@ -28,13 +28,33 @@ module.exports = [
       ...config,
       settings: {
         ...config.settings,
+        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
         "import/resolver": {
+          webpack: {
+            config: "./eslint.webpack.config.js",
+          },
           typescript: {
             alwaysTryTypes: false,
             project: "./tsconfig.json",
           },
         },
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"],
+        },
       },
     };
   }),
+  {
+    rules: {
+      "react/jsx-filename-extension": [1, { extensions: [".js", ".tsx"] }], // This rule allows JSX syntax in both .js and tsx files
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          js: "never",
+          tsx: "never",
+        },
+      ],
+    },
+  },
 ];

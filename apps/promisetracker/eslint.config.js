@@ -24,7 +24,6 @@ module.exports = [
       "**/playwright-report/",
     ],
   },
-  ...eslintConfig,
   {
     settings: {
       "import/resolver": {
@@ -34,4 +33,5 @@ module.exports = [
       },
     },
   },
+  ...eslintConfig,
 ];

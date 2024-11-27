@@ -31,7 +31,8 @@
     "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
-    "eslint-plugin-testing-library": "catalog:"
+    "eslint-plugin-testing-library": "catalog:",
+    "globals": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",

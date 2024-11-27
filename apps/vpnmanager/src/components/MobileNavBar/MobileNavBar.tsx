@@ -11,12 +11,12 @@ import {
 import { SxProps, styled } from "@mui/material/styles";
 import React, { ForwardedRef } from "react";
 
+import menuIcon from "@/vpnmanager/assets/icons/menu-icon.svg";
+import CloseIcon from "@/vpnmanager/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import type {
   Menu,
   SocialMediaLink,
 } from "@/vpnmanager/components/NavBarNavList";
-import menuIcon from "@/vpnmanager/assets/icons/menu-icon.svg";
-import CloseIcon from "@/vpnmanager/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import NavBarNavList from "@/vpnmanager/components/NavBarNavList";
 import NextImageButton from "@/vpnmanager/components/NextImageButton";
 

@@ -25,7 +25,6 @@ module.exports = [
       "**/public/",
     ],
   },
-  ...eslintConfig,
   {
     settings: {
       "import/resolver": {
@@ -35,4 +34,5 @@ module.exports = [
       },
     },
   },
+  ...eslintConfig,
 ];

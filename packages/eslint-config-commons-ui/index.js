@@ -93,12 +93,6 @@ module.exports = [
           ignoreRestSiblings: true,
         },
       ],
-      "import/no-unresolved": [
-        "error",
-        {
-          ignore: ["\\.svg\\?url$"],
-        },
-      ],
     },
   },
   {

@@ -18,9 +18,13 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "@/codeforafrica": path.resolve(__dirname, "src/"),
+      "@/vpnmanager": path.resolve(__dirname, "src/"),
       content: path.resolve(__dirname, "content/"),
     },
     extensions: [".js"],
+  },
+  typescript: {
+    alwaysTryTypes: false,
+    project: "./tsconfig.json",
   },
 };

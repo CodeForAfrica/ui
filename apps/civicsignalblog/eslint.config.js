@@ -24,20 +24,23 @@ module.exports = [
       "**/playwright-report/",
     ],
   },
-  ...eslintConfig,
-  {
-    settings: {
-      "import/resolver": {
-        webpack: {
-          config: "./eslint.webpack.config.js",
-        },
-        typescript: {
-          alwaysTryTypes: false, // we mostly have JS thus we don't need types automatically resolved
-          project: "./tsconfig.json",
+  ...eslintConfig.map((config) => {
+    return {
+      ...config,
+      settings: {
+        ...config.settings,
+        "import/resolver": {
+          webpack: {
+            config: "./eslint.webpack.config.js",
+          },
+          typescript: {
+            alwaysTryTypes: false,
+            project: "./tsconfig.json",
+          },
         },
       },
-    },
-  },
+    };
+  }),
   {
     rules: {
       "react/jsx-filename-extension": [1, { extensions: [".js", ".tsx"] }], // This rule allows JSX syntax in both .js and tsx files
