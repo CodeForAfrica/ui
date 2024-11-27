@@ -1,12 +1,13 @@
 import { Location } from "@hurumap/core";
 import { Map } from "@hurumap/next";
-import { Box, useTheme } from "@mui/material";
+import { useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import useExplore from "./useExplore";
 import useProfileGeography from "./useProfileGeography";
+import useStyles from "./useStyles";
 
 import Panel from "@/climatemappedafrica/components/HURUmap/Panel";
 
@@ -44,6 +45,7 @@ function ExplorePage({
     rootGeographyHasData,
   } = rootGeography;
   const theme = useTheme();
+  const classes = useStyles(props);
   // NOTE: This setState and the corresponding useEffect are "hacks" since at
   //       this point, useReducer hasn't been called yet so we can't use
   //       dispatch directly but we need handleClickTag for initializer.
@@ -158,48 +160,7 @@ function ExplorePage({
   }
   return (
     <>
-      <Box
-        sx={({ palette, typography }) => ({
-          display: {
-            xs: "none",
-            lg: "flex",
-          },
-          height: "calc(100vh - 88px)",
-          position: "fixed",
-          left: 0,
-          right: 0,
-          "& .tooltipPop": {
-            background: palette.background.default,
-            boxShadow: "0px 3px 6px #00000029",
-            height: typography.pxToRem(36),
-            width: typography.pxToRem(88),
-            "& .level": {
-              background: palette.primary.main,
-              borderRadius: typography.pxToRem(4),
-              color: palette.text.secondary,
-              display: "flex",
-              fontSize: typography.pxToRem(7),
-              fontWeight: "bold",
-              height: typography.pxToRem(17),
-              justifyContent: "center",
-              lineHeight: 10 / 7,
-              margin: "0 auto",
-              marginTop: typography.pxToRem(-15),
-              paddingTop: typography.pxToRem(2),
-              textTransform: "uppercase",
-              width: typography.pxToRem(62),
-            },
-            "& .name": {
-              textAlign: "center",
-              fontSize: typography.pxToRem(9),
-              fontWeight: "bold",
-              lineHeight: 13 / 9,
-              marginTop: typography.pxToRem(5),
-              textTransform: "capitalize",
-            },
-          },
-        })}
-      >
+      <div className={classes.root}>
         <Map
           center={center}
           geography={geography}
@@ -227,7 +188,7 @@ function ExplorePage({
             },
           }}
         />
-      </Box>
+      </div>
       <Panel
         {...props}
         isCompare={state.isCompare}
