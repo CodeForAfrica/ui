@@ -1,8 +1,6 @@
-import { Box, Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-
-import useStyles from "./useStyles";
 
 import CloseIcon from "@/climatemappedafrica/assets/icons/x.svg";
 import Select from "@/climatemappedafrica/components/Select";
@@ -17,9 +15,8 @@ function ChartFilter({
   valueText = "Select a value:",
   selectedAttribute: selectedAttributeProp,
   selectedValue: selectedValueProp,
-  ...props
 }) {
-  const classes = useStyles(props);
+  const theme = useTheme();
 
   const [selectedAttribute, setSelectedAttribute] = useState(
     selectedAttributeProp,
@@ -104,10 +101,23 @@ function ChartFilter({
               selected={selectedAttribute}
               onChange={onAtrributeChange}
               disabled={index === "default"}
-              classes={{
-                select: classes.select,
-                filled: classes.filled,
-                paper: classes.selectPaper,
+              SelectProps={{
+                width: {
+                  xs: theme.typography.pxToRem(165),
+                  lg: theme.typography.pxToRem(200),
+                },
+                height: theme.typography.pxToRem(40),
+                paddingLeft: 0,
+                "& .MuiSelect-filled": {
+                  padding: `${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(
+                    40,
+                  )} ${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(20)} !important`,
+                },
+              }}
+              MenuProps={{
+                "& .MuiMenu-paper": {
+                  maxHeight: theme.typography.pxToRem(310),
+                },
               }}
             />
           </Grid>
@@ -125,10 +135,23 @@ function ChartFilter({
               selected={selectedValue}
               label={selectedValue?.length ? "" : "Select a value"}
               onChange={onValueChange}
-              classes={{
-                select: classes.select,
-                filled: classes.filled,
-                paper: classes.selectPaper,
+              SelectProps={{
+                width: {
+                  xs: theme.typography.pxToRem(165),
+                  lg: theme.typography.pxToRem(200),
+                },
+                height: theme.typography.pxToRem(40),
+                paddingLeft: 0,
+                "& .MuiSelect-filled": {
+                  padding: `${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(
+                    40,
+                  )} ${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(20)} !important`,
+                },
+              }}
+              MenuProps={{
+                "& .MuiMenu-paper": {
+                  maxHeight: theme.typography.pxToRem(310),
+                },
               }}
             />
           </Grid>

@@ -1,14 +1,10 @@
-import { Box, IconButton, SvgIcon, alpha } from "@mui/material";
+import { Box, IconButton, SvgIcon, alpha, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import PinIconDefault from "@/climatemappedafrica/assets/pinBlack.svg";
 import PinIconSelected from "@/climatemappedafrica/assets/pinSelected.svg";
 import Select from "@/climatemappedafrica/components/Select";
-
-// useStyles uses import/definition order to determine how classes are ordered.
-// eslint-disable-next-line import/order
-import useStyles from "./useStyles";
 
 function PinIcon(props) {
   return <SvgIcon {...props} />;
@@ -23,9 +19,8 @@ function PinAndCompare({
   onClickPin,
   onClose,
   placeholder,
-  ...props
 }) {
-  const classes = useStyles(props);
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
   const options = locations
@@ -110,10 +105,26 @@ function PinAndCompare({
         options={options}
         placeholder={placeholder}
         selected={selected}
-        classes={{
-          select: classes.locationSelect,
-          paper: classes.selectPaper,
-          filled: classes.filled,
+        SelectProps={{
+          width: theme.typography.pxToRem(205),
+          height: theme.typography.pxToRem(40),
+          paddingLeft: 0,
+          "& .MuiSelect-filled": {
+            padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+              10,
+            )} ${theme.typography.pxToRem(15)} !important`,
+          },
+        }}
+        MenuProps={{
+          "& .MuiMenu-paper": {
+            height: theme.typography.pxToRem(310),
+            boxShadow: "none",
+          },
+          "& .MuiMenu-list": {
+            padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+              10,
+            )} ${theme.typography.pxToRem(15)} !important`,
+          },
         }}
       />
     </Box>
