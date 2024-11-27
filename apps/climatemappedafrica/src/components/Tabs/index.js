@@ -1,9 +1,7 @@
-import { Tab, Divider, Tabs as MuiTabs } from "@mui/material";
+import { Tab, Divider, Tabs as MuiTabs, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-
-import useStyles from "./useStyles";
 
 import TabPanel from "@/climatemappedafrica/components/Tabs/TabPanel";
 
@@ -15,15 +13,18 @@ function a11yProps(name, index) {
 }
 
 function Tabs({
+  DividerProps,
+  TabIndicatorProps,
+  TabProps,
+  TabsProps,
+  TabPanelProps,
   activeTab = 0,
   items,
   name: nameProp,
   onChange,
   linkComponent,
-  ...props
 }) {
   const router = useRouter();
-  const classes = useStyles(props);
   const [value, setValue] = useState(activeTab);
   const name = nameProp || "simple";
 
@@ -38,17 +39,28 @@ function Tabs({
     return null;
   }
   return (
-    <div className={classes.root}>
+    <Box
+      sx={{
+        flexGrow: 1,
+      }}
+    >
       <MuiTabs
         value={value}
         onChange={linkComponent ? undefined : handleChange}
         variant="scrollable"
         scrollButtons={false}
         aria-label={`${name} tabs`}
-        classes={{
-          root: classes.tabs,
-          indicator: classes.indicator,
-        }}
+        sx={({ palette, typography }) => ({
+          minHeight: typography.pxToRem(23),
+          textTransform: "none",
+          "& .MuiTabs-indicator": {
+            backgroundColor: palette.primary.main,
+            height: 2,
+            marginBottom: 0,
+            ...TabIndicatorProps,
+          },
+          ...TabsProps,
+        })}
       >
         {items.map(({ label, href, slug }, index) => (
           <Tab
@@ -68,15 +80,38 @@ function Tabs({
             }
             {...a11yProps(name, index)}
             disableRipple
-            classes={{
-              root: classes.tab,
-              selected: classes.tabSelected,
-            }}
+            sx={({ typography }) => ({
+              color: "#666666",
+              fontWeight: 600,
+              fontSize: typography.pxToRem(16),
+              letterSpacing: typography.pxToRem(1.6),
+              lineHeight: 25 / 16,
+              marginRight: typography.pxToRem(40),
+              minHeight: typography.pxToRem(23),
+              minWidth: 0,
+              padding: `0 0 ${typography.pxToRem(4)} 0`,
+              textTransform: "uppercase",
+              "&:last-of-type": {
+                marginRight: 0,
+              },
+              ...TabProps,
+            })}
           />
         ))}
       </MuiTabs>
-      <Divider className={classes.divider} />
-      <div className={classes.tabPanels}>
+      <Divider
+        sx={({ typography }) => ({
+          marginTop: typography.pxToRem(-2),
+          height: typography.pxToRem(2),
+          ...DividerProps,
+        })}
+      />
+      <Box
+        sx={({ typography }) => ({
+          marginTop: typography.pxToRem(40),
+          ...TabPanelProps,
+        })}
+      >
         {items.map((item, index) => (
           <TabPanel
             key={item.label}
@@ -87,8 +122,8 @@ function Tabs({
             {item.children}
           </TabPanel>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

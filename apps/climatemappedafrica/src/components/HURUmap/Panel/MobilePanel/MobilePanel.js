@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -14,12 +14,11 @@ import { hurumapArgs } from "@/climatemappedafrica/config";
 
 // being last is necessary for style override to work
 // eslint-disable-next-line import/order
-import useStyles from "./useStyles";
 
 function MobilePanel({ activeType, scrollToTopLabel, sx, ...props }) {
-  const classes = useStyles(props);
   const { onSelectLocation, primaryProfile, dataNotAvailable } = props;
   const { geography, items } = primaryProfile;
+  const theme = useTheme();
 
   const { pinAndCompare } = hurumapArgs;
 
@@ -85,13 +84,55 @@ function MobilePanel({ activeType, scrollToTopLabel, sx, ...props }) {
         name="mobilepanel"
         items={formatedItems}
         activeTab={activeTab}
-        classes={{
-          divider: classes.tabsDivider,
-          indicator: classes.tabIndicator,
-          tabs: classes.tabs,
-          tab: classes.tab,
-          tabPanels: classes.tabPanels,
-          tabSelected: classes.tabSelected,
+        DividerProps={{
+          display: "none",
+        }}
+        TabIndicatorProps={{
+          display: "none",
+        }}
+        TabPanelProps={{
+          marginTop: 0,
+        }}
+        TabsProps={{
+          paddingBottom: theme.typography.pxToRem(16),
+          paddingTop: theme.typography.pxToRem(16),
+          paddingLeft: {
+            xs: theme.typography.pxToRem(20),
+            md: theme.typography.pxToRem(80),
+          },
+          paddingRight: {
+            xs: theme.typography.pxToRem(20),
+            md: theme.typography.pxToRem,
+          },
+          backgroundColor: theme.palette.background.paper,
+          zIndex: theme.zIndex.appBar,
+          width: "100%",
+          position: "sticky",
+          top: 66, // below navbar
+        }}
+        TabProps={{
+          color: "#212529",
+          backgroundColor: theme.palette.background.default,
+          fontWeight: 500,
+          fontSize: theme.typography.pxToRem(12),
+          letterSpacing: theme.typography.pxToRem(1.6),
+          lineHeight: 30 / 12,
+          marginRight: theme.typography.pxToRem(20),
+          padding: `${theme.typography.pxToRem(6)} ${theme.typography.pxToRem(20)}`,
+          height: theme.typography.pxToRem(29),
+          maxWidth: "unset",
+          textTransform: "unset",
+          "&:last-of-type": {
+            marginRight: 0,
+          },
+          "&.Mui-selected": {
+            color: theme.palette.background.default,
+            backgroundColor: "#666666",
+          },
+          "&:hover, &:focus, &$selected": {
+            color: theme.palette.background.default,
+            backgroundColor: "#666666",
+          },
         }}
       />
       {items?.length > 0 && (
