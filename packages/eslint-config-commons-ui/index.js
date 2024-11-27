@@ -104,7 +104,7 @@ module.exports = [
     },
     ...pluginJest.configs["flat/recommended"],
     ...jestDom.configs["flat/recommended"],
-    ...testingLibrary.configs["flat/dom"],
+    ...testingLibrary.configs["flat/react"],
     languageOptions: {
       globals: {
         ...pluginJest.environments.globals.globals,
@@ -112,6 +112,9 @@ module.exports = [
         ...globals.jest,
         ...globals.node,
       },
+    },
+    rules: {
+      "testing-library/render-result-naming-convention": "off", // No need to comment every test file with this rule.
     },
   },
   {
