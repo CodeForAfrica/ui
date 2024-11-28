@@ -1,3 +1,5 @@
+import richText from "#civicsignalblog/payload/fields/richText";
+
 const LoginTab = {
   label: "Login",
   fields: [
@@ -81,6 +83,11 @@ const LoginTab = {
           required: true,
           localized: true,
         },
+        richText({
+          name: "needsToActivate",
+          required: true,
+          localized: true,
+        }),
       ],
     },
   ],
