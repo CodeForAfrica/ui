@@ -35,6 +35,13 @@ const LoginTab = {
           localized: true,
         },
         {
+          name: "loginButton",
+          type: "text",
+          defaultValue: "Login",
+          required: true,
+          localized: true,
+        },
+        {
           name: "registerButton",
           type: "text",
           defaultValue: "No Account? Register Now!",
@@ -43,7 +50,7 @@ const LoginTab = {
         },
         {
           name: "passwordResetLink",
-          label: "passwordResetButton",
+          label: "Password Reset Button",
           type: "text",
           defaultValue: "Forgot your Password?",
           required: true,
