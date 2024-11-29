@@ -36,17 +36,19 @@ function CategoryHeader({ title, description, icon, ...props }) {
         )}
         {title}
       </Typography>
-      <Typography
-        variant="body2"
-        sx={({ typography }) => ({
-          paddingBottom: typography.pxToRem(20),
-          "& p": {
-            margin: 0,
-          },
-        })}
-      >
-        {description}
-      </Typography>
+      {description && (
+        <Typography
+          variant="body2"
+          sx={({ typography }) => ({
+            paddingBottom: typography.pxToRem(20),
+            "& p": {
+              margin: 0,
+            },
+          })}
+        >
+          {description}
+        </Typography>
+      )}
     </div>
   );
 }
