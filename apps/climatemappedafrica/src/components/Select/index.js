@@ -128,11 +128,12 @@ function Input({
             lg: typography.pxToRem(185),
           },
           background: palette.background.paper,
+          color: "#959696",
           borderStyle: "none",
           borderRadius: 2,
           paddingBottom: typography.pxToRem(15),
           paddingTop: typography.pxToRem(15),
-          fontSize: typography.caption.fontSize,
+          fontSize: `${typography.caption.fontSize} !important`,
           "&:focus": {
             borderRadius: 2,
             background: palette.background.paper,
@@ -142,7 +143,7 @@ function Input({
             display: "none",
           },
           "& .MuiSelect-filled": {
-            color: value ? "#959696" : "#666666",
+            color: value ? "#959696" : "unset",
           },
           ...SelectProps,
         })}
