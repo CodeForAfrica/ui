@@ -2,7 +2,7 @@ import LoginTab from "./LoginTab";
 
 import settings from "#civicsignalblog/payload/utils/createGlobalSettings";
 
-const Main = settings({
+const Login = settings({
   slug: `login-form`,
   label: "Login",
   group: "Forms",
@@ -12,4 +12,4 @@ const Main = settings({
   tabs: [LoginTab],
 });
 
-export default Main;
+export default Login;
