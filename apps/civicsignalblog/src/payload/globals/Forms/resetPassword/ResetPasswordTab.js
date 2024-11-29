@@ -1,5 +1,5 @@
-const PasswordTab = {
-  label: "Password Reset",
+const ResetPassword = {
+  label: "Reset Password Form",
   fields: [
     {
       type: "collapsible",
@@ -91,4 +91,4 @@ const PasswordTab = {
   ],
 };
 
-export default PasswordTab;
+export default ResetPassword;

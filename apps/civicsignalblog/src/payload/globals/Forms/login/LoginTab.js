@@ -1,7 +1,7 @@
 import richText from "#civicsignalblog/payload/fields/richText";
 
 const LoginTab = {
-  label: "Login",
+  label: "Login Form",
   fields: [
     {
       type: "collapsible",

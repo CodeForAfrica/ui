@@ -1,7 +1,7 @@
 import richText from "#civicsignalblog/payload/fields/richText";
 
 const RegisterTab = {
-  label: "Register",
+  label: "Registration Form",
   fields: [
     {
       type: "collapsible",

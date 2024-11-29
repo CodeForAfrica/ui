@@ -25,7 +25,9 @@ import Actions from "./src/payload/components/actions";
 import Publication from "./src/payload/globals/Publication";
 import Main from "./src/payload/globals/Site/main";
 import Research from "./src/payload/globals/Site/research";
-import AuthForms from "./src/payload/globals/AuthForms";
+import Login from "./src/payload/globals/Forms/login";
+import PasswordReset from "./src/payload/globals/Forms/resetPassword";
+import Registration from "./src/payload/globals/Forms/registration";
 import { applicationPages } from "./src/payload/lib/data/common/applications";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 
@@ -75,7 +77,7 @@ export default buildConfig({
     MediaData,
     Users,
   ] as CollectionConfig[],
-  globals: [Publication, Research, Main, AuthForms] as GlobalConfig[],
+  globals: [Publication, Research, Main, Login, Registration, PasswordReset] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
