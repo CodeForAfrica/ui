@@ -1,3 +1,4 @@
+import formInputFields from "#civicsignalblog/payload/fields/formInputFields";
 import richText from "#civicsignalblog/payload/fields/richText";
 
 const RegisterTab = {
@@ -8,16 +9,14 @@ const RegisterTab = {
       label: "Title & Description",
       fields: [
         {
-          name: "signUpFormTitle",
-          label: "Title",
+          name: "title",
           type: "text",
           defaultValue: "Sign Up",
           required: true,
           localized: true,
         },
         {
-          name: "signUpIntro",
-          label: "Intro",
+          name: "description",
           type: "text",
           defaultValue: "Create an account to use all our tools for free.",
           required: true,
@@ -27,51 +26,35 @@ const RegisterTab = {
     },
     {
       type: "collapsible",
-      label: "Input Elements",
+      label: "Fields",
       fields: [
-        {
-          name: "signUpEmail",
-          label: "Email",
-          type: "text",
-          defaultValue: "Email",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "signUpFullName",
-          label: "Full Name",
-          type: "text",
-          defaultValue: "Full Name",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "signUpPasssword",
-          label: "Password",
-          type: "text",
-          defaultValue: "Password",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "notes",
-          type: "text",
-          defaultValue: "Notes",
-          required: true,
-          localized: true,
-        },
-        richText({
-          name: "consent",
-          required: true,
-          localized: true,
+        formInputFields({
+          minRows: 5,
+          maxRows: 5,
+          validate: (val, args) => {
+            if (val.length < args.minRows)
+              return `You must add ${args.minRows} form input fields`;
+
+            const requiredFields = [
+              "email",
+              "fullname",
+              "password",
+              "confirm_password",
+              "notes",
+              "terms_of_use",
+            ];
+
+            const missingFields = requiredFields.filter(
+              (fieldName) => !val.some((field) => field.name === fieldName),
+            );
+
+            if (missingFields.length > 0) {
+              return `Registration form must have fields with the following names: ${missingFields.join(", ")}`;
+            }
+
+            return true;
+          },
         }),
-        {
-          name: "signUpButton",
-          type: "text",
-          defaultValue: "Sign up",
-          required: true,
-          localized: true,
-        },
       ],
     },
     {
@@ -79,45 +62,23 @@ const RegisterTab = {
       label: "Form Messages",
       fields: [
         {
-          name: "signUpMissingEmail",
-          type: "text",
-          defaultValue: "You need to enter your email address.",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "signUpMissingName",
-          type: "text",
-          defaultValue: "You need to enter your full name.",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "signUpMissingPassword",
-          type: "text",
-          defaultValue: "You need to enter your password.",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "signUpMissingConsent",
-          type: "text",
-          defaultValue: "You must agree to our Terms and Policies",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "signUpFeedback",
+          name: "successFeedback",
           type: "text",
           defaultValue: "Successfully signed up.",
           required: true,
           localized: true,
         },
         {
-          name: "signUpNotesHint",
+          name: "passwordsMismatch",
           type: "text",
-          defaultValue:
-            "Tell us a little about what you want to use Media Cloud for",
+          defaultValue: "Passwords do not match.",
+          required: true,
+          localized: true,
+        },
+        {
+          name: "passwordTooShort",
+          type: "text",
+          defaultValue: "Passwords must be at least 8 characters long..",
           required: true,
           localized: true,
         },
@@ -131,6 +92,24 @@ const RegisterTab = {
           required: true,
           localized: true,
         }),
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Buttons",
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "signUpButton",
+              type: "text",
+              defaultValue: "Sign Up",
+              required: true,
+              localized: true,
+            },
+          ],
+        },
       ],
     },
   ],
