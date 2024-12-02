@@ -26,6 +26,20 @@ const LoginTab = {
           label: "Form input fields",
           minRows: 2,
           maxRows: 2,
+          validate: (val, args) => {
+            if (val.length < args.minRows)
+              return `You must add ${args.minRows} form input fields`;
+
+            if (!val.some((field) => field.name === "email")) {
+              return "Login form must have a field with email as name";
+            }
+
+            if (!val.some((field) => field.name === "password")) {
+              return "Login form must have a field with password as name";
+            }
+
+            return true;
+          },
           labels: {
             singular: "Field",
             plural: "Fields",
@@ -52,7 +66,6 @@ const LoginTab = {
               fields: [
                 {
                   name: "name",
-                  label: "Name (lowercase, no special characters)",
                   type: "text",
                   required: true,
                 },
@@ -89,21 +102,21 @@ const LoginTab = {
           type: "row",
           fields: [
             {
-              name: "login",
+              name: "loginButton",
               type: "text",
               defaultValue: "Login",
               required: true,
               localized: true,
             },
             {
-              name: "registration",
+              name: "registrationButton",
               type: "text",
               defaultValue: "No Account ? Register Now!",
               required: true,
               localized: true,
             },
             {
-              name: "password",
+              name: "forgotPasswordButton",
               type: "text",
               defaultValue: "Forgot your password ?",
               required: true,
@@ -118,16 +131,10 @@ const LoginTab = {
       label: "Messages",
       fields: [
         {
-          type: "row",
-          fields: [
-            {
-              name: "loginFailed",
-              label: "Login Failed",
-              default: "Your email or password was wrong.",
-              type: "text",
-              required: true,
-            },
-          ],
+          name: "loginFailed",
+          type: "text",
+          defaultValue: "Your email or password was wrong.",
+          required: true,
         },
         richText({
           name: "needsToActivate",
