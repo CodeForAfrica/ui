@@ -7,7 +7,7 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   const key: string | null = req.headers.get("x-api-key");
-  const { API_SECRET_KEY } = process.env;
+  const API_SECRET_KEY = process.env.API_SECRET_KEY;
   if (req.method !== "GET") {
     if (!(key && key === API_SECRET_KEY)) {
       return Response.json(
