@@ -6,16 +6,14 @@ const ResetPassword = {
       label: "Title & Description",
       fields: [
         {
-          name: "passwordResetFormTitle",
-          label: "Title",
+          name: "title",
           type: "text",
           defaultValue: "Forgot Your Password?",
           required: true,
           localized: true,
         },
         {
-          name: "passwordResetIntro",
-          label: "Intro",
+          name: "description",
           type: "text",
           defaultValue:
             "Enter your email address and we will send you a link to reset your password.",
@@ -26,50 +24,104 @@ const ResetPassword = {
     },
     {
       type: "collapsible",
-      label: "Input Elements",
+      label: "Fields",
       fields: [
         {
-          name: "passwordResetEmail",
-          label: "Email",
-          type: "text",
-          defaultValue: "Email",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "passwordResetButton",
-          type: "text",
-          defaultValue: "Send Password Reset Email",
-          required: true,
-          localized: true,
+          name: "fields",
+          type: "array",
+          label: "Form input fields",
+          minRows: 1,
+          maxRows: 1,
+          validate: (val, args) => {
+            if (val.length < args.minRows)
+              return `You must add ${args.minRows} form input fields`;
+
+            if (!val.some((field) => field.name === "email")) {
+              return "Login form must have a field with email as name";
+            }
+            return true;
+          },
+          labels: {
+            singular: "Field",
+            plural: "Fields",
+          },
+          admin: {
+            className: "array-field-nested",
+            components: {
+              RowLabel: ({ data, index }) => {
+                let label = "";
+                if (data.name) {
+                  label = data.name;
+                }
+                if (!label) {
+                  label = `Field ${String(index).padStart(2, "0")}`;
+                }
+                return label;
+              },
+            },
+            initCollapsed: true,
+          },
+          fields: [
+            {
+              type: "row",
+              fields: [
+                {
+                  name: "name",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "label",
+                  type: "text",
+                  required: true,
+                },
+              ],
+            },
+            {
+              type: "row",
+              fields: [
+                {
+                  name: "errorMessage",
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "hint",
+                  type: "text",
+                },
+              ],
+            },
+          ],
         },
       ],
     },
     {
       type: "collapsible",
-      label: "Form Messages",
+      label: "Buttons",
       fields: [
         {
-          name: "passwordResetMissingEmail",
-          type: "text",
-          defaultValue: "Email You need to enter a valid email address.",
-          required: true,
-          localized: true,
+          type: "row",
+          fields: [
+            {
+              name: "passwordResetButton",
+              type: "text",
+              defaultValue: "Send Password Reset Email",
+              required: true,
+              localized: true,
+            },
+          ],
         },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Messages",
+      fields: [
         {
           name: "passwordResetFailed",
           type: "text",
           defaultValue: "Sorry, something went wrong.",
           required: true,
-          localized: true,
-        },
-        {
-          name: "passwordResetBadToken",
-          type: "text",
-          defaultValue:
-            "That is an invalid reset token. Check to see if you have a newer link from us in your email",
-          required: true,
-          localized: true,
         },
         {
           name: "passwordResetSuccessTitle",
