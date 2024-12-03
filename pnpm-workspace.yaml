@@ -21,6 +21,8 @@ catalog:
   "@emotion/server": ^11.11.0
   "@emotion/styled": ^11.13.0
   "@eslint/compat": ^1.1.2
+  "@eslint/eslintrc": ^3.2.0
+  "@eslint/js": ^9.16.0
   "@googlemaps/react-wrapper": ^1.1.42
   "@material-ui/codemod": ^4.5.1
   "@mdx-js/loader": ^3.0.1
