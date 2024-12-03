@@ -31,7 +31,7 @@ const ArticlesFilterBar = React.forwardRef(
       }
       // We're only interested in initial isReady and not any subsequent
       // router.query changes e.g. due to search
-      /* eslint react-hooks/exhaustive-deps: "off" */
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router.isReady]);
 
     const handleChangeQ = (e, value) => {

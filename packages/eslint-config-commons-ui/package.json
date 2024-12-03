@@ -16,6 +16,8 @@
     "@babel/eslint-parser": "catalog:",
     "@babel/preset-react": "catalog:",
     "@eslint/compat": "catalog:",
+    "@eslint/js": "catalog:",
+    "@eslint/eslintrc": "catalog:",
     "@next/eslint-plugin-next": "catalog:",
     "eslint-config-airbnb": "catalog:",
     "eslint-config-prettier": "catalog:",

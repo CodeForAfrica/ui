@@ -9,9 +9,7 @@ import { fetchJson } from "@/vpnmanager/utils";
 
 export class OutlineVPN {
   apiUrl: string;
-
   fingerprint?: string;
-
   timeout?: number;
 
   constructor(options: OutlineOptions) {

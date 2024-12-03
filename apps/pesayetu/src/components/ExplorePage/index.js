@@ -92,7 +92,7 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
       router.push(href, href, { shallow: true });
     }
     // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
-    /* eslint react-hooks/exhaustive-deps: "off" */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.slug]);
 
   const isLoading = shouldFetch() && !(data || error);

@@ -59,7 +59,7 @@ const Articles = React.forwardRef(function Articles(props, ref) {
       undefined,
       { scroll: false, shallow: true },
     );
-    /* eslint react-hooks/exhaustive-deps: "off" */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   if (filtering && articlesRef.current) {
