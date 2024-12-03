@@ -1,4 +1,4 @@
-import { Box, IconButton, SvgIcon, alpha, useTheme } from "@mui/material";
+import { Grid, IconButton, SvgIcon, alpha, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
@@ -62,8 +62,8 @@ function PinAndCompare({
   const component = open ? PinIconSelected : PinIconDefault;
 
   return (
-    <Box
-      display="flex"
+    <Grid
+      container
       alignItems="flex-end"
       sx={({ palette, typography }) => ({
         padding: `${typography.pxToRem(20)} 0`,
@@ -127,7 +127,7 @@ function PinAndCompare({
           },
         }}
       />
-    </Box>
+    </Grid>
   );
 }
 

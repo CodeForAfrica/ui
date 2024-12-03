@@ -2,8 +2,6 @@ import { Box, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Image from "@/climatemappedafrica/components/Image";
-
 function CategoryHeader({ title, description, icon, ...props }) {
   if (!title) {
     return null;
@@ -29,10 +27,11 @@ function CategoryHeader({ title, description, icon, ...props }) {
               height: typography.pxToRem(32),
               width: typography.pxToRem(32),
               marginRight: typography.pxToRem(10),
+              backgroundImage: `url(${icon})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
             })}
-          >
-            <Image src={icon} layout="fill" />
-          </Box>
+          />
         )}
         {title}
       </Typography>

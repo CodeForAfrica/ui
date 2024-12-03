@@ -1,5 +1,5 @@
 import { Source } from "@hurumap/next";
-import { Tooltip, Typography, LinearProgress, Box } from "@mui/material";
+import { Tooltip, Typography, LinearProgress, Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -27,12 +27,12 @@ function KeyMetric({
   const tooltipTitle = `${title}: ${formattedValue}`;
 
   return (
-    <Box
+    <Grid
+      container
+      direction="column"
+      justifyContent="space-between"
       sx={({ typography }) => ({
         width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
         marginBottom: typography.pxToRem(20),
         ...sx,
       })}
@@ -97,7 +97,7 @@ function KeyMetric({
       >
         {source}
       </Source>
-    </Box>
+    </Grid>
   );
 }
 
