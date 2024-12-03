@@ -145,6 +145,9 @@ function Input({
           "& .MuiSelect-filled": {
             color: value ? "#959696" : "unset",
           },
+          "& .MuiSelect-filled:focus": {
+            borderRadius: 0,
+          },
           ...SelectProps,
         })}
       >

@@ -1,32 +1,9 @@
-import { Box, Grid, IconButton, styled } from "@mui/material";
+import { Box, Grid, IconButton, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import CloseIcon from "@/climatemappedafrica/assets/icons/x.svg";
 import Select from "@/climatemappedafrica/components/Select";
-
-const StyledSelect = styled(Select)(({ theme }) => ({
-  SelectProps: {
-    width: {
-      width: {
-        xs: theme.typography.pxToRem(165),
-        lg: theme.typography.pxToRem(200),
-      },
-      height: theme.typography.pxToRem(40),
-      paddingLeft: 0,
-      "& .MuiSelect-filled": {
-        padding: `${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(
-          40,
-        )} ${theme.typography.pxToRem(10)} ${theme.typography.pxToRem(20)} !important`,
-      },
-    },
-  },
-  MenuProps: {
-    "& .MuiMenu-paper": {
-      maxHeight: theme.typography.pxToRem(310),
-    },
-  },
-}));
 
 function ChartFilter({
   groups,
@@ -46,6 +23,8 @@ function ChartFilter({
 
   const [attributeOptions, setAttributeOptions] = useState([]);
   const [valueOptions, setValueOptions] = useState([]);
+
+  const theme = useTheme();
 
   useEffect(() => {
     if (index === "default") {
@@ -116,12 +95,33 @@ function ChartFilter({
               marginRight: { md: typography.pxToRem(10) },
             })}
           >
-            <StyledSelect
+            <Select
               helperText={attributeText}
               options={attributeOptions}
               selected={selectedAttribute}
               onChange={onAtrributeChange}
               disabled={index === "default"}
+              SelectProps={{
+                width: theme.typography.pxToRem(205),
+                height: theme.typography.pxToRem(40),
+                paddingLeft: 0,
+                "& .MuiSelect-filled": {
+                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+                    10,
+                  )} ${theme.typography.pxToRem(15)} !important`,
+                },
+              }}
+              MenuProps={{
+                "& .MuiMenu-paper": {
+                  height: theme.typography.pxToRem(310),
+                  boxShadow: "none",
+                },
+                "& .MuiMenu-list": {
+                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+                    10,
+                  )} ${theme.typography.pxToRem(15)} !important`,
+                },
+              }}
             />
           </Grid>
         )}
@@ -132,12 +132,33 @@ function ChartFilter({
               marginRight: { md: typography.pxToRem(10) },
             })}
           >
-            <StyledSelect
+            <Select
               helperText={valueText}
               options={valueOptions}
               selected={selectedValue}
               label={selectedValue?.length ? "" : "Select a value"}
               onChange={onValueChange}
+              SelectProps={{
+                width: theme.typography.pxToRem(205),
+                height: theme.typography.pxToRem(40),
+                paddingLeft: 0,
+                "& .MuiSelect-filled": {
+                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+                    10,
+                  )} ${theme.typography.pxToRem(15)} !important`,
+                },
+              }}
+              MenuProps={{
+                "& .MuiMenu-paper": {
+                  height: theme.typography.pxToRem(310),
+                  boxShadow: "none",
+                },
+                "& .MuiMenu-list": {
+                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+                    10,
+                  )} ${theme.typography.pxToRem(15)} !important`,
+                },
+              }}
             />
           </Grid>
         )}

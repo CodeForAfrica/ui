@@ -17,8 +17,8 @@ import FacebookIcon from "@/climatemappedafrica/assets/icons/Facebook.svg";
 import LinkedInIcon from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
 import InfoIcon from "@/climatemappedafrica/assets/icons/plus.svg";
 import ShareIcon from "@/climatemappedafrica/assets/icons/share.svg";
-import TwitterIcon from "@/climatemappedafrica/assets/icons/Twitter.svg";
 import WhatsAppIcon from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
+import XLogo from "@/climatemappedafrica/assets/icons/x-logo.svg";
 import cfalogo from "@/climatemappedafrica/assets/logos/cfa.svg";
 import projectlogo from "@/climatemappedafrica/assets/logos/projectLogo.svg";
 import config, { hurumapArgs } from "@/climatemappedafrica/config";
@@ -213,7 +213,7 @@ function Chart({
     },
     {
       name: "Twitter",
-      icon: TwitterIcon,
+      icon: XLogo,
       props: { title, via: "Code4Africa", related: ["Code4Africa"] },
     },
     {
