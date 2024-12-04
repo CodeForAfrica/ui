@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint-check": "TIMING=1 next lint './'",
-    "lint": "TIMING=1 eslint --fix './'",
+    "lint": "TIMING=1 next lint --fix './'",
     "clean": "rm -rf .next .turbo node_modules",
     "jest": "jest --passWithNoTests",
     "playwright": "npx playwright test"
