@@ -1,11 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import useStyles from "./useStyles";
-
 function TabPanel({ children, value, name, selected, ...props }) {
-  const classes = useStyles(props);
-
   if (selected !== value || !children) {
     return null;
   }
@@ -16,7 +12,6 @@ function TabPanel({ children, value, name, selected, ...props }) {
       id={`${name}-tabpanel-${value}`}
       aria-labelledby={`${name}-tab-${value}`}
       {...props}
-      className={classes.tabPanel}
     >
       {children}
     </div>

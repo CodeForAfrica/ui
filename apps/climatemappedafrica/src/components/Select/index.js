@@ -7,12 +7,9 @@ import {
   InputLabel,
   Typography,
 } from "@mui/material";
-import clsx from "clsx";
 import { uniqueId } from "lodash";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-
-import useStyles from "./useStyles";
 
 import ExpandMore from "@/climatemappedafrica/assets/icons/expand_more.svg";
 
@@ -21,6 +18,8 @@ function ExpandMoreIcon(props) {
 }
 
 function Input({
+  SelectProps,
+  MenuProps,
   disabled,
   helperText,
   label: labelProp,
@@ -31,9 +30,7 @@ function Input({
   options,
   selected,
   placeholder,
-  ...props
 }) {
-  const classes = useStyles(props);
   const [value, setValue] = useState();
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -48,14 +45,44 @@ function Input({
       variant="filled"
       size="small"
       disabled={disabled}
-      className={classes.formControl}
+      sx={{
+        "& .MuiFilledInput-underline": {
+          "&::before": {
+            display: "none",
+          },
+        },
+      }}
     >
       {helperText ? (
-        <FormHelperText className={classes.helper}>{helperText}</FormHelperText>
+        <FormHelperText
+          sx={({ typography }) => ({
+            fontSize: {
+              xs: typography.pxToRem(10),
+            },
+            fontWeight: "700",
+            color: "#666666",
+            textTransform: "uppercase",
+            marginLeft: 0,
+            marginBottom: typography.pxToRem(5),
+          })}
+        >
+          {helperText}
+        </FormHelperText>
       ) : null}
       {labelId ? (
-        <InputLabel htmlFor={labelId} shrink className={classes.inputLabel}>
-          <Typography variant="caption" className={classes.label}>
+        <InputLabel
+          htmlFor={labelId}
+          shrink
+          sx={({ typography }) => ({
+            marginTop: typography.pxToRem(15),
+          })}
+        >
+          <Typography
+            variant="caption"
+            sx={{
+              color: "#959696",
+            }}
+          >
             {labelProp}
           </Typography>
         </InputLabel>
@@ -71,10 +98,31 @@ function Input({
         defaultValue={selected || ""}
         IconComponent={ExpandMoreIcon}
         MenuProps={{
-          classes: {
-            paper: classes.paper,
-            list: classes.list,
-          },
+          sx: ({ typography }) => ({
+            "& .MuiMenu-paper": {
+              borderBottomLeftRadius: 4,
+              borderBottomRightRadius: 4,
+              backgroundColor: "#F8F8F8",
+              marginTop: typography.pxToRem(5),
+              boxShadow: "none",
+              "&.MuiPaper-rounded": {
+                borderRadius: "0",
+              },
+            },
+            "& .MuiMenu-list": {
+              paddingTop: 0,
+              paddingBottom: 0,
+              "& li": {
+                fontWeight: 400,
+                paddingTop: typography.pxToRem(12),
+                paddingBottom: typography.pxToRem(12),
+              },
+              "& li.Mui-selected": {
+                fontWeight: "bold",
+              },
+            },
+            ...MenuProps,
+          }),
           anchorOrigin: {
             vertical: "bottom",
             horizontal: "left",
@@ -86,13 +134,45 @@ function Input({
           },
           getContentAnchorEl: null,
         }}
-        classes={{
-          root: classes.select,
-          filled: clsx(classes.filled, { [classes.filledPlaceholder]: !value }),
-        }}
+        sx={({ typography, palette }) => ({
+          width: {
+            sx: typography.pxToRem(135),
+            lg: typography.pxToRem(185),
+          },
+          background: palette.background.paper,
+          color: "#959696",
+          borderStyle: "none",
+          borderRadius: typography.pxToRem(2),
+          paddingBottom: typography.pxToRem(15),
+          paddingTop: typography.pxToRem(15),
+          fontSize: `${typography.caption.fontSize} !important`,
+          "&:focus": {
+            borderRadius: 2,
+            background: palette.background.paper,
+            borderColor: "none",
+          },
+          "&::before": {
+            display: "none",
+          },
+          "& .MuiSelect-filled": {
+            color: value ? "#959696" : "unset",
+          },
+          "& .MuiSelect-filled:focus": {
+            borderRadius: 0,
+          },
+          ...SelectProps,
+        })}
       >
         {placeholder ? (
-          <MenuItem value="" className={classes.placeholder}>
+          <MenuItem
+            value=""
+            sx={{
+              color: "#959696",
+              "&.Mui-selected": {
+                display: "none",
+              },
+            }}
+          >
             {placeholder}
           </MenuItem>
         ) : null}

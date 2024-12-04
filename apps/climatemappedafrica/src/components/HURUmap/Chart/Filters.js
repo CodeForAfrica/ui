@@ -1,5 +1,4 @@
-import { ButtonBase } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Box, ButtonBase } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useEffect, useState, useCallback } from "react";
 
@@ -7,21 +6,13 @@ import { idify } from "./utils";
 
 import ChartFilter from "@/climatemappedafrica/components/HURUmap/ChartFilter";
 
-const useStyles = makeStyles(({ typography }) => ({
-  root: {
-    paddingBottom: typography.pxToRem(18),
-  },
-}));
-
 function Filters({
   filterGroups,
   defaultFilters,
   filterSelectProps,
   setFilterSelectProps,
   view,
-  ...props
 }) {
-  const classes = useStyles(props);
   const [availableGroups, setAvailableGroups] = useState([]);
 
   const handleFilterSelectProps = (v) => {
@@ -122,7 +113,11 @@ function Filters({
   }
 
   return (
-    <div className={classes.root}>
+    <Box
+      sx={({ typography }) => ({
+        paddingBottom: typography.pxToRem(18),
+      })}
+    >
       {
         // default filters cannot be deleted
         // & their attributes cannot be changes, but values can
@@ -149,7 +144,7 @@ function Filters({
       {availableGroups?.length > 0 && (
         <ButtonBase onClick={addFilter}>Add new filter</ButtonBase>
       )}
-    </div>
+    </Box>
   );
 }
 
