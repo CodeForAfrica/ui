@@ -120,11 +120,6 @@ function PinAndCompare({
             height: theme.typography.pxToRem(310),
             boxShadow: "none",
           },
-          "& .MuiMenu-list": {
-            padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
-              10,
-            )} ${theme.typography.pxToRem(15)} !important`,
-          },
         }}
       />
     </Grid>

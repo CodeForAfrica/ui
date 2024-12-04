@@ -113,13 +113,10 @@ function ChartFilter({
               }}
               MenuProps={{
                 "& .MuiMenu-paper": {
-                  height: theme.typography.pxToRem(310),
+                  maxHeight: theme.typography.pxToRem(310),
                   boxShadow: "none",
-                },
-                "& .MuiMenu-list": {
-                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
-                    10,
-                  )} ${theme.typography.pxToRem(15)} !important`,
+                  borderRadius: 0,
+                  marginTop: theme.typography.pxToRem(5),
                 },
               }}
             />

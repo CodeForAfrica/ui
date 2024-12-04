@@ -7,7 +7,7 @@ function CategoryHeader({ title, description, icon, ...props }) {
     return null;
   }
   return (
-    <div>
+    <Box>
       <Typography
         {...props}
         variant="h3"
@@ -48,7 +48,7 @@ function CategoryHeader({ title, description, icon, ...props }) {
           {description}
         </Typography>
       )}
-    </div>
+    </Box>
   );
 }
 

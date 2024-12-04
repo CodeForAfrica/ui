@@ -109,6 +109,18 @@ function Input({
                 borderRadius: "0",
               },
             },
+            "& .MuiMenu-list": {
+              paddingTop: 0,
+              paddingBottom: 0,
+              "& li": {
+                fontWeight: 400,
+                paddingTop: typography.pxToRem(12),
+                paddingBottom: typography.pxToRem(12),
+              },
+              "& li.Mui-selected": {
+                fontWeight: "bold",
+              },
+            },
             ...MenuProps,
           }),
           anchorOrigin: {
@@ -130,7 +142,7 @@ function Input({
           background: palette.background.paper,
           color: "#959696",
           borderStyle: "none",
-          borderRadius: 2,
+          borderRadius: typography.pxToRem(2),
           paddingBottom: typography.pxToRem(15),
           paddingTop: typography.pxToRem(15),
           fontSize: `${typography.caption.fontSize} !important`,
