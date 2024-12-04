@@ -111,7 +111,6 @@ module.exports = [
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "react/require-default-props": "off",
-      "react-hooks/exhaustive-deps": "off",
       "import/no-extraneous-dependencies": "off",
       "no-unused-vars": [
         "error",
