@@ -101,7 +101,7 @@ const RegisterTab = {
     },
     {
       type: "collapsible",
-      label: "Form Messages",
+      label: "Messages",
       fields: [
         {
           name: "successFeedback",
@@ -124,7 +124,7 @@ const RegisterTab = {
     },
     {
       type: "collapsible",
-      label: "Buttons",
+      label: "Actions",
       fields: [
         {
           type: "row",
