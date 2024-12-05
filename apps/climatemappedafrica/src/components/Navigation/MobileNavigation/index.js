@@ -21,72 +21,6 @@ import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
-  dialog: {
-    padding: 0,
-  },
-  firstTitle: {
-    color: palette.background.default,
-    fontWeight: "normal",
-    [breakpoints.up("lg")]: {
-      fontWeight: "bold",
-    },
-  },
-  secondTitle: {
-    color: palette.background.default,
-  },
-  subtitle: {
-    color: palette.background.default,
-  },
-  logoSection: {
-    borderBottom: `2px solid ${palette.background.default}`,
-    padding: `${typography.pxToRem(10)} 0`,
-  },
-  backdrop: {
-    backgroundColor: "transparent",
-  },
-  dialogActions: {
-    padding: 0,
-  },
-  dialogContent: {
-    overflow: "hidden",
-    padding: `${typography.pxToRem(40)} 0`,
-  },
-  dialogMenu: {
-    padding: `${typography.pxToRem(10.35)} 0`,
-  },
-  dialogPaper: {
-    background: palette.primary.main,
-    position: "absolute",
-    left: 0,
-    top: 0,
-    overflow: "hidden",
-  },
-  menuButton: {
-    color: palette.grey.dark,
-    background: "#F0F0F0",
-    borderRadius: typography.pxToRem(50),
-    height: typography.pxToRem(34),
-    padding: 0,
-    width: typography.pxToRem(34),
-    "&:hover": {
-      background: "#F0F0F0",
-      borderRadius: typography.pxToRem(50),
-    },
-  },
-  menuItems: {
-    padding: `${typography.pxToRem(20)} 0 ${typography.pxToRem(71)}`,
-  },
-  button: {
-    color: palette.background.dark,
-    padding: typography.pxToRem(16),
-  },
-  open: {
-    fontSize: typography.pxToRem(32),
-  },
-  close: {
-    color: palette.background.default,
-    fontSize: typography.pxToRem(32),
-  },
   label: {
     [breakpoints.up("lg")]: {
       fontWeight: 600,
@@ -152,13 +86,7 @@ function MobileNavigation({
   };
 
   return (
-    <Grid
-      container
-      alignItems="center"
-      justifyContent="space-between"
-      className={classes.logoSection}
-      sx={sx}
-    >
+    <Grid container alignItems="center" justifyContent="space-between" sx={sx}>
       <Grid item xs={10}>
         <NextImageButton
           {...logo}
@@ -192,21 +120,32 @@ function MobileNavigation({
         fullScreen
         open={open}
         onClose={handleClose}
-        BackdropProps={{
-          classes: {
-            root: classes.backdrop,
-          },
-        }}
         TransitionComponent={Transition}
-        classes={{ root: classes.dialog, paper: classes.dialogPaper }}
+        sx={({ palette }) => ({
+          padding: 0,
+          "& .MuiDialog-paper": {
+            background: palette.primary.main,
+            position: "absolute",
+            left: 0,
+            top: 0,
+            overflow: "hidden",
+          },
+        })}
       >
-        <DialogActions className={classes.dialogActions}>
-          <Section className={classes.section}>
+        <DialogActions
+          sx={{
+            padding: 0,
+          }}
+        >
+          <Section>
             <Grid
               container
               alignItems="center"
               justifyContent="space-between"
-              className={classes.logoSection}
+              sx={({ typography, palette }) => ({
+                borderBottom: `2px solid ${palette.background.default}`,
+                padding: `${typography.pxToRem(10)} 0`,
+              })}
             >
               <Grid item xs={10}>
                 <NextImageButton
@@ -239,8 +178,13 @@ function MobileNavigation({
             </Grid>
           </Section>
         </DialogActions>
-        <DialogContent className={classes.dialogContent}>
-          <Section className={classes.section}>
+        <DialogContent
+          sx={({ typography }) => ({
+            overflow: "hidden",
+            padding: `${typography.pxToRem(40)} 0`,
+          })}
+        >
+          <Section>
             <Menu
               explorePagePath={explorePagePath}
               links={menus}
