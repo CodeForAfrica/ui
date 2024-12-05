@@ -1,68 +1,9 @@
-import { StayInTouch } from "@commons-ui/next";
+import { StayInTouch, Link } from "@commons-ui/next";
 import { Grid, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Link from "@/climatemappedafrica/components/Link";
-
-const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
-  root: {
-    [breakpoints.up("lg")]: {
-      padding: 0,
-    },
-  },
-  links: {
-    padding: `${typography.pxToRem(14)} ${typography.pxToRem(28)} `,
-    "&:hover": {
-      padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)} `,
-      border: "1px solid",
-    },
-  },
-  text: {
-    "&::after": {
-      content: '""',
-      backgroundImage: "none",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      marginLeft: 0,
-      height: 0,
-      width: 0,
-    },
-    "&:hover::after": {
-      content: '""',
-      backgroundImage: "none",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      transition: "margin 0.3s ease",
-      marginLeft: 0,
-      height: 0,
-      width: 0,
-    },
-  },
-  menuLinks: {
-    color: palette.text.secondary,
-    margin: `${typography.pxToRem(10)} ${typography.pxToRem(-8)}`,
-    "&:hover, &:focus, &:focus-within": {
-      backgroundColor: "transparent",
-      textDecoration: "none",
-      color: palette.text.secondary,
-    },
-    [breakpoints.up("lg")]: {
-      padding: `${typography.pxToRem(7)} ${typography.pxToRem(18)}`,
-      color: palette.grey.dark,
-      "&:hover, &:focus, &:focus-within": {
-        color: "#707070",
-        backgroundColor: "transparent",
-        textDecoration: "none",
-      },
-    },
-  },
-}));
-
-function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
-  const classes = useStyles(props);
-
+function Menu({ children, explorePagePath, links, socialLinks }) {
   if (!links?.length) {
     return null;
   }
@@ -101,23 +42,23 @@ function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
           })}
         >
           <Link
-            classes={{
-              root:
-                item.href === exploreHref ? classes.links : classes.menuLinks,
-              text: classes.text,
-            }}
             color={index !== 0 ? "secondary" : "primary"}
             display="inline-flex"
             href={item.href}
             size="large"
             underline="none"
             variant={index !== 0 ? "text" : "outlined"}
-            sx={(theme) => ({
+            sx={({ palette, typography }) => ({
               borderRadius: 20,
               border: item.href === exploreHref ? "3px solid" : 0,
               color: {
-                xs: theme.palette.text.secondary,
-                lg: theme.palette.primary.main,
+                xs: palette.text.secondary,
+                lg: palette.primary.main,
+              },
+              padding: `${typography.pxToRem(14)} ${typography.pxToRem(28)} `,
+              "&:hover": {
+                padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)} `,
+                border: "1px solid",
               },
             })}
           >
