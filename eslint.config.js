@@ -1,8 +1,13 @@
 const eslintConfig = require("eslint-config-commons-ui/next");
 
-export default [
+module.exports = [
   {
     settings: {
+      "import/resolver": {
+        webpack: {
+          config: "./eslint.webpack.config.js",
+        },
+      },
       next: {
         rootDir: "apps/*/",
       },
