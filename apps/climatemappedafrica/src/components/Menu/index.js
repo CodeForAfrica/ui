@@ -19,15 +19,6 @@ const useStyles = makeStyles(({ typography, breakpoints, palette }) => ({
       border: "1px solid",
     },
   },
-  label: {
-    fontWeight: 600,
-    letterSpacing: "1.6px",
-    fontSize: typography.pxToRem(20),
-    [breakpoints.up("lg")]: {
-      fontSize: typography.pxToRem(16),
-    },
-    textTransform: "uppercase",
-  },
   text: {
     "&::after": {
       content: '""',
@@ -82,7 +73,11 @@ function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
       alignItems={{ lg: "center" }}
       direction={{ xs: "column", lg: "row" }}
       justifyContent={{ lg: "flex-end" }}
-      className={classes.root}
+      sx={{
+        padding: {
+          lg: 0,
+        },
+      }}
     >
       {links.map((item, index) => (
         <Grid
@@ -129,7 +124,15 @@ function Menu({ children, explorePagePath, links, socialLinks, ...props }) {
             <Typography
               component="span"
               variant="body1"
-              className={classes.label}
+              sx={({ typography }) => ({
+                fontWeight: 600,
+                letterSpacing: "1.6px",
+                fontSize: {
+                  xs: typography.pxToRem(20),
+                  lg: typography.pxToRem(16),
+                },
+                textTransform: "uppercase",
+              })}
             >
               {item.label}
             </Typography>
