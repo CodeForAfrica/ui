@@ -1,4 +1,4 @@
-import formInputFields from "#civicsignalblog/payload/fields/formInputFields";
+import formInputFieldGroup from "#civicsignalblog/payload/fields/formInputFieldGroup";
 import richText from "#civicsignalblog/payload/fields/richText";
 
 const LoginTab = {
@@ -21,22 +21,24 @@ const LoginTab = {
       type: "collapsible",
       label: "Fields",
       fields: [
-        formInputFields({
-          minRows: 2,
-          maxRows: 2,
-          validate: (val, args) => {
-            if (val.length < args.minRows)
-              return `You must add ${args.minRows} form input fields`;
-
-            if (!val.some((field) => field.name === "email")) {
-              return "Login form must have a field with email as name";
-            }
-
-            if (!val.some((field) => field.name === "password")) {
-              return "Login form must have a field with password as name";
-            }
-            return true;
-          },
+        formInputFieldGroup({ label: "E-mail", name: "email" }),
+        formInputFieldGroup({ label: "Password", name: "password" }),
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Messages",
+      fields: [
+        {
+          name: "loginFailed",
+          type: "text",
+          defaultValue: "Your email or password was wrong.",
+          required: true,
+        },
+        richText({
+          name: "needsToActivate",
+          required: true,
+          localized: true,
         }),
       ],
     },
@@ -70,23 +72,6 @@ const LoginTab = {
             },
           ],
         },
-      ],
-    },
-    {
-      type: "collapsible",
-      label: "Messages",
-      fields: [
-        {
-          name: "loginFailed",
-          type: "text",
-          defaultValue: "Your email or password was wrong.",
-          required: true,
-        },
-        richText({
-          name: "needsToActivate",
-          required: true,
-          localized: true,
-        }),
       ],
     },
   ],

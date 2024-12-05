@@ -1,4 +1,4 @@
-import formInputFields from "#civicsignalblog/payload/fields/formInputFields";
+import formInputFieldGroup from "#civicsignalblog/payload/fields/formInputFieldGroup";
 import richText from "#civicsignalblog/payload/fields/richText";
 
 const RegisterTab = {
@@ -28,57 +28,47 @@ const RegisterTab = {
       type: "collapsible",
       label: "Fields",
       fields: [
-        formInputFields({
-          minRows: 5,
-          maxRows: 5,
-          validate: (val, args) => {
-            if (val.length < args.minRows)
-              return `You must add ${args.minRows} form input fields`;
-
-            const requiredFields = [
-              "email",
-              "fullname",
-              "password",
-              "confirm_password",
-              "notes",
-              "terms_of_use",
-            ];
-
-            const missingFields = requiredFields.filter(
-              (fieldName) => !val.some((field) => field.name === fieldName),
-            );
-
-            if (missingFields.length > 0) {
-              return `Registration form must have fields with the following names: ${missingFields.join(", ")}`;
-            }
-
-            return true;
-          },
+        formInputFieldGroup({ label: "E-mail", name: "email" }),
+        formInputFieldGroup({ label: "Full Name", name: "fullName" }),
+        formInputFieldGroup({
+          label: "Password",
+          name: "password",
+          additionalFields: [
+            {
+              name: "passwordsMismatch",
+              type: "text",
+              required: true,
+              localized: true,
+            },
+            {
+              name: "passwordTooShort",
+              type: "text",
+              required: true,
+              localized: true,
+            },
+          ],
         }),
+        formInputFieldGroup({
+          label: "Confirm Password",
+          name: "confirmPassword",
+          includeErrorMessageField: false,
+        }),
+        formInputFieldGroup({
+          label: "Notes",
+          name: "notes",
+          includeHintField: true,
+        }),
+        formInputFieldGroup({ label: "Consent", name: "consent" }),
       ],
     },
     {
       type: "collapsible",
-      label: "Form Messages",
+      label: "Messages",
       fields: [
         {
           name: "successFeedback",
           type: "text",
           defaultValue: "Successfully signed up.",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "passwordsMismatch",
-          type: "text",
-          defaultValue: "Passwords do not match.",
-          required: true,
-          localized: true,
-        },
-        {
-          name: "passwordTooShort",
-          type: "text",
-          defaultValue: "Passwords must be at least 8 characters long..",
           required: true,
           localized: true,
         },

@@ -1,4 +1,4 @@
-import formInputFields from "#civicsignalblog/payload/fields/formInputFields";
+import formInputFieldGroup from "#civicsignalblog/payload/fields/formInputFieldGroup";
 
 const ResetPassword = {
   label: "Reset Password Form",
@@ -27,39 +27,7 @@ const ResetPassword = {
     {
       type: "collapsible",
       label: "Fields",
-      fields: [
-        formInputFields({
-          minRows: 1,
-          maxRows: 1,
-          validate: (val, args) => {
-            if (val.length < args.minRows)
-              return `You must add ${args.minRows} form input fields`;
-
-            if (!val.some((field) => field.name === "email")) {
-              return "Login form must have a field with email as name";
-            }
-            return true;
-          },
-        }),
-      ],
-    },
-    {
-      type: "collapsible",
-      label: "Buttons",
-      fields: [
-        {
-          type: "row",
-          fields: [
-            {
-              name: "passwordResetButton",
-              type: "text",
-              defaultValue: "Send Password Reset Email",
-              required: true,
-              localized: true,
-            },
-          ],
-        },
-      ],
+      fields: [formInputFieldGroup({ label: "E-mail", name: "email" })],
     },
     {
       type: "collapsible",
@@ -85,6 +53,24 @@ const ResetPassword = {
             "We have reset your password. We emailed you just to confirm that you did this on purpose - don't be suprised.",
           required: true,
           localized: true,
+        },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Buttons",
+      fields: [
+        {
+          type: "row",
+          fields: [
+            {
+              name: "passwordResetButton",
+              type: "text",
+              defaultValue: "Send Password Reset Email",
+              required: true,
+              localized: true,
+            },
+          ],
         },
       ],
     },
