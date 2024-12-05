@@ -77,7 +77,14 @@ export default buildConfig({
     MediaData,
     Users,
   ] as CollectionConfig[],
-  globals: [Publication, Research, Main, Login, Registration, PasswordReset] as GlobalConfig[],
+  globals: [
+    Publication,
+    Research,
+    Main,
+    Login,
+    Registration,
+    PasswordReset,
+  ] as GlobalConfig[],
   ...(locales?.length
     ? {
         localization: {
