@@ -37,7 +37,7 @@ const LoginTab = {
     },
     {
       type: "collapsible",
-      label: "Messages",
+      label: "Form Messages",
       fields: [
         {
           name: "loginFailed",

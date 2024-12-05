@@ -101,7 +101,7 @@ const RegisterTab = {
     },
     {
       type: "collapsible",
-      label: "Messages",
+      label: "Form Messages",
       fields: [
         {
           name: "successFeedback",

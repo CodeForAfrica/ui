@@ -38,7 +38,7 @@ const ResetPassword = {
     },
     {
       type: "collapsible",
-      label: "Messages",
+      label: "Form Messages",
       fields: [
         {
           name: "passwordResetFailed",
