@@ -27,7 +27,14 @@ const ResetPassword = {
     {
       type: "collapsible",
       label: "Fields",
-      fields: [formInputFieldGroup({ label: "E-mail", name: "email" })],
+      fields: [
+        formInputFieldGroup({
+          label: "E-mail",
+          name: "email",
+          defaultLabelValue: "Email",
+          defaultErrorMessage: "You need to enter a valid email address.",
+        }),
+      ],
     },
     {
       type: "collapsible",

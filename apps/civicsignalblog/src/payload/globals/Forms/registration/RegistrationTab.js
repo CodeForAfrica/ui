@@ -28,22 +28,36 @@ const RegisterTab = {
       type: "collapsible",
       label: "Fields",
       fields: [
-        formInputFieldGroup({ label: "E-mail", name: "email" }),
-        formInputFieldGroup({ label: "Full Name", name: "fullName" }),
+        formInputFieldGroup({
+          label: "E-mail",
+          name: "email",
+          defaultLabelValue: "Email",
+          defaultErrorMessage: "You need to enter a valid email address.",
+        }),
+        formInputFieldGroup({
+          label: "Full Name",
+          name: "fullName",
+          includeErrorMessageField: false,
+          defaultLabelValue: "Full Name",
+        }),
         formInputFieldGroup({
           label: "Password",
           name: "password",
+          defaultLabelValue: "Password",
+          defaultErrorMessage: "You need to enter your password.",
           additionalFields: [
             {
               name: "passwordsMismatch",
               type: "text",
               required: true,
+              defaultValue: "You need to enter your password.",
               localized: true,
             },
             {
               name: "passwordTooShort",
               type: "text",
               required: true,
+              defaultValue: "Passwords must be at least 8 characters long.",
               localized: true,
             },
           ],
@@ -51,14 +65,38 @@ const RegisterTab = {
         formInputFieldGroup({
           label: "Confirm Password",
           name: "confirmPassword",
+          defaultLabelValue: "Confirm Password",
           includeErrorMessageField: false,
         }),
         formInputFieldGroup({
           label: "Notes",
           name: "notes",
+          defaultHint:
+            "Tell us a little about what you want to use Media Cloud for",
+          defaultLabelValue: "Notes",
+          defaultErrorMessage:
+            "You have to tell us a little about why you want to use Media Cloud.",
           includeHintField: true,
         }),
-        formInputFieldGroup({ label: "Consent", name: "consent" }),
+        {
+          type: "collapsible",
+          label: "Consent",
+          fields: [
+            richText({
+              name: "consentLabel",
+              label: "Label",
+              required: true,
+              localized: true,
+            }),
+            {
+              name: "consentError",
+              type: "text",
+              defaultValue: "You must agree to our Terms and Policies",
+              required: true,
+              localized: true,
+            },
+          ],
+        },
       ],
     },
     {
