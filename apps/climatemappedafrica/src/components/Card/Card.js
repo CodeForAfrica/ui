@@ -1,18 +1,15 @@
 import { Link } from "@commons-ui/next";
-import { Card as MuiCard } from "@mui/material";
+import { Card as MuiCard, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import CardActionArea from "./ActionArea";
 import CardContent from "./Content";
 import CardMedia from "./Media";
-import useStyles from "./useStyles";
 
 function Card({
   alt,
   chart,
-  children,
-  className,
   ctaText,
   description,
   descriptionProps,
@@ -28,10 +25,9 @@ function Card({
   titleProps,
   variant,
   sx,
-  ...props
 }) {
   const squareMedia = mediaProps?.square;
-  const classes = useStyles({ ...props, squareMedia });
+  const theme = useTheme();
   const actionAreaProps = { href, onClick };
   const contentProps = {
     description,
@@ -46,34 +42,27 @@ function Card({
     <MuiCard
       elevation={0}
       square
-      sx={(theme) => ({
+      sx={({ typography }) => ({
         backgroundColor: "inherit",
         boxShadow: "none",
         borderRadius: 0,
         padding: {
-          xs: squareMedia ? `0 ${theme.typography.pxToRem(36)}` : 0,
+          xs: squareMedia ? `0 ${typography.pxToRem(36)}` : 0,
           md: 0,
         },
         minWidth: {
-          xs: theme.typography.pxToRem(350),
+          xs: typography.pxToRem(350),
           md: "unset",
         },
         width: {
           xs: "100%",
-          md: theme.typography.pxToRem(squareMedia ? 278 : 296),
-          lg: theme.typography.pxToRem(squareMedia ? 278 : 376),
+          md: typography.pxToRem(squareMedia ? 278 : 296),
+          lg: typography.pxToRem(squareMedia ? 278 : 376),
         },
         ...sx,
       })}
     >
-      <CardActionArea
-        {...actionAreaProps}
-        classes={{
-          root: classes.actionArea,
-          focusHighlight: classes.actionAreaFocusHighlight,
-          focusVisible: classes.actionAreaFocusVisible,
-        }}
-      >
+      <CardActionArea {...actionAreaProps}>
         <CardMedia
           {...mediaProps}
           alt={alt}
@@ -83,16 +72,46 @@ function Card({
           imageProps={imageProps}
           media={media}
           variant={variant}
-          classes={{ root: classes.media, image: classes.mediaImage }}
         />
         <CardContent
           {...contentProps}
-          classes={{
-            root: classes.content,
-            description: classes.contentDescription,
-            link: classes.contentLink,
-            title: classes.contentTitle,
+          TitleProps={{
+            sx: {
+              marginTop: theme.typography.pxToRem(squareMedia ? 20 : 40),
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              textOverflow: "ellipsis",
+            },
           }}
+          DescriptionProps={{
+            sx: {
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              textOverflow: "ellipsis",
+            },
+          }}
+          sx={({ typography }) => ({
+            backgroundColor: "inherit",
+            boxShadow: "none",
+            borderRadius: 0,
+            padding: {
+              xs: squareMedia ? `0 ${typography.pxToRem(36)}` : 0,
+              md: 0,
+            },
+            minWidth: {
+              xs: typography.pxToRem(350),
+              md: "unset",
+            },
+            width: {
+              xs: "100%",
+              md: typography.pxToRem(squareMedia ? 278 : 296),
+              lg: typography.pxToRem(squareMedia ? 278 : 376),
+            },
+          })}
         />
       </CardActionArea>
       {href && ctaText && (
@@ -101,9 +120,9 @@ function Card({
           underline="always"
           variant="subtitle2"
           {...linkProps}
-          sx={(theme) => ({
+          sx={({ typography }) => ({
             display: "inline-flex",
-            marginTop: theme.typography.pxToRem(20),
+            marginTop: typography.pxToRem(20),
             fontWeight: "bold",
           })}
         >
