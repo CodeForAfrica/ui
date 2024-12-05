@@ -3,7 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-function Menu({ children, explorePagePath, links, socialLinks }) {
+function Menu({ children, explorePagePath, links, socialLinks, LinkProps }) {
   if (!links?.length) {
     return null;
   }
@@ -60,6 +60,7 @@ function Menu({ children, explorePagePath, links, socialLinks }) {
                 padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)} `,
                 border: "1px solid",
               },
+              ...LinkProps,
             })}
           >
             <Typography

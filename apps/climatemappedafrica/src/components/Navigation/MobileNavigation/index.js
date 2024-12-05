@@ -6,8 +6,8 @@ import {
   IconButton,
   DialogContent,
   SvgIcon,
+  useTheme,
 } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -19,38 +19,6 @@ import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Menu from "@/climatemappedafrica/components/Menu";
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
-
-const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
-  label: {
-    [breakpoints.up("lg")]: {
-      fontWeight: 600,
-      letterSpacing: "1.6px",
-      fontSize: typography.pxToRem(20),
-    },
-  },
-  buttonMenu: {
-    margin: 0,
-  },
-  links: {
-    display: "inline-block",
-  },
-  menuLinks: {
-    color: palette.text.secondary,
-    display: "inline-block",
-    margin: `${typography.pxToRem(10)} 0`,
-    "&:hover, &:focus, &:focus-within": {
-      backgroundColor: "transparent",
-      textDecoration: "none",
-      color: palette.text.secondary,
-    },
-  },
-  mainMenu: {
-    [breakpoints.up("lg")]: {
-      flexDirection: "column",
-      justifyContent: "flex-start",
-    },
-  },
-}));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={1000} ref={ref} {...props} />;
@@ -65,9 +33,9 @@ function MobileNavigation({
   sx,
   ...props
 }) {
-  const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const theme = useTheme();
 
   const handleClickOpen = (e) => {
     e?.preventDefault();
@@ -103,8 +71,8 @@ function MobileNavigation({
           aria-label="Open drawer"
           size="medium"
           onClick={handleClickOpen}
-          sx={(theme) => ({
-            color: theme.palette.grey.dark,
+          sx={({ palette }) => ({
+            color: palette.grey.dark,
             padding: 0,
           })}
         >
@@ -189,12 +157,9 @@ function MobileNavigation({
               explorePagePath={explorePagePath}
               links={menus}
               socialLinks={socialLinks}
-              classes={{
-                root: classes.mainMenu,
-                links: classes.links,
-                menuLinks: classes.menuLinks,
-                label: classes.label,
-                menu: classes.buttonMenu,
+              LinkProps={{
+                padding: 0,
+                margin: `${theme.typography.pxToRem(10)} 0`,
               }}
             >
               <DropdownSearch
