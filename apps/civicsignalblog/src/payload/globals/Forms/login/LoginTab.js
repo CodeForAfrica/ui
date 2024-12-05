@@ -21,8 +21,18 @@ const LoginTab = {
       type: "collapsible",
       label: "Fields",
       fields: [
-        formInputFieldGroup({ label: "E-mail", name: "email" }),
-        formInputFieldGroup({ label: "Password", name: "password" }),
+        formInputFieldGroup({
+          label: "E-mail",
+          name: "email",
+          defaultLabelValue: "Email",
+          defaultErrorMessage: "You need to enter your email address.",
+        }),
+        formInputFieldGroup({
+          label: "Password",
+          name: "password",
+          defaultLabelValue: "Password",
+          defaultErrorMessage: "You need to enter your password.",
+        }),
       ],
     },
     {

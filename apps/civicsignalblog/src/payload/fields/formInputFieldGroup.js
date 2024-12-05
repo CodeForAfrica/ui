@@ -1,8 +1,11 @@
 function formInputFieldGroup({
   label,
   name,
-  includeErrorMessageField = true,
   includeHintField = false,
+  includeErrorMessageField = true,
+  defaultLabelValue = "",
+  defaultErrorMessage = "",
+  defaultHint = "",
   additionalFields = [],
 }) {
   const fields = [
@@ -10,6 +13,7 @@ function formInputFieldGroup({
       name: `${name}Label`,
       label: "Label",
       type: "text",
+      defaultValue: defaultLabelValue,
       required: true,
     },
   ];
@@ -19,6 +23,7 @@ function formInputFieldGroup({
       name: `${name}Hint`,
       label: "Hint",
       type: "text",
+      defaultValue: defaultHint,
       required: true,
     });
   }
@@ -28,6 +33,7 @@ function formInputFieldGroup({
       name: `${name}ErrorMessage`,
       type: "text",
       label: "Error Message",
+      defaultValue: defaultErrorMessage,
       required: true,
     });
   }
