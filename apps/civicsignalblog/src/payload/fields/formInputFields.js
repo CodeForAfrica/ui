@@ -13,16 +13,7 @@ function formInputFields({ minRows, maxRows, validate }) {
     admin: {
       className: "array-field-nested",
       components: {
-        RowLabel: ({ data, index }) => {
-          let label = "";
-          if (data.name) {
-            label = data.name;
-          }
-          if (!label) {
-            label = `Field ${String(index).padStart(2, "0")}`;
-          }
-          return label;
-        },
+        RowLabel: ({ data, index }) => data.name || `Field ${String(index).padStart(2, "0")}`,
       },
       initCollapsed: true,
     },
