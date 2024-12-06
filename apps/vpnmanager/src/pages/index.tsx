@@ -1,8 +1,9 @@
+import { format, startOfYesterday } from "date-fns";
+import { GetSessionParams, getSession } from "next-auth/react";
+
 import Statistics from "@/vpnmanager/components/Statistics";
 import { Data } from "@/vpnmanager/components/Statistics/Statistics";
 import { getStats } from "@/vpnmanager/lib/statistics";
-import { GetSessionParams, getSession } from "next-auth/react";
-import { format, startOfYesterday } from "date-fns";
 
 interface Props {
   data: Data[];

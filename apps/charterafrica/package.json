@@ -62,6 +62,7 @@
     "@sentry/nextjs": "catalog:",
     "airtable": "catalog:",
     "dotenv": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
     "express": "catalog:",
     "leaflet": "catalog:",
     "migrate-mongo": "catalog:",

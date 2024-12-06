@@ -1,0 +1,26 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "build-next", "build-payload"]
+    },
+    "build-next": {
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": [
+        "PROJECT_ROOT",
+        "SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT"
+      ]
+    },
+    "build-payload": {
+      "outputs": ["build/**"],
+      "env": [
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "PAYLOAD_PUBLIC_APP_URL",
+        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
+        "PAYLOAD_PUBLIC_LOCALES"
+      ]
+    }
+  }
+}

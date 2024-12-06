@@ -5,7 +5,6 @@ import FeaturedProjects from "./FeaturedProjects";
 
 import theme from "@/codeforafrica/theme";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 const defaultProps = {
   projects: [],

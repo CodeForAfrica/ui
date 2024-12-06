@@ -47,6 +47,7 @@
     "eslint": "catalog:",
     "eslint-config-next": "catalog:",
     "eslint-config-prettier": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

@@ -1,8 +1,8 @@
 import { CacheProvider } from "@emotion/react";
-import { SessionProvider } from "next-auth/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 import React, { ReactNode } from "react";
 
 import Page from "@/vpnmanager/components/Page";

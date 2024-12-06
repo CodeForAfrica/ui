@@ -1,8 +1,10 @@
+import * as Sentry from "@sentry/nextjs";
+
+import { OutlineVPN } from "./outline";
+
+import spreadsheet, { updateSheet } from "@/vpnmanager/lib/data/spreadsheet";
 import { sendVpnKeyEmail } from "@/vpnmanager/lib/email/sender";
 import { OutlineUser, SheetRow } from "@/vpnmanager/types";
-import spreadsheet, { updateSheet } from "@/vpnmanager/lib/data/spreadsheet";
-import { OutlineVPN } from "./outline";
-import * as Sentry from "@sentry/nextjs";
 
 export async function processUser(item: SheetRow) {
   const { emailAddress } = item;

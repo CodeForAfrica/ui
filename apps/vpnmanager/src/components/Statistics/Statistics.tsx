@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import {
   Box,
   Table,
@@ -13,12 +14,11 @@ import {
   Button,
   TablePagination,
 } from "@mui/material";
-import { Section } from "@commons-ui/core";
+import { format, startOfYesterday } from "date-fns";
 import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
 import { fetchJson, formatBytes } from "@/vpnmanager/utils";
-import { Link } from "@commons-ui/next";
-import { format, startOfYesterday } from "date-fns";
 
 export interface Data {
   ID: number;
@@ -152,7 +152,7 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
               name="date"
               type="date"
               variant="outlined"
-              value={filters["date"]}
+              value={filters.date}
               onChange={handleFilterChange}
               placeholder="Date Start"
               size="small"
@@ -234,7 +234,7 @@ const Statistics: React.FC<Props> = ({ data: result }) => {
             <Link
               target="_blank"
               ref={exportRef}
-              href={"#"}
+              href="#"
               download="statistics.csv"
             >
               <Button sx={{ width: "100%" }} size="small" variant="contained">

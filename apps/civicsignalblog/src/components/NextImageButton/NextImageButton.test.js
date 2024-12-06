@@ -5,7 +5,6 @@ import NextImageButton from "./NextImageButton";
 
 import theme from "@/civicsignalblog/theme";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
 describe("<NextImageButton />", () => {

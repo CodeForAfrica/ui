@@ -1,5 +1,3 @@
-/* eslint-disable react/default-props-match-prop-types */
-
 import {
   StayInTouch,
   QuickLinks,

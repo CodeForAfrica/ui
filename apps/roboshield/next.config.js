@@ -1,5 +1,6 @@
-const { withSentryConfig } = require("@sentry/nextjs");
 const path = require("path");
+
+const { withSentryConfig } = require("@sentry/nextjs");
 
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT

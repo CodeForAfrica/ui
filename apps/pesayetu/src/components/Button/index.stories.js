@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import { Button } from "@mui/material";
 import React from "react";
 

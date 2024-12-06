@@ -5,7 +5,6 @@ import NavList from "./NavList";
 
 import { createTheme } from "@/commons-ui/core/styles";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme: createTheme() });
 
 describe("<NavList />", () => {
