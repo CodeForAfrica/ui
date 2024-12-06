@@ -1,6 +1,4 @@
 import { Grid } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
-import clsx from "clsx";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
 import React, { Fragment, memo } from "react";
@@ -20,33 +18,6 @@ const Chart = dynamic(
   },
 );
 
-const useStyles = makeStyles(({ typography, breakpoints }) => ({
-  metrics: {
-    marginTop: typography.pxToRem(24),
-  },
-  metricRow: {
-    [breakpoints.up("lg")]: {
-      marginBottom: typography.pxToRem(14),
-      marginLeft: typography.pxToRem(18),
-      maxWidth: typography.pxToRem(224),
-      "&:first-of-type": {
-        marginLeft: 0,
-      },
-    },
-  },
-  secondaryMetricRow: {
-    [breakpoints.up("lg")]: {
-      maxWidth: "100%",
-      marginLeft: 0,
-    },
-  },
-  secondaryMetric: {
-    [breakpoints.up("lg")]: {
-      maxWidth: typography.pxToRem(350),
-    },
-  },
-}));
-
 const ProfileItems = memo(
   function ProfileItems({
     categories,
@@ -57,8 +28,6 @@ const ProfileItems = memo(
     secondaryProfile,
     geoCode,
   }) {
-    const classes = useStyles();
-
     return (
       <>
         {categories.map((category, categoryIndex) => (
@@ -76,7 +45,12 @@ const ProfileItems = memo(
                   id={slugify(`${category.title}-${child.title}`)}
                   title={child.title}
                 />
-                <Grid container className={classes.metrics}>
+                <Grid
+                  container
+                  sx={({ typography }) => ({
+                    marginTop: typography.pxToRem(24),
+                  })}
+                >
                   {child?.metrics?.map(
                     (
                       {
@@ -116,8 +90,21 @@ const ProfileItems = memo(
                           container
                           lg={secondaryProfile ? 12 : 4}
                           key={label}
-                          className={clsx(classes.metricRow, {
-                            [classes.secondaryMetricRow]: secondaryProfile,
+                          sx={({ typography }) => ({
+                            marginBottom: {
+                              lg: typography.pxToRem(14),
+                            },
+                            marginLeft: {
+                              lg: secondaryProfile ? typography.pxToRem(18) : 0,
+                            },
+                            maxWidth: {
+                              lg: secondaryProfile
+                                ? typography.pxToRem(224)
+                                : "100%",
+                            },
+                            "&:first-of-type": {
+                              marginLeft: 0,
+                            },
                           })}
                         >
                           <Grid item xs={12} lg={secondaryProfile ? 6 : 12}>
@@ -132,11 +119,11 @@ const ProfileItems = memo(
                               value={value}
                               displayFormat={displayFormat}
                               metadata={metadata}
-                              classes={{
-                                root: clsx({
-                                  [classes.secondaryMetric]: secondaryProfile,
-                                }),
-                              }}
+                              sx={({ typography }) => ({
+                                maxWidth: {
+                                  lg: typography.pxToRem(350),
+                                },
+                              })}
                             />
                           </Grid>
                           {secondaryMetric && (
@@ -152,7 +139,11 @@ const ProfileItems = memo(
                                 value={secondaryValue}
                                 displayFormat={secondaryDisplayFormat}
                                 metadata={secondaryMetric.metric}
-                                className={classes.secondaryMetric}
+                                sx={({ typography }) => ({
+                                  maxWidth: {
+                                    lg: typography.pxToRem(350),
+                                  },
+                                })}
                               />
                             </Grid>
                           )}
