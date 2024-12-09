@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Link, RichTypography } from "@commons-ui/next";
 import {
   Box,

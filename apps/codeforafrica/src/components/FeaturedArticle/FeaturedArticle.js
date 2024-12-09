@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Link } from "@commons-ui/next";
 import { Button, CardActionArea, Grid, Typography } from "@mui/material";
 import React from "react";

@@ -5,7 +5,6 @@ import ErrorPage from "./ErrorPage";
 
 import theme from "@/codeforafrica/theme";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
 describe("<ErrorPage />", () => {

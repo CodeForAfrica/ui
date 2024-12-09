@@ -1,5 +1,10 @@
 import { dirname, join } from "path";
 /** @type { import('@storybook/nextjs').StorybookConfig } */
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")));
+}
+
 const config = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
@@ -15,7 +20,3 @@ const config = {
 };
 
 export default config;
-
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
-}

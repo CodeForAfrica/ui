@@ -11,6 +11,7 @@ export class OutlineVPN {
   apiUrl: string;
   fingerprint?: string;
   timeout?: number;
+
   constructor(options: OutlineOptions) {
     this.apiUrl = options.apiUrl;
     this.fingerprint = options.fingerprint;
@@ -75,9 +76,8 @@ export class OutlineVPN {
 
     if (userUsage) {
       return userUsage;
-    } else {
-      throw new Error("No user found, check metrics is enabled");
     }
+    throw new Error("No user found, check metrics is enabled");
   }
 
   public async getShareMetrics(): Promise<OutlineServerMetrics> {

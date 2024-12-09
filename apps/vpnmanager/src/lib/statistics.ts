@@ -1,7 +1,9 @@
-import { NextApiRequest } from "next/types";
-import { OutlineVPN } from "./outline";
-import { Filters, Model, Record } from "@/vpnmanager/lib/data/database";
 import { format } from "date-fns";
+import { NextApiRequest } from "next/types";
+
+import { OutlineVPN } from "./outline";
+
+import { Filters, Model, Record } from "@/vpnmanager/lib/data/database";
 
 const vpnManager = new OutlineVPN({
   apiUrl: process.env.NEXT_APP_VPN_API_URL as string,

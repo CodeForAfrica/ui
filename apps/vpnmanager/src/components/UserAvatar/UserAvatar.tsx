@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
 import { Avatar, Menu, MenuItem, IconButton, Typography } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
+import React, { useState } from "react";
 
 export default function UserAvatar() {
   const [anchorEl, setAnchorEl] = useState(null);

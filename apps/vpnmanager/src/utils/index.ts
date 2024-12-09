@@ -9,7 +9,7 @@ const formatBytes = (bytes: number, decimals = 2): string => {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   const size = sizes[i];
 
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(decimals))} ${size}`;
+  return `${parseFloat((bytes / k ** i).toFixed(decimals))} ${size}`;
 };
 
 export { toCamelCase, fetchJson, formatBytes };

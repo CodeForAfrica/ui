@@ -5,7 +5,6 @@ import MobileNavBar from "./MobileNavBar";
 
 import theme from "@/charterafrica/theme";
 
-// eslint-disable-next-line testing-library/render-result-naming-convention
 const render = createRender({ theme });
 
 const defaultProps = {

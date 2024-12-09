@@ -1,6 +1,7 @@
-import betterSqlite3 from "better-sqlite3";
-import path from "path";
 import fs from "fs";
+import path from "path";
+
+import betterSqlite3 from "better-sqlite3";
 
 const dbPath = path.resolve(process.cwd(), "data", "database.sqlite");
 const directory = path.dirname(dbPath);

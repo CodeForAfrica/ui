@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { Box } from "@mui/material";

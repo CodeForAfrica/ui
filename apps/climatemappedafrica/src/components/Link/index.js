@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import { A } from "@commons-ui/legacy";
 import { Link as MuiLink } from "@mui/material";
 import clsx from "clsx";
