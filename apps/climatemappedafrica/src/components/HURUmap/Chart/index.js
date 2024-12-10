@@ -1,8 +1,7 @@
 import { RichTypography } from "@commons-ui/legacy";
 import { ChartTooltip, IndicatorTitle, Download, Share } from "@hurumap/core";
 import { Source } from "@hurumap/next";
-import { useMediaQuery, useTheme } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import * as vega from "vega";
 import embed from "vega-embed";
@@ -18,25 +17,12 @@ import FacebookIcon from "@/climatemappedafrica/assets/icons/Facebook.svg";
 import LinkedInIcon from "@/climatemappedafrica/assets/icons/LinkedIn.svg";
 import InfoIcon from "@/climatemappedafrica/assets/icons/plus.svg";
 import ShareIcon from "@/climatemappedafrica/assets/icons/share.svg";
-import TwitterIcon from "@/climatemappedafrica/assets/icons/Twitter.svg";
 import WhatsAppIcon from "@/climatemappedafrica/assets/icons/WhatsApp.svg";
+import XLogo from "@/climatemappedafrica/assets/icons/x-logo.svg";
 import cfalogo from "@/climatemappedafrica/assets/logos/cfa.svg";
 import projectlogo from "@/climatemappedafrica/assets/logos/projectLogo.svg";
 import config, { hurumapArgs } from "@/climatemappedafrica/config";
 import site from "@/climatemappedafrica/utils/site";
-
-const useStyles = makeStyles(({ typography }) => ({
-  root: {
-    position: "relative",
-    width: "100%",
-    "&:last-of-type": {
-      marginBottom: typography.pxToRem(32),
-    },
-  },
-  chart: {
-    width: "100%",
-  },
-}));
 
 function Chart({
   indicator,
@@ -48,7 +34,6 @@ function Chart({
   isCompare,
   ...props
 }) {
-  const classes = useStyles(props);
   const chartRef = useRef();
   const tooltipRef = useRef();
   const [view, setView] = useState(null);
@@ -228,7 +213,7 @@ function Chart({
     },
     {
       name: "Twitter",
-      icon: TwitterIcon,
+      icon: XLogo,
       props: { title, via: "Code4Africa", related: ["Code4Africa"] },
     },
     {
@@ -328,7 +313,16 @@ function Chart({
   ];
 
   return (
-    <div className={classes.root} id={`chart-${id}-${geoCode}`}>
+    <Box
+      id={`chart-${id}-${geoCode}`}
+      sx={({ typography }) => ({
+        position: "relative",
+        width: "100%",
+        "&:last-of-type": {
+          marginBottom: typography.pxToRem(32),
+        },
+      })}
+    >
       <IndicatorTitle
         title={title}
         description={description}
@@ -357,7 +351,12 @@ function Chart({
           view={view}
         />
       )}
-      <div ref={chartRef} className={classes.chart} />
+      <Box
+        ref={chartRef}
+        sx={{
+          width: "100%",
+        }}
+      />
       <RichTypography
         variant="body2"
         sx={(theme) => ({
@@ -393,7 +392,7 @@ function Chart({
           }
         />
       )}
-    </div>
+    </Box>
   );
 }
 

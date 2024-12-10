@@ -1,8 +1,6 @@
-import { Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-
-import useStyles from "./useStyles";
 
 import CloseIcon from "@/climatemappedafrica/assets/icons/x.svg";
 import Select from "@/climatemappedafrica/components/Select";
@@ -17,10 +15,7 @@ function ChartFilter({
   valueText = "Select a value:",
   selectedAttribute: selectedAttributeProp,
   selectedValue: selectedValueProp,
-  ...props
 }) {
-  const classes = useStyles(props);
-
   const [selectedAttribute, setSelectedAttribute] = useState(
     selectedAttributeProp,
   );
@@ -28,6 +23,8 @@ function ChartFilter({
 
   const [attributeOptions, setAttributeOptions] = useState([]);
   const [valueOptions, setValueOptions] = useState([]);
+
+  const theme = useTheme();
 
   useEffect(() => {
     if (index === "default") {
@@ -86,36 +83,75 @@ function ChartFilter({
   }
 
   return (
-    <div className={classes.root}>
+    <Box
+      sx={({ typography }) => ({
+        paddingBottom: typography.pxToRem(10),
+      })}
+    >
       <Grid container alignItems="flex-end">
         {attributeOptions?.length > 0 && (
-          <Grid item className={classes.grid}>
+          <Grid
+            sx={({ typography }) => ({
+              marginRight: { md: typography.pxToRem(10) },
+            })}
+          >
             <Select
               helperText={attributeText}
               options={attributeOptions}
               selected={selectedAttribute}
               onChange={onAtrributeChange}
               disabled={index === "default"}
-              classes={{
-                select: classes.select,
-                filled: classes.filled,
-                paper: classes.selectPaper,
+              SelectProps={{
+                width: theme.typography.pxToRem(205),
+                height: theme.typography.pxToRem(40),
+                paddingLeft: 0,
+                "& .MuiSelect-filled": {
+                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+                    10,
+                  )} ${theme.typography.pxToRem(15)} !important`,
+                },
+              }}
+              MenuProps={{
+                "& .MuiMenu-paper": {
+                  maxHeight: theme.typography.pxToRem(310),
+                  boxShadow: "none",
+                  borderRadius: 0,
+                  marginTop: theme.typography.pxToRem(5),
+                },
               }}
             />
           </Grid>
         )}
         {valueOptions?.length > 0 && (
-          <Grid item className={classes.grid}>
+          <Grid
+            item
+            sx={({ typography }) => ({
+              marginRight: { md: typography.pxToRem(10) },
+            })}
+          >
             <Select
               helperText={valueText}
               options={valueOptions}
               selected={selectedValue}
               label={selectedValue?.length ? "" : "Select a value"}
               onChange={onValueChange}
-              classes={{
-                select: classes.select,
-                filled: classes.filled,
-                paper: classes.selectPaper,
+              SelectProps={{
+                width: theme.typography.pxToRem(205),
+                height: theme.typography.pxToRem(40),
+                paddingLeft: 0,
+                "& .MuiSelect-filled": {
+                  padding: `${theme.typography.pxToRem(10)} 0 ${theme.typography.pxToRem(
+                    10,
+                  )} ${theme.typography.pxToRem(15)} !important`,
+                },
+              }}
+              MenuProps={{
+                "& .MuiMenu-paper": {
+                  maxHeight: theme.typography.pxToRem(310),
+                  boxShadow: "none",
+                  borderRadius: 0,
+                  marginTop: theme.typography.pxToRem(5),
+                },
               }}
             />
           </Grid>
@@ -123,7 +159,15 @@ function ChartFilter({
         {index !== "default" && index !== 0 && (
           <Grid item>
             <IconButton
-              className={classes.icon}
+              sx={({ palette, typography }) => ({
+                padding: 0,
+                background: palette.background.paper,
+                "& :hover": {
+                  background: palette.background.paper,
+                },
+                height: typography.pxToRem(36),
+                width: typography.pxToRem(36),
+              })}
               onClick={removeFilter}
               size="large"
             >
@@ -132,7 +176,7 @@ function ChartFilter({
           </Grid>
         )}
       </Grid>
-    </div>
+    </Box>
   );
 }
 
