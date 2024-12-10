@@ -671,7 +671,7 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.5))(ajv@6.12.6)(payload@2.30.3(@swc/helpers@0.5.5)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.5)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
         version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.5)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))
@@ -18023,9 +18023,9 @@ snapshots:
 
   '@panva/hkdf@1.2.1': {}
 
-  '@payloadcms/bundler-webpack@1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.5))(ajv@6.12.6)(payload@2.30.3(@swc/helpers@0.5.5)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)':
+  '@payloadcms/bundler-webpack@1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.5))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.5)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.5))(webpack-cli@4.10.0)))(sass@1.69.4)':
     dependencies:
-      ajv: 6.12.6
+      ajv: 8.17.1
       compression: 1.7.4
       connect-history-api-fallback: 1.6.0
       css-loader: 5.2.7(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.5))(webpack-cli@4.10.0))
