@@ -7,12 +7,6 @@ import Card from "@/climatemappedafrica/components/Card";
 import Carousel from "@/climatemappedafrica/components/Carousel";
 import Section from "@/climatemappedafrica/components/Section";
 
-// NOTE(kilemensi) useStyles uses import/definition order to determine how
-//                 classes are ordered.
-//                 see: https://material-ui.com/styles/advanced/#makestyles-withstyles-styled
-// eslint-disable-next-line import/order
-import useStyles from "./useStyles";
-
 const responsive = {
   desktop: {
     items: 4,
@@ -24,9 +18,8 @@ const responsive = {
   },
 };
 
-function AboutTeam({ title, members: membersProp, ...props }) {
+function AboutTeam({ title, members: membersProp }) {
   const membersCount = membersProp?.length ?? 0;
-  const classes = useStyles({ ...props, membersCount });
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const ref = useRef();
@@ -54,7 +47,6 @@ function AboutTeam({ title, members: membersProp, ...props }) {
         {title && (
           <Typography
             variant="h4"
-            className={classes.title}
             sx={{
               textAlign: "center",
               paddingBottom: { xs: 5, md: 10 },
@@ -66,7 +58,23 @@ function AboutTeam({ title, members: membersProp, ...props }) {
         <Carousel
           afterChange={scrollToTeam}
           responsive={responsive}
-          classes={{ dotList: classes.dotList }}
+          DotListProps={{
+            sx: {
+              display: {
+                xs: membersCount > 2 ? "flex" : "none",
+                md: membersCount > 4 ? "flex" : "none",
+              },
+              "& button": {
+                borderColor: "#000",
+                height: theme.typography.pxToRem(16),
+                marginRight: theme.typography.pxToRem(12),
+                width: theme.typography.pxToRem(16),
+              },
+              "& .react-multi-carousel-dot--active button": {
+                borderColor: "#000",
+              },
+            },
+          }}
         >
           {membersProp.map((member) => (
             <Card
