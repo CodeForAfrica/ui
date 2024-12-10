@@ -60,7 +60,7 @@ function Menu({ children, explorePagePath, links, socialLinks, LinkProps }) {
                 padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)} `,
                 border: "1px solid",
               },
-              ...LinkProps,
+              ...LinkProps?.sx,
             })}
           >
             <Typography

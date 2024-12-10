@@ -27,7 +27,7 @@ function ActionArea({
         "& .MuiCardActionArea-root": {
           ...ActionAreaRootProps,
         },
-        "& ..MuiCardActionArea-focusHighlight": {
+        "& .MuiCardActionArea-focusHighlight": {
           background: "transparent",
           ...FocusHighlightProps,
         },

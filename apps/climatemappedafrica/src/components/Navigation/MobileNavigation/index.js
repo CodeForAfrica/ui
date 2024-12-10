@@ -158,8 +158,10 @@ function MobileNavigation({
               links={menus}
               socialLinks={socialLinks}
               LinkProps={{
-                padding: 0,
-                margin: `${theme.typography.pxToRem(10)} 0`,
+                sx: {
+                  padding: 0,
+                  margin: `${theme.typography.pxToRem(10)} 0`,
+                },
               }}
             >
               <DropdownSearch

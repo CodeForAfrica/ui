@@ -1,5 +1,5 @@
 import { Link } from "@commons-ui/next";
-import { Card as MuiCard, useTheme } from "@mui/material";
+import { Card as MuiCard } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -27,7 +27,6 @@ function Card({
   sx,
 }) {
   const squareMedia = mediaProps?.square;
-  const theme = useTheme();
   const actionAreaProps = { href, onClick };
   const contentProps = {
     description,
@@ -76,14 +75,14 @@ function Card({
         <CardContent
           {...contentProps}
           TitleProps={{
-            sx: {
-              marginTop: theme.typography.pxToRem(squareMedia ? 20 : 40),
+            sx: ({ typography }) => ({
+              marginTop: typography.pxToRem(squareMedia ? 20 : 40),
               overflow: "hidden",
               display: "-webkit-box",
               WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
               textOverflow: "ellipsis",
-            },
+            }),
           }}
           DescriptionProps={{
             sx: {

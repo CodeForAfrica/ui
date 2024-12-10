@@ -46,7 +46,7 @@ const Carousel = React.forwardRef(function Carousel(props, ref) {
             borderColor: "#A0A0A0",
             background: "#000",
           },
-          ...DotListProps,
+          ...DotListProps?.sx,
         },
       })}
     >

@@ -59,18 +59,20 @@ function AboutTeam({ title, members: membersProp }) {
           afterChange={scrollToTeam}
           responsive={responsive}
           DotListProps={{
-            display: {
-              xs: membersCount > 2 ? "flex" : "none",
-              md: membersCount > 4 ? "flex" : "none",
-            },
-            "& button": {
-              borderColor: "#000",
-              height: theme.typography.pxToRem(16),
-              marginRight: theme.typography.pxToRem(12),
-              width: theme.typography.pxToRem(16),
-            },
-            "& .react-multi-carousel-dot--active button": {
-              borderColor: "#000",
+            sx: {
+              display: {
+                xs: membersCount > 2 ? "flex" : "none",
+                md: membersCount > 4 ? "flex" : "none",
+              },
+              "& button": {
+                borderColor: "#000",
+                height: theme.typography.pxToRem(16),
+                marginRight: theme.typography.pxToRem(12),
+                width: theme.typography.pxToRem(16),
+              },
+              "& .react-multi-carousel-dot--active button": {
+                borderColor: "#000",
+              },
             },
           }}
         >
