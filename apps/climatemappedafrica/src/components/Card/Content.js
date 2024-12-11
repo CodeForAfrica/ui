@@ -1,65 +1,53 @@
-import { RichTypography } from "@commons-ui/legacy";
 import { RichText } from "@commons-ui/payload";
-import { CardContent } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
-import clsx from "clsx";
+import { CardContent, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-const useStyles = makeStyles(({ typography }) => ({
-  root: {
-    padding: 0,
-    "&:last-child": {
-      padding: 0,
-    },
-  },
-  title: {},
-  description: {
-    marginTop: typography.pxToRem(20),
-  },
-  link: {
-    display: "inline-flex",
-    marginTop: typography.pxToRem(20),
-    fontWeight: "bold",
-  },
-}));
-
 function Content({
-  className,
   description,
-  descriptionProps,
+  DescriptionProps,
   title,
-  titleProps,
+  TitleProps,
   href,
-  ctaText,
-  linkProps,
-  ...props
+  sx,
 }) {
-  const classes = useStyles(props);
   if (!(title || description || href)) {
     return null;
   }
 
   return (
-    <CardContent className={clsx(classes.root, className)}>
-      <RichTypography variant="h5" {...titleProps} className={classes.title}>
+    <CardContent
+      sx={{
+        padding: 0,
+        "&:last-child": {
+          padding: 0,
+        },
+        ...sx,
+      }}
+    >
+      <Typography
+        variant="h5"
+        {...TitleProps}
+        sx={{
+          ...TitleProps?.sx,
+        }}
+      >
         {title}
-      </RichTypography>
+      </Typography>
       {/* Support for rich text while keeping backwards compatibility */}
       {Array.isArray(description) ? (
-        <RichText
-          {...descriptionProps}
-          className={classes.description}
-          elements={description}
-        />
+        <RichText {...DescriptionProps} elements={description} />
       ) : (
-        <RichTypography
+        <Typography
           variant="subtitle2"
-          {...descriptionProps}
-          className={classes.description}
+          {...DescriptionProps}
+          sx={({ typography }) => ({
+            marginTop: typography.pxToRem(20),
+            ...DescriptionProps?.sx,
+          })}
         >
           {description}
-        </RichTypography>
+        </Typography>
       )}
     </CardContent>
   );
