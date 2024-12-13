@@ -1,40 +1,26 @@
-import { Section as CuiSection } from "@commons-ui/legacy";
-import makeStyles from "@mui/styles/makeStyles";
-import clsx from "clsx";
+// import { Section as CuiSection } from "@commons-ui/legacy";
+import { Section as CuiSection } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
-const useStyles = makeStyles(({ breakpoints, typography, widths }) => ({
-  root: {
-    padding: `0 ${typography.pxToRem(20)}`,
-  },
-  /* Styles applied to the root element if `fixed={true}`. */
-  fixed: Object.keys(widths.values).reduce((acc, breakpoint) => {
-    const value = widths.values[breakpoint];
-    if (value !== 0) {
-      acc[breakpoints.up(breakpoint)] = {
-        padding: 0,
-        width: value,
-      };
-    }
-    return acc;
-  }, {}),
-}));
-
-function Section({ className, fixed = true, ...props }) {
-  const classes = useStyles(props);
-
+function Section({ className, fixed = true, sx, ...props }) {
   return (
     <CuiSection
       {...props}
-      className={clsx(
-        classes.root,
-        {
-          [classes.fixed]: fixed,
-        },
-        className,
-      )}
-      classes={{}}
+      sx={({ breakpoints, typography, widths }) => ({
+        padding: `0 ${typography.pxToRem(20)}`,
+        ...Object.keys(widths.values).reduce((acc, breakpoint) => {
+          const value = widths.values[breakpoint];
+          if (value !== 0 && fixed) {
+            acc[breakpoints.up(breakpoint)] = {
+              padding: 0,
+              width: value,
+            };
+          }
+          return acc;
+        }, {}),
+        ...sx,
+      })}
     />
   );
 }
