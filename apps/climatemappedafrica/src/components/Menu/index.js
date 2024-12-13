@@ -42,7 +42,6 @@ function Menu({ children, explorePagePath, links, socialLinks, LinkProps }) {
           })}
         >
           <Link
-            color={index !== 0 ? "secondary" : "primary"}
             display="inline-flex"
             href={item.href}
             size="large"
@@ -51,15 +50,17 @@ function Menu({ children, explorePagePath, links, socialLinks, LinkProps }) {
             sx={({ palette, typography }) => ({
               borderRadius: 20,
               border: item.href === exploreHref ? "3px solid" : 0,
-              color: {
-                xs: palette.text.secondary,
-                lg: palette.primary.main,
-              },
               padding: `${typography.pxToRem(14)} ${typography.pxToRem(28)} `,
+              color: index !== 0 ? palette.grey.dark : palette.primary.main,
               "&:hover": {
-                padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)} `,
-                border: "1px solid",
+                color: index !== 0 ? "#707070" : palette.primary.main,
               },
+              ...(index === 0 && {
+                "&:hover": {
+                  padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)}`,
+                  border: "1px solid",
+                },
+              }),
               ...LinkProps?.sx,
             })}
           >
