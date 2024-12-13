@@ -24,7 +24,7 @@
     "dev": "storybook dev -p 6006",
     "build": "storybook build",
     "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 eslint --fix './'",
+    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "clean": "rm -rf .next .turbo node_modules storybook-static"
   },
   "dependencies": {

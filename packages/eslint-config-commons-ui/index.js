@@ -39,6 +39,7 @@ module.exports = [
       "**/public/",
       "**/build",
       "**/contrib/",
+      "**/scripts/",
     ],
   },
   {
