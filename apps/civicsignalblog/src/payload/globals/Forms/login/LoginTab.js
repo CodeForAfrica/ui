@@ -40,6 +40,12 @@ const LoginTab = {
       label: "Messages",
       fields: [
         {
+          name: "loginSucceeded",
+          type: "text",
+          defaultValue: "You are now logged in!",
+          required: true,
+        },
+        {
           name: "loginFailed",
           type: "text",
           defaultValue: "Your email or password was wrong.",
