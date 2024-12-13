@@ -20,6 +20,7 @@ module.exports = {
     alias: {
       "@/charterafrica": path.resolve(__dirname, "apps/charterafrica/src/"),
       "@/civicsignalblog": path.resolve(__dirname, "apps/civicsignalblog/src/"),
+      "#civicsignalblog": path.resolve(__dirname, "apps/civicsignalblog/src/"),
       "@/codeforafrica": path.resolve(__dirname, "apps/codeforafrica/src/"),
       "@/commons-ui": path.resolve(__dirname, "packages/commons-ui/src/"),
       "@/hurumap/core/*": path.resolve(
