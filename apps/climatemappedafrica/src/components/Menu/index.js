@@ -20,7 +20,7 @@ function Menu({ children, explorePagePath, links, socialLinks, LinkProps }) {
         },
       }}
     >
-      {links.map((item, index) => (
+      {links.map((item) => (
         <Grid
           item
           key={item.label}
@@ -46,21 +46,35 @@ function Menu({ children, explorePagePath, links, socialLinks, LinkProps }) {
             href={item.href}
             size="large"
             underline="none"
-            variant={index !== 0 ? "text" : "outlined"}
+            variant={item.href === exploreHref ? "text" : "outlined"}
             sx={({ palette, typography }) => ({
               borderRadius: 20,
               border: item.href === exploreHref ? "3px solid" : 0,
-              padding: `${typography.pxToRem(14)} ${typography.pxToRem(28)} `,
-              color: index !== 0 ? palette.grey.dark : palette.primary.main,
-              "&:hover": {
-                color: index !== 0 ? "#707070" : palette.primary.main,
+              padding: {
+                xs:
+                  item.href === exploreHref
+                    ? `${typography.pxToRem(14)} ${typography.pxToRem(28)} `
+                    : "unset",
+                lg:
+                  item.href === exploreHref
+                    ? `${typography.pxToRem(14)} ${typography.pxToRem(28)} `
+                    : `${typography.pxToRem(7)} ${typography.pxToRem(18)}`,
               },
-              ...(index === 0 && {
-                "&:hover": {
-                  padding: `${typography.pxToRem(16)} ${typography.pxToRem(30)}`,
-                  border: "1px solid",
-                },
-              }),
+              margin:
+                item.href === exploreHref
+                  ? 0
+                  : `${typography.pxToRem(10)} ${typography.pxToRem(-8)}`,
+              color:
+                item.href === exploreHref
+                  ? palette.primary.main
+                  : palette.grey.dark,
+              "&:hover, &:focus, &:focus-within": {
+                backgroundColor: "transparent",
+                textDecoration: "none",
+                color:
+                  item.href === exploreHref ? palette.primary.main : "#707070",
+                border: item.href === exploreHref ? "1px solid" : 0,
+              },
               ...LinkProps?.sx,
             })}
           >
