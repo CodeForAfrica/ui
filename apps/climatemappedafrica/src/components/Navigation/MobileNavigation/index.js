@@ -6,8 +6,8 @@ import {
   IconButton,
   DialogContent,
   SvgIcon,
+  useTheme,
 } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -19,104 +19,6 @@ import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Menu from "@/climatemappedafrica/components/Menu";
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
-
-const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
-  dialog: {
-    padding: 0,
-  },
-  firstTitle: {
-    color: palette.background.default,
-    fontWeight: "normal",
-    [breakpoints.up("lg")]: {
-      fontWeight: "bold",
-    },
-  },
-  secondTitle: {
-    color: palette.background.default,
-  },
-  subtitle: {
-    color: palette.background.default,
-  },
-  logoSection: {
-    borderBottom: `2px solid ${palette.background.default}`,
-    padding: `${typography.pxToRem(10)} 0`,
-  },
-  backdrop: {
-    backgroundColor: "transparent",
-  },
-  dialogActions: {
-    padding: 0,
-  },
-  dialogContent: {
-    overflow: "hidden",
-    padding: `${typography.pxToRem(40)} 0`,
-  },
-  dialogMenu: {
-    padding: `${typography.pxToRem(10.35)} 0`,
-  },
-  dialogPaper: {
-    background: palette.primary.main,
-    position: "absolute",
-    left: 0,
-    top: 0,
-    overflow: "hidden",
-  },
-  menuButton: {
-    color: palette.grey.dark,
-    background: "#F0F0F0",
-    borderRadius: typography.pxToRem(50),
-    height: typography.pxToRem(34),
-    padding: 0,
-    width: typography.pxToRem(34),
-    "&:hover": {
-      background: "#F0F0F0",
-      borderRadius: typography.pxToRem(50),
-    },
-  },
-  menuItems: {
-    padding: `${typography.pxToRem(20)} 0 ${typography.pxToRem(71)}`,
-  },
-  button: {
-    color: palette.background.dark,
-    padding: typography.pxToRem(16),
-  },
-  open: {
-    fontSize: typography.pxToRem(32),
-  },
-  close: {
-    color: palette.background.default,
-    fontSize: typography.pxToRem(32),
-  },
-  label: {
-    [breakpoints.up("lg")]: {
-      fontWeight: 600,
-      letterSpacing: "1.6px",
-      fontSize: typography.pxToRem(20),
-    },
-  },
-  buttonMenu: {
-    margin: 0,
-  },
-  links: {
-    display: "inline-block",
-  },
-  menuLinks: {
-    color: palette.text.secondary,
-    display: "inline-block",
-    margin: `${typography.pxToRem(10)} 0`,
-    "&:hover, &:focus, &:focus-within": {
-      backgroundColor: "transparent",
-      textDecoration: "none",
-      color: palette.text.secondary,
-    },
-  },
-  mainMenu: {
-    [breakpoints.up("lg")]: {
-      flexDirection: "column",
-      justifyContent: "flex-start",
-    },
-  },
-}));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={1000} ref={ref} {...props} />;
@@ -131,9 +33,9 @@ function MobileNavigation({
   sx,
   ...props
 }) {
-  const classes = useStyles(props);
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const theme = useTheme();
 
   const handleClickOpen = (e) => {
     e?.preventDefault();
@@ -152,13 +54,7 @@ function MobileNavigation({
   };
 
   return (
-    <Grid
-      container
-      alignItems="center"
-      justifyContent="space-between"
-      className={classes.logoSection}
-      sx={sx}
-    >
+    <Grid container alignItems="center" justifyContent="space-between" sx={sx}>
       <Grid item xs={10}>
         <NextImageButton
           {...logo}
@@ -175,8 +71,8 @@ function MobileNavigation({
           aria-label="Open drawer"
           size="medium"
           onClick={handleClickOpen}
-          sx={(theme) => ({
-            color: theme.palette.grey.dark,
+          sx={({ palette }) => ({
+            color: palette.grey.dark,
             padding: 0,
           })}
         >
@@ -192,21 +88,32 @@ function MobileNavigation({
         fullScreen
         open={open}
         onClose={handleClose}
-        BackdropProps={{
-          classes: {
-            root: classes.backdrop,
-          },
-        }}
         TransitionComponent={Transition}
-        classes={{ root: classes.dialog, paper: classes.dialogPaper }}
+        sx={({ palette }) => ({
+          padding: 0,
+          "& .MuiDialog-paper": {
+            background: palette.primary.main,
+            position: "absolute",
+            left: 0,
+            top: 0,
+            overflow: "hidden",
+          },
+        })}
       >
-        <DialogActions className={classes.dialogActions}>
-          <Section className={classes.section}>
+        <DialogActions
+          sx={{
+            padding: 0,
+          }}
+        >
+          <Section>
             <Grid
               container
               alignItems="center"
               justifyContent="space-between"
-              className={classes.logoSection}
+              sx={({ typography, palette }) => ({
+                borderBottom: `2px solid ${palette.background.default}`,
+                padding: `${typography.pxToRem(10)} 0`,
+              })}
             >
               <Grid item xs={10}>
                 <NextImageButton
@@ -239,18 +146,22 @@ function MobileNavigation({
             </Grid>
           </Section>
         </DialogActions>
-        <DialogContent className={classes.dialogContent}>
-          <Section className={classes.section}>
+        <DialogContent
+          sx={({ typography }) => ({
+            overflow: "hidden",
+            padding: `${typography.pxToRem(40)} 0`,
+          })}
+        >
+          <Section>
             <Menu
               explorePagePath={explorePagePath}
               links={menus}
               socialLinks={socialLinks}
-              classes={{
-                root: classes.mainMenu,
-                links: classes.links,
-                menuLinks: classes.menuLinks,
-                label: classes.label,
-                menu: classes.buttonMenu,
+              LinkProps={{
+                sx: {
+                  padding: 0,
+                  margin: `${theme.typography.pxToRem(10)} 0`,
+                },
               }}
             >
               <DropdownSearch

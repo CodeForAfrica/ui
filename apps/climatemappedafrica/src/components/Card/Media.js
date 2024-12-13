@@ -1,55 +1,8 @@
-import { RichTypography } from "@commons-ui/legacy";
-import makeStyles from "@mui/styles/makeStyles";
+import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import Image from "@/climatemappedafrica/components/Image";
-
-const useStyles = makeStyles(({ breakpoints, typography }) => ({
-  root: ({ square, variant }) => {
-    let embedStyles;
-    if (variant === "embed") {
-      embedStyles = {
-        // will most likely be an iframe
-        "& > :first-child": {
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          left: 0,
-          top: 0,
-        },
-      };
-    }
-    return {
-      minWidth: typography.pxToRem(square ? 278 : 350),
-      position: "relative",
-      width: "100%",
-      [breakpoints.up("md")]: {
-        height: typography.pxToRem(square ? 278 : 183),
-        minWidth: typography.pxToRem(square ? 278 : 296),
-        width: "auto",
-      },
-      [breakpoints.up("lg")]: {
-        height: typography.pxToRem(square ? 278 : 233),
-        minWidth: typography.pxToRem(square ? 278 : 376),
-      },
-      "&:after": {
-        content: '""',
-        display: "block",
-        // square ? 278/278 ratio : 350/216 ratio
-        paddingTop: square ? "100%" : "61.714%",
-        [breakpoints.up("md")]: {
-          content: "",
-          display: "none",
-        },
-      },
-      ...embedStyles,
-    };
-  },
-  image: {
-    objectFit: "contain !important",
-  },
-}));
 
 function Media({
   alt,
@@ -60,26 +13,59 @@ function Media({
   media: mediaProp,
   ...props
 }) {
-  const classes = useStyles(props);
-  const { variant } = props;
+  const { variant, square } = props;
   const media = (variant === "embed" ? chart || embed : image) || mediaProp;
 
   if (!media) {
     return null;
   }
-  if (variant === "embed") {
-    return <RichTypography className={classes.root}>{media}</RichTypography>;
-  }
   return (
-    <div className={classes.root}>
+    <Box
+      sx={({ typography }) => ({
+        minWidth: {
+          xs: typography.pxToRem(square ? 278 : 350),
+          md: typography.pxToRem(square ? 278 : 296),
+          lg: typography.pxToRem(square ? 278 : 376),
+        },
+        position: "relative",
+        width: {
+          xs: "100%",
+          md: "auto",
+        },
+        height: {
+          md: typography.pxToRem(square ? 278 : 183),
+          lg: typography.pxToRem(square ? 278 : 233),
+        },
+        "&:after": {
+          content: '""',
+          display: {
+            xs: "block",
+            md: "none",
+          },
+          paddingTop: square ? "100%" : "61.714%",
+        },
+        ".image": {
+          objectFit: "contain !important",
+        },
+        ...(variant === "embed" && {
+          "& > :first-child": {
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            left: 0,
+            top: 0,
+          },
+        }),
+      })}
+    >
       <Image
         layout="fill"
         alt={alt}
         src={media}
         unoptimized
-        className={classes.image}
+        className="image"
       />
-    </div>
+    </Box>
   );
 }
 
