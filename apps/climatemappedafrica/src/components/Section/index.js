@@ -1,4 +1,3 @@
-// import { Section as CuiSection } from "@commons-ui/legacy";
 import { Section as CuiSection } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
