@@ -7,7 +7,7 @@ exports[`<RichHeader /> renders unchanged 1`] = `
     title="[object Object]"
   >
     <div
-      class="MuiTypography-root makeStyles-root-1 MuiTypography-overline css-uwhb1p-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-overline css-alcn5s-MuiTypography-root"
     >
       About
     </div>

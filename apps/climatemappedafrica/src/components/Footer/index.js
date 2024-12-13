@@ -1,7 +1,8 @@
-import { QuickLinks, Copyright } from "@commons-ui/legacy";
+import { Copyright } from "@commons-ui/core";
+import { QuickLinks } from "@commons-ui/legacy";
 import { Link, StayInTouch } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, useTheme } from "@mui/material";
 import React from "react";
 
 import useStyles from "./useStyles";
@@ -19,20 +20,25 @@ function Footer(props) {
     variant,
   } = props;
   const classes = useStyles(props);
+  const theme = useTheme();
 
   return (
     <Box
-      sx={(theme) => ({
+      sx={({ palette, typography }) => ({
         display: {
           xs: "block",
           lg: variant !== "explore" ? "block" : "none",
         },
-        background: theme.palette.grey.dark,
+        background: palette.grey.dark,
         height: "auto",
-        padding: `${theme.typography.pxToRem(80)} 0`,
-        [theme.breakpoints.up("md")]: {
-          paddingTop: `${theme.typography.pxToRem(58)}`,
-          paddingBottom: `${theme.typography.pxToRem(82)}`,
+        padding: `${typography.pxToRem(80)} 0`,
+        paddingTop: {
+          xs: "unset",
+          md: `${typography.pxToRem(58)}`,
+        },
+        paddingBottom: {
+          xs: "unset",
+          md: `${typography.pxToRem(82)}`,
         },
       })}
     >
@@ -47,13 +53,13 @@ function Footer(props) {
                   width: 220,
                 }}
                 priority
-                sx={(theme) => ({
-                  margin: "0 auto",
-                  padding: 0,
-                  [theme.breakpoints.up("lg")]: {
-                    margin: 0,
+                sx={{
+                  margin: {
+                    xs: "0 auto",
+                    lg: 0,
                   },
-                })}
+                  padding: 0,
+                }}
               />
             )}
           </Grid>
@@ -61,13 +67,13 @@ function Footer(props) {
             {description && (
               <RichText
                 variant="body1"
-                sx={(theme) => ({
-                  color: theme.palette.text.secondary,
-                  padding: `${theme.typography.pxToRem(32)} 0`,
-                  fontSize: theme.typography.subtitle1.fontSize,
-                  textAlign: "center",
-                  [theme.breakpoints.up("lg")]: {
-                    textAlign: "left",
+                sx={({ palette, typography }) => ({
+                  color: palette.text.secondary,
+                  padding: `${typography.pxToRem(32)} 0`,
+                  fontSize: typography.subtitle1.fontSize,
+                  textAlign: {
+                    xs: "center",
+                    lg: "left",
                   },
                   "& > p": {
                     mt: 2,
@@ -90,20 +96,39 @@ function Footer(props) {
             )}
             <Copyright
               copyright={`© ${new Date().getFullYear()} ${title}`}
-              classes={{
-                root: classes.copyright,
-                text: classes.copyrightText,
+              CopyrightProps={{
+                sx: {
+                  color: theme.palette.text.secondary,
+                  order: 5,
+                  padding: {
+                    xs: `0 ${theme.typography.pxToRem(5)} 0 0`,
+                    lg: `0 ${theme.typography.pxToRem(10)} 0 0`,
+                  },
+                },
               }}
+              sx={({ typography }) => ({
+                margin: 0,
+                display: "flex",
+                flexWrap: "wrap",
+                flexDirection: "row",
+                justifyContent: {
+                  xs: "center",
+                  lg: "flex-start",
+                },
+                "& > a": {
+                  marginTop: typography.pxToRem(3),
+                },
+              })}
             />
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid
               container
-              sx={(theme) => ({
+              sx={({ typography }) => ({
                 margin: "0 auto",
                 flexDirection: "row",
                 justifyContent: "center",
-                marginTop: theme.typography.pxToRem(44.19),
+                marginTop: typography.pxToRem(44.19),
               })}
             >
               <Grid item xs={12} lg={6}>

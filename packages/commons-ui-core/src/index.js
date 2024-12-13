@@ -1,6 +1,7 @@
 export * from "./SocialMediaIconLink";
 export * from "./styles";
 
+export { default as Copyright } from "./Copyright";
 export { default as ImageButton } from "./ImageButton";
 export { default as NavBar } from "./NavBar";
 export { default as NavList } from "./NavList";
