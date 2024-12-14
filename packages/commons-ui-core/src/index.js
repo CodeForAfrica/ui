@@ -10,3 +10,4 @@ export { default as RichTypography } from "./RichTypography";
 export { default as Section } from "./Section";
 export { default as SocialMediaIconLink } from "./SocialMediaIconLink";
 export { default as StayInTouch } from "./StayInTouch";
+export { default as QuickLinks } from "./QuickLinks";

@@ -1,11 +1,8 @@
-import { Copyright } from "@commons-ui/core";
-import { QuickLinks } from "@commons-ui/legacy";
+import { Copyright, QuickLinks } from "@commons-ui/core";
 import { Link, StayInTouch } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid, useTheme } from "@mui/material";
 import React from "react";
-
-import useStyles from "./useStyles";
 
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 import Section from "@/climatemappedafrica/components/Section";
@@ -19,7 +16,6 @@ function Footer(props) {
     links,
     variant,
   } = props;
-  const classes = useStyles(props);
   const theme = useTheme();
 
   return (
@@ -136,11 +132,46 @@ function Footer(props) {
                   <QuickLinks
                     linkComponent={Link}
                     {...links}
-                    classes={{
-                      root: classes.quickLinkRoot,
-                      list: classes.quickList,
-                      link: classes.quickLink,
-                      title: classes.quickLinksTitle,
+                    sx={{
+                      textAlign: {
+                        xs: "center",
+                        lg: "inherit",
+                      },
+                      padding: {
+                        xs: `${theme.typography.pxToRem(32)} 0 `,
+                        lg: 0,
+                      },
+                    }}
+                    TitleProps={{
+                      variant: "caption",
+                      sx: {
+                        color: theme.palette.text.secondary,
+                        fontSize: theme.typography.subtitle2.fontSize,
+                        fontWeight: "bold",
+                      },
+                    }}
+                    LinksProps={{
+                      variant: "caption",
+                      sx: {
+                        listStyle: "none",
+                        color: theme.palette.text.secondary,
+                        padding: 0,
+                        letterspacing: theme.typography.pxToRem(0.7),
+                        "& > li": {
+                          marginTop: theme.typography.pxToRem(16),
+                        },
+                      },
+                    }}
+                    LinkProps={{
+                      variant: "caption",
+                      sx: {
+                        fontSize: theme.typography.subtitle1.fontSize,
+                        color: theme.palette.text.secondary,
+                        fontWeight: "normal",
+                        "&:hover": {
+                          color: theme.palette.primary.light,
+                        },
+                      },
                     }}
                   />
                 )}
