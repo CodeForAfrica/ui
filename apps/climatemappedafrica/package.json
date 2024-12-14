@@ -35,7 +35,6 @@
   "dependencies": {
     "@apollo/client": "catalog:",
     "@commons-ui/core": "workspace:*",
-    "@commons-ui/legacy": "catalog:",
     "@commons-ui/next": "workspace:*",
     "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",

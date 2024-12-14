@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/legacy";
+import { RichTypography } from "@commons-ui/next";
 import { useMediaQuery, Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";

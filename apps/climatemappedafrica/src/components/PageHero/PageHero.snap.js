@@ -6,7 +6,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
     class="MuiBox-root css-u361uw"
   >
     <div
-      class="makeStyles-root-6 makeStyles-root-4 makeStyles-root-2 makeStyles-section-1 makeStyles-fixed-3 MuiBox-root css-0"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j3c69o-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -18,7 +18,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiTypography-root makeStyles-root-7 MuiTypography-overline css-uwhb1p-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-overline css-alcn5s-MuiTypography-root"
             >
               About
             </div>

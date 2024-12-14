@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/legacy";
+import { RichTypography } from "@commons-ui/next";
 import { Box, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";

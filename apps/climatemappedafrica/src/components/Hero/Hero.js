@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/legacy";
+import { RichTypography } from "@commons-ui/next";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
