@@ -1,10 +1,8 @@
+import { Box } from "@mui/material";
 import { deepmerge } from "@mui/utils";
-import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
 import RMCarousel from "react-multi-carousel";
-
-import useStyles from "./useStyles";
 
 import "react-multi-carousel/lib/styles.css";
 
@@ -27,25 +25,46 @@ const DEFAULT_RESPONSIVE = {
 };
 
 const Carousel = React.forwardRef(function Carousel(props, ref) {
-  const { children, className, responsive, ...other } = props;
-  const classes = useStyles(other);
+  const { children, className, responsive, DotListProps, ...other } = props;
 
   return (
-    <RMCarousel
-      ref={ref}
-      draggable
-      swipeable
-      responsive={deepmerge(DEFAULT_RESPONSIVE, responsive, { clone: true })}
-      arrows={false}
-      renderDotsOutside
-      showDots
-      ssr
-      {...other}
-      dotListClass={classes.dotList}
-      className={clsx(classes.root, className)}
+    <Box
+      sx={(theme) => ({
+        ".dotlist": {
+          display: "flex",
+          justifyContent: "center",
+          listStyle: "none",
+          paddingTop: theme.typography.pxToRem(40),
+          position: "relative",
+          "& button": {
+            borderColor: theme.palette.divider,
+            height: theme.typography.pxToRem(16),
+            marginRight: theme.typography.pxToRem(12),
+            width: theme.typography.pxToRem(16),
+          },
+          "& .react-multi-carousel-dot--active button": {
+            borderColor: "#A0A0A0",
+            background: "#000",
+          },
+          ...DotListProps?.sx,
+        },
+      })}
     >
-      {children}
-    </RMCarousel>
+      <RMCarousel
+        ref={ref}
+        draggable
+        swipeable
+        responsive={deepmerge(DEFAULT_RESPONSIVE, responsive, { clone: true })}
+        arrows={false}
+        renderDotsOutside
+        showDots
+        ssr
+        {...other}
+        dotListClass="dotlist"
+      >
+        {children}
+      </RMCarousel>
+    </Box>
   );
 });
 
