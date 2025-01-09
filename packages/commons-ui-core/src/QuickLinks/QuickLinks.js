@@ -11,7 +11,6 @@ const QuickLinks = React.forwardRef(function QuickLinks(props, ref) {
       sx={{
         width: "100%",
         paddingBottom: {
-          xs: "unset",
           md: "0.5rem",
         },
         ...sx,
@@ -32,13 +31,6 @@ const QuickLinks = React.forwardRef(function QuickLinks(props, ref) {
         sx={{
           listStyle: "none",
           padding: 0,
-          paddingTop: "1rem",
-          "& > li": {
-            marginTop: {
-              xs: "2.3125rem",
-              md: "1.5rem",
-            },
-          },
           ...LinksProps?.sx,
         }}
         component="ul"

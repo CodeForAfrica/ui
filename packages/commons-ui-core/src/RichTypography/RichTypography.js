@@ -9,9 +9,15 @@ const RichTypographyRoot = styled(Typography, {
   shouldForwardProp: (prop) => prop !== "LinkProps",
 })(({ LinkProps, theme }) => {
   const color = LinkProps?.color || "primary.main";
+  const linkDecoration = LinkProps?.textDecoration || "none";
+  const linkDecorationColor = LinkProps?.textDecorationColor || color;
   return {
     "& a, & a:visited": {
       color: color.split(".").reduce((acc, curr) => acc[curr], theme.palette),
+      textDecoration: linkDecoration,
+      textDecorationColor: linkDecorationColor
+        .split(".")
+        .reduce((acc, curr) => acc[curr], theme.palette),
     },
   };
 });

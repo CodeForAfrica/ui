@@ -1,5 +1,5 @@
-import { Copyright, QuickLinks } from "@commons-ui/core";
-import { Link, StayInTouch } from "@commons-ui/next";
+import { Copyright, QuickLinks, StayInTouch } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid, useTheme } from "@mui/material";
 import React from "react";
@@ -29,11 +29,9 @@ function Footer(props) {
         height: "auto",
         padding: `${typography.pxToRem(80)} 0`,
         paddingTop: {
-          xs: "unset",
           md: `${typography.pxToRem(58)}`,
         },
         paddingBottom: {
-          xs: "unset",
           md: `${typography.pxToRem(82)}`,
         },
       })}
@@ -82,10 +80,8 @@ function Footer(props) {
                 TypographyProps={{
                   LinkProps: {
                     color: "text.secondary",
-                    sx: {
-                      textDecorationColor: "text.secondary",
-                      textDecoration: "underline",
-                    },
+                    textDecorationColor: "text.secondary",
+                    textDecoration: "underline",
                   },
                 }}
               />
@@ -108,6 +104,10 @@ function Footer(props) {
                 flexWrap: "wrap",
                 flexDirection: "row",
                 justifyContent: {
+                  xs: "center",
+                  lg: "flex-start",
+                },
+                textAlign: {
                   xs: "center",
                   lg: "flex-start",
                 },
@@ -143,15 +143,13 @@ function Footer(props) {
                       },
                     }}
                     TitleProps={{
-                      variant: "caption",
+                      variant: "subtitle2",
                       sx: {
                         color: theme.palette.text.secondary,
-                        fontSize: theme.typography.subtitle2.fontSize,
                         fontWeight: "bold",
                       },
                     }}
                     LinksProps={{
-                      variant: "caption",
                       sx: {
                         listStyle: "none",
                         color: theme.palette.text.secondary,
@@ -163,9 +161,7 @@ function Footer(props) {
                       },
                     }}
                     LinkProps={{
-                      variant: "caption",
                       sx: {
-                        fontSize: theme.typography.subtitle1.fontSize,
                         color: theme.palette.text.secondary,
                         fontWeight: "normal",
                         "&:hover": {
@@ -186,7 +182,11 @@ function Footer(props) {
                       alignItems: { xs: "center", lg: "flex-end" },
                     },
                   }}
-                  alignItems={{ xs: "center", lg: "flex-end" }}
+                  LinksProps={{
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                  alignItems={{ xs: "center", lg: "flex-start" }}
                   TitleProps={{
                     fontWeight: "bold",
                     variant: "subtitle2",

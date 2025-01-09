@@ -10,6 +10,7 @@ import SocialMediaIconLink from "@/commons-ui/core/SocialMediaIconLink";
 const StayInTouch = React.forwardRef(function StayInTouch(
   {
     LinkProps,
+    LinksProps,
     TitleProps,
     links,
     sx,
@@ -36,7 +37,14 @@ const StayInTouch = React.forwardRef(function StayInTouch(
       >
         {title}
       </RichTypography>
-      <Stack direction="row" alignItems="center">
+      <Stack
+        direction="row"
+        {...LinksProps}
+        sx={{
+          alignItems: "center",
+          ...LinksProps?.sx,
+        }}
+      >
         {links.map(({ url, ...others }) => {
           return (
             <SocialMediaIconLink

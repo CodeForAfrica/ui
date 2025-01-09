@@ -1,4 +1,5 @@
-import { StayInTouch, Link } from "@commons-ui/next";
+import { StayInTouch } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import { Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";

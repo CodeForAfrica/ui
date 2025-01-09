@@ -3,7 +3,7 @@
 exports[`Copyright renders inchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1hmfz52"
+    class="MuiBox-root css-0"
   >
     <p
       class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"

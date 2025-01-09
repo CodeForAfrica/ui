@@ -35,7 +35,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                 class="MuiBox-root css-b8dxf0"
               >
                 <h1
-                  class="MuiTypography-root MuiTypography-h1 css-8o8tmo-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h1 css-51s2c1-MuiTypography-root"
                 >
                   Empowering action through climate data.
                 </h1>
@@ -44,7 +44,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                 class="MuiBox-root css-1733xbc"
               >
                 <h6
-                  class="MuiTypography-root MuiTypography-subtitle1 css-1d1ipbv-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-subtitle1 css-1ni1tq3-MuiTypography-root"
                 >
                   ClimateMapped.AFRICA helps explore, analyse, and use climate data to advocate for stronger, faster action on climate resilience and sustainability.
                 </h6>

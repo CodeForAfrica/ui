@@ -15,21 +15,7 @@ const Copyright = React.forwardRef(function Copyright(props, ref) {
   } = props;
 
   return (
-    <Box
-      sx={{
-        marginTop: {
-          xs: "1.618125rem",
-          md: 0,
-        },
-        order: {
-          xs: 3,
-          md: 2,
-        },
-        textAlign: "center",
-        ...sx,
-      }}
-      ref={ref}
-    >
+    <Box sx={sx} ref={ref}>
       {copyright && (
         <Typography variant={variant} {...CopyrightProps}>
           {copyright}
