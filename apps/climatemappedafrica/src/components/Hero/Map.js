@@ -107,31 +107,33 @@ function Map({
             onEachFeature={onEachFeature}
           />
         </MapContainer>
-      </Box>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="flex-end"
-        gap={2}
-        sx={{
-          height: 108,
-          width: "100%",
-        }}
-      >
-        <Legend title={averageTemperature} data={legend} />
-        <RichTypography
-          variant="h6"
+        <Box
+          display="flex"
+          justifyContent="flex-start"
+          alignItems="flex-end"
+          gap={2}
           sx={{
-            lineHeight: 23 / 18,
-            lineSpacing: "0.9px",
-            fontWeight: "normal",
-            textTransform: "capitalize",
-            display: "flex",
-            justifyContent: "flex-end",
+            width: "100%",
+            position: "absolute",
+            bottom: 0,
+            left: 0,
           }}
         >
-          {hoverGeo}
-        </RichTypography>
+          <Legend title={averageTemperature} data={legend} />
+          <RichTypography
+            variant="h6"
+            sx={{
+              lineHeight: 23 / 18,
+              lineSpacing: "0.9px",
+              fontWeight: "normal",
+              textTransform: "capitalize",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            {hoverGeo}
+          </RichTypography>
+        </Box>
       </Box>
     </Box>
   );

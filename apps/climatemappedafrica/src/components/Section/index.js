@@ -2,7 +2,7 @@ import { Section as CuiSection } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";
 
-function Section({ className, fixed = true, sx, ...props }) {
+function Section({ fixed = true, sx, ...props }) {
   return (
     <CuiSection
       {...props}
@@ -25,7 +25,6 @@ function Section({ className, fixed = true, sx, ...props }) {
 }
 
 Section.propTypes = {
-  className: PropTypes.string,
   fixed: PropTypes.bool,
 };
 
