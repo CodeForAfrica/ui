@@ -110,10 +110,14 @@ function Map({
         <Box
           display="flex"
           justifyContent="flex-start"
-          alignItems="flex-end"
+          flexDirection="column-reverse"
+          alignItems="flex-start"
           gap={2}
           sx={{
-            width: "100%",
+            width: {
+              xs: "170px",
+              md: "200px",
+            },
             position: "absolute",
             bottom: 0,
             left: 0,
