@@ -88,7 +88,7 @@ function Footer(props) {
             )}
             <Copyright
               copyright={`© ${new Date().getFullYear()} ${title}`}
-              CopyrightProps={{
+              TypographyProps={{
                 sx: {
                   color: theme.palette.text.secondary,
                   order: 5,

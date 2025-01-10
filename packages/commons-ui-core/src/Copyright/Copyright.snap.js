@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Copyright renders inchanged 1`] = `
+exports[`<Copyright /> renders inchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-0"
   >
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+    <div
+      class="MuiTypography-root MuiTypography-body1 css-176x3p1-MuiTypography-root"
     >
       Code for Africa
-    </p>
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+    </div>
+    <div
+      class="MuiTypography-root MuiTypography-body1 css-176x3p1-MuiTypography-root"
     >
       2024
-    </p>
+    </div>
   </div>
 </div>
 `;

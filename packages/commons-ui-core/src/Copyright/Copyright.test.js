@@ -3,7 +3,7 @@ import React from "react";
 
 import Copyright from "./Copyright";
 
-describe("Copyright", () => {
+describe("<Copyright />", () => {
   it("renders inchanged", () => {
     const { container } = render(
       <Copyright
