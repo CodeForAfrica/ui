@@ -2,7 +2,7 @@
 
 exports[`<QuickLinks /> renders inchanged 1`] = `
 <div>
-  <div
+  <nav
     class="MuiBox-root css-ufz638"
   >
     <p
@@ -30,6 +30,6 @@ exports[`<QuickLinks /> renders inchanged 1`] = `
         </a>
       </li>
     </ul>
-  </div>
+  </nav>
 </div>
 `;

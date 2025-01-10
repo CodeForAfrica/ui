@@ -130,7 +130,6 @@ function Footer(props) {
               <Grid item xs={12} lg={6}>
                 {links && (
                   <QuickLinks
-                    linkComponent={Link}
                     {...links}
                     sx={{
                       textAlign: {
@@ -150,6 +149,7 @@ function Footer(props) {
                       },
                     }}
                     LinksProps={{
+                      linkComponent: Link,
                       sx: {
                         listStyle: "none",
                         color: theme.palette.text.secondary,

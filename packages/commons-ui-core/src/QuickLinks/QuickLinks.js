@@ -2,12 +2,12 @@ import { Box, Link, Typography } from "@mui/material";
 import React from "react";
 
 const QuickLinks = React.forwardRef(function QuickLinks(props, ref) {
-  const { linkComponent, links, LinksProps, LinkProps, title, TitleProps, sx } =
-    props;
-  const LinkComponent = linkComponent || Link;
+  const { links, LinksProps, LinkProps, title, TitleProps, sx } = props;
+  const LinkComponent = LinksProps?.linkComponent || Link;
 
   return (
     <Box
+      component="nav"
       sx={{
         width: "100%",
         paddingBottom: {
@@ -35,21 +35,22 @@ const QuickLinks = React.forwardRef(function QuickLinks(props, ref) {
         }}
         component="ul"
       >
-        {links.map(({ label, ...others }) => (
-          <li key={label}>
-            <LinkComponent
-              {...others}
-              underline="none"
-              {...LinkProps}
-              sx={{
-                textDecoration: "none",
-                ...LinkProps?.sx,
-              }}
-            >
-              {label}
-            </LinkComponent>
-          </li>
-        ))}
+        {links &&
+          links.map(({ label, ...others }) => (
+            <li key={label}>
+              <LinkComponent
+                {...others}
+                underline="none"
+                {...LinkProps}
+                sx={{
+                  textDecoration: "none",
+                  ...LinkProps?.sx,
+                }}
+              >
+                {label}
+              </LinkComponent>
+            </li>
+          ))}
       </Typography>
     </Box>
   );
