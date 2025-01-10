@@ -3,7 +3,9 @@ import { Section } from "@commons-ui/core";
 import PostHeader from "@/techlabblog/components/PostHeader";
 import { getPost } from "@/techlabblog/lib/data";
 
-export default async function Page(props: { params: Promise<{ slug: string }> }) {
+export default async function Page(props: {
+  params: Promise<{ slug: string }>;
+}) {
   const params = await props.params;
   const postModule = await getPost(params.slug);
 
