@@ -1,7 +1,7 @@
 import { Copyright, QuickLinks, StayInTouch } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
-import { Box, Grid, useTheme } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
 
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
@@ -16,7 +16,6 @@ function Footer(props) {
     links,
     variant,
   } = props;
-  const theme = useTheme();
 
   return (
     <Box
@@ -89,14 +88,14 @@ function Footer(props) {
             <Copyright
               copyright={`© ${new Date().getFullYear()} ${title}`}
               TypographyProps={{
-                sx: {
-                  color: theme.palette.text.secondary,
+                sx: ({ palette, typography }) => ({
+                  color: palette.text.secondary,
                   order: 5,
                   padding: {
-                    xs: `0 ${theme.typography.pxToRem(5)} 0 0`,
-                    lg: `0 ${theme.typography.pxToRem(10)} 0 0`,
+                    xs: `0 ${typography.pxToRem(5)} 0 0`,
+                    lg: `0 ${typography.pxToRem(10)} 0 0`,
                   },
-                },
+                }),
               }}
               sx={({ typography }) => ({
                 margin: 0,
@@ -131,43 +130,43 @@ function Footer(props) {
                 {links && (
                   <QuickLinks
                     {...links}
-                    sx={{
+                    sx={({ typography }) => ({
                       textAlign: {
                         xs: "center",
                         lg: "inherit",
                       },
                       padding: {
-                        xs: `${theme.typography.pxToRem(32)} 0 `,
+                        xs: `${typography.pxToRem(32)} 0 `,
                         lg: 0,
                       },
-                    }}
+                    })}
                     TitleProps={{
                       variant: "subtitle2",
-                      sx: {
-                        color: theme.palette.text.secondary,
+                      sx: ({ palette }) => ({
+                        color: palette.text.secondary,
                         fontWeight: "bold",
-                      },
+                      }),
                     }}
                     LinksProps={{
                       linkComponent: Link,
-                      sx: {
+                      sx: ({ palette, typography }) => ({
                         listStyle: "none",
-                        color: theme.palette.text.secondary,
+                        color: palette.text.secondary,
                         padding: 0,
-                        letterspacing: theme.typography.pxToRem(0.7),
+                        letterspacing: typography.pxToRem(0.7),
                         "& > li": {
-                          marginTop: theme.typography.pxToRem(16),
+                          marginTop: typography.pxToRem(16),
                         },
-                      },
+                      }),
                     }}
                     LinkProps={{
-                      sx: {
-                        color: theme.palette.text.secondary,
+                      sx: ({ palette }) => ({
+                        color: palette.text.secondary,
                         fontWeight: "normal",
                         "&:hover": {
-                          color: theme.palette.primary.light,
+                          color: palette.primary.light,
                         },
-                      },
+                      }),
                     }}
                   />
                 )}

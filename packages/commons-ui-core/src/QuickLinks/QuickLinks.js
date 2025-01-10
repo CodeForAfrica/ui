@@ -17,36 +17,12 @@ const QuickLinks = React.forwardRef(function QuickLinks(props, ref) {
       }}
       ref={ref}
     >
-      <Typography
-        {...TitleProps}
-        sx={{
-          lineHeight: "inherit",
-          ...TitleProps?.sx,
-        }}
-      >
-        {title}
-      </Typography>
-      <Typography
-        {...LinksProps}
-        sx={{
-          listStyle: "none",
-          padding: 0,
-          ...LinksProps?.sx,
-        }}
-        component="ul"
-      >
+      <Typography {...TitleProps}>{title}</Typography>
+      <Typography {...LinksProps} component="ul">
         {links &&
           links.map(({ label, ...others }) => (
             <li key={label}>
-              <LinkComponent
-                {...others}
-                underline="none"
-                {...LinkProps}
-                sx={{
-                  textDecoration: "none",
-                  ...LinkProps?.sx,
-                }}
-              >
+              <LinkComponent {...others} underline="none" {...LinkProps}>
                 {label}
               </LinkComponent>
             </li>
