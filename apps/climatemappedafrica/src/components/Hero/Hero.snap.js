@@ -17,7 +17,7 @@ exports[`<Hero /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-q6gmsn-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1qcxpxp-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-ljvmaf-MuiGrid-root"
