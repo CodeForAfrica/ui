@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid, Typography, useTheme } from "@mui/material";
@@ -5,7 +6,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import Player from "@/climatemappedafrica/components/HowItWorks/Player";
-import Section from "@/climatemappedafrica/components/Section";
 
 function HowItWorks({
   title,

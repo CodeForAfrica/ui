@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import {
   Grid,
   Slide,
@@ -18,7 +19,6 @@ import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Menu from "@/climatemappedafrica/components/Menu";
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
-import Section from "@/climatemappedafrica/components/Section";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={1000} ref={ref} {...props} />;

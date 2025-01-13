@@ -1,11 +1,10 @@
-import { Copyright, QuickLinks, StayInTouch } from "@commons-ui/core";
+import { Copyright, QuickLinks, StayInTouch, Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
-import Section from "@/climatemappedafrica/components/Section";
 
 function Footer(props) {
   const {

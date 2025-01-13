@@ -130,7 +130,7 @@ const theme = createTheme({
       textTransform: "uppercase",
     },
   },
-  widths: {
+  contentWidths: {
     values: {
       md: 608, // 0, 80, 0, 80 margin
       lg: 1160, // 0, 140, 0, 140 margin
