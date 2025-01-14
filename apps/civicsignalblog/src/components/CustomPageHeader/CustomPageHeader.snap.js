@@ -9,12 +9,12 @@ exports[`<CustomPageHeader /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-17rh705-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-h5ExtraBold css-1ej3pnj-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5ExtraBold css-99nlzo-MuiTypography-root"
       >
         About Us
       </h2>
       <h2
-        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-h67opl-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-1ar65j8-MuiTypography-root"
       >
         We are Africa’s largest network of civic technology and data journalism labs
       </h2>

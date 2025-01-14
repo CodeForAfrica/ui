@@ -9,7 +9,7 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
       class="MuiStack-root css-yhfzs2-MuiStack-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
       >
         Share This Article
       </div>

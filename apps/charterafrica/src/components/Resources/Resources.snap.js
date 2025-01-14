@@ -6,7 +6,7 @@ exports[`<Resources /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <h1
-      class="MuiTypography-root MuiTypography-h1Small css-5jsrba-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h1Small css-1qj3dn7-MuiTypography-root"
     >
       Our Resources
     </h1>
@@ -55,12 +55,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-15j3rrw-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1pszf4c-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
               >
                 Tools
               </h6>
@@ -110,12 +110,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-15j3rrw-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1pszf4c-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
               >
                 People
               </h6>
@@ -165,12 +165,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-15j3rrw-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1pszf4c-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
               >
                 Organisations
               </h6>
@@ -220,12 +220,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-15j3rrw-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-1pszf4c-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
               >
                 Data
               </h6>

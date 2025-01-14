@@ -25,13 +25,13 @@ exports[`<ImpactCard /> renders unchanged 1`] = `
           />
         </figure>
         <div
-          class="MuiTypography-root MuiTypography-h5 css-wfzfid-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 css-1jnssn-MuiTypography-root"
         >
           Beneficiaries trained
         </div>
       </div>
       <div
-        class="MuiTypography-root MuiTypography-display1 css-s6lk50-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display1 css-1nwmxyx-MuiTypography-root"
       >
         15000
       </div>
@@ -39,7 +39,7 @@ exports[`<ImpactCard /> renders unchanged 1`] = `
         class="MuiBox-root css-2ligbh"
       >
         <span
-          class="MuiTypography-root MuiTypography-body3 css-s9m4rs-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body3 css-b9odyg-MuiTypography-root"
         >
           Our team makes an impact in more than 20 countries where members are present.
         </span>
