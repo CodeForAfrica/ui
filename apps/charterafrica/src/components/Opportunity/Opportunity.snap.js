@@ -45,7 +45,7 @@ exports[`<Opportunity /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h3Small css-fgchvy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3Small css-1jnbwjl-MuiTypography-root"
               >
                 Opportunity title
               </div>
@@ -54,7 +54,7 @@ exports[`<Opportunity /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-subheading css-17eypqi-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subheading css-1okuc1l-MuiTypography-root"
               >
                 DEADLINE: February 6, 2023 at 12:00:00 AM
               </div>

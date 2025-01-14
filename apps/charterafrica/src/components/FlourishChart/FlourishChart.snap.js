@@ -9,12 +9,12 @@ exports[`<FlourishChart /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-wxw7nq-MuiContainer-root"
     >
       <h5
-        class="MuiTypography-root MuiTypography-h5SemiBold css-5bril4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5SemiBold css-5afmx9-MuiTypography-root"
       >
         Flourish Charts
       </h5>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-h5smwp-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1d485r-MuiTypography-root"
       >
         Flourish Charts
       </div>

@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import { Button, Typography, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -8,7 +9,6 @@ import printIcon from "@/climatemappedafrica/assets/icons/print.svg?url";
 import TopIcon from "@/climatemappedafrica/assets/icons/top.svg";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
-import Section from "@/climatemappedafrica/components/Section";
 import Tabs from "@/climatemappedafrica/components/Tabs";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 

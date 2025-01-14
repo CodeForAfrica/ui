@@ -59,7 +59,7 @@ exports[`<Document /> renders unchanged 1`] = `
               class="MuiStack-root css-plcmrn-MuiStack-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p3 css-7dv6su-MuiTypography-root"
               >
                 Share this document
               </div>

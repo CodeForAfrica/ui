@@ -9,7 +9,7 @@ exports[`<NewsAndStories /> renders unchanged 1`] = `
       class="MuiBox-root css-dvxtzn"
     >
       <div
-        class="MuiTypography-root MuiTypography-h4 css-1q524zl-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 css-304hzg-MuiTypography-root"
       >
         News and Stories
       </div>

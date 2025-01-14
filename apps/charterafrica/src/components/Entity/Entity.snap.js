@@ -35,27 +35,27 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-u4yv58-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-1h8yx9o-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-wx8luq-MuiTypography-root"
           >
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-2xha87-MuiTypography-root"
           >
             Developer
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-2xha87-MuiTypography-root"
           >
             Charter Africa
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-u590z5-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-2xha87-MuiTypography-root"
           >
             San Francisco, CA
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-x8x784-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-pxso3q-MuiTypography-root"
           >
             Full-stack web developer with over 5 years of experience.
           </div>
@@ -110,7 +110,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h3Small css-lx54qi-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3Small css-itrhit-MuiTypography-root"
           >
             Organisations
           </div>
@@ -146,7 +146,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                     />
                   </figure>
                   <div
-                    class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
                   >
                     Organisation 0
                   </div>
@@ -182,7 +182,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                     />
                   </figure>
                   <div
-                    class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
                   >
                     Organisation 1
                   </div>
@@ -218,7 +218,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                     />
                   </figure>
                   <div
-                    class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
                   >
                     Organisation 2
                   </div>
@@ -232,7 +232,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg css-1jzu7sv-MuiContainer-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h3Small css-1n4it2y-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3Small css-3xokdu-MuiTypography-root"
         >
           Repositories
         </div>
@@ -255,22 +255,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
                   >
                     Repository 0
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     Charter Africa website
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     React, Next.js, TypeScript
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     October 1, 2021
                   </div>
@@ -285,7 +285,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       sx="[object Object]"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
                     >
                       100
                     </div>
@@ -319,22 +319,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
                   >
                     Repository 1
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     Charter Africa website
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     React, Next.js, TypeScript
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     October 1, 2021
                   </div>
@@ -349,7 +349,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       sx="[object Object]"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
                     >
                       100
                     </div>
@@ -383,22 +383,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
                   >
                     Repository 2
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     Charter Africa website
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     React, Next.js, TypeScript
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
                   >
                     October 1, 2021
                   </div>
@@ -413,7 +413,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       sx="[object Object]"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
                     >
                       100
                     </div>
@@ -434,7 +434,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h3Small css-1n4it2y-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3Small css-3xokdu-MuiTypography-root"
       >
         Favorite Tools
       </div>
@@ -473,7 +473,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       class="MuiBox-root css-gg4vpm"
                     >
                       <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
                       >
                         React
                       </h5>
@@ -517,7 +517,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
                     >
                       A JavaScript library for building user interfaces
                     </div>
@@ -562,7 +562,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       class="MuiBox-root css-gg4vpm"
                     >
                       <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
                       >
                         Node.js
                       </h5>
@@ -606,7 +606,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       </div>
                     </div>
                     <div
-                      class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
                     >
                       A JavaScript runtime built on Chrome's V8 JavaScript engine.
                     </div>

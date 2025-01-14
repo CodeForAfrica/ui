@@ -85,11 +85,11 @@ const Profile = forwardRef(function Profile(
   return (
     <Box
       sx={[
-        ({ palette, typography, widths, zIndex }) => ({
+        ({ palette, typography, contentWidths, zIndex }) => ({
           backgroundColor: palette.background.default,
           // must match min width of TreeView
           left: {
-            lg: `max(calc((100vw - ${widths.values.lg}px)/2 + 79px), 300px)`,
+            lg: `max(calc((100vw - ${contentWidths.values.lg}px)/2 + 79px), 300px)`,
           },
           marginLeft: {
             xs: typography.pxToRem(20),

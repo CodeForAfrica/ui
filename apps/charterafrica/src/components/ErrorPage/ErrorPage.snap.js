@@ -9,19 +9,19 @@ exports[`<ErrorPage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1lmdmi3-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h3 css-uqgjyw-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-1xpnus0-MuiTypography-root"
       >
         404
          - 
         NOT FOUND
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h1 css-14tggjp-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1 css-19to4pe-MuiTypography-root"
       >
         404
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h3 css-bl890w-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-pawrpu-MuiTypography-root"
       >
         NOT FOUND
       </div>
@@ -29,7 +29,7 @@ exports[`<ErrorPage /> renders unchanged 1`] = `
         class="MuiBox-root css-dx31bc"
       >
         <p
-          class="MuiTypography-root MuiTypography-p3 css-cu269s-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p3 css-1ullfhh-MuiTypography-root"
         >
           Description Text
         </p>

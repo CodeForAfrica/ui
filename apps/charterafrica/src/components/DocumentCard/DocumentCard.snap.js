@@ -24,7 +24,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-d1m63n-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1w036fe-MuiTypography-root"
             >
               Document Title
             </div>
@@ -33,7 +33,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1qjtras-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-2zk7gx-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1du89xn-MuiTypography-root"
             >
               10 Pages
             </div>
@@ -43,7 +43,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
               .
             </span>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-r7a0d0-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-dvnpys-MuiTypography-root"
             >
               Contributed by: Contributor
             </div>
@@ -52,7 +52,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-yvyayl-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-vscbyg-MuiTypography-root"
             >
               September 1, 2021
             </div>

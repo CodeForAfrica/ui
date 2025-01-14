@@ -12,12 +12,12 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
         class="MuiStack-root css-163ljxj-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-vpgnax-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 MuiTypography-alignCenter css-1s1x4el-MuiTypography-root"
         >
           Are you looking to start a new project?
         </div>
         <div
-          class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-kvonk7-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter css-djznl0-MuiTypography-root"
         >
           We'd love to hear more.
         </div>

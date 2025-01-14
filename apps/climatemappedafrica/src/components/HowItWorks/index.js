@@ -1,12 +1,11 @@
+import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import Player from "@/climatemappedafrica/components/HowItWorks/Player";
-import useStyles from "@/climatemappedafrica/components/HowItWorks/useStyles";
-import Section from "@/climatemappedafrica/components/Section";
 
 function HowItWorks({
   title,
@@ -15,9 +14,8 @@ function HowItWorks({
   video,
   backgroundImage,
   image: foregroundImage,
-  ...props
 }) {
-  const classes = useStyles(props);
+  const theme = useTheme();
 
   return (
     <Box
@@ -41,7 +39,7 @@ function HowItWorks({
         }}
       />
       <Box
-        sx={(theme) => ({
+        sx={({ typography }) => ({
           display: {
             xs: "none",
             md: "block",
@@ -49,13 +47,23 @@ function HowItWorks({
           },
           position: "absolute",
           left: 0,
-          top: theme.typography.pxToRem(42),
+          top: typography.pxToRem(42),
           width: "100%",
           background: `linear-gradient(to right, #ffffffE6 0%, #ffffffE6 56%, transparent 56%, transparent 100%)`,
-          height: theme.typography.pxToRem(524),
+          height: typography.pxToRem(524),
         })}
       />
-      <Section classes={{ root: classes.section }}>
+      <Section
+        sx={{
+          zIndex: 1,
+          position: "relative",
+          paddingTop: `${theme.typography.pxToRem(62)} !important`,
+          padding: {
+            md: `${theme.typography.pxToRem(42)} 0 !important`,
+            lg: `${theme.typography.pxToRem(64)} 0 !important`,
+          },
+        }}
+      >
         <Grid
           container
           direction={{
@@ -70,7 +78,7 @@ function HowItWorks({
             xs={12}
             md={7}
             lg={6}
-            sx={(theme) => ({
+            sx={({ palette, typography }) => ({
               position: {
                 md: "relative",
               },
@@ -78,25 +86,25 @@ function HowItWorks({
                 md: 0,
               },
               backgroundColor: {
-                lg: theme.palette.background.default,
+                lg: palette.background.default,
               },
               opacity: {
                 md: 0.9,
               },
               height: {
-                md: theme.typography.pxToRem(524),
-                lg: theme.typography.pxToRem(600),
+                md: typography.pxToRem(524),
+                lg: typography.pxToRem(600),
               },
               padding: {
-                md: `${theme.typography.pxToRem(66)} ${theme.typography.pxToRem(
+                md: `${typography.pxToRem(66)} ${typography.pxToRem(
                   77,
-                )} ${theme.typography.pxToRem(69)} 0`,
-                lg: `${theme.typography.pxToRem(81)} ${theme.typography.pxToRem(98)}`,
+                )} ${typography.pxToRem(69)} 0`,
+                lg: `${typography.pxToRem(81)} ${typography.pxToRem(98)}`,
               },
             })}
           >
             <Box
-              sx={(theme) => ({
+              sx={({ typography }) => ({
                 position: "relative",
                 "& .video-js": {
                   width: "100%",
@@ -116,22 +124,22 @@ function HowItWorks({
                   display: "none",
                 },
                 height: {
-                  xs: theme.typography.pxToRem(227),
-                  md: theme.typography.pxToRem(194),
-                  lg: theme.typography.pxToRem(244),
+                  xs: typography.pxToRem(227),
+                  md: typography.pxToRem(194),
+                  lg: typography.pxToRem(244),
                 },
                 width: {
                   xs: "100%",
-                  md: theme.typography.pxToRem(299),
-                  lg: theme.typography.pxToRem(376),
+                  md: typography.pxToRem(299),
+                  lg: typography.pxToRem(376),
                 },
               })}
             >
               <Player {...video} />
             </Box>
             <Typography
-              sx={(theme) => ({
-                marginTop: theme.typography.pxToRem(18),
+              sx={({ typography }) => ({
+                marginTop: typography.pxToRem(18),
               })}
               variant="h4"
             >
@@ -139,12 +147,12 @@ function HowItWorks({
             </Typography>
             <RichText
               elements={description}
-              sx={(theme) => ({
-                fontFamily: theme.typography.body1.fontFamily,
-                margin: `${theme.typography.pxToRem(16.5)} 0`,
-                color: theme.palette.grey.dark,
+              sx={({ typography, palette }) => ({
+                fontFamily: typography.body1.fontFamily,
+                margin: `${typography.pxToRem(16.5)} 0`,
+                color: palette.grey.dark,
                 width: {
-                  md: theme.typography.pxToRem(278),
+                  md: typography.pxToRem(278),
                 },
               })}
             />
@@ -170,22 +178,22 @@ function HowItWorks({
             }}
           >
             <Box
-              sx={(theme) => ({
+              sx={({ typography }) => ({
                 position: "relative",
                 height: {
-                  xs: theme.typography.pxToRem(265),
-                  md: theme.typography.pxToRem(211),
-                  lg: theme.typography.pxToRem(441.6),
+                  xs: typography.pxToRem(265),
+                  md: typography.pxToRem(211),
+                  lg: typography.pxToRem(441.6),
                 },
                 width: {
-                  xs: theme.typography.pxToRem(253.6),
-                  md: theme.typography.pxToRem(202),
-                  lg: theme.typography.pxToRem(422.5),
+                  xs: typography.pxToRem(253.6),
+                  md: typography.pxToRem(202),
+                  lg: typography.pxToRem(422.5),
                 },
                 backgroundImage: `url(${foregroundImage.src})`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
-                marginBottom: theme.typography.pxToRem(23),
+                marginBottom: typography.pxToRem(23),
               })}
             />
           </Grid>
