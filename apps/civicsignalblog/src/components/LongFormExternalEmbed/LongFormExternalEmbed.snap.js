@@ -6,7 +6,7 @@ exports[`<LongFormExternalEmbed /> renders unchanged 1`] = `
     class="MuiBox-root css-rm9e7r"
   >
     <div
-      class="MuiTypography-root MuiTypography-body1 css-oo170e-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-mp4gss-MuiTypography-root"
     >
       <iframe
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

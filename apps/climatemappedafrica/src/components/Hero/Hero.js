@@ -1,4 +1,5 @@
-import { RichTypography } from "@commons-ui/legacy";
+import { Section } from "@commons-ui/core";
+import { RichTypography } from "@commons-ui/next";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
@@ -8,7 +9,6 @@ import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
 import Image from "@/climatemappedafrica/components/Image";
 import RichHeader from "@/climatemappedafrica/components/RichHeader";
-import Section from "@/climatemappedafrica/components/Section";
 
 const Map = dynamic(() => import("./Map"), { ssr: false });
 

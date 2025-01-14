@@ -31,7 +31,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
               class="MuiBox-root css-gg4vpm"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
               >
                 Tool Name
               </h5>
@@ -68,7 +68,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
             >
               Sample description
             </div>

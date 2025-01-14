@@ -12,7 +12,7 @@ exports[`<PageDescription/> renders unchanged 1`] = `
         class="MuiBox-root css-3zjynb"
       >
         <p
-          class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
         >
           The largest digital database for 
           <strong>

@@ -30,7 +30,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                   class="MuiBox-root css-jd4a7r"
                 >
                   <h1
-                    class="MuiTypography-root MuiTypography-h2Small css-1ddmxiu-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2Small css-1awbn21-MuiTypography-root"
                   >
                     Find Africa's best 
                     <em>
@@ -40,7 +40,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                   </h1>
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-5wjfwk-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-15y612c-MuiTypography-root"
                 >
                   Easy to use resources for democracy activists
                 </div>

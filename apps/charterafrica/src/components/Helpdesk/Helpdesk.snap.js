@@ -28,7 +28,7 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
           class="MuiBox-root css-j7qwjs"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1Small css-1uum2qd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1Small css-ek5pw1-MuiTypography-root"
           >
             Democracy Support Helpdesk
           </h1>
@@ -36,12 +36,12 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
             class="MuiBox-root css-1jz2duz"
           >
             <p
-              class="MuiTypography-root MuiTypography-p3 css-14a7tap-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p3 css-1s69ce2-MuiTypography-root"
             >
               Need help connecting with experts?
             </p>
             <p
-              class="MuiTypography-root MuiTypography-p3 css-14a7tap-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p3 css-1s69ce2-MuiTypography-root"
             >
               
 We can help you find specialists or resources to improve the impact of your democracy project.

@@ -22,7 +22,7 @@ exports[`<Explainer /> renders unchanged 1`] = `
       />
     </figure>
     <div
-      class="MuiTypography-root MuiTypography-h3SmallSemiBold css-zyjgo7-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3SmallSemiBold css-12w5e8m-MuiTypography-root"
     >
       Event title going on two or even three lines
     </div>
@@ -30,7 +30,7 @@ exports[`<Explainer /> renders unchanged 1`] = `
       class="MuiBox-root css-12mwhaj"
     >
       <p
-        class="MuiTypography-root MuiTypography-p2 css-1gx5see-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-9c4w98-MuiTypography-root"
       >
         Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
       </p>

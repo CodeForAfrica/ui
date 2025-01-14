@@ -1,4 +1,4 @@
-import { RichTypography } from "@commons-ui/legacy";
+import { RichTypography } from "@commons-ui/next";
 import { Box, useTheme } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
@@ -107,31 +107,37 @@ function Map({
             onEachFeature={onEachFeature}
           />
         </MapContainer>
-      </Box>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="flex-end"
-        gap={2}
-        sx={{
-          height: 108,
-          width: "100%",
-        }}
-      >
-        <Legend title={averageTemperature} data={legend} />
-        <RichTypography
-          variant="h6"
+        <Box
+          display="flex"
+          justifyContent="flex-start"
+          flexDirection="column-reverse"
+          alignItems="flex-start"
+          gap={2}
           sx={{
-            lineHeight: 23 / 18,
-            lineSpacing: "0.9px",
-            fontWeight: "normal",
-            textTransform: "capitalize",
-            display: "flex",
-            justifyContent: "flex-end",
+            width: {
+              xs: "170px",
+              md: "200px",
+            },
+            position: "absolute",
+            bottom: 0,
+            left: 0,
           }}
         >
-          {hoverGeo}
-        </RichTypography>
+          <Legend title={averageTemperature} data={legend} />
+          <RichTypography
+            variant="h6"
+            sx={{
+              lineHeight: 23 / 18,
+              lineSpacing: "0.9px",
+              fontWeight: "normal",
+              textTransform: "capitalize",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            {hoverGeo}
+          </RichTypography>
+        </Box>
       </Box>
     </Box>
   );

@@ -37,7 +37,7 @@ exports[`<Project /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
               >
                 Knowedge
               </div>
@@ -78,7 +78,7 @@ exports[`<Project /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
                 >
                   Knowedge
                 </div>
@@ -121,7 +121,7 @@ exports[`<Project /> renders unchanged 1`] = `
                     knowledgeAFRICA
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1vf0r2q-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-1s1s5lw-MuiTypography-root"
                   >
                     Knowledge tag line
                   </div>
@@ -182,7 +182,7 @@ exports[`<Project /> renders unchanged 1`] = `
           class="MuiStack-root css-1b1mat0-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5Small css-1rq9mfe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5Small css-msfork-MuiTypography-root"
           >
             Details
           </div>
@@ -190,7 +190,7 @@ exports[`<Project /> renders unchanged 1`] = `
             class="MuiStack-root css-7d4qva-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
             >
               Share This Project
             </div>

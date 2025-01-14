@@ -18,7 +18,7 @@ exports[`<LongFormMediaBlock /> renders unchanged 1`] = `
       width="0"
     />
     <figcaption
-      class="MuiTypography-root MuiTypography-caption css-18iyh8o-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-caption css-fl2ocl-MuiTypography-root"
     >
       Image caption.
     </figcaption>

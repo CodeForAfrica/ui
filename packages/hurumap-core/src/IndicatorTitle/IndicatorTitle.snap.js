@@ -12,7 +12,7 @@ exports[`IndicatorTitle renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-9drkqd-MuiGrid-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h6 css-am6883-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 css-134eivx-MuiTypography-root"
         >
           <div>
             Children

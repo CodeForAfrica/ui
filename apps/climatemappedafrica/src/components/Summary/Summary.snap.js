@@ -6,7 +6,7 @@ exports[`<Summary /> renders unchanged 1`] = `
     class="MuiBox-root css-dx4cvz"
   >
     <div
-      class="makeStyles-root-5 makeStyles-root-3 makeStyles-root-1 makeStyles-fixed-2 MuiBox-root css-0"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1cxefnp-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
@@ -32,23 +32,23 @@ exports[`<Summary /> renders unchanged 1`] = `
             class="MuiBox-root css-ge1eyg"
           >
             <p
-              class="MuiTypography-root MuiTypography-body2 css-1egxs0p-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-15wq5q8-MuiTypography-root"
             >
               The project was focused on helping journalists at Kenyan community-based radio stations adopt data-driven digital journalism tools and techniques to improve their evidence-driven analysis and multimedia reporting on development issues. The data portal was built to help them explore, visualise and interpret development data that impacted their own communities.
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body2 css-1egxs0p-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-15wq5q8-MuiTypography-root"
             />
             <p
-              class="MuiTypography-root MuiTypography-body2 css-1egxs0p-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-15wq5q8-MuiTypography-root"
             >
               The initial project involved 14 community radio stations in eight Kenyan counties. The selected community radios are all an integral part of their local communities and broadcast not only in English and Kiswahili but also in various local languages (such as Kitaita, Borana, Samburu and Meru).
             </p>
             <p
-              class="MuiTypography-root MuiTypography-body2 css-1egxs0p-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-15wq5q8-MuiTypography-root"
             />
             <p
-              class="MuiTypography-root MuiTypography-body2 css-1egxs0p-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body2 css-15wq5q8-MuiTypography-root"
             >
               Their listeners are mainly marginalised groups in Kenyan society and the poor rural population. The ‘Our County: Our Responsibility’ project was a partnership between 
               <strong>

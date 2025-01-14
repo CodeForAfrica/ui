@@ -41,7 +41,7 @@ exports[`<PageHeader/> renders unchanged 1`] = `
               class="MuiBox-root css-qhe18k"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1Small css-1dvjw0i-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1Small css-1k3x2yj-MuiTypography-root"
               >
                 The largest digital database for 
                 <strong>

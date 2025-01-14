@@ -31,7 +31,7 @@ function RichData({ primaryProfile, ...props }) {
       <TreeView
         items={primaryProfile.items}
         onLabelClick={handleLabelClick}
-        sx={({ typography, widths }) => ({
+        sx={({ typography, contentWidths }) => ({
           flexShrink: 0,
           bottom: 0,
           left: 0,
@@ -42,7 +42,7 @@ function RichData({ primaryProfile, ...props }) {
           // appears below main toolbar
           position: "fixed",
           top: typography.pxToRem(88), // Toolbar height
-          width: `calc((100vw - ${widths.values.lg}px)/2 + 79px)`,
+          width: `calc((100vw - ${contentWidths.values.lg}px)/2 + 79px)`,
         })}
       />
       <Profile

@@ -1,3 +1,4 @@
+import { Section } from "@commons-ui/core";
 import { AppBar, Toolbar } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -5,8 +6,6 @@ import React from "react";
 import DesktopNavigation from "./DesktopNavigation";
 import ExploreNavigation from "./ExploreNavigation";
 import MobileNavigation from "./MobileNavigation";
-
-import Section from "@/climatemappedafrica/components/Section";
 
 function Navigation({ variant, ...props }) {
   return (

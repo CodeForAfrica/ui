@@ -1,4 +1,5 @@
-import { ImageButton, Link } from "@commons-ui/next";
+import { ImageButton } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import Image from "next/image";
 
 function NextImageButton(props) {

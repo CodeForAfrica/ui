@@ -15,22 +15,22 @@ exports[`<Repository /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h6 css-fwmirk-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
         >
           Repository 1
         </div>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
         >
           Charter Africa website
         </div>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
         >
           React, Next.js, TypeScript
         </div>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-bi0xv9-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
         >
           October 1, 2021
         </div>
@@ -45,7 +45,7 @@ exports[`<Repository /> renders unchanged 1`] = `
             sx="[object Object]"
           />
           <div
-            class="MuiTypography-root MuiTypography-p1SemiBold css-1uj8b8o-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
           >
             100
           </div>
