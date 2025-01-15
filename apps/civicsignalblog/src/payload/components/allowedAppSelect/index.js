@@ -1,6 +1,6 @@
 import { SelectInput, useField } from "payload/components/forms";
 import { useAuth } from "payload/components/utilities";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, createElement } from "react";
 
 import applications from "#civicsignalblog/payload/lib/data/common/applications";
 
@@ -22,20 +22,18 @@ function CustomSelectComponent({ path, label }) {
     }
   }, [user?.allowedApps]);
 
-  return (
-    <div>
-      <label className="field-label" htmlFor={path}>
-        {label}
-      </label>
-      <SelectInput
-        style={{ marginBottom: "var(--spacing-field)" }}
-        path={path}
-        name={path}
-        options={options}
-        value={String(value ?? "")}
-        onChange={(e) => setValue(e.value)}
-      />
-    </div>
+  return createElement(
+    "div",
+    null,
+    createElement("label", { className: "field-label", htmlFor: path }, label),
+    createElement(SelectInput, {
+      style: { marginBottom: "var(--spacing-field)" },
+      path,
+      name: path,
+      options,
+      value: String(value ?? ""),
+      onChange: (e) => setValue(e.value),
+    }),
   );
 }
 

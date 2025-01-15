@@ -10,7 +10,7 @@ import SEO from "@/promisetracker/next-seo.config";
 import theme from "@/promisetracker/theme/index";
 
 // simplebar-react has a hard dependency on simplebar
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import "simplebar-react/dist/simplebar.min.css";
 
 export default function MyApp(props) {

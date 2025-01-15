@@ -13,7 +13,6 @@ import Tabs from "@/climatemappedafrica/components/Tabs";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 
 // being last is necessary for style override to work
-// eslint-disable-next-line import/order
 
 function MobilePanel({ activeType, scrollToTopLabel, sx, ...props }) {
   const { onSelectLocation, primaryProfile, dataNotAvailable } = props;

@@ -21,7 +21,8 @@
       "@/commons-ui/payload/*": ["../../packages/commons-ui-payload/src/*"],
       "@/hurumap/core/*": ["../../packages/hurumap-core/src/*"],
       "@/hurumap/next/*": ["../../packages/hurumap-next/src/*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["build", "dist", "node_modules"]

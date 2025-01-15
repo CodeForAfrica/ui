@@ -2,6 +2,7 @@ import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import type { LinkProps } from "@mui/material";
 import React from "react";
+
 import UserAvatar from "@/vpnmanager/components/UserAvatar";
 
 interface NavListItemProps extends LinkProps {}

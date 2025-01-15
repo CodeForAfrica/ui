@@ -184,7 +184,7 @@ function wp(site) {
       return undefined;
     }
 
-    // eslint-disable-next-line no-underscore-dangle
+    /* eslint  no-underscore-dangle: off */
     const embedded = resource._embedded;
 
     const post = {
