@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 function isExternalUrl(url) {
   return (
     typeof url === "string" &&

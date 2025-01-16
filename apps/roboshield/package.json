@@ -69,12 +69,14 @@
     "eslint": "catalog:",
     "eslint-config-next": "catalog:",
     "eslint-config-prettier": "catalog:",
+    "eslint-import-resolver-typescript": "catalog:",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
     "prettier": "catalog:",
     "tsx": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

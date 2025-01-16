@@ -1,84 +1,167 @@
-module.exports = {
-  extends: [
-    "eslint:recommended",
-    "plugin:markdown/recommended",
-    "plugin:json/recommended",
-    // airbnb enables: eslint-plugin-import, eslint-plugin-react,
-    //                 eslint-plugin-react-hooks, and eslint-plugin-jsx-a11y
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:prettier/recommended",
-    "turbo",
-  ],
-  parser: "@babel/eslint-parser",
-  parserOptions: {
-    requireConfigFile: false,
-    sourceType: "module",
-    babelOptions: {
-      presets: ["@babel/preset-react"],
-    },
-    allowImportExportEverywhere: true,
+const babelParser = require("@babel/eslint-parser");
+const { fixupConfigRules } = require("@eslint/compat");
+const { FlatCompat } = require("@eslint/eslintrc");
+const js = require("@eslint/js");
+const pluginJest = require("eslint-plugin-jest");
+const jestDom = require("eslint-plugin-jest-dom");
+const json = require("eslint-plugin-json");
+const markdown = require("eslint-plugin-markdown");
+const playwright = require("eslint-plugin-playwright");
+const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
+const testingLibrary = require("eslint-plugin-testing-library");
+const globals = require("globals");
+
+const flatCompat = new FlatCompat();
+
+module.exports = [
+  {
+    ignores: [
+      "**/node_modules",
+      "**/.pnp",
+      "**/.pnp.js",
+      "**/.pnpm-debug.log",
+      "**/dist/",
+      "**/coverage",
+      "**/.next/",
+      "**/out/",
+      "**/build/",
+      "**/.DS_Store",
+      "**/*.pem",
+      "**/npm-debug.log*",
+      "**/yarn-debug.log*",
+      "**/yarn-error.log*",
+      "**/.vercel",
+      "**/.now",
+      "**/.turbo",
+      "**/test-results/",
+      "**/playwright-report/",
+      "**/next.config.mjs",
+      "**/public/",
+      "**/build",
+      "**/contrib/",
+      "**/scripts/",
+    ],
   },
-  plugins: ["jest-dom", "testing-library"],
-  rules: {
-    "import/order": [
-      "error",
-      {
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
+  {
+    ...js.configs.recommended,
+  },
+  ...markdown.configs.recommended,
+  json.configs.recommended,
+  ...fixupConfigRules(flatCompat.extends("airbnb")),
+  ...fixupConfigRules(flatCompat.extends("airbnb/hooks")),
+  eslintPluginPrettierRecommended,
+  ...fixupConfigRules(flatCompat.extends("turbo")),
+  {
+    plugins: {
+      "jest-dom": jestDom,
+      "testing-library": testingLibrary,
+    },
+
+    languageOptions: {
+      parser: babelParser,
+      sourceType: "module",
+
+      parserOptions: {
+        requireConfigFile: false,
+
+        babelOptions: {
+          presets: ["@babel/preset-react"],
         },
-        "newlines-between": "always",
-      },
-    ],
-    // https://mui.com/guides/minimizing-bundle-size/#option-1
-    "no-restricted-imports": [
-      "error",
-      {
-        patterns: ["@mui/*/*/*", "!@mui/material/test-utils/*"],
-      },
-    ],
-    "react/jsx-filename-extension": [
-      1,
-      {
-        extensions: [".js"],
-      },
-    ],
-    "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
-    // defaultProps on fuction components are deprecated.
-    // https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#deprecate-defaultprops-on-function-components
-    // Since we no longer use class components, we should switch off this rule
-    "react/require-default-props": "off",
-  },
-  settings: {
-    "import/resolver": {
-      jsconfig: {
-        config: "jsconfig.json",
+
+        allowImportExportEverywhere: true,
       },
     },
-  },
-  overrides: [
-    {
-      files: ["**/*.test.js"],
-      extends: [
-        "plugin:jest/recommended",
-        "plugin:jest-dom/recommended",
-        "plugin:testing-library/react",
+
+    settings: {
+      "import/resolver": {
+        jsconfig: {
+          config: "jsconfig.json",
+        },
+      },
+    },
+
+    rules: {
+      "import/order": [
+        "error",
+        {
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+
+          "newlines-between": "always",
+        },
+      ],
+
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: ["@mui/*/*/*", "!@mui/material/test-utils/*"],
+        },
+      ],
+      "no-constant-binary-expression": "off",
+
+      "react/jsx-filename-extension": [
+        1,
+        {
+          extensions: [".js"],
+        },
+      ],
+
+      "react/jsx-props-no-spreading": "off",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/require-default-props": "off",
+      "import/no-extraneous-dependencies": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          caughtErrors: "none",
+          ignoreRestSiblings: true,
+        },
       ],
     },
-    {
-      // .snap.js files are autogenerated by jest and may contain irregular
-      // whitespace in string templates
-      files: ["**/*.snap.js"],
-      rules: {
-        "no-irregular-whitespace": ["error", { skipTemplates: true }],
+  },
+  {
+    files: ["**/*.test.js", "**/jest.setup.js"],
+    plugins: {
+      jest: pluginJest,
+      "jest-dom": jestDom,
+      "testing-library": testingLibrary,
+    },
+    ...pluginJest.configs["flat/recommended"],
+    ...jestDom.configs["flat/recommended"],
+    ...testingLibrary.configs["flat/react"],
+    languageOptions: {
+      globals: {
+        ...pluginJest.environments.globals.globals,
+        ...globals.browser,
+        ...globals.jest,
+        ...globals.node,
       },
     },
-    {
-      files: ["**/*.spec.js"],
-      extends: ["plugin:playwright/playwright-test"],
+    rules: {
+      "testing-library/render-result-naming-convention": "off", // No need to comment every test file with this rule.
     },
-  ],
-};
+  },
+  {
+    // .snap.js files are autogenerated by jest and may contain irregular
+    // whitespace in string templates
+    files: ["**/*.snap.js"],
+    rules: {
+      "no-irregular-whitespace": ["error", { skipTemplates: true }],
+    },
+  },
+  {
+    files: ["**/*.spec.js"],
+    ...playwright.configs["flat/recommended"],
+  },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+  },
+];

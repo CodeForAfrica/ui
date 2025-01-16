@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@commons-ui/core";
+import { ThemeProvider } from "@mui/material/styles";
 // import createTheme from "@commons-ui/core/styles/createTheme";
 
 import "./styles.css";

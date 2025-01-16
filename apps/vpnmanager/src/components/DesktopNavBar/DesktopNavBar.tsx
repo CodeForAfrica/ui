@@ -1,6 +1,5 @@
+import { Box, Grid, Grid2Props, SxProps } from "@mui/material";
 import React, { ForwardedRef } from "react";
-
-import { Box, Grid, Grid2Props } from "@mui/material";
 
 import type {
   Menu,
@@ -13,6 +12,7 @@ interface Props extends Grid2Props {
   logo: any;
   menus: Menu[];
   socialLinks: SocialMediaLink[];
+  sx?: SxProps;
 }
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(

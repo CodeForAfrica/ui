@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 
 import StoriesInsights from "@/pesayetu/components/StoriesInsights";

@@ -14,6 +14,8 @@ class FetchError extends Error {
   }
 }
 
+const a = 3;
+
 async function processResponse(response: Response) {
   const res = await response.json();
   if (response.status >= 200 && response.status <= 399) {
