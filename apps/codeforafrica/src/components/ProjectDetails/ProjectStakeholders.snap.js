@@ -6,12 +6,12 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
     class="MuiStack-root css-1b1mat0-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5Small css-msfork-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5Small css-iq7yq-MuiTypography-root"
     >
       Details
     </div>
     <div
-      class="MuiTypography-root MuiTypography-captionCap css-1pz3l8n-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-captionCap css-1y9353b-MuiTypography-root"
     >
       Donors
     </div>
@@ -19,10 +19,10 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       class="MuiStack-root css-1y69rbp-MuiStack-root"
     >
       <div
-        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1xpc6d0-MuiChip-root"
+        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-991qnp-MuiChip-root"
       >
         <span
-          class="MuiChip-label MuiChip-labelMedium css-1n6oebb-MuiChip-label"
+          class="MuiChip-label MuiChip-labelMedium css-eccknh-MuiChip-label"
         >
           World Bank
         </span>
@@ -32,7 +32,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
       class="MuiStack-root css-7d4qva-MuiStack-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-footerCap css-10h3evw-MuiTypography-root"
       >
         Share This Project
       </div>
@@ -47,7 +47,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />
@@ -60,7 +60,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />
@@ -73,7 +73,7 @@ exports[`<ProjectStakeholders /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />

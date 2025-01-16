@@ -12,7 +12,7 @@ exports[`<MobileNavigation /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
       <button
-        class="MuiButtonBase-root css-drm4qu-MuiButtonBase-root"
+        class="MuiButtonBase-root css-68ofh6-MuiButtonBase-root"
         tabindex="0"
         type="button"
       >

@@ -6,7 +6,7 @@ exports[`<StayInTouch /> renders unchanged 1`] = `
     class="MuiStack-root css-upk803-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-overline css-1g4ok2n-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-overline css-2turhu-MuiTypography-root"
     >
       Stay in Touch:
     </div>

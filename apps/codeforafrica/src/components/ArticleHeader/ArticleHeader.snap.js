@@ -3,13 +3,13 @@
 exports[`<ArticleHeader /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12qr4r4-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1acs8ar-MuiContainer-root"
   >
     <div
       class="MuiStack-root css-yhfzs2-MuiStack-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-footerCap css-10h3evw-MuiTypography-root"
       >
         Share This Article
       </div>
@@ -24,7 +24,7 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />
@@ -37,7 +37,7 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />
@@ -50,7 +50,7 @@ exports[`<ArticleHeader /> renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
             focusable="false"
             viewbox="0 0 24 24"
           />

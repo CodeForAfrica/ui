@@ -1,5 +1,12 @@
 import { Link } from "@commons-ui/next";
-import { Grid, List, ListItem, Collapse, Typography } from "@mui/material";
+import {
+  Grid,
+  ListItemButton,
+  List,
+  ListItem,
+  Collapse,
+  Typography,
+} from "@mui/material";
 import makeStyles from "@mui/styles/makeStyles";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -102,9 +109,8 @@ function NavigationList({ onNavigate, open: openProp, navigation, ...props }) {
 
         {analysisMenuNavigation?.length > 0 ? (
           <>
-            <ListItem
+            <ListItemButton
               autoFocus={false}
-              button
               onClick={handleClick}
               className={classes.listItem}
             >
@@ -114,7 +120,7 @@ function NavigationList({ onNavigate, open: openProp, navigation, ...props }) {
               >
                 {analysisMenu.title}
               </Typography>
-            </ListItem>
+            </ListItemButton>
 
             <Collapse in={open} timeout="auto">
               <List component="nav" className={classes.collapse}>

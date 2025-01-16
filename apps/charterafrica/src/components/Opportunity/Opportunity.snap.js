@@ -6,10 +6,10 @@ exports[`<Opportunity /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-18qfgg5-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-2u7biu-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-1b14d7z-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-4ef04g-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1g4nj95-MuiGrid-root"
@@ -18,11 +18,11 @@ exports[`<Opportunity /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <figure
-              class="MuiBox-root css-1nudpye"
+              class="MuiBox-root css-1h2h3lo"
             >
               <img
                 alt="Hero 1"
-                class="css-g98gbd"
+                class="css-qv2885"
                 data-nimg="1"
                 decoding="async"
                 height="0"
@@ -36,16 +36,16 @@ exports[`<Opportunity /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-1h2ytjv-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-frq7pl-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 css-15he5x-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 css-e2xkrp-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-h3Small css-1jnbwjl-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3Small css-1hity0z-MuiTypography-root"
               >
                 Opportunity title
               </div>
@@ -54,7 +54,7 @@ exports[`<Opportunity /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-subheading css-1okuc1l-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subheading css-i042z2-MuiTypography-root"
               >
                 DEADLINE: February 6, 2023 at 12:00:00 AM
               </div>
@@ -63,8 +63,9 @@ exports[`<Opportunity /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-16rmfqp-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1o5bdc4-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="/opportunities/felloships/grants/research-title-goes-here-and-spans-over-second-line"
+                id=":r0:"
                 tabindex="0"
               >
                 Apply Now

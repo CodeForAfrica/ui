@@ -4,7 +4,7 @@ exports[`<SocialMediaButton /> renders unchanged 1`] = `
 <div>
   <a
     aria-label="facebook"
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-qb5hih-MuiTypography-root-MuiLink-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1gfsfde-MuiTypography-root-MuiLink-root"
     data-mui-internal-clone-element="true"
     href="https://www.facebook.com/"
     rel="noreferrer noopener"
@@ -12,7 +12,7 @@ exports[`<SocialMediaButton /> renders unchanged 1`] = `
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 24 24"
     />

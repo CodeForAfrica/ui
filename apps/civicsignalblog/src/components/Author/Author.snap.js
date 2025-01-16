@@ -6,7 +6,7 @@ exports[`<Author /> renders unchanged 1`] = `
     class="MuiStack-root css-ty68jk-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-body2 css-1i0jku1-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body2 css-1mk70ig-MuiTypography-root"
     >
       Article by
     </div>
