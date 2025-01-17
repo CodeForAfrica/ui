@@ -430,8 +430,8 @@ catalogs:
       specifier: ^1.3.0
       version: 1.3.0
     payload:
-      specifier: ^2.28.0
-      version: 2.30.3
+      specifier: 2.30.0
+      version: 2.30.0
     plaiceholder:
       specifier: ^2.5.0
       version: 2.5.0
@@ -686,25 +686,25 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-spring/web':
         specifier: 'catalog:'
         version: 9.7.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -740,7 +740,7 @@ importers:
         version: 6.6.0(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
-        version: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+        version: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -828,7 +828,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       identity-obj-proxy:
         specifier: 'catalog:'
         version: 3.0.0
@@ -903,10 +903,10 @@ importers:
         version: 15.0.3(next@15.0.3(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/live-preview':
         specifier: 'catalog:'
         version: 0.2.2
@@ -915,19 +915,19 @@ importers:
         version: 0.2.0(react@18.3.1)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
         version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
@@ -960,7 +960,7 @@ importers:
         version: 1.0.3
       payload:
         specifier: 'catalog:'
-        version: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+        version: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -1102,25 +1102,25 @@ importers:
         version: 15.0.3
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@reactour/tour':
         specifier: 'catalog:'
         version: 3.7.0(react@18.3.1)
@@ -1159,7 +1159,7 @@ importers:
         version: 5.4.1
       payload:
         specifier: 'catalog:'
-        version: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+        version: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       plaiceholder:
         specifier: 'catalog:'
         version: 2.5.0(sharp@0.33.5)
@@ -1382,25 +1382,25 @@ importers:
         version: 15.0.3
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
         version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
@@ -1433,7 +1433,7 @@ importers:
         version: 1.0.3
       payload:
         specifier: 'catalog:'
-        version: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+        version: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -1500,7 +1500,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       identity-obj-proxy:
         specifier: 'catalog:'
         version: 3.0.0
@@ -1735,7 +1735,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(esbuild@0.24.0))
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-module-resolver:
         specifier: 'catalog:'
         version: 1.5.0
@@ -1919,7 +1919,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       identity-obj-proxy:
         specifier: 'catalog:'
         version: 3.0.0
@@ -1988,31 +1988,31 @@ importers:
         version: 15.0.3(next@15.0.3(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/live-preview-react':
         specifier: 'catalog:'
         version: 0.2.0(react@18.3.1)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1)
+        version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       ace-builds:
         specifier: 'catalog:'
         version: 1.36.3
@@ -2039,7 +2039,7 @@ importers:
         version: 1.0.3
       payload:
         specifier: 'catalog:'
-        version: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+        version: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       react:
         specifier: 'catalog:'
         version: 18.3.1
@@ -2109,7 +2109,7 @@ importers:
         version: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.14.0(jiti@1.21.6))
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
+        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.31.0(@typescript-eslint/parser@8.16.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
@@ -2233,7 +2233,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-mdx:
         specifier: 'catalog:'
         version: 3.1.5(eslint@9.14.0(jiti@1.21.6))
@@ -2351,7 +2351,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       prettier:
         specifier: 'catalog:'
         version: 3.3.3
@@ -4711,20 +4711,14 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@faceless-ui/modal@2.0.2':
-    resolution: {integrity: sha512-CtwUn+hHEaoYUjREzQKGRbEp55VzUx7sC+hxIxmCPwg7Yd5KXkQzSfoUfRAHqT/1MFfE1B2QCHVVbhtSnFL9BA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-
   '@faceless-ui/scroll-info@1.3.0':
     resolution: {integrity: sha512-X+doJMzQqyVGpwV/YgXUAalNWepP2W8ThgZspKZLFG43zTYLVTU17BYCjjY+ggKuA3b0W3JyXZ2M8f247AdmHw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@faceless-ui/window-info@2.1.2':
-    resolution: {integrity: sha512-IvZM6mLWFRin904180115Y6BgsvAN9M5uCMJEHhiQgTgzDMiYVtUww7GlWRsvemubMRF6c9Q+j79qW7uPPuMBg==}
+  '@faceless-ui/window-info@2.1.1':
+    resolution: {integrity: sha512-gMAgda7beR4CNpBIXjgRVn97ek0LG3PAj9lxmoYdg574IEzLFZAh3eAYtTaS2XLKgb4+IHhsuBzlGmHbeOo2Aw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -7751,6 +7745,10 @@ packages:
   bn.js@5.2.1:
     resolution: {integrity: sha512-eXRvHzWyYPBuB4NBy0cmYQjGitUrtqwbvlzP3G6VFnNRbsZQIxQ10PbKKHt8gZ/HW/D/747aDl+QkDqg3KQLMQ==}
 
+  body-parser@1.20.2:
+    resolution: {integrity: sha512-ml9pReCu3M61kGlqoTm2umSXTlRTuGTx0bfYj+uIUKKYycG5NtSbeetV3faSU6R7ajOPw0g/J1PvK4qNy7s5bA==}
+    engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
+
   body-parser@1.20.3:
     resolution: {integrity: sha512-7rAxByjUMqQ3/bHJy7D6OGXvx/MMc4IqBn/X0fcM1QUcAItpZrBEYhWGem+tzXH90c+G01ypMcYJBO9Y30203g==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
@@ -8616,9 +8614,8 @@ packages:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
     engines: {node: '>=6'}
 
-  deep-equal@2.2.3:
-    resolution: {integrity: sha512-ZIwpnevOurS8bpT4192sqAowWM76JDKSHYzMLty3BZGSswgq6pBaH3DhCSW5xVAZICZyKdOBPjwww5wfgT/6PA==}
-    engines: {node: '>= 0.4'}
+  deep-equal@2.2.2:
+    resolution: {integrity: sha512-xjVyBf0w5vH0I42jdAZzOKVldmPgSulmiyPRywoyq7HXC9qdgo17kxJE+rdnif5Tz6+pIrpJI8dCpMNLIGkUiA==}
 
   deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
@@ -10842,6 +10839,10 @@ packages:
   jsonp@0.2.1:
     resolution: {integrity: sha512-pfog5gdDxPdV4eP7Kg87M8/bHgshlZ5pybl+yKxAnCZ5O7lCIn7Ixydj03wOlnDQesky2BPyA91SQ+5Y/mNwzw==}
 
+  jsonwebtoken@9.0.1:
+    resolution: {integrity: sha512-K8wx7eJ5TPvEjuiVSkv167EVboBDv9PZdDoF7BgeQnBLVvZWW9clr2PsQHVJDTKaEIH5JBIwHujGcHp7GgI2eg==}
+    engines: {node: '>=12', npm: '>=6'}
+
   jsonwebtoken@9.0.2:
     resolution: {integrity: sha512-PRp66vJ865SSqOlgqS8hujT5U4AOgMfhrwYIuIhfKaoSCZcirrmASQr8CX7cUg+RMih+hgznrjp99o+W4pJLHQ==}
     engines: {node: '>=12', npm: '>=6'}
@@ -11683,6 +11684,10 @@ packages:
     resolution: {integrity: sha512-AHf04ySLC6CIfuRtRiEYtGEXgRfa6INgWGluDhnxTZhHSKvrBu7lc1VVchQ0d8nPc4cFaZoPq8vkyNoZr0TpGQ==}
     engines: {node: '>=6.0.0'}
 
+  nodemailer@6.9.8:
+    resolution: {integrity: sha512-cfrYUk16e67Ks051i4CntM9kshRYei1/o/Gi8K1d+R34OIs21xdFnW7Pt7EucmVKA0LKtqUGNcjMZ7ehjl49mQ==}
+    engines: {node: '>=6.0.0'}
+
   nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
     engines: {node: '>=6'}
@@ -12051,8 +12056,8 @@ packages:
   pause@0.0.1:
     resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
 
-  payload@2.30.3:
-    resolution: {integrity: sha512-D0kO+pcDK7zgfY1mfXjgsIxCH9fzCsZzMbIsonTAo1CWuK11R9jIwr0mn5BhUIenOjwwhXeiDSnXZflCJWhykQ==}
+  payload@2.30.0:
+    resolution: {integrity: sha512-uKYEKZZw7M4YyT2pVwDdbF1g9nJuKirB5N+l8aMp7PIOaTMK9enora4pTdmcb/+O+f696c43TxNQc2qZ24mgCA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -12533,6 +12538,10 @@ packages:
   qs-middleware@1.0.3:
     resolution: {integrity: sha512-ymlixxD/0Bj3BMY9x1z8ENdQdhkmsIbDNyVvfM8soHn5p/CRFlLPrmtxmE5aG//q1PzHHSGuLi+6QlHezivseg==}
     engines: {node: '>=0.10'}
+
+  qs@6.11.0:
+    resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
+    engines: {node: '>=0.6'}
 
   qs@6.11.2:
     resolution: {integrity: sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==}
@@ -13169,6 +13178,9 @@ packages:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
 
+  scheduler@0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
@@ -13660,6 +13672,12 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
+  swc-loader@0.2.3:
+    resolution: {integrity: sha512-D1p6XXURfSPleZZA/Lipb3A8pZ17fP4NObZvFCDjK/OKljroqDpPmsBdTraWhVBqUNpcWBQY1imWdoPScRlQ7A==}
+    peerDependencies:
+      '@swc/core': ^1.2.147
+      webpack: '>=2'
+
   swc-loader@0.2.6:
     resolution: {integrity: sha512-9Zi9UP2YmDpgmQVbyOPJClY0dwf58JDyDMQ7uRc4krmc72twNI2fvlBWHLqVekBpPc7h5NJkGVT1zNDxFrqhvg==}
     peerDependencies:
@@ -13720,6 +13738,22 @@ packages:
 
   terser-webpack-plugin@5.3.10:
     resolution: {integrity: sha512-BKFPWlPDndPs+NGGCr1U59t0XScL5317Y0UReNrHaw9/FwhPENlq6bfgs+4yPfyP51vqC1bQ4rp1EfXW5ZSH9w==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      '@swc/core': '*'
+      esbuild: '*'
+      uglify-js: '*'
+      webpack: ^5.1.0
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      esbuild:
+        optional: true
+      uglify-js:
+        optional: true
+
+  terser-webpack-plugin@5.3.9:
+    resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -16854,10 +16888,10 @@ snapshots:
   '@emotion/css@11.13.4':
     dependencies:
       '@emotion/babel-plugin': 11.12.0
-      '@emotion/cache': 11.13.1
-      '@emotion/serialize': 1.3.2
+      '@emotion/cache': 11.14.0
+      '@emotion/serialize': 1.3.3
       '@emotion/sheet': 1.4.0
-      '@emotion/utils': 1.4.1
+      '@emotion/utils': 1.4.2
     transitivePeerDependencies:
       - supports-color
 
@@ -17151,21 +17185,12 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  '@faceless-ui/modal@2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      body-scroll-lock: 3.1.5
-      focus-trap: 6.9.4
-      qs: 6.13.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-transition-group: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-
   '@faceless-ui/scroll-info@1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@faceless-ui/window-info@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@faceless-ui/window-info@2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -18358,7 +18383,7 @@ snapshots:
 
   '@panva/hkdf@1.2.1': {}
 
-  '@payloadcms/bundler-webpack@1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)':
+  '@payloadcms/bundler-webpack@1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(sass@1.69.4)':
     dependencies:
       ajv: 8.17.1
       compression: 1.7.4
@@ -18370,7 +18395,7 @@ snapshots:
       md5: 2.3.0
       mini-css-extract-plugin: 1.6.2(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       path-browserify: 1.0.1
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       postcss: 8.4.31
       postcss-loader: 6.2.1(postcss@8.4.31)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       postcss-preset-env: 9.0.0(postcss@8.4.31)
@@ -18402,7 +18427,7 @@ snapshots:
       - utf-8-validate
       - webpack-dev-server
 
-  '@payloadcms/bundler-webpack@1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)':
+  '@payloadcms/bundler-webpack@1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.13))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)':
     dependencies:
       ajv: 8.17.1
       compression: 1.7.4
@@ -18414,7 +18439,7 @@ snapshots:
       md5: 2.3.0
       mini-css-extract-plugin: 1.6.2(webpack@5.96.1)
       path-browserify: 1.0.1
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       postcss: 8.4.31
       postcss-loader: 6.2.1(postcss@8.4.31)(webpack@5.96.1)
       postcss-preset-env: 9.0.0(postcss@8.4.31)
@@ -18446,7 +18471,7 @@ snapshots:
       - utf-8-validate
       - webpack-dev-server
 
-  '@payloadcms/db-mongodb@1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))':
+  '@payloadcms/db-mongodb@1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))':
     dependencies:
       bson-objectid: 2.0.4
       deepmerge: 4.3.1
@@ -18455,7 +18480,7 @@ snapshots:
       mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -18463,7 +18488,7 @@ snapshots:
       - aws-crt
       - supports-color
 
-  '@payloadcms/db-mongodb@1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))':
+  '@payloadcms/db-mongodb@1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))':
     dependencies:
       bson-objectid: 2.0.4
       deepmerge: 4.3.1
@@ -18472,7 +18497,7 @@ snapshots:
       mongoose: 6.12.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))
       mongoose-aggregate-paginate-v2: 1.0.6
       mongoose-paginate-v2: 1.7.22
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       prompts: 2.4.2
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -18487,68 +18512,68 @@ snapshots:
 
   '@payloadcms/live-preview@0.2.2': {}
 
-  '@payloadcms/plugin-cloud-storage@1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))':
+  '@payloadcms/plugin-cloud-storage@1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))':
     dependencies:
       find-node-modules: 2.1.3
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       range-parser: 1.2.1
     optionalDependencies:
       '@aws-sdk/client-s3': 3.685.0
       '@aws-sdk/lib-storage': 3.685.0(@aws-sdk/client-s3@3.685.0)
 
-  '@payloadcms/plugin-cloud-storage@1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))':
+  '@payloadcms/plugin-cloud-storage@1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))':
     dependencies:
       find-node-modules: 2.1.3
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       range-parser: 1.2.1
     optionalDependencies:
       '@aws-sdk/client-s3': 3.685.0
       '@aws-sdk/lib-storage': 3.685.0(@aws-sdk/client-s3@3.685.0)
 
-  '@payloadcms/plugin-nested-docs@1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))':
+  '@payloadcms/plugin-nested-docs@1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))':
     dependencies:
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
 
-  '@payloadcms/plugin-nested-docs@1.0.12(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))':
+  '@payloadcms/plugin-nested-docs@1.0.12(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))':
     dependencies:
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
 
-  '@payloadcms/plugin-sentry@0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)':
-    dependencies:
-      '@sentry/node': 7.119.2
-      '@sentry/types': 7.119.2
-      express: 4.21.1
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
-      react: 18.3.1
-    transitivePeerDependencies:
-      - supports-color
-
-  '@payloadcms/plugin-sentry@0.0.6(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)':
+  '@payloadcms/plugin-sentry@0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)':
     dependencies:
       '@sentry/node': 7.119.2
       '@sentry/types': 7.119.2
       express: 4.21.1
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       react: 18.3.1
     transitivePeerDependencies:
       - supports-color
 
-  '@payloadcms/plugin-seo@2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)':
+  '@payloadcms/plugin-sentry@0.0.6(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)':
     dependencies:
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      '@sentry/node': 7.119.2
+      '@sentry/types': 7.119.2
+      express: 4.21.1
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      react: 18.3.1
+    transitivePeerDependencies:
+      - supports-color
+
+  '@payloadcms/plugin-seo@2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react@18.3.1)':
+    dependencies:
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       react: 18.3.1
 
-  '@payloadcms/plugin-seo@2.3.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)':
+  '@payloadcms/plugin-seo@2.3.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)':
     dependencies:
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       react: 18.3.1
 
-  '@payloadcms/richtext-slate@1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@payloadcms/richtext-slate@1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@faceless-ui/modal': 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       i18next: 22.5.1
       is-hotkey: 0.2.0
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       react: 18.3.1
       react-i18next: 11.18.6(i18next@22.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       slate: 0.91.4
@@ -18559,12 +18584,12 @@ snapshots:
       - react-dom
       - react-native
 
-  '@payloadcms/richtext-slate@1.5.2(payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@payloadcms/richtext-slate@1.5.2(payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@faceless-ui/modal': 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       i18next: 22.5.1
       is-hotkey: 0.2.0
-      payload: 2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+      payload: 2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       react: 18.3.1
       react-i18next: 11.18.6(i18next@22.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       slate: 0.91.4
@@ -21589,6 +21614,23 @@ snapshots:
 
   bn.js@5.2.1: {}
 
+  body-parser@1.20.2:
+    dependencies:
+      bytes: 3.1.2
+      content-type: 1.0.5
+      debug: 2.6.9
+      depd: 2.0.0
+      destroy: 1.2.0
+      http-errors: 2.0.0
+      iconv-lite: 0.4.24
+      on-finished: 2.4.1
+      qs: 6.11.0
+      raw-body: 2.5.2
+      type-is: 1.6.18
+      unpipe: 1.0.0
+    transitivePeerDependencies:
+      - supports-color
+
   body-parser@1.20.3:
     dependencies:
       bytes: 3.1.2
@@ -22551,7 +22593,7 @@ snapshots:
 
   deep-eql@5.0.2: {}
 
-  deep-equal@2.2.3:
+  deep-equal@2.2.2:
     dependencies:
       array-buffer-byte-length: 1.0.1
       call-bind: 1.0.7
@@ -23244,7 +23286,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -23261,7 +23303,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.12.2(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -23303,7 +23345,7 @@ snapshots:
       eslint: 9.14.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.14.0(jiti@1.21.6))
-      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
+      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
     transitivePeerDependencies:
       - supports-color
 
@@ -23326,7 +23368,7 @@ snapshots:
       eslint: 9.14.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.16.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.14.0(jiti@1.21.6))
-      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
+      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
     transitivePeerDependencies:
       - supports-color
 
@@ -23338,6 +23380,16 @@ snapshots:
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.14.0(jiti@1.21.6))
       eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+    transitivePeerDependencies:
+      - supports-color
+
+  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6)):
+    dependencies:
+      debug: 3.2.7
+    optionalDependencies:
+      eslint: 9.14.0(jiti@1.21.6)
+      eslint-import-resolver-node: 0.3.9
+      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -23440,6 +23492,33 @@ snapshots:
       eslint: 9.14.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
+      hasown: 2.0.2
+      is-core-module: 2.15.1
+      is-glob: 4.0.3
+      minimatch: 3.1.2
+      object.fromentries: 2.0.8
+      object.groupby: 1.0.3
+      object.values: 1.2.0
+      semver: 6.3.1
+      string.prototype.trimend: 1.0.8
+      tsconfig-paths: 3.15.0
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - supports-color
+
+  eslint-plugin-import@2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6)):
+    dependencies:
+      '@rtsao/scc': 1.1.0
+      array-includes: 3.1.8
+      array.prototype.findlastindex: 1.2.5
+      array.prototype.flat: 1.3.2
+      array.prototype.flatmap: 1.3.2
+      debug: 3.2.7
+      doctrine: 2.1.0
+      eslint: 9.14.0(jiti@1.21.6)
+      eslint-import-resolver-node: 0.3.9
+      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9)(eslint@9.14.0(jiti@1.21.6))
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -25759,6 +25838,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  jsonwebtoken@9.0.1:
+    dependencies:
+      jws: 3.2.2
+      lodash: 4.17.21
+      ms: 2.1.3
+      semver: 7.6.3
+
   jsonwebtoken@9.0.2:
     dependencies:
       jws: 3.2.2
@@ -26947,7 +27033,10 @@ snapshots:
     dependencies:
       '@sendgrid/mail': 6.5.5
 
-  nodemailer@6.9.15: {}
+  nodemailer@6.9.15:
+    optional: true
+
+  nodemailer@6.9.8: {}
 
   nopt@5.0.0:
     dependencies:
@@ -27337,18 +27426,18 @@ snapshots:
 
   pause@0.0.1: {}
 
-  payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
+  payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
     dependencies:
       '@date-io/date-fns': 2.16.0(date-fns@2.30.0)
       '@dnd-kit/core': 6.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@faceless-ui/modal': 2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@faceless-ui/modal': 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@faceless-ui/scroll-info': 1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@faceless-ui/window-info': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@faceless-ui/window-info': 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@monaco-editor/react': 4.5.1(monaco-editor@0.38.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@swc/core': 1.6.1(@swc/helpers@0.5.13)
       '@swc/register': 0.1.10(@swc/core@1.6.1(@swc/helpers@0.5.13))
-      body-parser: 1.20.3
+      body-parser: 1.20.2
       body-scroll-lock: 4.0.0-beta.0
       bson-objectid: 2.0.4
       compression: 1.7.4
@@ -27357,7 +27446,7 @@ snapshots:
       console-table-printer: 2.11.2
       dataloader: 2.2.2
       date-fns: 2.30.0
-      deep-equal: 2.2.3
+      deep-equal: 2.2.2
       deepmerge: 4.3.1
       dotenv: 8.6.0
       express: 4.21.0
@@ -27384,14 +27473,14 @@ snapshots:
       isomorphic-fetch: 3.0.0(encoding@0.1.13)
       joi: 17.9.2
       json-schema-to-typescript: 14.0.5
-      jsonwebtoken: 9.0.2
+      jsonwebtoken: 9.0.1
       jwt-decode: 3.1.2
       md5: 2.3.0
       method-override: 3.0.0
       minimist: 1.2.8
       mkdirp: 1.0.4
       monaco-editor: 0.38.0
-      nodemailer: 6.9.15
+      nodemailer: 6.9.8
       object-to-formdata: 4.5.1
       passport: 0.6.0
       passport-anonymous: 1.0.1
@@ -27419,13 +27508,13 @@ snapshots:
       react-toastify: 10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sanitize-filename: 1.6.3
       sass: 1.69.4
-      scheduler: 0.23.2
+      scheduler: 0.23.0
       scmp: 2.1.0
       sharp: 0.33.5
-      swc-loader: 0.2.6(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
-      terser-webpack-plugin: 5.3.10(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      swc-loader: 0.2.3(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
+      terser-webpack-plugin: 5.3.9(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13)))
       ts-essentials: 7.0.3(typescript@5.6.3)
-      use-context-selector: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
+      use-context-selector: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.0)
       uuid: 9.0.1
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -27438,18 +27527,18 @@ snapshots:
       - uglify-js
       - webpack
 
-  payload@2.30.3(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1):
+  payload@2.30.0(@swc/helpers@0.5.13)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1):
     dependencies:
       '@date-io/date-fns': 2.16.0(date-fns@2.30.0)
       '@dnd-kit/core': 6.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.0.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@faceless-ui/modal': 2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@faceless-ui/modal': 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@faceless-ui/scroll-info': 1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@faceless-ui/window-info': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@faceless-ui/window-info': 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@monaco-editor/react': 4.5.1(monaco-editor@0.38.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@swc/core': 1.6.1(@swc/helpers@0.5.13)
       '@swc/register': 0.1.10(@swc/core@1.6.1(@swc/helpers@0.5.13))
-      body-parser: 1.20.3
+      body-parser: 1.20.2
       body-scroll-lock: 4.0.0-beta.0
       bson-objectid: 2.0.4
       compression: 1.7.4
@@ -27458,7 +27547,7 @@ snapshots:
       console-table-printer: 2.11.2
       dataloader: 2.2.2
       date-fns: 2.30.0
-      deep-equal: 2.2.3
+      deep-equal: 2.2.2
       deepmerge: 4.3.1
       dotenv: 8.6.0
       express: 4.21.0
@@ -27485,14 +27574,14 @@ snapshots:
       isomorphic-fetch: 3.0.0(encoding@0.1.13)
       joi: 17.9.2
       json-schema-to-typescript: 14.0.5
-      jsonwebtoken: 9.0.2
+      jsonwebtoken: 9.0.1
       jwt-decode: 3.1.2
       md5: 2.3.0
       method-override: 3.0.0
       minimist: 1.2.8
       mkdirp: 1.0.4
       monaco-editor: 0.38.0
-      nodemailer: 6.9.15
+      nodemailer: 6.9.8
       object-to-formdata: 4.5.1
       passport: 0.6.0
       passport-anonymous: 1.0.1
@@ -27520,13 +27609,13 @@ snapshots:
       react-toastify: 10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sanitize-filename: 1.6.3
       sass: 1.69.4
-      scheduler: 0.23.2
+      scheduler: 0.23.0
       scmp: 2.1.0
       sharp: 0.33.5
-      swc-loader: 0.2.6(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1)
-      terser-webpack-plugin: 5.3.10(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1)
+      swc-loader: 0.2.3(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1)
+      terser-webpack-plugin: 5.3.9(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1)
       ts-essentials: 7.0.3(typescript@5.6.3)
-      use-context-selector: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
+      use-context-selector: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.0)
       uuid: 9.0.1
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -28102,6 +28191,10 @@ snapshots:
     dependencies:
       qs: 6.4.1
 
+  qs@6.11.0:
+    dependencies:
+      side-channel: 1.0.6
+
   qs@6.11.2:
     dependencies:
       side-channel: 1.0.6
@@ -28334,10 +28427,10 @@ snapshots:
   react-select@5.7.4(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.0
-      '@emotion/cache': 11.13.1
+      '@emotion/cache': 11.14.0
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
       '@floating-ui/dom': 1.6.12
-      '@types/react-transition-group': 4.4.11
+      '@types/react-transition-group': 4.4.12(@types/react@18.3.12)
       memoize-one: 6.0.0
       prop-types: 15.8.1
       react: 18.3.1
@@ -28886,6 +28979,10 @@ snapshots:
   saxes@6.0.0:
     dependencies:
       xmlchars: 2.2.0
+
+  scheduler@0.23.0:
+    dependencies:
+      loose-envify: 1.4.0
 
   scheduler@0.23.2:
     dependencies:
@@ -29495,16 +29592,14 @@ snapshots:
       csso: 5.0.5
       picocolors: 1.1.1
 
-  swc-loader@0.2.6(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
+  swc-loader@0.2.3(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
     dependencies:
       '@swc/core': 1.6.1(@swc/helpers@0.5.13)
-      '@swc/counter': 0.1.3
       webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))
 
-  swc-loader@0.2.6(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1):
+  swc-loader@0.2.3(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1):
     dependencies:
       '@swc/core': 1.6.1(@swc/helpers@0.5.13)
-      '@swc/counter': 0.1.3
       webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))(webpack-cli@4.10.0)
 
   swc-loader@0.2.6(@swc/core@1.8.0(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
@@ -29580,28 +29675,6 @@ snapshots:
 
   term-size@2.2.1: {}
 
-  terser-webpack-plugin@5.3.10(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.25
-      jest-worker: 27.5.1
-      schema-utils: 3.3.0
-      serialize-javascript: 6.0.2
-      terser: 5.36.0
-      webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))
-    optionalDependencies:
-      '@swc/core': 1.6.1(@swc/helpers@0.5.13)
-
-  terser-webpack-plugin@5.3.10(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1):
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.25
-      jest-worker: 27.5.1
-      schema-utils: 3.3.0
-      serialize-javascript: 6.0.2
-      terser: 5.36.0
-      webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))(webpack-cli@4.10.0)
-    optionalDependencies:
-      '@swc/core': 1.6.1(@swc/helpers@0.5.13)
-
   terser-webpack-plugin@5.3.10(@swc/core@1.8.0(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
@@ -29643,6 +29716,28 @@ snapshots:
       serialize-javascript: 6.0.2
       terser: 5.36.0
       webpack: 5.96.1
+
+  terser-webpack-plugin@5.3.9(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.36.0
+      webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))
+    optionalDependencies:
+      '@swc/core': 1.6.1(@swc/helpers@0.5.13)
+
+  terser-webpack-plugin@5.3.9(@swc/core@1.6.1(@swc/helpers@0.5.13))(webpack@5.96.1):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.36.0
+      webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.13))(webpack-cli@4.10.0)
+    optionalDependencies:
+      '@swc/core': 1.6.1(@swc/helpers@0.5.13)
 
   terser@5.36.0:
     dependencies:
@@ -30117,10 +30212,10 @@ snapshots:
       punycode: 1.4.1
       qs: 6.13.0
 
-  use-context-selector@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2):
+  use-context-selector@1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.0):
     dependencies:
       react: 18.3.1
-      scheduler: 0.23.2
+      scheduler: 0.23.0
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
