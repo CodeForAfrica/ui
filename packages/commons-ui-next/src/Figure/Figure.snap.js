@@ -3,11 +3,11 @@
 exports[`<Figure /> renders unchanged 1`] = `
 <div>
   <figure
-    class="MuiBox-root css-vutmxe"
+    class="MuiBox-root css-db5opy"
   >
     <img
       alt="Image"
-      class="css-qv2885"
+      class="css-g98gbd"
       data-nimg="fill"
       decoding="async"
       loading="lazy"

@@ -6,11 +6,11 @@ exports[`<LongFormMedia /> renders unchanged 1`] = `
     class="MuiBox-root css-rm9e7r"
   >
     <figure
-      class="MuiBox-root css-1ol0o2q"
+      class="MuiBox-root css-datfzi"
     >
       <img
         alt="alt"
-        class="css-nkefi2"
+        class="css-11xr7uw"
         data-nimg="fill"
         decoding="async"
         loading="lazy"
