@@ -12,7 +12,7 @@ exports[`Download renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1gfrinl-MuiGrid-root"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-11jgupt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-179yco0-MuiTypography-root"
       >
         Download chart as:
       </p>
@@ -24,7 +24,7 @@ exports[`Download renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1yuqec2-MuiGrid-root"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-11jgupt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-179yco0-MuiTypography-root"
       >
         Layout option:
       </p>
@@ -36,7 +36,7 @@ exports[`Download renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1gfrinl-MuiGrid-root"
     >
       <p
-        class="MuiTypography-root MuiTypography-body1 css-11jgupt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body1 css-179yco0-MuiTypography-root"
       >
         Download data as:
       </p>

@@ -6,7 +6,7 @@ exports[`<LongFormRichText /> renders unchanged 1`] = `
     class="MuiBox-root css-142s5v6"
   >
     <p
-      class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
     >
       We process and manage your personal data in compliance with the European Union’s General Data Protection Regulation (GDPR). The following information provides an overview of how we process and manage your personal data as well as of your rights as a visitor and user of this site.
 Who is responsible and who may you contact?

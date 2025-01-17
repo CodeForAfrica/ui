@@ -3,16 +3,16 @@
 exports[`<Breadcrumbs /> renders unchanged 1`] = `
 <div>
   <nav
-    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1yleyq8-MuiTypography-root-MuiBreadcrumbs-root"
+    class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-160nqft-MuiTypography-root-MuiBreadcrumbs-root"
   >
     <ol
-      class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+      class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
     >
       <li
         class="MuiBreadcrumbs-li"
       >
         <a
-          class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-17o088p-MuiTypography-root-MuiLink-root"
           href="/projects"
         >
           Our Work
@@ -20,7 +20,7 @@ exports[`<Breadcrumbs /> renders unchanged 1`] = `
       </li>
       <li
         aria-hidden="true"
-        class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+        class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
       >
         /
       </li>
@@ -28,7 +28,7 @@ exports[`<Breadcrumbs /> renders unchanged 1`] = `
         class="MuiBreadcrumbs-li"
       >
         <div
-          class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body1 css-hz33y3-MuiTypography-root"
         >
           Initiatives
         </div>

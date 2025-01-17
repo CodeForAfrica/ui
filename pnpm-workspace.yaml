@@ -28,10 +28,10 @@ catalog:
   "@mdx-js/loader": ^3.0.1
   "@mdx-js/mdx": ^3.0.1
   "@mdx-js/react": ^3.0.1
-  "@mui/icons-material": ^5.16.6
-  "@mui/material": ^5.16.6
-  "@mui/material-nextjs": ^5.16.1
-  "@mui/utils": ^5.16.6
+  "@mui/icons-material": ^6.4.0
+  "@mui/material": ^6.4.0
+  "@mui/material-nextjs": ^6.3.1
+  "@mui/utils": ^6.4.0
   "@mui/x-date-pickers": ^7.15.0
   "@mui/x-tree-view": ^7.15.0
   "@next/env": ^15.0.3
@@ -202,8 +202,8 @@ catalogs:
   # @see: https://mui.com/system/styles/basics/
   # climatemappedafrica, pesayetu and promisetracker still use @mui/styles
   mui-styles:
-    "@mui/icons-material": ^5.16.6
+    "@mui/icons-material": ^6.4.0
     "@mui/lab": ^5.0.0-alpha.155
-    "@mui/material": ^5.16.6
-    "@mui/styles": ^5.16.6
-    "@mui/utils": ^5.16.6
+    "@mui/material": ^6.4.0
+    "@mui/styles": ^6.4.0
+    "@mui/utils": ^6.4.0

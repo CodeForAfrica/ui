@@ -7,11 +7,15 @@ exports[`Action renders unchanged 1`] = `
   >
     <button
       aria-label="Action"
-      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-16rd89w-MuiButtonBase-root-MuiIconButton-root"
+      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeLarge css-1dl7lzd-MuiButtonBase-root-MuiIconButton-root"
       data-mui-internal-clone-element="true"
+      id=":r1:"
       tabindex="0"
       type="button"
     >
+      <span
+        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+      />
       <svg
         height="100"
         width="100"
@@ -25,9 +29,6 @@ exports[`Action renders unchanged 1`] = `
           stroke-width="3"
         />
       </svg>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </button>
   </div>
 </div>

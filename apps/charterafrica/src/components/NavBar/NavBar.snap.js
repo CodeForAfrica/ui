@@ -3,13 +3,14 @@
 exports[`<NavBar /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-bxh7mj-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-n0kqde-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
+    style="--Paper-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-regular css-1gcfjze-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-regular css-lxmw82-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12jovna-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-rdfh4n-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
@@ -18,7 +19,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-13uxck9-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-geux3z-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
               href="/"
               tabindex="0"
             >
@@ -37,13 +38,17 @@ exports[`<NavBar /> renders unchanged 1`] = `
           >
             <button
               aria-label="navigation"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-53g0n7-MuiButtonBase-root-MuiIconButton-root"
+              id=":r0:"
               tabindex="0"
               type="button"
             >
+              <span
+                class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+              />
               <div
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-lujri2-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9lf3ez-MuiSvgIcon-root"
                 focusable="false"
                 viewbox="0 0 32 32"
               />
@@ -57,7 +62,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-ethxoc-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root active css-1lpbt8y-MuiTypography-root-MuiLink-root-MuiButtonBase-root"
               href="/"
               tabindex="0"
             >
@@ -75,7 +80,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1s57hzs-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-10s5dmi-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -84,67 +89,79 @@ exports[`<NavBar /> renders unchanged 1`] = `
                   class="css-xthg9g"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1gzm295-MuiTypography-root-MuiLink-root"
                     href="/resources"
                   >
                     Resources
                     <button
                       aria-haspopup="menu"
                       aria-label="select merge strategy"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1krvc7o-MuiButtonBase-root-MuiIconButton-root"
+                      id=":r1:"
                       tabindex="0"
                       type="button"
                     >
+                      <span
+                        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                      />
                       <div
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9kj0vt-MuiSvgIcon-root"
                         focusable="false"
                         viewbox="0 0 16 16"
                       />
                     </button>
                   </a>
                   <a
-                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1gzm295-MuiTypography-root-MuiLink-root"
                     href="/knowledge"
                   >
                     Knowledge
                     <button
                       aria-haspopup="menu"
                       aria-label="select merge strategy"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1krvc7o-MuiButtonBase-root-MuiIconButton-root"
+                      id=":r2:"
                       tabindex="0"
                       type="button"
                     >
+                      <span
+                        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                      />
                       <div
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9kj0vt-MuiSvgIcon-root"
                         focusable="false"
                         viewbox="0 0 16 16"
                       />
                     </button>
                   </a>
                   <a
-                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1gzm295-MuiTypography-root-MuiLink-root"
                     href="/opportunities"
                   >
                     Oppportunities
                     <button
                       aria-haspopup="menu"
                       aria-label="select merge strategy"
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ac7f14-MuiButtonBase-root-MuiIconButton-root"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1krvc7o-MuiButtonBase-root-MuiIconButton-root"
+                      id=":r3:"
                       tabindex="0"
                       type="button"
                     >
+                      <span
+                        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                      />
                       <div
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1s6992r-MuiSvgIcon-root"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9kj0vt-MuiSvgIcon-root"
                         focusable="false"
                         viewbox="0 0 16 16"
                       />
                     </button>
                   </a>
                   <a
-                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-p2engr-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold MuiLink-root MuiLink-underlineNone css-1gzm295-MuiTypography-root-MuiLink-root"
                     href="/about"
                   >
                     About

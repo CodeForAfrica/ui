@@ -6,7 +6,7 @@ exports[`<Resources /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <h1
-      class="MuiTypography-root MuiTypography-h1Small css-1qj3dn7-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h1Small css-1h09don-MuiTypography-root"
     >
       Our Resources
     </h1>
@@ -20,11 +20,11 @@ exports[`<Resources /> renders unchanged 1`] = `
           class="MuiBox-root css-1l16b48"
         >
           <figure
-            class="MuiBox-root css-1rtaf4d"
+            class="MuiBox-root css-7lnogv"
           >
             <img
               alt="Tools"
-              class="css-1pkrzn9"
+              class="css-cawze6"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -39,11 +39,11 @@ exports[`<Resources /> renders unchanged 1`] = `
             wrap="nowrap"
           >
             <figure
-              class="MuiBox-root css-1upx2vz"
+              class="MuiBox-root css-1kn3429"
             >
               <img
                 alt="Tools"
-                class="css-g98gbd"
+                class="css-qv2885"
                 data-nimg="fill"
                 decoding="async"
                 loading="lazy"
@@ -55,12 +55,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1cqngqe-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-3wv8ox-MuiTypography-root"
               >
                 Tools
               </h6>
@@ -75,11 +75,11 @@ exports[`<Resources /> renders unchanged 1`] = `
           class="MuiBox-root css-1l16b48"
         >
           <figure
-            class="MuiBox-root css-1laq4ye"
+            class="MuiBox-root css-3245q2"
           >
             <img
               alt="People"
-              class="css-1pkrzn9"
+              class="css-cawze6"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -94,11 +94,11 @@ exports[`<Resources /> renders unchanged 1`] = `
             wrap="nowrap"
           >
             <figure
-              class="MuiBox-root css-1upx2vz"
+              class="MuiBox-root css-1kn3429"
             >
               <img
                 alt="People"
-                class="css-g98gbd"
+                class="css-qv2885"
                 data-nimg="fill"
                 decoding="async"
                 loading="lazy"
@@ -110,12 +110,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1cqngqe-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-3wv8ox-MuiTypography-root"
               >
                 People
               </h6>
@@ -130,11 +130,11 @@ exports[`<Resources /> renders unchanged 1`] = `
           class="MuiBox-root css-1l16b48"
         >
           <figure
-            class="MuiBox-root css-13llbsm"
+            class="MuiBox-root css-1ot2317"
           >
             <img
               alt="Organisations"
-              class="css-1pkrzn9"
+              class="css-cawze6"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -149,11 +149,11 @@ exports[`<Resources /> renders unchanged 1`] = `
             wrap="nowrap"
           >
             <figure
-              class="MuiBox-root css-1upx2vz"
+              class="MuiBox-root css-1kn3429"
             >
               <img
                 alt="Organisations"
-                class="css-g98gbd"
+                class="css-qv2885"
                 data-nimg="fill"
                 decoding="async"
                 loading="lazy"
@@ -165,12 +165,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1cqngqe-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-3wv8ox-MuiTypography-root"
               >
                 Organisations
               </h6>
@@ -185,11 +185,11 @@ exports[`<Resources /> renders unchanged 1`] = `
           class="MuiBox-root css-1l16b48"
         >
           <figure
-            class="MuiBox-root css-16b4vs5"
+            class="MuiBox-root css-ms2f5w"
           >
             <img
               alt="Data"
-              class="css-1pkrzn9"
+              class="css-cawze6"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -204,11 +204,11 @@ exports[`<Resources /> renders unchanged 1`] = `
             wrap="nowrap"
           >
             <figure
-              class="MuiBox-root css-1upx2vz"
+              class="MuiBox-root css-1kn3429"
             >
               <img
                 alt="Data"
-                class="css-g98gbd"
+                class="css-qv2885"
                 data-nimg="fill"
                 decoding="async"
                 loading="lazy"
@@ -220,12 +220,12 @@ exports[`<Resources /> renders unchanged 1`] = `
               class="MuiBox-root css-y0apaj"
             >
               <span
-                class="MuiTypography-root MuiTypography-numberSmall css-1yxljrf-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-numberSmall css-1cqngqe-MuiTypography-root"
               >
                 54,000
               </span>
               <h6
-                class="MuiTypography-root MuiTypography-h6 css-105pudy-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h6 css-3wv8ox-MuiTypography-root"
               >
                 Data
               </h6>

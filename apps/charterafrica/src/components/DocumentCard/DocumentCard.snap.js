@@ -3,15 +3,16 @@
 exports[`<DocumentCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1wj4l1q-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-cob2z-MuiPaper-root-MuiCard-root"
+    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
   >
     <a
-      class="MuiButtonBase-root MuiCardActionArea-root css-dvh6vf-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-1ts5io8-MuiButtonBase-root-MuiCardActionArea-root"
       href="url=https://dc.sourceafrica.net/documents/120991-Case-Study-Drones-and-the-2017-Sierra-Leone.html&contrubutor=true&showNotes=true"
       tabindex="0"
     >
       <img
-        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-2r8llh-MuiCardMedia-root"
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1odrru0-MuiCardMedia-root"
         src="/images/hero-slide-1.jpg"
       />
       <div
@@ -24,7 +25,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-1w036fe-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-5hes4x-MuiTypography-root"
             >
               Document Title
             </div>
@@ -33,7 +34,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1qjtras-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-1du89xn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1tcecrn-MuiTypography-root"
             >
               10 Pages
             </div>
@@ -43,7 +44,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
               .
             </span>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-dvnpys-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1khdwyg-MuiTypography-root"
             >
               Contributed by: Contributor
             </div>
@@ -52,7 +53,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-vscbyg-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-igxqn7-MuiTypography-root"
             >
               September 1, 2021
             </div>
@@ -63,7 +64,7 @@ exports[`<DocumentCard /> renders unchanged 1`] = `
         />
       </div>
       <span
-        class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        class="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
       />
     </a>
   </div>

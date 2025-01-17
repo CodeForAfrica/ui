@@ -3,10 +3,10 @@
 exports[`<ToolCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-14uhsz6-MuiPaper-root-MuiCard-root"
   >
     <button
-      class="MuiButtonBase-root MuiCardActionArea-root css-11lg1vd-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-y53a6a-MuiButtonBase-root-MuiCardActionArea-root"
       tabindex="0"
       type="button"
     >
@@ -17,7 +17,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
         >
           <img
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-zyubfe-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1w0g221-MuiCardMedia-root"
             src="/image.jpg"
           />
         </div>
@@ -25,13 +25,13 @@ exports[`<ToolCard /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-12 css-18qart5-MuiGrid-root"
         >
           <div
-            class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
+            class="MuiCardContent-root css-ovyh64-MuiCardContent-root"
           >
             <div
               class="MuiBox-root css-gg4vpm"
             >
               <h5
-                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ycrxwx-MuiTypography-root"
               >
                 Tool Name
               </h5>
@@ -44,7 +44,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                   focusable="false"
                 />
               </div>
@@ -53,7 +53,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                   focusable="false"
                 />
               </div>
@@ -62,18 +62,19 @@ exports[`<ToolCard /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                   focusable="false"
                 />
               </div>
             </div>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-zmojj9-MuiTypography-root"
             >
               Sample description
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1qxgac-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1rpch82-MuiButtonBase-root-MuiButton-root"
+              id=":r0:"
               tabindex="0"
               type="button"
             />
@@ -81,7 +82,7 @@ exports[`<ToolCard /> renders unchanged 1`] = `
         </div>
       </div>
       <span
-        class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        class="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
       />
     </button>
   </div>
