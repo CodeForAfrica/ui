@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import { CssBaseline } from "@mui/material";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/styles";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
