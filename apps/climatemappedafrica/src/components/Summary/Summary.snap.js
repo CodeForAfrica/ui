@@ -15,12 +15,12 @@ exports[`<Summary /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-u2oqkr-MuiGrid-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 css-yrv1vq-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-1vtq9iq-MuiTypography-root"
           >
             History
           </h2>
           <h5
-            class="MuiTypography-root MuiTypography-h5 css-1fb4hg2-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5 css-z49wvx-MuiTypography-root"
           >
             The ClimateMapped.AFRICA project by the CfA Datalab team is a data storytelling initiative designed to make 120 years of climate sampling data accessible to experts, journalists, concerned citizens, and researchers. This project chronicles Africa's climate history, using data storytelling techniques to present temperature trends and analysis at both national and sub-national levels
           </h5>

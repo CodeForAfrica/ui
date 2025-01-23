@@ -200,7 +200,7 @@ catalogs:
   # @mui/styles was deprecated with the release of MUI Core v5 in late 2021
   # @mui/styles is not compatible with React.StrictMode or React 18, and it will not be updated.
   # @see: https://mui.com/system/styles/basics/
-  # climatemappedafrica, pesayetu and promisetracker still use @mui/styles
+  # pesayetu and promisetracker still use @mui/styles
   mui-styles:
     "@mui/icons-material": ^5.16.6
     "@mui/lab": ^5.0.0-alpha.155

@@ -1,6 +1,5 @@
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
-import { ThemeProvider as StyledThemeProvider } from "@mui/styles";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
@@ -45,11 +44,9 @@ export default function MyApp(props) {
       <DefaultSeo {...SEO} />
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <StyledThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            <Component {...pageProps} />
-          </StyledThemeProvider>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
         </ThemeProvider>
       </StyledEngineProvider>
     </>

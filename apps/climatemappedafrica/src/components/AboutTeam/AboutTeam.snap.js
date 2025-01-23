@@ -9,7 +9,7 @@ exports[`<AboutTeam /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hjtrpa-MuiContainer-root"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 css-1cvoujm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 css-7i7a1w-MuiTypography-root"
       >
         About Team
       </h4>
