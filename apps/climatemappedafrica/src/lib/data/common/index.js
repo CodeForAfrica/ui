@@ -119,6 +119,7 @@ export async function getPageProps(api, context) {
   let variant = "default";
   const settings = {};
   settings.site = (await api.findGlobal("settings-site")) || null;
+  const { analytics } = settings.site;
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
@@ -156,6 +157,7 @@ export async function getPageProps(api, context) {
   const menus = await getNavBar(variant, settings);
 
   return {
+    analytics,
     blocks,
     footer,
     menus,

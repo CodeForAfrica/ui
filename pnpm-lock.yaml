@@ -1100,6 +1100,9 @@ importers:
       '@next/env':
         specifier: 'catalog:'
         version: 15.1.4
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 15.1.4(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(sass@1.69.4)
@@ -1380,6 +1383,9 @@ importers:
       '@next/env':
         specifier: 'catalog:'
         version: 15.1.4
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 15.1.4(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(sass@1.69.4)
@@ -1564,6 +1570,9 @@ importers:
       '@mui/x-tree-view':
         specifier: 'catalog:'
         version: 7.22.1(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@mui/material@5.16.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@5.16.7(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.13.3(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 15.1.4(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@reactour/tour':
         specifier: 'catalog:'
         version: 3.7.0(react@18.3.1)
@@ -2397,6 +2406,9 @@ importers:
       '@next/env':
         specifier: 'catalog:'
         version: 15.1.4
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 15.1.4(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@sendgrid/mail':
         specifier: 'catalog:'
         version: 8.1.4
