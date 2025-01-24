@@ -672,6 +672,9 @@ importers:
       '@next/env':
         specifier: 'catalog:'
         version: 15.1.4
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 15.1.4(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@nivo/core':
         specifier: 'catalog:'
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

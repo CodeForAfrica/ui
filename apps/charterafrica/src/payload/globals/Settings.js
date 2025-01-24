@@ -108,6 +108,29 @@ const Settings = {
         initCollapsed: true,
       },
     },
+    {
+      name: "analytics",
+      type: "group",
+      label: "Site Analytics",
+      localized: true,
+      fields: [
+        {
+          type: "collapsible",
+          label: "Google Analytics",
+          fields: [
+            {
+              name: "analyticsId",
+              type: "text",
+              defaultValue: "G-5ZPEFLT0NJ", // From .env
+            },
+          ],
+          admin: {
+            description:
+              "Measurement ID: https://support.google.com/analytics/answer/12270356",
+          },
+        },
+      ],
+    },
   ],
 };
 
