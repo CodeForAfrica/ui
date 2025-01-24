@@ -11,7 +11,7 @@ exports[`ShareButton renders unchanged 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-wsb35j-MuiSvgIcon-root"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1psi471-MuiSvgIcon-root"
         focusable="false"
         viewBox="0 0 24 24"
       />

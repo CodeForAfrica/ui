@@ -3,7 +3,7 @@
 exports[`<ProjectDetails /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-eoqn3z-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-vli7ch-MuiContainer-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container css-1ldf9ke-MuiGrid-root"
@@ -15,7 +15,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
           class="MuiStack-root css-1b1mat0-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5Small css-msfork-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5Small css-iq7yq-MuiTypography-root"
           >
             Details
           </div>
@@ -23,7 +23,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
             class="MuiStack-root css-7d4qva-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-footerCap css-10h3evw-MuiTypography-root"
             >
               Share This Project
             </div>
@@ -38,7 +38,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -51,7 +51,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -64,7 +64,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -74,7 +74,7 @@ exports[`<ProjectDetails /> renders unchanged 1`] = `
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-11319uf-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-1o055zn-MuiDivider-root"
       />
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-17q9xai-MuiGrid-root"

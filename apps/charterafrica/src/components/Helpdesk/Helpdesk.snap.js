@@ -6,17 +6,17 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
     class="MuiBox-root css-1n99d1h"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ehrg6-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-idlf64-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-9m637t"
       >
         <figure
-          class="MuiBox-root css-1lypdo1"
+          class="MuiBox-root css-q6ue4o"
         >
           <img
             alt="Democracy Support Helpdesk"
-            class="css-g98gbd"
+            class="css-qv2885"
             data-nimg="fill"
             decoding="async"
             loading="lazy"
@@ -28,7 +28,7 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
           class="MuiBox-root css-j7qwjs"
         >
           <h1
-            class="MuiTypography-root MuiTypography-h1Small css-ek5pw1-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h1Small css-1gf7d1q-MuiTypography-root"
           >
             Democracy Support Helpdesk
           </h1>
@@ -36,19 +36,20 @@ exports[`<Helpdesk /> renders unchanged 1`] = `
             class="MuiBox-root css-1jz2duz"
           >
             <p
-              class="MuiTypography-root MuiTypography-p3 css-1s69ce2-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p3 css-1aa3xuk-MuiTypography-root"
             >
               Need help connecting with experts?
             </p>
             <p
-              class="MuiTypography-root MuiTypography-p3 css-1s69ce2-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p3 css-1aa3xuk-MuiTypography-root"
             >
               
 We can help you find specialists or resources to improve the impact of your democracy project.
             </p>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-nfs84b-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1j3b0ra-MuiButtonBase-root-MuiButton-root"
+            id=":r0:"
             tabindex="0"
             type="button"
           >

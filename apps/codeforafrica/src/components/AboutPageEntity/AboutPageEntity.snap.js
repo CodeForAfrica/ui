@@ -6,7 +6,7 @@ exports[`<AboutPageEntity /> renders unchanged 1`] = `
     class="MuiBox-root css-1gghq2r"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ilq66o-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-13wzzov-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-15sqwg8"
