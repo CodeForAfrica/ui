@@ -14,3 +14,4 @@ export { default as DataVisualisationGuide } from "./DataVisualisationGuide";
 export { default as Header } from "./Header";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as LineClampedRichTypography } from "./LineClampedRichTypography";
+export { default as Loading } from "./Loading";
