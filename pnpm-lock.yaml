@@ -1826,6 +1826,9 @@ importers:
       '@mui/utils':
         specifier: catalog:mui-styles
         version: 5.16.6(@types/react@18.3.12)(react@18.3.1)
+      '@next/third-parties':
+        specifier: 'catalog:'
+        version: 15.1.4(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
         version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1)
