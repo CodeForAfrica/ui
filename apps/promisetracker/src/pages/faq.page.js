@@ -85,9 +85,10 @@ export async function getStaticProps({ locale }) {
   const backend = backendFn();
   const site = await backend.sites().current;
   const page = await wp().pages({ slug: "faq", locale }).first;
-  const faqs = page.faqs
-    .reduce((arr, e) => arr.concat(e.questions_answers), [])
-    .map((faq) => ({ title: faq.question, summary: faq.answer }));
+  const faqs =
+    page?.faqs
+      ?.reduce((arr, e) => arr.concat(e.questions_answers), [])
+      ?.map((faq) => ({ title: faq.question, summary: faq.answer })) ?? [];
   const languageAlternates = _.languageAlternates("/faq");
 
   return {
