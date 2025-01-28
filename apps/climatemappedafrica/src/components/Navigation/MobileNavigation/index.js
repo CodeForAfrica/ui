@@ -1,4 +1,5 @@
 import { Section } from "@commons-ui/core";
+import { Menu } from "@hurumap/core";
 import {
   Grid,
   Slide,
@@ -17,7 +18,6 @@ import SearchIcon from "@/climatemappedafrica/assets/icons/search-open.svg";
 import MenuCloseIcon from "@/climatemappedafrica/assets/menu_close.svg";
 import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import Menu from "@/climatemappedafrica/components/Menu";
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 
 const Transition = React.forwardRef(function Transition(props, ref) {

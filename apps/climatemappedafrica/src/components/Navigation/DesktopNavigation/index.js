@@ -1,8 +1,8 @@
+import { Menu } from "@hurumap/core";
 import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Menu from "@/climatemappedafrica/components/Menu";
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 
 function DesktopNavigation({ explorePagePath, logo, menus, socialLinks, sx }) {
