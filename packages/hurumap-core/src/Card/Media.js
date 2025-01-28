@@ -1,8 +1,7 @@
+import { Image } from "@hurumap/next";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Image from "@/climatemappedafrica/components/Image";
 
 function Media({
   alt,

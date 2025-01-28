@@ -1,9 +1,9 @@
+import { AboutTeam } from "@hurumap/core";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { SWRConfig } from "swr";
 
-import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
 import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";

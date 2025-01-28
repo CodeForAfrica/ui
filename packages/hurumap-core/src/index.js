@@ -7,3 +7,6 @@ export { default as Scope } from "./Scope";
 export { default as Share } from "./Share";
 export { default as Action } from "./Action";
 export { default as Download } from "./Download";
+export { default as AboutTeam } from "./AboutTeam";
+export { default as Card } from "./Card";
+export { default as Carousel } from "./Carousel";

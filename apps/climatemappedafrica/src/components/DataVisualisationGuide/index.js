@@ -1,11 +1,9 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+import { Card, Carousel } from "@hurumap/core";
 import { useMediaQuery, Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Card from "@/climatemappedafrica/components/Card";
-import Carousel from "@/climatemappedafrica/components/Carousel";
 
 function DataVisualisationGuide({ title, items }) {
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("lg"));
