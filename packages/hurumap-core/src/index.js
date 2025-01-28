@@ -10,3 +10,4 @@ export { default as Download } from "./Download";
 export { default as AboutTeam } from "./AboutTeam";
 export { default as Card } from "./Card";
 export { default as Carousel } from "./Carousel";
+export { default as DataVisualisationGuide } from "./DataVisualisationGuide";
