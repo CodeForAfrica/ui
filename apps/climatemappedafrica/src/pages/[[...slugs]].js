@@ -1,4 +1,4 @@
-import { AboutTeam, DataVisualisationGuide } from "@hurumap/core";
+import { AboutTeam, DataVisualisationGuide, HowItWorks } from "@hurumap/core";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";
@@ -8,7 +8,6 @@ import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
-import HowItWorks from "@/climatemappedafrica/components/HowItWorks";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";

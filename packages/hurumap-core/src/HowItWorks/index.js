@@ -5,7 +5,7 @@ import { Box, Grid, Typography, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Player from "@/climatemappedafrica/components/HowItWorks/Player";
+import Player from "./Player";
 
 function HowItWorks({
   title,
