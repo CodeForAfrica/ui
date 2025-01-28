@@ -8,7 +8,7 @@ const outputFileTracingRoot = PROJECT_ROOT
   : undefined;
 
 const moduleExports = {
-  experimental: {
+  experimental: outputFileTracingRoot && {
     outputFileTracingRoot,
   },
   i18n: {

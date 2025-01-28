@@ -170,7 +170,6 @@ function ProfileDetails({
               disableFocusRipple
               aria-label="Share"
               size="small"
-              component="span"
               className={classes.iconButton}
             >
               <Share
