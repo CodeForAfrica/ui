@@ -3,6 +3,7 @@ import {
   DataVisualisationGuide,
   HowItWorks,
   PageHero,
+  Summary,
 } from "@hurumap/core";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
@@ -15,8 +16,6 @@ import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
-// import PageHero from "@/climatemappedafrica/components/PageHero";
-import Summary from "@/climatemappedafrica/components/Summary";
 import {
   getPageStaticPaths,
   getPageStaticProps,
