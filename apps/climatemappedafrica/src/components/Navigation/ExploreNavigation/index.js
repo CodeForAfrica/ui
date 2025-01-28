@@ -1,3 +1,4 @@
+import { NextImageButton } from "@commons-ui/next";
 import { Grid, Button } from "@mui/material";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
@@ -5,7 +6,6 @@ import React from "react";
 
 import SearchIcon from "@/climatemappedafrica/assets/icons/search-explore.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 
 function ExploreNavigation({
   explorePagePath,
