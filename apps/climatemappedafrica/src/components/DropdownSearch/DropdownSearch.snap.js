@@ -7,35 +7,34 @@ exports[`<DropdownSearch /> renders unchanged 1`] = `
     id="location-search"
   >
     <p
-      class="MuiTypography-root MuiTypography-body1 css-1miz5wq-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-1yh8kls-MuiTypography-root"
     >
       Search for a location
     </p>
     <div
-      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-19ymigm-MuiInputBase-root"
+      class="MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-adornedEnd css-wn8n2y-MuiInputBase-root"
     >
       <input
         aria-label="search"
-        class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-yimnyd-MuiInputBase-input"
+        class="MuiInputBase-input MuiInputBase-inputAdornedEnd css-yz9k0d-MuiInputBase-input"
         placeholder="Search for a location"
         type="text"
         value=""
       />
       <button
-        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-15uzaf9-MuiButtonBase-root-MuiIconButton-root"
-        id=":r0:"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-14movjq-MuiButtonBase-root-MuiIconButton-root"
         root="[object Object]"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-        />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1nqw60y-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ny0eu4-MuiSvgIcon-root"
           focusable="false"
           viewBox="0 0 48 48"
+        />
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
         />
       </button>
     </div>

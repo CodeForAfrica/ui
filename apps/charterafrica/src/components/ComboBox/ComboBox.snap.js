@@ -3,13 +3,13 @@
 exports[`<ComboBox /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-b4rh0e-MuiAutocomplete-root"
+    class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-cd7l2b-MuiAutocomplete-root"
   >
     <div
-      class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
+      class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
     >
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-f06f7r-MuiInputBase-root-MuiOutlinedInput-root"
+        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-mtvuba-MuiInputBase-root-MuiOutlinedInput-root"
       >
         <input
           aria-autocomplete="list"
@@ -17,7 +17,7 @@ exports[`<ComboBox /> renders unchanged 1`] = `
           aria-invalid="false"
           autocapitalize="none"
           autocomplete="off"
-          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-afq685-MuiInputBase-input-MuiOutlinedInput-input"
+          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-222ubz-MuiInputBase-input-MuiOutlinedInput-input"
           id=":r0:"
           role="combobox"
           spellcheck="false"
@@ -25,22 +25,18 @@ exports[`<ComboBox /> renders unchanged 1`] = `
           value="Countries"
         />
         <div
-          class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
+          class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
         >
           <button
             aria-label="Clear"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1x7n7v0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
-            id=":r2:"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
             tabindex="-1"
             title="Clear"
             type="button"
           >
-            <span
-              class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-            />
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
               data-testid="CloseIcon"
               focusable="false"
               viewBox="0 0 24 24"
@@ -52,31 +48,26 @@ exports[`<ComboBox /> renders unchanged 1`] = `
           </button>
           <button
             aria-label="Open"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-10egcn8-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
-            id=":r3:"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
             tabindex="-1"
             title="Open"
             type="button"
           >
-            <span
-              class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-            />
             <div
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bgqlhh-MuiSvgIcon-root"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hf2qhf-MuiSvgIcon-root"
               focusable="false"
             />
           </button>
         </div>
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-w4cd9x"
+            class="css-ihdtdm"
           >
             <span
-              aria-hidden="true"
               class="notranslate"
             >
               ​
