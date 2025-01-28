@@ -1,3 +1,4 @@
+import { RichHeader } from "@hurumap/core";
 import { Image } from "@hurumap/next";
 import { Box, ClickAwayListener, Grid, Slide } from "@mui/material";
 import PropTypes from "prop-types";
@@ -7,7 +8,6 @@ import Icon from "./Icon";
 import IndicatorPanel from "./IndicatorPanel";
 
 import bg from "@/climatemappedafrica/assets/images/Mask Group 8.png";
-import RichHeader from "@/climatemappedafrica/components/RichHeader";
 
 function DataIndicators({ indicators, title }) {
   const [checked, setChecked] = useState(false);
