@@ -6,10 +6,10 @@ exports[`<PageHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-17eyxl5"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1h88o2a-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j4752t-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-h5ExtraBold css-8lni03-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5ExtraBold css-pb7s0c-MuiTypography-root"
       >
         Contact
       </h2>
@@ -17,7 +17,7 @@ exports[`<PageHeader /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 css-1hmh46k-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-vb0iat-MuiTypography-root"
         >
           Let's
           <strong>

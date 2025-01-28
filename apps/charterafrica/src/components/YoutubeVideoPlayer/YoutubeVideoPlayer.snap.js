@@ -3,7 +3,7 @@
 exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-f0o1et"
+    class="MuiBox-root css-s11qj8"
   >
     <div
       aria-label="Video Player"
