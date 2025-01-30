@@ -14,7 +14,10 @@
         "ACTNOW_API_KEY",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
-        "NEXTAUTH_SECRET"
+        "NEXTAUTH_SECRET",
+        "SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT"
       ]
     }
   }
