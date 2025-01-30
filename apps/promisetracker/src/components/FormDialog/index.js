@@ -126,13 +126,4 @@ FormDialog.propTypes = {
   }),
 };
 
-FormDialog.defaultProps = {
-  open: null,
-  handleFormClose: null,
-  petitionSuccess: null,
-  petitionDescription: null,
-  petitionTitle: null,
-  session: null,
-};
-
 export default FormDialog;

@@ -61,10 +61,4 @@ PromiseCard.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-PromiseCard.defaultProps = {
-  children: undefined,
-  classes: undefined,
-  href: undefined,
-};
-
 export default PromiseCard;

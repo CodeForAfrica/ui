@@ -42,11 +42,7 @@ function PromiseStatus({ children, color, date: dateProp, ...props }) {
 PromiseStatus.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string.isRequired,
-  date: PropTypes.number,
+  date: PropTypes.string,
 };
 
-PromiseStatus.defaultProps = {
-  children: undefined,
-  date: undefined,
-};
 export default PromiseStatus;

@@ -187,8 +187,4 @@ Dataset.propTypes = {
     total_res_downloads: PropTypes.number,
   }),
 };
-
-Dataset.defaultProps = {
-  dataset: undefined,
-};
 export default Dataset;

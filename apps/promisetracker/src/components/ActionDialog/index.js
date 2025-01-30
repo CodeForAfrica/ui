@@ -89,13 +89,4 @@ ActionDialog.propTypes = {
   title: PropTypes.string,
 };
 
-ActionDialog.defaultProps = {
-  children: undefined,
-  description: undefined,
-  name: undefined,
-  onClose: undefined,
-  open: undefined,
-  title: undefined,
-};
-
 export default ActionDialog;

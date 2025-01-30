@@ -43,10 +43,4 @@ BaseCard.propTypes = {
   children: PropTypes.node,
 };
 
-BaseCard.defaultProps = {
-  onCloseCard: undefined,
-  description: undefined,
-  children: undefined,
-};
-
 export default BaseCard;

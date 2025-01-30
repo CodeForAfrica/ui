@@ -60,7 +60,7 @@ function ProgressChart({ progressStatuses, caption, ...props }) {
             stroke="1D1D1B"
             strokeWidth={1}
             statusNumber={progressStatus.count}
-            statusPercentage={progressStatus.percentage}
+            statusPercentage={progressStatus.percentage ?? "0"}
             status={progressStatus.title}
           />
         ))}

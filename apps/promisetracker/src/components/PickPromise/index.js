@@ -125,13 +125,4 @@ PickPromise.propTypes = {
   petitionJoin: PropTypes.string,
 };
 
-PickPromise.defaultProps = {
-  promises: null,
-  pickPromiseTitle: null,
-  pickPromiseDescription: null,
-  mandatoryText: null,
-  petitionStart: null,
-  petitionJoin: null,
-};
-
 export default PickPromise;

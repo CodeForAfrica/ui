@@ -103,8 +103,4 @@ MobileChart.propTypes = {
   }),
 };
 
-MobileChart.defaultProps = {
-  promisesByStatus: undefined,
-};
-
 export default MobileChart;

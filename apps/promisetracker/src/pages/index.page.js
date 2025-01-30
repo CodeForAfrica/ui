@@ -152,22 +152,6 @@ Index.propTypes = {
   subscribe: PropTypes.shape({}),
 };
 
-Index.defaultProps = {
-  actNow: undefined,
-  actNowEnabled: undefined,
-  articles: undefined,
-  criteria: undefined,
-  footer: undefined,
-  navigation: undefined,
-  partners: undefined,
-  promiseStatuses: undefined,
-  promises: undefined,
-  keyPromises: undefined,
-  promisesByStatus: undefined,
-  subscribe: undefined,
-  projectMeta: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   // Skip generating pages for unsupported locales

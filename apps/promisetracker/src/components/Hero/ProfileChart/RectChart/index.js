@@ -12,13 +12,13 @@ const useStyles = makeStyles(() => ({
 }));
 
 function ReactChart({
-  totalPromises,
-  completed,
-  inconclusive,
-  inProgress,
-  unstarted,
-  stalled,
-  behindSchedule,
+  totalPromises = 0,
+  completed = 0,
+  inconclusive = 0,
+  inProgress = 0,
+  unstarted = 0,
+  stalled = 0,
+  behindSchedule = 0,
   ...props
 }) {
   const classes = useStyles(props);
@@ -116,16 +116,6 @@ ReactChart.propTypes = {
   inProgress: PropTypes.number,
   totalPromises: PropTypes.number,
   unstarted: PropTypes.number,
-};
-
-ReactChart.defaultProps = {
-  behindSchedule: 0,
-  stalled: 0,
-  inconclusive: 0,
-  completed: 0,
-  inProgress: 0,
-  totalPromises: 0,
-  unstarted: 0,
 };
 
 export default ReactChart;

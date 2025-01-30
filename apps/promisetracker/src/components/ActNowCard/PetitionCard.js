@@ -2,7 +2,7 @@ import { Grid, Snackbar } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Router from "next/router";
 import { useSession } from "next-auth/react";
-import PropTypes, { string } from "prop-types";
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import BaseContent from "./BaseContent";
@@ -11,7 +11,11 @@ import useStyles from "./useStyles";
 import CtAButton from "@/promisetracker/components/CtAButton";
 import FormDialog from "@/promisetracker/components/FormDialog";
 
-function PetitionCard({ closeCard, promiseActNow, ...props }) {
+function PetitionCard({
+  closeCard,
+  promiseActNow = { petition: { petitionTitle: "", petitionDescription: "" } },
+  ...props
+}) {
   const {
     petition: {
       petition_title: petitionTitle,
@@ -100,18 +104,6 @@ PetitionCard.propTypes = {
     petition: {
       petitionTitle: PropTypes.string,
       petitionDescription: PropTypes.string,
-    },
-  }),
-};
-
-PetitionCard.defaultProps = {
-  petitionJoin: null,
-  petitionStart: null,
-  petitionTitle: string,
-  promiseActNow: PropTypes.shape({
-    petition: {
-      petitionTitle: null,
-      petitionDescription: null,
     },
   }),
 };

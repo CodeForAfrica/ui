@@ -17,7 +17,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function Form({ promise_act_now: promiseActNow, ...props }) {
+function Form({ promise_act_now: promiseActNow = { update: {} }, ...props }) {
   const classes = useStyles(props);
   const theme = useTheme();
 
@@ -208,27 +208,6 @@ Form.propTypes = {
       whenLabelDescription: PropTypes.string,
       whoLabel: PropTypes.string,
       whoLabelDescription: PropTypes.string,
-    },
-  }),
-};
-
-Form.defaultProps = {
-  mandatoryText: null,
-  promise_act_now: PropTypes.shape({
-    update: {
-      uploadInstruction: null,
-      uploadText: null,
-      contactLabel: null,
-      contactLabelDescription: null,
-      evidenceLabel: null,
-      evidenceLabelDescription: null,
-      imageUploadDescription: null,
-      whatLabel: null,
-      whatLabelDescription: null,
-      whenLabel: null,
-      whenLabelDescription: null,
-      whoLabel: null,
-      whoLabelDescription: null,
     },
   }),
 };

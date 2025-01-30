@@ -13,12 +13,40 @@ import facebook from "@/promisetracker/assets/share-facebook.svg?url";
 import instagram from "@/promisetracker/assets/share-instagram.svg?url";
 import twitter from "@/promisetracker/assets/share-twitter.svg?url";
 
+const defaultProps = {
+  breadcrumb: "Article",
+  shareLabel: "Share:",
+  socialMedia: [
+    {
+      url: "https://github.com/codeforafrica",
+      image: {
+        url: instagram,
+        alt: "",
+      },
+    },
+
+    {
+      url: "https://twitter.com/Code4Africa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5EShare",
+      image: {
+        url: twitter,
+        alt: "",
+      },
+    },
+    {
+      url: "https://www.facebook.com/CodeForAfrica/",
+      image: {
+        url: facebook,
+        alt: "",
+      },
+    },
+  ],
+};
 function Article({
   article,
-  breadcrumb,
-  socialMedia,
+  breadcrumb = defaultProps.breadcrumb,
+  socialMedia = defaultProps.socialMedia,
   classes: classesProp,
-  shareLabel,
+  shareLabel = defaultProps.shareLabel,
 }) {
   const classes = useStyles({ image: article.image, classes: classesProp });
   return (
@@ -111,36 +139,6 @@ Article.propTypes = {
   }),
   shareLabel: PropTypes.string,
   socialMedia: PropTypes.arrayOf(PropTypes.shape({})),
-};
-
-Article.defaultProps = {
-  breadcrumb: "Article",
-  classes: undefined,
-  shareLabel: "Share:",
-  socialMedia: [
-    {
-      url: "https://github.com/codeforafrica",
-      image: {
-        url: instagram,
-        alt: "",
-      },
-    },
-
-    {
-      url: "https://twitter.com/Code4Africa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5EShare",
-      image: {
-        url: twitter,
-        alt: "",
-      },
-    },
-    {
-      url: "https://www.facebook.com/CodeForAfrica/",
-      image: {
-        url: facebook,
-        alt: "",
-      },
-    },
-  ],
 };
 
 export default Article;

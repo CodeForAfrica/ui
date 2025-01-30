@@ -42,10 +42,4 @@ Status.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-Status.defaultProps = {
-  className: undefined,
-  color: undefined,
-  textColor: undefined,
-};
-
 export default Status;

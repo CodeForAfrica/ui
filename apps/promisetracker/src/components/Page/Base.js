@@ -68,10 +68,4 @@ BasePage.propTypes = {
   title: PropTypes.string,
 };
 
-BasePage.defaultProps = {
-  footer: undefined,
-  navigation: undefined,
-  title: undefined,
-};
-
 export default BasePage;

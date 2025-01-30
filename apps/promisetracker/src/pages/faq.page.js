@@ -66,14 +66,6 @@ FaqPage.propTypes = {
   faqs: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-FaqPage.defaultProps = {
-  actNow: undefined,
-  actNowEnabled: undefined,
-  footer: undefined,
-  navigation: undefined,
-  faqs: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {
