@@ -37,10 +37,4 @@ PromiseChart.propTypes = {
   description: PropTypes.string,
 };
 
-PromiseChart.defaultProps = {
-  chartLinks: null,
-  title: PropTypes.title,
-  description: PropTypes.description,
-};
-
 export default PromiseChart;

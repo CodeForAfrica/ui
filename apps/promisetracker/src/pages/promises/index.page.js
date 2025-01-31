@@ -93,19 +93,6 @@ PromisesPage.propTypes = {
   title: PropTypes.string,
 };
 
-PromisesPage.defaultProps = {
-  actNow: undefined,
-  actNowEnabled: undefined,
-  promises: undefined,
-  sortLabels: undefined,
-  promiseStatuses: undefined,
-  projectMeta: undefined,
-  footer: undefined,
-  navigation: undefined,
-  subscribe: undefined,
-  title: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {

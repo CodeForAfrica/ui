@@ -36,8 +36,4 @@ Index.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-Index.defaultProps = {
-  items: undefined,
-};
-
 export default Index;

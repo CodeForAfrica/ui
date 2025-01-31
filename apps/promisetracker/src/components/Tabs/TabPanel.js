@@ -30,11 +30,4 @@ TabPanel.propTypes = {
   selected: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
-TabPanel.defaultProps = {
-  children: undefined,
-  value: undefined,
-  name: undefined,
-  selected: undefined,
-};
-
 export default TabPanel;

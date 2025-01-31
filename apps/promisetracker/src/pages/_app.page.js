@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import { CssBaseline } from "@mui/material";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
@@ -15,13 +15,6 @@ import "simplebar-react/dist/simplebar.min.css";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
-  React.useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
 
   return (
     <>

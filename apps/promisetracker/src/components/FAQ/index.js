@@ -25,8 +25,4 @@ FAQ.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-FAQ.defaultProps = {
-  items: undefined,
-};
-
 export default FAQ;

@@ -62,9 +62,4 @@ ActNowSummary.propTypes = {
   }),
 };
 
-ActNowSummary.defaultProps = {
-  summary: undefined,
-  titles: undefined,
-};
-
 export default ActNowSummary;

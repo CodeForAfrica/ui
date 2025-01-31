@@ -39,3 +39,6 @@ techlabblog:
 vpnmanager:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/vpnmanager/.env.local up vpnmanager --build
 
+promisetracker:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/promisetracker/.env.local up promisetracker --build
+

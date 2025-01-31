@@ -8,7 +8,7 @@ const outputFileTracingRoot = PROJECT_ROOT
   : undefined;
 
 const moduleExports = {
-  experimental: {
+  experimental: outputFileTracingRoot && {
     outputFileTracingRoot,
   },
   i18n: {
@@ -55,18 +55,6 @@ const moduleExports = {
       },
     ];
   },
-
-  // Optional build-time configuration options
-  sentry: {
-    // See the 'Configure Source Maps' and 'Configure Legacy Browser Support'
-    // sections below for information on the following options:
-    //   - disableServerWebpackPlugin
-    //   - disableClientWebpackPlugin
-    //   - hideSourceMaps
-    //   - widenClientFileUpload
-    //   - transpileClientSDK
-    hideSourceMaps: false,
-  },
 };
 
 const sentryWebpackPluginOptions = {
@@ -79,6 +67,10 @@ const sentryWebpackPluginOptions = {
   silent: true, // Suppresses all logs
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
+  hideSourceMaps: true,
+  org: process.env.SENTRY_ORG,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  project: process.env.SENTRY_PROJECT,
 };
 
 // Make sure adding Sentry options is the last code to run before exporting, to

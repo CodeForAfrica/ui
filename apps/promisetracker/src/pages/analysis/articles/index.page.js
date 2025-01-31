@@ -98,16 +98,6 @@ Index.propTypes = {
   title: PropTypes.string,
 };
 
-Index.defaultProps = {
-  actNowEnabled: undefined,
-  actNow: undefined,
-  articles: undefined,
-  footer: undefined,
-  navigation: undefined,
-  subscribe: undefined,
-  title: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {

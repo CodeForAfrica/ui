@@ -67,10 +67,4 @@ DataSource.propTypes = {
   }),
 };
 
-DataSource.defaultProps = {
-  classes: undefined,
-  label: undefined,
-  promise: undefined,
-};
-
 export default DataSource;

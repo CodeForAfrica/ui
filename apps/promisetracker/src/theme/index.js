@@ -1,4 +1,4 @@
-import { createTheme } from "@commons-ui/core";
+import { createTheme } from "@mui/material/styles";
 import { deepmerge } from "@mui/utils";
 
 const FONT_FAMILY_HEADING = '"Amiri", "serif"';

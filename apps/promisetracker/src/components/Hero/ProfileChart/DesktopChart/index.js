@@ -111,8 +111,4 @@ DesktopChart.propTypes = {
   }),
 };
 
-DesktopChart.defaultProps = {
-  promisesByStatus: undefined,
-};
-
 export default DesktopChart;

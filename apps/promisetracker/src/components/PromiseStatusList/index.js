@@ -51,8 +51,4 @@ PromiseStatusList.propTypes = {
   ),
 };
 
-PromiseStatusList.defaultProps = {
-  items: undefined,
-};
-
 export default PromiseStatusList;

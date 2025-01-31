@@ -1,3 +1,5 @@
+import { Readable } from "stream";
+
 import { camelCase, merge } from "lodash";
 import papa from "papaparse";
 
@@ -73,7 +75,8 @@ function gsheets(server) {
     const response = await fetch(
       `${SPREADSHEETS_URL}d/${spreadsheetId}/export?format=csv&gid=${sheetId}`,
     );
-    return papaPromise(response.body, options);
+    const nodeStream = Readable.from(response.body);
+    return papaPromise(nodeStream, options);
   }
 
   async function fetchSitesNavigationsSheet() {

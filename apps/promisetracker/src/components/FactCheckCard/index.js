@@ -47,10 +47,4 @@ FactCheckCard.propTypes = {
     titleContainer: PropTypes.string,
   }),
 };
-
-FactCheckCard.defaultProps = {
-  children: undefined,
-  classes: undefined,
-};
-
 export default FactCheckCard;

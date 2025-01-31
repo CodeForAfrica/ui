@@ -206,6 +206,22 @@ services:
       - ${VPN_MANAGER_PORT:-3000}:3000
     volumes:
       - ./db_data:/apps/vpnmanager/data
+
+  promisetracker:
+    build:
+      secrets:
+        - sentry_auth_token
+      context: .
+      target: promisetracker-runner
+      args:
+        - SENTRY_ORG
+        - SENTRY_PROJECT
+        - SENTRY_DSN
+        - API_SECRET_KEY
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+    ports:
+      - ${PROMISE_TRACKER_PORT:-3000}:3000
 secrets:
   sentry_auth_token:
     environment: SENTRY_AUTH_TOKEN

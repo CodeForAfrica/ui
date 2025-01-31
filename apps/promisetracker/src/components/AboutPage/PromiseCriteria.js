@@ -36,9 +36,4 @@ PromiseCriteria.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-PromiseCriteria.defaultProps = {
-  items: undefined,
-  title: undefined,
-};
-
 export default PromiseCriteria;

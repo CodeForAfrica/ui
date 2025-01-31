@@ -64,12 +64,4 @@ ContentSection.propTypes = {
   titleProps: PropTypes.shape({}),
 };
 
-ContentSection.defaultProps = {
-  aside: undefined,
-  asideProps: undefined,
-  contentProps: undefined,
-  title: undefined,
-  titleProps: undefined,
-};
-
 export default ContentSection;

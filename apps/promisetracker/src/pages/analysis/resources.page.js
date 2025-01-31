@@ -68,13 +68,6 @@ Resources.propTypes = {
   navigation: PropTypes.shape({}),
 };
 
-Resources.defaultProps = {
-  actNow: undefined,
-  description: undefined,
-  footer: undefined,
-  navigation: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {

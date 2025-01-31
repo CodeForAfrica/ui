@@ -161,10 +161,4 @@ ActNow.propTypes = {
   title: PropTypes.string,
 };
 
-ActNow.defaultProps = {
-  actionLabel: undefined,
-  description: undefined,
-  title: undefined,
-};
-
 export default ActNow;

@@ -172,9 +172,4 @@ NavigationList.propTypes = {
   open: PropTypes.bool,
 };
 
-NavigationList.defaultProps = {
-  onNavigate: undefined,
-  open: undefined,
-};
-
 export default NavigationList;

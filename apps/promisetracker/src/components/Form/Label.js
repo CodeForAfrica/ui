@@ -5,7 +5,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-function Label({ className, shrink, ...props }) {
+function Label({ className, shrink = false, ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -22,11 +22,6 @@ function Label({ className, shrink, ...props }) {
 Label.propTypes = {
   className: PropTypes.string,
   shrink: PropTypes.bool,
-};
-
-Label.defaultProps = {
-  className: undefined,
-  shrink: false,
 };
 
 export default Label;

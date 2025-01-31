@@ -108,12 +108,7 @@ const useStyles = makeStyles(({ breakpoints, typography }) => ({
   },
 }));
 
-function Newsletter({
-  description: descriptionProp,
-  enterEmailPlaceholder,
-  title,
-  ...props
-}) {
+function Newsletter({ description: descriptionProp, title, ...props }) {
   const classes = useStyles(props);
   const description =
     (descriptionProp && descriptionProp.length > 0 && descriptionProp) ||
@@ -156,13 +151,6 @@ function Newsletter({
 Newsletter.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
-  enterEmailPlaceholder: PropTypes.string,
-};
-
-Newsletter.defaultProps = {
-  description: undefined,
-  title: undefined,
-  enterEmailPlaceholder: "Please Enter your email",
 };
 
 export default Newsletter;

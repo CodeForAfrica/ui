@@ -43,8 +43,4 @@ H1.propTypes = {
   className: PropTypes.string,
 };
 
-H1.defaultProps = {
-  className: undefined,
-};
-
 export default H1;

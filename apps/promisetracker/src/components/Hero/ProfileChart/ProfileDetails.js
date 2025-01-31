@@ -135,7 +135,6 @@ function ProfileDetails({
                 aria-label="Info"
                 size="small"
                 onClick={handleOnClick}
-                clicked={clicked}
                 className={classes.iconButton}
               >
                 {clicked ? (
@@ -170,6 +169,7 @@ function ProfileDetails({
               disableFocusRipple
               aria-label="Share"
               size="small"
+              component="div"
               className={classes.iconButton}
             >
               <Share
@@ -239,12 +239,6 @@ ProfileDetails.propTypes = {
       "Behind Schedule": PropTypes.arrayOf(PropTypes.shape({})),
     }),
   }),
-};
-
-ProfileDetails.defaultProps = {
-  criteria: undefined,
-  promisesByStatus: undefined,
-  tagline: undefined,
 };
 
 export default ProfileDetails;

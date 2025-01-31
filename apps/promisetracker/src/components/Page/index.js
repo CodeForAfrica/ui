@@ -25,8 +25,4 @@ Page.propTypes = {
   errorCode: PropTypes.number,
 };
 
-Page.defaultProps = {
-  errorCode: undefined,
-};
-
 export default Page;
