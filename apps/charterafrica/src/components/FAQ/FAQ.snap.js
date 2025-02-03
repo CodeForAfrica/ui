@@ -6,84 +6,79 @@ exports[`<FAQ /> renders unchanged 1`] = `
     class="MuiBox-root css-ow7qj4"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-x30ed7-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1qbjolu-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h1Small css-18mtumj-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1Small css-kkm4ih-MuiTypography-root"
       >
         Frequently Asked Questions
       </div>
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-7wmomf-MuiPaper-root-MuiAccordion-root"
-        style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
       >
-        <h3
-          class="MuiAccordion-heading css-cy7rkm-MuiAccordion-heading"
+        <div
+          aria-controls="panel-63f388c3ebe92a85650e8051-content"
+          aria-expanded="false"
+          class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
+          id="panel-63f388c3ebe92a85650e8051-header"
+          role="button"
+          tabindex="0"
         >
-          <button
-            aria-controls="panel-63f388c3ebe92a85650e8051-content"
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root css-h4rzs5-MuiButtonBase-root-MuiAccordionSummary-root"
-            id="panel-63f388c3ebe92a85650e8051-header"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
           >
-            <span
-              class="MuiAccordionSummary-content css-18x5eyn-MuiAccordionSummary-content"
+            <div
+              class="MuiGrid-root MuiGrid-container css-12gcizw-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-16wnofg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
+              >
+                <div
+                  class="css-jijv3e"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+                    focusable="false"
+                    viewbox="0 0 24 24"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
                 >
                   <div
-                    class="css-jijv3e"
+                    class="MuiTypography-root MuiTypography-h5 css-1g8avbx-MuiTypography-root"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiTypography-root MuiTypography-h5 css-1me1hor-MuiTypography-root"
-                    >
-                      Open Source
-                    </div>
+                    Open Source
                   </div>
                 </div>
               </div>
-            </span>
-            <span
-              class="MuiAccordionSummary-expandIconWrapper css-1wqf3nl-MuiAccordionSummary-expandIconWrapper"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                focusable="false"
-                viewbox="0 0 24 24"
-              />
-            </span>
-          </button>
-        </h3>
+            </div>
+          </div>
+          <div
+            class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </div>
+        </div>
         <div
-          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-cwrbtg-MuiCollapse-root"
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
           style="min-height: 0px;"
         >
           <div
-            class="MuiCollapse-wrapper MuiCollapse-vertical css-1x6hinx-MuiCollapse-wrapper"
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
           >
             <div
-              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-1i4ywhz-MuiCollapse-wrapperInner"
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
             >
               <div
                 aria-labelledby="panel-63f388c3ebe92a85650e8051-header"
@@ -92,14 +87,14 @@ exports[`<FAQ /> renders unchanged 1`] = `
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root css-11n1jjl-MuiAccordionDetails-root"
+                  class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f388c3ebe92a85650e8051-content"
                 >
                   <div
                     class="MuiBox-root css-0"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 css-gyz7sc-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1f1mmvn-MuiTypography-root"
                     >
                       Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
@@ -112,76 +107,71 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
         </div>
       </div>
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-7wmomf-MuiPaper-root-MuiAccordion-root"
-        style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
       >
-        <h3
-          class="MuiAccordion-heading css-cy7rkm-MuiAccordion-heading"
+        <div
+          aria-controls="panel-63f388e0ebe92a85650e8052-content"
+          aria-expanded="false"
+          class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
+          id="panel-63f388e0ebe92a85650e8052-header"
+          role="button"
+          tabindex="0"
         >
-          <button
-            aria-controls="panel-63f388e0ebe92a85650e8052-content"
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root css-h4rzs5-MuiButtonBase-root-MuiAccordionSummary-root"
-            id="panel-63f388e0ebe92a85650e8052-header"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
           >
-            <span
-              class="MuiAccordionSummary-content css-18x5eyn-MuiAccordionSummary-content"
+            <div
+              class="MuiGrid-root MuiGrid-container css-12gcizw-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-16wnofg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
+              >
+                <div
+                  class="css-jijv3e"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+                    focusable="false"
+                    viewbox="0 0 24 24"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
                 >
                   <div
-                    class="css-jijv3e"
+                    class="MuiTypography-root MuiTypography-h5 css-1g8avbx-MuiTypography-root"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiTypography-root MuiTypography-h5 css-1me1hor-MuiTypography-root"
-                    >
-                      Teamwork
-                    </div>
+                    Teamwork
                   </div>
                 </div>
               </div>
-            </span>
-            <span
-              class="MuiAccordionSummary-expandIconWrapper css-1wqf3nl-MuiAccordionSummary-expandIconWrapper"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                focusable="false"
-                viewbox="0 0 24 24"
-              />
-            </span>
-          </button>
-        </h3>
+            </div>
+          </div>
+          <div
+            class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </div>
+        </div>
         <div
-          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-cwrbtg-MuiCollapse-root"
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
           style="min-height: 0px;"
         >
           <div
-            class="MuiCollapse-wrapper MuiCollapse-vertical css-1x6hinx-MuiCollapse-wrapper"
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
           >
             <div
-              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-1i4ywhz-MuiCollapse-wrapperInner"
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
             >
               <div
                 aria-labelledby="panel-63f388e0ebe92a85650e8052-header"
@@ -190,14 +180,14 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root css-11n1jjl-MuiAccordionDetails-root"
+                  class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f388e0ebe92a85650e8052-content"
                 >
                   <div
                     class="MuiBox-root css-0"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 css-gyz7sc-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1f1mmvn-MuiTypography-root"
                     >
                       Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
@@ -210,76 +200,71 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
         </div>
       </div>
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-7wmomf-MuiPaper-root-MuiAccordion-root"
-        style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
       >
-        <h3
-          class="MuiAccordion-heading css-cy7rkm-MuiAccordion-heading"
+        <div
+          aria-controls="panel-63f388f9ebe92a85650e8053-content"
+          aria-expanded="false"
+          class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
+          id="panel-63f388f9ebe92a85650e8053-header"
+          role="button"
+          tabindex="0"
         >
-          <button
-            aria-controls="panel-63f388f9ebe92a85650e8053-content"
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root css-h4rzs5-MuiButtonBase-root-MuiAccordionSummary-root"
-            id="panel-63f388f9ebe92a85650e8053-header"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
           >
-            <span
-              class="MuiAccordionSummary-content css-18x5eyn-MuiAccordionSummary-content"
+            <div
+              class="MuiGrid-root MuiGrid-container css-12gcizw-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-16wnofg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
+              >
+                <div
+                  class="css-jijv3e"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+                    focusable="false"
+                    viewbox="0 0 24 24"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
                 >
                   <div
-                    class="css-jijv3e"
+                    class="MuiTypography-root MuiTypography-h5 css-1g8avbx-MuiTypography-root"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiTypography-root MuiTypography-h5 css-1me1hor-MuiTypography-root"
-                    >
-                      Accountability
-                    </div>
+                    Accountability
                   </div>
                 </div>
               </div>
-            </span>
-            <span
-              class="MuiAccordionSummary-expandIconWrapper css-1wqf3nl-MuiAccordionSummary-expandIconWrapper"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                focusable="false"
-                viewbox="0 0 24 24"
-              />
-            </span>
-          </button>
-        </h3>
+            </div>
+          </div>
+          <div
+            class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </div>
+        </div>
         <div
-          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-cwrbtg-MuiCollapse-root"
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
           style="min-height: 0px;"
         >
           <div
-            class="MuiCollapse-wrapper MuiCollapse-vertical css-1x6hinx-MuiCollapse-wrapper"
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
           >
             <div
-              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-1i4ywhz-MuiCollapse-wrapperInner"
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
             >
               <div
                 aria-labelledby="panel-63f388f9ebe92a85650e8053-header"
@@ -288,14 +273,14 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root css-11n1jjl-MuiAccordionDetails-root"
+                  class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f388f9ebe92a85650e8053-content"
                 >
                   <div
                     class="MuiBox-root css-0"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 css-gyz7sc-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1f1mmvn-MuiTypography-root"
                     >
                       Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 
@@ -308,76 +293,71 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
         </div>
       </div>
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-7wmomf-MuiPaper-root-MuiAccordion-root"
-        style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation1 MuiAccordion-root css-1qt8l5p-MuiPaper-root-MuiAccordion-root"
       >
-        <h3
-          class="MuiAccordion-heading css-cy7rkm-MuiAccordion-heading"
+        <div
+          aria-controls="panel-63f38902ebe92a85650e8054-content"
+          aria-expanded="false"
+          class="MuiButtonBase-root MuiAccordionSummary-root css-vess51-MuiButtonBase-root-MuiAccordionSummary-root"
+          id="panel-63f38902ebe92a85650e8054-header"
+          role="button"
+          tabindex="0"
         >
-          <button
-            aria-controls="panel-63f38902ebe92a85650e8054-content"
-            aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root css-h4rzs5-MuiButtonBase-root-MuiAccordionSummary-root"
-            id="panel-63f38902ebe92a85650e8054-header"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
           >
-            <span
-              class="MuiAccordionSummary-content css-18x5eyn-MuiAccordionSummary-content"
+            <div
+              class="MuiGrid-root MuiGrid-container css-12gcizw-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-container css-16wnofg-MuiGrid-root"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
+              >
+                <div
+                  class="css-jijv3e"
+                >
+                  <div
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+                    focusable="false"
+                    viewbox="0 0 24 24"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
                 >
                   <div
-                    class="css-jijv3e"
+                    class="MuiTypography-root MuiTypography-h5 css-1g8avbx-MuiTypography-root"
                   >
-                    <div
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                      focusable="false"
-                      viewbox="0 0 24 24"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-10 css-fj2vzh-MuiGrid-root"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-auto css-16402sw-MuiGrid-root"
-                  >
-                    <div
-                      class="MuiTypography-root MuiTypography-h5 css-1me1hor-MuiTypography-root"
-                    >
-                      Impact
-                    </div>
+                    Impact
                   </div>
                 </div>
               </div>
-            </span>
-            <span
-              class="MuiAccordionSummary-expandIconWrapper css-1wqf3nl-MuiAccordionSummary-expandIconWrapper"
-            >
-              <div
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1o6uw8c-MuiSvgIcon-root"
-                focusable="false"
-                viewbox="0 0 24 24"
-              />
-            </span>
-          </button>
-        </h3>
+            </div>
+          </div>
+          <div
+            class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1y2pftv-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </div>
+        </div>
         <div
-          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-cwrbtg-MuiCollapse-root"
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
           style="min-height: 0px;"
         >
           <div
-            class="MuiCollapse-wrapper MuiCollapse-vertical css-1x6hinx-MuiCollapse-wrapper"
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
           >
             <div
-              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-1i4ywhz-MuiCollapse-wrapperInner"
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
             >
               <div
                 aria-labelledby="panel-63f38902ebe92a85650e8054-header"
@@ -386,14 +366,14 @@ Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root css-11n1jjl-MuiAccordionDetails-root"
+                  class="MuiAccordionDetails-root css-ohput3-MuiAccordionDetails-root"
                   id="panel-63f38902ebe92a85650e8054-content"
                 >
                   <div
                     class="MuiBox-root css-0"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 css-gyz7sc-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1f1mmvn-MuiTypography-root"
                     >
                       Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus penatibus congue vestibulum libero in neque dignissim, netus mus orci eu molestie per gravida, vel placerat maecenas dictumst nec etiam. Libero proin sagittis curae volutpat integer mattis magnis sociis, molestie curabitur montes per lectus sociosqu natoque facilisi, vestibulum convallis cursus nascetur eget vivamus nam. Augue placerat cubilia blandit integer nulla tempor magna, pretium sem magnis netus ullamcorper luctus eget egestas, curae fermentum rhoncus vitae odio sociis.
 Himenaeos est aenean ut torquent curabitur curae fames mus, condimentum accumsan ornare fermentum varius praesent sapien imperdiet, natoque morbi nullam mauris suspendisse nisi aptent. Vehicula malesuada litora libero himenaeos quisque vestibulum urna pretium ullamcorper dapibus, scelerisque phasellus commodo ligula est ut nascetur magna nisi ad ante, senectus sem nostra donec morbi placerat posuere pharetra pellentesque. 

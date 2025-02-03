@@ -3,14 +3,13 @@
 exports[`<NavBar /> renders unchanged 1`] = `
 <div>
   <header
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-8dwgit-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
-    style="--Paper-shadow: none;"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorInherit MuiAppBar-positionSticky css-1sr66oj-MuiPaper-root-MuiAppBar-root-CuiNavBar-root"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-regular css-1twxsqv-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-regular css-l73zrm-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-iz79el-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
@@ -22,7 +21,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <button
-              class="MuiButtonBase-root css-68ofh6-MuiButtonBase-root"
+              class="MuiButtonBase-root css-drm4qu-MuiButtonBase-root"
               tabindex="0"
               type="button"
             >

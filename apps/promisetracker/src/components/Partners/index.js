@@ -80,6 +80,7 @@ function Partners({ items, title, ...props }) {
   if (!items?.length) {
     return null;
   }
+
   return (
     <div className={classes.root}>
       <Section
@@ -95,7 +96,7 @@ function Partners({ items, title, ...props }) {
               className={classes.partners}
             >
               {items.slice(0, 6).map((partner) => (
-                <Grid item xs={12} lg="auto">
+                <Grid key={partner.name} item xs={12} lg="auto">
                   <Link href={partner.url} className={classes.partner}>
                     <Image
                       src={partner.image}
@@ -117,11 +118,6 @@ function Partners({ items, title, ...props }) {
 Partners.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string,
-};
-
-Partners.defaultProps = {
-  items: undefined,
-  title: undefined,
 };
 
 export default Partners;

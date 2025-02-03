@@ -139,16 +139,6 @@ PromisePage.propTypes = {
   title: PropTypes.string,
 };
 
-PromisePage.defaultProps = {
-  classes: undefined,
-  footer: undefined,
-  labels: undefined,
-  navigation: undefined,
-  promise: undefined,
-  promiseStatuses: undefined,
-  title: undefined,
-};
-
 export async function getStaticPaths() {
   const fallback = false;
 

@@ -19,7 +19,9 @@ import CtAButton from "@/promisetracker/components/CtAButton";
 function FormDialog({
   open,
   handleFormClose,
-  promise_act_now: promiseActNow,
+  promise_act_now: promiseActNow = {
+    update: {},
+  },
   ...props
 }) {
   const classes = useStyles(props);
@@ -83,19 +85,6 @@ FormDialog.propTypes = {
     update: {
       updateTitle: PropTypes.string,
       updateDescription: PropTypes.string,
-    },
-  }),
-};
-
-FormDialog.defaultProps = {
-  open: null,
-  handleFormClose: null,
-  petitionDescription: null,
-  petitionTitle: null,
-  promise_act_now: PropTypes.shape({
-    update: {
-      updateTitle: null,
-      updateDescription: null,
     },
   }),
 };

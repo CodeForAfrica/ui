@@ -167,16 +167,4 @@ PostCard.propTypes = {
   id: PropTypes.number,
 };
 
-PostCard.defaultProps = {
-  owner: undefined,
-  children: undefined,
-  classes: undefined,
-  description: undefined,
-  href: undefined,
-  as: undefined,
-  signatures: undefined,
-  status: undefined,
-  id: undefined,
-};
-
 export default PostCard;

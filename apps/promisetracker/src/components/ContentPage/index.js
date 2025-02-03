@@ -23,7 +23,7 @@ function ContentPage({
   contentProps,
   footer,
   navigation,
-  showTitle,
+  showTitle = true,
   slug,
   title,
   ...props
@@ -75,19 +75,6 @@ ContentPage.propTypes = {
   showTitle: PropTypes.bool,
   slug: PropTypes.string,
   title: PropTypes.string,
-};
-
-ContentPage.defaultProps = {
-  aside: undefined,
-  asideProps: undefined,
-  children: undefined,
-  classes: undefined,
-  contentProps: undefined,
-  footer: undefined,
-  navigation: undefined,
-  showTitle: true,
-  slug: undefined,
-  title: undefined,
 };
 
 export default ContentPage;

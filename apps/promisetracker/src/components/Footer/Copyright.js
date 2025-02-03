@@ -12,7 +12,11 @@ const useStyles = makeStyles(({ typography }) => ({
   image: {},
 }));
 
-function Copyright({ children, typographyProps, ...props }) {
+function Copyright({
+  children,
+  typographyProps = { variant: "button" },
+  ...props
+}) {
   const classes = useStyles(props);
 
   return (
@@ -38,10 +42,4 @@ Copyright.propTypes = {
   typographyProps: PropTypes.shape({}),
 };
 
-Copyright.defaultProps = {
-  children: undefined,
-  typographyProps: {
-    variant: "button",
-  },
-};
 export default Copyright;

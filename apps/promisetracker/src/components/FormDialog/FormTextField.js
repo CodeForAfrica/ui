@@ -61,12 +61,4 @@ FormTextField.propTypes = {
   type: PropTypes.string,
 };
 
-FormTextField.defaultProps = {
-  labelText: null,
-  helperDescription: null,
-  elemId: null,
-  required: null,
-  type: null,
-};
-
 export default FormTextField;

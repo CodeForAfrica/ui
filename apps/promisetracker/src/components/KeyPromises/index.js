@@ -117,11 +117,4 @@ KeyPromises.propTypes = {
   titleProps: PropTypes.shape({}),
 };
 
-KeyPromises.defaultProps = {
-  actionLabel: undefined,
-  items: undefined,
-  title: undefined,
-  titleProps: undefined,
-};
-
 export default KeyPromises;

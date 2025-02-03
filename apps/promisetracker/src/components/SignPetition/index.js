@@ -105,9 +105,4 @@ SignPetition.propTypes = {
   session: PropTypes.shape({}),
 };
 
-SignPetition.defaultProps = {
-  signatures: undefined,
-  session: undefined,
-};
-
 export default SignPetition;

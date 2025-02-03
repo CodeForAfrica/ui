@@ -59,12 +59,4 @@ Filter.propTypes = {
   variant: PropTypes.string,
 };
 
-Filter.defaultProps = {
-  classes: undefined,
-  items: undefined,
-  label: undefined,
-  onClick: undefined,
-  variant: undefined,
-};
-
 export default Filter;

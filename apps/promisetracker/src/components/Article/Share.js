@@ -4,13 +4,6 @@ import Image from "next/image";
 import PropTypes from "prop-types";
 import React from "react";
 
-import download from "@/promisetracker/assets/share-download.svg?url";
-import embed from "@/promisetracker/assets/share-embed.svg?url";
-import facebook from "@/promisetracker/assets/share-facebook.svg?url";
-import instagram from "@/promisetracker/assets/share-instagram.svg?url";
-import sharelink from "@/promisetracker/assets/share-link.svg?url";
-import twitter from "@/promisetracker/assets/share-twitter.svg?url";
-
 const useStyles = makeStyles(({ palette }) => ({
   root: {
     alignItems: "center",
@@ -32,7 +25,7 @@ const useStyles = makeStyles(({ palette }) => ({
     },
   },
 }));
-function Share({ platforms, ...props }) {
+function Share({ platforms = [], ...props }) {
   const classes = useStyles(props);
   return (
     <div className={classes.root}>
@@ -59,48 +52,6 @@ Share.propTypes = {
     root: PropTypes.string,
   }),
   platforms: PropTypes.arrayOf(PropTypes.shape({})),
-};
-
-Share.defaultProps = {
-  classes: undefined,
-  platforms: [
-    {
-      image: {
-        url: sharelink,
-        alt: "",
-      },
-    },
-    {
-      image: {
-        url: embed,
-        alt: "",
-      },
-    },
-    {
-      image: {
-        url: download,
-        alt: "",
-      },
-    },
-    {
-      image: {
-        url: instagram,
-        alt: "",
-      },
-    },
-    {
-      image: {
-        url: twitter,
-        alt: "",
-      },
-    },
-    {
-      image: {
-        url: facebook,
-        alt: "",
-      },
-    },
-  ],
 };
 
 export default Share;

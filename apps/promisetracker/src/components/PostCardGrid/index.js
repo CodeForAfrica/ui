@@ -53,12 +53,4 @@ PostCardGrid.propTypes = {
   title: PropTypes.string,
 };
 
-PostCardGrid.defaultProps = {
-  classes: undefined,
-  children: undefined,
-  component: undefined,
-  items: undefined,
-  title: undefined,
-};
-
 export default PostCardGrid;

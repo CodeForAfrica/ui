@@ -17,7 +17,7 @@ import Status from "@/promisetracker/components/PromiseStatus";
 
 function Promise({
   promise,
-  breadcrumb,
+  breadcrumb = "Promises",
   classes: classesProp,
   promiseStatusLabel,
   promiseRadarLabel,
@@ -152,19 +152,6 @@ Promise.propTypes = {
   narrativeUpdatesLabel: PropTypes.string,
   chartEmbedLabel: PropTypes.string,
   authorAttributionLabel: PropTypes.string,
-};
-
-Promise.defaultProps = {
-  breadcrumb: "Promises",
-  classes: undefined,
-  promiseStatusLabel: undefined,
-  promiseRadarLabel: undefined,
-  relatedFactChecksLabel: undefined,
-  dataSourceEmbedLabel: undefined,
-  narrativeUpdatesLabel: undefined,
-  chartEmbedLabel: undefined,
-  authorAttributionLabel: undefined,
-  status: undefined,
 };
 
 export default Promise;

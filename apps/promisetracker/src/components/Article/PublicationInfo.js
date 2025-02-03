@@ -55,11 +55,4 @@ PublicationInfo.propTypes = {
   readTime: PropTypes.string,
 };
 
-PublicationInfo.defaultProps = {
-  classes: undefined,
-  author: undefined,
-  date: undefined,
-  readTime: undefined,
-};
-
 export default PublicationInfo;

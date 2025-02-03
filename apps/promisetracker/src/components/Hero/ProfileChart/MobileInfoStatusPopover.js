@@ -150,9 +150,4 @@ MobileInfoStatusPopover.propTypes = {
   title: PropTypes.string,
 };
 
-MobileInfoStatusPopover.defaultProps = {
-  items: undefined,
-  title: undefined,
-};
-
 export default MobileInfoStatusPopover;

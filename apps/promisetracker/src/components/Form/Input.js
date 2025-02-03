@@ -6,7 +6,7 @@ import React from "react";
 
 import useStyles from "./useStyles";
 
-function Input({ className, type, ...props }) {
+function Input({ className, type = "text", ...props }) {
   const classes = useStyles(props);
 
   return (
@@ -22,11 +22,6 @@ function Input({ className, type, ...props }) {
 Input.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf(["email", "password", "tel", "text", "url"]),
-};
-
-Input.defaultProps = {
-  className: undefined,
-  type: "text",
 };
 
 export default Input;

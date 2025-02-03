@@ -7,7 +7,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function FollowCard({ closeCard, promiseActNow }) {
+function FollowCard({ closeCard, promiseActNow = { follow: {} } }) {
   const classes = useStyles();
 
   const {
@@ -54,16 +54,6 @@ FollowCard.propTypes = {
       followTitle: PropTypes.string,
       followDescription: PropTypes.string,
       followButton: PropTypes.string,
-    },
-  }),
-};
-
-FollowCard.defaultProps = {
-  promiseActNow: PropTypes.shape({
-    follow: {
-      followTitle: null,
-      followDescription: null,
-      followButton: null,
     },
   }),
 };

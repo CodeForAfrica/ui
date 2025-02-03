@@ -17,7 +17,7 @@ function IndividualRegistrationDialog({
   name: nameProp,
   onClose,
   onSubmit,
-  open,
+  open = false,
   title,
   ...props
 }) {
@@ -75,14 +75,6 @@ IndividualRegistrationDialog.propTypes = {
   onSubmit: PropTypes.func,
   open: PropTypes.bool,
   title: PropTypes.string,
-};
-
-IndividualRegistrationDialog.defaultProps = {
-  name: null,
-  onClose: null,
-  onSubmit: null,
-  open: false,
-  title: null,
 };
 
 export default IndividualRegistrationDialog;

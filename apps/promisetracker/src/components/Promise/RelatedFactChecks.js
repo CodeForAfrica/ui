@@ -53,9 +53,4 @@ RelatedFactChecks.propTypes = {
   factChecks: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-RelatedFactChecks.defaultProps = {
-  classes: undefined,
-  factChecks: undefined,
-};
-
 export default RelatedFactChecks;

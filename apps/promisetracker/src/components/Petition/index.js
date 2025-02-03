@@ -205,8 +205,4 @@ Petition.propTypes = {
   }),
 };
 
-Petition.defaultProps = {
-  petitionPost: undefined,
-};
-
 export default Petition;

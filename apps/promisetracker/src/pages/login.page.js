@@ -60,10 +60,6 @@ Login.propTypes = {
   providers: PropTypes.shape({}),
 };
 
-Login.defaultProps = {
-  providers: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   // Skip generating pages for unsupported locales

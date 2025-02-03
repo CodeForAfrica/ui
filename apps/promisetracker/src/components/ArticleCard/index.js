@@ -48,10 +48,4 @@ ArticleCard.propTypes = {
   href: PropTypes.string,
 };
 
-ArticleCard.defaultProps = {
-  children: undefined,
-  href: undefined,
-  classes: undefined,
-};
-
 export default ArticleCard;
