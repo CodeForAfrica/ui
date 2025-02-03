@@ -4,8 +4,8 @@ import { useMediaQuery, Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Card from "@/climatemappedafrica/components/Card";
-import Carousel from "@/climatemappedafrica/components/Carousel";
+import Card from "@/hurumap/core/Card";
+import Carousel from "@/hurumap/core/Carousel";
 
 function DataVisualisationGuide({ title, items }) {
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("lg"));

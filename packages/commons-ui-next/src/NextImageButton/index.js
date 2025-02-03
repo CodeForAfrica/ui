@@ -1,6 +1,7 @@
 import { ImageButton } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
 import Image from "next/image";
+
+import Link from "@/commons-ui/next/Link";
 
 function NextImageButton(props) {
   const { alt, fill, height, href, priority, src, style, width, ...other } =

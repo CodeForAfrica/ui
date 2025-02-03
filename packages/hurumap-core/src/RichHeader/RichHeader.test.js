@@ -1,11 +1,7 @@
-import { createRender } from "@commons-ui/testing-library";
+import { render } from "@commons-ui/testing-library";
 import React from "react";
 
 import RichHeader from ".";
-
-import theme from "@/climatemappedafrica/theme";
-
-const render = createRender({ theme });
 
 const defaultProps = {
   overline: "About",

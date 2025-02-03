@@ -3,7 +3,7 @@ import { Box, Grid, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import RichHeader from "@/climatemappedafrica/components/RichHeader";
+import RichHeader from "@/hurumap/core/RichHeader";
 
 function PageHero({ background, overline, subtitle, title }) {
   const theme = useTheme();

@@ -1,4 +1,5 @@
 import { Section } from "@commons-ui/core";
+import { Tabs } from "@hurumap/next";
 import { Button, Typography, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
@@ -9,7 +10,6 @@ import printIcon from "@/climatemappedafrica/assets/icons/print.svg?url";
 import TopIcon from "@/climatemappedafrica/assets/icons/top.svg";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
-import Tabs from "@/climatemappedafrica/components/Tabs";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 
 // being last is necessary for style override to work

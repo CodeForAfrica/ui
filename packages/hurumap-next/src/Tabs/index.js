@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-import TabPanel from "@/climatemappedafrica/components/Tabs/TabPanel";
+import TabPanel from "./TabPanel";
 
 function a11yProps(name, index) {
   return {

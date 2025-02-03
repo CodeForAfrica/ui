@@ -1,11 +1,10 @@
 import { Section } from "@commons-ui/core";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import PropTypes from "prop-types";
 import React, { useRef } from "react";
 
-import Card from "@/climatemappedafrica/components/Card";
-import Carousel from "@/climatemappedafrica/components/Carousel";
+import Card from "@/hurumap/core/Card";
+import Carousel from "@/hurumap/core/Carousel";
 
 const responsive = {
   desktop: {
@@ -88,14 +87,5 @@ function AboutTeam({ title, members: membersProp }) {
     </Box>
   );
 }
-
-AboutTeam.propTypes = {
-  title: PropTypes.string,
-  members: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-    }),
-  ),
-};
 
 export default AboutTeam;
