@@ -17,7 +17,10 @@ import useStyles from "./useStyles";
 
 import UpdateFormDialog from "@/promisetracker/components/FormDialog/UpdateDialog";
 
-function ActNowButtonCard({ promise_act_now: promiseActNow, ...props }) {
+function ActNowButtonCard({
+  promise_act_now: promiseActNow = { act_now: {} },
+  ...props
+}) {
   const {
     act_now: {
       act_now_title: actNowTitle,
@@ -158,19 +161,6 @@ ActNowButtonCard.propTypes = {
       follow_label: PropTypes.string,
       update_label: PropTypes.string,
       share_label: PropTypes.string,
-    },
-  }),
-};
-
-ActNowButtonCard.defaultProps = {
-  promise_act_now: PropTypes.shape({
-    act_now: {
-      act_now_title: null,
-      connect_label: null,
-      petition_label: null,
-      follow_label: null,
-      update_label: null,
-      share_label: null,
     },
   }),
 };

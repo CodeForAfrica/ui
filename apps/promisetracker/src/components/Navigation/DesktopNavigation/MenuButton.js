@@ -48,11 +48,4 @@ MenuButton.propTypes = {
   active: PropTypes.bool,
 };
 
-MenuButton.defaultProps = {
-  size: undefined,
-  title: undefined,
-  href: undefined,
-  active: undefined,
-};
-
 export default MenuButton;

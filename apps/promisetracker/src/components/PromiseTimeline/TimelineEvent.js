@@ -4,7 +4,15 @@ import React, { useState, useRef } from "react";
 
 import config from "@/promisetracker/config";
 
-function Event({ color, isOdd, radius, rx, textColor, title, year }) {
+function Event({
+  color = "#fff",
+  isOdd = false,
+  radius = "4",
+  rx = "0",
+  textColor = "#202020",
+  title,
+  year,
+}) {
   const interval = config.promiseInterval;
   const theme = useTheme();
   const xposition = `${
@@ -70,11 +78,4 @@ Event.propTypes = {
   year: PropTypes.number.isRequired,
 };
 
-Event.defaultProps = {
-  color: "#fff",
-  isOdd: false,
-  radius: "4",
-  rx: "0",
-  textColor: "#202020",
-};
 export default Event;

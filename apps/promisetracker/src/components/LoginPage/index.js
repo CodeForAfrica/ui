@@ -73,8 +73,4 @@ Login.propTypes = {
   providers: PropTypes.shape({}),
 };
 
-Login.defaultProps = {
-  providers: undefined,
-};
-
 export default Login;

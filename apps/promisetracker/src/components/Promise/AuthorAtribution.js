@@ -47,10 +47,10 @@ const useStyles = makeStyles(({ typography, palette, breakpoints }) => ({
   name: {},
 }));
 function AuthorAtribution({
-  title,
-  description,
-  image,
-  mobileTitle,
+  title = "Author Attribution",
+  description = "Intro text explaining why the user is seeing this chart here and where does it come from.",
+  image = "",
+  mobileTitle = "Data source embed",
   classes: classesProp,
 }) {
   const classes = useStyles({ image, classes: classesProp });
@@ -96,15 +96,6 @@ AuthorAtribution.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   mobileTitle: PropTypes.string,
-};
-
-AuthorAtribution.defaultProps = {
-  classes: undefined,
-  title: "Author Attribution",
-  mobileTitle: "Data source embed",
-  description:
-    "Intro text explaining why the user is seeing this chart here and where does it come from.",
-  image: "",
 };
 
 export default AuthorAtribution;

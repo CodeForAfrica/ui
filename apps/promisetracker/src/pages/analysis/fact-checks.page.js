@@ -98,16 +98,6 @@ FactChecks.propTypes = {
   title: PropTypes.string,
 };
 
-FactChecks.defaultProps = {
-  actNow: undefined,
-  actNowEnabled: undefined,
-  factChecks: undefined,
-  footer: undefined,
-  navigation: undefined,
-  subscribe: undefined,
-  title: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {

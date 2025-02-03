@@ -12,7 +12,12 @@ import useStyles from "./useStyles";
 import MinusIcon from "@/promisetracker/icons/Minus";
 import PlusIcon from "@/promisetracker/icons/Plus";
 
-function AccordionPanel({ expanded: expandedProp, summary, title, ...props }) {
+function AccordionPanel({
+  expanded: expandedProp = false,
+  summary,
+  title,
+  ...props
+}) {
   const classes = useStyles(props);
   const [expanded, setExpanded] = useState(expandedProp);
   const handleChange = () => {
@@ -46,10 +51,6 @@ AccordionPanel.propTypes = {
   expanded: PropTypes.bool,
   summary: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-};
-
-AccordionPanel.defaultProps = {
-  expanded: false,
 };
 
 export default AccordionPanel;

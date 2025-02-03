@@ -53,11 +53,11 @@ const useStyles = makeStyles(({ spacing, palette, typography }) => ({
 }));
 
 function NavigationButton({
-  active,
+  active = false,
   anchorEl,
   button: buttonProp,
   children,
-  open: openProp,
+  open: openProp = false,
   onClose,
   popperProps,
   size,
@@ -128,15 +128,4 @@ NavigationButton.propTypes = {
   size: PropTypes.string,
 };
 
-NavigationButton.defaultProps = {
-  active: false,
-  anchorEl: undefined,
-  onClose: undefined,
-  open: false,
-  popperProps: undefined,
-  button: undefined,
-  title: undefined,
-  size: undefined,
-  children: undefined,
-};
 export default NavigationButton;

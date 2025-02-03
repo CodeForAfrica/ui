@@ -109,13 +109,4 @@ PostCard.propTypes = {
   style: PropTypes.shape({}),
 };
 
-PostCard.defaultProps = {
-  children: undefined,
-  classes: undefined,
-  description: undefined,
-  href: undefined,
-  as: undefined,
-  style: undefined,
-};
-
 export default PostCard;

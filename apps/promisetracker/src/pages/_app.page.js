@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import { CssBaseline } from "@mui/material";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";

@@ -52,8 +52,4 @@ Sort.propTypes = {
   slug: PropTypes.string.isRequired,
 };
 
-Sort.defaultProps = {
-  onClick: undefined,
-};
-
 export default Sort;

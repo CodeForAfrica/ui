@@ -64,11 +64,4 @@ LatestPromises.propTypes = {
   title: PropTypes.string,
 };
 
-LatestPromises.defaultProps = {
-  actionLabel: undefined,
-  classes: undefined,
-  items: undefined,
-  title: undefined,
-};
-
 export default LatestPromises;

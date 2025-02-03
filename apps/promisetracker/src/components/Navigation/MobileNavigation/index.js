@@ -234,8 +234,4 @@ MobileNavigation.propTypes = {
   }),
 };
 
-MobileNavigation.defaultProps = {
-  navigation: undefined,
-};
-
 export default MobileNavigation;

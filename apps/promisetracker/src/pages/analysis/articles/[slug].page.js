@@ -106,16 +106,6 @@ Index.propTypes = {
   title: PropTypes.string,
 };
 
-Index.defaultProps = {
-  article: undefined,
-  classes: undefined,
-  footer: undefined,
-  navigation: undefined,
-  relatedArticles: undefined,
-  subscribe: undefined,
-  title: undefined,
-};
-
 export async function getStaticPaths() {
   const fallback = true;
   const page = await wp().pages({ slug: "analysis-articles" }).first;

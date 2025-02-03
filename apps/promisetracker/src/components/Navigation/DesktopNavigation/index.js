@@ -207,8 +207,4 @@ DesktopNavigation.propTypes = {
   }),
 };
 
-DesktopNavigation.defaultProps = {
-  navigation: undefined,
-};
-
 export default DesktopNavigation;

@@ -32,11 +32,4 @@ FilterButton.propTypes = {
   onClick: PropTypes.func,
 };
 
-FilterButton.defaultProps = {
-  active: undefined,
-  name: undefined,
-  slug: undefined,
-  onClick: undefined,
-};
-
 export default FilterButton;

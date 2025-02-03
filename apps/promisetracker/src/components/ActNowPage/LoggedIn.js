@@ -104,12 +104,4 @@ ActNowLoggedInPage.propTypes = {
   title: PropTypes.string,
 };
 
-ActNowLoggedInPage.defaultProps = {
-  footer: undefined,
-  navigation: undefined,
-  ownedPetitions: undefined,
-  signedPetitions: undefined,
-  title: undefined,
-};
-
 export default ActNowLoggedInPage;

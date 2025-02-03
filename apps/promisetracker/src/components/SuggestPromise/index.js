@@ -27,6 +27,4 @@ SuggestPromise.propTypes = {
   label: PropTypes.string.isRequired,
 };
 
-SuggestPromise.defaultProps = {};
-
 export default SuggestPromise;

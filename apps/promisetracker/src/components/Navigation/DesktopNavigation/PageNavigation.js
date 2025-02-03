@@ -98,9 +98,4 @@ PageNavigation.propTypes = {
   pathname: PropTypes.string,
 };
 
-PageNavigation.defaultProps = {
-  pathname: undefined,
-  asPath: undefined,
-};
-
 export default PageNavigation;

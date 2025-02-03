@@ -8,7 +8,7 @@ import Form from "./Form";
 function IndividualRegistrationForm({
   defaultErrorMessage,
   fields,
-  onSubmit,
+  onSubmit = false,
   submitUrl,
 }) {
   const [status, setStatus] = useState({});
@@ -131,13 +131,6 @@ IndividualRegistrationForm.propTypes = {
   }),
   onSubmit: PropTypes.func,
   submitUrl: PropTypes.string,
-};
-
-IndividualRegistrationForm.defaultProps = {
-  defaultErrorMessage: undefined,
-  fields: undefined,
-  onSubmit: false,
-  submitUrl: undefined,
 };
 
 export default IndividualRegistrationForm;

@@ -232,13 +232,4 @@ ActNow.propTypes = {
   title: PropTypes.string,
 };
 
-ActNow.defaultProps = {
-  actNow: null,
-  description: null,
-  footer: null,
-  navigation: null,
-  petitions: null,
-  title: null,
-};
-
 export default ActNow;

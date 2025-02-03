@@ -226,13 +226,5 @@ MainFooter.propTypes = {
   quickLinks: PropTypes.arrayOf(PropTypes.shape({})),
   socialMedia: PropTypes.arrayOf(PropTypes.shape({})),
 };
-MainFooter.defaultProps = {
-  about: undefined,
-  copyright: undefined,
-  legalLinks: undefined,
-  organizationLogo: undefined,
-  quickLinks: undefined,
-  socialMedia: undefined,
-};
 
 export default MainFooter;

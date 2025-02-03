@@ -13,9 +13,9 @@ import { slugify } from "@/promisetracker/utils";
 function Promises({
   items: itemsProp,
   title,
-  withFilter,
+  withFilter = true,
   projectMeta,
-  promiseStatuses,
+  promiseStatuses = [],
   sortLabels,
   ...props
 }) {
@@ -205,16 +205,6 @@ Promises.propTypes = {
   }),
   title: PropTypes.string,
   withFilter: PropTypes.bool,
-};
-
-Promises.defaultProps = {
-  classes: undefined,
-  items: undefined,
-  projectMeta: undefined,
-  promiseStatuses: [],
-  sortLabels: undefined,
-  title: undefined,
-  withFilter: true,
 };
 
 export default Promises;

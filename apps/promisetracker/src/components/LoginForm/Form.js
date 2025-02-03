@@ -101,13 +101,4 @@ Form.propTypes = {
   }),
 };
 
-Form.defaultProps = {
-  disabled: undefined,
-  errors: undefined,
-  fields: undefined,
-  name: undefined,
-  onSubmit: undefined,
-  status: undefined,
-};
-
 export default Form;

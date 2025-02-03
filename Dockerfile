@@ -902,3 +902,79 @@ USER nextjs
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/vpnmanager/server.js"]
+
+# ============================================================================
+# Promise Tracker
+# ============================================================================
+
+#
+# promisetracker-desp: image with all pesayetu dependencies
+# -----------------------------------------------------
+
+FROM base-deps AS promisetracker-deps
+
+COPY apps/promisetracker/package.json ./apps/promisetracker/package.json
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/promisetracker" install --offline --frozen-lockfile
+
+#
+# promisetracker-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS promisetracker-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="Promise Tracker" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=promisetracker-deps /workspace/node_modules ./node_modules
+
+COPY --from=promisetracker-deps /workspace/apps/promisetracker/node_modules ./apps/promisetracker/node_modules
+
+COPY apps/promisetracker ./apps/promisetracker
+
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/promisetracker" build
+
+#
+# promisetracker-runner: final deployable image
+# -----------------------------------------
+
+FROM base-runner AS promisetracker-runner
+
+ARG API_SECRET_KEY
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/promisetracker/.next \
+  && chown nextjs:nodejs ./apps/promisetracker/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Next.js
+# Public assets
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/public ./apps/promisetracker/public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/.next/standalone ./apps/promisetracker
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/.next/static ./apps/promisetracker/.next/static
+USER nextjs
+
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/promisetracker/server.js"]
