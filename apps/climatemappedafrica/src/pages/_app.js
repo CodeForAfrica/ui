@@ -1,7 +1,7 @@
+import { GoogleAnalytics } from "@commons-ui/next";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { ThemeProvider as StyledThemeProvider } from "@mui/styles";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";

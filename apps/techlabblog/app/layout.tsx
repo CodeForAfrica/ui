@@ -1,6 +1,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@commons-ui/next";
 import type { Metadata } from "next";
 
 import logoLight from "@/techlabblog/assets/images/logo-light.png";

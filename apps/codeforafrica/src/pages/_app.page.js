@@ -1,6 +1,6 @@
+import { GoogleAnalytics } from "@commons-ui/next";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";

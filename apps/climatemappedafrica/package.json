@@ -46,7 +46,6 @@
     "@mui/utils": "catalog:mui-styles",
     "@mui/x-tree-view": "catalog:",
     "@next/env": "catalog:",
-    "@next/third-parties": "catalog:",
     "@payloadcms/bundler-webpack": "catalog:",
     "@payloadcms/db-mongodb": "catalog:",
     "@payloadcms/plugin-cloud-storage": "catalog:",

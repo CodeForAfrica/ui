@@ -4,7 +4,7 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
 import React, { ReactNode } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@commons-ui/next";
 
 import Page from "@/vpnmanager/components/Page";
 import theme from "@/vpnmanager/theme";

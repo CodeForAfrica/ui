@@ -1,7 +1,7 @@
 /* eslint-env browser */
+import { GoogleAnalytics } from "@commons-ui/next";
 import { CssBaseline } from "@mui/material";
 import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";

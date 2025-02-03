@@ -43,7 +43,6 @@
     "@mui/styles": "catalog:mui-styles",
     "@mui/utils": "catalog:mui-styles",
     "@mui/x-tree-view": "catalog:",
-    "@next/third-parties": "catalog:",
     "@reactour/tour": "catalog:",
     "aws-sdk": "catalog:",
     "clsx": "catalog:",

@@ -1,6 +1,6 @@
 import SEO from "@/roboshield/next-seo.config";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@commons-ui/next";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
 import Head from "next/head";
