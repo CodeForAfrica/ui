@@ -1,7 +1,7 @@
-import { GoogleAnalytics } from "@commons-ui/next";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { deepmerge } from "@mui/utils";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import App from "next/app";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";

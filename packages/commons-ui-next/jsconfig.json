@@ -2,10 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/commons-ui/next/*": ["./src/*"],
-      "@next/third-parties/google": [
-        "node_modules/@next/third-parties/dist/google"
-      ]
+      "@/commons-ui/next/*": ["./src/*"]
     }
   },
   "exclude": ["node_modules"]
