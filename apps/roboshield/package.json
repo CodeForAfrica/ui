@@ -9,7 +9,7 @@
     "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
     "dev": "NODE_OPTIONS='--inspect' TS_NODE_PROJECT=tsconfig.server.json tsx server.ts",
     "clean": "rm -rf .next .turbo node_modules",
-    "jest": "jest --passWithNoTests",
+    "jest": "node --expose-gc --max-old-space-size=4096 node_modules/jest/bin/jest.js --coverage --runInBand --logHeapUsage --forceExit --passWithNoTests",
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
     "generate:types": "payload generate:types"
@@ -58,6 +58,8 @@
     "tsconfig-paths": "catalog:"
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-methods": "catalog:",
+    "@babel/preset-env": "catalog:",
     "@commons-ui/testing-library": "workspace:*",
     "@svgr/webpack": "catalog:",
     "@types/express": "catalog:",

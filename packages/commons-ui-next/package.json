@@ -24,13 +24,15 @@
     "url": "https://github.com/codeforafrica/ui/issues"
   },
   "scripts": {
-    "jest": "jest",
+    "jest": "node --expose-gc --max-old-space-size=4096 node_modules/jest/bin/jest.js --coverage --runInBand --logHeapUsage --forceExit",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "clean": "rm -rf .turbo node_modules dist"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
+    "@babel/plugin-transform-private-methods": "catalog:",
+    "@babel/preset-env": "catalog:",
     "@babel/preset-react": "catalog:",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
