@@ -10,7 +10,13 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
     <ButtonBase
       onClick={handleIconClick}
       sx={{
-        display: { xs: "flex", lg: "block" },
+        display: "flex",
+        flexDirection: {
+          xs: "row",
+          lg: "column",
+        },
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Box
