@@ -173,11 +173,13 @@ export async function getPageProps(api, context) {
   }
   const blocks = await blockify(page?.blocks, api, context);
   const siteSettings = await api.findGlobal("settings-site");
+  const { analytics } = siteSettings;
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
 
   const seo = getPageSeoFromMeta(page, siteSettings);
   return {
+    analytics,
     blocks,
     footer,
     navbar,

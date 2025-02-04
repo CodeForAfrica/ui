@@ -45,6 +45,7 @@
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
     "@next/env": "catalog:",
+    "@next/third-parties": "catalog:",
     "@payloadcms/bundler-webpack": "catalog:",
     "@payloadcms/db-mongodb": "catalog:",
     "@payloadcms/plugin-cloud-storage": "catalog:",

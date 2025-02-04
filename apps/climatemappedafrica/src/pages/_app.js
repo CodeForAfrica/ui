@@ -1,18 +1,20 @@
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { ThemeProvider as StyledThemeProvider } from "@mui/styles";
-import { useRouter } from "next/router";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
 
-import * as ga from "@/climatemappedafrica/lib/ga";
 import "@/climatemappedafrica/theme/fonts.css";
 import SEO from "@/climatemappedafrica/next-seo.config";
 import theme from "@/climatemappedafrica/theme";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+
+  const { analytics } = pageProps;
+  const { analyticsId: gaId } = analytics || {};
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -22,23 +24,6 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
-
-  const router = useRouter();
-
-  React.useEffect(() => {
-    const handleRouteChange = (url) => {
-      ga.pageview(url);
-    };
-    // When the component is mounted, subscribe to router changes
-    // and log those page views
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
 
   return (
     <>
@@ -52,6 +37,7 @@ export default function MyApp(props) {
           </StyledThemeProvider>
         </ThemeProvider>
       </StyledEngineProvider>
+      <GoogleAnalytics gaId={gaId} />
     </>
   );
 }
