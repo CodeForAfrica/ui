@@ -56,10 +56,11 @@ function DesktopPanel({ sx, ...props }) {
             border: "none",
             display: "flex",
             flexDirection: "row",
+            // Setting Drawer persistent causes header to be non sticky. We are setting the height to 100vh - 88px to account for the toolbar height.
             height: "calc(100vh - 88px)", // Toolbar height
             overflowY: "visible",
             position: "relative",
-            top: 0, // Toolbar height
+            top: 0,
           }),
         }}
       >
