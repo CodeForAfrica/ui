@@ -12,7 +12,7 @@ import theme from "@/pesayetu/theme";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
-  const gaID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+  const gaID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
