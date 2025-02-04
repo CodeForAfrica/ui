@@ -109,8 +109,10 @@ function Chart({
 
   useEffect(() => {
     try {
-      const viewProp = new vega.View(vega.parse(cSpec), { renderer: "none" });
-      setDownloadView(viewProp);
+      if (cSpec) {
+        const viewProp = new vega.View(vega.parse(cSpec), { renderer: "none" });
+        setDownloadView(viewProp);
+      }
     } catch (error) {
       console.error("Error creating view", error);
     }
