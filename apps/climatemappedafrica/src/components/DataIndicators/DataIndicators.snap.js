@@ -55,7 +55,7 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
                 />
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 css-1eogcpa-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-k9091u-MuiTypography-root"
               >
                 Overview
               </p>

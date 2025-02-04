@@ -34,7 +34,6 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
       <Typography
         sx={({ typography }) => ({
           display: "flex",
-          marginLeft: typography.pxToRem(31),
           fontSize: typography.pxToRem(20),
           width: { xs: typography.pxToRem(200), lg: "auto" },
         })}
