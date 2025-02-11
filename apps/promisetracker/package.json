@@ -32,6 +32,7 @@
     "@mui/styles": "catalog:mui-styles",
     "@mui/utils": "catalog:mui-styles",
     "@mui/private-theming": "catalog:mui-styles",
+    "@next/third-parties": "catalog:",
     "@sentry/nextjs": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",

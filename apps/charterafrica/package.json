@@ -47,6 +47,7 @@
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
     "@next/env": "catalog:",
+    "@next/third-parties": "catalog:",
     "@nivo/core": "catalog:",
     "@nivo/pie": "catalog:",
     "@nivo/tooltip": "catalog:",

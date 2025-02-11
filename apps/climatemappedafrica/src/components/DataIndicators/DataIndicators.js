@@ -98,7 +98,10 @@ function DataIndicators({ indicators, title }) {
               sx: {
                 width: "100%",
                 textAlign: "center",
-                padding: `40px 0`,
+                padding: {
+                  xs: "40px 0",
+                  lg: "102px 0 80px",
+                },
               },
             }}
           >
