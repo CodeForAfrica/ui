@@ -1,0 +1,21 @@
+name: CI/CD [PR]
+
+on:
+  pull_request:
+    branches: # PRs to the following branches will trigger the workflow
+      - main
+    paths:
+      - ".github/workflows/**"
+      - "apps/**"
+      - "packages/**"
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/_ci.yaml
+# TODO: deploy Dokku preview apps here
