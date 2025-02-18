@@ -260,8 +260,10 @@ export default function LineChartScope({
                   y: { scale: "yscale", field: { signal: "datatype[Units]" } },
                   size: { value: 5 },
                   tooltip: {
-                    signal:
-                      "{'group': datum[mainGroup], 'count': format(datum.count, numberFormat.value)}",
+                    signal: `{
+            'group': datum[mainGroup], 
+            'count': isValid(datum.count) ? format(datum.count, numberFormat.value) : 'N/A'
+          }`,
                   },
                 },
                 hover: {
@@ -347,8 +349,10 @@ export default function LineChartScope({
                   y: { scale: "yscale", field: { signal: "datatype[Units]" } },
                   size: { value: 5 },
                   tooltip: {
-                    signal:
-                      "{'group': datum[mainGroup], 'count': format(datum.count, numberFormat.value)}",
+                    signal: `{
+            'group': datum[mainGroup], 
+            'count': isValid(datum.count) ? format(datum.count, numberFormat.value) : 'N/A'
+          }`,
                   },
                 },
                 hover: {
@@ -464,8 +468,10 @@ export default function LineChartScope({
                 update: {
                   size: { value: 5 },
                   tooltip: {
-                    signal:
-                      "{'group': datum[mainGroup], 'count': format(datum.count, numberFormat.value)}",
+                    signal: `{
+            'group': datum[mainGroup], 
+            'count': isValid(datum.count) ? format(datum.count, numberFormat.value) : 'N/A'
+          }`,
                   },
                 },
                 hover: {
@@ -567,8 +573,10 @@ export default function LineChartScope({
                       update: {
                         size: { value: 5 },
                         tooltip: {
-                          signal:
-                            "{'group': datum[mainGroup], 'count': format(datum.count, numberFormat.value)}",
+                          signal: `{
+            'group': datum[mainGroup], 
+            'count': isValid(datum.count) ? format(datum.count, numberFormat.value) : 'N/A'
+          }`,
                         },
                       },
                       hover: {
