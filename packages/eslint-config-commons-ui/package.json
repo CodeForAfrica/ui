@@ -9,12 +9,15 @@
   ],
   "scripts": {
     "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 eslint --fix './'",
+    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
     "@babel/eslint-parser": "catalog:",
     "@babel/preset-react": "catalog:",
+    "@eslint/compat": "catalog:",
+    "@eslint/js": "catalog:",
+    "@eslint/eslintrc": "catalog:",
     "@next/eslint-plugin-next": "catalog:",
     "eslint-config-airbnb": "catalog:",
     "eslint-config-prettier": "catalog:",
@@ -30,7 +33,8 @@
     "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
-    "eslint-plugin-testing-library": "catalog:"
+    "eslint-plugin-testing-library": "catalog:",
+    "globals": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",

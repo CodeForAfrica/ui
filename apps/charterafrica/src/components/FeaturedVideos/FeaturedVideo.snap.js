@@ -9,7 +9,7 @@ exports[`FeaturedVideos should render 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ydzulf-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3Small css-514olo-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3Small css-1ru8fzi-MuiTypography-root"
       >
         Featured Videos
       </h3>
@@ -1213,12 +1213,12 @@ exports[`FeaturedVideos should render 1`] = `
               </div>
             </div>
             <h5
-              class="MuiTypography-root MuiTypography-h5SemiBold css-o4ikwp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SemiBold css-1k5ns17-MuiTypography-root"
             >
               Latest Release
             </h5>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-e7rvfo-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1m1ks3x-MuiTypography-root"
             >
               Aired on
                

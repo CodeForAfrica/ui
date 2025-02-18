@@ -10,7 +10,7 @@ import React from "react";
 import BaseContent from "./BaseContent";
 import useStyles from "./useStyles";
 
-function ShareCard({ closeCard, promiseActNow }) {
+function ShareCard({ closeCard, promiseActNow = { share: {} } }) {
   const classes = useStyles();
 
   const {
@@ -54,15 +54,6 @@ ShareCard.propTypes = {
     share: {
       shareTitle: PropTypes.string,
       shareDescription: PropTypes.string,
-    },
-  }),
-};
-
-ShareCard.defaultProps = {
-  promiseActNow: PropTypes.shape({
-    share: {
-      shareTitle: null,
-      shareDescription: null,
     },
   }),
 };

@@ -1,14 +1,12 @@
-import { Box, Grid } from "@mui/material";
+import { Section } from "@commons-ui/core";
+import { Box, Grid, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import useStyles from "./useStyles";
-
 import RichHeader from "@/climatemappedafrica/components/RichHeader";
-import Section from "@/climatemappedafrica/components/Section";
 
-function PageHero({ background, overline, subtitle, title, ...props }) {
-  const classes = useStyles(props);
+function PageHero({ background, overline, subtitle, title }) {
+  const theme = useTheme();
   let backgroundSx;
   if (background?.src?.length) {
     backgroundSx = {
@@ -39,7 +37,20 @@ function PageHero({ background, overline, subtitle, title, ...props }) {
         },
       }}
     >
-      <Section classes={{ root: classes.section }}>
+      <Section
+        sx={{
+          zIndex: 1,
+          position: "relative",
+          paddingBottom: {
+            xs: `${theme.typography.pxToRem(70)} !important`,
+            lg: `${theme.typography.pxToRem(100)} !important`,
+          },
+          paddingTop: {
+            xs: `${theme.typography.pxToRem(70)} !important`,
+            lg: `${theme.typography.pxToRem(100)} !important`,
+          },
+        }}
+      >
         <Grid container>
           <Grid
             item

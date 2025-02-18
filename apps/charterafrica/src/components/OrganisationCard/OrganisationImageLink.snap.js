@@ -28,7 +28,7 @@ exports[`<OrganisationImageCard /> renders unchanged 1`] = `
         />
       </figure>
       <div
-        class="MuiTypography-root MuiTypography-p3SemiBold css-fsx85c-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
       >
         Organisation Name
       </div>

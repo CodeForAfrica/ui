@@ -2,7 +2,6 @@ import createEmotionServer from "@emotion/server/create-instance";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
 
-import * as gtag from "@/charterafrica/lib/gtag";
 import createEmotionCache from "@/charterafrica/utils/createEmotionCache";
 
 export default class MyDocument extends Document {
@@ -55,18 +54,6 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
-          {gtag.isSet ? (
-            <script
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          `,
-              }}
-            />
-          ) : null}
         </Head>
         <body>
           <Main />
@@ -109,7 +96,6 @@ MyDocument.getInitialProps = async (ctx) => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
-  /* eslint-disable */
   ctx.renderPage = () =>
     originalRenderPage({
       enhanceApp: (App) =>
@@ -117,7 +103,6 @@ MyDocument.getInitialProps = async (ctx) => {
           return <App emotionCache={cache} {...props} />;
         },
     });
-  /* eslint-enable */
 
   const initialProps = await Document.getInitialProps(ctx);
   // This is important. It prevents emotion to render invalid HTML.

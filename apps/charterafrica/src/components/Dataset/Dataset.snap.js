@@ -69,7 +69,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             Open Dataset
           </button>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-iycfiz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-n4k5ds-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.
           </div>
@@ -86,7 +86,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiStack-root css-1xe1uy8-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p3 css-7dv6su-MuiTypography-root"
             >
               Share Via
             </div>

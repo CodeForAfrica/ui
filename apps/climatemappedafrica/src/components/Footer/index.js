@@ -1,13 +1,10 @@
-import { QuickLinks, Copyright } from "@commons-ui/legacy";
-import { Link, StayInTouch } from "@commons-ui/next";
+import { Copyright, QuickLinks, StayInTouch, Section } from "@commons-ui/core";
+import { Link } from "@commons-ui/next";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
-import useStyles from "./useStyles";
-
 import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
-import Section from "@/climatemappedafrica/components/Section";
 
 function Footer(props) {
   const {
@@ -18,21 +15,22 @@ function Footer(props) {
     links,
     variant,
   } = props;
-  const classes = useStyles(props);
 
   return (
     <Box
-      sx={(theme) => ({
+      sx={({ palette, typography }) => ({
         display: {
           xs: "block",
           lg: variant !== "explore" ? "block" : "none",
         },
-        background: theme.palette.grey.dark,
+        background: palette.grey.dark,
         height: "auto",
-        padding: `${theme.typography.pxToRem(80)} 0`,
-        [theme.breakpoints.up("md")]: {
-          paddingTop: `${theme.typography.pxToRem(58)}`,
-          paddingBottom: `${theme.typography.pxToRem(82)}`,
+        padding: `${typography.pxToRem(80)} 0`,
+        paddingTop: {
+          md: `${typography.pxToRem(58)}`,
+        },
+        paddingBottom: {
+          md: `${typography.pxToRem(82)}`,
         },
       })}
     >
@@ -47,13 +45,13 @@ function Footer(props) {
                   width: 220,
                 }}
                 priority
-                sx={(theme) => ({
-                  margin: "0 auto",
-                  padding: 0,
-                  [theme.breakpoints.up("lg")]: {
-                    margin: 0,
+                sx={{
+                  margin: {
+                    xs: "0 auto",
+                    lg: 0,
                   },
-                })}
+                  padding: 0,
+                }}
               />
             )}
           </Grid>
@@ -61,13 +59,13 @@ function Footer(props) {
             {description && (
               <RichText
                 variant="body1"
-                sx={(theme) => ({
-                  color: theme.palette.text.secondary,
-                  padding: `${theme.typography.pxToRem(32)} 0`,
-                  fontSize: theme.typography.subtitle1.fontSize,
-                  textAlign: "center",
-                  [theme.breakpoints.up("lg")]: {
-                    textAlign: "left",
+                sx={({ palette, typography }) => ({
+                  color: palette.text.secondary,
+                  padding: `${typography.pxToRem(32)} 0`,
+                  fontSize: typography.subtitle1.fontSize,
+                  textAlign: {
+                    xs: "center",
+                    lg: "left",
                   },
                   "& > p": {
                     mt: 2,
@@ -80,42 +78,94 @@ function Footer(props) {
                 TypographyProps={{
                   LinkProps: {
                     color: "text.secondary",
-                    sx: {
-                      textDecorationColor: "text.secondary",
-                      textDecoration: "underline",
-                    },
+                    textDecorationColor: "text.secondary",
+                    textDecoration: "underline",
                   },
                 }}
               />
             )}
             <Copyright
               copyright={`© ${new Date().getFullYear()} ${title}`}
-              classes={{
-                root: classes.copyright,
-                text: classes.copyrightText,
+              TypographyProps={{
+                sx: ({ palette, typography }) => ({
+                  color: palette.text.secondary,
+                  order: 5,
+                  padding: {
+                    xs: `0 ${typography.pxToRem(5)} 0 0`,
+                    lg: `0 ${typography.pxToRem(10)} 0 0`,
+                  },
+                }),
               }}
+              sx={({ typography }) => ({
+                margin: 0,
+                display: "flex",
+                flexWrap: "wrap",
+                flexDirection: "row",
+                justifyContent: {
+                  xs: "center",
+                  lg: "flex-start",
+                },
+                textAlign: {
+                  xs: "center",
+                  lg: "flex-start",
+                },
+                "& > a": {
+                  marginTop: typography.pxToRem(3),
+                },
+              })}
             />
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid
               container
-              sx={(theme) => ({
+              sx={({ typography }) => ({
                 margin: "0 auto",
                 flexDirection: "row",
                 justifyContent: "center",
-                marginTop: theme.typography.pxToRem(44.19),
+                marginTop: typography.pxToRem(44.19),
               })}
             >
               <Grid item xs={12} lg={6}>
                 {links && (
                   <QuickLinks
-                    linkComponent={Link}
                     {...links}
-                    classes={{
-                      root: classes.quickLinkRoot,
-                      list: classes.quickList,
-                      link: classes.quickLink,
-                      title: classes.quickLinksTitle,
+                    sx={({ typography }) => ({
+                      textAlign: {
+                        xs: "center",
+                        lg: "inherit",
+                      },
+                      padding: {
+                        xs: `${typography.pxToRem(32)} 0 `,
+                        lg: 0,
+                      },
+                    })}
+                    TitleProps={{
+                      variant: "subtitle2",
+                      sx: ({ palette }) => ({
+                        color: palette.text.secondary,
+                        fontWeight: "bold",
+                      }),
+                    }}
+                    LinksProps={{
+                      linkComponent: Link,
+                      sx: ({ palette, typography }) => ({
+                        listStyle: "none",
+                        color: palette.text.secondary,
+                        padding: 0,
+                        letterspacing: typography.pxToRem(0.7),
+                        "& > li": {
+                          marginTop: typography.pxToRem(16),
+                        },
+                      }),
+                    }}
+                    LinkProps={{
+                      sx: ({ palette }) => ({
+                        color: palette.text.secondary,
+                        fontWeight: "normal",
+                        "&:hover": {
+                          color: palette.primary.light,
+                        },
+                      }),
                     }}
                   />
                 )}
@@ -130,7 +180,11 @@ function Footer(props) {
                       alignItems: { xs: "center", lg: "flex-end" },
                     },
                   }}
-                  alignItems={{ xs: "center", lg: "flex-end" }}
+                  LinksProps={{
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                  alignItems={{ xs: "center", lg: "flex-start" }}
                   TitleProps={{
                     fontWeight: "bold",
                     variant: "subtitle2",

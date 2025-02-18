@@ -137,10 +137,4 @@ NarativeUpdates.propTypes = {
   timelines: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-NarativeUpdates.defaultProps = {
-  description: undefined,
-  title: undefined,
-  timelines: undefined,
-};
-
 export default NarativeUpdates;

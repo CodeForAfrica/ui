@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 import Form from "./Form";
 
-function LoginForm({ onSubmit, classes }) {
+function LoginForm({ onSubmit = false, classes }) {
   const [status, setStatus] = useState({});
   const fields = {
     email: {
@@ -83,11 +83,6 @@ function LoginForm({ onSubmit, classes }) {
 LoginForm.propTypes = {
   classes: PropTypes.shape({}),
   onSubmit: PropTypes.func,
-};
-
-LoginForm.defaultProps = {
-  onSubmit: false,
-  classes: null,
 };
 
 export default LoginForm;

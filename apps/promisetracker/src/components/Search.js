@@ -35,7 +35,13 @@ const useStyles = makeStyles(({ breakpoints, palette, typography }) => ({
   },
 }));
 
-function Search({ ariaLabel, onClick, onChange, placeholder, ...props }) {
+function Search({
+  ariaLabel = "",
+  onClick,
+  onChange,
+  placeholder = "SEARCH",
+  ...props
+}) {
   const classes = useStyles(props);
   const [term, setTerm] = useState();
   const handleChange = (e) => {
@@ -93,10 +99,4 @@ Search.propTypes = {
   onClick: PropTypes.func,
 };
 
-Search.defaultProps = {
-  ariaLabel: "",
-  onChange: undefined,
-  onClick: undefined,
-  placeholder: "SEARCH",
-};
 export default Search;

@@ -141,12 +141,4 @@ Share.propTypes = {
   description: PropTypes.string,
 };
 
-Share.defaultProps = {
-  children: undefined,
-  classes: undefined,
-  link: undefined,
-  title: undefined,
-  description: undefined,
-};
-
 export default Share;

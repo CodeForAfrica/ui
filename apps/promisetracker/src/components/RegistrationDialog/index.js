@@ -77,12 +77,4 @@ RegistrationDialog.propTypes = {
   open: PropTypes.bool,
 };
 
-RegistrationDialog.defaultProps = {
-  individualRegistrationDialogProps: undefined,
-  name: null,
-  onClose: null,
-  onSubmit: null,
-  open: false,
-};
-
 export default RegistrationDialog;

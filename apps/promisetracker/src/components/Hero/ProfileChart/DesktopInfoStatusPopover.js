@@ -79,10 +79,6 @@ PaperTitle.propTypes = {
   onClose: PropTypes.func,
 };
 
-PaperTitle.defaultProps = {
-  onClose: undefined,
-};
-
 function PaperContent({ children, ...other }) {
   const classes = useStyles();
   return (
@@ -157,11 +153,6 @@ DesktopInfoStatusPopover.propTypes = {
     }),
   ),
   title: PropTypes.string,
-};
-
-DesktopInfoStatusPopover.defaultProps = {
-  items: undefined,
-  title: undefined,
 };
 
 export default DesktopInfoStatusPopover;

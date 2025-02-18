@@ -19,7 +19,7 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
               class="MuiBox-root css-qupvse"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1Small css-1o6n05k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1Small css-umhov1-MuiTypography-root"
               >
                 Focal Countries
               </h1>
@@ -27,7 +27,7 @@ exports[`<FocalCountries /> renders unchanged 1`] = `
                 class="MuiBox-root css-vrd2gm"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p1 css-fabev4-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
                 >
                   The Charter Project is a pan-African initiative by a coalition of watchdog organisations that use civic technologies to strengthen democracy.
                 </p>

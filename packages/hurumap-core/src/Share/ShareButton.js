@@ -54,7 +54,7 @@ const ShareButton = React.forwardRef(function ShareButton(
         <CopyToClipboard text={url} onCopy={onCopy} {...ButtonProps}>
           <SvgIcon
             component={icon}
-            viewBox="0 0 24 24"
+            viewBox="0 0 28 28" // The copy icon has a different viewBox
             {...IconProps}
             sx={{
               width: "100%",

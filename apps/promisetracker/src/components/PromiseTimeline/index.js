@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function PromiseTimeline({
-  events,
+  events = [],
   status,
   statusHistory: statusHistoryProp,
   ...props
@@ -37,7 +37,7 @@ function PromiseTimeline({
         }}
       />
       {isDesktop &&
-        events?.map((event) => <PromiseEvent key={event.label} {...event} />)}
+        events?.map((event) => <PromiseEvent key={event.name} {...event} />)}
       {statusHistory?.map((currentStatus, idx) => (
         <PromiseStatus
           key={currentStatus.date}
@@ -66,11 +66,6 @@ PromiseTimeline.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({})),
   status: PropTypes.shape({}),
   statusHistory: PropTypes.arrayOf(PropTypes.shape({})),
-};
-PromiseTimeline.defaultProps = {
-  events: [],
-  status: undefined,
-  statusHistory: undefined,
 };
 
 export default PromiseTimeline;

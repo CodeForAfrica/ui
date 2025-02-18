@@ -6,7 +6,7 @@ exports[`<AboutTeam /> renders unchanged 1`] = `
     class="MuiBox-root css-1termwk"
   >
     <div
-      class="makeStyles-root-7 makeStyles-root-5 makeStyles-root-3 makeStyles-fixed-4 MuiBox-root css-0"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1cxefnp-MuiContainer-root"
     >
       <h4
         class="MuiTypography-root MuiTypography-h4 css-1cvoujm-MuiTypography-root"
@@ -14,13 +14,17 @@ exports[`<AboutTeam /> renders unchanged 1`] = `
         About Team
       </h4>
       <div
-        class="react-multi-carousel-list  makeStyles-root-8"
-        dir="ltr"
+        class="MuiBox-root css-4jcry9"
       >
-        <ul
-          class="react-multi-carousel-track "
-          style="transition: none; overflow: unset; transform: translate3d(0px,0,0);"
-        />
+        <div
+          class="react-multi-carousel-list  "
+          dir="ltr"
+        >
+          <ul
+            class="react-multi-carousel-track "
+            style="transition: none; overflow: unset; transform: translate3d(0px,0,0);"
+          />
+        </div>
       </div>
     </div>
   </div>

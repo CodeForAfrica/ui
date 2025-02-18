@@ -19,7 +19,7 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-1i9wt8r-MuiCardContent-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h3 css-1c3ozv6-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-15dwhyt-MuiTypography-root"
         >
           DEPUTY INVESTIGATIVE MANAGER: Support the fight against disinformation and transnational organised crime
         </div>
@@ -27,13 +27,13 @@ exports[`<OpportunityCard /> renders unchanged 1`] = `
           class="MuiBox-root css-k008qs"
         >
           <div
-            class="MuiTypography-root MuiTypography-body1 css-1es9scj-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-1kqg5wv-MuiTypography-root"
           >
             Data Journalism
           </div>
         </div>
         <section
-          class="MuiTypography-root MuiTypography-body2 css-1u319hv-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-uf7njh-MuiTypography-root"
         >
           Position in: Africa Do you want to help expose the puppet-masters behind disinformation networks, and expose transnational organised criminals? Code for Africa (CfA) has an immediate vacancy for a full-time Deputy Investigative Manager to join our pan-African forensic...
         </section>

@@ -15,7 +15,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-qq6rd1-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-1r036oz-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-1j82ixe-MuiTypography-root"
           >
             title
           </div>
@@ -23,7 +23,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             class="MuiBox-root css-pxpt32"
           >
             <span
-              class="MuiTypography-root MuiTypography-body3 css-s9m4rs-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body3 css-b9odyg-MuiTypography-root"
             >
               <strong>
                 Africa's

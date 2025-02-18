@@ -63,14 +63,6 @@ SubscribePage.propTypes = {
   subscribe: PropTypes.shape({}),
 };
 
-SubscribePage.defaultProps = {
-  actNow: undefined,
-  actNowEnabled: undefined,
-  footer: undefined,
-  navigation: undefined,
-  subscribe: undefined,
-};
-
 export async function getStaticProps({ locale }) {
   const _ = i18n();
   if (!_.locales.includes(locale)) {

@@ -20,7 +20,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-mecr4x-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-17k81ph-MuiTypography-root"
             >
               Document Title
             </h5>
@@ -42,7 +42,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ls0fcs-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-1xsgaa8-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-so49wn-MuiTypography-root"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.
             </div>

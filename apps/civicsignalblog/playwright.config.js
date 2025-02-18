@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const defaultConfig = require("playwright-config-commons-ui");
 
 const { use, webServer } = defaultConfig;

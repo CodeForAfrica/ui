@@ -54,8 +54,4 @@ Navigation.propTypes = {
   navigation: PropTypes.shape({}),
 };
 
-Navigation.defaultProps = {
-  navigation: undefined,
-};
-
 export default Navigation;

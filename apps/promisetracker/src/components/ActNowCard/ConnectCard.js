@@ -7,7 +7,7 @@ import useStyles from "./useStyles";
 
 import CtAButton from "@/promisetracker/components/CtAButton";
 
-function ConnectCard({ closeCard, promiseActNow }) {
+function ConnectCard({ closeCard, promiseActNow = { connect: {} } }) {
   const {
     connect: {
       connect_title: connectTitle,
@@ -45,16 +45,6 @@ ConnectCard.propTypes = {
       connectTitle: PropTypes.string,
       connectDescription: PropTypes.string,
       connectButton: PropTypes.string,
-    },
-  }),
-};
-
-ConnectCard.defaultProps = {
-  promiseActNow: PropTypes.shape({
-    connect: {
-      connectTitle: null,
-      connectDescription: null,
-      connectButton: null,
     },
   }),
 };

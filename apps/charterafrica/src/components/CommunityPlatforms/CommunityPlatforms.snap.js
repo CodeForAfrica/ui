@@ -50,7 +50,7 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
               class="MuiBox-root css-y8s3qt"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3Small css-1r2ikb1-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3Small css-xeim5i-MuiTypography-root"
               >
                 Newsletter
               </h3>
@@ -58,7 +58,7 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
                 class="MuiBox-root css-c33e1h"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p3 css-16cmem5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p3 css-1hy6kbg-MuiTypography-root"
                 >
                   Receive updates on the Charter Project Africa
                 </p>

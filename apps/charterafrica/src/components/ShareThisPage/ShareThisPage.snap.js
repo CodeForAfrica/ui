@@ -6,7 +6,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
     class="MuiStack-root css-v2woy3-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-p3 css-7dv6su-MuiTypography-root"
     >
       Sample Title
     </div>

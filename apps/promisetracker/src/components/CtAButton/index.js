@@ -21,8 +21,4 @@ CtAButton.propTypes = {
   }),
 };
 
-CtAButton.defaultProps = {
-  classes: undefined,
-};
-
 export default CtAButton;

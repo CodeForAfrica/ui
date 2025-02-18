@@ -181,10 +181,10 @@ function wp(site) {
     });
     const resource = resources[0];
     if (isEmpty(resource)) {
-      return undefined;
+      return null;
     }
 
-    // eslint-disable-next-line no-underscore-dangle
+    /* eslint  no-underscore-dangle: off */
     const embedded = resource._embedded;
 
     const post = {
@@ -349,13 +349,15 @@ function wp(site) {
             pageWithPosts = page;
           }
           const posts =
-            pageWithPosts?.posts?.map((post) => ({
-              image: post.thumbnail_image,
-              description: post.content.replace(/(<([^>]+)>)/gi, ""),
-              date: formatDate(post.date),
-              slug: post.slug,
-              title: post.title,
-            })) || null;
+            pageWithPosts?.posts
+              ?.filter((post) => !!post)
+              ?.map((post) => ({
+                image: post.thumbnail_image,
+                description: post.content.replace(/(<([^>]+)>)/gi, ""),
+                date: formatDate(post.date),
+                slug: post.slug,
+                title: post.title,
+              })) || null;
           return posts;
         })();
       },

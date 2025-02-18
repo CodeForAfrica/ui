@@ -24,12 +24,12 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-cnnhfl-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-body2 css-1jq7s7e-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-body2 css-3nqud1-MuiTypography-root"
       >
         Sept 1, 2021
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h1 css-1ceh4ag-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1 css-3hsw5e-MuiTypography-root"
       >
         Article
       </div>
@@ -37,7 +37,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="MuiStack-root css-yhfzs2-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-footerCap css-scsc4a-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
         >
           Share This Article
         </div>
@@ -96,7 +96,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="MuiStack-root css-ty68jk-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-197f1vg-MuiTypography-root"
         >
           Article by
         </div>
@@ -104,12 +104,12 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           class="MuiStack-root css-3oepjh-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1SemiBold css-1n8elks-MuiTypography-root"
           >
             Author 1
           </div>
           <div
-            class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
           >
             Author 1 bio
           </div>
@@ -119,7 +119,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
         class="MuiStack-root css-ty68jk-MuiStack-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1g3st0c-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-197f1vg-MuiTypography-root"
         >
           Article by
         </div>
@@ -127,12 +127,12 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
           class="MuiStack-root css-3oepjh-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-body1SemiBold css-1nw8xqn-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1SemiBold css-1n8elks-MuiTypography-root"
           >
             Author 2
           </div>
           <div
-            class="MuiTypography-root MuiTypography-body1 css-1gtn7ca-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
           >
             Author 2 bio
           </div>

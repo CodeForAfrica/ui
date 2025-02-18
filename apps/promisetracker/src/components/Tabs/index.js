@@ -84,10 +84,4 @@ Tabs.propTypes = {
   ),
 };
 
-Tabs.defaultProps = {
-  activeTab: 0,
-  items: undefined,
-  name: undefined,
-};
-
 export default Tabs;

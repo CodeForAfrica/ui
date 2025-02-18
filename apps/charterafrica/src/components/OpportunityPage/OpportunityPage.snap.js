@@ -26,7 +26,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-xskjid-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h3Small css-7jjyzx-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3Small css-1g0ac4a-MuiTypography-root"
       >
         Fellowships
       </div>
@@ -82,7 +82,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                   class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5SemiBold css-14u98z9-MuiTypography-root"
                   >
                     Democratic Governance in Zambia
                   </h5>
@@ -90,7 +90,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     class="MuiBox-root css-1tdn91g"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p1 css-16hf0uf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-1deqp7c-MuiTypography-root"
                     >
                       This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
                     </p>
@@ -183,7 +183,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                   class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5SemiBold css-14u98z9-MuiTypography-root"
                   >
                     Democratic Governance in Zambia
                   </h5>
@@ -191,7 +191,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     class="MuiBox-root css-1tdn91g"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p1 css-16hf0uf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-1deqp7c-MuiTypography-root"
                     >
                       This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
                     </p>
@@ -284,7 +284,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                   class="MuiCardContent-root css-1dwdtg8-MuiCardContent-root"
                 >
                   <h5
-                    class="MuiTypography-root MuiTypography-h5SemiBold css-1kj1ppl-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h5SemiBold css-14u98z9-MuiTypography-root"
                   >
                     Democratic Governance in Zambia
                   </h5>
@@ -292,7 +292,7 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
                     class="MuiBox-root css-1tdn91g"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p1 css-16hf0uf-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-1deqp7c-MuiTypography-root"
                     >
                       This call will focus on using civic tech solutions to strengthen democratic governance in Zambia.
                     </p>

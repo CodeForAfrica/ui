@@ -23,6 +23,7 @@
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
     "@next/env": "catalog:",
+    "@next/third-parties": "catalog:",
     "@sendgrid/mail": "catalog:",
     "@sentry/nextjs": "catalog:",
     "@svgr/webpack": "catalog:",
@@ -47,6 +48,7 @@
     "eslint": "catalog:",
     "eslint-config-next": "catalog:",
     "eslint-config-prettier": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

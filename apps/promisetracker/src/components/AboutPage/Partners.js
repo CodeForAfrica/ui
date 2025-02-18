@@ -59,8 +59,4 @@ Partners.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({})),
 };
 
-Partners.defaultProps = {
-  items: undefined,
-};
-
 export default Partners;

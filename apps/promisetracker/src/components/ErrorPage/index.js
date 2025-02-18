@@ -80,13 +80,4 @@ ErrorPage.propTypes = {
   title: PropTypes.string,
 };
 
-ErrorPage.defaultProps = {
-  articles: undefined,
-  description: undefined,
-  featuredImage: undefined,
-  footer: undefined,
-  navigation: undefined,
-  title: undefined,
-};
-
 export default ErrorPage;

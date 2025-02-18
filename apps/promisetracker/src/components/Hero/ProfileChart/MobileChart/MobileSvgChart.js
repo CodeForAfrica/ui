@@ -29,7 +29,7 @@ function MobileSvgChart({
   stroke,
   strokeWidth,
   statusNumber,
-  statusPercentage,
+  statusPercentage = "0",
   status,
   ...props
 }) {

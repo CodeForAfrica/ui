@@ -27,7 +27,7 @@
     "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
     "dev": "NODE_OPTIONS='--inspect' TS_NODE_PROJECT=tsconfig.server.json tsx server.ts",
     "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 eslint --fix './'",
+    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
     "clean": "rm -rf .next .turbo node_modules"
@@ -45,6 +45,7 @@
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
     "@next/env": "catalog:",
+    "@next/third-parties": "catalog:",
     "@payloadcms/bundler-webpack": "catalog:",
     "@payloadcms/db-mongodb": "catalog:",
     "@payloadcms/plugin-cloud-storage": "catalog:",

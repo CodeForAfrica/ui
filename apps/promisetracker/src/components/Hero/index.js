@@ -96,11 +96,4 @@ Hero.propTypes = {
   promisesByStatus: PropTypes.shape({}),
 };
 
-Hero.defaultProps = {
-  criteria: undefined,
-  fullName: undefined,
-  promisesByStatus: undefined,
-  tagline: undefined,
-};
-
 export default Hero;

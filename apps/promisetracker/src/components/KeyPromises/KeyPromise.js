@@ -101,13 +101,4 @@ KeyPromise.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-KeyPromise.defaultProps = {
-  actionLabel: undefined,
-  classes: undefined,
-  description: undefined,
-  events: undefined,
-  statusHistory: undefined,
-  status: undefined,
-};
-
 export default KeyPromise;

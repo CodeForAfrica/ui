@@ -6,7 +6,7 @@ exports[`<RelatedStories /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1pmgh96-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-h5Small css-1v0gnt0-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5Small css-11m9a1j-MuiTypography-root"
     >
       Related Stories
     </div>

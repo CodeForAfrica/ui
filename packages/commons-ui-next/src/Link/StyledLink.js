@@ -74,7 +74,7 @@ const StyledLink = React.forwardRef(function Link(props, ref) {
   } = props;
 
   // https://nextjs.org/docs/app/api-reference/components/link#href-required
-  const url = typeof href === "string" ? href : href.pathname;
+  const url = typeof href === "string" ? href : href?.pathname;
   const isExternal = isExternalUrl(url);
   if (isExternal) {
     const externalLinkProps = {
@@ -117,7 +117,7 @@ const StyledLink = React.forwardRef(function Link(props, ref) {
 StyledLink.propTypes = {
   as: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   className: PropTypes.string,
-  href: PropTypes.string,
+  href: PropTypes.string.isRequired,
   legacyBehavior: PropTypes.bool,
   linkAs: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   locale: PropTypes.string,

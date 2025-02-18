@@ -31,6 +31,8 @@
     "@mui/material": "catalog:mui-styles",
     "@mui/styles": "catalog:mui-styles",
     "@mui/utils": "catalog:mui-styles",
+    "@mui/private-theming": "catalog:mui-styles",
+    "@next/third-parties": "catalog:",
     "@sentry/nextjs": "catalog:",
     "clsx": "catalog:",
     "date-fns": "catalog:",
@@ -80,7 +82,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev --port 3001",
     "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 eslint --fix './'",
+    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"

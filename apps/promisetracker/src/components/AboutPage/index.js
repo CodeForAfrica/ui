@@ -127,17 +127,4 @@ AboutPage.propTypes = {
   title: PropTypes.string,
 };
 
-AboutPage.defaultProps = {
-  actNow: undefined,
-  actNowEnabled: undefined,
-  content: undefined,
-  criteria: undefined,
-  description: undefined,
-  featuredImage: undefined,
-  footer: undefined,
-  navigation: undefined,
-  partners: undefined,
-  title: undefined,
-};
-
 export default AboutPage;

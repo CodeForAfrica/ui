@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import { A } from "@commons-ui/legacy";
+import { StyledLink } from "@commons-ui/next";
 import { Link as MuiLink } from "@mui/material";
 import clsx from "clsx";
 import NextLink from "next/link";
@@ -90,7 +89,7 @@ const Link = forwardRef(function Link(props, ref) {
   if (!isRelative) {
     const noProtocol = href?.startsWith("www.");
     return (
-      <A
+      <StyledLink
         href={noProtocol ? `https://${href}` : href}
         className={className}
         ref={ref}

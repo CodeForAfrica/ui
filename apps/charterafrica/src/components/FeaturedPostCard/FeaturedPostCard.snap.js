@@ -23,7 +23,7 @@ exports[`FeaturedPostCard should render 1`] = `
             class="MuiStack-root css-1nza621-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h2SemiBold css-1j0n21l-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2SemiBold css-1urtb6r-MuiTypography-root"
             >
               News Story title goes here and spans over second line
             </div>
@@ -31,7 +31,7 @@ exports[`FeaturedPostCard should render 1`] = `
               class="MuiBox-root css-1kvdr3x"
             >
               <h6
-                class="MuiTypography-root MuiTypography-subheading css-133dz2k-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subheading css-mze3vf-MuiTypography-root"
               >
                 Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur
               </h6>
@@ -40,12 +40,12 @@ exports[`FeaturedPostCard should render 1`] = `
               class="MuiStack-root css-1262us1-MuiStack-root"
             >
               <div
-                class="MuiTypography-root MuiTypography-p1 css-iui9m1-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1i5r2d9-MuiTypography-root"
               >
                 Author Name
               </div>
               <div
-                class="MuiTypography-root MuiTypography-p1 css-b4nzsx-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1rq3c06-MuiTypography-root"
               >
                 2020-10-10 10:10:10
               </div>

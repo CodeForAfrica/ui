@@ -20,7 +20,7 @@ export function slugify(string) {
 export function groupPromisesByStatus(promises) {
   return {
     count: promises.length,
-    /* eslint-disable no-param-reassign */
+    /* eslint no-param-reassign: "off" */
     statusHistory: promises.reduce((promiseByStatus, promise) => {
       (promiseByStatus[promise.status.title] =
         promiseByStatus[promise.status.title] || []).push(promise);

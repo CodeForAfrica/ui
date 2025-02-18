@@ -1,9 +1,8 @@
+import { Section } from "@commons-ui/core";
 import { RichText } from "@commons-ui/payload";
 import { Box, Grid, Typography, alpha } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
-
-import Section from "@/climatemappedafrica/components/Section";
 
 const Summary = React.forwardRef(function Summary(props, ref) {
   const { content, title, subtitle } = props;

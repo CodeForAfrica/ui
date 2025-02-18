@@ -291,28 +291,4 @@ Form.propTypes = {
   }),
 };
 
-Form.defaultProps = {
-  mandatoryText: null,
-  onChange: null,
-  onSubmit: null,
-  petitionLabel: null,
-  petitionHelper: null,
-  categoryLabel: null,
-  categoryHelper: null,
-  recipientLabel: null,
-  recipientDescription: null,
-  recipientNameLabel: null,
-  recipientEmailLabel: null,
-  recipientSocialLabel: null,
-  issueLabel: null,
-  issueHelper: null,
-  imageLabel: null,
-  imageHelper: null,
-  uploadInstruction: null,
-  uploadText: null,
-  signatureLabel: null,
-  signatureHelper: null,
-  values: null,
-};
-
 export default Form;

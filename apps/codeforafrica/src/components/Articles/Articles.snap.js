@@ -13,7 +13,7 @@ exports[`<Articles /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-17kpph-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h4 css-1ghqz4h-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 css-iht8qd-MuiTypography-root"
           >
             Title
           </div>

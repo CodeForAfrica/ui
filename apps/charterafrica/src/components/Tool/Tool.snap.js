@@ -30,7 +30,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               class="MuiBox-root css-kpcj8u"
             >
               <div
-                class="MuiTypography-root MuiTypography-h2SemiBold css-gegt74-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2SemiBold css-1cs3fm2-MuiTypography-root"
               >
                 Tool Name
               </div>
@@ -54,7 +54,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   class="MuiBox-root css-1isemmb"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-t7jmp9-MuiTypography-root"
                   >
                     30
                   </div>
@@ -72,7 +72,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   class="MuiBox-root css-1isemmb"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-p1 css-1tpbw3s-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-t7jmp9-MuiTypography-root"
                   >
                     -
                   </div>
@@ -107,12 +107,12 @@ exports[`<Tool /> renders unchanged 1`] = `
               class="MuiBox-root css-485ol6"
             >
               <div
-                class="MuiTypography-root MuiTypography-p1 css-1oplxpo-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-2vraz5-MuiTypography-root"
               >
                 Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu. Lorem ipsum dolor sit amet consectetur adipiscing elit gravida, urna enim nulla iaculis taciti semper parturient laoreet luctus, orci ac ornare senectus posuere nam libero. Imperdiet turpis tortor nu.
               </div>
               <div
-                class="MuiTypography-root MuiTypography-captionCap css-hr3rav-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-captionCap css-k3l1ri-MuiTypography-root"
               >
                 undefined 6 Months ago
               </div>
@@ -123,7 +123,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                   class="MuiStack-root css-82jnlo-MuiStack-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-p3 css-1orwtxp-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3 css-7dv6su-MuiTypography-root"
                   >
                     Share via
                   </div>
@@ -185,7 +185,7 @@ exports[`<Tool /> renders unchanged 1`] = `
               class="MuiBox-root css-19midj6"
             >
               <div
-                class="MuiTypography-root MuiTypography-p3SemiBold css-3w2o4y-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p3SemiBold css-zw0u9l-MuiTypography-root"
               >
                 Contributors
               </div>
@@ -270,7 +270,7 @@ exports[`<Tool /> renders unchanged 1`] = `
         class="MuiBox-root css-19midj6"
       >
         <div
-          class="MuiTypography-root MuiTypography-h3Small css-1wpl18t-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3Small css-tr3bum-MuiTypography-root"
         >
           More tools
         </div>
@@ -309,7 +309,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         class="MuiBox-root css-gg4vpm"
                       >
                         <h5
-                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
+                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
                         >
                           React
                         </h5>
@@ -346,7 +346,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
                       >
                         A JavaScript library for building user interfaces
                       </div>
@@ -396,7 +396,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         class="MuiBox-root css-gg4vpm"
                       >
                         <h5
-                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-18subyt-MuiTypography-root"
+                          class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
                         >
                           Node.js
                         </h5>
@@ -433,7 +433,7 @@ exports[`<Tool /> renders unchanged 1`] = `
                         </div>
                       </div>
                       <div
-                        class="MuiTypography-root MuiTypography-p1 css-k6xh1s-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
                       >
                         A JavaScript runtime built on Chrome's V8 JavaScript engine.
                       </div>

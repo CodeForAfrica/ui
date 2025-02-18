@@ -21,7 +21,8 @@
       "@/techlabblog/*": ["./*"],
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
       "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

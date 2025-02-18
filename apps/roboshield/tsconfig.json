@@ -22,7 +22,8 @@
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
       "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"],
       "@/root/*": ["./*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",

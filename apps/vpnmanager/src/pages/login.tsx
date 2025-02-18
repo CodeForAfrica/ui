@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
 import { Box, Button, Typography, SvgIcon } from "@mui/material";
-import { signIn, useSession } from "next-auth/react";
-import GoogleIcon from "@/vpnmanager/assets/icons/Type=google, Size=24, Color=currentColor.svg";
 import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
+import React, { useEffect } from "react";
+
+import GoogleIcon from "@/vpnmanager/assets/icons/Type=google, Size=24, Color=currentColor.svg";
 
 export default function LoginPage() {
   const { data: session } = useSession();

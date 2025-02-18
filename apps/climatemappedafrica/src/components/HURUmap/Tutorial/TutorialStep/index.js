@@ -1,46 +1,43 @@
 import { RichText } from "@commons-ui/payload";
-import { Grid, Typography, IconButton, Avatar } from "@mui/material";
+import { Grid, Typography, IconButton, Avatar, Box } from "@mui/material";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
 import React from "react";
 
-import useStyles from "./useStyles";
-
 import CloseIcon from "@/climatemappedafrica/assets/icons/close.svg";
 import Image from "@/climatemappedafrica/components/Image";
 
-function TutorialStep({ description, title, image, selector, ...props }) {
-  const classes = useStyles(props);
+function TutorialStep({ description, title, image }) {
   const { setIsOpen, currentStep } = useTour();
   const handleClose = () => {
     setIsOpen(false);
   };
 
   return (
-    <div className={classes.root}>
+    <Box
+      sx={({ typography }) => ({
+        paddingLeft: typography.pxToRem(34),
+        paddingTop: typography.pxToRem(25),
+        paddingRight: typography.pxToRem(39),
+        width: typography.pxToRem(964),
+      })}
+    >
       <Grid
-        className={classes.header}
+        sx={({ typography }) => ({
+          marginBottom: typography.pxToRem(48),
+        })}
         container
         justifyContent="space-between"
         alignItems="center"
       >
         <Grid item>
-          <Typography
-            id={`tutorial-title-${currentStep}`}
-            className={classes.title}
-            variant="h4"
-          >
+          <Typography id={`tutorial-title-${currentStep}`} variant="h4">
             {title}
           </Typography>
         </Grid>
         {handleClose && (
           <Grid item>
-            <IconButton
-              aria-label="close"
-              className={classes.closeButton}
-              onClick={handleClose}
-              size="large"
-            >
+            <IconButton aria-label="close" onClick={handleClose} size="large">
               <CloseIcon />
             </IconButton>
           </Grid>
@@ -49,7 +46,13 @@ function TutorialStep({ description, title, image, selector, ...props }) {
       <Grid container justifyContent="space-between">
         <Grid item xs={12} md={5} container wrap="nowrap">
           <Grid item>
-            <Avatar className={classes.currentStep}>
+            <Avatar
+              sx={({ palette, typography }) => ({
+                background: palette.primary.main,
+                width: typography.pxToRem(48),
+                height: typography.pxToRem(48),
+              })}
+            >
               <Typography color="textSecondary" variant="h3">
                 {currentStep + 1}
               </Typography>
@@ -74,16 +77,14 @@ function TutorialStep({ description, title, image, selector, ...props }) {
           <Image width={376} height={325} src={image} />
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }
 
 TutorialStep.propTypes = {
   description: PropTypes.arrayOf(PropTypes.shape({})),
   image: PropTypes.string,
-  onClose: PropTypes.func,
   title: PropTypes.string,
-  selector: PropTypes.string,
 };
 
 export default TutorialStep;

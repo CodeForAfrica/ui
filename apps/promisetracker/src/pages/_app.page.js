@@ -1,6 +1,7 @@
 /* eslint-env browser */
 import { CssBaseline } from "@mui/material";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { SessionProvider } from "next-auth/react";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
@@ -10,11 +11,13 @@ import SEO from "@/promisetracker/next-seo.config";
 import theme from "@/promisetracker/theme/index";
 
 // simplebar-react has a hard dependency on simplebar
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import "simplebar-react/dist/simplebar.min.css";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const gaID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -35,6 +38,7 @@ export default function MyApp(props) {
           </ThemeProvider>
         </StyledEngineProvider>
       </SessionProvider>
+      <GoogleAnalytics gaId={gaID} />
     </>
   );
 }
