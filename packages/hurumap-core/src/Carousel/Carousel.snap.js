@@ -3,7 +3,7 @@
 exports[`<Carousel /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-5ce3om"
+    class="MuiBox-root css-12rbir0"
   >
     <div
       class="react-multi-carousel-list  "

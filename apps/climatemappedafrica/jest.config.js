@@ -13,6 +13,7 @@ module.exports = {
       "<rootDir>/../../packages/commons-ui-next/src/$1",
     "^@/commons-ui/payload/(.*)$":
       "<rootDir>/../../packages/commons-ui-payload/src/$1",
+    "^@/hurumap/core/(.*)$": "<rootDir>/../../packages/hurumap-core/src/$1",
   },
   transformIgnorePatterns: ["<rootDir>/node_modules/(?!camelcase-keys)"],
 };

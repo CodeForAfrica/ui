@@ -7,7 +7,7 @@ exports[`<RichHeader /> renders unchanged 1`] = `
     title="[object Object]"
   >
     <div
-      class="MuiTypography-root MuiTypography-overline css-1hwczut-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-overline css-5fiibi-MuiTypography-root"
     >
       About
     </div>
@@ -15,7 +15,7 @@ exports[`<RichHeader /> renders unchanged 1`] = `
       class="MuiBox-root css-1xaekgw"
     >
       <h6
-        class="MuiTypography-root MuiTypography-subtitle1 css-1ni1tq3-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-subtitle1 css-yf3d1b-MuiTypography-root"
       >
         Learn more about 
         <strong>
@@ -27,7 +27,7 @@ exports[`<RichHeader /> renders unchanged 1`] = `
         </em>
          and how you can help improve 
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-subtitle1 active css-1nejbix-MuiTypography-root-MuiLink-root-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-subtitle1 active css-hch5q3-MuiTypography-root-MuiLink-root-MuiTypography-root"
           href="/"
         >
           ClimateMap

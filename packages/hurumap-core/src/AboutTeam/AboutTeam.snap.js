@@ -3,18 +3,18 @@
 exports[`<AboutTeam /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1termwk"
+    class="MuiBox-root css-1ctpmvs"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1cxefnp-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-g9zcp9-MuiContainer-root"
     >
       <h4
-        class="MuiTypography-root MuiTypography-h4 css-1cvoujm-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 css-1t1fqyk-MuiTypography-root"
       >
         About Team
       </h4>
       <div
-        class="MuiBox-root css-4jcry9"
+        class="MuiBox-root css-1f2e9xi"
       >
         <div
           class="react-multi-carousel-list  "

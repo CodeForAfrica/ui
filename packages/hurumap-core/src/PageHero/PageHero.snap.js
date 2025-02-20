@@ -3,30 +3,30 @@
 exports[`<PageHero /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-u361uw"
+    class="MuiBox-root css-1nwzh4i"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1l22h3t-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ga302z-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 MuiGrid-grid-lg-6 css-a17ihx-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 MuiGrid-grid-lg-6 css-1bv2q3e-MuiGrid-root"
         >
           <header
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiTypography-root MuiTypography-overline css-1hwczut-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-overline css-5fiibi-MuiTypography-root"
             >
               About
             </div>
             <div
-              class="MuiBox-root css-1ki7zn5"
+              class="MuiBox-root css-1luw7yi"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 css-51s2c1-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 css-1477y3a-MuiTypography-root"
               >
                 Project  
                 <strong>
@@ -39,7 +39,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
               class="MuiBox-root css-1yyblq"
             >
               <h6
-                class="MuiTypography-root MuiTypography-subtitle1 css-1ni1tq3-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subtitle1 css-yf3d1b-MuiTypography-root"
               >
                 Learn more about 
                 <strong>
@@ -51,7 +51,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
                 </em>
                  and how you can help improve 
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-subtitle1 active css-1nejbix-MuiTypography-root-MuiLink-root-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-subtitle1 active css-hch5q3-MuiTypography-root-MuiLink-root-MuiTypography-root"
                   href="/"
                 >
                   ClimateMap
