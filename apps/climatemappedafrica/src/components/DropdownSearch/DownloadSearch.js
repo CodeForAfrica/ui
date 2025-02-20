@@ -1,3 +1,4 @@
+import { Link } from "@commons-ui/next";
 import {
   IconButton,
   InputBase,
@@ -12,7 +13,6 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import SearchIcon from "@/climatemappedafrica/assets/icons/search.svg";
-import Link from "@/climatemappedafrica/components/Link";
 
 function DropdownSearch({
   IconButtonProps,
