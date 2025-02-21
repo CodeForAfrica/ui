@@ -6,13 +6,13 @@ import {
   ListItem,
   SvgIcon,
   Box,
+  Button,
 } from "@mui/material";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 
 import SearchIcon from "@/climatemappedafrica/assets/icons/search.svg";
-import Link from "@/climatemappedafrica/components/Link";
 
 function DropdownSearch({
   IconButtonProps,
@@ -174,7 +174,7 @@ function DropdownSearch({
           >
             {suggestions.map(({ name, code }) => (
               <ListItem
-                component={Link}
+                component={Button}
                 variant="subtitle1"
                 underline="none"
                 onClick={() => handleSelect(code, name)}
