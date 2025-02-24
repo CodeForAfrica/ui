@@ -82,7 +82,7 @@ function ExplorePage({
     if (geoCode) {
       dispatch({
         type: "fetch",
-        payload: { code: geoCode, onClick: handleClickTag },
+        payload: { code: geoCode },
       });
     }
   }, [dispatch, geoCode]);
@@ -129,6 +129,8 @@ function ExplorePage({
   };
 
   const handleClickMap = (_, feature) => {
+    const code = feature?.properties?.code;
+    setGeoCode(code);
     return handleSelectLocation(feature.properties);
   };
 

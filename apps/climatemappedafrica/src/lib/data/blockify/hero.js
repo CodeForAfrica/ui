@@ -24,8 +24,8 @@ export default async function hero(block, _api, _context, { hurumap }) {
   });
   const { level } = geometries.boundary?.properties ?? {};
   const childLevelMaps = {
-    continent: "country",
-    country: "region",
+    Continent: "Country",
+    Country: "Region",
   };
   const childLevel = childLevelMaps[level];
   const { locations, preferredChildren } = await fetchProfile({

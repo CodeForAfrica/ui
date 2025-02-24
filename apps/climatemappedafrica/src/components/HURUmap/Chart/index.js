@@ -2,7 +2,6 @@ import { RichTypography } from "@commons-ui/next";
 import { ChartTooltip, IndicatorTitle, Download, Share } from "@hurumap/core";
 import { Source } from "@hurumap/next";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
-import { debounce } from "lodash";
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import * as vega from "vega";
 import embed from "vega-embed";
@@ -68,25 +67,9 @@ function Chart({
 
   const handler = useCallback(
     (_, event, item, value) => {
-      const debouncedTooltip = debounce((e, i, v) => {
-        if (!v) {
-          setTooltipData(null);
-          return;
-        }
-        if (
-          !tooltipData ||
-          tooltipData.value?.group !== v?.group ||
-          tooltipData.event?.clientX !== e?.clientX ||
-          tooltipData.event?.clientY !== e?.clientY
-        ) {
-          setTooltipData({ item: i, value: v, id, geoCode, event: e });
-        }
-      }, 50);
-
-      debouncedTooltip(event, item, value);
-      return () => debouncedTooltip.cancel();
+      setTooltipData({ item, value, id, geoCode, event });
     },
-    [id, geoCode, tooltipData],
+    [id, geoCode],
   );
 
   useEffect(() => {

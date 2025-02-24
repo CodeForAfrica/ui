@@ -72,6 +72,8 @@ function ExplorePage({ panelProps, profile: profileProp, ...props }) {
   };
 
   const handleClickMap = (_, feature) => {
+    const code = feature?.properties?.code;
+    setGeoCode(code);
     return handleSelectLocation(feature.properties);
   };
 
