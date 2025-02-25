@@ -47,7 +47,7 @@ function DesktopPanel({ sx, ...props }) {
             overscrollBehaviorBlock: "none",
           },
         }}
-        variant="persistent"
+        {...(open && { variant: "persistent" })}
         PaperProps={{
           elevation: 0,
           square: true,
