@@ -15,7 +15,7 @@ import Navigation from "@/climatemappedafrica/components/Navigation";
 import PageHero from "@/climatemappedafrica/components/PageHero";
 import Summary from "@/climatemappedafrica/components/Summary";
 import {
-  getPageStaticPaths,
+  // getPageStaticPaths,
   getPageStaticProps,
 } from "@/climatemappedafrica/lib/data";
 
@@ -95,11 +95,15 @@ function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
   );
 }
 
-export async function getStaticPaths() {
-  return getPageStaticPaths();
-}
+// export async function getStaticPaths() {
+//   return getPageStaticPaths();
+// }
 
-export async function getStaticProps(context) {
+// export async function getStaticProps(context) {
+//   return getPageStaticProps(context);
+// }
+
+export async function getServerSideProps(context) {
   return getPageStaticProps(context);
 }
 

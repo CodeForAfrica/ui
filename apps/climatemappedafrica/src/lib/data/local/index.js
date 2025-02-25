@@ -20,6 +20,5 @@ export async function getPageStaticProps(context) {
   }
   return {
     props,
-    revalidate: 120, // in seconds
   };
 }
