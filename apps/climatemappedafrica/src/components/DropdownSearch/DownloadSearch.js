@@ -175,6 +175,7 @@ function DropdownSearch({
             {suggestions.map(({ name, code }) => (
               <ListItem
                 component={Link}
+                href={`${hrefProp}/${code}`}
                 variant="subtitle1"
                 underline="none"
                 onClick={() => handleSelect(code, name)}
