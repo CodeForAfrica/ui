@@ -6,11 +6,11 @@ on:
       git_remote_url:
         required: true
         type: string
-        description: "The remote URL to push to"
+        description: "The dokku app's git repository url in SSH format"
       deploy_docker_image:
         required: true
         type: string
-        description: "The name of the image to push"
+        description: "A docker image to deploy via git:from-image"
 
 jobs:
   push:
