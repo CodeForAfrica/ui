@@ -1,10 +1,10 @@
 /* eslint-env browser */
+import { Link } from "@commons-ui/next";
 import { Box, Button, Popover } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
 import Caret from "@/climatemappedafrica/assets/icons/caret.svg";
-import Link from "@/climatemappedafrica/components/Link";
 import slugify from "@/climatemappedafrica/utils/slugify";
 
 function SubcategoryList({ items }) {
