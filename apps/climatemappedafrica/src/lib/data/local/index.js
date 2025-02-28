@@ -1,14 +1,7 @@
-import {
-  getPagePaths,
-  getPageProps,
-} from "@/climatemappedafrica/lib/data/common";
+import { getPageProps } from "@/climatemappedafrica/lib/data/common";
 import payload from "@/climatemappedafrica/lib/payload";
 
 export const api = payload;
-
-export async function getPageStaticPaths() {
-  return getPagePaths(api);
-}
 
 export async function getPageStaticProps(context) {
   const props = await getPageProps(api, context);

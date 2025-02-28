@@ -1,5 +1,5 @@
 const cache = new Map();
-const CACHE_TTL = 5 * 60 * 1000;
+const CACHE_TTL = 10 * 60 * 1000;
 
 async function fetchJson(resource, init) {
   const cacheKey =
