@@ -16,12 +16,12 @@ const port = parseInt(process.env.PORT || "3000", 10);
 const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
 const smtpFromName =
   process.env.SMTP_FROM_NAME ||
-  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
   "Civic Signal Blog CMS";
 const smtpFromAddress =
   process.env.SMTP_FROM_ADDRESS ||
-  process.env.SMTP_FROM_EMAIL ||
-  "noreply@codeforafrica.org";
+  process.env.SENDGRID_FROM_EMAIL ||
+  "noreply@civicsignal.africa";
 const smtpPort = Number(process.env.SMTP_PORT || 587);
 
 if (!process.env.NEXT_MANUAL_SIG_HANDLE) {

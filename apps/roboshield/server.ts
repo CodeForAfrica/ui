@@ -12,12 +12,15 @@ loadEnvConfig(projectDir);
 const dev = process.env.NODE_ENV !== "production";
 const hostname = process.env.NEXT_HOSTNAME || "localhost";
 const port = parseInt(process.env.PORT || "3000", 10);
+
 const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
 const smtpFromName =
-  process.env.SMTP_FROM_NAME || process.env.SMTP_FROM_NAME || "Roboshield CMS";
+  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
+  "Roboshield CMS";
 const smtpFromAddress =
   process.env.SMTP_FROM_ADDRESS ||
-  process.env.SMTP_FROM_EMAIL ||
+  process.env.SENDGRID_FROM_EMAIL ||
   "noreply@codeforafrica.org";
 const smtpPort = Number(process.env.SMTP_PORT || 587);
 
