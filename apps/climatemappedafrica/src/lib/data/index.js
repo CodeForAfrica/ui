@@ -1,3 +1,3 @@
-export { getPageStaticPaths, getPageStaticProps } from "./local";
+export { getPageStaticProps } from "./local";
 
 export default undefined;
