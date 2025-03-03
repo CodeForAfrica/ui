@@ -15,7 +15,7 @@ const port = parseInt(process.env.PORT || "3000", 10);
 const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
 const smtpFromName =
   process.env.SMTP_FROM_NAME ||
-  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
   "Code for Africa CMS";
 const smtpFromAddress =
   process.env.SMTP_FROM_ADDRESS ||
