@@ -79,8 +79,6 @@
     "react-multi-carousel": "catalog:",
     "react-share": "catalog:",
     "vega": "catalog:",
-    "video.js": "catalog:",
-    "videojs-youtube": "catalog:",
     "xlsx": "catalog:"
   },
   "dependencies": {}

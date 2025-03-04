@@ -1,11 +1,11 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+import { Carousel } from "@hurumap/core";
 import { useMediaQuery, Box, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Card from "@/hurumap/core/Card";
-import Carousel from "@/hurumap/core/Carousel";
+import Card from "@/hurumap/next/Card";
 
 function DataVisualisationGuide({ title, items }) {
   const isDesktop = useMediaQuery((theme) => theme.breakpoints.up("lg"));

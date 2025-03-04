@@ -1,7 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
-import { RichHeader } from "@hurumap/core";
-import { Image } from "@hurumap/next";
+import { Image, RichHeader } from "@hurumap/next";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";

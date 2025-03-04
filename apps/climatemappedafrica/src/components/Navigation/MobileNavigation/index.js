@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { NextImageButton } from "@commons-ui/next";
-import { Menu } from "@hurumap/core";
+import { Menu } from "@hurumap/next";
 import {
   Grid,
   Slide,

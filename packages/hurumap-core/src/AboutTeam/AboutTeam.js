@@ -1,9 +1,9 @@
 import { Section } from "@commons-ui/core";
+import { Card } from "@hurumap/next";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import React, { useRef } from "react";
 
-import Card from "@/hurumap/core/Card";
 import Carousel from "@/hurumap/core/Carousel";
 
 const responsive = {

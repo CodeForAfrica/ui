@@ -1,5 +1,4 @@
-import { RichHeader } from "@hurumap/core";
-import { Image } from "@hurumap/next";
+import { Image, RichHeader } from "@hurumap/next";
 import { Box, ClickAwayListener, Grid, Slide } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";

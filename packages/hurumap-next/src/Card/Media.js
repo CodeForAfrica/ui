@@ -1,7 +1,8 @@
-import { Image } from "@hurumap/next";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
+
+import Image from "@/hurumap/next/Image";
 
 function Media({
   alt,
