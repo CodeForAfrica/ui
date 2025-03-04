@@ -19,7 +19,7 @@ const smtpFromName =
   "Code for Africa CMS";
 const smtpFromAddress =
   process.env.SMTP_FROM_ADDRESS ||
-  process.env.SMTP_FROM_EMAIL ||
+  process.env.SENDGRID_FROM_EMAIL ||
   "noreply@codeforafrica.org";
 const smtpPort = Number(process.env.SMTP_PORT || 587);
 
