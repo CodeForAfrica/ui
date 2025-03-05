@@ -1,6 +1,5 @@
+import { Link } from "@commons-ui/next";
 import { useReducer } from "react";
-
-import Link from "@/climatemappedafrica/components/Link";
 
 function extendProfileTags(profile, options, explorePagePath) {
   const { tags: originalTags, ...other } = profile || {};
