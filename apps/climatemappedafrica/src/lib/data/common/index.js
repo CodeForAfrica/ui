@@ -1,11 +1,6 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
 import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 
-// TODO(kilemensi): Use HURUmap APIs (or CMS) to pick geographies we'd like to
-//                  build pages for at build time (It can't be all geographies
-//                  as that will take forever)
-const GEOGRAPHIES = ["af", "ke", "tz"];
-
 export function imageFromMedia(media, options) {
   const alt = options?.alt || media.alt;
   const { height, url: src, width } = media;
@@ -69,35 +64,6 @@ async function getNavBar(variant, settings) {
     socialLinks,
     tutorialEnabled,
     variant,
-  };
-}
-
-export async function getPagePaths(api) {
-  const hurumapSettings = await api.findGlobal("settings-hurumap");
-  let profilePage;
-  if (hurumapSettings?.enabled) {
-    profilePage = hurumapSettings.page.value;
-  }
-  const { docs: pages } = await api.getCollection("pages");
-  const paths = pages.flatMap(({ slug }) => {
-    // TODO(kilemensi): Handle parent > child page relation e.g. /insights/news
-    if (slug !== profilePage?.slug) {
-      return {
-        params: {
-          slugs: [slug === "index" ? "" : slug],
-        },
-      };
-    }
-    // HURUmap profile page
-    return GEOGRAPHIES.map((code) => ({
-      params: {
-        slugs: [profilePage.slug, code],
-      },
-    }));
-  });
-  return {
-    paths,
-    fallback: true,
   };
 }
 
