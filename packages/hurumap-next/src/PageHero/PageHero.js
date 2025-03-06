@@ -1,8 +1,9 @@
 import { Section } from "@commons-ui/core";
-import { RichHeader } from "@hurumap/next";
 import { Box, Grid, useTheme } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
+
+import RichHeader from "@/hurumap/next/RichHeader";
 
 function PageHero({ background, overline, subtitle, title }) {
   const theme = useTheme();

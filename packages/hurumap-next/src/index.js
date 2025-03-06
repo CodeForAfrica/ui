@@ -11,3 +11,5 @@ export { default as LineClampedRichTypography } from "./LineClampedRichTypograph
 export { default as Menu } from "./Menu";
 export { default as RichHeader } from "./RichHeader";
 export { default as Summary } from "./Summary";
+export { default as AboutTeam } from "./AboutTeam";
+export { default as PageHero } from "./PageHero";
