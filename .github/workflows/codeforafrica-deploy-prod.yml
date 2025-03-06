@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - chore/build-arm-image
+      - test-cfa-build
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:

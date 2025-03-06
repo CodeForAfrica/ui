@@ -8,6 +8,7 @@ const nextConfig = {
     unoptimized:
       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
       "true",
+    path: "",
   },
   modularizeImports: {
     // NOTE: only transform @mui/material and not any of sub-modules e.g. @mui/material/styles.

@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - chore/build-arm-image
+      - test-cfa-build
     paths:
       - "apps/codeforafrica/**"
       - "Dockerfile"
