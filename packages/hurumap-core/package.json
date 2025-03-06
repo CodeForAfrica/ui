@@ -62,7 +62,6 @@
     "@commons-ui/core": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
-    "@hurumap/next": "workspace:*",
     "@mui/icons-material": "catalog:",
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
