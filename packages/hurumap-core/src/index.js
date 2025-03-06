@@ -11,4 +11,3 @@ export { default as AboutTeam } from "./AboutTeam";
 export { default as Carousel } from "./Carousel";
 export { default as Loading } from "./Loading";
 export { default as PageHero } from "./PageHero";
-export { default as Summary } from "./Summary";

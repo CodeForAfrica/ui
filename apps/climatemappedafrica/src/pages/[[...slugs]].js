@@ -1,5 +1,5 @@
-import { AboutTeam, PageHero, Summary } from "@hurumap/core";
-import { DataVisualisationGuide, HowItWorks } from "@hurumap/next";
+import { AboutTeam, PageHero } from "@hurumap/core";
+import { DataVisualisationGuide, HowItWorks, Summary } from "@hurumap/next";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";

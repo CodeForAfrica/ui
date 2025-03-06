@@ -10,3 +10,4 @@ export { default as HowItWorks } from "./HowItWorks";
 export { default as LineClampedRichTypography } from "./LineClampedRichTypography";
 export { default as Menu } from "./Menu";
 export { default as RichHeader } from "./RichHeader";
+export { default as Summary } from "./Summary";
