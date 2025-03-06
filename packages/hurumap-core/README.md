@@ -2,7 +2,7 @@
 
 ### Getting started
 
-Dependes on `@commons-ui/core` and basic HURUMap components
+Depends on `@commons-ui/core` and basic HURUMap components
 
 To run `@hurumap/core` test:
 
