@@ -2850,12 +2850,6 @@ importers:
 
   packages/hurumap-core:
     dependencies:
-      '@commons-ui/next':
-        specifier: workspace:*
-        version: link:../commons-ui-next
-      '@commons-ui/payload':
-        specifier: workspace:*
-        version: link:../commons-ui-payload
       '@hurumap/next':
         specifier: workspace:*
         version: link:../hurumap-next

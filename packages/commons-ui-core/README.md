@@ -8,5 +8,4 @@ To run commons-ui core test:
 
 ```
 pnpm test
-
 ```
