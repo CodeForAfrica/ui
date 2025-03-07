@@ -16,10 +16,7 @@ import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
-import {
-  getPageStaticPaths,
-  getPageStaticProps,
-} from "@/climatemappedafrica/lib/data";
+import { getPageServerSideProps } from "@/climatemappedafrica/lib/data";
 
 const componentsBySlugs = {
   "data-indicators": DataIndicators,
@@ -97,12 +94,13 @@ function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
   );
 }
 
-export async function getStaticPaths() {
-  return getPageStaticPaths();
-}
-
-export async function getStaticProps(context) {
-  return getPageStaticProps(context);
+export async function getServerSideProps(context) {
+  const { res } = context;
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=60, stale-while-revalidate=600",
+  );
+  return getPageServerSideProps(context);
 }
 
 export default Page;
