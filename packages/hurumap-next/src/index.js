@@ -1,3 +1,15 @@
 export { default as Source } from "./Source";
 export { default as Map } from "./Map";
 export { generateChoropleth } from "./Map/utils";
+export { default as Image } from "./Image";
+export { default as Tabs } from "./Tabs";
+export { default as Card } from "./Card";
+export { default as DataVisualisationGuide } from "./DataVisualisationGuide";
+export { default as Header } from "./Header";
+export { default as HowItWorks } from "./HowItWorks";
+export { default as LineClampedRichTypography } from "./LineClampedRichTypography";
+export { default as Menu } from "./Menu";
+export { default as RichHeader } from "./RichHeader";
+export { default as Summary } from "./Summary";
+export { default as AboutTeam } from "./AboutTeam";
+export { default as PageHero } from "./PageHero";
