@@ -1,11 +1,11 @@
 import { RichText } from "@commons-ui/payload";
+import { Image } from "@hurumap/next";
 import { Grid, Typography, IconButton, Avatar, Box } from "@mui/material";
 import { useTour } from "@reactour/tour";
 import PropTypes from "prop-types";
 import React from "react";
 
 import CloseIcon from "@/climatemappedafrica/assets/icons/close.svg";
-import Image from "@/climatemappedafrica/components/Image";
 
 function TutorialStep({ description, title, image }) {
   const { setIsOpen, currentStep } = useTour();

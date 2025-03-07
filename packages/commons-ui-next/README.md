@@ -1,6 +1,6 @@
 # @commons-ui/core
 
-Depends on `react` and `@mui/material`
+Depends on `@commons-ui/core`, and `next`.
 
 ### Getting started
 
