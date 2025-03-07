@@ -1,3 +1,4 @@
+import { Image } from "@hurumap/next";
 import {
   Box,
   Button,
@@ -10,7 +11,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import CloseIcon from "@/climatemappedafrica/assets/icons/closeBlack.svg";
-import Image from "@/climatemappedafrica/components/Image";
 import slugify from "@/climatemappedafrica/utils/slugify";
 
 function SvgIcon(props) {

@@ -1,19 +1,21 @@
+import {
+  AboutTeam,
+  DataVisualisationGuide,
+  HowItWorks,
+  PageHero,
+  Summary,
+} from "@hurumap/next";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { SWRConfig } from "swr";
 
-import AboutTeam from "@/climatemappedafrica/components/AboutTeam";
 import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
-import DataVisualisationGuide from "@/climatemappedafrica/components/DataVisualisationGuide";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
-import HowItWorks from "@/climatemappedafrica/components/HowItWorks";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
-import PageHero from "@/climatemappedafrica/components/PageHero";
-import Summary from "@/climatemappedafrica/components/Summary";
 import {
   getPageStaticPaths,
   getPageStaticProps,

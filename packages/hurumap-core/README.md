@@ -2,6 +2,8 @@
 
 ### Getting started
 
+Depends on `@commons-ui/core` and basic HURUMap components
+
 To run `@hurumap/core` test:
 
 ```sh
