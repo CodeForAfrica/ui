@@ -1,9 +1,6 @@
 import { generateChoropleth } from "@hurumap/next";
 
-import {
-  fetchProfile,
-  fetchProfileGeography,
-} from "@/climatemappedafrica/lib/hurumap";
+import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
 /**
  * This function will be called even when HURUmap is disabled.
@@ -28,10 +25,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     Country: "Region",
   };
   const childLevel = childLevelMaps[level];
-  const { locations, preferredChildren } = await fetchProfile({
-    baseUrl: hurumapUrl,
-    profileId,
-  });
+  const { locations, preferredChildren } = hurumapProfile;
   const chloropleth = hurumapProfile?.choropleth ?? null;
   const { choropleth, legend } = generateChoropleth(
     chloropleth,
