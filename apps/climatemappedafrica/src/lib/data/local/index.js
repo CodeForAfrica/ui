@@ -1,9 +1,16 @@
-import { getPageProps } from "@/climatemappedafrica/lib/data/common";
+import {
+  getPagePaths,
+  getPageProps,
+} from "@/climatemappedafrica/lib/data/common";
 import payload from "@/climatemappedafrica/lib/payload";
 
 export const api = payload;
 
-export async function getPageServerSideProps(context) {
+export async function getPageStaticPaths() {
+  return getPagePaths(api);
+}
+
+export async function getPageStaticProps(context) {
   const props = await getPageProps(api, context);
 
   // TODO(kilemensi): We need to differentiate 404 from server errors (5xx)
@@ -13,5 +20,6 @@ export async function getPageServerSideProps(context) {
   }
   return {
     props,
+    revalidate: 120, // in seconds
   };
 }
