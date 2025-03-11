@@ -93,7 +93,7 @@ export async function getPagePaths(api) {
       profileId,
     });
     const countries = locations.filter(
-      (country) => country.level === "Country",
+      (country) => country.level === "Continent",
     );
     return countries?.map((country) => ({
       params: {
