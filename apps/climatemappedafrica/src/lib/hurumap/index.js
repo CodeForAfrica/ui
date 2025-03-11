@@ -199,3 +199,48 @@ export async function fetchCachedProfile(params, maxCacheAge = 10) {
     return fetchProfile(params);
   }
 }
+
+export async function fetchCachedProfileGeography(
+  geoCode,
+  params,
+  maxCacheAge = 10,
+) {
+  const { profileId, version = "Climate" } = params;
+  const cacheDir = path.resolve(process.cwd(), "public", "cache");
+  const cacheFile = path.join(
+    cacheDir,
+    `geography-${profileId}-${geoCode.toUpperCase()}-${version}.json`,
+  );
+
+  try {
+    await fs.mkdir(cacheDir, { recursive: true });
+
+    try {
+      const cachedData = await fs.readFile(cacheFile, "utf-8");
+      const { data, timestamp } = JSON.parse(cachedData);
+
+      const cacheAge = Date.now() - timestamp;
+      const maxCacheAgeInMs = maxCacheAge * 60 * 1000;
+
+      if (cacheAge < maxCacheAgeInMs) {
+        return data;
+      }
+    } catch (error) {
+      console.error(
+        `No valid cache found for geography ${geoCode} in profile ${profileId}`,
+      );
+    }
+
+    const geographyData = await fetchProfileGeography(geoCode, params);
+
+    const cacheContent = JSON.stringify({
+      timestamp: Date.now(),
+      data: geographyData,
+    });
+    await fs.writeFile(cacheFile, cacheContent, "utf-8");
+
+    return geographyData;
+  } catch (error) {
+    return fetchProfileGeography(geoCode, params);
+  }
+}

@@ -1,6 +1,6 @@
 import { generateChoropleth } from "@hurumap/next";
 
-import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
+import { fetchCachedProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
 /**
  * This function will be called even when HURUmap is disabled.
@@ -15,7 +15,7 @@ export default async function hero(block, _api, _context, { hurumap }) {
     rootGeography: { center, code, hasData: pinRootGeography, zoom },
     profile: hurumapProfile,
   } = hurumap ?? { rootGeography: {} };
-  const { geometries } = await fetchProfileGeography(code.toLowerCase(), {
+  const { geometries } = await fetchCachedProfileGeography(code.toLowerCase(), {
     baseUrl: hurumapUrl,
     profileId,
   });

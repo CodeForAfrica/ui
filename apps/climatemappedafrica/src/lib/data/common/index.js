@@ -7,8 +7,6 @@ export function imageFromMedia(media, options) {
   return { alt, height, src, width };
 }
 
-const PROFILE_MAX_CACHE_AGE = 10; // 10 minutes
-
 function getFooter(variant, settings) {
   const {
     connect,
@@ -90,13 +88,10 @@ export async function getPagePaths(api) {
     }
     const { url: hurumapUrl, profile: profileId } = hurumapSettings;
     // HURUmap profile page
-    const { locations } = await fetchCachedProfile(
-      {
-        baseUrl: hurumapUrl,
-        profileId,
-      },
-      PROFILE_MAX_CACHE_AGE,
-    );
+    const { locations } = await fetchCachedProfile({
+      baseUrl: hurumapUrl,
+      profileId,
+    });
     const countries = locations.filter(
       (country) => country.level === "Country",
     );
@@ -143,10 +138,10 @@ export async function getPageProps(api, context) {
       profile: profileId,
       ...otherHurumapSettings
     } = hurumapSettings;
-    const profile = await fetchCachedProfile(
-      { baseUrl: hurumapUrl, profileId },
-      PROFILE_MAX_CACHE_AGE,
-    );
+    const profile = await fetchCachedProfile({
+      baseUrl: hurumapUrl,
+      profileId,
+    });
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";

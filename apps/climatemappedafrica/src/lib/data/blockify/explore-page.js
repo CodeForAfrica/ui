@@ -1,4 +1,4 @@
-import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
+import { fetchCachedProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
 /**
  * This function will be called only when HURUmap is enabled.
@@ -32,13 +32,13 @@ async function explorePage(block, _api, _context, { hurumap }) {
   }
 
   const [primaryCode, secondaryCode] = geoCodes;
-  const primaryProfile = await fetchProfileGeography(primaryCode, {
+  const primaryProfile = await fetchCachedProfileGeography(primaryCode, {
     baseUrl: hurumapUrl,
     profileId,
   });
   const profile = [primaryProfile];
   if (secondaryCode) {
-    const secondaryProfile = await fetchProfileGeography(secondaryCode, {
+    const secondaryProfile = await fetchCachedProfileGeography(secondaryCode, {
       baseUrl: hurumapUrl,
       profileId,
     });
