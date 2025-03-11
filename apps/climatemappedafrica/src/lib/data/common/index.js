@@ -1,11 +1,6 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
 import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
 
-// TODO(kilemensi): Use HURUmap APIs (or CMS) to pick geographies we'd like to
-//                  build pages for at build time (It can't be all geographies
-//                  as that will take forever)
-const GEOGRAPHIES = ["af", "ke", "tz"];
-
 export function imageFromMedia(media, options) {
   const alt = options?.alt || media.alt;
   const { height, url: src, width } = media;
@@ -79,22 +74,36 @@ export async function getPagePaths(api) {
     profilePage = hurumapSettings.page.value;
   }
   const { docs: pages } = await api.getCollection("pages");
-  const paths = pages.flatMap(({ slug }) => {
+
+  const pathPromises = pages.map(async ({ slug }) => {
     // TODO(kilemensi): Handle parent > child page relation e.g. /insights/news
     if (slug !== profilePage?.slug) {
-      return {
-        params: {
-          slugs: [slug === "index" ? "" : slug],
+      return [
+        {
+          params: {
+            slugs: [slug === "index" ? "" : slug],
+          },
         },
-      };
+      ];
     }
+    const { url: hurumapUrl, profile: profileId } = hurumapSettings;
     // HURUmap profile page
-    return GEOGRAPHIES.map((code) => ({
+    const { locations } = await fetchProfile({
+      baseUrl: hurumapUrl,
+      profileId,
+    });
+    const countries = locations.filter(
+      (country) => country.level === "Country",
+    );
+    return countries?.map((country) => ({
       params: {
-        slugs: [profilePage.slug, code],
+        slugs: [profilePage.slug, country.code],
       },
     }));
   });
+  const resolvedPaths = await Promise.all(pathPromises);
+  const paths = resolvedPaths.flat();
+
   return {
     paths,
     fallback: true,
