@@ -1,3 +1,6 @@
+import fs from "fs/promises";
+import path from "path";
+
 import defaultIcon from "@/climatemappedafrica/assets/icons/eye-white.svg";
 import fetchJson from "@/climatemappedafrica/utils/fetchJson";
 import formatNumericalValue from "@/climatemappedafrica/utils/formatNumericalValue";
@@ -159,4 +162,40 @@ export async function fetchProfileGeography(
     parent,
     items: formatProfileGeographyData(data, parent),
   };
+}
+
+export async function fetchCachedProfile(params, maxCacheAge = 10) {
+  const { profileId } = params;
+  const cacheDir = path.resolve(process.cwd(), "public", "cache");
+  const cacheFile = path.join(cacheDir, `profile-${profileId}.json`);
+
+  try {
+    await fs.mkdir(cacheDir, { recursive: true });
+
+    try {
+      const cachedData = await fs.readFile(cacheFile, "utf-8");
+      const { data, timestamp } = JSON.parse(cachedData);
+
+      const cacheAge = Date.now() - timestamp;
+      const maxCacheAgeInMs = maxCacheAge * 60 * 1000;
+
+      if (cacheAge < maxCacheAgeInMs) {
+        return data;
+      }
+    } catch (error) {
+      console.error(`No valid cache found for profile ${profileId}`);
+    }
+
+    const profileData = await fetchProfile(params);
+
+    const cacheContent = JSON.stringify({
+      timestamp: Date.now(),
+      data: profileData,
+    });
+    await fs.writeFile(cacheFile, cacheContent, "utf-8");
+
+    return profileData;
+  } catch (error) {
+    return fetchProfile(params);
+  }
 }

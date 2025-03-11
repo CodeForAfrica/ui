@@ -1,11 +1,13 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
-import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
+import { fetchCachedProfile } from "@/climatemappedafrica/lib/hurumap";
 
 export function imageFromMedia(media, options) {
   const alt = options?.alt || media.alt;
   const { height, url: src, width } = media;
   return { alt, height, src, width };
 }
+
+const PROFILE_MAX_CACHE_AGE = 10; // 10 minutes
 
 function getFooter(variant, settings) {
   const {
@@ -88,10 +90,13 @@ export async function getPagePaths(api) {
     }
     const { url: hurumapUrl, profile: profileId } = hurumapSettings;
     // HURUmap profile page
-    const { locations } = await fetchProfile({
-      baseUrl: hurumapUrl,
-      profileId,
-    });
+    const { locations } = await fetchCachedProfile(
+      {
+        baseUrl: hurumapUrl,
+        profileId,
+      },
+      PROFILE_MAX_CACHE_AGE,
+    );
     const countries = locations.filter(
       (country) => country.level === "Country",
     );
@@ -138,7 +143,10 @@ export async function getPageProps(api, context) {
       profile: profileId,
       ...otherHurumapSettings
     } = hurumapSettings;
-    const profile = await fetchProfile({ baseUrl: hurumapUrl, profileId });
+    const profile = await fetchCachedProfile(
+      { baseUrl: hurumapUrl, profileId },
+      PROFILE_MAX_CACHE_AGE,
+    );
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";
