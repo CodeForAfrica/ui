@@ -92,12 +92,13 @@ export async function getPagePaths(api) {
       baseUrl: hurumapUrl,
       profileId,
     });
-    const continents = locations.filter(
-      (country) => country.level === "Continent", // Only build the top geography level
+    const topLevels = locations.filter(
+      (topLevel) =>
+        topLevel.level === "Continent" || topLevel.level === "Country",
     );
-    return continents?.map((c) => ({
+    return topLevels?.map((l) => ({
       params: {
-        slugs: [profilePage.slug, c.code],
+        slugs: [profilePage.slug, l.code],
       },
     }));
   });

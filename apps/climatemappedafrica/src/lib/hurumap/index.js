@@ -95,73 +95,78 @@ export async function fetchProfileGeography(
   geoCode,
   { baseUrl, profileId, version = "Climate" },
 ) {
-  // HURUmap codes are uppercased in the API
-  const json = await fetchJson(
-    new URL(
-      `/api/v1/all_details/profile/${profileId}/geography/${geoCode.toUpperCase()}/?version=${version}`,
-      baseUrl,
-    ),
-  );
-  const { boundary, children, parent_layers: parents } = json;
-  const geometries = { boundary, children, parents };
-  const {
-    profile_data: data,
-    highlights: originalHighlights,
-    overview,
-    geography,
-  } = json.profile;
-  const highlights = originalHighlights.map(
-    ({
-      label,
-      method,
-      value,
-      value_display_format: valueDisplayFormat,
-      ...other
-    }) => ({
-      ...other,
-      formattedValue: formatNumericalValue({
-        value,
-        method: valueDisplayFormat ?? method,
-      }),
-      displayFormat: valueDisplayFormat,
-      method,
-      value,
-      title: label,
-    }),
-  );
-  const tags = geography.parents
-    .concat(geography)
-    .map(({ code, level, name }) => ({
-      code,
-      level,
-      name,
-    }));
-
-  const parent = {};
-  const { code: parentCode, name } =
-    geography.parents[geography.parents.length - 1] || {};
-
-  if (parentCode) {
-    const parentJson = await fetchJson(
+  try {
+    // HURUmap codes are uppercased in the API
+    const json = await fetchJson(
       new URL(
-        `/api/v1/all_details/profile/${profileId}/geography/${parentCode.toUpperCase()}/?version=${version}`,
+        `/api/v1/all_details/profile/${profileId}/geography/${geoCode.toUpperCase()}/?version=${version}`,
         baseUrl,
       ),
     );
-    parent.data = parentJson.profile.profile_data;
-    parent.name = name;
-  }
+    const { boundary, children, parent_layers: parents } = json;
+    const geometries = { boundary, children, parents };
+    const {
+      profile_data: data,
+      highlights: originalHighlights,
+      overview,
+      geography,
+    } = json.profile;
+    const highlights = originalHighlights.map(
+      ({
+        label,
+        method,
+        value,
+        value_display_format: valueDisplayFormat,
+        ...other
+      }) => ({
+        ...other,
+        formattedValue: formatNumericalValue({
+          value,
+          method: valueDisplayFormat ?? method,
+        }),
+        displayFormat: valueDisplayFormat,
+        method,
+        value,
+        title: label,
+      }),
+    );
+    const tags = geography.parents
+      .concat(geography)
+      .map(({ code, level, name }) => ({
+        code,
+        level,
+        name,
+      }));
 
-  return {
-    data,
-    geography,
-    geometries,
-    highlights,
-    tags,
-    overview,
-    parent,
-    items: formatProfileGeographyData(data, parent),
-  };
+    const parent = {};
+    const { code: parentCode, name } =
+      geography.parents[geography.parents.length - 1] || {};
+
+    if (parentCode) {
+      const parentJson = await fetchJson(
+        new URL(
+          `/api/v1/all_details/profile/${profileId}/geography/${parentCode.toUpperCase()}/?version=${version}`,
+          baseUrl,
+        ),
+      );
+      parent.data = parentJson.profile.profile_data;
+      parent.name = name;
+    }
+
+    return {
+      data,
+      geography,
+      geometries,
+      highlights,
+      tags,
+      overview,
+      parent,
+      items: formatProfileGeographyData(data, parent),
+    };
+  } catch (error) {
+    console.error(`Error fetching profile for ${geoCode}`);
+    return null;
+  }
 }
 
 export async function fetchCachedProfile(params, maxCacheAge = 10) {
