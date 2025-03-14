@@ -1,3 +1,4 @@
+import { Loading } from "@hurumap/core";
 import {
   AboutTeam,
   DataVisualisationGuide,
@@ -5,6 +6,7 @@ import {
   PageHero,
   Summary,
 } from "@hurumap/next";
+import { Box } from "@mui/material";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";
@@ -36,6 +38,7 @@ const componentsBySlugs = {
 
 function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
   const {
+    isFallback,
     query: { showTutorial },
   } = useRouter();
 
@@ -76,6 +79,25 @@ function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
     PageConfig = SWRConfig;
     pageConfigProps = { value: { fallback } };
   }
+
+  if (isFallback) {
+    return (
+      <PageConfig {...pageConfigProps}>
+        <Box
+          sx={{
+            height: "100vh",
+            width: "100vw",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Loading />
+        </Box>
+      </PageConfig>
+    );
+  }
+
   return (
     <TutorialComponent key={showTutorial} {...TutorialComponentProps}>
       <Navigation {...menus} />
