@@ -1,4 +1,4 @@
-import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
+import { fetchCachedProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
 /**
  * This function will be called only when HURUmap is enabled.
@@ -27,18 +27,23 @@ async function explorePage(block, _api, _context, { hurumap }) {
     .filter((c) => c);
   if (!geoCodes.every((gC) => locationCodes.includes(gC))) {
     return {
-      notFound: true,
+      blockType: "explore-page-error",
+      error: {
+        code: 404,
+        message: `Region "${code}" not found`,
+      },
+      redirectPage: profilePage.slug,
     };
   }
 
   const [primaryCode, secondaryCode] = geoCodes;
-  const primaryProfile = await fetchProfileGeography(primaryCode, {
+  const primaryProfile = await fetchCachedProfileGeography(primaryCode, {
     baseUrl: hurumapUrl,
     profileId,
   });
   const profile = [primaryProfile];
   if (secondaryCode) {
-    const secondaryProfile = await fetchProfileGeography(secondaryCode, {
+    const secondaryProfile = await fetchCachedProfileGeography(secondaryCode, {
       baseUrl: hurumapUrl,
       profileId,
     });

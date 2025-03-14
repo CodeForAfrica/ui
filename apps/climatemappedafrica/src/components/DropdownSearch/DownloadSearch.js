@@ -40,9 +40,6 @@ function DropdownSearch({
   const handleSelect = (code, name) => {
     setQuery(name.toLowerCase());
     setSelectedLocation(code);
-    if (code && hrefProp?.length) {
-      router.push(`${hrefProp}/${code}`);
-    }
   };
 
   useEffect(() => {

@@ -1,3 +1,4 @@
+import { Loading } from "@hurumap/core";
 import {
   AboutTeam,
   DataVisualisationGuide,
@@ -5,6 +6,7 @@ import {
   PageHero,
   Summary,
 } from "@hurumap/next";
+import { Box } from "@mui/material";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import React from "react";
@@ -12,6 +14,7 @@ import { SWRConfig } from "swr";
 
 import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
+import ExplorePageError from "@/climatemappedafrica/components/ExplorePageError";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
@@ -25,6 +28,7 @@ const componentsBySlugs = {
   "data-indicators": DataIndicators,
   "data-visualisation-guide": DataVisualisationGuide,
   "explore-page": ExplorePage,
+  "explore-page-error": ExplorePageError,
   hero: Hero,
   "how-it-works": HowItWorks,
   "page-hero": PageHero,
@@ -34,6 +38,7 @@ const componentsBySlugs = {
 
 function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
   const {
+    isFallback,
     query: { showTutorial },
   } = useRouter();
 
@@ -74,6 +79,25 @@ function Page({ blocks = [], menus, footer: footerProps, seo = {}, fallback }) {
     PageConfig = SWRConfig;
     pageConfigProps = { value: { fallback } };
   }
+
+  if (isFallback) {
+    return (
+      <PageConfig {...pageConfigProps}>
+        <Box
+          sx={{
+            height: "100vh",
+            width: "100vw",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Loading />
+        </Box>
+      </PageConfig>
+    );
+  }
+
   return (
     <TutorialComponent key={showTutorial} {...TutorialComponentProps}>
       <Navigation {...menus} />
