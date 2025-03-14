@@ -76,7 +76,6 @@ export async function getPagePaths(api) {
   const { docs: pages } = await api.getCollection("pages");
 
   const pathPromises = pages.map(async ({ slug }) => {
-    // TODO(kilemensi): Handle parent > child page relation e.g. /insights/news
     if (slug !== profilePage?.slug) {
       return [
         {
