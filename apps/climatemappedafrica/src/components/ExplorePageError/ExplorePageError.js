@@ -4,7 +4,7 @@ import { Box, Grid } from "@mui/material";
 
 import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";
 
-function ExplorePageError({ error: { code, message } }) {
+function ExplorePageError({ error: { code, message }, redirectPage }) {
   return (
     <Box
       sx={{
@@ -44,7 +44,7 @@ function ExplorePageError({ error: { code, message } }) {
             <RichTypography variant="h1">{code}</RichTypography>
             <RichTypography variant="h5">{message}</RichTypography>
             <Link
-              href="/explore"
+              href={`/${redirectPage}`}
               sx={{
                 mt: 2,
                 display: "inline-block",

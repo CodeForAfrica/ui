@@ -32,6 +32,7 @@ async function explorePage(block, _api, _context, { hurumap }) {
         code: 404,
         message: `Region "${code}" not found`,
       },
+      redirectPage: profilePage.slug,
     };
   }
 
