@@ -27,7 +27,11 @@ async function explorePage(block, _api, _context, { hurumap }) {
     .filter((c) => c);
   if (!geoCodes.every((gC) => locationCodes.includes(gC))) {
     return {
-      notFound: true,
+      blockType: "explore-page-error",
+      error: {
+        code: 404,
+        message: `Region "${code}" not found`,
+      },
     };
   }
 

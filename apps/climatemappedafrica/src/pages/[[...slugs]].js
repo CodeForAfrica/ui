@@ -12,6 +12,7 @@ import { SWRConfig } from "swr";
 
 import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
+import ExplorePageError from "@/climatemappedafrica/components/ExplorePageError";
 import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
@@ -25,6 +26,7 @@ const componentsBySlugs = {
   "data-indicators": DataIndicators,
   "data-visualisation-guide": DataVisualisationGuide,
   "explore-page": ExplorePage,
+  "explore-page-error": ExplorePageError,
   hero: Hero,
   "how-it-works": HowItWorks,
   "page-hero": PageHero,
