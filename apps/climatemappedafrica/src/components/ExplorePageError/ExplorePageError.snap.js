@@ -29,7 +29,7 @@ exports[`<ExplorePageError/> Renders Unchanged 1`] = `
           </div>
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-fdh5it-MuiTypography-root-MuiLink-root"
-            href="/explore"
+            href="/undefined"
           >
             Go back
           </a>
