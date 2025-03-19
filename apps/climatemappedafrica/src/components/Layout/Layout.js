@@ -6,7 +6,7 @@ import Footer from "@/climatemappedafrica/components/Footer";
 import Tutorial from "@/climatemappedafrica/components/HURUmap/Tutorial";
 import Navigation from "@/climatemappedafrica/components/Navigation";
 
-function Layout({ children, menus = [], footer: footerProps, seo, blocks }) {
+function Layout({ children, menus, footer: footerProps, seo, blocks = [] }) {
   const {
     query: { showTutorial },
   } = useRouter();
