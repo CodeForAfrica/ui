@@ -34,7 +34,7 @@ function getFooter(variant, settings) {
   };
 }
 
-async function getNavBar(variant, settings) {
+function getNavBar(variant, settings) {
   const { hurumap, site } = settings;
   const {
     connect: { links = [] },
@@ -110,43 +110,32 @@ export async function getPagePaths(api) {
   };
 }
 
-function getDefaultErrorPageProps(slug = "404") {
-  if (slug === "500") {
-    return {
-      blocks: [
-        {
-          title: "Server Error.",
-          statusCode: 500,
-          description: [
-            {
-              children: [
-                {
-                  text: "Server encountered an unexpected error.",
-                  children: null,
-                },
-              ],
-            },
-          ],
-          link: {
-            label: "Go Home",
-            href: "/",
-          },
-          slug: "error",
-        },
-      ],
-    };
-  }
+const errorConfigs = {
+  500: {
+    title: "Server Error.",
+    statusCode: 500,
+    descriptionText: "Server encountered an unexpected error.",
+  },
+  404: {
+    title: "Not Found.",
+    statusCode: 404,
+    descriptionText: "Resource not found.",
+  },
+};
 
+function getDefaultErrorPageProps(slug, variant, settings) {
+  const config = errorConfigs[slug] || errorConfigs[404];
+  const footer = getFooter(variant, settings);
+  const menus = getNavBar(variant, settings);
   return {
     blocks: [
       {
-        title: "Not Found.",
-        statusCode: 404,
+        ...config,
         description: [
           {
             children: [
               {
-                text: "Resource not found.",
+                text: config.descriptionText,
                 children: null,
               },
             ],
@@ -159,6 +148,8 @@ function getDefaultErrorPageProps(slug = "404") {
         slug: "error",
       },
     ],
+    footer,
+    menus,
   };
 }
 
@@ -173,17 +164,12 @@ export async function getPageProps(api, context) {
   const {
     docs: [page],
   } = await api.findPage(slug, options);
-  if (!page) {
-    if (["404", "500"].includes(slug)) {
-      return getDefaultErrorPageProps(slug);
-    }
-    return null;
-  }
 
   let variant = "default";
   const settings = {};
   settings.site = (await api.findGlobal("settings-site")) || null;
   const { analytics } = settings.site;
+
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
@@ -219,9 +205,16 @@ export async function getPageProps(api, context) {
     };
   }
 
+  if (!page) {
+    if (["404", "500"].includes(slug)) {
+      return getDefaultErrorPageProps(slug, variant, settings);
+    }
+    return null;
+  }
+
   const blocks = await blockify(page, api, context, settings);
   const footer = getFooter(variant, settings);
-  const menus = await getNavBar(variant, settings);
+  const menus = getNavBar(variant, settings);
 
   return {
     analytics,
