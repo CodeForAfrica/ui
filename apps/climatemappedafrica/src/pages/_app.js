@@ -1,7 +1,9 @@
+import ProgressBar from "@badrap/bar-of-progress";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import { ThemeProvider as StyledThemeProvider } from "@mui/styles";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
@@ -14,9 +16,16 @@ import theme from "@/climatemappedafrica/theme";
 function getDefaultLayout(page, pageProps) {
   return <Layout {...pageProps}>{page}</Layout>;
 }
+const progress = new ProgressBar({
+  size: 4,
+  color: "#0B2AEA",
+  className: "bar-of-progress",
+  delay: 100,
+});
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
+  const router = useRouter();
 
   const { analytics } = pageProps;
   const { analyticsId: gaId } = analytics || {};
@@ -31,6 +40,29 @@ export default function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  React.useEffect(() => {
+    const handleStart = () => {
+      progress.start();
+    };
+
+    const handleComplete = () => {
+      progress.finish();
+      setTimeout(() => {
+        progress.finish();
+      }, 100);
+    };
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  }, [router]);
 
   return (
     <>
