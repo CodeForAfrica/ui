@@ -46,19 +46,17 @@ async function explorePage(block, _api, _context, { hurumap }) {
     };
   }
 
-  const [primaryCode, secondaryCode] = geoCodes;
-  const primaryProfile = await fetchCachedProfileGeography(primaryCode, {
-    baseUrl: hurumapUrl,
-    profileId,
-  });
-  const profile = [primaryProfile];
-  if (secondaryCode) {
-    const secondaryProfile = await fetchCachedProfileGeography(secondaryCode, {
-      baseUrl: hurumapUrl,
-      profileId,
-    });
-    profile.push(secondaryProfile);
-  }
+  const fetchProfiles = async (codes) => {
+    const profilePromises = codes.map((c) =>
+      fetchCachedProfileGeography(c, {
+        baseUrl: hurumapUrl,
+        profileId,
+      }),
+    );
+    return Promise.all(profilePromises);
+  };
+
+  const profile = await fetchProfiles(geoCodes);
 
   const panel = {
     panelItems,
