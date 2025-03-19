@@ -12,8 +12,8 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
+import Error from "@/climatemappedafrica/components/Error";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
-import ExplorePageError from "@/climatemappedafrica/components/ExplorePageError";
 import Hero from "@/climatemappedafrica/components/Hero";
 import {
   getPageStaticPaths,
@@ -23,8 +23,8 @@ import {
 const componentsBySlugs = {
   "data-indicators": DataIndicators,
   "data-visualisation-guide": DataVisualisationGuide,
+  error: Error,
   "explore-page": ExplorePage,
-  "explore-page-error": ExplorePageError,
   hero: Hero,
   "how-it-works": HowItWorks,
   "page-hero": PageHero,
