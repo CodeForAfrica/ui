@@ -110,6 +110,58 @@ export async function getPagePaths(api) {
   };
 }
 
+function getDefaultErrorPageProps(slug = "404") {
+  if (slug === "500") {
+    return {
+      blocks: [
+        {
+          title: "Server Error.",
+          statusCode: 500,
+          description: [
+            {
+              children: [
+                {
+                  text: "Server encountered an unexpected error.",
+                  children: null,
+                },
+              ],
+            },
+          ],
+          link: {
+            label: "Go Home",
+            href: "/",
+          },
+          slug: "error",
+        },
+      ],
+    };
+  }
+
+  return {
+    blocks: [
+      {
+        title: "Not Found.",
+        statusCode: 404,
+        description: [
+          {
+            children: [
+              {
+                text: "Resource not found.",
+                children: null,
+              },
+            ],
+          },
+        ],
+        link: {
+          label: "Go Home",
+          href: "/",
+        },
+        slug: "error",
+      },
+    ],
+  };
+}
+
 export async function getPageProps(api, context) {
   // For now, ClimateMappedAfrica only supports single paths i.e. /, /about, etc.,
   // so params.slugs[0] is good enough
@@ -122,6 +174,9 @@ export async function getPageProps(api, context) {
     docs: [page],
   } = await api.findPage(slug, options);
   if (!page) {
+    if (["404", "500"].includes(slug)) {
+      return getDefaultErrorPageProps(slug);
+    }
     return null;
   }
 
