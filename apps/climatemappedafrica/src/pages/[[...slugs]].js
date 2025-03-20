@@ -14,11 +14,14 @@ import { SWRConfig } from "swr";
 import DataIndicators from "@/climatemappedafrica/components/DataIndicators";
 import Error from "@/climatemappedafrica/components/Error";
 import ExplorePage from "@/climatemappedafrica/components/ExplorePage";
+import Footer from "@/climatemappedafrica/components/Footer";
 import Hero from "@/climatemappedafrica/components/Hero";
+import Navigation from "@/climatemappedafrica/components/Navigation";
 import {
   getPageStaticPaths,
   getPageStaticProps,
 } from "@/climatemappedafrica/lib/data";
+import getFallbackData from "@/climatemappedafrica/lib/data/fallback";
 
 const componentsBySlugs = {
   "data-indicators": DataIndicators,
@@ -43,12 +46,13 @@ function Page({ blocks = [], fallback }) {
   }
 
   if (isFallback) {
+    const { footer: footerProps, menus } = getFallbackData();
     return (
       <PageConfig {...pageConfigProps}>
+        <Navigation {...menus} />
         <Box
           sx={{
             height: "100vh",
-            width: "100vw",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -56,6 +60,7 @@ function Page({ blocks = [], fallback }) {
         >
           <Loading />
         </Box>
+        <Footer {...footerProps} />
       </PageConfig>
     );
   }

@@ -45,9 +45,9 @@ function Layout({ children, menus, footer: footerProps, seo, blocks = [] }) {
     <>
       <NextSeo {...pageSeo} />
       <TutorialComponent key={showTutorial} {...TutorialComponentProps}>
-        <Navigation {...menus} />
+        {menus && <Navigation {...menus} />}
         {children}
-        <Footer {...footerProps} />
+        {footerProps && <Footer {...footerProps} />}
       </TutorialComponent>
     </>
   );
