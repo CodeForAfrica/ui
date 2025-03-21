@@ -95,7 +95,7 @@ catalog:
   dotenv: ^16.4.5
   eslint: ^9.0.0
   eslint-config-airbnb: ^19.0.4
-  eslint-config-next: ^15.0.3
+  eslint-config-next: ^15.2.3
   eslint-config-prettier: ^9.1.0
   eslint-config-turbo: ^2.1.1
   eslint-import-resolver-babel-module: ^5.3.2
@@ -138,7 +138,7 @@ catalog:
   lodash: ^4.17.21
   migrate-mongo: ^11.0.0
   monaco-editor: ^0.51.0
-  next: ^15.0.3
+  next: ^15.2.3
   next-auth: ^4.24.7
   next-images: ^1.8.5
   next-seo: ^6.6.0
