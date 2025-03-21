@@ -1,3 +1,6 @@
+import fs from "fs/promises";
+import path from "path";
+
 import defaultIcon from "@/climatemappedafrica/assets/icons/eye-white.svg";
 import fetchJson from "@/climatemappedafrica/utils/fetchJson";
 import formatNumericalValue from "@/climatemappedafrica/utils/formatNumericalValue";
@@ -159,4 +162,97 @@ export async function fetchProfileGeography(
     parent,
     items: formatProfileGeographyData(data, parent),
   };
+}
+
+async function getProfileCachedData(cacheFile, profileId) {
+  try {
+    const cachedData = await fs.readFile(cacheFile, "utf-8");
+    const { data, timestamp } = JSON.parse(cachedData);
+    return { data, timestamp };
+  } catch (error) {
+    console.error(`No valid cache found for profile ${profileId}`);
+    return null;
+  }
+}
+
+export async function fetchCachedProfile(params, maxCacheAge = 10) {
+  const { profileId } = params;
+  const cacheDir = path.resolve(process.cwd(), "public", "cache");
+  const cacheFile = path.join(cacheDir, `profile-${profileId}.json`);
+
+  try {
+    await fs.mkdir(cacheDir, { recursive: true });
+
+    const cached = await getProfileCachedData(cacheFile, profileId);
+    if (cached) {
+      const cacheAge = Date.now() - cached.timestamp;
+      const maxCacheAgeInMs = maxCacheAge * 60 * 1000;
+
+      if (cacheAge < maxCacheAgeInMs) {
+        return cached.data;
+      }
+    }
+
+    const profileData = await fetchProfile(params);
+    const cacheContent = JSON.stringify({
+      timestamp: Date.now(),
+      data: profileData,
+    });
+
+    await fs.writeFile(cacheFile, cacheContent, "utf-8");
+    return profileData;
+  } catch (error) {
+    return fetchProfile(params);
+  }
+}
+
+async function getCachedData(cacheFile, geoCode, profileId) {
+  try {
+    const cachedData = await fs.readFile(cacheFile, "utf-8");
+    const { data, timestamp } = JSON.parse(cachedData);
+    return { data, timestamp };
+  } catch (error) {
+    console.error(
+      `No valid cache found for geography ${geoCode} in profile ${profileId}`,
+    );
+    return null;
+  }
+}
+
+export async function fetchCachedProfileGeography(
+  geoCode,
+  params,
+  maxCacheAge = 10,
+) {
+  const { profileId, version = "Climate" } = params;
+  const cacheDir = path.resolve(process.cwd(), "public", "cache");
+  const cacheFile = path.join(
+    cacheDir,
+    `geography-${profileId}-${geoCode.toUpperCase()}-${version}.json`,
+  );
+
+  try {
+    await fs.mkdir(cacheDir, { recursive: true });
+
+    const cached = await getCachedData(cacheFile, geoCode, profileId);
+    if (cached) {
+      const cacheAge = Date.now() - cached.timestamp;
+      const maxCacheAgeInMs = maxCacheAge * 60 * 1000;
+
+      if (cacheAge < maxCacheAgeInMs) {
+        return cached.data;
+      }
+    }
+
+    const geographyData = await fetchProfileGeography(geoCode, params);
+    const cacheContent = JSON.stringify({
+      timestamp: Date.now(),
+      data: geographyData,
+    });
+
+    await fs.writeFile(cacheFile, cacheContent, "utf-8");
+    return geographyData;
+  } catch (error) {
+    return fetchProfileGeography(geoCode, params);
+  }
 }

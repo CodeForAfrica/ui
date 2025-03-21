@@ -1,5 +1,6 @@
 import DataIndicators from "../blocks/DataIndicators";
 import DataVisualisationGuide from "../blocks/DataVisualisationGuide";
+import Error from "../blocks/Error";
 import Hero from "../blocks/Hero";
 import HowItWorks from "../blocks/HowItWorks";
 import PageHero from "../blocks/PageHero";
@@ -37,6 +38,7 @@ const Pages = {
       blocks: [
         DataIndicators,
         DataVisualisationGuide,
+        Error,
         Hero,
         HowItWorks,
         PageHero,

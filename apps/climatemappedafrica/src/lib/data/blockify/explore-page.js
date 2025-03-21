@@ -1,4 +1,4 @@
-import { fetchProfileGeography } from "@/climatemappedafrica/lib/hurumap";
+import { fetchCachedProfileGeography } from "@/climatemappedafrica/lib/hurumap";
 
 /**
  * This function will be called only when HURUmap is enabled.
@@ -27,23 +27,36 @@ async function explorePage(block, _api, _context, { hurumap }) {
     .filter((c) => c);
   if (!geoCodes.every((gC) => locationCodes.includes(gC))) {
     return {
-      notFound: true,
+      blockType: "error",
+      description: [
+        {
+          children: [
+            {
+              text: `Region "${code}" not found`,
+            },
+          ],
+        },
+      ],
+      title: "Region Not Found",
+      statusCode: 404,
+      link: {
+        href: profilePage.slug,
+        label: "Go to Explore page",
+      },
     };
   }
 
-  const [primaryCode, secondaryCode] = geoCodes;
-  const primaryProfile = await fetchProfileGeography(primaryCode, {
-    baseUrl: hurumapUrl,
-    profileId,
-  });
-  const profile = [primaryProfile];
-  if (secondaryCode) {
-    const secondaryProfile = await fetchProfileGeography(secondaryCode, {
-      baseUrl: hurumapUrl,
-      profileId,
-    });
-    profile.push(secondaryProfile);
-  }
+  const fetchProfiles = async (codes) => {
+    const profilePromises = codes.map((c) =>
+      fetchCachedProfileGeography(c, {
+        baseUrl: hurumapUrl,
+        profileId,
+      }),
+    );
+    return Promise.all(profilePromises);
+  };
+
+  const profile = await fetchProfiles(geoCodes);
 
   const panel = {
     panelItems,
