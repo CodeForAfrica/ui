@@ -3,7 +3,7 @@ import React from "react";
 
 import type { PostProps } from "@/techlabblog/components/Post";
 
-const PostHeader = React.forwardRef(function ArticleHeader(
+const PostHeader = React.forwardRef(function PostHeader(
   props: PostProps,
   ref: React.Ref<HTMLDivElement>,
 ) {
