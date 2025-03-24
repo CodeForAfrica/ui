@@ -26,6 +26,7 @@ module.exports = {
     },
   },
   reactStrictMode: false,
+  staticPageGenerationTimeout: 180,
   transpilePackages: [
     "@commons-ui/core",
     "@commons-ui/next",

@@ -79,12 +79,34 @@ function Page({ blocks = [], fallback }) {
   );
 }
 
+async function fetchWithRetry(context, attempt = 1, maxAttempts = 5) {
+  try {
+    const result = await getPageStaticProps(context);
+    return result;
+  } catch (error) {
+    if (attempt === maxAttempts) {
+      return {
+        props: {
+          blocks: [],
+          fallback: {},
+        },
+        revalidate: 60,
+      };
+    }
+    const timeout = Math.min(1000 * 2 ** attempt, 10000);
+    await new Promise((resolve) => {
+      setTimeout(resolve, timeout);
+    });
+    return fetchWithRetry(context, attempt + 1, maxAttempts);
+  }
+}
+
 export async function getStaticPaths() {
   return getPageStaticPaths();
 }
 
 export async function getStaticProps(context) {
-  return getPageStaticProps(context);
+  return fetchWithRetry(context);
 }
 
 export default Page;
