@@ -1,10 +1,5 @@
 import { blockify } from "@/climatemappedafrica/lib/data/blockify";
-import { fetchProfile } from "@/climatemappedafrica/lib/hurumap";
-
-// TODO(kilemensi): Use HURUmap APIs (or CMS) to pick geographies we'd like to
-//                  build pages for at build time (It can't be all geographies
-//                  as that will take forever)
-const GEOGRAPHIES = ["af", "ke", "tz"];
+import { fetchCachedProfile } from "@/climatemappedafrica/lib/hurumap";
 
 export function imageFromMedia(media, options) {
   const alt = options?.alt || media.alt;
@@ -39,7 +34,7 @@ function getFooter(variant, settings) {
   };
 }
 
-async function getNavBar(variant, settings) {
+function getNavBar(variant, settings) {
   const { hurumap, site } = settings;
   const {
     connect: { links = [] },
@@ -79,25 +74,82 @@ export async function getPagePaths(api) {
     profilePage = hurumapSettings.page.value;
   }
   const { docs: pages } = await api.getCollection("pages");
-  const paths = pages.flatMap(({ slug }) => {
-    // TODO(kilemensi): Handle parent > child page relation e.g. /insights/news
+
+  const pathPromises = pages.map(async ({ slug }) => {
     if (slug !== profilePage?.slug) {
-      return {
-        params: {
-          slugs: [slug === "index" ? "" : slug],
+      return [
+        {
+          params: {
+            slugs: [slug === "index" ? "" : slug],
+          },
         },
-      };
+      ];
     }
+    const { url: hurumapUrl, profile: profileId } = hurumapSettings;
     // HURUmap profile page
-    return GEOGRAPHIES.map((code) => ({
+    const { locations } = await fetchCachedProfile({
+      baseUrl: hurumapUrl,
+      profileId,
+    });
+    const topLevels = locations.filter(
+      (topLevel) =>
+        topLevel.level === "Continent" || topLevel.level === "Country",
+    );
+    return topLevels?.map((l) => ({
       params: {
-        slugs: [profilePage.slug, code],
+        slugs: [profilePage.slug, l.code],
       },
     }));
   });
+  const resolvedPaths = await Promise.all(pathPromises);
+  const paths = resolvedPaths.flat();
+
   return {
     paths,
     fallback: true,
+  };
+}
+
+const errorConfigs = {
+  500: {
+    title: "Server Error.",
+    statusCode: 500,
+    descriptionText: "Server encountered an unexpected error.",
+  },
+  404: {
+    title: "Not Found.",
+    statusCode: 404,
+    descriptionText: "Resource not found.",
+  },
+};
+
+function getDefaultErrorPageProps(slug, variant, settings) {
+  const config = errorConfigs[slug] || errorConfigs[404];
+  const footer = getFooter(variant, settings);
+  const menus = getNavBar(variant, settings);
+  return {
+    blocks: [
+      {
+        ...config,
+        description: [
+          {
+            children: [
+              {
+                text: config.descriptionText,
+                children: null,
+              },
+            ],
+          },
+        ],
+        link: {
+          label: "Go Home",
+          href: "/",
+        },
+        slug: "error",
+      },
+    ],
+    footer,
+    menus,
   };
 }
 
@@ -112,14 +164,12 @@ export async function getPageProps(api, context) {
   const {
     docs: [page],
   } = await api.findPage(slug, options);
-  if (!page) {
-    return null;
-  }
 
   let variant = "default";
   const settings = {};
   settings.site = (await api.findGlobal("settings-site")) || null;
   const { analytics } = settings.site;
+
   const hurumapSettings = await api.findGlobal("settings-hurumap");
   if (hurumapSettings?.enabled) {
     // TODO(koech): Handle cases when fetching profile fails?
@@ -129,7 +179,10 @@ export async function getPageProps(api, context) {
       profile: profileId,
       ...otherHurumapSettings
     } = hurumapSettings;
-    const profile = await fetchProfile({ baseUrl: hurumapUrl, profileId });
+    const profile = await fetchCachedProfile({
+      baseUrl: hurumapUrl,
+      profileId,
+    });
     const { value: profilePage } = hurumapPage;
     if (slug === profilePage.slug) {
       variant = "explore";
@@ -152,9 +205,16 @@ export async function getPageProps(api, context) {
     };
   }
 
+  if (!page) {
+    if (["404", "500"].includes(slug)) {
+      return getDefaultErrorPageProps(slug, variant, settings);
+    }
+    return null;
+  }
+
   const blocks = await blockify(page, api, context, settings);
   const footer = getFooter(variant, settings);
-  const menus = await getNavBar(variant, settings);
+  const menus = getNavBar(variant, settings);
 
   return {
     analytics,

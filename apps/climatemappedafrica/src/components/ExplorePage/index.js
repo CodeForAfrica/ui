@@ -110,11 +110,12 @@ function ExplorePage({
   useEffect(() => {
     if (state.slug) {
       const href = `/${explorePagePath}/${state.slug}`;
-      router.push(href, href, { shallow: true });
+      // We do not need shallow routing to allow full page transitions for nested routes
+      router.push(href);
     }
     // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.slug]);
+  }, [explorePagePath, state.slug]);
 
   const handleSelectLocation = (payload) => {
     const { code } = payload;
@@ -123,7 +124,7 @@ function ExplorePage({
         ? `${state.primary.geography.code}-vs-${code}`
         : `${code}`;
     const href = `/${explorePagePath}/${newPath.toLowerCase()}`;
-    router.push(href, href, { shallow: true });
+    router.push(href);
     const type = state.isPinning && state.isCompare ? "compare" : "fetch";
     dispatch({ type, payload });
   };
