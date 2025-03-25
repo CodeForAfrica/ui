@@ -1,4 +1,3 @@
-import { Link } from "@commons-ui/next";
 import {
   IconButton,
   InputBase,
@@ -37,9 +36,26 @@ function DropdownSearch({
     setSelectedLocation(null);
   };
 
+  const handleClickSearch = () => {
+    if (onClick) {
+      onClick(selectedLocation);
+    } else if (selectedLocation) {
+      const href = `${hrefProp}/${selectedLocation}`;
+      router.push(href);
+    } else if (query) {
+      router.push("/404");
+    }
+  };
+
   const handleSelect = (code, name) => {
     setQuery(name.toLowerCase());
     setSelectedLocation(code);
+    if (onClick) {
+      onClick(code);
+    } else {
+      const href = `${hrefProp}/${code}`;
+      router.push(href);
+    }
   };
 
   useEffect(() => {
@@ -52,17 +68,6 @@ function DropdownSearch({
       setSuggestions([]);
     }
   }, [locations, selectedLocation, query]);
-
-  const handleClickSearch = () => {
-    if (onClick) {
-      onClick(selectedLocation);
-    } else if (selectedLocation) {
-      const href = `${hrefProp}/${selectedLocation}`;
-      router.push(href);
-    } else if (query) {
-      router.push("/404");
-    }
-  };
 
   let iconComponent = SearchIcon;
   let iconBorder;
@@ -171,14 +176,13 @@ function DropdownSearch({
           >
             {suggestions.map(({ name, code }) => (
               <ListItem
-                component={Link}
-                href={`${hrefProp}/${code}`}
                 variant="subtitle1"
                 underline="none"
                 onClick={() => handleSelect(code, name)}
                 sx={({ typography, palette }) => ({
                   paddingLeft: typography.pxToRem(20),
                   color: palette.text.hint,
+                  cursor: "pointer",
                 })}
                 key={code}
               >
