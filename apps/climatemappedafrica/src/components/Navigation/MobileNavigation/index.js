@@ -105,7 +105,12 @@ function MobileNavigation({
             padding: 0,
           }}
         >
-          <Section>
+          <Section
+            fixed={false}
+            sx={{
+              padding: `0 ${theme.typography.pxToRem(20)}`,
+            }}
+          >
             <Grid
               container
               alignItems="center"
@@ -152,15 +157,20 @@ function MobileNavigation({
             padding: `${typography.pxToRem(40)} 0`,
           })}
         >
-          <Section>
+          <Section
+            fixed={false}
+            sx={{
+              padding: `0 ${theme.typography.pxToRem(20)}`,
+            }}
+          >
             <Menu
               explorePagePath={explorePagePath}
               links={menus}
               socialLinks={socialLinks}
               LinkProps={{
                 sx: {
-                  padding: 0,
                   margin: `${theme.typography.pxToRem(10)} 0`,
+                  color: "text.secondary",
                 },
               }}
             >
