@@ -96,7 +96,7 @@ async function fetchWithRetry(url, attempt = 1, maxAttempts = 5) {
     return await fetchJson(url);
   } catch (error) {
     if (attempt === maxAttempts) {
-      throw error; // Let the caller handle the final failure
+      throw error;
     }
     const timeout = Math.min(1000 * 2 ** attempt, 10000);
     await new Promise((resolve) => {

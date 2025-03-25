@@ -2,7 +2,7 @@ name: Climate Mapped Africa | Deploy | DEV
 
 on:
   push:
-    branches: [main, ft/improve-climatemap-build-time]
+    branches: [main]
     paths:
       - "apps/climatemappedafrica/**"
       - "Dockerfile"
@@ -33,9 +33,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
@@ -63,7 +60,6 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          platforms: linux/amd64,linux/arm64
           target: climatemappedafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
