@@ -1,3 +1,5 @@
+import transformDocMediaUrl from "../utils/transformDocMediaUrl";
+
 const Media = {
   slug: "media",
   admin: {
@@ -22,7 +24,7 @@ const Media = {
     },
   ],
   hooks: {
-    afterRead: [({ doc }) => ({ ...doc, src: doc.url })],
+    afterRead: [({ doc }) => transformDocMediaUrl(doc)],
   },
 };
 
