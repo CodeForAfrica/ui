@@ -37,7 +37,7 @@ catalog:
   "@mui/x-tree-view": ^7.15.0
   "@next/env": ^15.0.3
   "@next/eslint-plugin-next": ^15.0.3
-  "@next/mdx": ^15.0.3
+  "@next/mdx": ^15.2.4
   "@next/third-parties": ^15.0.3
   "@nivo/core": ^0.84.0
   "@nivo/pie": ^0.84.0
