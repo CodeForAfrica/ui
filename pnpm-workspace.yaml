@@ -63,7 +63,7 @@ catalog:
   "@storybook/blocks": ^8.2.9
   "@storybook/cli": ^8.2.9
   "@storybook/nextjs": ^8.2.9
-  "@storybook/react": ^8.2.9
+  "@storybook/react": ^8.6.11
   "@storybook/test": ^8.2.9
   "@svgr/webpack": ^8.1.0
   "@swc/core": ^1.7.23
