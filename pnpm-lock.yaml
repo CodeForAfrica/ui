@@ -121,8 +121,8 @@ catalogs:
       specifier: ^0.84.0
       version: 0.84.0
     '@nivo/waffle':
-      specifier: ^0.84.0
-      version: 0.84.0
+      specifier: ^0.88.0
+      version: 0.88.0
     '@payloadcms/bundler-webpack':
       specifier: ^1.0.7
       version: 1.0.7
@@ -686,7 +686,7 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nivo/waffle':
         specifier: 'catalog:'
-        version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
         version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(sass@1.69.4)
@@ -5343,11 +5343,16 @@ packages:
     peerDependencies:
       react: '>= 16.14.0 < 19.0.0'
 
-  '@nivo/canvas@0.84.0':
-    resolution: {integrity: sha512-sDO3JOFwicChzdhLfesGFp/Y93gAwCo8ooGbaRrpln9avREnoV8SfSuxlysSgBSX5axPEmzDLx77gma7hgTXPQ==}
+  '@nivo/canvas@0.88.0':
+    resolution: {integrity: sha512-fMpT8TIC4FECfB66/q7w3duFLAuzg+772ho4XO7Woa90Aa3G68zhC0gki0CAUWMV0dx3vYsvTdMpNPRE6ffOVg==}
 
   '@nivo/colors@0.84.0':
     resolution: {integrity: sha512-wNG1uYyDP5Owc1Pdkz0zesdZCrPAywmSssNzQ2Aju7nVs7Ru7iHNBIvOAGgyXTe2gcrIO9VSasXWR+jEYyxN2Q==}
+    peerDependencies:
+      react: '>= 16.14.0 < 19.0.0'
+
+  '@nivo/colors@0.88.0':
+    resolution: {integrity: sha512-IZ+leYIqAlo7dyLHmsQwujanfRgXyoQ5H7PU3RWLEn1PP0zxDKLgEjFEDADpDauuslh2Tx0L81GNkWR6QSP0Mw==}
     peerDependencies:
       react: '>= 16.14.0 < 19.0.0'
 
@@ -5357,11 +5362,21 @@ packages:
       prop-types: '>= 15.5.10 < 16.0.0'
       react: '>= 16.14.0 < 19.0.0'
 
-  '@nivo/grid@0.84.0':
-    resolution: {integrity: sha512-dF3hVvECW7uHs9PHy855HhREpwFJ4ckx34Nnovs8M9A0rfHgvakWpuaegZgyMedAksgTDTxAXv86lpMg9LjHYA==}
+  '@nivo/core@0.88.0':
+    resolution: {integrity: sha512-XjUkA5MmwjLP38bdrJwn36Gj7T5SYMKD55LYQp/1nIJPdxqJ38dUfE4XyBDfIEgfP6yrHOihw3C63cUdnUBoiw==}
+    peerDependencies:
+      react: '>= 16.14.0 < 19.0.0'
+
+  '@nivo/grid@0.88.0':
+    resolution: {integrity: sha512-y4qVmgSzf58xRufQUNiQlsh2PVRrWkPCvhKsIT6PhPCXFNE8ltQ5raccS89IlgkVmewyfWq2YQenqCAlBwC0jQ==}
 
   '@nivo/legends@0.84.0':
     resolution: {integrity: sha512-o0s1cXoIH6Km9A2zoKB8Ey99Oc1w5nymz0j8s7hR2B0EHo5HgVbYjSs2sZD7NSwLt3QM57Nzxw9VzJ+sqfV30Q==}
+    peerDependencies:
+      react: '>= 16.14.0 < 19.0.0'
+
+  '@nivo/legends@0.88.0':
+    resolution: {integrity: sha512-d4DF9pHbD8LmGJlp/Gp1cF4e8y2wfQTcw3jVhbZj9zkb7ZWB7JfeF60VHRfbXNux9bjQ9U78/SssQqueVDPEmg==}
     peerDependencies:
       react: '>= 16.14.0 < 19.0.0'
 
@@ -5378,8 +5393,13 @@ packages:
   '@nivo/tooltip@0.84.0':
     resolution: {integrity: sha512-x/6Vk4RXKHkG9q5dk4uFYwEfbMoIvJd5ahhVQ6bskuLks5FZoS6bkKoNggjxwmHbIWOVITGUXuykOfC54EWSpw==}
 
-  '@nivo/waffle@0.84.0':
-    resolution: {integrity: sha512-0pEzvzjFLWbMvzPhzKYZzv+3UPQQsS3EPcXxo7w96phpIOjiHKq/IFR0JQd+gCC79Seiu//rICejjkrm+o9xJQ==}
+  '@nivo/tooltip@0.88.0':
+    resolution: {integrity: sha512-iEjVfQA8gumAzg/yUinjTwswygCkE5Iwuo8opwnrbpNIqMrleBV+EAKIgB0PrzepIoW8CFG/SJhoiRfbU8jhOw==}
+    peerDependencies:
+      react: '>= 16.14.0 < 19.0.0'
+
+  '@nivo/waffle@0.88.0':
+    resolution: {integrity: sha512-n3vrq9m6/m5HZwBBcX78FHjaB99O5DyOVMn+bFGfgcfBDnSv7B1iwZuapeNVNd11SVhb/H+Nq3J/+1b3pU4glQ==}
     peerDependencies:
       react: '>= 16.14.0 < 19.0.0'
 
@@ -6793,6 +6813,9 @@ packages:
 
   '@types/d3-scale-chromatic@2.0.4':
     resolution: {integrity: sha512-OUgfg6wmoZVhs0/pV8HZhsMw7pYJnS6smfNK2S5ogMaPHfDUaTMu7JA5ssZrRupwf2vWI+haPAuUpsz+M1BOKA==}
+
+  '@types/d3-scale-chromatic@3.1.0':
+    resolution: {integrity: sha512-iWMJgwkK7yTRmWqRB5plb1kadXyQ5Sj8V/zYlFGMUBbIPKQScw+Dku9cAAMgJG+z5GYDoMjWGLVOvjghDEFnKQ==}
 
   '@types/d3-scale@3.3.5':
     resolution: {integrity: sha512-YOpKj0kIEusRf7ofeJcSZQsvKbnTwpe1DUF+P2qsotqG53kEsjm7EzzliqQxMkAWdkZcHrg5rRhB4JiDOQPX+A==}
@@ -17607,7 +17630,7 @@ snapshots:
       - prop-types
       - react-dom
 
-  '@nivo/canvas@0.84.0': {}
+  '@nivo/canvas@0.88.0': {}
 
   '@nivo/colors@0.84.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -17619,6 +17642,22 @@ snapshots:
       d3-color: 3.1.0
       d3-scale: 3.3.0
       d3-scale-chromatic: 2.0.0
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.3.1
+    transitivePeerDependencies:
+      - react-dom
+
+  '@nivo/colors@0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@nivo/core': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/d3-color': 3.1.3
+      '@types/d3-scale': 4.0.8
+      '@types/d3-scale-chromatic': 3.1.0
+      '@types/prop-types': 15.7.13
+      d3-color: 3.1.0
+      d3-scale: 4.0.2
+      d3-scale-chromatic: 3.1.0
       lodash: 4.17.21
       prop-types: 15.8.1
       react: 18.3.1
@@ -17644,7 +17683,25 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  '@nivo/grid@0.84.0': {}
+  '@nivo/core@0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@nivo/tooltip': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-spring/web': 9.7.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/d3-shape': 3.1.6
+      d3-color: 3.1.0
+      d3-format: 1.4.5
+      d3-interpolate: 3.0.1
+      d3-scale: 4.0.2
+      d3-scale-chromatic: 3.1.0
+      d3-shape: 3.2.0
+      d3-time-format: 3.0.0
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.3.1
+    transitivePeerDependencies:
+      - react-dom
+
+  '@nivo/grid@0.88.0': {}
 
   '@nivo/legends@0.84.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -17654,6 +17711,16 @@ snapshots:
       '@types/prop-types': 15.7.13
       d3-scale: 3.3.0
       prop-types: 15.8.1
+      react: 18.3.1
+    transitivePeerDependencies:
+      - react-dom
+
+  '@nivo/legends@0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@nivo/colors': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@nivo/core': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/d3-scale': 4.0.8
+      d3-scale: 4.0.2
       react: 18.3.1
     transitivePeerDependencies:
       - react-dom
@@ -17689,20 +17756,27 @@ snapshots:
       - react
       - react-dom
 
-  '@nivo/waffle@0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@nivo/tooltip@0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@nivo/canvas': 0.84.0
-      '@nivo/colors': 0.84.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nivo/core': 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nivo/grid': 0.84.0
-      '@nivo/legends': 0.84.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nivo/tooltip': 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@nivo/core': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-spring/web': 9.7.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@types/d3-shape': 2.1.7
-      d3-shape: 1.3.7
       react: 18.3.1
     transitivePeerDependencies:
-      - prop-types
+      - react-dom
+
+  '@nivo/waffle@0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@nivo/canvas': 0.88.0
+      '@nivo/colors': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@nivo/core': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@nivo/grid': 0.88.0
+      '@nivo/legends': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@nivo/tooltip': 0.88.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-spring/web': 9.7.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@types/d3-shape': 3.1.6
+      d3-shape: 3.2.0
+      react: 18.3.1
+    transitivePeerDependencies:
       - react-dom
 
   '@nodelib/fs.scandir@2.1.5':
@@ -20190,6 +20264,8 @@ snapshots:
   '@types/d3-path@3.1.0': {}
 
   '@types/d3-scale-chromatic@2.0.4': {}
+
+  '@types/d3-scale-chromatic@3.1.0': {}
 
   '@types/d3-scale@3.3.5':
     dependencies:
