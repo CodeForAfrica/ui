@@ -37,7 +37,7 @@ catalog:
   "@mui/x-tree-view": ^7.15.0
   "@next/env": ^15.0.3
   "@next/eslint-plugin-next": ^15.0.3
-  "@next/mdx": ^15.0.3
+  "@next/mdx": ^15.2.4
   "@next/third-parties": ^15.0.3
   "@nivo/core": ^0.84.0
   "@nivo/pie": ^0.84.0
@@ -63,7 +63,7 @@ catalog:
   "@storybook/blocks": ^8.2.9
   "@storybook/cli": ^8.2.9
   "@storybook/nextjs": ^8.2.9
-  "@storybook/react": ^8.2.9
+  "@storybook/react": ^8.6.11
   "@storybook/test": ^8.2.9
   "@svgr/webpack": ^8.1.0
   "@swc/core": ^1.7.23
@@ -93,9 +93,9 @@ catalog:
   date-fns: ^4.1.0
   deepmerge: ^4.3.1
   dotenv: ^16.4.5
-  eslint: ^9.0.0
+  eslint: ^9.23.0
   eslint-config-airbnb: ^19.0.4
-  eslint-config-next: ^15.0.3
+  eslint-config-next: ^15.2.4
   eslint-config-prettier: ^9.1.0
   eslint-config-turbo: ^2.1.1
   eslint-import-resolver-babel-module: ^5.3.2
@@ -104,7 +104,7 @@ catalog:
   eslint-import-resolver-typescript: ^3.6.3
   eslint-plugin-import: ^2.29.1
   eslint-plugin-jest: ^28.8.3
-  eslint-plugin-jest-dom: ^5.4.0
+  eslint-plugin-jest-dom: ^5.5.0
   eslint-plugin-json: ^4.0.1
   eslint-plugin-jsx-a11y: ^6.10.0
   eslint-plugin-markdown: ^5.1.0
@@ -138,7 +138,7 @@ catalog:
   lodash: ^4.17.21
   migrate-mongo: ^11.0.0
   monaco-editor: ^0.51.0
-  next: ^15.0.3
+  next: ^15.2.4
   next-auth: ^4.24.7
   next-images: ^1.8.5
   next-seo: ^6.6.0
@@ -186,7 +186,7 @@ catalog:
   typescript: ^5.5.4
   typescript-eslint: ^8.16.0
   turbo: ^2.1.1
-  vega: ^5.30.0
+  vega: ^5.31.0
   vega-embed: ^6.26.0
   vega-lite: ^5.21.0
   vega-tooltip: ^0.34.0
