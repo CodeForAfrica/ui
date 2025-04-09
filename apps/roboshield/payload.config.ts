@@ -1,13 +1,11 @@
 import { loadEnvConfig } from "@next/env";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import { cloudStoragePlugin } from "@payloadcms/plugin-cloud-storage";
 import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
-import nestedDocs from "@payloadcms/plugin-nested-docs";
-import seo from "@payloadcms/plugin-seo";
+import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
+import { seoPlugin } from "@payloadcms/plugin-seo";
 import { slateEditor } from "@payloadcms/richtext-slate";
-import { buildConfig } from "payload/config";
-import { CollectionConfig, GlobalConfig } from "payload/types";
+import { CollectionConfig, GlobalConfig, buildConfig } from "payload";
 import { Config } from "./payload-types";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
@@ -71,23 +69,10 @@ export default buildConfig({
         },
       ],
     },
-    webpack: (config) => ({
-      ...config,
-      resolve: {
-        ...config.resolve,
-        fallback: {
-          ...config?.resolve?.fallback,
-          fs: false,
-          os: false,
-          "process/browser": false,
-        },
-      },
-    }),
-    bundler: webpackBundler(),
   },
   cors,
   csrf,
-  i18n: {
+  /*i18n: {
     fallbackLng: "en", // default
     debug: false, // default
     resources: {
@@ -97,9 +82,9 @@ export default buildConfig({
         },
       },
     },
-  },
+  },*/
   plugins: [
-    cloudStorage({
+    cloudStoragePlugin({
       collections: {
         media: {
           adapter,
@@ -107,7 +92,7 @@ export default buildConfig({
         },
       },
     }),
-    seo({
+    seoPlugin({
       collections: ["pages"],
       globals: ["settings-site"],
       fields: [
@@ -127,13 +112,14 @@ export default buildConfig({
       generateURL: ({ doc }: any) =>
         doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
     } as any),
-    nestedDocs({
+    nestedDocsPlugin({
       collections: ["pages"],
       generateLabel: (_, doc) => doc.title as string,
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
     }),
   ] as any[],
+  secret: process.env.PAYLOAD_SECRET || "",
   telemetry: process?.env?.NODE_ENV !== "production",
   typescript: {
     declare: false, // defaults to true if not set

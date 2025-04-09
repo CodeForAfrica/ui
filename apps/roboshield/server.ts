@@ -3,7 +3,7 @@ import { spawn } from "child_process";
 import express from "express";
 import next from "next";
 import payload from "payload";
-import { Payload } from "payload/dist/payload";
+import { type Payload } from "payload";
 import { loadEnvConfig } from "@next/env";
 
 const projectDir = process.cwd();
@@ -52,7 +52,6 @@ const start = async (): Promise<void> => {
             },
           }
         : undefined),
-      secret: process.env.PAYLOAD_SECRET ?? "",
       express: app,
       onInit: (initPayload: { logger: { info: (arg0: string) => void } }) => {
         initPayload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);

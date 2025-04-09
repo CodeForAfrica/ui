@@ -207,3 +207,19 @@ catalogs:
     "@mui/styles": ^5.16.6
     "@mui/utils": ^5.16.6
     "@mui/private-theming": ^5.16.6
+
+  payload-v3:
+    payload: "3.31.0"
+    "@payloadcms/db-mongodb": "3.31.0"
+    "@payloadcms/live-preview-react": "3.31.0"
+    "@payloadcms/next": "3.31.0"
+    "@payloadcms/payload-cloud": "3.31.0"
+    "@payloadcms/plugin-form-builder": "3.31.0"
+    "@payloadcms/plugin-nested-docs": "3.31.0"
+    "@payloadcms/plugin-redirects": "3.31.0"
+    "@payloadcms/plugin-search": "3.31.0"
+    "@payloadcms/plugin-seo": "3.31.0"
+    "@payloadcms/richtext-slate": "3.31.0"
+    "@payloadcms/ui": "3.31.0"
+    "@payloadcms/plugin-sentry": "3.31.0"
+    "@payloadcms/plugin-cloud-storage": "3.31.0"
