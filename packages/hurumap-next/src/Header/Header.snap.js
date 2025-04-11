@@ -7,12 +7,12 @@ exports[`<Header /> renders unchanged 1`] = `
     title="Title with <span class="highlight">Highlight</span>"
   >
     <div
-      class="MuiTypography-root MuiTypography-overline css-1403f4m-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-overline css-1qgi9z8-MuiTypography-root"
     >
       Overline
     </div>
     <div
-      class="MuiTypography-root MuiTypography-subtitle1 css-og7wkx-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-subtitle1 css-da6zqu-MuiTypography-root"
     >
       A short paragraph to describe what the header is all about.
     </div>

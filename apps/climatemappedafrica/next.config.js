@@ -6,7 +6,7 @@ const outputFileTracingRoot = PROJECT_ROOT
   : undefined;
 
 module.exports = {
-  experimental: {
+  experimental: outputFileTracingRoot && {
     outputFileTracingRoot,
   },
   images: {

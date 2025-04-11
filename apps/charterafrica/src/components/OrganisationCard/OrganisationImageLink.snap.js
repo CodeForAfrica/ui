@@ -3,8 +3,9 @@
 exports[`<OrganisationImageCard /> renders unchanged 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
     href="https://charter.africa"
+    id=":r0:"
     rel="noreferrer noopener"
     tabindex="0"
     target="_blank"
@@ -13,11 +14,11 @@ exports[`<OrganisationImageCard /> renders unchanged 1`] = `
       class="MuiStack-root css-1l9qugs-MuiStack-root"
     >
       <figure
-        class="MuiBox-root css-1u82k0c"
+        class="MuiBox-root css-6roq6o"
       >
         <img
           alt="Organisation Name"
-          class="css-1r7uxv0"
+          class="css-1enhhhm"
           data-nimg="fill"
           decoding="async"
           loading="lazy"
@@ -28,7 +29,7 @@ exports[`<OrganisationImageCard /> renders unchanged 1`] = `
         />
       </figure>
       <div
-        class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p3SemiBold css-1aw81q8-MuiTypography-root"
       >
         Organisation Name
       </div>

@@ -6,7 +6,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-s6f1m4-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10vms58-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] css-o70cs7-MuiGrid-root"
@@ -15,20 +15,20 @@ exports[`<Dataset /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-ucdck3-MuiGrid-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-p1 css-i1xkt3-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1dr4mcp-MuiTypography-root"
           >
             Back to Datasets
           </a>
           <h2
-            class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom css-1vv4c3h-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom css-xvgnvn-MuiTypography-root"
           >
             Document Title
           </h2>
           <p
-            class="MuiTypography-root MuiTypography-p1 css-l6prdf-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1mclz91-MuiTypography-root"
           >
             <span
-              class="MuiTypography-root MuiTypography-inherit css-dhy9gx-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-inherit css-1wojwvd-MuiTypography-root"
             >
               Created January 1, 2021
             </span>
@@ -37,39 +37,40 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1phk7xb-MuiGrid-root"
           >
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1puf64w-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1bfmoy7-MuiChip-root"
             >
               <span
-                class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
               >
                 CSV
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1g3w73k-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-7i6xv5-MuiChip-root"
             >
               <span
-                class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
               >
                 PDF
               </span>
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-11h43d9-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-cctx58-MuiButtonBase-root-MuiButton-root"
+            id=":r0:"
             tabindex="0"
             target="_blank"
             type="button"
           >
             <span
-              class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeLarge css-vpap0f-MuiButton-startIcon"
+              class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeLarge css-1xskro6-MuiButton-startIcon"
             >
               <div />
             </span>
             Open Dataset
           </button>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-n4k5ds-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1nxupmx-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.
           </div>
@@ -78,7 +79,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-[object Object] MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-kdi1tf-MuiGrid-root"
         >
           <a
-            class="MuiTypography-root MuiTypography-p1 css-1w5j2yd-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-1n0t3bi-MuiTypography-root"
           >
             Back to Datasets
           </a>
@@ -86,7 +87,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiStack-root css-1xe1uy8-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p3 css-7dv6su-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p3 css-4m30it-MuiTypography-root"
             >
               Share Via
             </div>
@@ -100,7 +101,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -112,7 +113,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -124,7 +125,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -134,7 +135,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
         </div>
       </div>
       <a
-        class="MuiTypography-root MuiTypography-p1 css-1v10z4i-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1wd86cb-MuiTypography-root"
       >
         Back to Datasets
       </a>
@@ -148,7 +149,7 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <h3
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-11gtfkg-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1k4ywuw-MuiTypography-root"
             >
               See more datasets
             </h3>
@@ -157,14 +158,14 @@ exports[`<Dataset /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-p1 css-1wdkhl3-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-z9sjxm-MuiTypography-root"
             >
               See more datasets
             </a>
           </div>
         </div>
         <a
-          class="MuiTypography-root MuiTypography-p1 css-qnck1c-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-9llhji-MuiTypography-root"
         >
           Back to Datasets
         </a>

@@ -6,7 +6,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
     class="MuiBox-root css-1nwzh4i"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ga302z-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1q4btob-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -18,7 +18,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiTypography-root MuiTypography-overline css-5fiibi-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-overline css-rqlamj-MuiTypography-root"
             >
               About
             </div>
@@ -26,7 +26,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
               class="MuiBox-root css-1luw7yi"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1 css-1477y3a-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1 css-gu7oov-MuiTypography-root"
               >
                 Project  
                 <strong>
@@ -39,7 +39,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
               class="MuiBox-root css-1yyblq"
             >
               <h6
-                class="MuiTypography-root MuiTypography-subtitle1 css-yf3d1b-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subtitle1 css-1r50n8o-MuiTypography-root"
               >
                 Learn more about 
                 <strong>
@@ -51,7 +51,7 @@ exports[`<PageHero /> renders unchanged 1`] = `
                 </em>
                  and how you can help improve 
                 <a
-                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-subtitle1 active css-hch5q3-MuiTypography-root-MuiLink-root-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-subtitle1 active css-1c4b5qt-MuiTypography-root-MuiLink-root-MuiTypography-root"
                   href="/"
                 >
                   ClimateMap

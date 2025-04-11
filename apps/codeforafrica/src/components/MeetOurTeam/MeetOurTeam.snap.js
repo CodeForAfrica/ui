@@ -6,7 +6,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
     class="MuiBox-root css-1mkqfm9"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-wo9xbb-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-14agrwc-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
@@ -15,7 +15,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-qq6rd1-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-1j82ixe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-vk3q8d-MuiTypography-root"
           >
             title
           </div>
@@ -23,7 +23,7 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             class="MuiBox-root css-pxpt32"
           >
             <span
-              class="MuiTypography-root MuiTypography-body3 css-b9odyg-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body3 css-1edqesx-MuiTypography-root"
             >
               <strong>
                 Africa's
@@ -32,8 +32,9 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
             </span>
           </div>
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-cuycut-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-1ctsdn-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/about#our-team"
+            id=":r0:"
             tabindex="0"
           >
             Meet our team
@@ -43,11 +44,11 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1912ugn-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-97qtcq"
+            class="MuiBox-root css-1xjnpxv"
           >
             <img
               alt="Our offices across africa"
-              class="css-g98gbd"
+              class="css-qv2885"
               data-nimg="fill"
               decoding="async"
               loading="lazy"

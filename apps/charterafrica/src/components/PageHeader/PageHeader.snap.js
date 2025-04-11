@@ -9,17 +9,17 @@ exports[`<PageHeader/> renders unchanged 1`] = `
       class="MuiBox-root css-14gw6dj"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-u9nzae-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1qw5437-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-xwarr-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-17u5j6m"
+            class="MuiBox-root css-qe5rve"
           >
             <img
               alt="About"
-              class="css-g98gbd"
+              class="css-qv2885"
               data-nimg="1"
               decoding="async"
               height="0"
@@ -32,7 +32,7 @@ exports[`<PageHeader/> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-1kqkv4f-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-ten9jr-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -41,7 +41,7 @@ exports[`<PageHeader/> renders unchanged 1`] = `
               class="MuiBox-root css-qhe18k"
             >
               <h1
-                class="MuiTypography-root MuiTypography-h1Small css-1k3x2yj-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h1Small css-1a8ie7p-MuiTypography-root"
               >
                 The largest digital database for 
                 <strong>

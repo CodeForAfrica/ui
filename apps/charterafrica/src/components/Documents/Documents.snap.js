@@ -6,7 +6,7 @@ exports[`<Documents /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-27tpcc-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-11jnlxf-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-blp6vs"
@@ -15,39 +15,43 @@ exports[`<Documents /> renders unchanged 1`] = `
           class="MuiBox-root css-1kgakwq"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-5yr11w-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 css-k1f5dp-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
             >
               <div
-                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1iuekym-MuiInputBase-root-MuiOutlinedInput-root"
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-4zizdr-MuiInputBase-root-MuiOutlinedInput-root"
               >
                 <input
-                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
+                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-pvvzpi-MuiInputBase-input-MuiOutlinedInput-input"
                   placeholder="Search"
                   type="search"
                   value=""
                 />
                 <button
                   aria-label="search"
-                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-av538e-MuiButtonBase-root-MuiIconButton-root"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1avsmgh-MuiButtonBase-root-MuiIconButton-root"
+                  id=":r0:"
                   tabindex="0"
                   type="button"
                 >
+                  <span
+                    class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                  />
                   <div
                     aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-scw3l4-MuiSvgIcon-root"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1suu95-MuiSvgIcon-root"
                     focusable="false"
                     viewbox="0 0 16 16"
                   />
                 </button>
                 <fieldset
                   aria-hidden="true"
-                  class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+                  class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="css-yjsfm1"
+                    class="css-81qg8w"
                   >
                     <span>
                       Search
@@ -60,13 +64,13 @@ exports[`<Documents /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
             >
               <div
-                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-cd7l2b-MuiAutocomplete-root"
+                class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-b4rh0e-MuiAutocomplete-root"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-rwdu3q-MuiFormControl-root-MuiTextField-root"
+                  class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-niwfbu-MuiFormControl-root-MuiTextField-root"
                 >
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-mtvuba-MuiInputBase-root-MuiOutlinedInput-root"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-f06f7r-MuiInputBase-root-MuiOutlinedInput-root"
                   >
                     <input
                       aria-autocomplete="list"
@@ -74,26 +78,30 @@ exports[`<Documents /> renders unchanged 1`] = `
                       aria-invalid="false"
                       autocapitalize="none"
                       autocomplete="off"
-                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-222ubz-MuiInputBase-input-MuiOutlinedInput-input"
-                      id=":r0:"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-afq685-MuiInputBase-input-MuiOutlinedInput-input"
+                      id=":r1:"
                       role="combobox"
                       spellcheck="false"
                       type="text"
                       value="Sort"
                     />
                     <div
-                      class="MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment"
+                      class="MuiAutocomplete-endAdornment css-1uhhrmm-MuiAutocomplete-endAdornment"
                     >
                       <button
                         aria-label="Clear"
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1x7n7v0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                        id=":r3:"
                         tabindex="-1"
                         title="Clear"
                         type="button"
                       >
+                        <span
+                          class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                        />
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
                           data-testid="CloseIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
@@ -105,26 +113,31 @@ exports[`<Documents /> renders unchanged 1`] = `
                       </button>
                       <button
                         aria-label="Open"
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-10egcn8-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                        id=":r4:"
                         tabindex="-1"
                         title="Open"
                         type="button"
                       >
+                        <span
+                          class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                        />
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hf2qhf-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bgqlhh-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </button>
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+                      class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="css-ihdtdm"
+                        class="css-w4cd9x"
                       >
                         <span
+                          aria-hidden="true"
                           class="notranslate"
                         >
                           ​
@@ -139,20 +152,22 @@ exports[`<Documents /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-wrap-xs-nowrap MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1ia2r28-MuiGrid-root"
             >
               <p
-                class="MuiTypography-root MuiTypography-p1 css-1eww23z-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-170pkzg-MuiTypography-root"
               >
                 :
               </p>
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-17xaaej-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-d5yv8m-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="/datasets"
+                id=":r5:"
                 tabindex="0"
               >
                 Datasets
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1sbqixe-MuiButtonBase-root-MuiButton-root"
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1imxd5l-MuiButtonBase-root-MuiButton-root"
                 disabled=""
+                id=":r6:"
                 tabindex="-1"
                 type="button"
               >
@@ -162,7 +177,7 @@ exports[`<Documents /> renders unchanged 1`] = `
           </div>
         </div>
         <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+          class="MuiDivider-root MuiDivider-fullWidth css-18cva15-MuiDivider-root"
         />
       </div>
     </div>

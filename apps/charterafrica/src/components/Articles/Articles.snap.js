@@ -9,7 +9,7 @@ exports[`<Articles /> renders unchanged 1`] = `
       class="MuiBox-root css-e2yz6z"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-dygcit-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1k9ut7q-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1bnx1lo-MuiGrid-root"
@@ -18,40 +18,44 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5 css-1lirkz0-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5 css-jx2mcl-MuiTypography-root"
             />
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-xmiuqd-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-kevmqv-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-1u6lhwd-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-pvvzpi-MuiInputBase-input-MuiOutlinedInput-input"
                 placeholder="Search"
                 type="search"
                 value=""
               />
               <button
                 aria-label="search"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-av538e-MuiButtonBase-root-MuiIconButton-root"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1avsmgh-MuiButtonBase-root-MuiIconButton-root"
+                id=":r0:"
                 tabindex="0"
                 type="button"
               >
+                <span
+                  class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
+                />
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-scw3l4-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1suu95-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 16 16"
                 />
               </button>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-yjsfm1"
+                  class="css-81qg8w"
                 >
                   <span>
                     Search
@@ -64,14 +68,13 @@ exports[`<Articles /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-auto css-11ydr13-MuiGrid-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary css-a46zki-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiSelect-root css-1ex860j-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
             >
               <div
-                aria-controls=":r0:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Without label"
-                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-1mtwe1r-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-1mfuego-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                 role="combobox"
                 tabindex="0"
               >
@@ -80,13 +83,13 @@ exports[`<Articles /> renders unchanged 1`] = `
               <input
                 aria-hidden="true"
                 aria-invalid="false"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                class="MuiSelect-nativeInput css-j0riat-MuiSelect-nativeInput"
                 tabindex="-1"
                 value="-publishedOn"
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -97,12 +100,13 @@ exports[`<Articles /> renders unchanged 1`] = `
               </svg>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-m401k6-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-ihdtdm"
+                  class="css-w4cd9x"
                 >
                   <span
+                    aria-hidden="true"
                     class="notranslate"
                   >
                     ​
