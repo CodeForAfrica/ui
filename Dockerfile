@@ -60,8 +60,8 @@ RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 FROM pnpm-base AS base-deps
 
 COPY pnpm-lock.yaml .
-
-RUN pnpm fetch
+# pnpm fetch fails with error .../sqlite3@5.1.7/node_modules/sqlite3 install: gyp ERR! find Python  so we ignore prebuild scripts
+RUN pnpm fetch --config.ignore-scripts
 
 COPY *.yaml *.json ./
 COPY packages/commons-ui-core/package.json ./packages/commons-ui-core/package.json
