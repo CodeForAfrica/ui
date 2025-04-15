@@ -42,13 +42,11 @@ const PartnersTab: Tab = {
               disableOpenInNewTab: true,
             }),
           ],
-          /*admin: {
+          admin: {
             components: {
-              RowLabel: ({ data, index = 0 }: RowLabelArgs) => {
-                return data?.name || `Partner ${index + 1}`;
-              },
+              RowLabel: "@/roboshield/payload/components/RowLabel.tsx",
             },
-          },*/
+          },
         },
       ],
     },

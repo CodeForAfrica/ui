@@ -9,25 +9,33 @@ interface RowData extends Record<string, any> {
 interface Data {
   title?: string;
   message?: string;
-  partner?: string;
+  name?: string;
   [key: string]: unknown;
 }
 
 const getLabelData = (
   path: string,
   data: Data,
+  rowNumber?: number,
 ): { label: string; data?: string | null } => {
+  console.log(path);
+  console.log(data);
   if (path.includes("Headers")) return { label: "Header", data: data?.title };
   if (path.includes("message"))
     return { label: "Message", data: data?.message };
   if (path.includes("partners"))
-    return { label: "Partner", data: data?.partner };
+    return {
+      label: "Partner",
+      data:
+        data?.name ||
+        (rowNumber !== undefined ? `Partner ${rowNumber + 1}` : null),
+    };
   return { label: "Item", data: null };
 };
 
 export const RowLabel = () => {
   const { data, rowNumber, path } = useRowLabel<RowData>();
-  const { label, data: message } = getLabelData(path, data);
+  const { label, data: message } = getLabelData(path, data, rowNumber);
 
   return (
     <label>{message ?? `${label} ${String(rowNumber).padStart(2, "0")}`}</label>
