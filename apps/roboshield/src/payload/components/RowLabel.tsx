@@ -10,6 +10,8 @@ interface Data {
   title?: string;
   message?: string;
   name?: string;
+  platform?: string;
+  url?: string;
   [key: string]: unknown;
 }
 
@@ -19,10 +21,12 @@ const getLabelData = (
   rowNumber?: number,
 ): { label: string; data?: string | null } => {
   console.log(path);
-  console.log(data);
+  console.log(JSON.stringify(data));
   if (path.includes("Headers")) return { label: "Header", data: data?.title };
+
   if (path.includes("message"))
     return { label: "Message", data: data?.message };
+
   if (path.includes("partners"))
     return {
       label: "Partner",
@@ -30,6 +34,20 @@ const getLabelData = (
         data?.name ||
         (rowNumber !== undefined ? `Partner ${rowNumber + 1}` : null),
     };
+
+  if (path.includes("connect.links")) {
+    return {
+      label: "Link",
+      data:
+        (data.platform && data.url && `${data.platform} (${data.url})`) ||
+        data.platform ||
+        data.url ||
+        (rowNumber !== undefined
+          ? `Link ${String(rowNumber).padStart(2, "0")}`
+          : null),
+    };
+  }
+
   return { label: "Item", data: null };
 };
 

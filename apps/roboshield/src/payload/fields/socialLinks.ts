@@ -30,32 +30,13 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
       },
     },
     minRows: 1,
-    /*admin: {
+    admin: {
       className: "array-field-nested",
       components: {
-        // @ts-ignore
-        RowLabel: ({
-          data,
-          index,
-        }: {
-          index: number;
-          data: { platform: string; url: string };
-        }) => {
-          let label = "";
-          if (data.platform) {
-            label = data.platform;
-          }
-          if (data.url) {
-            label = label ? `${label} (${data.url})` : data.url;
-          }
-          if (!label) {
-            label = `Link ${String(index).padStart(2, "0")}`;
-          }
-          return label;
-        },
-      }, 
+        RowLabel: "@/roboshield/payload/components/RowLabel.tsx",
+      },
       initCollapsed: true,
-    },*/
+    },
     fields: [
       {
         name: "platform",
