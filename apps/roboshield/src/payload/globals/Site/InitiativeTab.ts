@@ -1,8 +1,7 @@
-import { Tab } from "payload/types";
+import { type Tab } from "payload";
 import image from "../../fields/image";
 import link from "../../fields/links/link";
 import richText from "../../fields/richText";
-import { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types";
 
 const PartnersTab: Tab = {
   label: "Initiative",
@@ -43,13 +42,13 @@ const PartnersTab: Tab = {
               disableOpenInNewTab: true,
             }),
           ],
-          admin: {
+          /*admin: {
             components: {
               RowLabel: ({ data, index = 0 }: RowLabelArgs) => {
                 return data?.name || `Partner ${index + 1}`;
               },
             },
-          },
+          },*/
         },
       ],
     },

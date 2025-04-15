@@ -1,6 +1,6 @@
 import { deepmerge } from "@mui/utils";
-import { text } from "payload/dist/fields/validations";
-import { Field } from "payload/types";
+import { text } from "payload";
+import type { Field } from "payload";
 
 interface Args {
   overrides?: Partial<Field>;

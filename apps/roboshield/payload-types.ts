@@ -6,16 +6,117 @@
  * and re-run `payload generate:types` to regenerate this file.
  */
 
+/**
+ * Supported timezones in IANA format.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "supportedTimezones".
+ */
+export type SupportedTimezones =
+  | 'Pacific/Midway'
+  | 'Pacific/Niue'
+  | 'Pacific/Honolulu'
+  | 'Pacific/Rarotonga'
+  | 'America/Anchorage'
+  | 'Pacific/Gambier'
+  | 'America/Los_Angeles'
+  | 'America/Tijuana'
+  | 'America/Denver'
+  | 'America/Phoenix'
+  | 'America/Chicago'
+  | 'America/Guatemala'
+  | 'America/New_York'
+  | 'America/Bogota'
+  | 'America/Caracas'
+  | 'America/Santiago'
+  | 'America/Buenos_Aires'
+  | 'America/Sao_Paulo'
+  | 'Atlantic/South_Georgia'
+  | 'Atlantic/Azores'
+  | 'Atlantic/Cape_Verde'
+  | 'Europe/London'
+  | 'Europe/Berlin'
+  | 'Africa/Lagos'
+  | 'Europe/Athens'
+  | 'Africa/Cairo'
+  | 'Europe/Moscow'
+  | 'Asia/Riyadh'
+  | 'Asia/Dubai'
+  | 'Asia/Baku'
+  | 'Asia/Karachi'
+  | 'Asia/Tashkent'
+  | 'Asia/Calcutta'
+  | 'Asia/Dhaka'
+  | 'Asia/Almaty'
+  | 'Asia/Jakarta'
+  | 'Asia/Bangkok'
+  | 'Asia/Shanghai'
+  | 'Asia/Singapore'
+  | 'Asia/Tokyo'
+  | 'Asia/Seoul'
+  | 'Australia/Brisbane'
+  | 'Australia/Sydney'
+  | 'Pacific/Guam'
+  | 'Pacific/Noumea'
+  | 'Pacific/Auckland'
+  | 'Pacific/Fiji';
+
 export interface Config {
+  auth: {
+    users: UserAuthOperations;
+  };
+  blocks: {};
   collections: {
     media: Media;
     pages: Page;
     users: User;
-    "payload-preferences": PayloadPreference;
-    "payload-migrations": PayloadMigration;
+    'payload-locked-documents': PayloadLockedDocument;
+    'payload-preferences': PayloadPreference;
+    'payload-migrations': PayloadMigration;
+  };
+  collectionsJoins: {};
+  collectionsSelect: {
+    media: MediaSelect<false> | MediaSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
+  db: {
+    defaultIDType: string;
   };
   globals: {
-    "settings-site": SettingsSite;
+    'settings-site': SettingsSite;
+  };
+  globalsSelect: {
+    'settings-site': SettingsSiteSelect<false> | SettingsSiteSelect<true>;
+  };
+  locale: 'en';
+  user: User & {
+    collection: 'users';
+  };
+  jobs: {
+    tasks: unknown;
+    workflows: unknown;
+  };
+}
+export interface UserAuthOperations {
+  forgotPassword: {
+    email: string;
+    password: string;
+  };
+  login: {
+    email: string;
+    password: string;
+  };
+  registerFirstUser: {
+    email: string;
+    password: string;
+  };
+  unlock: {
+    email: string;
+    password: string;
   };
 }
 /**
@@ -25,10 +126,10 @@ export interface Config {
 export interface Media {
   id: string;
   alt: string;
-  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
+  thumbnailURL?: string | null;
   filename?: string | null;
   mimeType?: string | null;
   filesize?: number | null;
@@ -53,7 +154,7 @@ export interface Page {
             subtitle: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "page-header";
+            blockType: 'page-header';
           }
         | SiteHero
         | {
@@ -65,30 +166,30 @@ export interface Page {
                       }[];
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "richtext";
+                      blockType: 'richtext';
                     }
                   | {
                       image: string | Media;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "mediaBlock";
+                      blockType: 'mediaBlock';
                     }
                   | {
                       externalEmbedFields?: {
-                        embedType?: ("url" | "code") | null;
+                        embedType?: ('url' | 'code') | null;
                         url?: string | null;
                         caption?: string | null;
                         code?: string | null;
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "externalEmbed";
+                      blockType: 'externalEmbed';
                     }
                 )[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "content";
+            blockType: 'content';
           }
         | {
             title: string;
@@ -99,13 +200,16 @@ export interface Page {
                   description: {
                     [k: string]: unknown;
                   }[];
-                  icon?: string | Media | null;
+                  /**
+                   * An icon to represent this statistic. SVG format is recommended.
+                   */
+                  icon?: (string | null) | Media;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: "statistics";
+            blockType: 'statistics';
           }
         | {
             steps?:
@@ -124,7 +228,7 @@ export interface Page {
                       fetch: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "existing-robots-txt";
+                      blockType: 'existing-robots-txt';
                     }
                   | {
                       title: string;
@@ -147,7 +251,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "delays";
+                      blockType: 'delays';
                     }
                   | {
                       title: string;
@@ -170,7 +274,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "paths";
+                      blockType: 'paths';
                     }
                   | {
                       title: string;
@@ -189,7 +293,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "block-bots";
+                      blockType: 'block-bots';
                     }
                   | {
                       title: string;
@@ -201,7 +305,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "site-maps";
+                      blockType: 'site-maps';
                     }
                   | {
                       title: string;
@@ -213,7 +317,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: "finish";
+                      blockType: 'finish';
                     }
                 )[]
               | null;
@@ -227,16 +331,10 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: "robots-txt-generator";
+            blockType: 'robots-txt-generator';
           }
       )[]
     | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    image?: string | Media | null;
-    canonical?: string | null;
-  };
   parent?: (string | null) | Page;
   breadcrumbs?:
     | {
@@ -248,7 +346,7 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ("draft" | "published") | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -257,7 +355,7 @@ export interface Page {
 export interface SiteHero {
   heroHeaders?:
     | {
-        headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
+        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
         title?: string | null;
         id?: string | null;
       }[]
@@ -268,7 +366,7 @@ export interface SiteHero {
   heroCallToAction?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: "page-hero";
+  blockType: 'page-hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -278,7 +376,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles: ("admin" | "editor")[];
+  roles: ('admin' | 'editor')[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -290,7 +388,34 @@ export interface User {
   _verificationToken?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
-  password: string | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents".
+ */
+export interface PayloadLockedDocument {
+  id: string;
+  document?:
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: string | User;
+      } | null);
+  globalSlug?: string | null;
+  user: {
+    relationTo: 'users';
+    value: string | User;
+  };
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -299,7 +424,7 @@ export interface User {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: "users";
+    relationTo: 'users';
     value: string | User;
   };
   key?: string | null;
@@ -328,6 +453,304 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  fullTitle?: T;
+  slug?: T;
+  blocks?:
+    | T
+    | {
+        'page-header'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'page-hero'?: T | SiteHeroSelect<T>;
+        content?:
+          | T
+          | {
+              content?:
+                | T
+                | {
+                    richtext?:
+                      | T
+                      | {
+                          content?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    mediaBlock?:
+                      | T
+                      | {
+                          image?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    externalEmbed?:
+                      | T
+                      | {
+                          externalEmbedFields?:
+                            | T
+                            | {
+                                embedType?: T;
+                                url?: T;
+                                caption?: T;
+                                code?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        statistics?:
+          | T
+          | {
+              title?: T;
+              statistics?:
+                | T
+                | {
+                    name?: T;
+                    value?: T;
+                    description?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'robots-txt-generator'?:
+          | T
+          | {
+              steps?:
+                | T
+                | {
+                    'existing-robots-txt'?:
+                      | T
+                      | {
+                          title?: T;
+                          hint?: T;
+                          defaultFetchExistingRobots?: T;
+                          existingRobotsTxt?: T;
+                          placeholder?: T;
+                          urlValidationError?: T;
+                          fetch?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    delays?:
+                      | T
+                      | {
+                          title?: T;
+                          hint?: T;
+                          crawlDelay?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          cacheDelay?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          visitTime?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    paths?:
+                      | T
+                      | {
+                          title?: T;
+                          hint?: T;
+                          selectPlatform?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          disallowedPaths?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          allowedPaths?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'block-bots'?:
+                      | T
+                      | {
+                          title?: T;
+                          hint?: T;
+                          aiWebCrawlers?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          searchEngineCrawlers?:
+                            | T
+                            | {
+                                label?: T;
+                                title?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'site-maps'?:
+                      | T
+                      | {
+                          title?: T;
+                          hint?: T;
+                          placeholder?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    finish?:
+                      | T
+                      | {
+                          title?: T;
+                          hint?: T;
+                          placeholder?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              actions?:
+                | T
+                | {
+                    showRobotsTxt?: T;
+                    continue?: T;
+                    back?: T;
+                    reset?: T;
+                    download?: T;
+                    copyToClipboard?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SiteHero_select".
+ */
+export interface SiteHeroSelect<T extends boolean = true> {
+  heroHeaders?:
+    | T
+    | {
+        headingType?: T;
+        title?: T;
+        id?: T;
+      };
+  heroDescription?: T;
+  heroCallToAction?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  firstName?: T;
+  lastName?: T;
+  roles?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  _verified?: T;
+  _verificationToken?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents_select".
+ */
+export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-preferences_select".
+ */
+export interface PayloadPreferencesSelect<T extends boolean = true> {
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-migrations_select".
+ */
+export interface PayloadMigrationsSelect<T extends boolean = true> {
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "settings-site".
  */
 export interface SettingsSite {
@@ -336,15 +759,21 @@ export interface SettingsSite {
   description: {
     [k: string]: unknown;
   }[];
+  /**
+   * Shown on main navigation bar.
+   */
   primaryLogo: string | Media;
-  secondaryLogo?: string | Media | null;
+  /**
+   * Shown on main footer. If not provided, primary logo will be reused.
+   */
+  secondaryLogo?: (string | null) | Media;
   primaryNavigation?: {
     menus?:
       | {
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -352,17 +781,15 @@ export interface SettingsSite {
           id?: string | null;
         }[]
       | null;
-    connect?:
-      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
-      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -372,16 +799,13 @@ export interface SettingsSite {
       | null;
   };
   connect: {
+    /**
+     * Text that appears on contact links e.g Stay in Touch
+     */
     title: string;
     links?:
       | {
-          platform:
-            | "Facebook"
-            | "Twitter"
-            | "Instagram"
-            | "Linkedin"
-            | "Github"
-            | "Slack";
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
           url: string;
           id?: string | null;
         }[]
@@ -404,9 +828,9 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           label: string;
-          linkType?: ("custom" | "internal") | null;
+          linkType?: ('custom' | 'internal') | null;
           doc?: {
-            relationTo: "pages";
+            relationTo: 'pages';
             value: string | Page;
           } | null;
           url?: string | null;
@@ -415,12 +839,96 @@ export interface SettingsSite {
         }[]
       | null;
   };
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    image?: string | Media | null;
-    canonical?: string | null;
-  };
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings-site_select".
+ */
+export interface SettingsSiteSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  primaryLogo?: T;
+  secondaryLogo?: T;
+  primaryNavigation?:
+    | T
+    | {
+        menus?:
+          | T
+          | {
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              id?: T;
+            };
+        connect?: T;
+      };
+  secondaryNavigation?:
+    | T
+    | {
+        menus?:
+          | T
+          | {
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  connect?:
+    | T
+    | {
+        title?: T;
+        links?:
+          | T
+          | {
+              platform?: T;
+              url?: T;
+              id?: T;
+            };
+      };
+  newsletter?:
+    | T
+    | {
+        title?: T;
+        embedCode?: T;
+      };
+  analytics?:
+    | T
+    | {
+        analyticsId?: T;
+      };
+  initiative?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        partners?:
+          | T
+          | {
+              name?: T;
+              logo?: T;
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "auth".
+ */
+export interface Auth {
+  [k: string]: unknown;
 }

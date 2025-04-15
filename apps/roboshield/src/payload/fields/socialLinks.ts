@@ -1,8 +1,8 @@
 import { deepmerge } from "@mui/utils";
-import { select } from "payload/dist/fields/validations";
+import select from "payload";
 
 import url from "./url";
-import { Field } from "payload/types";
+import { Field } from "payload";
 
 export const socialMediaOptions = [
   "Facebook",
@@ -30,7 +30,7 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
       },
     },
     minRows: 1,
-    admin: {
+    /*admin: {
       className: "array-field-nested",
       components: {
         // @ts-ignore
@@ -53,9 +53,9 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
           }
           return label;
         },
-      },
+      }, 
       initCollapsed: true,
-    },
+    },*/
     fields: [
       {
         name: "platform",

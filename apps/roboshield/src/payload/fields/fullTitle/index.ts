@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import populateFullTitle from "./populateFullTitle";
-import { Field } from "payload/types";
+import { Field } from "payload";
 
 interface Args {
   overrides?: Partial<Field>;
@@ -14,11 +14,11 @@ function fullTitle(args: Args): Field {
     hooks: {
       beforeChange: [populateFullTitle],
     },
-    admin: {
+    /*admin: {
       components: {
         Field: () => null,
       },
-    },
+    },*/
   };
 
   return deepmerge(fullTitleResult, overrides) as Field;

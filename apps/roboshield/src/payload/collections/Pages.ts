@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types";
+import type { CollectionConfig } from "payload";
 import fullTitle from "../fields/fullTitle";
 import slug from "../fields/slug";
 import RobotsTxtGenerator from "../blocks/RobotsTxtGenerator";

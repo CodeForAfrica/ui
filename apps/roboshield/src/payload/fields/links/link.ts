@@ -1,12 +1,12 @@
 import { deepmerge } from "@mui/utils";
 
 import mapLinkTypeToHref from "../../utils/mapLinkTypeToHref";
-import {
+import type {
   RowField,
   SanitizedCollectionConfig,
   PayloadRequest,
   Condition,
-} from "payload/types";
+} from "payload";
 
 interface CollectionBeforeReadHookArgs {
   collection: SanitizedCollectionConfig;

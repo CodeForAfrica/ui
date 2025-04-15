@@ -1,7 +1,6 @@
 import { loadEnvConfig } from "@next/env";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { cloudStoragePlugin } from "@payloadcms/plugin-cloud-storage";
-import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+import { s3Storage } from "@payloadcms/storage-s3";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { slateEditor } from "@payloadcms/richtext-slate";
@@ -27,17 +26,6 @@ const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
-
-const adapter = s3Adapter({
-  config: {
-    region: process?.env?.S3_REGION,
-    credentials: {
-      accessKeyId: process?.env?.S3_ACCESS_KEY_ID,
-      secretAccessKey: process?.env?.S3_SECRET_ACCESS_KEY,
-    },
-  },
-  bucket: process?.env?.S3_BUCKET,
-} as any);
 
 export default buildConfig({
   serverURL: appURL,
@@ -84,15 +72,7 @@ export default buildConfig({
     },
   },*/
   plugins: [
-    cloudStoragePlugin({
-      collections: {
-        media: {
-          adapter,
-          prefix: "media",
-        },
-      },
-    }),
-    seoPlugin({
+    /*seoPlugin({
       collections: ["pages"],
       globals: ["settings-site"],
       fields: [
@@ -111,7 +91,7 @@ export default buildConfig({
       generateTitle: ({ doc }: any) => doc?.title?.value as string,
       generateURL: ({ doc }: any) =>
         doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
-    } as any),
+    } as any),*/
     nestedDocsPlugin({
       collections: ["pages"],
       generateLabel: (_, doc) => doc.title as string,
