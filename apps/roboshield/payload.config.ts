@@ -60,17 +60,16 @@ export default buildConfig({
   },
   cors,
   csrf,
-  /*i18n: {
-    fallbackLng: "en", // default
-    debug: false, // default
-    resources: {
+  i18n: {
+    fallbackLanguage: "en",
+    translations: {
       en: {
         "codeforafrica.validation": {
           uniquePlatforms: "Please select a unique platform",
         },
       },
     },
-  },*/
+  },
   plugins: [
     seoPlugin({
       collections: ["pages"],
