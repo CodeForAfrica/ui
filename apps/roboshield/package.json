@@ -6,7 +6,7 @@
     "build-server": "tsc --project tsconfig.server.json",
     "build-next": "next build",
     "build-payload": "payload build",
-    "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
+    "start": "next start",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "clean": "rm -rf .next .turbo node_modules",
     "jest": "jest --passWithNoTests",
