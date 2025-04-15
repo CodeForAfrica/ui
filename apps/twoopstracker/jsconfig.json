@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/cms/*": ["./content/*"],
+      "@/twoopstracker/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
