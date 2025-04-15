@@ -9,8 +9,7 @@
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "build": "next build",
     "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@commons-ui/core": "catalog:",
