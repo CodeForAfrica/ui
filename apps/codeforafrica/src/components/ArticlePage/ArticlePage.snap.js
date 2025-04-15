@@ -28,7 +28,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       >
         Sept 1, 2021
       </div>
-      <div
+      <h1
         class="MuiTypography-root MuiTypography-h1 css-1xqv05z-MuiTypography-root"
       >
         Article

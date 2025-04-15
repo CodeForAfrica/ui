@@ -28,7 +28,7 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       >
         Sept 1, 2021
       </div>
-      <div
+      <h1
         class="MuiTypography-root MuiTypography-h1 css-1orudy1-MuiTypography-root"
       >
         Article
@@ -147,14 +147,14 @@ exports[`<ArticlePage /> renders unchanged 1`] = `
       />
     </div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-102tpll-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1n2mn2x-MuiContainer-root"
     >
       <div
         class="MuiToggleButtonGroup-root MuiToggleButtonGroup-horizontal css-962wsk-MuiToggleButtonGroup-root"
         role="group"
       >
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-p9r9ld-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-clickable MuiChip-clickableColorDefault MuiChip-filledDefault css-2hzle5-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiChip-root"
           href="/tag1?tag=tag2"
           tabindex="0"
           value="tag2"
