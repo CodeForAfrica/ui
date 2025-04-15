@@ -1,6 +1,6 @@
 # Charter Africa
 
-This is the official code for https://charter.africa site
+This is the official code for <https://charter.africa> site
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ cp env.template .env.local
 
 and modify the `.env.local` file according to your needs.
 
-#### Note
+### Note
 
 The default `.env` file is for the publicly visible environment variables.
 **DO NOT** include any secrets in it. All secrets should go into `env.local`.

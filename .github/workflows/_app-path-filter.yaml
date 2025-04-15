@@ -1,0 +1,89 @@
+name: App Path Filter
+
+on:
+  workflow_call:
+    outputs:
+      apps:
+        description: "Indicates if there are changes in apps files folder"
+        value: ${{ jobs.app-path-filter.outputs.apps }}
+      charterafrica:
+        description: "Indicates if charterafrica app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.charterafrica }}
+      civicsignalblog:
+        description: "Indicates if civicsignalblog app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.civicsignalblog }}
+      climatemappedafrica:
+        description: "Indicates if climatemappedafrica app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.climatemappedafrica }}
+      codeforafrica:
+        description: "Indicates if codeforafrica app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.codeforafrica }}
+      pesayetu:
+        description: "Indicates if pesayetu app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.pesayetu }}
+      roboshield:
+        description: "Indicates if roboshield app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.roboshield }}
+      techlabblog:
+        description: "Indicates if techlabblog app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.techlabblog }}
+      vpnmanager:
+        description: "Indicates if vpnmanager app files have changed"
+        value: ${{ jobs.app-path-filter.outputs.vpnmanager }}
+
+jobs:
+  app-path-filter:
+    name: App Path Filter
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    outputs:
+      apps: ${{ steps.path-filter.outputs.apps }}
+      charterafrica: ${{ steps.path-filter.outputs.charterafrica }}
+      civicsignalblog: ${{ steps.path-filter.outputs.civicsignalblog }}
+      climatemappedafrica: ${{ steps.path-filter.outputs.climatemappedafrica }}
+      codeforafrica: ${{ steps.path-filter.outputs.codeforafrica }}
+      pesayetu: ${{ steps.path-filter.outputs.pesayetu }}
+      roboshield: ${{ steps.path-filter.outputs.roboshield }}
+      techlabblog: ${{ steps.path-filter.outputs.techlabblog }}
+      vpnmanager: ${{ steps.path-filter.outputs.vpnmanager }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Filter paths
+        uses: dorny/paths-filter@v3
+        id: path-filter
+        with:
+          filters: |
+            shared: &shared
+              - Dockerfile
+              - packages/**
+            apps:
+              - *shared
+              - "apps/**"
+            charterafrica:
+              - *shared
+              - "apps/charterafrica/**"
+            civicsignalblog:
+              - *shared
+              - "apps/civicsignalblog/**"
+            climatemappedafrica:
+              - *shared
+              - "apps/climatemappedafrica/**"
+            codeforafrica:
+              - *shared
+              - "apps/codeforafrica/**"
+            pesayetu:
+              - *shared
+              - "apps/pesayetu/**"
+            roboshield:
+              - *shared
+              - "apps/roboshield/**"
+            techlabblog:
+              - *shared
+              - "apps/techlabblog/**"
+            vpnmanager:
+              - *shared
+              - "apps/vpnmanager/**"
