@@ -1,63 +1,55 @@
-import { RouterContext } from "next/dist/shared/lib/router-context";
-import * as NextImage from "next/legacy/image";
-import { muiTheme } from "storybook-addon-material-ui";
+import { ThemeProvider } from "@mui/material/styles";
 
-import theme from "../src/theme";
+import theme from "@/twoopstracker/theme";
+// import createTheme from "@commons-ui/core/styles/createTheme";
+
 import "./styles.css";
 
-export const decorators = [muiTheme([theme])];
+const withThemeProvider = (Story, context) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Story {...context} />
+    </ThemeProvider>
+  );
+};
 
-// 2rem padding (top/right 1rem & bottom/left 1rem) from using layout: "padded"
-const size = (px) =>
-  `${Number.parseFloat(theme.typography.pxToRem(px)) + 2}rem`;
-
-const VIEWPORTS = {
-  mobile: {
-    name: "Mobile",
+/** MUI Breakpoints
+ * https://mui.com/material-ui/customization/breakpoints/#main-content
+ */
+const viewports = {
+  md: {
+    name: "Medium",
     styles: {
-      height: size(760),
-      width: size(390),
+      width: "608px",
+      height: "800px",
     },
-    type: "mobile",
   },
-  tablet: {
-    name: "Tablet",
+  lg: {
+    name: "Large",
     styles: {
-      height: size(900),
-      width: size(900),
+      width: "1160px",
+      height: "800px",
     },
-    type: "tablet",
-  },
-  desktop: {
-    name: "Desktop",
-    styles: {
-      height: size(900),
-      width: size(1600),
-    },
-    type: "desktop",
   },
 };
 
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+/** @type { import('@storybook/react').Preview } */
+const preview = {
+  decorators: [withThemeProvider],
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
     },
-  },
-  layout: "padded",
-  nextRouter: {
-    Provider: RouterContext.Provider,
-  },
-  viewport: {
-    viewports: VIEWPORTS,
-    defaultViewport: "desktop",
+    docs: {
+      toc: true,
+    },
+    tags: ["autodocs"],
+    viewport: { viewports },
   },
 };
 
-const OriginalNextImage = NextImage.default;
-Object.defineProperty(NextImage, "default", {
-  configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />,
-});
+export default preview;

@@ -1,9 +1,10 @@
-import content from "content/pages/admin.md";
 import Head from "next/head";
 import Script from "next/script";
 import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
+
+import content from "@/cms/pages/admin.md";
 
 function AdminPage(props) {
   return (
