@@ -335,6 +335,18 @@ export interface Page {
           }
       )[]
     | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    /**
+     * https://developers.google.com/search/docs/crawling-indexing/canonicalization
+     */
+    canonical?: string | null;
+  };
   parent?: (string | null) | Page;
   breadcrumbs?:
     | {
@@ -667,6 +679,14 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        canonical?: T;
+      };
   parent?: T;
   breadcrumbs?:
     | T
@@ -839,6 +859,18 @@ export interface SettingsSite {
         }[]
       | null;
   };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    /**
+     * https://developers.google.com/search/docs/crawling-indexing/canonicalization
+     */
+    canonical?: string | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -920,6 +952,14 @@ export interface SettingsSiteSelect<T extends boolean = true> {
               href?: T;
               id?: T;
             };
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        canonical?: T;
       };
   updatedAt?: T;
   createdAt?: T;

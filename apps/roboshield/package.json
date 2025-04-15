@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build-server": "tsc --project tsconfig.server.json",
-    "build-next": "NEXT_BUILD=true pnpm build-server && NEXT_BUILD=true PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} node dist/server.js",
+    "build-next": "next build",
     "build-payload": "payload build",
     "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
     "dev": "NODE_OPTIONS='--inspect' next dev",

@@ -72,11 +72,12 @@ export default buildConfig({
     },
   },*/
   plugins: [
-    /*seoPlugin({
+    seoPlugin({
       collections: ["pages"],
       globals: ["settings-site"],
-      fields: [
+      fields: ({defaultFields}) => [
         // NOTE(kilemensi): This is only added to make sure Payload generate correct type
+        ...defaultFields,
         {
           name: "canonical",
           type: "text",
@@ -88,17 +89,17 @@ export default buildConfig({
         },
       ],
       uploadsCollection: "media",
-      generateTitle: ({ doc }: any) => doc?.title?.value as string,
+      generateTitle: ({ doc }: any) => doc?.title as string || "" ,
       generateURL: ({ doc }: any) =>
-        doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
-    } as any),*/
+        doc?.slug ? `${appURL}/${doc?.slug}` : "" ,
+    }),
     nestedDocsPlugin({
       collections: ["pages"],
-      generateLabel: (_, doc) => doc.title as string,
+      generateLabel: (_, doc) => doc?.title as string || "",
       generateURL: (docs) =>
-        docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+        docs.reduce((url, doc) => `${url}/${doc?.slug}`, ""),
     }),
-  ] as any[],
+  ],
   secret: process.env.PAYLOAD_SECRET || "",
   telemetry: process?.env?.NODE_ENV !== "production",
   typescript: {
