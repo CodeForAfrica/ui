@@ -12,6 +12,9 @@ interface Data {
   name?: string;
   platform?: string;
   url?: string;
+  reference?: {
+    title?: string | null;
+  };
   [key: string]: unknown;
 }
 
@@ -20,8 +23,6 @@ const getLabelData = (
   data: Data,
   rowNumber?: number,
 ): { label: string; data?: string | null } => {
-  console.log(path);
-  console.log(JSON.stringify(data));
   if (path.includes("Headers")) return { label: "Header", data: data?.title };
 
   if (path.includes("message"))
@@ -45,6 +46,15 @@ const getLabelData = (
         (rowNumber !== undefined
           ? `Link ${String(rowNumber).padStart(2, "0")}`
           : null),
+    };
+  }
+
+  if (path.includes("primaryNavigation.menus")) {
+    const menuValue =
+      data?.label || data?.reference?.title || data?.url || data?.id;
+    return {
+      label: "Menu",
+      data: typeof menuValue === "string" ? menuValue : null,
     };
   }
 

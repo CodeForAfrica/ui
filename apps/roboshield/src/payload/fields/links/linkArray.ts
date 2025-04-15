@@ -27,11 +27,9 @@ function linkArray(args: Args) {
     fields: [link(linkConfig)],
     admin: {
       initCollapsed: true,
-      /*components: {
-        RowLabel: ({ data }: any) => {
-          return data?.label || data?.reference?.title || data?.url || data?.id;
-        },
-      },*/
+      components: {
+        RowLabel: "@/roboshield/payload/components/RowLabel.tsx",
+      },
     },
   };
 
