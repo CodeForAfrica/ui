@@ -74,7 +74,7 @@ export default buildConfig({
     seoPlugin({
       collections: ["pages"],
       globals: ["settings-site"],
-      fields: ({defaultFields}) => [
+      fields: ({ defaultFields }) => [
         // NOTE(kilemensi): This is only added to make sure Payload generate correct type
         ...defaultFields,
         {
@@ -88,15 +88,31 @@ export default buildConfig({
         },
       ],
       uploadsCollection: "media",
-      generateTitle: ({ doc }: any) => doc?.title as string || "" ,
+      generateTitle: ({ doc }: any) => (doc?.title as string) || "",
       generateURL: ({ doc }: any) =>
-        doc?.slug ? `${appURL}/${doc?.slug}` : "" ,
+        doc?.slug ? `${appURL}/${doc?.slug}` : "",
     }),
     nestedDocsPlugin({
       collections: ["pages"],
-      generateLabel: (_, doc) => doc?.title as string || "",
+      generateLabel: (_, doc) => (doc?.title as string) || "",
       generateURL: (docs) =>
         docs.reduce((url, doc) => `${url}/${doc?.slug}`, ""),
+    }),
+    s3Storage({
+      collections: {
+        media: true,
+        "media-with-prefix": {
+          prefix: "media",
+        },
+      },
+      bucket: process.env.S3_BUCKET ?? "",
+      config: {
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID ?? "",
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY ?? "",
+        },
+        region: process.env.S3_REGION ?? "",
+      },
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || "",

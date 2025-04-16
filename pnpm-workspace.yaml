@@ -223,4 +223,4 @@ catalogs:
     "@payloadcms/ui": "3.31.0"
     "@payloadcms/plugin-sentry": "3.31.0"
     "@payloadcms/plugin-cloud-storage": "3.31.0"
-    "@payloadcms/storage-s3": "^3.31.0"
+    "@payloadcms/storage-s3": "3.31.0"
