@@ -5,7 +5,7 @@ module.exports = {
       ?.filter((d) => d.trim())
       ?.map((d) => d.trim()),
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
   webpack: function webpack(config) {
     config.module.rules.push(
       {
