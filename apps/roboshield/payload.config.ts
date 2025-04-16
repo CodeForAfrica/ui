@@ -5,7 +5,6 @@ import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { CollectionConfig, GlobalConfig, buildConfig } from "payload";
-import { Config } from "./payload-types";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
@@ -74,18 +73,6 @@ export default buildConfig({
   },
   cors,
   csrf,
-  email: nodemailerAdapter({
-    defaultFromAddress: smtpFromAddress,
-    defaultFromName: smtpFromName,
-    transportOptions: {
-      host: smtpHost,
-      port: smtpPort,
-      auth: {
-        user: smtpAuthUser,
-        pass: smtpAuthPass,
-      },
-    },
-  }),
   i18n: {
     fallbackLanguage: "en",
     translations: {
@@ -141,13 +128,25 @@ export default buildConfig({
       },
     }),
   ],
+  ...(smtpAuthPass
+    ? {
+        email: nodemailerAdapter({
+          defaultFromAddress: smtpFromAddress,
+          defaultFromName: smtpFromName,
+          transportOptions: {
+            host: smtpHost,
+            port: smtpPort,
+            auth: {
+              user: smtpAuthUser,
+              pass: smtpAuthPass,
+            },
+          },
+        }),
+      }
+    : {}),
   secret: process.env.PAYLOAD_SECRET || "",
   telemetry: process?.env?.NODE_ENV !== "production",
   typescript: {
     declare: false, // defaults to true if not set
   },
 });
-
-declare module "payload" {
-  export interface PayloadGeneratedTypes extends Config {}
-}
