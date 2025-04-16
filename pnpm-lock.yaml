@@ -596,6 +596,9 @@ catalogs:
     '@payloadcms/db-mongodb':
       specifier: 3.31.0
       version: 3.31.0
+    '@payloadcms/email-nodemailer':
+      specifier: 3.31.0
+      version: 3.31.0
     '@payloadcms/live-preview-react':
       specifier: 3.31.0
       version: 3.31.0
@@ -723,31 +726,31 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(sass@1.77.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(sass@1.77.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-spring/web':
         specifier: 'catalog:'
         version: 9.7.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+        version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
       airtable:
         specifier: 'catalog:'
         version: 0.12.2(encoding@0.1.13)
@@ -777,7 +780,7 @@ importers:
         version: 6.6.0(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
-        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -862,7 +865,7 @@ importers:
         version: link:../../packages/eslint-config-commons-ui
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.18.0(jiti@1.21.6))
@@ -892,7 +895,7 @@ importers:
         version: 5.6.3
       webpack:
         specifier: 'catalog:'
-        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
 
   apps/civicsignalblog:
     dependencies:
@@ -940,10 +943,10 @@ importers:
         version: 15.1.6(next@15.1.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(sass@1.77.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(sass@1.77.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       '@payloadcms/live-preview':
         specifier: 'catalog:'
         version: 0.2.2
@@ -952,22 +955,22 @@ importers:
         version: 0.2.0(react@18.3.1)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
+        version: 8.36.0(@opentelemetry/core@1.27.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.27.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       camelcase-keys:
         specifier: 'catalog:'
         version: 9.1.3
@@ -994,7 +997,7 @@ importers:
         version: 6.6.0(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
-        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
+        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -1061,7 +1064,7 @@ importers:
         version: 3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6))
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
+        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.31.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.18.0(jiti@1.21.6))
@@ -1091,7 +1094,7 @@ importers:
         version: 5.6.3
       webpack:
         specifier: 'catalog:'
-        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
 
   apps/climatemappedafrica:
     dependencies:
@@ -1895,7 +1898,7 @@ importers:
         version: 15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-auth:
         specifier: 'catalog:'
-        version: 4.24.10(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.15)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.24.10(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-seo:
         specifier: 'catalog:'
         version: 6.6.0(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2038,6 +2041,9 @@ importers:
       '@payloadcms/db-mongodb':
         specifier: catalog:payload-v3
         version: 3.31.0(@aws-sdk/credential-providers@3.685.0(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0)))(payload@3.31.0(graphql@16.8.1)(typescript@5.6.3))(socks@2.8.3)
+      '@payloadcms/email-nodemailer':
+        specifier: catalog:payload-v3
+        version: 3.31.0(payload@3.31.0(graphql@16.8.1)(typescript@5.6.3))
       '@payloadcms/live-preview-react':
         specifier: catalog:payload-v3
         version: 3.31.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2478,7 +2484,7 @@ importers:
         version: 15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-auth:
         specifier: 'catalog:'
-        version: 4.24.10(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.15)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.24.10(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 'catalog:'
         version: 18.3.1
@@ -5794,6 +5800,12 @@ packages:
 
   '@payloadcms/db-mongodb@3.31.0':
     resolution: {integrity: sha512-Eoh/CrT2AXhKtWMr6Gn2pG7TmmR5O4hIXq7zb+kZmiQAZcbwHC4KiTEEnVuqVXg2RXKz9KQDDYsYz9P4FeBk3g==}
+    peerDependencies:
+      payload: 3.31.0
+
+  '@payloadcms/email-nodemailer@3.31.0':
+    resolution: {integrity: sha512-F9oqqdVvorbDPMLTumOvupTY4Tpp6ajJzTPQJpvDJyrTRUl2mH3wYkBTtCnm7oCzv8mcurvM9aRfKTSOmySK0g==}
+    engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
       payload: 3.31.0
 
@@ -11934,8 +11946,8 @@ packages:
   node-releases@2.0.18:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
 
-  nodemailer@6.9.15:
-    resolution: {integrity: sha512-AHf04ySLC6CIfuRtRiEYtGEXgRfa6INgWGluDhnxTZhHSKvrBu7lc1VVchQ0d8nPc4cFaZoPq8vkyNoZr0TpGQ==}
+  nodemailer@6.9.16:
+    resolution: {integrity: sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ==}
     engines: {node: '>=6.0.0'}
 
   nodemailer@6.9.8:
@@ -18952,6 +18964,11 @@ snapshots:
       - socks
       - supports-color
 
+  '@payloadcms/email-nodemailer@3.31.0(payload@3.31.0(graphql@16.8.1)(typescript@5.6.3))':
+    dependencies:
+      nodemailer: 6.9.16
+      payload: 3.31.0(graphql@16.8.1)(typescript@5.6.3)
+
   '@payloadcms/graphql@3.31.0(graphql@16.8.1)(payload@3.31.0(graphql@16.8.1)(typescript@5.6.3))(typescript@5.6.3)':
     dependencies:
       graphql: 16.8.1
@@ -24054,7 +24071,7 @@ snapshots:
       debug: 4.3.7
       enhanced-resolve: 5.17.1
       eslint: 9.18.0(jiti@1.21.6)
-      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6)))(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(eslint@9.18.0(jiti@1.21.6))
+      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6)))(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(eslint@9.18.0(jiti@1.21.6))
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
       is-bun-module: 1.2.1
@@ -24071,7 +24088,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.18.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.18.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -24088,7 +24105,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.18.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.18.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -24203,24 +24220,24 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6)))(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(eslint@9.18.0(jiti@1.21.6)):
+  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6)))(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(eslint@9.18.0(jiti@1.21.6)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
       eslint: 9.18.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6))
-      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
+      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(eslint@9.18.0(jiti@1.21.6)):
+  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(eslint@9.18.0(jiti@1.21.6)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
       eslint: 9.18.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0))
     transitivePeerDependencies:
       - supports-color
 
@@ -24351,7 +24368,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.18.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6)))(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(eslint@9.18.0(jiti@1.21.6))
+      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.18.0(jiti@1.21.6)))(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(eslint@9.18.0(jiti@1.21.6))
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -24378,7 +24395,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.18.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(eslint@9.18.0(jiti@1.21.6))
+      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)))(eslint@9.18.0(jiti@1.21.6))
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -27757,7 +27774,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-auth@4.24.10(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.15)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-auth@4.24.10(next@15.1.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.26.0
       '@panva/hkdf': 1.2.1
@@ -27772,7 +27789,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       uuid: 8.3.2
     optionalDependencies:
-      nodemailer: 6.9.15
+      nodemailer: 6.9.16
 
   next-images@1.8.5(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))):
     dependencies:
@@ -27979,8 +27996,7 @@ snapshots:
 
   node-releases@2.0.18: {}
 
-  nodemailer@6.9.15:
-    optional: true
+  nodemailer@6.9.16: {}
 
   nodemailer@6.9.8: {}
 

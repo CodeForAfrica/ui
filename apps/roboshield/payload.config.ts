@@ -11,6 +11,7 @@ import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 import Site from "./src/payload/globals/Site";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -26,6 +27,19 @@ const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
+
+const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
+const smtpFromName =
+  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
+  "Roboshield CMS";
+const smtpFromAddress =
+  process.env.SMTP_FROM_ADDRESS ||
+  process.env.SENDGRID_FROM_EMAIL ||
+  "noreply@codeforafrica.org";
+const smtpPort = Number(process.env.SMTP_PORT || 587);
+const smtpAuthUser = process.env.SMTP_USER || "apikey";
+const smtpHost = process.env.SMTP_HOST || "smtp.sendgrid.net";
 
 export default buildConfig({
   serverURL: appURL,
@@ -60,6 +74,18 @@ export default buildConfig({
   },
   cors,
   csrf,
+  email: nodemailerAdapter({
+    defaultFromAddress: smtpFromAddress,
+    defaultFromName: smtpFromName,
+    transportOptions: {
+      host: smtpHost,
+      port: smtpPort,
+      auth: {
+        user: smtpAuthUser,
+        pass: smtpAuthPass,
+      },
+    },
+  }),
   i18n: {
     fallbackLanguage: "en",
     translations: {
