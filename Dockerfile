@@ -39,12 +39,6 @@ FROM node AS base
 
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
-RUN apk add --no-cache \
-  python3 \
-  py3-pip \
-  make \
-  g++ \
-  sqlite-dev && rm -rf /var/cache/apk/*
 
 WORKDIR /workspace
 
@@ -66,7 +60,13 @@ RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 FROM pnpm-base AS base-deps
 
 COPY pnpm-lock.yaml .
-# pnpm fetch fails with error .../sqlite3@5.1.7/node_modules/sqlite3 install: gyp ERR! find Python  so we ignore prebuild scripts
+RUN apk add --no-cache \
+  python3 \
+  py3-pip \
+  make \
+  g++ \
+  sqlite-dev && rm -rf /var/cache/apk/*
+
 RUN pnpm fetch
 
 COPY *.yaml *.json ./
