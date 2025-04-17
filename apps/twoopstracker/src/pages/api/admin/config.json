@@ -1,0 +1,1007 @@
+{
+  "backend": {
+    "name": "git-gateway",
+    "branch": "main"
+  },
+  "media_folder": "public/images",
+  "public_folder": "/images",
+  "logo_url": "/logo.png",
+  "local_backend": true,
+  "collections": [
+    {
+      "name": "pages",
+      "label": "Pages",
+      "files": [
+        {
+          "label": "About",
+          "name": "about",
+          "file": "content/pages/about.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "text"
+            },
+            {
+              "label": "Publish Date",
+              "name": "date",
+              "widget": "datetime"
+            },
+            {
+              "label": "Partners",
+              "name": "partners",
+              "widget": "list",
+              "collapsed": true,
+              "minimize_collapsed": true,
+              "fields": [
+                {
+                  "label": "Name",
+                  "name": "name",
+                  "widget": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "widget": "string"
+                },
+                {
+                  "label": "Logo",
+                  "name": "logo",
+                  "widget": "image",
+                  "choose_url": false
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "widget": "markdown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Admin",
+          "name": "admin",
+          "file": "content/pages/admin.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "text"
+            },
+            {
+              "label": "Publish Date",
+              "name": "date",
+              "widget": "datetime"
+            }
+          ]
+        },
+        {
+          "label": "Home",
+          "name": "index",
+          "file": "content/pages/index.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "markdown"
+            },
+            {
+              "label": "Publish Date",
+              "name": "date",
+              "widget": "datetime"
+            },
+            {
+              "label": "Call to Actions",
+              "name": "ctas",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Search",
+                  "name": "search",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Link",
+                      "name": "href",
+                      "widget": "string"
+                    }
+                  ]
+                },
+                {
+                  "label": "Sign Up",
+                  "name": "signUp",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Link",
+                      "name": "href",
+                      "widget": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Tool",
+              "name": "tool",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Thumbnail",
+                  "name": "thumbnail",
+                  "widget": "image",
+                  "choose_url": false
+                },
+                {
+                  "label": "description",
+                  "name": "description",
+                  "widget": "markdown"
+                },
+                {
+                  "label": "Call to Action",
+                  "name": "cta",
+                  "widget": "string",
+                  "default": "Explore the tool"
+                }
+              ]
+            },
+            {
+              "label": "Investigations",
+              "name": "investigations",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "description",
+                  "name": "description",
+                  "widget": "text"
+                },
+                {
+                  "label": "Reports",
+                  "name": "reports",
+                  "widget": "relation",
+                  "collection": "pages",
+                  "value_field": "reports.*.name",
+                  "search_fields": ["reports.*.name", "reports.*.description"],
+                  "file": "investigations",
+                  "display_fields": ["reports.*.name"],
+                  "multiple": true,
+                  "max": 4
+                },
+                {
+                  "label": "Call to Action",
+                  "name": "cta",
+                  "widget": "string",
+                  "default": "Read all reports here"
+                }
+              ]
+            },
+            {
+              "label": "Partners & About",
+              "name": "about",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "description",
+                  "name": "description",
+                  "widget": "markdown"
+                },
+                {
+                  "label": "Primary Partners",
+                  "name": "primaryPartners",
+                  "widget": "relation",
+                  "collection": "pages",
+                  "value_field": "partners.*.name",
+                  "search_fields": [
+                    "partners.*.name",
+                    "partners.*.description"
+                  ],
+                  "file": "about",
+                  "display_fields": ["partners.*.name"],
+                  "multiple": true,
+                  "max": 2
+                },
+                {
+                  "label": "Supporting Partners",
+                  "name": "secondaryPartners",
+                  "widget": "relation",
+                  "collection": "pages",
+                  "value_field": "partners.*.name",
+                  "search_fields": [
+                    "partners.*.name",
+                    "partners.*.description"
+                  ],
+                  "file": "about",
+                  "display_fields": ["partners.*.name"],
+                  "multiple": true,
+                  "max": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Investigations",
+          "name": "investigations",
+          "file": "content/pages/investigations.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "text"
+            },
+            {
+              "label": "Publish Date",
+              "name": "date",
+              "widget": "datetime"
+            },
+            {
+              "label": "Reports",
+              "name": "reports",
+              "widget": "list",
+              "collapsed": true,
+              "minimize_collapsed": true,
+              "fields": [
+                {
+                  "label": "Name",
+                  "name": "name",
+                  "widget": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "widget": "string"
+                },
+                {
+                  "label": "Thumbnail",
+                  "name": "thumbnail",
+                  "widget": "image",
+                  "choose_url": false
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "widget": "markdown"
+                },
+                {
+                  "label": "Call to Action",
+                  "name": "cta",
+                  "widget": "string",
+                  "default": "View PDF"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Explore",
+          "name": "explore",
+          "file": "content/pages/explore.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Publish Date",
+              "name": "date",
+              "widget": "datetime"
+            },
+            {
+              "label": "Search Guide",
+              "name": "searchGuide",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "widget": "markdown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Lexicons",
+          "name": "lexicons",
+          "file": "content/pages/lexicons.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "text"
+            },
+            {
+              "label": "Publish Date",
+              "name": "date",
+              "widget": "datetime"
+            },
+            {
+              "label": "Resources",
+              "name": "resouces",
+              "widget": "list",
+              "collapsed": true,
+              "minimize_collapsed": true,
+              "fields": [
+                {
+                  "label": "Name",
+                  "name": "name",
+                  "widget": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "widget": "string"
+                },
+                {
+                  "label": "Thumbnail",
+                  "name": "thumbnail",
+                  "widget": "image",
+                  "choose_url": false
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "widget": "markdown"
+                },
+                {
+                  "label": "Call to Action",
+                  "name": "cta",
+                  "widget": "string",
+                  "default": "Visit website"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "settings",
+      "label": "Settings",
+      "files": [
+        {
+          "label": "Footer",
+          "name": "footer",
+          "file": "content/settings/footer.md",
+          "fields": [
+            {
+              "label": "Project",
+              "name": "project",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Name",
+                  "name": "name",
+                  "widget": "string"
+                },
+                {
+                  "label": "URL",
+                  "name": "url",
+                  "widget": "string"
+                },
+                {
+                  "label": "Logo",
+                  "name": "logo",
+                  "widget": "image",
+                  "choose_url": false
+                },
+                {
+                  "label": "Description",
+                  "name": "description",
+                  "widget": "markdown"
+                }
+              ]
+            },
+            {
+              "label": "Stay in Touch",
+              "name": "contacts",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Social Media",
+                  "name": "socialMedia",
+                  "widget": "list",
+                  "collapsed": true,
+                  "minimize_collapsed": true,
+                  "fields": [
+                    {
+                      "label": "Name",
+                      "name": "name",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "URL",
+                      "name": "url",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Logo",
+                      "name": "logo",
+                      "widget": "image",
+                      "choose_url": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Quick Links",
+              "name": "quickLinks",
+              "required": false,
+              "widget": "list",
+              "fields": [
+                {
+                  "label": "Title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Links",
+                  "name": "links",
+                  "widget": "list",
+                  "collapsed": true,
+                  "minimize_collapsed": true,
+                  "fields": [
+                    {
+                      "label": "Name",
+                      "name": "name",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "URL",
+                      "name": "url",
+                      "widget": "string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Navigation",
+          "name": "navigation",
+          "file": "content/settings/navigation.md",
+          "fields": [
+            {
+              "label": "Logo",
+              "name": "logo",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Desktop",
+                  "name": "desktop",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "widget": "image",
+                      "choose_url": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Mobile",
+                  "name": "mobile",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "widget": "image",
+                      "choose_url": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Main Menu",
+              "name": "main",
+              "widget": "list",
+              "collapsed": true,
+              "minimize_collapsed": true,
+              "fields": [
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "widget": "string"
+                },
+                {
+                  "label": "Link",
+                  "name": "href",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Login Menu",
+              "name": "login",
+              "widget": "list",
+              "collapsed": true,
+              "minimize_collapsed": true,
+              "fields": [
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "widget": "string"
+                },
+                {
+                  "label": "Link",
+                  "name": "href",
+                  "widget": "string"
+                },
+                {
+                  "label": "Icon",
+                  "name": "icon",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "widget": "image"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Account",
+      "label": "Account",
+      "files": [
+        {
+          "label": "Update Profile",
+          "name": "updateProfile",
+          "file": "content/pages/account/update.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "First Name Label",
+              "name": "firstNameLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Last Name Label",
+              "name": "lastNameLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Success Label",
+              "name": "successLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Error Label",
+              "name": "errorLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Change Password Label",
+              "name": "changePasswordLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Change Password Link",
+              "name": "changePasswordLink",
+              "widget": "string"
+            },
+            {
+              "label": "Button Label",
+              "name": "buttonLabel",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "label": "Update Password",
+          "name": "updatePassword",
+          "file": "content/pages/account/updatePassword.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "firstName",
+              "widget": "string"
+            },
+            {
+              "label": "Old Password Label",
+              "name": "oldPasswordLabel",
+              "widget": "string"
+            },
+            {
+              "label": "New Password Label",
+              "name": "newPasswordLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Button Label",
+              "name": "buttonLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Password Icon",
+              "name": "passwordIcon",
+              "widget": "image"
+            },
+            {
+              "label": "Success Label",
+              "name": "successLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Error Label",
+              "name": "errorLabel",
+              "widget": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "label": "Authentication & Registration",
+      "files": [
+        {
+          "label": "Sign In",
+          "name": "login",
+          "file": "content/pages/auth/login.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "string"
+            },
+            {
+              "label": "Login Label",
+              "name": "loginLabel",
+              "widget": "string"
+            },
+            {
+              "label": "SignUp Prompt",
+              "name": "signUpPrompt",
+              "widget": "string"
+            },
+            {
+              "label": "SignUp Link",
+              "name": "signupLink",
+              "widget": "string"
+            },
+            {
+              "label": "SignUp Label",
+              "name": "signupLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Sign In Label",
+              "name": "signInLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Forgot Password Prompt",
+              "name": "forgotPasswordPrompt",
+              "widget": "string"
+            },
+            {
+              "label": "Forgot Password Link",
+              "name": "forgotPasswordLink",
+              "widget": "string"
+            },
+            {
+              "label": "Google Icon",
+              "name": "googleIcon",
+              "widget": "image"
+            },
+            {
+              "label": "Password Icon",
+              "name": "passwordIcon",
+              "widget": "image"
+            }
+          ]
+        },
+        {
+          "label": "Sign Up",
+          "name": "SignUp",
+          "file": "content/pages/auth/register.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "string"
+            },
+            {
+              "label": "Login Prompt",
+              "name": "loginPrompt",
+              "widget": "string"
+            },
+            {
+              "label": "Login Text",
+              "name": "loginText",
+              "widget": "string"
+            },
+            {
+              "label": "Signup Label",
+              "name": "signUpLabel",
+              "widget": "string"
+            },
+            {
+              "label": "signin Label",
+              "name": "signInLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Error Label",
+              "name": "errorLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Google Icon",
+              "name": "googleIcon",
+              "widget": "image"
+            },
+            {
+              "label": "Password Icon",
+              "name": "passwordIcon",
+              "widget": "image"
+            }
+          ]
+        },
+        {
+          "label": "Verify Email",
+          "name": "VerifyEmail",
+          "file": "content/pages/auth/verify-email.md",
+          "fields": [
+            {
+              "label": "Category",
+              "name": "category",
+              "widget": "object",
+              "fields": [
+                {
+                  "label": "Registration",
+                  "name": "register",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Title",
+                      "name": "title",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Descripion",
+                      "name": "description",
+                      "widget": "markdown"
+                    }
+                  ]
+                },
+                {
+                  "label": "Reset Password",
+                  "name": "resetPassword",
+                  "widget": "object",
+                  "fields": [
+                    {
+                      "label": "Title",
+                      "name": "title",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Descripion",
+                      "name": "description",
+                      "widget": "markdown"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Forgot Password",
+          "name": "fgPassword",
+          "file": "content/pages/auth/forgot-password.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "string"
+            },
+            {
+              "label": "Submit",
+              "name": "submitLabel",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "label": "Reset Password",
+          "name": "rsPassword",
+          "file": "content/pages/auth/reset-password.md",
+          "fields": [
+            {
+              "label": "Title",
+              "name": "title",
+              "widget": "string"
+            },
+            {
+              "label": "Description",
+              "name": "description",
+              "widget": "string"
+            },
+            {
+              "label": "Submit Label",
+              "name": "submitLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Password Icon",
+              "name": "passwordIcon",
+              "widget": "image"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Components",
+      "label": "Components",
+      "files": [
+        {
+          "label": "Search",
+          "name": "search",
+          "file": "content/components/search.md",
+          "fields": [
+            {
+              "label": "Twitter Accounts Label",
+              "name": "twitterAccountsLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Search Label",
+              "name": "searchLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Load Search Label",
+              "name": "loadSearchLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Save Search Label",
+              "name": "saveSearchLabel",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "label": "Account List",
+          "name": "accountlist",
+          "file": "content/components/accountlist.md",
+          "fields": [
+            {
+              "label": "Add Account Label",
+              "name": "addAccountLabel",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "label": "Add To List",
+          "name": "addtolist",
+          "file": "content/components/addtolist.md",
+          "fields": [
+            {
+              "label": "Add To List Label",
+              "name": "addToListLabel",
+              "widget": "string"
+            },
+            {
+              "label": "Success Label",
+              "name": "successLabel",
+              "widget": "string"
+            }
+          ]
+        },
+        {
+          "label": "Account Label",
+          "name": "account",
+          "file": "content/components/account.md",
+          "fields": [
+            {
+              "label": "Delete Label",
+              "name": "deleteLabe;",
+              "widget": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
