@@ -67,7 +67,6 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
             <a
               class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-druj3j-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://codeforafrica.org"
-              id=":r0:"
               rel="noreferrer noopener"
               tabindex="0"
               target="_blank"

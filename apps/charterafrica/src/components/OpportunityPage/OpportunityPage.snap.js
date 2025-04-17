@@ -50,7 +50,6 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-10qc60x-MuiButtonBase-root-MuiButton-root"
-              id=":r0:"
               tabindex="0"
               type="button"
             >
@@ -124,7 +123,6 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
         </div>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1ul7yle-MuiButtonBase-root-MuiButton-root"
-          id=":r1:"
           tabindex="0"
           type="button"
         >
@@ -154,7 +152,6 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-10qc60x-MuiButtonBase-root-MuiButton-root"
-              id=":r2:"
               tabindex="0"
               type="button"
             >
@@ -228,7 +225,6 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
         </div>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1ul7yle-MuiButtonBase-root-MuiButton-root"
-          id=":r3:"
           tabindex="0"
           type="button"
         >
@@ -258,7 +254,6 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-10qc60x-MuiButtonBase-root-MuiButton-root"
-              id=":r4:"
               tabindex="0"
               type="button"
             >
@@ -332,7 +327,6 @@ exports[`<OpportunityPage /> renders unchanged 1`] = `
         </div>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1ul7yle-MuiButtonBase-root-MuiButton-root"
-          id=":r5:"
           tabindex="0"
           type="button"
         >

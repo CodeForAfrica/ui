@@ -40,7 +40,6 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
             </p>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1k0wfhb-MuiButtonBase-root-MuiButton-root"
-              id=":r0:"
               tabindex="0"
               type="button"
             >
@@ -69,7 +68,6 @@ exports[`<FeaturedArticle /> renders unchanged 1`] = `
               </h1>
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeLarge MuiButton-contained-reverseSizeLarge MuiButton-colorPrimary css-vwpt7m-MuiButtonBase-root-MuiButton-root"
-                id=":r1:"
                 tabindex="0"
                 type="button"
               >

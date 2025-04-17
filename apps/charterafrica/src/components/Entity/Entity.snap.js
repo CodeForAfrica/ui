@@ -123,7 +123,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
-                id=":r0:"
                 rel="noreferrer noopener"
                 tabindex="0"
                 target="_blank"
@@ -160,7 +159,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
-                id=":r1:"
                 rel="noreferrer noopener"
                 tabindex="0"
                 target="_blank"
@@ -197,7 +195,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
-                id=":r2:"
                 rel="noreferrer noopener"
                 tabindex="0"
                 target="_blank"
@@ -482,7 +479,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       </h5>
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-ffiew0-MuiButtonBase-root-MuiButton-root"
-                        id=":r3:"
                         tabindex="0"
                         type="button"
                       >
@@ -572,7 +568,6 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       </h5>
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-ffiew0-MuiButtonBase-root-MuiButton-root"
-                        id=":r4:"
                         tabindex="0"
                         type="button"
                       >

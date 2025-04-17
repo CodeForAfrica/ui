@@ -49,7 +49,6 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             </div>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-157zrhe-MuiButtonBase-root-MuiButton-root"
-              id=":r0:"
               tabindex="0"
               type="button"
             >

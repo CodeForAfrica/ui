@@ -13,13 +13,9 @@ exports[`<SearchInput /> renders unchanged 1`] = `
     <button
       aria-label="search"
       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1avsmgh-MuiButtonBase-root-MuiIconButton-root"
-      id=":r0:"
       tabindex="0"
       type="button"
     >
-      <span
-        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-      />
       <div
         aria-hidden="true"
         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1suu95-MuiSvgIcon-root"

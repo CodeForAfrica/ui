@@ -5,7 +5,6 @@ exports[`<OrganisationImageCard /> renders unchanged 1`] = `
   <a
     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
     href="https://charter.africa"
-    id=":r0:"
     rel="noreferrer noopener"
     tabindex="0"
     target="_blank"

@@ -14,13 +14,9 @@ exports[`<MobileNavBar /> renders unchanged 1`] = `
       <button
         aria-label="navigation"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-53g0n7-MuiButtonBase-root-MuiIconButton-root"
-        id=":r0:"
         tabindex="0"
         type="button"
       >
-        <span
-          class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-        />
         <div
           aria-hidden="true"
           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9lf3ez-MuiSvgIcon-root"

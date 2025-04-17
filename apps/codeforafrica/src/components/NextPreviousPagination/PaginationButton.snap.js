@@ -7,7 +7,6 @@ exports[`<PaginationButton /> renders unchanged 1`] = `
   >
     <button
       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-ubz8n1-MuiButtonBase-root-MuiButton-root"
-      id=":r0:"
       tabindex="0"
       type="button"
     >

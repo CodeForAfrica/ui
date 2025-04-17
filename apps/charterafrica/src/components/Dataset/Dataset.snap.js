@@ -57,7 +57,6 @@ exports[`<Dataset /> renders unchanged 1`] = `
           </div>
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-cctx58-MuiButtonBase-root-MuiButton-root"
-            id=":r0:"
             tabindex="0"
             target="_blank"
             type="button"

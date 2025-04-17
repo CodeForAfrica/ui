@@ -28,7 +28,6 @@ We can help you find specialists or resources to improve the impact of your demo
         </div>
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-dlqng1-MuiButtonBase-root-MuiButton-root"
-          id=":r0:"
           tabindex="0"
           type="button"
         >

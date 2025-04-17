@@ -48,7 +48,6 @@ exports[`<ProjectCard /> renders unchanged 1`] = `
         >
           <div
             class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-11lybd0-MuiButtonBase-root-MuiButton-root"
-            id=":r0:"
             role="button"
             tabindex="0"
           >

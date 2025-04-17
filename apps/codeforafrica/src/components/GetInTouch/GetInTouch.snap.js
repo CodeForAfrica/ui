@@ -26,7 +26,6 @@ exports[`<GetInTouch /> renders unchanged 1`] = `
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-ay9u4j-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
           href="/contact"
-          id=":r0:"
           tabindex="0"
         >
           <span

@@ -78,14 +78,10 @@ exports[`<Hero /> renders unchanged 1`] = `
                   />
                   <button
                     class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeSmall css-15uzaf9-MuiButtonBase-root-MuiIconButton-root"
-                    id=":r0:"
                     root="[object Object]"
                     tabindex="0"
                     type="button"
                   >
-                    <span
-                      class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                    />
                     <svg
                       aria-hidden="true"
                       class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1nqw60y-MuiSvgIcon-root"

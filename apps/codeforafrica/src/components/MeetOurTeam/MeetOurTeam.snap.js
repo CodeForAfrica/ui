@@ -34,7 +34,6 @@ exports[`<MeetOurTeam /> renders unchanged 1`] = `
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-1ctsdn-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/about#our-team"
-            id=":r0:"
             tabindex="0"
           >
             Meet our team

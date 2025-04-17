@@ -24,13 +24,9 @@ exports[`<Layout /> renders unchanged 1`] = `
             <button
               aria-label="navigation"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-53g0n7-MuiButtonBase-root-MuiIconButton-root"
-              id=":r0:"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-              />
               <div
                 aria-hidden="true"
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9lf3ez-MuiSvgIcon-root"
@@ -67,13 +63,9 @@ exports[`<Layout /> renders unchanged 1`] = `
                       aria-haspopup="menu"
                       aria-label="select merge strategy"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1krvc7o-MuiButtonBase-root-MuiIconButton-root"
-                      id=":r1:"
                       tabindex="0"
                       type="button"
                     >
-                      <span
-                        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                      />
                       <div
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9kj0vt-MuiSvgIcon-root"
@@ -91,13 +83,9 @@ exports[`<Layout /> renders unchanged 1`] = `
                       aria-haspopup="menu"
                       aria-label="select merge strategy"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1krvc7o-MuiButtonBase-root-MuiIconButton-root"
-                      id=":r2:"
                       tabindex="0"
                       type="button"
                     >
-                      <span
-                        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                      />
                       <div
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9kj0vt-MuiSvgIcon-root"
@@ -115,13 +103,9 @@ exports[`<Layout /> renders unchanged 1`] = `
                       aria-haspopup="menu"
                       aria-label="select merge strategy"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1krvc7o-MuiButtonBase-root-MuiIconButton-root"
-                      id=":r3:"
                       tabindex="0"
                       type="button"
                     >
-                      <span
-                        class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                      />
                       <div
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-9kj0vt-MuiSvgIcon-root"
@@ -143,7 +127,6 @@ exports[`<Layout /> renders unchanged 1`] = `
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-ny25p5-MuiButtonBase-root-MuiButton-root"
-                  id=":r4:"
                   tabindex="0"
                   type="button"
                 >

@@ -23,13 +23,9 @@ exports[`<DocumentFilterBar /> renders unchanged 1`] = `
           <button
             aria-label="search"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1avsmgh-MuiButtonBase-root-MuiIconButton-root"
-            id=":r0:"
             tabindex="0"
             type="button"
           >
-            <span
-              class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-            />
             <div
               aria-hidden="true"
               class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1suu95-MuiSvgIcon-root"
@@ -82,14 +78,10 @@ exports[`<DocumentFilterBar /> renders unchanged 1`] = `
                 <button
                   aria-label="Clear"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1x7n7v0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
-                  id=":r3:"
                   tabindex="-1"
                   title="Clear"
                   type="button"
                 >
-                  <span
-                    class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                  />
                   <svg
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
@@ -105,14 +97,10 @@ exports[`<DocumentFilterBar /> renders unchanged 1`] = `
                 <button
                   aria-label="Open"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-10egcn8-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
-                  id=":r4:"
                   tabindex="-1"
                   title="Open"
                   type="button"
                 >
-                  <span
-                    class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                  />
                   <div
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bgqlhh-MuiSvgIcon-root"

@@ -22,7 +22,6 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
       >
         <button
           class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-10qc60x-MuiButtonBase-root-MuiButton-root"
-          id=":r0:"
           tabindex="0"
           type="button"
         >
@@ -198,7 +197,6 @@ exports[`<OpportunityCards /> renders unchanged 1`] = `
     </div>
     <button
       class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1ul7yle-MuiButtonBase-root-MuiButton-root"
-      id=":r1:"
       tabindex="0"
       type="button"
     >

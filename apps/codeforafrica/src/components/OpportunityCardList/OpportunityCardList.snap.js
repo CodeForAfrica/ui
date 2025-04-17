@@ -47,7 +47,6 @@ exports[`<OpportunityCardList /> renders unchanged 1`] = `
         >
           <div
             class="MuiButtonBase-root MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained-reverse MuiButton-contained-reversePrimary MuiButton-sizeMedium MuiButton-contained-reverseSizeMedium MuiButton-colorPrimary css-1d7udnj-MuiButtonBase-root-MuiButton-root"
-            id=":r0:"
             role="button"
             tabindex="0"
           />

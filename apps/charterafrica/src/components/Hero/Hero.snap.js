@@ -49,7 +49,6 @@ exports[`<Hero /> renders unchanged 1`] = `
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-1yakt1o-MuiButtonBase-root-MuiButton-root"
-                    id=":r0:"
                     tabindex="0"
                     type="button"
                   >
@@ -74,7 +73,6 @@ exports[`<Hero /> renders unchanged 1`] = `
                   </button>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-1yakt1o-MuiButtonBase-root-MuiButton-root"
-                    id=":r1:"
                     tabindex="0"
                     type="button"
                   >

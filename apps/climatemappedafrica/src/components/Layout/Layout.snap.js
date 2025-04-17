@@ -143,14 +143,10 @@ exports[`<Layout /> renders unchanged 1`] = `
             <button
               aria-label="Open drawer"
               class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-10qc9uq-MuiButtonBase-root-MuiIconButton-root"
-              id=":r0:"
               root="[object Object]"
               tabindex="0"
               type="button"
             >
-              <span
-                class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-              />
               <div
                 aria-hidden="true"
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-15kj1qc-MuiSvgIcon-root"

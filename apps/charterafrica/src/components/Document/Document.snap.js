@@ -43,7 +43,6 @@ exports[`<Document /> renders unchanged 1`] = `
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary active css-wg2o4k-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/"
-            id=":r0:"
             tabindex="0"
           >
             <span

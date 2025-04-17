@@ -37,7 +37,6 @@ exports[`<ErrorPage /> renders unchanged 1`] = `
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary active css-16uizo2-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"
-        id=":r0:"
         tabindex="0"
       >
         NOT FOUND

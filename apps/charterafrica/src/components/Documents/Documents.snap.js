@@ -32,13 +32,9 @@ exports[`<Documents /> renders unchanged 1`] = `
                 <button
                   aria-label="search"
                   class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1avsmgh-MuiButtonBase-root-MuiIconButton-root"
-                  id=":r0:"
                   tabindex="0"
                   type="button"
                 >
-                  <span
-                    class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                  />
                   <div
                     aria-hidden="true"
                     class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1suu95-MuiSvgIcon-root"
@@ -91,14 +87,10 @@ exports[`<Documents /> renders unchanged 1`] = `
                       <button
                         aria-label="Clear"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1x7n7v0-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
-                        id=":r3:"
                         tabindex="-1"
                         title="Clear"
                         type="button"
                       >
-                        <span
-                          class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                        />
                         <svg
                           aria-hidden="true"
                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
@@ -114,14 +106,10 @@ exports[`<Documents /> renders unchanged 1`] = `
                       <button
                         aria-label="Open"
                         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-10egcn8-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
-                        id=":r4:"
                         tabindex="-1"
                         title="Open"
                         type="button"
                       >
-                        <span
-                          class="MuiIconButton-loadingIndicator css-165vu30-MuiIconButton-loadingIndicator"
-                        />
                         <div
                           aria-hidden="true"
                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1bgqlhh-MuiSvgIcon-root"
@@ -159,7 +147,6 @@ exports[`<Documents /> renders unchanged 1`] = `
               <a
                 class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-d5yv8m-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="/datasets"
-                id=":r5:"
                 tabindex="0"
               >
                 Datasets
@@ -167,7 +154,6 @@ exports[`<Documents /> renders unchanged 1`] = `
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1imxd5l-MuiButtonBase-root-MuiButton-root"
                 disabled=""
-                id=":r6:"
                 tabindex="-1"
                 type="button"
               >
