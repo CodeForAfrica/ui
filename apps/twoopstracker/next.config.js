@@ -1,4 +1,6 @@
-module.exports = {
+const { withSentryConfig } = require("@sentry/nextjs");
+
+const nextConfig = {
   output: "standalone",
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
@@ -27,3 +29,10 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = withSentryConfig(nextConfig, {
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  silent: !process.env.CI,
+  hideSourceMaps: true,
+});
