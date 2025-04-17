@@ -60,12 +60,6 @@ RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 FROM pnpm-base AS base-deps
 
 COPY pnpm-lock.yaml .
-RUN apk add --no-cache \
-  python3 \
-  py3-pip \
-  make \
-  g++ \
-  sqlite-dev && rm -rf /var/cache/apk/*
 
 RUN pnpm fetch
 
