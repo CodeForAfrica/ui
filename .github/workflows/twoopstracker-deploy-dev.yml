@@ -58,11 +58,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           build-args: |
-            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
-            NEXT_PUBLIC_APP_NAME=${{ env.NEXT_PUBLIC_APP_NAME }}
-            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.TWOOPSTRACKER_SENTRY_PROJECT }}
             TWOOPSTRACKER_API_URL=${{ env.TWOOPSTRACKER_API_URL }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
