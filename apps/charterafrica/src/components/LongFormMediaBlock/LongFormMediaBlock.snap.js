@@ -3,11 +3,11 @@
 exports[`<LongFormMediaBlock /> renders unchanged 1`] = `
 <div>
   <figure
-    class="MuiBox-root css-g1fxym"
+    class="MuiBox-root css-82o9x6"
   >
     <img
       alt="Featured Post"
-      class="css-g98gbd"
+      class="css-qv2885"
       data-nimg="1"
       decoding="async"
       height="0"
@@ -18,7 +18,7 @@ exports[`<LongFormMediaBlock /> renders unchanged 1`] = `
       width="0"
     />
     <figcaption
-      class="MuiTypography-root MuiTypography-caption css-fl2ocl-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-caption css-1uaaouy-MuiTypography-root"
     >
       Image caption.
     </figcaption>

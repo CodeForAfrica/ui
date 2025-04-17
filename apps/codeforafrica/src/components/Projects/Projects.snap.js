@@ -4,20 +4,20 @@ exports[`<Projects /> renders unchanged 1`] = `
 <div>
   <div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1hxthm7-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1w8a3sk-MuiContainer-root"
     >
       <div
         class="MuiStack-root css-7ziy04-MuiStack-root"
       >
         <div
-          class="MuiFormControl-root MuiTextField-root css-1p0a819-MuiFormControl-root-MuiTextField-root"
+          class="MuiFormControl-root MuiTextField-root css-78ojy-MuiFormControl-root-MuiTextField-root"
         >
           <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1avksc5-MuiInputBase-root-MuiOutlinedInput-root"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd css-1r515j9-MuiInputBase-root-MuiOutlinedInput-root"
           >
             <input
               aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-uotzle-MuiInputBase-input-MuiOutlinedInput-input"
+              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd css-b9lgir-MuiInputBase-input-MuiOutlinedInput-input"
               id=":r0:"
               placeholder="Search projects"
               type="search"
@@ -25,25 +25,26 @@ exports[`<Projects /> renders unchanged 1`] = `
             />
             <button
               aria-label="search"
-              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-k4oz44-MuiButtonBase-root-MuiIconButton-root"
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1kcqim2-MuiButtonBase-root-MuiIconButton-root"
               tabindex="0"
               type="button"
             >
               <div
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-iusnk6-MuiSvgIcon-root"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
                 focusable="false"
                 viewbox="0 0 16 16"
               />
             </button>
             <fieldset
               aria-hidden="true"
-              class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+              class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="css-ihdtdm"
+                class="css-w4cd9x"
               >
                 <span
+                  aria-hidden="true"
                   class="notranslate"
                 >
                   ​

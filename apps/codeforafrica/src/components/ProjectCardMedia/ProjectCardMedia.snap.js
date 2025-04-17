@@ -3,7 +3,7 @@
 exports[`<ProjectCardMedia /> renders unchanged 1`] = `
 <div>
   <img
-    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
+    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1da3jgb-MuiCardMedia-root"
   />
 </div>
 `;

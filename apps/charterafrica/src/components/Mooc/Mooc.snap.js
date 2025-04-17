@@ -6,13 +6,13 @@ exports[`<Mooc/> renders unchanged 1`] = `
     class="MuiBox-root css-l3bbx9"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tgrrgk-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ipyg2f-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-7yylxy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] MuiGrid-wrap-xs-nowrap css-1gkqic5-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-rm5v4n-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-10xnvyd-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -22,11 +22,11 @@ exports[`<Mooc/> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 css-15gjm0g-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-jitnt0"
+            class="MuiBox-root css-1w3flzm"
           >
             <img
               alt="MOOC"
-              class="css-g98gbd"
+              class="css-qv2885"
               data-nimg="fill"
               decoding="async"
               loading="lazy"

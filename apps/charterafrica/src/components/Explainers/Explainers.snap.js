@@ -6,10 +6,10 @@ exports[`<Explainers /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-9gm53n-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-xb6wsu-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h3 css-n55336-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-1sgmt5b-MuiTypography-root"
       >
         Explainers
       </div>
@@ -17,11 +17,11 @@ exports[`<Explainers /> renders unchanged 1`] = `
         class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
-          class="MuiBox-root css-db5opy"
+          class="MuiBox-root css-vutmxe"
         >
           <img
             alt="Event 0"
-            class="css-g98gbd"
+            class="css-qv2885"
             data-nimg="1"
             decoding="async"
             height="0"
@@ -36,24 +36,24 @@ exports[`<Explainers /> renders unchanged 1`] = `
           class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-9c4w98-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1ihwlob-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-18cva15-MuiDivider-root"
       />
       <div
         class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
-          class="MuiBox-root css-db5opy"
+          class="MuiBox-root css-vutmxe"
         >
           <img
             alt="Event 1"
-            class="css-g98gbd"
+            class="css-qv2885"
             data-nimg="1"
             decoding="async"
             height="0"
@@ -68,24 +68,24 @@ exports[`<Explainers /> renders unchanged 1`] = `
           class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-9c4w98-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1ihwlob-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-18cva15-MuiDivider-root"
       />
       <div
         class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
-          class="MuiBox-root css-db5opy"
+          class="MuiBox-root css-vutmxe"
         >
           <img
             alt="Event 2"
-            class="css-g98gbd"
+            class="css-qv2885"
             data-nimg="1"
             decoding="async"
             height="0"
@@ -100,24 +100,24 @@ exports[`<Explainers /> renders unchanged 1`] = `
           class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-9c4w98-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1ihwlob-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-18cva15-MuiDivider-root"
       />
       <div
         class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
-          class="MuiBox-root css-db5opy"
+          class="MuiBox-root css-vutmxe"
         >
           <img
             alt="Event 3"
-            class="css-g98gbd"
+            class="css-qv2885"
             data-nimg="1"
             decoding="async"
             height="0"
@@ -132,24 +132,24 @@ exports[`<Explainers /> renders unchanged 1`] = `
           class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-9c4w98-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1ihwlob-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-18cva15-MuiDivider-root"
       />
       <div
         class="MuiStack-root css-nen11g-MuiStack-root"
       >
         <figure
-          class="MuiBox-root css-db5opy"
+          class="MuiBox-root css-vutmxe"
         >
           <img
             alt="Event 4"
-            class="css-g98gbd"
+            class="css-qv2885"
             data-nimg="1"
             decoding="async"
             height="0"
@@ -164,14 +164,14 @@ exports[`<Explainers /> renders unchanged 1`] = `
           class="MuiBox-root css-12mwhaj"
         >
           <p
-            class="MuiTypography-root MuiTypography-p2 css-9c4w98-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1ihwlob-MuiTypography-root"
           >
             Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipiscing elit tempus nibh cursus, urna porta sagittis non eget taciti nunc sed felis dui, praesent ullamcorper facilisi euismod ut in platea laoreet integer. Lorem ipsum dolor sit amet consectetur 
           </p>
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1i2odet-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-18cva15-MuiDivider-root"
       />
     </div>
   </div>

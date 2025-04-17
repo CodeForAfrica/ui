@@ -57,12 +57,12 @@ exports[`Location renders unchanged 1`] = `
           class="MuiBox-root css-w6ptp5"
         >
           <h6
-            class="MuiTypography-root MuiTypography-subtitle1 css-luofes-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-subtitle1 css-1nou8st-MuiTypography-root"
           >
             Population
           </h6>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-7ctihp-MuiTypography-root"
           >
             10,000,000
           </p>
@@ -71,12 +71,12 @@ exports[`Location renders unchanged 1`] = `
           class="MuiBox-root css-w6ptp5"
         >
           <h6
-            class="MuiTypography-root MuiTypography-subtitle1 css-luofes-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-subtitle1 css-1nou8st-MuiTypography-root"
           >
             GDP
           </h6>
           <p
-            class="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body2 css-7ctihp-MuiTypography-root"
           >
             10,000,000
           </p>

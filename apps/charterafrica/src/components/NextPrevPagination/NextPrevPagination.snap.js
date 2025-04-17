@@ -6,13 +6,13 @@ exports[`<NextPrevPagination /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <ul
-      class="css-1szo00h"
+      class="css-1u984he"
     >
       <li
         class="MuiBox-root css-0"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-cqffet-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-1ue9ibh-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

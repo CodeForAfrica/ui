@@ -6,20 +6,20 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10h56vb-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-x1dvlf-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-gqilsr-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-2miyha-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-db5opy"
+            class="MuiBox-root css-vutmxe"
           >
             <img
               alt="John Doe"
-              class="css-g98gbd"
+              class="css-qv2885"
               data-nimg="1"
               decoding="async"
               height="0"
@@ -35,45 +35,45 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-u4yv58-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h2 css-wx8luq-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-wz0oyq-MuiTypography-root"
           >
             John Doe
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-2xha87-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-1ibmzsv-MuiTypography-root"
           >
             Developer
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-2xha87-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-1ibmzsv-MuiTypography-root"
           >
             Charter Africa
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p4 css-2xha87-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p4 css-1ibmzsv-MuiTypography-root"
           >
             San Francisco, CA
           </div>
           <div
-            class="MuiTypography-root MuiTypography-p1 css-pxso3q-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-uehaqk-MuiTypography-root"
           >
             Full-stack web developer with over 5 years of experience.
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-3odm25-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-auto css-109lh6d-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-zo8y90-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-18imcs6-MuiTypography-root-MuiLink-root"
                 href="https://twitter.com/johndoe"
                 rel="noreferrer noopener"
                 target="_blank"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-161bqzh-MuiSvgIcon-root"
                   focusable="false"
                 />
               </a>
@@ -82,14 +82,14 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-zo8y90-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-18imcs6-MuiTypography-root-MuiLink-root"
                 href="https://github.com/johndoe"
                 rel="noreferrer noopener"
                 target="_blank"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-161bqzh-MuiSvgIcon-root"
                   focusable="false"
                 />
               </a>
@@ -98,19 +98,19 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-6wafux-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-cp0dln-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ofcnda-MuiTypography-root-MuiLink-root"
                 href="maito:johndoe@example.com"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1835xr2-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-161bqzh-MuiSvgIcon-root"
                   focusable="false"
                 />
               </a>
             </div>
           </div>
           <div
-            class="MuiTypography-root MuiTypography-h3Small css-itrhit-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h3Small css-d4pglc-MuiTypography-root"
           >
             Organisations
           </div>
@@ -121,7 +121,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -131,11 +131,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiStack-root css-1l9qugs-MuiStack-root"
                 >
                   <figure
-                    class="MuiBox-root css-1u82k0c"
+                    class="MuiBox-root css-6roq6o"
                   >
                     <img
                       alt="Organisation 0"
-                      class="css-1r7uxv0"
+                      class="css-1enhhhm"
                       data-nimg="fill"
                       decoding="async"
                       loading="lazy"
@@ -146,7 +146,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                     />
                   </figure>
                   <div
-                    class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-1aw81q8-MuiTypography-root"
                   >
                     Organisation 0
                   </div>
@@ -157,7 +157,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -167,11 +167,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiStack-root css-1l9qugs-MuiStack-root"
                 >
                   <figure
-                    class="MuiBox-root css-1u82k0c"
+                    class="MuiBox-root css-6roq6o"
                   >
                     <img
                       alt="Organisation 1"
-                      class="css-1r7uxv0"
+                      class="css-1enhhhm"
                       data-nimg="fill"
                       decoding="async"
                       loading="lazy"
@@ -182,7 +182,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                     />
                   </figure>
                   <div
-                    class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-1aw81q8-MuiTypography-root"
                   >
                     Organisation 1
                   </div>
@@ -193,7 +193,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1iugyn0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1rha4ds-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                 href="https://charter.africa"
                 rel="noreferrer noopener"
                 tabindex="0"
@@ -203,11 +203,11 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiStack-root css-1l9qugs-MuiStack-root"
                 >
                   <figure
-                    class="MuiBox-root css-1u82k0c"
+                    class="MuiBox-root css-6roq6o"
                   >
                     <img
                       alt="Organisation 2"
-                      class="css-1r7uxv0"
+                      class="css-1enhhhm"
                       data-nimg="fill"
                       decoding="async"
                       loading="lazy"
@@ -218,7 +218,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                     />
                   </figure>
                   <div
-                    class="MuiTypography-root MuiTypography-p3SemiBold css-1xn8kt9-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p3SemiBold css-1aw81q8-MuiTypography-root"
                   >
                     Organisation 2
                   </div>
@@ -229,10 +229,10 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg css-1jzu7sv-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg css-ut8xii-MuiContainer-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h3Small css-3xokdu-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3Small css-1943xhm-MuiTypography-root"
         >
           Repositories
         </div>
@@ -243,7 +243,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15h90l6-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-5t2npa-MuiTypography-root-MuiLink-root"
               href="https://charter.africa"
               rel="noreferrer noopener"
               target="_blank"
@@ -255,22 +255,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1mlgsna-MuiTypography-root"
                   >
                     Repository 0
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     Charter Africa website
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     React, Next.js, TypeScript
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     October 1, 2021
                   </div>
@@ -285,16 +285,16 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       sx="[object Object]"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-lkcrki-MuiTypography-root"
                     >
                       100
                     </div>
                   </div>
                   <div
-                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1w0hnh0-MuiChip-root"
                   >
                     <span
-                      class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+                      class="MuiChip-label MuiChip-labelMedium css-16cgrcw-MuiChip-label"
                     >
                       PUBLIC
                     </span>
@@ -307,7 +307,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15h90l6-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-5t2npa-MuiTypography-root-MuiLink-root"
               href="https://charter.africa"
               rel="noreferrer noopener"
               target="_blank"
@@ -319,22 +319,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1mlgsna-MuiTypography-root"
                   >
                     Repository 1
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     Charter Africa website
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     React, Next.js, TypeScript
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     October 1, 2021
                   </div>
@@ -349,16 +349,16 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       sx="[object Object]"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-lkcrki-MuiTypography-root"
                     >
                       100
                     </div>
                   </div>
                   <div
-                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1w0hnh0-MuiChip-root"
                   >
                     <span
-                      class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+                      class="MuiChip-label MuiChip-labelMedium css-16cgrcw-MuiChip-label"
                     >
                       PUBLIC
                     </span>
@@ -371,7 +371,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-18qart5-MuiGrid-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15h90l6-MuiTypography-root-MuiLink-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-5t2npa-MuiTypography-root-MuiLink-root"
               href="https://charter.africa"
               rel="noreferrer noopener"
               target="_blank"
@@ -383,22 +383,22 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h6 css-1mlgsna-MuiTypography-root"
                   >
                     Repository 2
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     Charter Africa website
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     React, Next.js, TypeScript
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
                   >
                     October 1, 2021
                   </div>
@@ -413,16 +413,16 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       sx="[object Object]"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1SemiBold css-lkcrki-MuiTypography-root"
                     >
                       100
                     </div>
                   </div>
                   <div
-                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+                    class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1w0hnh0-MuiChip-root"
                   >
                     <span
-                      class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+                      class="MuiChip-label MuiChip-labelMedium css-16cgrcw-MuiChip-label"
                     >
                       PUBLIC
                     </span>
@@ -434,21 +434,21 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        class="MuiTypography-root MuiTypography-h3Small css-3xokdu-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3Small css-1943xhm-MuiTypography-root"
       >
         Favorite Tools
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-hamzp9-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-2l6o4x-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-14uhsz6-MuiPaper-root-MuiCard-root"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root css-11lg1vd-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-y53a6a-MuiButtonBase-root-MuiCardActionArea-root"
               tabindex="0"
               type="button"
             >
@@ -459,7 +459,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-1j9yqi7-MuiGrid-root"
                 >
                   <img
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-pssmpe-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-u7nuca-MuiCardMedia-root"
                     src="/static/images/react.png"
                   />
                 </div>
@@ -467,18 +467,18 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-1u7cbv1-MuiGrid-root"
                 >
                   <div
-                    class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
+                    class="MuiCardContent-root css-ovyh64-MuiCardContent-root"
                   >
                     <div
                       class="MuiBox-root css-gg4vpm"
                     >
                       <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ycrxwx-MuiTypography-root"
                       >
                         React
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-ffiew0-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -493,7 +493,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </div>
@@ -502,7 +502,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </div>
@@ -511,13 +511,13 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </div>
                     </div>
                     <div
-                      class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-zmojj9-MuiTypography-root"
                     >
                       A JavaScript library for building user interfaces
                     </div>
@@ -525,7 +525,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                 </div>
               </div>
               <span
-                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+                class="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
               />
             </button>
           </div>
@@ -534,10 +534,10 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-12 css-10j6ha2-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1tmdl4w-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-14uhsz6-MuiPaper-root-MuiCard-root"
           >
             <button
-              class="MuiButtonBase-root MuiCardActionArea-root css-11lg1vd-MuiButtonBase-root-MuiCardActionArea-root"
+              class="MuiButtonBase-root MuiCardActionArea-root css-y53a6a-MuiButtonBase-root-MuiCardActionArea-root"
               tabindex="0"
               type="button"
             >
@@ -548,7 +548,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4 css-1j9yqi7-MuiGrid-root"
                 >
                   <img
-                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-pssmpe-MuiCardMedia-root"
+                    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-u7nuca-MuiCardMedia-root"
                     src="/static/images/nodejs.png"
                   />
                 </div>
@@ -556,18 +556,18 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8 css-1u7cbv1-MuiGrid-root"
                 >
                   <div
-                    class="MuiCardContent-root css-1gdcjgz-MuiCardContent-root"
+                    class="MuiCardContent-root css-ovyh64-MuiCardContent-root"
                   >
                     <div
                       class="MuiBox-root css-gg4vpm"
                     >
                       <h5
-                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-2971bk-MuiTypography-root"
+                        class="MuiTypography-root MuiTypography-h5SmallSemiBold css-ycrxwx-MuiTypography-root"
                       >
                         Node.js
                       </h5>
                       <button
-                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-zewu4j-MuiButtonBase-root-MuiButton-root"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-ffiew0-MuiButtonBase-root-MuiButton-root"
                         tabindex="0"
                         type="button"
                       >
@@ -582,7 +582,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </div>
@@ -591,7 +591,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </div>
@@ -600,13 +600,13 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                       >
                         <div
                           aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kmhw4l-MuiSvgIcon-root"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-yyhgsn-MuiSvgIcon-root"
                           focusable="false"
                         />
                       </div>
                     </div>
                     <div
-                      class="MuiTypography-root MuiTypography-p1 css-phxr0c-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p1 css-zmojj9-MuiTypography-root"
                     >
                       A JavaScript runtime built on Chrome's V8 JavaScript engine.
                     </div>
@@ -614,7 +614,7 @@ exports[`<OrgAndContributor /> renders unchanged 1`] = `
                 </div>
               </div>
               <span
-                class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+                class="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
               />
             </button>
           </div>

@@ -6,15 +6,15 @@ exports[`<OpportunityHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1om00n2-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1iv9rp5-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3 css-1dbe021-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3 css-gk3coa-MuiTypography-root"
       >
         Grants and Fellowships
       </h3>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-f8pbns-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth css-e230pt-MuiDivider-root"
       />
     </div>
   </div>

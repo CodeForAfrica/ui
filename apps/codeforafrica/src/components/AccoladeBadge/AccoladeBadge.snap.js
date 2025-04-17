@@ -13,7 +13,7 @@ exports[`<AccoladeBadge /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1u8nxw3-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-4xeugy-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 64 64"
         />
@@ -25,13 +25,13 @@ exports[`<AccoladeBadge /> renders unchanged 1`] = `
           class="MuiBox-root css-1htlurg"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-zgmcj5-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-1l1ocre-MuiGrid-root"
           >
             <div
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <p
-                class="MuiTypography-root MuiTypography-body1 css-cx4ow6-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-xa0rza-MuiTypography-root"
               >
                 Award Name
               </p>
@@ -40,7 +40,7 @@ exports[`<AccoladeBadge /> renders unchanged 1`] = `
               class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
             >
               <span
-                class="MuiTypography-root MuiTypography-caption css-1nn8juq-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-caption css-184b5ev-MuiTypography-root"
               >
                 Month 2021
               </span>

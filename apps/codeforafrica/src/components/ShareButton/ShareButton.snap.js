@@ -10,7 +10,7 @@ exports[`<FacebookShareBarButton /> renders unchanged 1`] = `
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 24 24"
     />
@@ -28,7 +28,7 @@ exports[`<LinkedinShareBarButton /> renders unchanged 1`] = `
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 24 24"
     />
@@ -46,7 +46,7 @@ exports[`<TwitterShareBarButton /> renders unchanged 1`] = `
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 24 24"
     />

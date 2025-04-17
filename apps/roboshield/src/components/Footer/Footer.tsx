@@ -54,7 +54,7 @@ function Footer({
   initiative,
 }: FooterProps) {
   return (
-    <FooterRoot component="footer">
+    <FooterRoot>
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <Grid container columns={24} justifyContent="space-between">
           <Grid

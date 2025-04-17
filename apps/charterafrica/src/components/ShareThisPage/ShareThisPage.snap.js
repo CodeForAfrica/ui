@@ -6,7 +6,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
     class="MuiStack-root css-v2woy3-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-p3 css-7dv6su-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-p3 css-4m30it-MuiTypography-root"
     >
       Sample Title
     </div>
@@ -20,7 +20,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
@@ -32,7 +32,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />
@@ -44,7 +44,7 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
       >
         <div
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
           focusable="false"
           viewbox="0 0 24 24"
         />

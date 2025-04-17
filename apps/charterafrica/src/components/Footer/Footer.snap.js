@@ -9,7 +9,7 @@ exports[`<Footer /> renders unchanged 1`] = `
       class="MuiBox-root css-1idzjj5"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-s6f1m4-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10vms58-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-93fe3t-MuiGrid-root"
@@ -30,11 +30,11 @@ exports[`<Footer /> renders unchanged 1`] = `
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               >
                 <figure
-                  class="MuiBox-root css-102aivi"
+                  class="MuiBox-root css-zxbr8s"
                 >
                   <img
                     alt="EU"
-                    class="css-6mvbnf"
+                    class="css-1vimlo0"
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
@@ -51,7 +51,7 @@ exports[`<Footer /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-7 css-1pemd0m-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container css-uomglc-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container css-17wbwnu-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -60,7 +60,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="MuiBox-root css-yho6nr"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 css-1te4c5f-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 css-sj0aus-MuiTypography-root"
                   >
                     This website was created and maintained with the financial support of the European Union. Its contents are the sole responsibility of the European Partnership for Democracy, Africtivistes, Code for Africa, ECPDM, and Goree Institute and do not necessarily reflect the views of the European Union.
                   </p>
@@ -76,7 +76,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="MuiBox-root css-1s6v4an"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2SemiBold css-2li1iq-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2SemiBold css-f8lckj-MuiTypography-root"
                   >
                     Website designed and built by Code for Africa
                   </p>
@@ -89,7 +89,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-vvqhkh-MuiTypography-root-MuiLink-root"
                     href="/"
                   >
                     Privacy Policy
@@ -99,7 +99,7 @@ exports[`<Footer /> renders unchanged 1`] = `
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto css-3fm92-MuiGrid-root"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-16az78j-MuiTypography-root-MuiLink-root"
+                    class="MuiTypography-root MuiTypography-p1 MuiLink-root MuiLink-underlineAlways active css-vvqhkh-MuiTypography-root-MuiLink-root"
                     href="/"
                   >
                     Imprint
@@ -115,10 +115,10 @@ exports[`<Footer /> renders unchanged 1`] = `
       class="MuiBox-root css-onpmix"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-u81ong-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1v2h2lv-MuiContainer-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-p2SemiBold css-1h79qiy-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2SemiBold css-dsh1b6-MuiTypography-root"
         >
           © 2022 European Partnership for Democracy (CC BY-NC 2.0)
         </div>

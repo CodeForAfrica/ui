@@ -12,6 +12,7 @@ import { StepComponent } from "@/roboshield/types/stepComponent";
 import { validateUrl } from "@/roboshield/utils/urls";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
+import { RichTypography } from "@commons-ui/core";
 
 interface Props extends StepComponent {
   existingRobotsTxt?: string;
@@ -124,7 +125,7 @@ export default function ExistingRobots({
                 }}
               />
             }
-            label={<Typography>{existingRobotsTxt}</Typography>}
+            label={<RichTypography>{existingRobotsTxt}</RichTypography>}
           />
         </FormGroup>
         <Stack spacing={2} direction="row">

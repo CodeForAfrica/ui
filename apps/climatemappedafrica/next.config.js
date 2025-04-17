@@ -6,9 +6,7 @@ const outputFileTracingRoot = PROJECT_ROOT
   : undefined;
 
 module.exports = {
-  experimental: {
-    outputFileTracingRoot,
-  },
+  outputFileTracingRoot,
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       ?.map((d) => d.trim())

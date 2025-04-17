@@ -9,7 +9,7 @@ exports[`Share renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1yuqec2-MuiGrid-root"
     >
       <span
-        class="MuiTypography-root MuiTypography-caption css-l67hkg-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-caption css-1n9vc5u-MuiTypography-root"
       >
         Embed on your website:
       </span>
@@ -18,15 +18,15 @@ exports[`Share renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1yuqec2-MuiGrid-root"
     >
       <div
-        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
       >
         <div
-          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall css-md26zr-MuiInputBase-root-MuiOutlinedInput-root"
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall css-1blp12k-MuiInputBase-root-MuiOutlinedInput-root"
           style="background: rgb(255, 255, 255); font-size: 0.6875rem; line-height: 1.5454545454545454; color: rgb(102, 102, 102);"
         >
           <input
             aria-invalid="false"
-            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1n4twyu-MuiInputBase-input-MuiOutlinedInput-input"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"
             id=":r0:"
             type="text"
             value="
@@ -70,12 +70,13 @@ exports[`Share renders unchanged 1`] = `
           />
           <fieldset
             aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+            class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="css-ihdtdm"
+              class="css-w4cd9x"
             >
               <span
+                aria-hidden="true"
                 class="notranslate"
               >
                 ​

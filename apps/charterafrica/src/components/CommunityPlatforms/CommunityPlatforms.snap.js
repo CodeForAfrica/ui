@@ -15,11 +15,11 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
           class="MuiBox-root css-7ehmit"
         >
           <figure
-            class="MuiBox-root css-p826pz"
+            class="MuiBox-root css-10sllnv"
           >
             <img
               alt="Newsletter"
-              class="css-1pkrzn9"
+              class="css-cawze6"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -34,11 +34,11 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
             wrap="nowrap"
           >
             <figure
-              class="MuiBox-root css-1upx2vz"
+              class="MuiBox-root css-1kn3429"
             >
               <img
                 alt="Newsletter"
-                class="css-g98gbd"
+                class="css-qv2885"
                 data-nimg="fill"
                 decoding="async"
                 loading="lazy"
@@ -50,7 +50,7 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
               class="MuiBox-root css-y8s3qt"
             >
               <h3
-                class="MuiTypography-root MuiTypography-h3Small css-xeim5i-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3Small css-n2yqz7-MuiTypography-root"
               >
                 Newsletter
               </h3>
@@ -58,14 +58,14 @@ exports[`<CommunityPlatforms /> renders unchanged 1`] = `
                 class="MuiBox-root css-c33e1h"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p3 css-1hy6kbg-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p3 css-1aj3ole-MuiTypography-root"
                 >
                   Receive updates on the Charter Project Africa
                 </p>
               </div>
             </div>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-1mu9r82-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-druj3j-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://codeforafrica.org"
               rel="noreferrer noopener"
               tabindex="0"

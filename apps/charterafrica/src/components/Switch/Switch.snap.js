@@ -3,21 +3,21 @@
 exports[`<Switch /> renders unchanged 1`] = `
 <div>
   <span
-    class="MuiSwitch-root MuiSwitch-sizeMedium css-b208sr-MuiSwitch-root"
+    class="MuiSwitch-root MuiSwitch-sizeMedium css-5x1qlg-MuiSwitch-root"
   >
     <span
-      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-159eovs-MuiButtonBase-root-MuiSwitch-switchBase"
+      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1cw5p8z-MuiButtonBase-root-MuiSwitch-switchBase"
     >
       <input
-        class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+        class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
         type="checkbox"
       />
       <span
-        class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+        class="MuiSwitch-thumb css-17jyosd-MuiSwitch-thumb"
       />
     </span>
     <span
-      class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      class="MuiSwitch-track css-tj8d99-MuiSwitch-track"
     />
   </span>
 </div>

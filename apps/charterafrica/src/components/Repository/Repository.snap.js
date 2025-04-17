@@ -3,7 +3,7 @@
 exports[`<Repository /> renders unchanged 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-15h90l6-MuiTypography-root-MuiLink-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-5t2npa-MuiTypography-root-MuiLink-root"
     href="https://charter.africa"
     rel="noreferrer noopener"
     target="_blank"
@@ -15,22 +15,22 @@ exports[`<Repository /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
       >
         <div
-          class="MuiTypography-root MuiTypography-h6 css-jbdq1g-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h6 css-1mlgsna-MuiTypography-root"
         >
           Repository 1
         </div>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
         >
           Charter Africa website
         </div>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
         >
           React, Next.js, TypeScript
         </div>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1l24uz4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-r8nrk3-MuiTypography-root"
         >
           October 1, 2021
         </div>
@@ -45,16 +45,16 @@ exports[`<Repository /> renders unchanged 1`] = `
             sx="[object Object]"
           />
           <div
-            class="MuiTypography-root MuiTypography-p1SemiBold css-12svwoa-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1SemiBold css-lkcrki-MuiTypography-root"
           >
             100
           </div>
         </div>
         <div
-          class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1ayp8e5-MuiChip-root"
+          class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1w0hnh0-MuiChip-root"
         >
           <span
-            class="MuiChip-label MuiChip-labelMedium css-1jzq0dw-MuiChip-label"
+            class="MuiChip-label MuiChip-labelMedium css-16cgrcw-MuiChip-label"
           >
             PUBLIC
           </span>

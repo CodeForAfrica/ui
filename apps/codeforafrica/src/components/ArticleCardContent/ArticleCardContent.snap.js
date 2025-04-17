@@ -3,7 +3,7 @@
 exports[`<ArticleCardContent /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiCardContent-root css-q7lov9-MuiCardContent-root"
+    class="MuiCardContent-root css-qkirah-MuiCardContent-root"
   />
 </div>
 `;

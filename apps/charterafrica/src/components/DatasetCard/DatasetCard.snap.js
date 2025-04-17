@@ -3,29 +3,30 @@
 exports[`<DatasetCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-dzxyww-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-oclxzy-MuiPaper-root-MuiCard-root"
+    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
   >
     <a
-      class="MuiButtonBase-root MuiCardActionArea-root css-11lg1vd-MuiButtonBase-root-MuiCardActionArea-root"
+      class="MuiButtonBase-root MuiCardActionArea-root css-y53a6a-MuiButtonBase-root-MuiCardActionArea-root"
       href="/resources/datasets"
       tabindex="0"
     >
       <div
-        class="MuiCardContent-root css-16iq3h-MuiCardContent-root"
+        class="MuiCardContent-root css-tem57g-MuiCardContent-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-bkp0sa-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-[object Object] css-iewyyr-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-aoe11o-MuiGrid-root"
           >
             <h5
-              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-17k81ph-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SmallSemiBold css-1trh6s6-MuiTypography-root"
             >
               Document Title
             </h5>
             <p
-              class="MuiTypography-root MuiTypography-p1 css-1pop01s-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-atoqz6-MuiTypography-root"
             >
                
               Created
@@ -33,7 +34,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
               January 1, 2021
             </p>
             <p
-              class="MuiTypography-root MuiTypography-p1SemiBold css-1egbhxv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1SemiBold css-9djn7y-MuiTypography-root"
             >
               Author Name
             </p>
@@ -42,12 +43,12 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-ls0fcs-MuiGrid-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-p1 css-so49wn-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-x22hae-MuiTypography-root"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-iwoc5g-MuiButtonBase-root-MuiButton-root"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-157zrhe-MuiButtonBase-root-MuiButton-root"
               tabindex="0"
               type="button"
             >
@@ -58,19 +59,19 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-6thyz8-MuiGrid-root"
           >
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1puf64w-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1bfmoy7-MuiChip-root"
             >
               <span
-                class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
               >
                 CSV
               </span>
             </div>
             <div
-              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-1g3w73k-MuiChip-root"
+              class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-7i6xv5-MuiChip-root"
             >
               <span
-                class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+                class="MuiChip-label MuiChip-labelMedium css-1dybbl5-MuiChip-label"
               >
                 PDF
               </span>
@@ -79,7 +80,7 @@ exports[`<DatasetCard /> renders unchanged 1`] = `
         </div>
       </div>
       <span
-        class="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+        class="MuiCardActionArea-focusHighlight css-1h5un5t-MuiCardActionArea-focusHighlight"
       />
     </a>
   </div>

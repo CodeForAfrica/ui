@@ -6,7 +6,7 @@ exports[`<SocialMediaBar /> renders unchanged 1`] = `
     class="MuiStack-root css-1vlyie4-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-footerCap css-10h3evw-MuiTypography-root"
     >
       Connect with: 
     </div>

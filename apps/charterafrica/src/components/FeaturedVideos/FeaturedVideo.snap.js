@@ -6,15 +6,15 @@ exports[`FeaturedVideos should render 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ydzulf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r0pch9-MuiContainer-root"
     >
       <h3
-        class="MuiTypography-root MuiTypography-h3Small css-1ru8fzi-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h3Small css-j9k0gw-MuiTypography-root"
       >
         Featured Videos
       </h3>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-1qw2a80-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 css-bdfmo7-MuiGrid-root"
@@ -23,7 +23,7 @@ exports[`FeaturedVideos should render 1`] = `
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiBox-root css-s11qj8"
+              class="MuiBox-root css-f0o1et"
             >
               <div
                 aria-label="Video Player"
@@ -1213,12 +1213,12 @@ exports[`FeaturedVideos should render 1`] = `
               </div>
             </div>
             <h5
-              class="MuiTypography-root MuiTypography-h5SemiBold css-1k5ns17-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h5SemiBold css-rp5pi0-MuiTypography-root"
             >
               Latest Release
             </h5>
             <div
-              class="MuiTypography-root MuiTypography-p1 css-1m1ks3x-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-4jhbfx-MuiTypography-root"
             >
               Aired on
                

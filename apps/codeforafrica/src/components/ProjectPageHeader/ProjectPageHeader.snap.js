@@ -6,22 +6,23 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
     class="MuiBox-root css-h16mw8"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-2y1b9m-MuiContainer-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-a0mq7k-MuiPaper-root-MuiCard-root"
+        style="--Paper-shadow: none;"
       >
         <nav
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-19xgsyh-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1fdeege-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
-            class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+            class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
           >
             <li
               class="MuiBreadcrumbs-li"
             >
               <a
-                class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-17o088p-MuiTypography-root-MuiLink-root"
                 href="/projects"
               >
                 Our Work
@@ -29,7 +30,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
             </li>
             <li
               aria-hidden="true"
-              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+              class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
             >
               /
             </li>
@@ -37,7 +38,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-hz33y3-MuiTypography-root"
               >
                 Iniatives
               </div>
@@ -45,22 +46,22 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
           </ol>
         </nav>
         <img
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1da3jgb-MuiCardMedia-root"
         />
         <div
           class="MuiBox-root css-1ntmuzk"
         >
           <nav
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1y4hekn-MuiTypography-root-MuiBreadcrumbs-root"
+            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-niza22-MuiTypography-root-MuiBreadcrumbs-root"
           >
             <ol
-              class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+              class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
             >
               <li
                 class="MuiBreadcrumbs-li"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-17o088p-MuiTypography-root-MuiLink-root"
                   href="/projects"
                 >
                   Our Work
@@ -68,7 +69,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
               </li>
               <li
                 aria-hidden="true"
-                class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+                class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
               >
                 /
               </li>
@@ -76,7 +77,7 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-hz33y3-MuiTypography-root"
                 >
                   Iniatives
                 </div>
@@ -84,32 +85,32 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
             </ol>
           </nav>
           <div
-            class="MuiCardContent-root css-nvlyan-MuiCardContent-root"
+            class="MuiCardContent-root css-t0p48k-MuiCardContent-root"
           >
             <div
-              class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-outlined css-pmvic8-MuiPaper-root"
             >
               <div
                 class="MuiBox-root css-uq7i85"
               >
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-j4666c-MuiTypography-root"
                 />
                 <div
                   class="MuiStack-root css-1v20l1v-MuiStack-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body3SemiBold css-acgid4-MuiTypography-root"
                   />
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1to78gr-MuiCardActions-root"
+            class="MuiCardActions-root MuiCardActions-spacing css-8kkylm-MuiCardActions-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1wyu7kr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-roxh35-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://codeforafrica.org"
               rel="noreferrer noopener"
               tabindex="0"
@@ -117,11 +118,11 @@ exports[`<ProjectPageHeader /> renders unchanged 1`] = `
             >
               Launch Project
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-1wyk03i-MuiButton-endIcon"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />

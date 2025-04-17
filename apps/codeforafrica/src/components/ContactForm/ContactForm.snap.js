@@ -3,10 +3,10 @@
 exports[`<ContactForm /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1y3f71u-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-iz79el-MuiContainer-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-body1 css-7u83cd-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-142h6kb-MuiTypography-root"
     >
       
     

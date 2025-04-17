@@ -6,15 +6,15 @@ exports[`<FlourishChart /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-wxw7nq-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1op9dlc-MuiContainer-root"
     >
       <h5
-        class="MuiTypography-root MuiTypography-h5SemiBold css-5afmx9-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h5SemiBold css-1uucibd-MuiTypography-root"
       >
         Flourish Charts
       </h5>
       <div
-        class="MuiTypography-root MuiTypography-p1 css-1d485r-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1bvmr11-MuiTypography-root"
       >
         Flourish Charts
       </div>

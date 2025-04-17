@@ -3,17 +3,17 @@
 exports[`<ProjectTile /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-outlined css-pmvic8-MuiPaper-root"
   >
     <div
       class="MuiBox-root css-uq7i85"
     >
       <figure
-        class="MuiBox-root css-f1ltsh"
+        class="MuiBox-root css-1kpvnft"
       >
         <img
           alt="africanDRONE"
-          class="css-g98gbd"
+          class="css-qv2885"
           data-nimg="fill"
           decoding="async"
           loading="lazy"
@@ -22,7 +22,7 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
         />
       </figure>
       <h4
-        class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h4 css-j4666c-MuiTypography-root"
       >
         africanDRONE
       </h4>
@@ -30,12 +30,12 @@ exports[`<ProjectTile /> renders unchanged 1`] = `
         class="MuiStack-root css-1v20l1v-MuiStack-root"
       >
         <span
-          class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body3SemiBold css-acgid4-MuiTypography-root"
         >
           africanDRONE
         </span>
         <div
-          class="MuiTypography-root MuiTypography-body2 css-1s1s5lw-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-body2 css-tk7g08-MuiTypography-root"
         >
           Drones for good
         </div>

@@ -41,6 +41,7 @@
     "babel-loader": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
+    "eslint-import-resolver-webpack": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
     "next": "catalog:",
