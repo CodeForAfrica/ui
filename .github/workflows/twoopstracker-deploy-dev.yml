@@ -1,0 +1,86 @@
+name: TwoopsTracker | Deploy | Dev
+
+on:
+  push:
+    branches: [main, "ft/twoopstracker-docker-workflow"]
+    paths:
+      - "apps/twoopstracker/**"
+      - "Dockerfile"
+      - ".github/workflows/twoopstracker-deploy-dev.yml"
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+env:
+  APP_NAME: twoopstracker-ui
+  DOKKU_REMOTE_BRANCH: "master"
+  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  IMAGE_NAME: "codeforafrica/twoopstracker-ui"
+  NEXT_PUBLIC_APP_URL: "https://twoopstracker-ui.dev.codeforafrica.org"
+  SENTRY_ENVIRONMENT: "development"
+  TWOOPSTRACKER_API_URL: "https://dev.investigate.africa/v1"
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [20.16]
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Cache Docker layers
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          path: /tmp/.buildx-cache
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          build-args: |
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
+            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT=${{ secrets.TWOOPSTRACKER_SENTRY_PROJECT }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          context: .
+          push: true
+          secrets: |
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+          tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          target: twoopstracker-runner
+
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cach
+
+      - name: Push to Dokku
+        uses: dokku/github-action@v1.4.0
+        with:
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
