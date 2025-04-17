@@ -19,6 +19,7 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/twoopstracker-ui"
   NEXT_PUBLIC_APP_URL: "https://twoopstracker-ui.dev.codeforafrica.org"
+  NEXT_PUBLIC_APP_NAME: "TwoopsTracker"
   SENTRY_ENVIRONMENT: "development"
   TWOOPSTRACKER_API_URL: "https://dev.investigate.africa/v1"
 
@@ -58,9 +59,11 @@ jobs:
         with:
           build-args: |
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_APP_NAME=${{ env.NEXT_PUBLIC_APP_NAME }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.TWOOPSTRACKER_SENTRY_PROJECT }}
+            TWOOPSTRACKER_API_URL=${{ env.TWOOPSTRACKER_API_URL }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
