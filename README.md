@@ -9,7 +9,7 @@
 | [**ClimateMapped.AFRICA**](./apps/climatemappedafrica/) | Empowering action through climate data                    |
 | [**PesaYetu**](./apps/pesayetu/)                        | Data to hold your government accountable                  |
 | [**RoboShield**](./apps/roboshield/)                    | Guard your website against AI Bots                        |
-| 1 [**TwoopsTracker**](./apps/twooptracker/)             | Track the trolls & sock-puppets poisoning our democracies |
+| [**TwoopsTracker**](./apps/twooptracker/)               | Track the trolls & sock-puppets poisoning our democracies |
 
 ## Blogs
 

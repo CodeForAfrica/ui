@@ -18,11 +18,15 @@
         "NEXTAUTH_PROVIDERS_GOOGLE_CLIENT_ID",
         "NEXTAUTH_PROVIDERS_GOOGLE_CLIENT_SECRET",
         "NEXTAUTH_SECRET",
+        "NEXT_RUNTIME",
         "TWOOPSTRACKER_API_URL",
         "S3_UPLOAD_KEY",
         "S3_UPLOAD_SECRET",
         "S3_UPLOAD_REGION",
-        "S3_UPLOAD_BUCKET"
+        "S3_UPLOAD_BUCKET",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_AUTH_TOKEN"
       ]
     }
   }
