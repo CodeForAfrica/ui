@@ -1000,7 +1000,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   # Next.js / Payload (build time)
   PORT \
   # Next.js (runtime)
-  NEXT_PUBLIC_APP_NAME="Troll Tracker" \
+  NEXT_PUBLIC_APP_NAME="TwoopsTracker" \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   # Sentry (build time)
