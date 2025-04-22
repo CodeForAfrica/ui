@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "cms": "netlify-cms-proxy-server",
+    "clean": "rm -rf .next .turbo build dist node_modules",
     "dev": "next dev",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
@@ -20,6 +21,7 @@
     "@mui/material": "catalog:mui-styles",
     "@mui/styles": "catalog:mui-styles",
     "@mui/utils": "catalog:mui-styles",
+    "@sentry/nextjs": "catalog:",
     "@svgr/webpack": "catalog:",
     "aws-sdk": "catalog:",
     "clsx": "catalog:",
