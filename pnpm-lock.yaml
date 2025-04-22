@@ -50,7 +50,7 @@ catalogs:
       version: 0.1.0
     '@emotion/cache':
       specifier: ^11.13.1
-      version: 11.13.1
+      version: 11.14.0
     '@emotion/react':
       specifier: ^11.13.3
       version: 11.14.0
@@ -621,13 +621,13 @@ catalogs:
       version: 5.16.7
     '@mui/private-theming':
       specifier: ^5.16.6
-      version: 5.16.6
+      version: 5.17.1
     '@mui/styles':
       specifier: ^5.16.6
       version: 5.16.14
     '@mui/utils':
       specifier: ^5.16.6
-      version: 5.16.14
+      version: 5.17.1
 
 overrides:
   sharp: ^0.33.5
@@ -689,7 +689,7 @@ importers:
         version: link:../../packages/commons-ui-next
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -725,31 +725,31 @@ importers:
         version: 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-spring/web':
         specifier: 'catalog:'
         version: 9.7.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 9.13.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+        version: 9.13.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1)
       airtable:
         specifier: 'catalog:'
         version: 0.12.2(encoding@0.1.13)
@@ -779,7 +779,7 @@ importers:
         version: 6.6.0(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
-        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -864,10 +864,10 @@ importers:
         version: link:../../packages/eslint-config-commons-ui
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+        version: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       identity-obj-proxy:
         specifier: 'catalog:'
         version: 3.0.0
@@ -894,7 +894,7 @@ importers:
         version: 5.6.3
       webpack:
         specifier: 'catalog:'
-        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))
+        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
 
   apps/civicsignalblog:
     dependencies:
@@ -915,7 +915,7 @@ importers:
         version: link:../../packages/commons-ui-payload
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -942,10 +942,10 @@ importers:
         version: 15.1.6(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@payloadcms/bundler-webpack':
         specifier: 'catalog:'
-        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(sass@1.69.4)
+        version: 1.0.7(@swc/core@1.8.0(@swc/helpers@0.5.15))(ajv@8.17.1)(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(sass@1.69.4)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.7.3(@aws-sdk/client-sso-oidc@3.682.0(@aws-sdk/client-sts@3.682.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       '@payloadcms/live-preview':
         specifier: 'catalog:'
         version: 0.2.2
@@ -954,22 +954,22 @@ importers:
         version: 0.2.0(react@18.3.1)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
-        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.2.0(@aws-sdk/client-s3@3.685.0)(@aws-sdk/lib-storage@3.685.0(@aws-sdk/client-s3@3.685.0))(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       '@payloadcms/plugin-nested-docs':
         specifier: 'catalog:'
-        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))
+        version: 1.0.12(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       '@payloadcms/plugin-sentry':
         specifier: 'catalog:'
-        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 0.0.6(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
       '@payloadcms/plugin-seo':
         specifier: 'catalog:'
-        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react@18.3.1)
+        version: 2.3.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react@18.3.1)
       '@payloadcms/richtext-slate':
         specifier: 'catalog:'
-        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.5.2(payload@2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
-        version: 9.13.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1)
+        version: 9.13.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       camelcase-keys:
         specifier: 'catalog:'
         version: 9.1.3
@@ -996,7 +996,7 @@ importers:
         version: 6.6.0(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
-        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1)
+        version: 2.30.0(@swc/helpers@0.5.15)(@types/react@18.3.12)(encoding@0.1.13)(typescript@5.6.3)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -1063,7 +1063,7 @@ importers:
         version: 3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.23.0(jiti@1.21.6))
       eslint-import-resolver-webpack:
         specifier: 'catalog:'
-        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
+        version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.31.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
@@ -1093,7 +1093,7 @@ importers:
         version: 5.6.3
       webpack:
         specifier: 'catalog:'
-        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
+        version: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))
 
   apps/climatemappedafrica:
     dependencies:
@@ -1114,7 +1114,7 @@ importers:
         version: link:../../packages/commons-ui-payload
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -1403,7 +1403,7 @@ importers:
         version: link:../../packages/commons-ui-next
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -1545,7 +1545,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+        version: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       identity-obj-proxy:
         specifier: 'catalog:'
         version: 3.0.0
@@ -1605,7 +1605,7 @@ importers:
         version: 5.16.14(@types/react@18.3.12)(react@18.3.1)
       '@mui/utils':
         specifier: catalog:mui-styles
-        version: 5.16.14(@types/react@18.3.12)(react@18.3.1)
+        version: 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@mui/x-tree-view':
         specifier: 'catalog:'
         version: 7.22.1(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@mui/material@5.16.7(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/system@6.4.11(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1783,7 +1783,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(esbuild@0.24.0))
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+        version: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       eslint-plugin-module-resolver:
         specifier: 'catalog:'
         version: 1.5.0
@@ -1858,13 +1858,13 @@ importers:
         version: 5.16.7(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/private-theming':
         specifier: catalog:mui-styles
-        version: 5.16.6(@types/react@18.3.12)(react@18.3.1)
+        version: 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@mui/styles':
         specifier: catalog:mui-styles
         version: 5.16.14(@types/react@18.3.12)(react@18.3.1)
       '@mui/utils':
         specifier: catalog:mui-styles
-        version: 5.16.14(@types/react@18.3.12)(react@18.3.1)
+        version: 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@next/third-parties':
         specifier: 'catalog:'
         version: 15.1.6(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
@@ -1973,7 +1973,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+        version: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       identity-obj-proxy:
         specifier: 'catalog:'
         version: 3.0.0
@@ -2009,7 +2009,7 @@ importers:
         version: link:../../packages/commons-ui-next
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -2027,7 +2027,7 @@ importers:
         version: 6.4.11(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material-nextjs':
         specifier: 'catalog:'
-        version: 6.4.3(@emotion/cache@11.13.1)(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/server@11.11.0(@emotion/css@11.13.4))(@types/react@18.3.12)(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
+        version: 6.4.3(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/server@11.11.0(@emotion/css@11.13.4))(@types/react@18.3.12)(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@mui/utils':
         specifier: 'catalog:'
         version: 6.4.9(@types/react@18.3.12)(react@18.3.1)
@@ -2190,7 +2190,7 @@ importers:
         version: link:../../packages/commons-ui-next
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -2208,7 +2208,7 @@ importers:
         version: 6.4.11(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material-nextjs':
         specifier: 'catalog:'
-        version: 6.4.3(@emotion/cache@11.13.1)(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/server@11.11.0(@emotion/css@11.13.4))(@types/react@18.3.12)(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
+        version: 6.4.3(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/server@11.11.0(@emotion/css@11.13.4))(@types/react@18.3.12)(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)
       '@mui/utils':
         specifier: 'catalog:'
         version: 6.4.9(@types/react@18.3.12)(react@18.3.1)
@@ -2281,7 +2281,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+        version: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       eslint-plugin-mdx:
         specifier: 'catalog:'
         version: 3.1.5(eslint@9.23.0(jiti@1.21.6))
@@ -2317,7 +2317,7 @@ importers:
         version: 5.16.14(@types/react@18.3.12)(react@18.3.1)
       '@mui/utils':
         specifier: catalog:mui-styles
-        version: 5.16.14(@types/react@18.3.12)(react@18.3.1)
+        version: 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@sentry/nextjs':
         specifier: 'catalog:'
         version: 9.13.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.57.2(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)(webpack@5.96.1)
@@ -2534,7 +2534,7 @@ importers:
         version: link:../../packages/commons-ui-next
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -2631,7 +2631,7 @@ importers:
         version: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
       eslint-plugin-import:
         specifier: 'catalog:'
-        version: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+        version: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       prettier:
         specifier: 'catalog:'
         version: 3.3.3
@@ -2658,7 +2658,7 @@ importers:
         version: link:../../packages/commons-ui-next
       '@emotion/cache':
         specifier: 'catalog:'
-        version: 11.13.1
+        version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
         version: 11.14.0(@types/react@18.3.12)(react@18.3.1)
@@ -4616,9 +4616,6 @@ packages:
   '@emotion/cache@10.0.29':
     resolution: {integrity: sha512-fU2VtSVlHiF27empSbxi1O2JFdNWZO+2NFHfwO0pxgTep6Xa3uGb+3pVKfLww2l/IBGLNEZl5Xf/++A4wAYDYQ==}
 
-  '@emotion/cache@11.13.1':
-    resolution: {integrity: sha512-iqouYkuEblRcXmylXIwwOodiEK5Ifl7JcX7o6V4jI3iW4mLXX3dmt5xwBtIkJiQEXFAI+pC8X0i67yiPkH9Ucw==}
-
   '@emotion/cache@11.14.0':
     resolution: {integrity: sha512-L/B1lc/TViYk4DcpGxtAVbx0ZyiKM5ktoIyafGkH6zg/tj+mA+NE//aPYKG0k8kCHSHVJrpLpcAlOBEXQ3SavA==}
 
@@ -4662,9 +4659,6 @@ packages:
 
   '@emotion/serialize@0.11.16':
     resolution: {integrity: sha512-G3J4o8by0VRrO+PFeSc3js2myYNOXVJ3Ya+RGVxnshRYgsvErfAOglKAiy1Eo1vhzxqtUvjCyS5gtewzkmvSSg==}
-
-  '@emotion/serialize@1.3.2':
-    resolution: {integrity: sha512-grVnMvVPK9yUVE6rkKfAJlYZgo0cu3l9iMC77V7DW6E1DUIrU68pSEXRmFZFOFB1QFo57TncmOcvcbMDWsL4yA==}
 
   '@emotion/serialize@1.3.3':
     resolution: {integrity: sha512-EISGqt7sSNWHGI76hC7x1CksiXPahbxEOrC5RjmFRJTqLyEK9/9hZvBbiYn70dw4wuwMKiEMCUlR6ZXTSWQqxA==}
@@ -5476,7 +5470,6 @@ packages:
   '@mui/base@5.0.0-beta.40':
     resolution: {integrity: sha512-I/lGHztkCzvwlXpjD2+SNmvNQvB4227xBXhISPjEaJUXGImOQ9f3D2Yj/T3KasSI/h0MLWy74X0J6clhPmsRbQ==}
     engines: {node: '>=12.0.0'}
-    deprecated: This package has been replaced by @base-ui-components/react
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
       react: ^17.0.0 || ^18.0.0
@@ -5586,16 +5579,6 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/private-theming@5.16.6':
-    resolution: {integrity: sha512-rAk+Rh8Clg7Cd7shZhyt2HGTTE5wYKNSJ5sspf28Fqm/PZ69Er9o6KX25g03/FG2dfpg5GCwZh/xOojiTfm3hw==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      '@types/react': ^17.0.0 || ^18.0.0
-      react: ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
   '@mui/private-theming@5.17.1':
     resolution: {integrity: sha512-XMxU0NTYcKqdsG8LRmSoxERPXwMbp16sIXPcLVgLGII/bVNagX0xaheWAwFv8+zDK7tI3ajllkuD3GZZE++ICQ==}
     engines: {node: '>=12.0.0'}
@@ -5685,28 +5668,10 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/types@7.2.21':
-    resolution: {integrity: sha512-6HstngiUxNqLU+/DPqlUJDIPbzUBxIVHb1MmXP0eTWDIROiCR2viugXpEif0PPe2mLqqakPzzRClWAnK+8UJww==}
-    peerDependencies:
-      '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
   '@mui/types@7.2.24':
     resolution: {integrity: sha512-3c8tRt/CbWZ+pEg7QpSwbdxOk36EfmhbKf6AGZsD1EcLDLTSZoxxJ86FVtcjxvjuhdyBiWKSTGZFaXCnidO2kw==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
-  '@mui/utils@5.16.14':
-    resolution: {integrity: sha512-wn1QZkRzSmeXD1IguBVvJJHV3s6rxJrfb6YuC9Kk6Noh9f8Fb54nUs5JRkKm+BOerRhj5fLg05Dhx/H3Ofb8Mg==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -7624,9 +7589,6 @@ packages:
   '@types/pg@8.6.1':
     resolution: {integrity: sha512-1Kc4oAGzAl7uqUStZCDvaLFqZrW9qWSjXOmBfdgyBP5La7Us6Mg4GBvRlSoaZMhQF/zSj1C8CtKMBkoiT8eL8w==}
 
-  '@types/prop-types@15.7.13':
-    resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
-
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
 
@@ -7641,9 +7603,6 @@ packages:
 
   '@types/react-lifecycles-compat@3.0.4':
     resolution: {integrity: sha512-1CM48Y9ztL5S4wjt7DK2izrkgPp/Ql0zCJu/vHzhgl7J+BD4UbSGjHN1M2TlePms472JvOazUtAO1/G3oFZqIQ==}
-
-  '@types/react-transition-group@4.4.11':
-    resolution: {integrity: sha512-RM05tAniPZ5DZPzzNFP+DmrcOdD0efDUxMy3145oljWSl3x9ZV5vhme98gTxFrj2lhXvmGNnUiuDyJgY9IKkNA==}
 
   '@types/react-transition-group@4.4.12':
     resolution: {integrity: sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==}
@@ -12328,6 +12287,7 @@ packages:
   node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
+    deprecated: Use your platform's native DOMException instead
 
   node-fetch-native@1.6.4:
     resolution: {integrity: sha512-IhOigYzAKHd244OC0JIMIUrjzctirCmPkaIfhDeGcEETWof5zKYUW7e7MYvChGWh/4CJeXEgsRyGzuF334rOOQ==}
@@ -17671,14 +17631,6 @@ snapshots:
       '@emotion/utils': 0.11.3
       '@emotion/weak-memoize': 0.2.5
 
-  '@emotion/cache@11.13.1':
-    dependencies:
-      '@emotion/memoize': 0.9.0
-      '@emotion/sheet': 1.4.0
-      '@emotion/utils': 1.4.2
-      '@emotion/weak-memoize': 0.4.0
-      stylis: 4.2.0
-
   '@emotion/cache@11.14.0':
     dependencies:
       '@emotion/memoize': 0.9.0
@@ -17711,7 +17663,7 @@ snapshots:
     dependencies:
       '@emotion/babel-plugin': 11.13.5
       '@emotion/cache': 11.14.0
-      '@emotion/serialize': 1.3.2
+      '@emotion/serialize': 1.3.3
       '@emotion/sheet': 1.4.0
       '@emotion/utils': 1.4.2
     transitivePeerDependencies:
@@ -17756,14 +17708,6 @@ snapshots:
       '@emotion/unitless': 0.7.5
       '@emotion/utils': 0.11.3
       csstype: 2.6.21
-
-  '@emotion/serialize@1.3.2':
-    dependencies:
-      '@emotion/hash': 0.9.2
-      '@emotion/memoize': 0.9.0
-      '@emotion/unitless': 0.10.0
-      '@emotion/utils': 1.4.2
-      csstype: 3.1.3
 
   '@emotion/serialize@1.3.3':
     dependencies:
@@ -17810,7 +17754,7 @@ snapshots:
       '@emotion/babel-plugin': 11.13.5
       '@emotion/is-prop-valid': 1.3.1
       '@emotion/react': 11.14.0(@types/react@18.3.12)(react@18.3.1)
-      '@emotion/serialize': 1.3.2
+      '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@18.3.1)
       '@emotion/utils': 1.4.2
       react: 18.3.1
@@ -18573,7 +18517,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.0
       '@floating-ui/react-dom': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mui/types': 7.2.21(@types/react@18.3.12)
+      '@mui/types': 7.2.24(@types/react@18.3.12)
       '@mui/utils': 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@popperjs/core': 2.11.8
       clsx: 2.1.1
@@ -18609,7 +18553,7 @@ snapshots:
       '@mui/base': 5.0.0-beta.40(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material': 5.16.7(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/system': 5.16.14(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
-      '@mui/types': 7.2.21(@types/react@18.3.12)
+      '@mui/types': 7.2.24(@types/react@18.3.12)
       '@mui/utils': 5.17.1(@types/react@18.3.12)(react@18.3.1)
       clsx: 2.1.1
       prop-types: 15.8.1
@@ -18620,14 +18564,14 @@ snapshots:
       '@emotion/styled': 11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@types/react': 18.3.12
 
-  '@mui/material-nextjs@6.4.3(@emotion/cache@11.13.1)(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/server@11.11.0(@emotion/css@11.13.4))(@types/react@18.3.12)(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)':
+  '@mui/material-nextjs@6.4.3(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/server@11.11.0(@emotion/css@11.13.4))(@types/react@18.3.12)(next@15.2.4(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.26.0
       '@emotion/react': 11.14.0(@types/react@18.3.12)(react@18.3.1)
       next: 15.2.4(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.69.4)
       react: 18.3.1
     optionalDependencies:
-      '@emotion/cache': 11.13.1
+      '@emotion/cache': 11.14.0
       '@emotion/server': 11.11.0(@emotion/css@11.13.4)
       '@types/react': 18.3.12
 
@@ -18636,10 +18580,10 @@ snapshots:
       '@babel/runtime': 7.26.0
       '@mui/core-downloads-tracker': 5.16.7
       '@mui/system': 5.16.14(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
-      '@mui/types': 7.2.21(@types/react@18.3.12)
+      '@mui/types': 7.2.24(@types/react@18.3.12)
       '@mui/utils': 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@popperjs/core': 2.11.8
-      '@types/react-transition-group': 4.4.11
+      '@types/react-transition-group': 4.4.12(@types/react@18.3.12)
       clsx: 2.1.1
       csstype: 3.1.3
       prop-types: 15.8.1
@@ -18671,15 +18615,6 @@ snapshots:
     optionalDependencies:
       '@emotion/react': 11.14.0(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
-      '@types/react': 18.3.12
-
-  '@mui/private-theming@5.16.6(@types/react@18.3.12)(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.26.0
-      '@mui/utils': 5.17.1(@types/react@18.3.12)(react@18.3.1)
-      prop-types: 15.8.1
-      react: 18.3.1
-    optionalDependencies:
       '@types/react': 18.3.12
 
   '@mui/private-theming@5.17.1(@types/react@18.3.12)(react@18.3.1)':
@@ -18729,7 +18664,7 @@ snapshots:
       '@babel/runtime': 7.26.0
       '@emotion/hash': 0.9.2
       '@mui/private-theming': 5.17.1(@types/react@18.3.12)(react@18.3.1)
-      '@mui/types': 7.2.21(@types/react@18.3.12)
+      '@mui/types': 7.2.24(@types/react@18.3.12)
       '@mui/utils': 5.17.1(@types/react@18.3.12)(react@18.3.1)
       clsx: 2.1.1
       csstype: 3.1.3
@@ -18752,7 +18687,7 @@ snapshots:
       '@babel/runtime': 7.26.0
       '@mui/private-theming': 5.17.1(@types/react@18.3.12)(react@18.3.1)
       '@mui/styled-engine': 5.16.14(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(react@18.3.1)
-      '@mui/types': 7.2.21(@types/react@18.3.12)
+      '@mui/types': 7.2.24(@types/react@18.3.12)
       '@mui/utils': 5.17.1(@types/react@18.3.12)(react@18.3.1)
       clsx: 2.1.1
       csstype: 3.1.3
@@ -18779,31 +18714,15 @@ snapshots:
       '@emotion/styled': 11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@types/react': 18.3.12
 
-  '@mui/types@7.2.21(@types/react@18.3.12)':
-    optionalDependencies:
-      '@types/react': 18.3.12
-
   '@mui/types@7.2.24(@types/react@18.3.12)':
-    optionalDependencies:
-      '@types/react': 18.3.12
-
-  '@mui/utils@5.16.14(@types/react@18.3.12)(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.26.0
-      '@mui/types': 7.2.21(@types/react@18.3.12)
-      '@types/prop-types': 15.7.13
-      clsx: 2.1.1
-      prop-types: 15.8.1
-      react: 18.3.1
-      react-is: 19.1.0
     optionalDependencies:
       '@types/react': 18.3.12
 
   '@mui/utils@5.17.1(@types/react@18.3.12)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.26.0
-      '@mui/types': 7.2.21(@types/react@18.3.12)
-      '@types/prop-types': 15.7.13
+      '@mui/types': 7.2.24(@types/react@18.3.12)
+      '@types/prop-types': 15.7.14
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 18.3.1
@@ -18830,7 +18749,7 @@ snapshots:
       '@mui/system': 6.4.11(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/utils': 6.4.9(@types/react@18.3.12)(react@18.3.1)
       '@mui/x-internals': 7.21.0(@types/react@18.3.12)(react@18.3.1)
-      '@types/react-transition-group': 4.4.11
+      '@types/react-transition-group': 4.4.12(@types/react@18.3.12)
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 18.3.1
@@ -18858,7 +18777,7 @@ snapshots:
       '@mui/system': 6.4.11(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/utils': 6.4.9(@types/react@18.3.12)(react@18.3.1)
       '@mui/x-internals': 7.21.0(@types/react@18.3.12)(react@18.3.1)
-      '@types/react-transition-group': 4.4.11
+      '@types/react-transition-group': 4.4.12(@types/react@18.3.12)
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 18.3.1
@@ -18877,7 +18796,7 @@ snapshots:
       '@mui/system': 6.4.11(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@emotion/styled@11.13.0(@emotion/react@11.14.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(react@18.3.1)
       '@mui/utils': 6.4.9(@types/react@18.3.12)(react@18.3.1)
       '@mui/x-internals': 7.21.0(@types/react@18.3.12)(react@18.3.1)
-      '@types/react-transition-group': 4.4.11
+      '@types/react-transition-group': 4.4.12(@types/react@18.3.12)
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 18.3.1
@@ -18956,7 +18875,7 @@ snapshots:
       '@types/d3-color': 2.0.6
       '@types/d3-scale': 3.3.5
       '@types/d3-scale-chromatic': 2.0.4
-      '@types/prop-types': 15.7.13
+      '@types/prop-types': 15.7.14
       d3-color: 3.1.0
       d3-scale: 3.3.0
       d3-scale-chromatic: 2.0.0
@@ -18992,7 +18911,7 @@ snapshots:
       '@nivo/colors': 0.84.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@nivo/core': 0.84.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/d3-scale': 3.3.5
-      '@types/prop-types': 15.7.13
+      '@types/prop-types': 15.7.14
       d3-scale: 3.3.0
       prop-types: 15.8.1
       react: 18.3.1
@@ -19015,7 +18934,7 @@ snapshots:
 
   '@nivo/recompose@0.84.0(react@18.3.1)':
     dependencies:
-      '@types/prop-types': 15.7.13
+      '@types/prop-types': 15.7.14
       '@types/react-lifecycles-compat': 3.0.4
       prop-types: 15.8.1
       react: 18.3.1
@@ -21779,8 +21698,6 @@ snapshots:
       pg-protocol: 1.7.0
       pg-types: 2.2.0
 
-  '@types/prop-types@15.7.13': {}
-
   '@types/prop-types@15.7.14': {}
 
   '@types/qs@6.9.16': {}
@@ -21795,17 +21712,13 @@ snapshots:
     dependencies:
       '@types/react': 18.3.12
 
-  '@types/react-transition-group@4.4.11':
-    dependencies:
-      '@types/react': 18.3.12
-
   '@types/react-transition-group@4.4.12(@types/react@18.3.12)':
     dependencies:
       '@types/react': 18.3.12
 
   '@types/react@18.3.12':
     dependencies:
-      '@types/prop-types': 15.7.13
+      '@types/prop-types': 15.7.14
       csstype: 3.1.3
 
   '@types/resolve@1.20.6': {}
@@ -22142,33 +22055,33 @@ snapshots:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
 
+  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))':
+    dependencies:
+      webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+
   '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1))(webpack@5.96.1)':
     dependencies:
       webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1)
 
-  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))':
-    dependencies:
-      webpack: 5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
-
-  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1))':
+  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))':
     dependencies:
       envinfo: 7.14.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
 
   '@webpack-cli/info@1.5.0(webpack-cli@4.10.0)':
     dependencies:
       envinfo: 7.14.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
-
-  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1))':
-    dependencies:
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1)
+
+  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))':
+    dependencies:
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
 
   '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0)':
     dependencies:
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1)
 
   '@wry/caches@1.0.1':
     dependencies:
@@ -24400,7 +24313,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -24417,7 +24330,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -24434,7 +24347,7 @@ snapshots:
     dependencies:
       debug: 3.2.7
       enhanced-resolve: 0.9.1
-      eslint-plugin-import: 2.31.0(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.20.0(eslint@9.23.0(jiti@1.21.6))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       find-root: 1.1.0
       hasown: 2.0.2
       interpret: 1.4.0
@@ -24498,16 +24411,6 @@ snapshots:
       eslint: 9.23.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(eslint-import-resolver-webpack@0.13.9)(eslint-plugin-import@2.31.0)(eslint@9.23.0(jiti@1.21.6))
-      eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1)
-    transitivePeerDependencies:
-      - supports-color
-
-  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6)):
-    dependencies:
-      debug: 3.2.7
-    optionalDependencies:
-      eslint: 9.23.0(jiti@1.21.6)
-      eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-webpack: 0.13.9(eslint-plugin-import@2.31.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
     transitivePeerDependencies:
       - supports-color
@@ -24582,33 +24485,6 @@ snapshots:
       eslint: 9.23.0(jiti@1.21.6)
       eslint-import-resolver-node: 0.3.9
       eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
-      hasown: 2.0.2
-      is-core-module: 2.15.1
-      is-glob: 4.0.3
-      minimatch: 3.1.2
-      object.fromentries: 2.0.8
-      object.groupby: 1.0.3
-      object.values: 1.2.0
-      semver: 6.3.1
-      string.prototype.trimend: 1.0.9
-      tsconfig-paths: 3.15.0
-    transitivePeerDependencies:
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - supports-color
-
-  eslint-plugin-import@2.31.0(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6)):
-    dependencies:
-      '@rtsao/scc': 1.1.0
-      array-includes: 3.1.8
-      array.prototype.findlastindex: 1.2.5
-      array.prototype.flat: 1.3.2
-      array.prototype.flatmap: 1.3.2
-      debug: 3.2.7
-      doctrine: 2.1.0
-      eslint: 9.23.0(jiti@1.21.6)
-      eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-webpack@0.13.9)(eslint@9.23.0(jiti@1.21.6))
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -29658,7 +29534,7 @@ snapshots:
       '@emotion/cache': 11.14.0
       '@emotion/react': 11.14.0(@types/react@18.3.12)(react@18.3.1)
       '@floating-ui/dom': 1.6.12
-      '@types/react-transition-group': 4.4.11
+      '@types/react-transition-group': 4.4.12(@types/react@18.3.12)
       memoize-one: 6.0.0
       prop-types: 15.8.1
       react: 18.3.1
@@ -32280,9 +32156,9 @@ snapshots:
   webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
+      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15)))
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1(@swc/core@1.8.0(@swc/helpers@0.5.15))))
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
@@ -32299,8 +32175,8 @@ snapshots:
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
       '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1))(webpack@5.96.1)
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1))
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.96.1))
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
