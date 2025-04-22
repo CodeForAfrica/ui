@@ -6,20 +6,20 @@ exports[`<Impressum /> renders unchanged 1`] = `
     class="MuiBox-root css-156ejva"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-10ehrg6-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-idlf64-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-ae960m-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-5 css-1vm9ek7-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-4ah52f-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-1pgoklf"
+            class="MuiBox-root css-i8cjvb"
           >
             <img
               alt="S"
-              class="css-g98gbd"
+              class="css-qv2885"
               data-nimg="1"
               decoding="async"
               height="0"
@@ -41,25 +41,25 @@ exports[`<Impressum /> renders unchanged 1`] = `
               class="MuiBox-root css-12mwhaj"
             >
               <p
-                class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
               >
                 European Partnership for Democracy (EPD)
 Rue Froissart 123-133
 1040 Brussels, Belgium
               </p>
               <p
-                class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
               />
               <p
-                class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
               >
                 EPD is registered in Belgium (0648.708.779).
               </p>
               <p
-                class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
               />
               <p
-                class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
               >
                 You can contact EPD via email (info@epd.eu) or by phone (+32 2 733 2282).
               </p>
