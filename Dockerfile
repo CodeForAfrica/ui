@@ -1008,7 +1008,8 @@ ARG NEXT_TELEMETRY_DISABLED \
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
   SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_PROJECT \
+  TWOOPSTRACKER_API_URL
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=twoopstracker-deps /workspace/node_modules ./node_modules
 COPY --from=twoopstracker-deps /workspace/apps/twoopstracker/node_modules ./apps/twoopstracker/node_modules
@@ -1019,7 +1020,10 @@ RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
 # twoopstracker-runner: final deployable image
 # -----------------------------------------
 FROM base-runner AS twoopstracker-runner
-ARG API_SECRET_KEY
+ARG TWOOPSTRACKER_API_URL
+
+ENV TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
+
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/twoopstracker/.next \
