@@ -18,7 +18,7 @@ env:
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/twoopstracker-ui"
-  NEXT_PUBLIC_APP_URL: "https://twoopstracker-ui.dev.codeforafrica.org"
+  NEXT_PUBLIC_APP_URL: "https://trolltracker.investigate.africa"
   NEXT_PUBLIC_APP_NAME: "TwoopsTracker"
   SENTRY_ENVIRONMENT: "development"
   TWOOPSTRACKER_API_URL: "https://dev.investigate.africa/v1"
