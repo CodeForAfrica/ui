@@ -17,7 +17,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   for (const doc of docs || []) {
     if (typeof doc.parent === "string") {
       try {
-        // Update document with ObjectId
+        payload.logger.info(`Updating document version: ${doc._id}`);
         await db
           ?.collection("_pages_versions")
           .updateOne(
@@ -26,10 +26,11 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
           );
         updatedCount++;
       } catch (error) {
-        console.error(`Error updating document ${doc._id}: ${error}`);
+        payload.logger.error(`Error updating document ${doc._id}: ${error}`);
       }
     }
   }
+  payload.logger.info(`Updated a total of ${updatedCount} documents`);
 }
 
 export async function down({
