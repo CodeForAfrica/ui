@@ -14,9 +14,6 @@ export default async function handler(
   req: CustomNextApiRequest,
   res: NextApiResponse,
 ) {
-  if (!req.user) {
-    return res.status(401).json({ message: "UNAUTHORIZED_USER" });
-  }
   const { slug = "/" } = req.query;
   res.setDraftMode({ enable: true });
   const appUrl = new URL(process.env.NEXT_PUBLIC_APP_URL ?? "");

@@ -17,7 +17,9 @@ async function findPage(
   slug: string,
   options?: Partial<Record<string, any>>,
 ): Promise<PaginatedDocs<Page>> {
-  const payload = await getPayload({ config: configPromise });
+  const payload = await getPayload({
+    config: configPromise,
+  });
   return payload.find({
     ...options,
     collection: "pages",
@@ -33,7 +35,9 @@ async function getCollection(
   collection: CollectionConfig,
   options?: Partial<Record<string, any>>,
 ): Promise<PaginatedDocs<CollectionItemTypes>> {
-  const payload = await getPayload({ config: configPromise });
+  const payload = await getPayload({
+    config: configPromise,
+  });
   return payload.find({
     limit: 0,
     ...options,
