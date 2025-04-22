@@ -986,8 +986,7 @@ CMD ["node", "apps/promisetracker/server.js"]
 #
 # twoopstracker-deps: image with all twoopstracker dependencies
 # ---------------------------------------------------
-
-
+  
 FROM base-deps AS twoopstracker-deps
 COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario

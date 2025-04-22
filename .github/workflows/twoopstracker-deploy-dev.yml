@@ -2,7 +2,7 @@ name: TwoopsTracker | Deploy | Dev
 
 on:
   push:
-    branches: [main, "ft/twoopstracker-docker-workflow"]
+    branches: [main]
     paths:
       - "apps/twoopstracker/**"
       - "Dockerfile"
