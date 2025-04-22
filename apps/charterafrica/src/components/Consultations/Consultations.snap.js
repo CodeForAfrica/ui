@@ -6,10 +6,10 @@ exports[`<Consultations /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-27tpcc-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-11jnlxf-MuiContainer-root"
     >
       <div
-        class="MuiTypography-root MuiTypography-h2 css-yocep0-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-1698jfb-MuiTypography-root"
       >
         Sample tiltle
       </div>

@@ -1,7 +1,6 @@
 import ProgressBar from "@badrap/bar-of-progress";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
-import { ThemeProvider as StyledThemeProvider } from "@mui/styles";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
@@ -69,11 +68,9 @@ export default function MyApp(props) {
       <DefaultSeo {...SEO} />
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <StyledThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            {getLayout(<Component {...pageProps} />, pageProps)}
-          </StyledThemeProvider>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />, pageProps)}
         </ThemeProvider>
       </StyledEngineProvider>
       <GoogleAnalytics gaId={gaId} />

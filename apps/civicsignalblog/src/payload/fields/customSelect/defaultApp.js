@@ -1,4 +1,4 @@
-import CustomSelectComponent from "#civicsignalblog/payload/components/allowedAppSelect";
+import CustomSelectComponent from "#civicsignalblog/payload/components/allowedAppSelect/index";
 
 const DefaultAppSelectField = {
   name: "defaultApp",

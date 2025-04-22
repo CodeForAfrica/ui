@@ -21,7 +21,7 @@ exports[`<Hero /> renders unchanged 1`] = `
             class="MuiBox-root css-1lerasb"
           >
             <div
-              class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1s39khq-MuiContainer-root"
+              class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-gww3xw-MuiContainer-root"
             >
               <div
                 class="MuiBox-root css-dvxtzn"
@@ -30,7 +30,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                   class="MuiBox-root css-jd4a7r"
                 >
                   <h1
-                    class="MuiTypography-root MuiTypography-h2Small css-1awbn21-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h2Small css-1afd4o7-MuiTypography-root"
                   >
                     Find Africa's best 
                     <em>
@@ -40,7 +40,7 @@ exports[`<Hero /> renders unchanged 1`] = `
                   </h1>
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-15y612c-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-s9bs3i-MuiTypography-root"
                 >
                   Easy to use resources for democracy activists
                 </div>
@@ -48,19 +48,19 @@ exports[`<Hero /> renders unchanged 1`] = `
                   class="MuiBox-root css-187jlgp"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-po1nsg-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-1yakt1o-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-cstir9-MuiButton-startIcon"
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
                     >
                       <figure
-                        class="MuiBox-root css-zmiex6"
+                        class="MuiBox-root css-1qtc0jw"
                       >
                         <img
                           alt="Software"
-                          class="css-g98gbd"
+                          class="css-qv2885"
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
@@ -72,19 +72,19 @@ exports[`<Hero /> renders unchanged 1`] = `
                     Explore software
                   </button>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-po1nsg-MuiButtonBase-root-MuiButton-root"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorSecondary css-1yakt1o-MuiButtonBase-root-MuiButton-root"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-cstir9-MuiButton-startIcon"
+                      class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
                     >
                       <figure
-                        class="MuiBox-root css-zmiex6"
+                        class="MuiBox-root css-1qtc0jw"
                       >
                         <img
                           alt="Database"
-                          class="css-g98gbd"
+                          class="css-qv2885"
                           data-nimg="fill"
                           decoding="async"
                           loading="lazy"
@@ -103,13 +103,14 @@ exports[`<Hero /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiMobileStepper-root MuiMobileStepper-positionStatic css-rddy23-MuiPaper-root-MuiMobileStepper-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiMobileStepper-root MuiMobileStepper-positionStatic css-kaa7ne-MuiPaper-root-MuiMobileStepper-root"
+      style="--Paper-shadow: none;"
     >
       <div
-        class="MuiMobileStepper-dots css-1384nzf-MuiMobileStepper-dots"
+        class="MuiMobileStepper-dots css-13wf08b-MuiMobileStepper-dots"
       >
         <div
-          class="MuiMobileStepper-dot MuiMobileStepper-dotActive css-1scj8vt-MuiMobileStepper-dot"
+          class="MuiMobileStepper-dot MuiMobileStepper-dotActive css-hkkix3-MuiMobileStepper-dot"
         />
       </div>
     </div>

@@ -6,13 +6,13 @@ exports[`<PageDescription/> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-ydzulf-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1r0pch9-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-3zjynb"
       >
         <p
-          class="MuiTypography-root MuiTypography-p1 css-86wwd2-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-1e9o1ap-MuiTypography-root"
         >
           The largest digital database for 
           <strong>
