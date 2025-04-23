@@ -187,6 +187,23 @@ services:
     ports:
       - 3000:3000
 
+  twoopstracker:
+    build:
+      context: .
+      target: twoopstracker-runner
+      args:
+        - SENTRY_ORG
+        - SENTRY_ENV
+        - SENTRY_PROJECT
+        - TWOOPSTRACKER_API_URL
+    environment:
+      SENTRY_ORG: ${SENTRY_ORG}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
+      SENTRY_PROJECT: ${SENTRY_PROJECT}
+      TWOOPSTRACKER_API_URL: ${TWOOPSTRACKER_API_URL}
+    ports:
+      - 3000:3000
+
   vpnmanager:
     build:
       secrets:

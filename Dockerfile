@@ -978,3 +978,69 @@ USER nextjs
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/promisetracker/server.js"]
+
+# ============================================================================
+# twoopstracker
+# ============================================================================
+
+#
+# twoopstracker-deps: image with all twoopstracker dependencies
+# ---------------------------------------------------
+  
+FROM base-deps AS twoopstracker-deps
+COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/twoopstracker" install --offline --frozen-lockfile
+
+#
+# twoopstracker-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+FROM base-builder AS twoopstracker-builder
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="TwoopsTracker" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT \
+  TWOOPSTRACKER_API_URL
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=twoopstracker-deps /workspace/node_modules ./node_modules
+COPY --from=twoopstracker-deps /workspace/apps/twoopstracker/node_modules ./apps/twoopstracker/node_modules
+COPY apps/twoopstracker ./apps/twoopstracker
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/twoopstracker" build
+#
+# twoopstracker-runner: final deployable image
+# -----------------------------------------
+FROM base-runner AS twoopstracker-runner
+ARG TWOOPSTRACKER_API_URL
+
+ENV TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/twoopstracker/.next \
+  && chown nextjs:nodejs ./apps/twoopstracker/.next
+# PNPM
+# symlink some dependencies
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+# Next.js
+# Public assets
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/public ./apps/twoopstracker/public
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/standalone ./apps/twoopstracker
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/static ./apps/twoopstracker/.next/static
+USER nextjs
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/twoopstracker/server.js"]
+# ============================================================================
+# End of Twoopstracker
+# ============================================================================
