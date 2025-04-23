@@ -15,7 +15,7 @@ concurrency:
 env:
   APP_NAME: twoopstracker-ui
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  DOKKU_REMOTE_URL: "ssh://azureuser@ui-2.prod.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/twoopstracker-ui"
   NEXT_PUBLIC_APP_URL: "https://trolltracker.investigate.africa"
