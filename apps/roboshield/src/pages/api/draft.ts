@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 type User = object;
 
 interface CustomNextApiRequest extends NextApiRequest {
-  user: User;
   query: {
     slug: string;
     [key: string]: string | string[];

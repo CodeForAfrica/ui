@@ -1,4 +1,9 @@
 "use client";
+
+// This component defines labels for Array field rows and Collapsible field headers.
+// Required in Payload v3, where custom components must be used for label customization.
+// See: https://payloadcms.com/docs/fields/array#admin-options
+
 import React from "react";
 import { useRowLabel } from "@payloadcms/ui";
 
