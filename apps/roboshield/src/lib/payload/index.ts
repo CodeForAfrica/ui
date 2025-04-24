@@ -1,5 +1,5 @@
 import { getPayload } from "payload";
-import configPromise from "../../../payload.config";
+import configPromise from "@/root/payload.config";
 import { PaginatedDocs } from "payload";
 import { Config, Page, SettingsSite } from "@/root/payload-types";
 
