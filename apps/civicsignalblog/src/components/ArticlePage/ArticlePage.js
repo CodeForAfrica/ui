@@ -104,7 +104,7 @@ function ArticlePage({
                   sm: "648px",
                   md: "912px",
                 },
-                mb: { xs: 2.5, md: 7.5 },
+                pb: { xs: 2.5, md: 7.5 },
                 px: { xs: 2.5, sm: 0 },
               }}
             >
@@ -116,6 +116,11 @@ function ArticlePage({
                     key={tag.slug}
                     component={Link}
                     href={`/${primaryTag}?tag=${tag.slug}`}
+                    sx={{
+                      "& .MuiChip-label": {
+                        padding: 0,
+                      },
+                    }}
                   />
                 ))}
               </ChoiceChipGroup>

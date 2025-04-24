@@ -91,17 +91,33 @@ function formatProfileGeographyData(data, parent) {
     .filter((category) => category.children.length);
 }
 
+async function fetchWithRetry(url, attempt = 1, maxAttempts = 5) {
+  try {
+    return await fetchJson(url);
+  } catch (error) {
+    if (attempt === maxAttempts) {
+      throw error;
+    }
+    const timeout = Math.min(1000 * 2 ** attempt, 10000);
+    await new Promise((resolve) => {
+      setTimeout(resolve, timeout);
+    });
+    return fetchWithRetry(url, attempt + 1, maxAttempts);
+  }
+}
+
 export async function fetchProfileGeography(
   geoCode,
   { baseUrl, profileId, version = "Climate" },
 ) {
   // HURUmap codes are uppercased in the API
-  const json = await fetchJson(
+  const json = await fetchWithRetry(
     new URL(
       `/api/v1/all_details/profile/${profileId}/geography/${geoCode.toUpperCase()}/?version=${version}`,
       baseUrl,
     ),
   );
+
   const { boundary, children, parent_layers: parents } = json;
   const geometries = { boundary, children, parents };
   const {
@@ -142,7 +158,7 @@ export async function fetchProfileGeography(
     geography.parents[geography.parents.length - 1] || {};
 
   if (parentCode) {
-    const parentJson = await fetchJson(
+    const parentJson = await fetchWithRetry(
       new URL(
         `/api/v1/all_details/profile/${profileId}/geography/${parentCode.toUpperCase()}/?version=${version}`,
         baseUrl,

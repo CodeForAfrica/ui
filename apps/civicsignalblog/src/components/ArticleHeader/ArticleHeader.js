@@ -29,7 +29,7 @@ const ArticleHeader = React.forwardRef(function ArticleHeader(props, ref) {
         {date}
       </RichTypography>
       <RichTypography
-        component="div"
+        component="h1"
         variant="h1"
         sx={{ mt: { xs: 2.5, md: 5 } }}
       >
