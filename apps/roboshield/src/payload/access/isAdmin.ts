@@ -1,4 +1,4 @@
-import { PayloadRequest } from "payload/types";
+import type { PayloadRequest } from "payload";
 import { ROLE_ADMIN } from "./roles";
 
 export const isAdmin = ({ req: { user } }: { req: PayloadRequest }) => {

@@ -1,4 +1,4 @@
-import { Tab } from "payload/types";
+import { type Tab } from "payload";
 import image from "../../fields/image";
 import richText from "../../fields/richText";
 

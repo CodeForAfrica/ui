@@ -1,5 +1,6 @@
 const path = require("path");
 
+const { withPayload } = require("@payloadcms/next/withPayload");
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
@@ -18,12 +19,12 @@ const nextConfig = {
       {
         test: /\.svg$/i,
         type: "asset",
-        resourceQuery: /url/, // *.svg?url
+        include: /node_modules/, // Handle all SVGs from node_modules as assets
       },
       {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        exclude: /node_modules/, // Handle project SVGs as React components
         use: ["@svgr/webpack"],
       },
     );
@@ -40,10 +41,12 @@ const nextConfig = {
   },
 };
 
-module.exports = withSentryConfig(nextConfig, {
-  silent: !process.env.CI,
-  hideSourceMaps: true,
-  org: process.env.SENTRY_ORG,
-  authToken: process.env.SENTRY_AUTH_TOKEN,
-  project: process.env.SENTRY_PROJECT,
-});
+module.exports = withPayload(
+  withSentryConfig(nextConfig, {
+    silent: !process.env.CI,
+    hideSourceMaps: true,
+    org: process.env.SENTRY_ORG,
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    project: process.env.SENTRY_PROJECT,
+  }),
+);

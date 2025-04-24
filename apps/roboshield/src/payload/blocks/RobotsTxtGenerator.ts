@@ -1,6 +1,5 @@
-import { Block, Field, Validate } from "payload/types";
+import type { Block, Field, Validate } from "payload";
 import richText from "../fields/richText";
-import { blocks } from "payload/dist/fields/validations";
 
 const validateSteps: Validate = (value = [], args) => {
   const requiredSteps: string[] = ["finish"];
@@ -24,7 +23,7 @@ const validateSteps: Validate = (value = [], args) => {
   if (lastBlock?.blockType !== "finish") {
     return "Finish Step should appear last";
   }
-  return blocks(value, args);
+  return true;
 };
 
 const ExistingRobots: Block = {

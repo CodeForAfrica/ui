@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import link from "./link";
-import { Field } from "payload/types";
+import type { Field } from "payload";
 
 type LinkConfig = {
   defaultValue: string;
@@ -28,9 +28,7 @@ function linkArray(args: Args) {
     admin: {
       initCollapsed: true,
       components: {
-        RowLabel: ({ data }: any) => {
-          return data?.label || data?.reference?.title || data?.url || data?.id;
-        },
+        RowLabel: "@/roboshield/payload/components/RowLabel.tsx",
       },
     },
   };

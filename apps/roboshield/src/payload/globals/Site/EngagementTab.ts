@@ -1,4 +1,4 @@
-import { Tab } from "payload/types";
+import { type Tab } from "payload";
 import socialLinks from "../../fields/socialLinks";
 
 const EngagementTab: Tab = {

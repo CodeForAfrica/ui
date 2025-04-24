@@ -1,8 +1,8 @@
 import { deepmerge } from "@mui/utils";
-import { select } from "payload/dist/fields/validations";
+import select from "payload";
 
 import url from "./url";
-import { Field } from "payload/types";
+import { Field } from "payload";
 
 export const socialMediaOptions = [
   "Facebook",
@@ -33,26 +33,7 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
     admin: {
       className: "array-field-nested",
       components: {
-        // @ts-ignore
-        RowLabel: ({
-          data,
-          index,
-        }: {
-          index: number;
-          data: { platform: string; url: string };
-        }) => {
-          let label = "";
-          if (data.platform) {
-            label = data.platform;
-          }
-          if (data.url) {
-            label = label ? `${label} (${data.url})` : data.url;
-          }
-          if (!label) {
-            label = `Link ${String(index).padStart(2, "0")}`;
-          }
-          return label;
-        },
+        RowLabel: "@/roboshield/payload/components/RowLabel.tsx",
       },
       initCollapsed: true,
     },
@@ -63,7 +44,7 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
         label: "Platform",
         options: socialMediaOptions,
         required: true,
-        validate: (val, args) => {
+        validate: (val: string | string[] | null | undefined, args: any) => {
           const { data, t } = args || {};
           const { name: linksName = "links" } = overrides as Overrides;
           if (
@@ -72,13 +53,7 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
           ) {
             return t("codeforafrica.validation:uniquePlatforms");
           }
-
-          const {
-            hasMany,
-            options = socialMediaOptions,
-            required = true,
-          } = args;
-          return select(val, { hasMany, options, required, t });
+          return true;
         },
       },
       url({

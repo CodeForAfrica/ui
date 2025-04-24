@@ -1,5 +1,5 @@
 import { deepmerge } from "@mui/utils";
-import { Field } from "payload/types";
+import type { Field } from "payload";
 
 interface Args {
   overrides?: Partial<Field>;
