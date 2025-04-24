@@ -144,7 +144,7 @@ export default buildConfig({
         }),
       }
     : {}),
-  secret: process.env.PAYLOAD_SECRET,
+  secret: process.env.PAYLOAD_SECRET ?? "",
   telemetry: process?.env?.NODE_ENV !== "production",
   typescript: {
     declare: false, // defaults to true if not set

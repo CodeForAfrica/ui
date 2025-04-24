@@ -3,9 +3,7 @@
   "version": "0.1.13",
   "private": true,
   "scripts": {
-    "build-server": "tsc --project tsconfig.server.json",
-    "build-next": "next build",
-    "build-payload": "payload build",
+    "build": "next build",
     "payload-migrate:create": "payload migrate:create",
     "payload-migrate:status": "payload migrate:status",
     "payload-migrate:up": "payload migrate",
