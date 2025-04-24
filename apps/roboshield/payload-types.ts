@@ -13,53 +13,53 @@
  * via the `definition` "supportedTimezones".
  */
 export type SupportedTimezones =
-  | 'Pacific/Midway'
-  | 'Pacific/Niue'
-  | 'Pacific/Honolulu'
-  | 'Pacific/Rarotonga'
-  | 'America/Anchorage'
-  | 'Pacific/Gambier'
-  | 'America/Los_Angeles'
-  | 'America/Tijuana'
-  | 'America/Denver'
-  | 'America/Phoenix'
-  | 'America/Chicago'
-  | 'America/Guatemala'
-  | 'America/New_York'
-  | 'America/Bogota'
-  | 'America/Caracas'
-  | 'America/Santiago'
-  | 'America/Buenos_Aires'
-  | 'America/Sao_Paulo'
-  | 'Atlantic/South_Georgia'
-  | 'Atlantic/Azores'
-  | 'Atlantic/Cape_Verde'
-  | 'Europe/London'
-  | 'Europe/Berlin'
-  | 'Africa/Lagos'
-  | 'Europe/Athens'
-  | 'Africa/Cairo'
-  | 'Europe/Moscow'
-  | 'Asia/Riyadh'
-  | 'Asia/Dubai'
-  | 'Asia/Baku'
-  | 'Asia/Karachi'
-  | 'Asia/Tashkent'
-  | 'Asia/Calcutta'
-  | 'Asia/Dhaka'
-  | 'Asia/Almaty'
-  | 'Asia/Jakarta'
-  | 'Asia/Bangkok'
-  | 'Asia/Shanghai'
-  | 'Asia/Singapore'
-  | 'Asia/Tokyo'
-  | 'Asia/Seoul'
-  | 'Australia/Brisbane'
-  | 'Australia/Sydney'
-  | 'Pacific/Guam'
-  | 'Pacific/Noumea'
-  | 'Pacific/Auckland'
-  | 'Pacific/Fiji';
+  | "Pacific/Midway"
+  | "Pacific/Niue"
+  | "Pacific/Honolulu"
+  | "Pacific/Rarotonga"
+  | "America/Anchorage"
+  | "Pacific/Gambier"
+  | "America/Los_Angeles"
+  | "America/Tijuana"
+  | "America/Denver"
+  | "America/Phoenix"
+  | "America/Chicago"
+  | "America/Guatemala"
+  | "America/New_York"
+  | "America/Bogota"
+  | "America/Caracas"
+  | "America/Santiago"
+  | "America/Buenos_Aires"
+  | "America/Sao_Paulo"
+  | "Atlantic/South_Georgia"
+  | "Atlantic/Azores"
+  | "Atlantic/Cape_Verde"
+  | "Europe/London"
+  | "Europe/Berlin"
+  | "Africa/Lagos"
+  | "Europe/Athens"
+  | "Africa/Cairo"
+  | "Europe/Moscow"
+  | "Asia/Riyadh"
+  | "Asia/Dubai"
+  | "Asia/Baku"
+  | "Asia/Karachi"
+  | "Asia/Tashkent"
+  | "Asia/Calcutta"
+  | "Asia/Dhaka"
+  | "Asia/Almaty"
+  | "Asia/Jakarta"
+  | "Asia/Bangkok"
+  | "Asia/Shanghai"
+  | "Asia/Singapore"
+  | "Asia/Tokyo"
+  | "Asia/Seoul"
+  | "Australia/Brisbane"
+  | "Australia/Sydney"
+  | "Pacific/Guam"
+  | "Pacific/Noumea"
+  | "Pacific/Auckland"
+  | "Pacific/Fiji";
 
 export interface Config {
   auth: {
@@ -70,31 +70,37 @@ export interface Config {
     media: Media;
     pages: Page;
     users: User;
-    'payload-locked-documents': PayloadLockedDocument;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
+    "payload-locked-documents": PayloadLockedDocument;
+    "payload-preferences": PayloadPreference;
+    "payload-migrations": PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
-    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
-    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
-    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+    "payload-locked-documents":
+      | PayloadLockedDocumentsSelect<false>
+      | PayloadLockedDocumentsSelect<true>;
+    "payload-preferences":
+      | PayloadPreferencesSelect<false>
+      | PayloadPreferencesSelect<true>;
+    "payload-migrations":
+      | PayloadMigrationsSelect<false>
+      | PayloadMigrationsSelect<true>;
   };
   db: {
     defaultIDType: string;
   };
   globals: {
-    'settings-site': SettingsSite;
+    "settings-site": SettingsSite;
   };
   globalsSelect: {
-    'settings-site': SettingsSiteSelect<false> | SettingsSiteSelect<true>;
+    "settings-site": SettingsSiteSelect<false> | SettingsSiteSelect<true>;
   };
-  locale: 'en';
+  locale: "en";
   user: User & {
-    collection: 'users';
+    collection: "users";
   };
   jobs: {
     tasks: unknown;
@@ -154,7 +160,7 @@ export interface Page {
             subtitle: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'page-header';
+            blockType: "page-header";
           }
         | SiteHero
         | {
@@ -166,30 +172,30 @@ export interface Page {
                       }[];
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'richtext';
+                      blockType: "richtext";
                     }
                   | {
                       image: string | Media;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'mediaBlock';
+                      blockType: "mediaBlock";
                     }
                   | {
                       externalEmbedFields?: {
-                        embedType?: ('url' | 'code') | null;
+                        embedType?: ("url" | "code") | null;
                         url?: string | null;
                         caption?: string | null;
                         code?: string | null;
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'externalEmbed';
+                      blockType: "externalEmbed";
                     }
                 )[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'content';
+            blockType: "content";
           }
         | {
             title: string;
@@ -209,7 +215,7 @@ export interface Page {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'statistics';
+            blockType: "statistics";
           }
         | {
             steps?:
@@ -228,7 +234,7 @@ export interface Page {
                       fetch: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'existing-robots-txt';
+                      blockType: "existing-robots-txt";
                     }
                   | {
                       title: string;
@@ -251,7 +257,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'delays';
+                      blockType: "delays";
                     }
                   | {
                       title: string;
@@ -274,7 +280,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'paths';
+                      blockType: "paths";
                     }
                   | {
                       title: string;
@@ -293,7 +299,7 @@ export interface Page {
                       };
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'block-bots';
+                      blockType: "block-bots";
                     }
                   | {
                       title: string;
@@ -305,7 +311,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'site-maps';
+                      blockType: "site-maps";
                     }
                   | {
                       title: string;
@@ -317,7 +323,7 @@ export interface Page {
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
-                      blockType: 'finish';
+                      blockType: "finish";
                     }
                 )[]
               | null;
@@ -331,7 +337,7 @@ export interface Page {
             };
             id?: string | null;
             blockName?: string | null;
-            blockType: 'robots-txt-generator';
+            blockType: "robots-txt-generator";
           }
       )[]
     | null;
@@ -358,7 +364,7 @@ export interface Page {
     | null;
   updatedAt: string;
   createdAt: string;
-  _status?: ('draft' | 'published') | null;
+  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -367,7 +373,7 @@ export interface Page {
 export interface SiteHero {
   heroHeaders?:
     | {
-        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
+        headingType?: ("largeHeading" | "subHeading" | "rotatingText") | null;
         title?: string | null;
         id?: string | null;
       }[]
@@ -378,7 +384,7 @@ export interface SiteHero {
   heroCallToAction?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'page-hero';
+  blockType: "page-hero";
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -388,7 +394,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
-  roles: ('admin' | 'editor')[];
+  roles: ("admin" | "editor")[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -410,20 +416,20 @@ export interface PayloadLockedDocument {
   id: string;
   document?:
     | ({
-        relationTo: 'media';
+        relationTo: "media";
         value: string | Media;
       } | null)
     | ({
-        relationTo: 'pages';
+        relationTo: "pages";
         value: string | Page;
       } | null)
     | ({
-        relationTo: 'users';
+        relationTo: "users";
         value: string | User;
       } | null);
   globalSlug?: string | null;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: string | User;
   };
   updatedAt: string;
@@ -436,7 +442,7 @@ export interface PayloadLockedDocument {
 export interface PayloadPreference {
   id: string;
   user: {
-    relationTo: 'users';
+    relationTo: "users";
     value: string | User;
   };
   key?: string | null;
@@ -492,7 +498,7 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        'page-header'?:
+        "page-header"?:
           | T
           | {
               title?: T;
@@ -500,7 +506,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        'page-hero'?: T | SiteHeroSelect<T>;
+        "page-hero"?: T | SiteHeroSelect<T>;
         content?:
           | T
           | {
@@ -555,13 +561,13 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        'robots-txt-generator'?:
+        "robots-txt-generator"?:
           | T
           | {
               steps?:
                 | T
                 | {
-                    'existing-robots-txt'?:
+                    "existing-robots-txt"?:
                       | T
                       | {
                           title?: T;
@@ -626,7 +632,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    'block-bots'?:
+                    "block-bots"?:
                       | T
                       | {
                           title?: T;
@@ -646,7 +652,7 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
-                    'site-maps'?:
+                    "site-maps"?:
                       | T
                       | {
                           title?: T;
@@ -791,9 +797,9 @@ export interface SettingsSite {
     menus?:
       | {
           label: string;
-          linkType?: ('custom' | 'internal') | null;
+          linkType?: ("custom" | "internal") | null;
           doc?: {
-            relationTo: 'pages';
+            relationTo: "pages";
             value: string | Page;
           } | null;
           url?: string | null;
@@ -801,15 +807,17 @@ export interface SettingsSite {
           id?: string | null;
         }[]
       | null;
-    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+    connect?:
+      | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
+      | null;
   };
   secondaryNavigation?: {
     menus?:
       | {
           label: string;
-          linkType?: ('custom' | 'internal') | null;
+          linkType?: ("custom" | "internal") | null;
           doc?: {
-            relationTo: 'pages';
+            relationTo: "pages";
             value: string | Page;
           } | null;
           url?: string | null;
@@ -825,7 +833,13 @@ export interface SettingsSite {
     title: string;
     links?:
       | {
-          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          platform:
+            | "Facebook"
+            | "Twitter"
+            | "Instagram"
+            | "Linkedin"
+            | "Github"
+            | "Slack";
           url: string;
           id?: string | null;
         }[]
@@ -848,9 +862,9 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           label: string;
-          linkType?: ('custom' | 'internal') | null;
+          linkType?: ("custom" | "internal") | null;
           doc?: {
-            relationTo: 'pages';
+            relationTo: "pages";
             value: string | Page;
           } | null;
           url?: string | null;
