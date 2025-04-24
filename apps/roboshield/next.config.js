@@ -13,9 +13,7 @@ const nextConfig = {
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   reactStrictMode: true,
   output: "standalone",
-  experimental: {
-    outputFileTracingRoot,
-  },
+  outputFileTracingRoot,
   webpack: (config) => {
     config.module.rules.push(
       {

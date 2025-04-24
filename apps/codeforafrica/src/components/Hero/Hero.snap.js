@@ -6,7 +6,7 @@ exports[`<Hero /> renders unchanged 1`] = `
     class="MuiBox-root css-1jyu2xp"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-2y1b9m-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1oukqxz-MuiGrid-root"
@@ -18,11 +18,11 @@ exports[`<Hero /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-3zt5io"
+            class="MuiBox-root css-1fk4bve"
           >
             <img
               alt="Civic tech and open data labs"
-              class="css-g98gbd"
+              class="css-qv2885"
               data-nimg="fill"
               decoding="async"
               loading="lazy"

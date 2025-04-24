@@ -6,7 +6,7 @@ exports[`FeaturedVideoCard should render 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiBox-root css-s11qj8"
+      class="MuiBox-root css-f0o1et"
     >
       <div
         aria-label="Video Player"
@@ -1196,12 +1196,12 @@ exports[`FeaturedVideoCard should render 1`] = `
       </div>
     </div>
     <h5
-      class="MuiTypography-root MuiTypography-h5SemiBold css-1k5ns17-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h5SemiBold css-rp5pi0-MuiTypography-root"
     >
       Latest Release
     </h5>
     <div
-      class="MuiTypography-root MuiTypography-p1 css-1m1ks3x-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-p1 css-4jhbfx-MuiTypography-root"
     >
       Aired on
        
