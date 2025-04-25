@@ -11,6 +11,7 @@ import Users from "./src/payload/collections/Users";
 import Site from "./src/payload/globals/Site";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import { SlateToLexicalFeature } from "@payloadcms/richtext-lexical/migrate";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -42,7 +43,12 @@ const smtpHost = process.env.SMTP_HOST || "smtp.sendgrid.net";
 
 export default buildConfig({
   serverURL: appURL,
-  editor: lexicalEditor({}),
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      SlateToLexicalFeature({ disableHooks: true }),
+    ],
+  }),
   db: mongooseAdapter({
     url: process.env.MONGO_URL ?? false,
     migrationDir: process.env.MIGRATIONS_DIR,

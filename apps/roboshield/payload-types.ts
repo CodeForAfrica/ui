@@ -168,8 +168,27 @@ export interface Page {
               | (
                   | {
                       content: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
                         [k: string]: unknown;
-                      }[];
+                      };
                       id?: string | null;
                       blockName?: string | null;
                       blockType: "richtext";
@@ -204,8 +223,27 @@ export interface Page {
                   name: string;
                   value: string;
                   description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
                     [k: string]: unknown;
-                  }[];
+                  };
                   /**
                    * An icon to represent this statistic. SVG format is recommended.
                    */
@@ -222,11 +260,28 @@ export interface Page {
               | (
                   | {
                       title: string;
-                      hint?:
-                        | {
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
                             [k: string]: unknown;
-                          }[]
-                        | null;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       defaultFetchExistingRobots?: boolean | null;
                       existingRobotsTxt: string;
                       placeholder: string;
@@ -238,11 +293,28 @@ export interface Page {
                     }
                   | {
                       title: string;
-                      hint?:
-                        | {
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
                             [k: string]: unknown;
-                          }[]
-                        | null;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       crawlDelay: {
                         label: string;
                         title: string;
@@ -261,11 +333,28 @@ export interface Page {
                     }
                   | {
                       title: string;
-                      hint?:
-                        | {
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
                             [k: string]: unknown;
-                          }[]
-                        | null;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       selectPlatform: {
                         label: string;
                         title: string;
@@ -284,11 +373,28 @@ export interface Page {
                     }
                   | {
                       title: string;
-                      hint?:
-                        | {
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
                             [k: string]: unknown;
-                          }[]
-                        | null;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       aiWebCrawlers: {
                         label: string;
                         title: string;
@@ -303,11 +409,28 @@ export interface Page {
                     }
                   | {
                       title: string;
-                      hint?:
-                        | {
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
                             [k: string]: unknown;
-                          }[]
-                        | null;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
@@ -315,11 +438,28 @@ export interface Page {
                     }
                   | {
                       title: string;
-                      hint?:
-                        | {
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
                             [k: string]: unknown;
-                          }[]
-                        | null;
+                          }[];
+                          direction: ("ltr" | "rtl") | null;
+                          format:
+                            | "left"
+                            | "start"
+                            | "center"
+                            | "right"
+                            | "end"
+                            | "justify"
+                            | "";
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
                       placeholder: string;
                       id?: string | null;
                       blockName?: string | null;
@@ -379,8 +519,20 @@ export interface SiteHero {
       }[]
     | null;
   heroDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
     [k: string]: unknown;
-  }[];
+  };
   heroCallToAction?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -783,8 +935,20 @@ export interface SettingsSite {
   id: string;
   title: string;
   description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
     [k: string]: unknown;
-  }[];
+  };
   /**
    * Shown on main navigation bar.
    */
@@ -855,8 +1019,20 @@ export interface SettingsSite {
   initiative: {
     title: string;
     description: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ("ltr" | "rtl") | null;
+        format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+        indent: number;
+        version: number;
+      };
       [k: string]: unknown;
-    }[];
+    };
     partners?:
       | {
           name: string;
