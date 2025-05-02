@@ -9,7 +9,11 @@ export const styleConverter = (converterProps: any): JSXConverters<any> => ({
   heading: ({ node, nodesToJSX }) => {
     const Tag = node.tag || "h1";
     return (
-      <RichTypography variant={Tag} component={Tag}>
+      <RichTypography
+        variant={Tag}
+        component={Tag}
+        {...converterProps.typographyProps}
+      >
         {nodesToJSX({ nodes: node.children })}
       </RichTypography>
     );
@@ -35,7 +39,7 @@ export const styleConverter = (converterProps: any): JSXConverters<any> => ({
       <RichTypography
         {...node?.typographyProps}
         {...DEFAULT_PROPS}
-        {...converterProps}
+        {...converterProps.typographyProps}
       >
         {nodesToJSX({ nodes: node.children })}
       </RichTypography>
