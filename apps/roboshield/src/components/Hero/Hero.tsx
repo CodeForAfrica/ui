@@ -87,7 +87,7 @@ const Hero = (props: SiteHero) => {
           color="text.secondary"
           typographyProps={{
             LinkProps: {
-              color: "text.secondary",
+              color: "red",
               sx: {
                 textDecorationColor: "text.secondary",
               },
@@ -101,7 +101,8 @@ const Hero = (props: SiteHero) => {
               margin: { md: "0.5em", xs: "0.75em" },
               display: "inline-block",
               border: "1px solid",
-              borderColor: "text.secondary",
+              borderColor: "white",
+              color: "white",
             },
             mt: "2.5em",
           })}
