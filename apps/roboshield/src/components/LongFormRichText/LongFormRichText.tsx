@@ -2,12 +2,13 @@ import React from "react";
 
 import RichText from "@/roboshield/components/RichText";
 import { RichTextBlock } from "@/roboshield/components/Content/Content";
+import type { Theme } from "@mui/material/styles";
 
 export default function LongFormRichText({ content }: RichTextBlock) {
   return (
     <RichText
       elements={content}
-      sx={(theme) => ({
+      sx={(theme: Theme) => ({
         color: "inherit",
         "& a, & a:visited, & a:hover": {
           color: "inherit",

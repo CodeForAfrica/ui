@@ -10,10 +10,10 @@ import { styleConverter } from "./styleConverter";
 import { Box } from "@mui/material";
 import { forwardRef } from "react";
 
-type NodeTypes = DefaultNodeTypes;
+export type Children = DefaultNodeTypes[];
 
 export const jsxConverters =
-  (converterProps: any): JSXConvertersFunction<NodeTypes> =>
+  (converterProps: any): JSXConvertersFunction<DefaultNodeTypes> =>
   ({ defaultConverters }) => ({
     ...defaultConverters,
     ...styleConverter(converterProps),
