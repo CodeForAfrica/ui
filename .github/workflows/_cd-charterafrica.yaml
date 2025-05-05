@@ -1,0 +1,85 @@
+name: CD | charterafrica
+
+on:
+  workflow_call:
+    inputs:
+      NODE_ENV:
+        required: true
+        type: string
+        description: "development|production"
+      app_url:
+        required: true
+        type: string
+        description: "App final URL"
+      seo_disabled:
+        required: true
+        type: string
+        description: "false|true"
+      build_args:
+        required: false
+        type: string
+        description: "List of build-time variables"
+      tags:
+        required: true
+        type: string
+        description: "List of tags"
+      git_remote_url:
+        required: true
+        type: string
+        description: "The dokku app's git repository url in SSH format"
+
+jobs:
+  # This seem to be needed because GitHub doesn't support access `secrets` in a `with` clause
+  # when calling reusable workflows
+  # https://github.com/github/roadmap/issues/636
+  secrets:
+    runs-on: ubuntu-latest
+    outputs:
+      MONGO_URL: ${{ steps.output-secrets.outputs.CHARTERAFRICA_MONGO_URL }}
+      NEXT_PUBLIC_APP_LOGO_URL: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+      NEXT_PUBLIC_APP_NAME: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ steps.output-secrets.outputs.CHARTERAFRICA_GA_MEASUREMENT_ID }}
+      NEXT_PUBLIC_SENTRY_DSN: ${{ steps.output-secrets.outputs.CHARTERAFRICA_SENTRY_DSN }}
+      PAYLOAD_SECRET: ${{ steps.output-secrets.outputs.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+      SENTRY_PROJECT: ${{ steps.output-secrets.outputs.CODEFORAFRICA_SENTRY_PROJECT }}
+    steps:
+      - id: output-secrets
+        run: |
+          echo "CHARTERAFRICA_GA_MEASUREMENT_ID=${{ secrets.CHARTERAFRICA_GA_MEASUREMENT_ID }}" >> "$GITHUB_OUTPUT"
+          echo "CHARTERAFRICA_MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}" >> "$GITHUB_OUTPUT"
+          echo "CHARTERAFRICA_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}" >> "$GITHUB_OUTPUT"
+          echo "NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}" >> "$GITHUB_OUTPUT"
+          echo "NEXT_PUBLIC_CODEFORAFRICA_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}" >> "$GITHUB_OUTPUT"
+          echo "CHARTERAFRICA_PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}" >> "$GITHUB_OUTPUT"
+          echo "CHARTERAFRICA_SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}" >> "$GITHUB_OUTPUT"
+
+  build-docker-image:
+    name: Build Docker Image
+    needs:
+      - secrets
+    uses: ./.github/workflows/build-docker-image.yml
+    with:
+      build_args: |
+        ${{ inputs.build_args }}
+        MONGO_URL=${{ needs.secrets.outputs.MONGO_URL }}
+        NEXT_PUBLIC_APP_URL=${{ inputs.app_url }}
+        NEXT_PUBLIC_GA_MEASUREMENT_ID=${{ needs.secrets.outputs.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+        NEXT_PUBLIC_SENTRY_DSN=${{  needs.secrets.outputs.NEXT_PUBLIC_SENTRY_DSN }}
+        NEXT_PUBLIC_SEO_DISABLED=${{ inputs.seo_disabled }}
+        NODE_ENV=${{ inputs.NODE_ENV }}
+        PAYLOAD_SECRET_KEY=${{ needs.secrets.outputs.PAYLOAD_SECRET }}
+        SENTRY_ENVIRONMENT=${{ inputs.NODE_ENV }}
+        SENTRY_ORG=${{ vars.SENTRY_ORG }}
+        SENTRY_PROJECT=${{ needs.secrets.outputs.SENTRY_PROJECT }}
+      tags: ${{ inputs.tags }}
+      target: charterafrica-runner
+    secrets: inherit
+
+  push-to-dokku:
+    name: Push to Dokku
+    needs: [build-docker-image]
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: ${{ inputs.git_remote_url }}
+      deploy_docker_image: ${{ inputs.tags }}
+    secrets: inherit

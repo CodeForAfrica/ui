@@ -1,0 +1,47 @@
+name: App Version Check
+
+on:
+  workflow_call:
+    inputs:
+      file-name:
+        required: true
+        type: string
+        description: "App name as it appears in 'apps' folder"
+    outputs:
+      changed:
+        description: "Either 'true' or 'false', indicates whether the version has changed"
+        value: ${{ jobs.app-version-check.outputs.changed }}
+      version:
+        description: "If the version has changed, it shows the version number"
+        value: ${{ jobs.app-version-check.outputs.version }}
+
+jobs:
+  app-version-check:
+    name: App Version Check
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    outputs:
+      changed: ${{ steps.version-check.outputs.changed }}
+      version: ${{ steps.version-check.outputs.version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+
+      - name: Check version
+        id: version-check
+        uses: EndBug/version-check@v2
+        with:
+          # Whether to search in every commit's diff.
+          # This is useful if you often do change the version without saying it
+          # in the commit message. If you always include the semver of the new
+          # version in your commit message when you bump versions then you can
+          # omit this.
+          diff-search: true
+          file-name: "${{ inputs.file-name }}"

@@ -12,7 +12,7 @@ cp env.template .env.local
 
 and modify the `.env.local` file according to your needs.
 
-#### Note
+### Note
 
 The default `.env` file is for the 'Publicly' visible environment variables.
 

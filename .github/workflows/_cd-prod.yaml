@@ -1,0 +1,46 @@
+name: PROD | CD
+
+on:
+  workflow_call:
+
+jobs:
+  version-check-charterafrica:
+    name: Version Check | charterafrica
+    uses: ./.github/workflows/_app-version-check.yaml
+    with:
+      file-name: "./apps/charterafrica/package.json"
+    secrets: inherit
+
+  version-check-codeforafrica:
+    name: Version Check | codeforafrica
+    uses: ./.github/workflows/_app-version-check.yaml
+    with:
+      file-name: "./apps/codeforafrica/package.json"
+    secrets: inherit
+
+  prod-cd-charterafrica:
+    name: Deploy | charterafrica
+    needs:
+      - version-check-charterafrica
+    if: ${{ needs.version-check-charterafrica.outputs.changed == 'true' }}
+    uses: ./.github/workflows/_cd-charterafrica.yaml
+    with:
+      NODE_ENV: production
+      app_url: https://charter.africa
+      seo_disabled: false
+      tags: "codeforafrica/charterafrica-ui:${{ needs.version-check-charterafrica.outputs.version }}"
+      git_remote_url: ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica-ui
+    secrets: inherit
+
+  prod-cd-codeforafrica:
+    name: Deploy | charterafrica
+    needs:
+      - version-check-codeforafrica
+    if: ${{ needs.version-check-codeforafrica.outputs.changed == 'true' }}
+    uses: ./.github/workflows/_cd-codeforafrica.yaml
+    with:
+      NODE_ENV: production
+      app_url: https://cfa.dev.codeforafrica.org
+      tags: "codeforafrica/codeforafrica-ui:${{ needs.version-check-codeforafrica.outputs.version }}"
+      git_remote_url: ssh://dokku@ui-1.prod.codeforafrica.org/codeforafrica-ui
+    secrets: inherit

@@ -1,0 +1,41 @@
+name: CI/CD [Main]
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+      - "Dockerfile"
+      - "apps/**"
+      - "packages/**"
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/_ci.yaml
+
+  apps-path-filter:
+    uses: ./.github/workflows/_app-path-filter.yaml
+    secrets: inherit
+
+  cd-dev:
+    needs:
+      - ci
+      - apps-path-filter
+    if: ${{ needs.apps-path-filter.outputs.apps == 'true' }}
+    uses: ./.github/workflows/_cd-dev.yaml
+    secrets: inherit
+
+  cd-prod:
+    needs:
+      - ci
+      - apps-path-filter
+    if: ${{ needs.apps-path-filter.outputs.apps == 'true' }}
+    uses: ./.github/workflows/_cd-prod.yaml
+    secrets: inherit

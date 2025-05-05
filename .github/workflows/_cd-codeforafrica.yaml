@@ -1,0 +1,80 @@
+name: CD | codeforafrica
+
+on:
+  workflow_call:
+    inputs:
+      app_url:
+        required: true
+        type: string
+        description: "App final URL"
+      NODE_ENV:
+        required: true
+        type: string
+        description: "development|production"
+      build_args:
+        required: false
+        type: string
+        description: "List of build-time variables"
+      tags:
+        required: true
+        type: string
+        description: "List of tags"
+      git_remote_url:
+        required: true
+        type: string
+        description: "The dokku app's git repository url in SSH format"
+    secrets:
+      CODEFORAFRICA_MONGODB_URL:
+        required: true
+      NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL:
+        required: false
+
+jobs:
+  # This seem to be needed because GitHub doesn't support access `secrets` in a `with` clause
+  # when calling reusable workflows
+  # https://github.com/github/roadmap/issues/636
+  secrets:
+    runs-on: ubuntu-latest
+    outputs:
+      MONGODB_URL: ${{ steps.output-secrets.outputs.CODEFORAFRICA_MONGODB_URL }}
+      NEXT_PUBLIC_APP_LOGO_URL: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+      NEXT_PUBLIC_APP_NAME: ${{ steps.output-secrets.outputs.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+      PAYLOAD_SECRET: ${{ steps.output-secrets.outputs.CODEFORAFRICA_PAYLOAD_SECRET }}
+      SENTRY_PROJECT: ${{ steps.output-secrets.outputs.CODEFORAFRICA_SENTRY_PROJECT }}
+    steps:
+      - id: output-secrets
+        run: |
+          echo "CODEFORAFRICA_MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGODB_URL }}" >> "$GITHUB_OUTPUT"
+          echo "NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}" >> "$GITHUB_OUTPUT"
+          echo "NEXT_PUBLIC_CODEFORAFRICA_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}" >> "$GITHUB_OUTPUT"
+          echo "CODEFORAFRICA_PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}" >> "$GITHUB_OUTPUT"
+          echo "CODEFORAFRICA_SENTRY_PROJECT=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}" >> "$GITHUB_OUTPUT"
+
+  build-docker-image:
+    name: Build Docker Image
+    needs:
+      - secrets
+    uses: ./.github/workflows/build-docker-image.yml
+    with:
+      build_args: |
+        ${{ inputs.build_args }}
+        MONGODB_URL=${{ needs.secrets.outputs.MONGODB_URL }}
+        NEXT_PUBLIC_APP_LOGO_URL=${{ needs.secrets.outputs.NEXT_PUBLIC_APP_LOGO_URL }}
+        NEXT_PUBLIC_APP_NAME=${{  needs.secrets.outputs.NEXT_PUBLIC_APP_NAME }}
+        NEXT_PUBLIC_APP_URL=${{ inputs.app_url }}
+        NODE_ENV=${{ inputs.NODE_ENV }}
+        PAYLOAD_SECRET=${{ needs.secrets.outputs.PAYLOAD_SECRET }}
+        SENTRY_ENVIRONMENT=${{ inputs.NODE_ENV }}
+        SENTRY_PROJECT=${{ needs.secrets.outputs.SENTRY_PROJECT }}
+      tags: ${{ inputs.tags }}
+      target: "codeforafrica-runner"
+    secrets: inherit
+
+  push-to-dokku:
+    name: Push to Dokku
+    needs: [build-docker-image]
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: ${{ inputs.git_remote_url }}
+      deploy_docker_image: ${{ inputs.tags }}
+    secrets: inherit

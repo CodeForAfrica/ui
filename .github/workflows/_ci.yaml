@@ -1,74 +1,55 @@
-name: CI
+name: Continuous Integration
 
 on:
-  push:
-    branches: ["main"]
-  pull_request:
-    types: [opened, synchronize]
-
-# This allows a subsequently queued workflow run to interrupt previous runs
-concurrency:
-  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
-  cancel-in-progress: true
+  workflow_call:
 
 jobs:
-  build:
-    name: Build and Test
-    timeout-minutes: 15
+  ci:
+    name: Format, Lint and Test
     runs-on: ${{ matrix.os }}
-    env:
-      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-      MONGO_URL: ${{ secrets.MONGO_URL }}
-      PROMISE_TRACKER_SENTRY_DSN: ${{ secrets.PROMISE_TRACKER_SENTRY_DSN }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     strategy:
       matrix:
-        node-version: [20.16]
         os: [ubuntu-latest]
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
-      - name: Install pnpm
+      - name: Setup PNPM [Install]
         uses: pnpm/action-setup@v4
         id: pnpm-install
         with:
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
+      - name: Setup PNPM [Path]
+        id: pnpm-path
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Setup pnpm cache
+      - name: Setup PNPM [Cache]
         uses: actions/cache@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          path: ${{ steps.pnpm-path.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
       # Looks like to use pnpm cache, setup-node must run after pnpm/action-setup
       # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
-      - name: Install Node.js
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+          node-version-file: "package.json"
 
-      - name: Confirm pnpm version
+      - name: Setup PNPM [Confirm]
         run: pnpm --version
 
-      - name: Install dependencies
+      - name: Setup dependencies
         run: pnpm install
 
-      - name: Install Playwright browsers
+      - name: Setup dependencies [Playwright browsers]
         run: npx playwright install --with-deps
 
       - name: Format
@@ -77,7 +58,7 @@ jobs:
       - name: Lint
         run: pnpm lint-check
 
-      - name: Jest
+      - name: "Test [unit: Jest]"
         run: pnpm jest
 
       # PromiseTracker seems to build success but then "hang".
@@ -85,5 +66,5 @@ jobs:
       - name: Build
         run: pnpm build --filter=promisetracker^...
 
-      - name: Playwright
+      - name: "Test [integration: Playwright]"
         run: pnpm playwright --filter=promisetracker^...
