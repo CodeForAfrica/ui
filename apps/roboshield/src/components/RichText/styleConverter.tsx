@@ -7,7 +7,7 @@ const DEFAULT_PROPS = {
 
 export const styleConverter = (converterProps: any): JSXConverters<any> => ({
   heading: ({ node, nodesToJSX }) => {
-    const Tag = node.tag || "h1";
+    const Tag = node.tag;
     return (
       <RichTypography
         variant={Tag}
