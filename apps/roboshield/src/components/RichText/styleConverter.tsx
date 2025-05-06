@@ -21,19 +21,7 @@ export const styleConverter = (converterProps: any): JSXConverters<any> => ({
   quote: ({ node, nodesToJSX }) => (
     <blockquote>{nodesToJSX({ nodes: node.children })}</blockquote>
   ),
-  link: ({ node, nodesToJSX }) => {
-    return (
-      <RichTypography
-        component={Link}
-        href={node.fields.url || node.href || ""}
-        {...node?.typographyProps}
-        {...converterProps.typographyProps}
-        {...DEFAULT_PROPS}
-      >
-        {nodesToJSX({ nodes: node.children })}
-      </RichTypography>
-    );
-  },
+
   paragraph: ({ node, nodesToJSX }) => {
     return (
       <RichTypography
