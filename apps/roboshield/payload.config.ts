@@ -48,6 +48,7 @@ export default buildConfig({
       ...defaultFeatures,
       // Needed to support the Slate to Lexical migration
       // See https://payloadcms.com/docs/rich-text/migration#migrating-from-slate
+      // TODO:: Plan to remove this after running the migration
       SlateToLexicalFeature({ disableHooks: true }),
     ],
   }),
