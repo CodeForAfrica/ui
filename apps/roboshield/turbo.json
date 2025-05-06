@@ -16,7 +16,6 @@
     "build-payload": {
       "outputs": ["build/**"],
       "env": [
-        "NEXT_PUBLIC_SENTRY_DSN",
         "PAYLOAD_PUBLIC_APP_URL",
         "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
         "PAYLOAD_PUBLIC_LOCALES"

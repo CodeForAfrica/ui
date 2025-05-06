@@ -2,22 +2,22 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
-        "NEXT_RUNTIME",
-        "PROJECT_ROOT",
-        "PROMISE_TRACKER_SENTRY_DSN",
-        "PUBLIC_PROMISE_TRACKER_SENTRY_DSN",
-        "SOURCE_LIB",
-        "APP_SLUG",
-        "ACTNOW_URL",
         "ACTNOW_API_KEY",
+        "ACTNOW_URL",
+        "APP_SLUG",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
+        "NEXT_RUNTIME",
         "NEXTAUTH_SECRET",
+        "NODE_ENV",
+        "NODE_OPTIONS",
+        "PROJECT_ROOT",
         "SENTRY_AUTH_TOKEN",
         "SENTRY_ORG",
-        "SENTRY_PROJECT"
+        "SENTRY_PROJECT",
+        "SOURCE_LIB"
       ]
     }
   }
