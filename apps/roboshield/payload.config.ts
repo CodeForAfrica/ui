@@ -46,6 +46,8 @@ export default buildConfig({
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
       ...defaultFeatures,
+      // Needed to support the Slate to Lexical migration
+      // See https://payloadcms.com/docs/rich-text/migration#migrating-from-slate
       SlateToLexicalFeature({ disableHooks: true }),
     ],
   }),
