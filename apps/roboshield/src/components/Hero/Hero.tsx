@@ -87,7 +87,7 @@ const Hero = (props: SiteHero) => {
           color="text.secondary"
           typographyProps={{
             LinkProps: {
-              color: "red",
+              color: "text.secondary",
               sx: {
                 textDecorationColor: "text.secondary",
               },
