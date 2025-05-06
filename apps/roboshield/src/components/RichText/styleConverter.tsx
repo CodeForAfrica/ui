@@ -5,32 +5,38 @@ const DEFAULT_PROPS = {
   html: false,
 };
 
-export const styleConverter = (converterProps: any): JSXConverters<any> => ({
-  heading: ({ node, nodesToJSX }) => {
-    const Tag = node.tag;
-    return (
-      <RichTypography
-        variant={Tag}
-        component={Tag}
-        {...converterProps.typographyProps}
-      >
-        {nodesToJSX({ nodes: node.children })}
-      </RichTypography>
-    );
-  },
-  quote: ({ node, nodesToJSX }) => (
-    <blockquote>{nodesToJSX({ nodes: node.children })}</blockquote>
-  ),
+export const styleConverter = (converterProps: any): JSXConverters<any> => {
+  const getTypographyProps = (node: any) => ({
+    ...DEFAULT_PROPS,
+    ...converterProps.typographyProps,
+    ...(node?.typographyProps || {}),
+  });
 
-  paragraph: ({ node, nodesToJSX }) => {
-    return (
-      <RichTypography
-        {...node?.typographyProps}
-        {...DEFAULT_PROPS}
-        {...converterProps.typographyProps}
-      >
+  return {
+    heading: ({ node, nodesToJSX }) => {
+      const Tag = node.tag;
+      return (
+        <RichTypography
+          variant={Tag}
+          component={Tag}
+          {...getTypographyProps(node)}
+        >
+          {nodesToJSX({ nodes: node.children })}
+        </RichTypography>
+      );
+    },
+    quote: ({ node, nodesToJSX }) => (
+      <blockquote {...getTypographyProps(node)}>
         {nodesToJSX({ nodes: node.children })}
-      </RichTypography>
-    );
-  },
-});
+      </blockquote>
+    ),
+
+    paragraph: ({ node, nodesToJSX }) => {
+      return (
+        <RichTypography {...getTypographyProps(node)}>
+          {nodesToJSX({ nodes: node.children })}
+        </RichTypography>
+      );
+    },
+  };
+};
