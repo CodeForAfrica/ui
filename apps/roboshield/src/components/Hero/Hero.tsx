@@ -92,7 +92,6 @@ const Hero = (props: SiteHero) => {
                 textDecorationColor: "text.secondary",
               },
             },
-            variant: "h6",
           }}
           sx={(theme: Theme) => ({
             a: {
@@ -102,7 +101,10 @@ const Hero = (props: SiteHero) => {
               display: "inline-block",
               border: "1px solid",
               borderColor: "white",
-              color: "white",
+              color: "inherit",
+              font: "inherit",
+              fontSize: "inherit",
+              fontWeight: "inherit",
             },
             mt: "2.5em",
           })}
