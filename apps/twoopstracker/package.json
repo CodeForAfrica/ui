@@ -83,7 +83,6 @@
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "frontmatter-markdown-loader": "catalog:",
-    "husky": "catalog:",
     "jscodeshift": "catalog:",
     "netlify-cms-proxy-server": "catalog:",
     "prettier": "catalog:",

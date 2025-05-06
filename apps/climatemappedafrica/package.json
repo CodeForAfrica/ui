@@ -119,7 +119,6 @@
     "eslint-plugin-module-resolver": "catalog:",
     "graphql": "catalog:",
     "graphql-anywhere": "catalog:",
-    "husky": "catalog:",
     "identity-obj-proxy": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
