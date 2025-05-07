@@ -1,5 +1,6 @@
 import * as Sentry from "@sentry/nextjs";
 
+// Next.js requires this to be exported as register
 export async function register() {
   if (process.env.NEXT_RUNTIME === "nodejs") {
     await import("./sentry.server.config");

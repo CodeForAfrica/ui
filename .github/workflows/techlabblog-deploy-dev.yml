@@ -23,7 +23,7 @@ jobs:
       target: "techlabblog-runner"
       build_args: |
         SENTRY_ENVIRONMENT=development
-        SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
+        NEXT_PUBLIC_SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
 
   push-to-dokku:
     name: Push to Dokku

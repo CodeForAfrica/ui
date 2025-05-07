@@ -2,7 +2,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "build-next", "build-payload"]
+      "dependsOn": ["build-next", "build-payload"]
     },
     "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
@@ -20,6 +20,7 @@
         "PAYLOAD_PUBLIC_APP_URL",
         "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
         "PAYLOAD_PUBLIC_LOCALES",
+        "PROJECT_ROOT",
         "SENTRY_AUTH_TOKEN",
         "SENTRY_ORG",
         "SENTRY_PROJECT"

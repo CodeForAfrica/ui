@@ -8,7 +8,7 @@ exports[`<DropdownMenu /> renders unchanged 1`] = `
     tabindex="-1"
   >
     <a
-      class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-1aut4du-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiMenuItem-root"
+      class="MuiTypography-root MuiTypography-caption MuiLink-root MuiLink-underlineNone Mui-focusVisible MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters Mui-focusVisible MuiMenuItem-root MuiMenuItem-gutters css-1aut4du-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiMenuItem-root"
       href="/resources/tools"
       tabindex="0"
     >
