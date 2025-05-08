@@ -13,7 +13,7 @@
     "dev": "turbo run dev --parallel",
     "lint-check": "turbo run lint-check",
     "lint": "turbo run lint",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "changeset version && pnpm install",
     "publish": "-r publish",
     "jest": "turbo run jest",

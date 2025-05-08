@@ -52,11 +52,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           build-args: |
-            SENTRY_DSN=${{ secrets.VPNMANAGER_SENTRY_DSN }}
+            API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.VPNMANAGER_SENTRY_DSN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}
-            API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
