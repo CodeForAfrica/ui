@@ -702,11 +702,11 @@ COPY apps/roboshield ./apps/roboshield/
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
-  pnpm --filter "./apps/roboshield/" build-next
+  pnpm --filter "./apps/roboshield/" build
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-RUN pnpm --filter "./apps/roboshield/" build-payload
+# RUN pnpm --filter "./apps/roboshield/" build-payload
 
 #
 # roboshield-runner: final deployable image
@@ -729,28 +729,18 @@ RUN set -ex \
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/next.config.js ./apps/roboshield/next.config.js
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.env ./apps/roboshield/.env
-# Since we can't use output: "standalone", copy all app's dependencies
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/node_modules ./apps/roboshield/node_modules
 
 # Next.js
 # Public assets
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
-
-# Since we can't use output: "standalone", copy the whole app's .next folder
-# TODO(kilemensi): Figure out which files in .next folder are not needed
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next ./apps/roboshield/.next
-
-# Payload
-COPY --from=roboshield-builder /workspace/apps/roboshield/dist ./apps/roboshield/dist
-COPY --from=roboshield-builder /workspace/apps/roboshield/build ./apps/roboshield/build
-
-# Since we can't use output: "standalone", switch to specific app's folder
-WORKDIR /workspace/apps/roboshield
+# Copy standalone output
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next/standalone ./apps/roboshield
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next/static ./apps/roboshield/.next/static
 
 USER nextjs
 
 # Custom server to run Payload and Next.js in the same app
-CMD ["node", "dist/server.js"]
+CMD ["node", "apps/roboshield/server.js"]
 
 
 # ============================================================================
@@ -986,7 +976,7 @@ CMD ["node", "apps/promisetracker/server.js"]
 #
 # twoopstracker-deps: image with all twoopstracker dependencies
 # ---------------------------------------------------
-  
+
 FROM base-deps AS twoopstracker-deps
 COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
