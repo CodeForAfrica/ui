@@ -6,16 +6,16 @@ exports[`<QuickLinks /> renders inchanged 1`] = `
     class="MuiBox-root css-ufz638"
   >
     <p
-      class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
     >
       Quick Links
     </p>
     <ul
-      class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
     >
       <li>
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-r74m4g-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-18rqtra-MuiTypography-root-MuiLink-root"
           href="/"
         >
           Home
@@ -23,7 +23,7 @@ exports[`<QuickLinks /> renders inchanged 1`] = `
       </li>
       <li>
         <a
-          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-r74m4g-MuiTypography-root-MuiLink-root"
+          class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-18rqtra-MuiTypography-root-MuiLink-root"
           href="/about"
         >
           About

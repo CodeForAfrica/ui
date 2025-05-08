@@ -1,4 +1,4 @@
-import { Block } from "payload/types";
+import type { Block } from "payload";
 import { RichText } from "./RichText";
 import { MediaBlock } from "./MediaBlock";
 import { ExternalEmbed } from "./ExternalEmbed";

@@ -1,6 +1,5 @@
-import { Block } from "payload/types";
+import type { Block } from "payload";
 import richText from "../fields/richText";
-import { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types";
 
 export const SiteHero: Block = {
   slug: "page-hero",
@@ -51,9 +50,7 @@ export const SiteHero: Block = {
       ],
       admin: {
         components: {
-          RowLabel: ({ data, index }: RowLabelArgs) => {
-            return data?.title || `Header ${String(index).padStart(2, "0")}`;
-          },
+          RowLabel: "@/roboshield/payload/components/RowLabel.tsx",
         },
       },
     },

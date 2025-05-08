@@ -1,4 +1,4 @@
-import { FieldHookArgs } from "payload/types";
+import type { FieldHookArgs } from "payload";
 
 export function generateFullTitle(breadcrumbs: any) {
   if (Array.isArray(breadcrumbs)) {

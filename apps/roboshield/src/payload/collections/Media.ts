@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types";
+import type { CollectionConfig } from "payload";
 
 const Media: CollectionConfig = {
   slug: "media",
@@ -12,7 +12,6 @@ const Media: CollectionConfig = {
     read: () => true, // Everyone can read Media
   },
   upload: {
-    staticURL: "/media",
     staticDir: "media",
   },
   fields: [

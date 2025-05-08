@@ -40,6 +40,7 @@ module.exports = [
       "**/build",
       "**/contrib/",
       "**/scripts/",
+      "**/src/app/(payload)/admin/importMap.js",
     ],
   },
   {

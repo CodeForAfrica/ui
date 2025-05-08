@@ -1,4 +1,4 @@
-import { FieldHook, FieldHookArgs } from "payload/types";
+import type { FieldHook, FieldHookArgs } from "payload";
 
 interface FieldArgs extends Partial<FieldHookArgs<any, any, any>> {
   fallback: string[];

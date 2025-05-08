@@ -3,7 +3,7 @@
 exports[`<ChoiceChipGroup /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiToggleButtonGroup-root css-155203t-MuiToggleButtonGroup-root"
+    class="MuiToggleButtonGroup-root MuiToggleButtonGroup-horizontal css-t9hjzu-MuiToggleButtonGroup-root"
     role="group"
   />
 </div>

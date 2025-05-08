@@ -1,5 +1,5 @@
 import formatPagePath from "./formatPagePath";
-import { Document } from "payload/types";
+import type { Document } from "payload";
 
 const payloadUrl =
   process.env.PAYLOAD_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_APP_URL;

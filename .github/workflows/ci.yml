@@ -19,7 +19,6 @@ jobs:
     env:
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       MONGO_URL: ${{ secrets.MONGO_URL }}
-      PROMISE_TRACKER_SENTRY_DSN: ${{ secrets.PROMISE_TRACKER_SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
