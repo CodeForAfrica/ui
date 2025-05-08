@@ -3,7 +3,7 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { s3Storage } from "@payloadcms/storage-s3";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { seoPlugin } from "@payloadcms/plugin-seo";
-import { slateEditor } from "@payloadcms/richtext-slate";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { CollectionConfig, GlobalConfig, buildConfig } from "payload";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
@@ -11,6 +11,7 @@ import Users from "./src/payload/collections/Users";
 import Site from "./src/payload/globals/Site";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import { SlateToLexicalFeature } from "@payloadcms/richtext-lexical/migrate";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -42,7 +43,15 @@ const smtpHost = process.env.SMTP_HOST || "smtp.sendgrid.net";
 
 export default buildConfig({
   serverURL: appURL,
-  editor: slateEditor({}),
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      // Needed to support the Slate to Lexical migration
+      // See https://payloadcms.com/docs/rich-text/migration#migrating-from-slate
+      // TODO:: Plan to remove this after running the migration
+      SlateToLexicalFeature({ disableHooks: true }),
+    ],
+  }),
   db: mongooseAdapter({
     url: process.env.MONGO_URL ?? false,
     migrationDir: process.env.MIGRATIONS_DIR,

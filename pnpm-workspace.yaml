@@ -238,3 +238,4 @@ catalogs:
     "@payloadcms/plugin-cloud-storage": "3.34.0"
     "@payloadcms/storage-s3": "3.34.0"
     "@payloadcms/email-nodemailer": "3.34.0"
+    "@payloadcms/richtext-lexical": "3.34.0"

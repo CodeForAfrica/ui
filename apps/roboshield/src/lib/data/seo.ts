@@ -70,7 +70,7 @@ export default function getPageSeoFromMeta(
   const description =
     page.meta?.description ||
     settings.meta?.description ||
-    stringifyDescription(settings.description);
+    stringifyDescription(settings.description?.root?.children);
   const openGraph: Record<string, any> = {
     type: "website",
     siteName: defaultTitle,
