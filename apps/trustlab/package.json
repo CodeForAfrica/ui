@@ -1,0 +1,27 @@
+{
+  "name": "trustlab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "catalog:payload-v3",
+    "@payloadcms/next": "catalog:payload-v3",
+    "@payloadcms/richtext-lexical": "catalog:payload-v3",
+    "graphql": "catalog:",
+    "next": "catalog:",
+    "payload": "catalog:payload-v3",
+    "react": "catalog:react-19",
+    "react-dom": "catalog:react-19",
+    "sharp": "catalog:"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "catalog:",
+    "eslint": "catalog:",
+    "eslint-config-next": "catalog:"
+  }
+}
