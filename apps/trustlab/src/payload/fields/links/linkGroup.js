@@ -1,25 +1,10 @@
 import { deepmerge } from "@mui/utils";
 
 import link from "./link";
-import { type Field } from "payload";
-
-type LinkConfig = {
-  defaultValue: string;
-  disableLabel: boolean;
-  disableLinkTypeSelection: boolean;
-  disableOpenInNewTab: boolean;
-  overrides: Partial<Field>;
-  required: boolean;
-};
-
-interface Args {
-  linkConfig?: LinkConfig;
-  overrides: Partial<Field>;
-}
 /**
  * group field consisting of a link field.
  */
-function linkGroup(args: Args) {
+function linkGroup(args) {
   const { linkConfig, overrides = {} } = args ?? {};
   const generatedLinkGroup = {
     name: "link",

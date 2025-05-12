@@ -1,27 +1,11 @@
 import { deepmerge } from "@mui/utils";
 
 import mapLinkTypeToHref from "@/trustlab/payload/utils/mapLinkTypeToHref";
-import type {
-  RowField,
-  SanitizedCollectionConfig,
-  PayloadRequest,
-  Condition,
-} from "payload";
-
-interface CollectionBeforeReadHookArgs {
-  collection: SanitizedCollectionConfig;
-  siblingData: any;
-  doc: any;
-  query: {
-    [key: string]: any;
-  };
-  req: PayloadRequest;
-}
 
 export async function mapLinkToHrefBeforeValidate({
   siblingData,
   req: { payload },
-}: CollectionBeforeReadHookArgs) {
+}) {
   // Don't modify original doc.
   const doc = { ...siblingData.doc };
   if (typeof doc.value === "string") {
@@ -48,7 +32,7 @@ const link = ({
   overrides = {},
   required = true,
 } = {}) => {
-  const linkResult: RowField = {
+  const linkResult = {
     type: "row",
     fields: [
       {
@@ -92,8 +76,7 @@ const link = ({
           required,
           maxDepth: 1,
           admin: {
-            condition: ((_, siblingData) =>
-              siblingData?.linkType === "internal") as Condition,
+            condition: (_, siblingData) => siblingData?.linkType === "internal",
           },
         },
         {
@@ -106,8 +89,7 @@ const link = ({
           type: "text",
           required,
           admin: {
-            condition: ((_, siblingData) =>
-              siblingData?.linkType === "custom") as Condition,
+            condition: (_, siblingData) => siblingData?.linkType === "custom",
           },
         },
         {
@@ -124,7 +106,7 @@ const link = ({
       ],
     },
   ];
-  let labelFields: any = [];
+  let labelFields = [];
   if (!disableLabel) {
     labelFields = [
       {

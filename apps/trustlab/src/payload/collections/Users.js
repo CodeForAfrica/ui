@@ -1,6 +1,4 @@
-import { CollectionConfig } from "payload";
-
-const Users: CollectionConfig = {
+const Users = {
   slug: "users",
   admin: {
     defaultColumns: ["firstName", "lastName", "email", "updatedAt"],

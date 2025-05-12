@@ -1,7 +1,6 @@
-import { Tab } from "payload";
 import image from "@/trustlab/payload/fields/image";
 
-const GeneralTab: Tab = {
+const GeneralTab = {
   label: "General",
   fields: [
     {
@@ -28,7 +27,7 @@ const GeneralTab: Tab = {
           overrides: {
             name: "primaryLogo",
             required: true,
-            localized: true,
+            // localized: true,
             admin: {
               description: "Shown on main navigation bar.",
             },
@@ -37,7 +36,7 @@ const GeneralTab: Tab = {
         image({
           overrides: {
             name: "secondaryLogo",
-            localized: true,
+            // localized: true,
             admin: {
               description:
                 "Shown on main footer. If not provided, primary logo will be reused.",

@@ -1,14 +1,13 @@
-import { type Tab } from "payload";
 import socialLinks from "@/trustlab/payload/fields/socialLinks";
 
-const EngagementTab: Tab = {
+const EngagementTab = {
   label: "Engagement",
   fields: [
     {
       name: "connect",
       type: "group",
       label: "Social Accounts",
-      localized: true,
+      // localized: true,
       fields: [
         {
           type: "collapsible",
@@ -32,7 +31,7 @@ const EngagementTab: Tab = {
       name: "newsletter",
       type: "group",
       label: "Email Newsletter",
-      localized: true,
+      // localized: true,
       fields: [
         {
           type: "collapsible",
@@ -59,7 +58,7 @@ const EngagementTab: Tab = {
       name: "analytics",
       type: "group",
       label: "Site Analytics",
-      localized: true,
+      // localized: true,
       fields: [
         {
           type: "collapsible",

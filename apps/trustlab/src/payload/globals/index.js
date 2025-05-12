@@ -1,9 +1,8 @@
-import { GlobalConfig } from "payload";
 import GeneralTab from "./tabs/GeneralTab";
 import NavigationTab from "./tabs/NavigationTab";
 import EngagementTab from "./tabs/EngagementTab";
 
-const SiteSettings: GlobalConfig = {
+const SiteSettings = {
   slug: "site-settings",
   label: "Site Settings",
   admin: {

@@ -1,19 +1,6 @@
 import formatPagePath from "./formatPagePath";
 
-export interface NodeType {
-  type: string;
-  children?: NodeType[] | null;
-  doc: any;
-  linkType?: "custom" | "internal";
-  url?: string;
-  href?: string;
-}
-
-const mapLinkTypeToHref = ({
-  doc: linkDoc,
-  linkType,
-  url,
-}: NodeType): string | null | undefined => {
+const mapLinkTypeToHref = ({ doc: linkDoc, linkType, url }) => {
   // default to `null` for serialization.
   let href = null;
   if (linkType === "internal") {

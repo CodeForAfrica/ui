@@ -1,15 +1,4 @@
-interface BreadCrumbs {
-  doc: string;
-  url: string;
-  label: string;
-  id: string;
-}
-interface Doc {
-  slug: string;
-  parent?: Doc;
-  breadcrumbs: BreadCrumbs[];
-}
-function fullSlugFromParents(doc: Doc): string {
+function fullSlugFromParents(doc) {
   const { slug, parent } = doc;
   if (!parent) {
     return slug;
@@ -17,13 +6,12 @@ function fullSlugFromParents(doc: Doc): string {
   return `${fullSlugFromParents(parent)}/${slug}`;
 }
 
-function fullSlugFromBreadcrumbs(doc: Doc) {
-  const fullSlug =
-    doc?.breadcrumbs?.[doc?.breadcrumbs.length - 1]?.url?.slice(1);
+function fullSlugFromBreadcrumbs({ breadcrumbs } = {}) {
+  const fullSlug = breadcrumbs?.[breadcrumbs.length - 1]?.url?.slice(1);
   return fullSlug;
 }
 
-function formatPagePath(collection: string, doc: Doc) {
+function formatPagePath(collection, doc) {
   let pageSlug = fullSlugFromBreadcrumbs(doc) || fullSlugFromParents(doc) || "";
   if (pageSlug === "index") {
     pageSlug = "";

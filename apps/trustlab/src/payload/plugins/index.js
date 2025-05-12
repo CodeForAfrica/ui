@@ -4,20 +4,18 @@ import { s3Storage } from "@payloadcms/storage-s3";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 
-import * as Sentry from "@sentry/nextjs";
-import { Page } from "@payload-types";
-import { GenerateTitle } from "@payloadcms/plugin-seo/types";
+// import * as Sentry from "@sentry/nextjs";
 
-const generateTitle: GenerateTitle<Page> = ({ doc }) => {
+const generateTitle = ({ doc }) => {
   return doc.title ?? "";
 };
 
-const generateURL: GenerateTitle<Page> = ({ doc }) => {
+const generateURL = ({ doc }) => {
   const url = process.env.NEXT_PUBLIC_SERVER_URL ?? "";
   return doc.slug ? `${url}/${doc.slug}` : "";
 };
 
-const plugins: Plugin[] = [
+const plugins = [
   s3Storage({
     collections: {
       media: true,
@@ -31,12 +29,12 @@ const plugins: Plugin[] = [
       region: process.env.S3_REGION ?? "",
     },
   }),
-  sentryPlugin({
-    Sentry,
-  }),
+  // sentryPlugin({
+  //   Sentry,
+  // }),
   nestedDocsPlugin({
     collections: ["pages"],
-    generateLabel: (_, doc) => doc.title as string,
+    generateLabel: (_, doc) => doc.title,
     generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
   }),
   seoPlugin({

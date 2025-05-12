@@ -1,11 +1,10 @@
 import path from "path";
-import type { CollectionConfig } from "payload";
 import { fileURLToPath } from "url";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-const Media: CollectionConfig = {
+const Media = {
   slug: "media",
   access: {
     read: () => true,

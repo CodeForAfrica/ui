@@ -7,27 +7,7 @@
 import React from "react";
 import { useRowLabel } from "@payloadcms/ui";
 
-interface RowData extends Record<string, any> {
-  title?: string;
-}
-
-interface Data {
-  title?: string;
-  message?: string;
-  name?: string;
-  platform?: string;
-  url?: string;
-  reference?: {
-    title?: string | null;
-  };
-  [key: string]: unknown;
-}
-
-const getLabelData = (
-  path: string,
-  data: Data,
-  rowNumber?: number,
-): { label: string; data?: string | null } => {
+const getLabelData = (path, data, rowNumber = 0) => {
   if (path.includes("Headers")) return { label: "Header", data: data?.title };
 
   if (path.includes("message"))
@@ -67,7 +47,7 @@ const getLabelData = (
 };
 
 export const RowLabel = () => {
-  const { data, rowNumber, path } = useRowLabel<RowData>();
+  const { data, rowNumber, path } = useRowLabel();
   const { label, data: message } = getLabelData(path, data, rowNumber);
 
   return (

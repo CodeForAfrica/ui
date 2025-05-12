@@ -1,4 +1,3 @@
-import { Tab } from "payload";
 import linkArray from "@/trustlab/payload/fields/links/linkArray";
 import link from "@/trustlab/payload/fields/links/link";
 import { socialMediaOptions } from "@/trustlab/payload/fields/socialLinks";
@@ -7,13 +6,13 @@ const linkField = link({
   disableOpenInNewTab: true,
 });
 
-const NavigationTab: Tab = {
+const NavigationTab = {
   label: "Navigation",
   fields: [
     {
       name: "primaryNavigation",
       type: "group",
-      localized: true,
+      // localized: true,
       fields: [
         {
           type: "collapsible",
@@ -48,7 +47,7 @@ const NavigationTab: Tab = {
     {
       name: "secondaryNavigation",
       type: "group",
-      localized: true,
+      // localized: true,
       fields: [
         {
           type: "collapsible",

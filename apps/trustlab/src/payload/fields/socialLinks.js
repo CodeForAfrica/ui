@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
+import { select } from "payload/shared";
 
 import url from "./url";
-import { Field } from "payload";
 
 export const socialMediaOptions = [
   "Facebook",
@@ -12,12 +12,8 @@ export const socialMediaOptions = [
   "Slack",
 ];
 
-type Overrides = {
-  name: string;
-} & Partial<Field>;
-
-function socialLinks(overrides: Overrides = { name: "links" }) {
-  const defaults: Field = {
+function socialLinks(overrides = {}) {
+  const defaults = {
     name: "links",
     type: "array",
     labels: {
@@ -32,7 +28,7 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
     admin: {
       className: "array-field-nested",
       components: {
-        RowLabel: "@/trustlab/payload/components/RowLabel.tsx",
+        RowLabel: "@/trustlab/payload/components/RowLabel",
       },
       initCollapsed: true,
     },
@@ -43,16 +39,21 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
         label: "Platform",
         options: socialMediaOptions,
         required: true,
-        validate: (val: string | string[] | null | undefined, args: any) => {
+        validate: (val, args) => {
           const { data, t } = args || {};
-          const { name: linksName = "links" } = overrides as Overrides;
+          const { name: linksName = "links" } = overrides;
           if (
-            data?.[linksName]?.filter((l: any) => l.platform === val)?.length >
-            1
+            data?.[linksName]?.filter((l) => l.platform === val)?.length > 1
           ) {
             return t("codeforafrica.validation:uniquePlatforms");
           }
-          return true;
+
+          const {
+            hasMany,
+            options = socialMediaOptions,
+            required = true,
+          } = args;
+          return select(val, { hasMany, options, required, t });
         },
       },
       url({
