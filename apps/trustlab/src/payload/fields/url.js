@@ -8,7 +8,6 @@ function url({ overrides = undefined } = {}) {
     label: "URL",
     validate: (val, options) => {
       try {
-         
         new URL(val);
       } catch (e) {
         if (e instanceof TypeError) {
