@@ -4,7 +4,6 @@ const Users: CollectionConfig = {
   slug: "users",
   admin: {
     defaultColumns: ["firstName", "lastName", "email", "updatedAt"],
-    group: "Settings",
     useAsTitle: "email",
   },
   auth: true,

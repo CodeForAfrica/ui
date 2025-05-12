@@ -2347,6 +2347,9 @@ importers:
 
   apps/trustlab:
     dependencies:
+      '@mui/utils':
+        specifier: 'catalog:'
+        version: 6.4.9(@types/react@18.3.21)(react@19.1.0)
       '@payloadcms/db-mongodb':
         specifier: catalog:payload-v3
         version: 3.37.0(@aws-sdk/credential-providers@3.803.0)(payload@3.37.0(graphql@16.11.0)(typescript@5.8.3))(socks@2.8.4)
@@ -21009,6 +21012,18 @@ snapshots:
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 18.3.1
+      react-is: 19.1.0
+    optionalDependencies:
+      '@types/react': 18.3.21
+
+  '@mui/utils@6.4.9(@types/react@18.3.21)(react@19.1.0)':
+    dependencies:
+      '@babel/runtime': 7.27.1
+      '@mui/types': 7.2.24(@types/react@18.3.21)
+      '@types/prop-types': 15.7.14
+      clsx: 2.1.1
+      prop-types: 15.8.1
+      react: 19.1.0
       react-is: 19.1.0
     optionalDependencies:
       '@types/react': 18.3.21

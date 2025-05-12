@@ -86,8 +86,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-settings': SiteSetting;
+  };
+  globalsSelect: {
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -479,6 +483,155 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: string;
+  title: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Shown on main navigation bar.
+   */
+  primaryLogo: string | Media;
+  /**
+   * Shown on main footer. If not provided, primary logo will be reused.
+   */
+  secondaryLogo?: (string | null) | Media;
+  primaryNavigation?: {
+    menus?:
+      | {
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+  };
+  secondaryNavigation?: {
+    menus?:
+      | {
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  connect: {
+    /**
+     * Text that appears on contact links e.g Stay in Touch
+     */
+    title: string;
+    links?:
+      | {
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  newsletter: {
+    title: string;
+    embedCode: string;
+  };
+  analytics?: {
+    analyticsId?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  primaryLogo?: T;
+  secondaryLogo?: T;
+  primaryNavigation?:
+    | T
+    | {
+        menus?:
+          | T
+          | {
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              id?: T;
+            };
+        connect?: T;
+      };
+  secondaryNavigation?:
+    | T
+    | {
+        menus?:
+          | T
+          | {
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  connect?:
+    | T
+    | {
+        title?: T;
+        links?:
+          | T
+          | {
+              platform?: T;
+              url?: T;
+              id?: T;
+            };
+      };
+  newsletter?:
+    | T
+    | {
+        title?: T;
+        embedCode?: T;
+      };
+  analytics?:
+    | T
+    | {
+        analyticsId?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

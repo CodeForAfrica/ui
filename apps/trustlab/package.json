@@ -13,6 +13,7 @@
     "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
+    "@mui/utils": "catalog:",
     "@payloadcms/db-sqlite": "catalog:payload-v3",
     "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/next": "catalog:payload-v3",
