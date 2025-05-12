@@ -1,6 +1,6 @@
+import TestBlock from "@/trustlab/payload/blocks/TestBlock";
 import fullTitle from "@/trustlab/payload/fields/fullTitle";
 import slug from "@/trustlab/payload/fields/slug";
-import TestBlock from "@/trustlab/payload/blocks/TestBlock";
 
 const Pages = {
   slug: "pages",

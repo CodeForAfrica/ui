@@ -1,6 +1,6 @@
+import EngagementTab from "./tabs/EngagementTab";
 import GeneralTab from "./tabs/GeneralTab";
 import NavigationTab from "./tabs/NavigationTab";
-import EngagementTab from "./tabs/EngagementTab";
 
 const SiteSettings = {
   slug: "site-settings",

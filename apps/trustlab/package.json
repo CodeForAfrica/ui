@@ -6,25 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint-check": "TIMING=1 eslint './'",
+    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
+    "@commons-ui/core": "workspace:*",
+    "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@mui/utils": "catalog:",
     "@payloadcms/db-sqlite": "catalog:payload-v3",
     "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/next": "catalog:payload-v3",
     "@payloadcms/plugin-cloud-storage": "catalog:payload-v3",
-    "@payloadcms/plugin-sentry": "catalog:payload-v3",
     "@payloadcms/richtext-lexical": "catalog:payload-v3",
     "@payloadcms/storage-s3": "catalog:payload-v3",
     "@payloadcms/plugin-seo": "catalog:payload-v3",
     "@payloadcms/plugin-nested-docs": "catalog:payload-v3",
     "@payloadcms/ui": "catalog:payload-v3",
-    "@sentry/nextjs": "catalog:",
     "cross-env": "catalog:",
     "graphql": "16.11.0",
     "next": "catalog:",
@@ -34,8 +36,13 @@
     "sharp": "catalog:"
   },
   "devDependencies": {
+    "@commons-ui/testing-library": "workspace:*",
     "@eslint/eslintrc": "catalog:",
     "eslint": "catalog:",
-    "eslint-config-next": "catalog:"
+    "eslint-config-next": "catalog:",
+    "eslint-config-commons-ui": "workspace:*",
+    "eslint-import-resolver-babel-module": "catalog:",
+    "jest-config-commons-ui": "workspace:*",
+    "playwright-config-commons-ui": "workspace:*"
   }
 }

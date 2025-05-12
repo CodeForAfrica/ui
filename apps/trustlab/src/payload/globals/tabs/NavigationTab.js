@@ -1,5 +1,5 @@
-import linkArray from "@/trustlab/payload/fields/links/linkArray";
 import link from "@/trustlab/payload/fields/links/link";
+import linkArray from "@/trustlab/payload/fields/links/linkArray";
 import { socialMediaOptions } from "@/trustlab/payload/fields/socialLinks";
 
 const linkField = link({

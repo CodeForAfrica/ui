@@ -13,7 +13,18 @@ import SiteSettings from "@/trustlab/payload/globals";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+const cors =
+  process?.env?.PAYLOAD_CORS?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
+
+const csrf =
+  process?.env?.PAYLOAD_CSRF?.split(",")
+    ?.map((d) => d.trim())
+    ?.filter(Boolean) ?? [];
+
 export default buildConfig({
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
   editor: lexicalEditor(),
   admin: {
     importMap: {
@@ -21,6 +32,8 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages] as CollectionConfig[],
+  cors,
+  csrf,
   globals: [SiteSettings] as GlobalConfig[],
   secret: process.env.PAYLOAD_SECRET || "",
   db: mongooseAdapter({
