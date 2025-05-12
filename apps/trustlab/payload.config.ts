@@ -1,7 +1,7 @@
 import sharp from "sharp";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { buildConfig } from "payload";
+import { buildConfig, CollectionConfig, GlobalConfig } from "payload";
 import path from "path";
 import { fileURLToPath } from "url";
 import Users from "@/trustlab/payload/collections/Users";
@@ -20,8 +20,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages],
-  globals: [SiteSettings],
+  collections: [Users, Media, Pages] as CollectionConfig[],
+  globals: [SiteSettings] as GlobalConfig[],
   secret: process.env.PAYLOAD_SECRET || "",
   db: mongooseAdapter({
     url: process.env.MONGO_URL || "",
