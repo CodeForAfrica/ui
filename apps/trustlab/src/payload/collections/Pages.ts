@@ -3,6 +3,10 @@ import { slugField } from "../fields/slug";
 
 const Pages: CollectionConfig = {
   slug: "pages",
+  admin: {
+    useAsTitle: "title",
+    defaultColumns: ["title", "slug"],
+  },
   fields: [
     {
       name: "title",
