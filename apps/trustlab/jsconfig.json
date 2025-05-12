@@ -2,7 +2,8 @@
   "compilerOptions": {
     "paths": {
       "@/trustlab/*": ["./src/*"],
-      "@payload-config": ["./payload.config.ts"]
+      "@payload-config": ["./payload.config.ts"],
+      "@payload-types": ["./payload-types.ts"]
     }
   },
   "exclude": ["node_modules"]

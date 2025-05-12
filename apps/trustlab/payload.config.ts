@@ -6,6 +6,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import Users from "@/trustlab/payload/collections/Users";
 import Media from "@/trustlab/payload/collections/Media";
+import plugins from "@/trustlab/payload/plugins";
+import Pages from "@/trustlab/payload/collections/Pages";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -17,9 +19,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-
-  collections: [Users, Media],
-
+  collections: [Users, Media, Pages],
   secret: process.env.PAYLOAD_SECRET || "",
   db: mongooseAdapter({
     url: process.env.MONGO_URL || "",
@@ -27,6 +27,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
+  plugins: [...plugins],
 
   sharp,
 });
