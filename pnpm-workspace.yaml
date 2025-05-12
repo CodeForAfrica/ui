@@ -89,6 +89,7 @@ catalog:
   camelcase-keys: ^9.1.3
   clsx: ^2.1.1
   crawler-user-agents: ^1.0.146
+  cross-env: "^7.0.3"
   css-loader: ^7.1.2
   d3-format: ^3.1.0
   date-fns: ^4.1.0
@@ -233,6 +234,7 @@ catalogs:
     "@payloadcms/plugin-search": "3.37.0"
     "@payloadcms/plugin-seo": "3.37.0"
     "@payloadcms/richtext-slate": "3.37.0"
+    "@payloadcms/db-sqlite": "3.37.0"
     "@payloadcms/ui": "3.37.0"
     "@payloadcms/plugin-sentry": "3.37.0"
     "@payloadcms/plugin-cloud-storage": "3.37.0"

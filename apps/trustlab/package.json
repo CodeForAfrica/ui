@@ -1,18 +1,24 @@
 {
   "name": "trustlab",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "catalog:payload-v3",
+    "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/next": "catalog:payload-v3",
     "@payloadcms/richtext-lexical": "catalog:payload-v3",
-    "graphql": "catalog:",
+    "cross-env": "catalog:",
+    "graphql": "16.11.0",
     "next": "catalog:",
     "payload": "catalog:payload-v3",
     "react": "catalog:react-19",
