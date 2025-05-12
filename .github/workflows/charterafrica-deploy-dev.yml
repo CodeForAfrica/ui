@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - chore/build-arm-image
     paths:
       - "apps/charterafrica/**"
       - "Dockerfile"
