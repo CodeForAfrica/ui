@@ -8,7 +8,7 @@ function url({ overrides = undefined } = {}) {
     label: "URL",
     validate: (val, options) => {
       try {
-        // eslint-disable-next-line no-new
+         
         new URL(val);
       } catch (e) {
         if (e instanceof TypeError) {
