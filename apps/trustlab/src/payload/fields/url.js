@@ -1,4 +1,5 @@
 import { deepmerge } from "@mui/utils";
+// eslint-disable-next-line import/no-unresolved
 import { text } from "payload/shared";
 
 function url({ overrides = undefined } = {}) {
@@ -8,7 +9,8 @@ function url({ overrides = undefined } = {}) {
     label: "URL",
     validate: (val, options) => {
       try {
-        new URL(val);
+        const validURL = new URL(val);
+        return validURL && text(val, options);
       } catch (e) {
         if (e instanceof TypeError) {
           return "Please enter valid URL";

@@ -115,7 +115,7 @@ function getDefaultErrorPageProps(slug = "404") {
 
 export async function getPageProps(api, context) {
   const slug = getPageSlug(context);
-  let {
+  const {
     docs: [page],
   } = await api.findPage(slug);
 

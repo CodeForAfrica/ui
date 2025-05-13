@@ -34,7 +34,8 @@
     "payload": "catalog:payload-v3",
     "react": "catalog:react-19",
     "react-dom": "catalog:react-19",
-    "sharp": "catalog:"
+    "sharp": "catalog:",
+    "swr": "catalog:"
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
