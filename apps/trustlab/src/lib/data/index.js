@@ -1,2 +1,1 @@
- 
 export { getPageServerSideProps } from "./local";
