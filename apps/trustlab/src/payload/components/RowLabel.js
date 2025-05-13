@@ -4,8 +4,8 @@
 // Required in Payload v3, where custom components must be used for label customization.
 // See: https://payloadcms.com/docs/fields/array#admin-options
 
-import React from "react";
 import { useRowLabel } from "@payloadcms/ui";
+import React from "react";
 
 const getLabelData = (path, data, rowNumber = 0) => {
   if (path.includes("Headers")) return { label: "Header", data: data?.title };
@@ -46,13 +46,15 @@ const getLabelData = (path, data, rowNumber = 0) => {
   return { label: "Item", data: null };
 };
 
-export const RowLabel = () => {
+export function RowLabel() {
   const { data, rowNumber, path } = useRowLabel();
   const { label, data: message } = getLabelData(path, data, rowNumber);
 
   return (
-    <label>{message ?? `${label} ${String(rowNumber).padStart(2, "0")}`}</label>
+    <label htmlFor={path}>
+      {message ?? `${label} ${String(rowNumber).padStart(2, "0")}`}
+    </label>
   );
-};
+}
 
 export default RowLabel;
