@@ -19,7 +19,7 @@ const Pages = {
       name: "title",
       type: "text",
       required: true,
-      // localized: true,
+      localized: true,
     },
     fullTitle({ overrides: { localized: true } }),
     slug(),
@@ -27,7 +27,7 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [TestBlock],
-      // localized: true,
+      localized: true,
       admin: {
         initCollapsed: true,
       },

@@ -9,7 +9,7 @@ import Media from "@/trustlab/payload/collections/Media";
 import plugins from "@/trustlab/payload/plugins";
 import Pages from "@/trustlab/payload/collections/Pages";
 import SiteSettings from "@/trustlab/payload/globals";
-
+import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -35,6 +35,15 @@ export default buildConfig({
   cors,
   csrf,
   globals: [SiteSettings] as GlobalConfig[],
+  ...(locales?.length
+    ? {
+        localization: {
+          locales,
+          defaultLocale,
+          fallback: true,
+        },
+      }
+    : undefined),
   secret: process.env.PAYLOAD_SECRET || "",
   db: mongooseAdapter({
     url: process.env.MONGO_URL || "",

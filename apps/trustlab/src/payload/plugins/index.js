@@ -2,15 +2,6 @@ import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { s3Storage } from "@payloadcms/storage-s3";
 
-const generateTitle = ({ doc }) => {
-  return doc.title ?? "";
-};
-
-const generateURL = ({ doc }) => {
-  const url = process.env.NEXT_PUBLIC_SERVER_URL ?? "";
-  return doc.slug ? `${url}/${doc.slug}` : "";
-};
-
 const plugins = [
   s3Storage({
     collections: {
@@ -32,8 +23,13 @@ const plugins = [
   }),
   seoPlugin({
     collections: ["pages"],
-    generateTitle,
-    generateURL,
+    generateTitle: ({ doc }) => {
+      return doc.title ?? "";
+    },
+    generateURL: ({ doc }) => {
+      const url = process.env.NEXT_PUBLIC_SERVER_URL ?? "";
+      return doc.slug ? `${url}/${doc.slug}` : "";
+    },
   }),
 ];
 

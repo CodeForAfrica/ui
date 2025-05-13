@@ -12,7 +12,7 @@ const NavigationTab = {
     {
       name: "primaryNavigation",
       type: "group",
-      // localized: true,
+      localized: true,
       fields: [
         {
           type: "collapsible",
@@ -47,7 +47,7 @@ const NavigationTab = {
     {
       name: "secondaryNavigation",
       type: "group",
-      // localized: true,
+      localized: true,
       fields: [
         {
           type: "collapsible",

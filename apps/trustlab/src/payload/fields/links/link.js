@@ -120,6 +120,7 @@ const link = ({
             },
             type: "text",
             required,
+            localized: true,
           },
         ],
       },
