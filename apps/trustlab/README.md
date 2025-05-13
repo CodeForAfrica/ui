@@ -1,4 +1,4 @@
-Trustlab is a platform to equip frontline human rights defenders with the technical tools + expertise to protect themselves & proactively disrupt online threats to Kenyan citizens.
+TrustLab is a platform to equip frontline human rights defenders with the technical tools + expertise to protect themselves & proactively disrupt online threats to Kenyan citizens.
 
 ## Getting Started
 

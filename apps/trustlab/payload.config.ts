@@ -24,7 +24,7 @@ const csrf =
     ?.filter(Boolean) ?? [];
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
+  serverURL: process.env.NEXT_PUBLIC_APP_URL,
   editor: lexicalEditor(),
   admin: {
     importMap: {

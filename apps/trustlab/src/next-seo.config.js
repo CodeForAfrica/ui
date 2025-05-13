@@ -1,9 +1,11 @@
 import site from "@/trustlab/utils/site";
 
+const isSeoDisabled =
+  process.env.NEXT_PUBLIC_SEO_DISABLED?.trim()?.toLowerCase() === "true";
 const config = {
   // Disable indexing while in development
-  dangerouslySetAllPagesToNoFollow: true,
-  dangerouslySetAllPagesToNoIndex: true,
+  dangerouslySetAllPagesToNoFollow: isSeoDisabled,
+  dangerouslySetAllPagesToNoIndex: isSeoDisabled,
   openGraph: {
     type: "website",
     locale: "en_GB",

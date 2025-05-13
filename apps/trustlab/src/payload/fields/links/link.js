@@ -68,8 +68,6 @@ const link = ({
           name: "doc",
           label: {
             en: "Document to link to",
-            fr: "Document pour lien vers",
-            pt: "Documento para link para",
           },
           type: "relationship",
           relationTo: ["pages"],
@@ -83,8 +81,6 @@ const link = ({
           name: "url",
           label: {
             en: "Custom URL",
-            fr: "URL personnalisée",
-            pt: "URL personalizado",
           },
           type: "text",
           required,
@@ -135,8 +131,6 @@ const link = ({
           name: "newTab",
           label: {
             en: "Open in new tab",
-            fr: "Ouvrir dans un nouvel onglet",
-            pt: "Abrir num novo separador",
           },
           type: "checkbox",
         },

@@ -4,9 +4,6 @@
     "build": {
       "dependsOn": ["^build(.*)"],
       "env": [
-        "NEXT_PUBLIC_SERVER_URL",
-        "PAYLOAD_PUBLIC_LOCALES",
-        "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
         "S3_BUCKET",
         "S3_REGION",
         "S3_ACCESS_KEY_ID",

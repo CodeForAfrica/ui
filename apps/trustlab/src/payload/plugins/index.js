@@ -27,7 +27,7 @@ const plugins = [
       return doc.title ?? "";
     },
     generateURL: ({ doc }) => {
-      const url = process.env.NEXT_PUBLIC_SERVER_URL ?? "";
+      const url = process.env.NEXT_PUBLIC_APP_URL ?? "";
       return doc.slug ? `${url}/${doc.slug}` : "";
     },
   }),
