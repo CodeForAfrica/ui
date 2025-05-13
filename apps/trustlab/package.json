@@ -29,7 +29,6 @@
     "@payloadcms/plugin-nested-docs": "catalog:payload-v3",
     "@payloadcms/ui": "catalog:payload-v3",
     "cross-env": "catalog:",
-    "graphql": "16.11.0",
     "next": "catalog:",
     "next-seo": "catalog:",
     "payload": "catalog:payload-v3",
