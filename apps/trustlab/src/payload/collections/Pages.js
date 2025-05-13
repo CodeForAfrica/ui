@@ -26,6 +26,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
+      // TODO: Remove TestBlock. Payload admin breaks if blocks is empty.
       blocks: [TestBlock],
       localized: true,
       admin: {
