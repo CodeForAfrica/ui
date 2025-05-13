@@ -10,7 +10,7 @@ const Media = {
     read: () => true,
   },
   admin: {
-    group: "Media",
+    group: "Publication",
     hideAPIURL: true,
   },
   fields: [

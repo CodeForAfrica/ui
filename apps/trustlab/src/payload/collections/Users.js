@@ -3,6 +3,7 @@ const Users = {
   admin: {
     defaultColumns: ["firstName", "lastName", "email", "updatedAt"],
     useAsTitle: "email",
+    group: "Settings",
   },
   auth: true,
   fields: [

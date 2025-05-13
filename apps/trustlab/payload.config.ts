@@ -31,7 +31,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages] as CollectionConfig[],
+  collections: [Pages, Media, Users] as CollectionConfig[],
   cors,
   csrf,
   globals: [SiteSettings] as GlobalConfig[],

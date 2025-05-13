@@ -4,7 +4,7 @@ import NavigationTab from "./tabs/NavigationTab";
 
 const SiteSettings = {
   slug: "site-settings",
-  label: "Site Settings",
+  label: "Site",
   admin: {
     group: "Settings",
   },
