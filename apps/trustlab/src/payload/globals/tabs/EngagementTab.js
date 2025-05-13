@@ -7,7 +7,7 @@ const EngagementTab = {
       name: "connect",
       type: "group",
       label: "Social Accounts",
-      // localized: true,
+      localized: true,
       fields: [
         {
           type: "collapsible",
