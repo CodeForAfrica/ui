@@ -2,7 +2,6 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build(.*)"],
       "env": [
         "S3_BUCKET",
         "S3_REGION",
