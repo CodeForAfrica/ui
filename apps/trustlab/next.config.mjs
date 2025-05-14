@@ -40,7 +40,11 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
-  transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
+  transpilePackages: [
+    "@commons-ui/core",
+    "@commons-ui/next",
+    "@commons-ui/payload",
+  ],
 };
 
 export default withPayload(nextConfig);
