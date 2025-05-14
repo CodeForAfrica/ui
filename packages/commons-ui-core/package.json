@@ -31,6 +31,7 @@
     "@babel/core": "catalog:",
     "@babel/preset-react": "catalog:",
     "@commons-ui/testing-library": "workspace:*",
+    "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",

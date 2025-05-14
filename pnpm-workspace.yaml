@@ -221,7 +221,12 @@ catalogs:
     "@mui/styles": ^5.16.6
     "@mui/utils": ^5.16.6
     "@mui/private-theming": ^5.16.6
-
+  mui-v7:
+    "@mui/icons-material": ^7.1.0
+    "@mui/material": ^7.1.0
+    "@mui/utils": ^7.1.0
+    "@mui/x-date-pickers": ^7.1.0
+    "@mui/x-tree-view": ^7.1.0
   payload-v3:
     payload: "3.37.0"
     "@payloadcms/db-mongodb": "3.37.0"

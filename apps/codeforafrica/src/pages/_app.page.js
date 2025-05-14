@@ -24,6 +24,7 @@ function MyApp(props) {
   const { analyticsId: gaId } = analytics || {};
 
   const getLayout = Component.getLayout || getDefaultLayout;
+  console.log("pageProps", pageProps);
 
   return (
     <>
