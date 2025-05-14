@@ -8,10 +8,21 @@ const outputFileTracingRoot = PROJECT_ROOT
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
-  reactStrictMode: true,
+  images: {
+    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+      .map((d) => d.trim())
+      .filter(Boolean),
+    unoptimized:
+      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
+      "true",
+  },
   output: "standalone",
   outputFileTracingRoot,
+  // TODO(kilemensi): There is an upstream bug on this @ https://github.com/vercel/next.js/issues/51478
+  //                  `js`, `ts`, `tsx` are just to make sure there is more than one item;
+  //                  we SHOULDN'T use them in pages router!
+  pageExtensions: ["page.js", "js", "ts", "tsx"],
+  reactStrictMode: true,
   webpack: (config) => {
     config.module.rules.push(
       {
@@ -29,14 +40,7 @@ const nextConfig = {
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
-  images: {
-    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
-      ?.map((d) => d.trim())
-      ?.filter((d) => d),
-    unoptimized:
-      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
-      "true",
-  },
+  transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
 };
 
 export default withPayload(nextConfig);

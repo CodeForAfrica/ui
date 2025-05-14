@@ -1,4 +1,8 @@
-import payload from "payload";
+import { getPayload } from "payload";
+
+import config from "@payload-config";
+
+const payload = await getPayload({ config });
 
 async function findPage(slug, options) {
   return payload.find({
