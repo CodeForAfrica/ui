@@ -10,8 +10,8 @@ const outputFileTracingRoot = PROJECT_ROOT
 const nextConfig = {
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
-      ?.map((d) => d.trim())
-      ?.filter((d) => d),
+      .map((d) => d.trim())
+      .filter(Boolean),
     unoptimized:
       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
       "true",
