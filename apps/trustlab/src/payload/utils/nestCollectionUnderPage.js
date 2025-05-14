@@ -1,4 +1,4 @@
-import findAndFormatPagePath from "./findAndFormatPagePath";
+import { findAndFormatPagePath } from "@commons-ui/payload";
 
 function nestCollectionUnderPage(pageSlug) {
   return async function nestCollectionItemUnderParentPage({
