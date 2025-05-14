@@ -15,7 +15,6 @@ function getDefaultLayout(page, pageProps) {
 const clientSideEmotionCache = createEmotionCache();
 
 function MyApp(props) {
-  console.log(props);
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   const getLayout = Component.getLayout || getDefaultLayout;

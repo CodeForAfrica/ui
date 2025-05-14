@@ -1,8 +1,19 @@
 import { createTheme } from "@commons-ui/core";
 import { deepmerge } from "@mui/utils";
+import { Merriweather, Open_Sans as OpenSans } from "next/font/google";
 
-const FONT_FAMILY_PRIMARY = '"Open Sans", sans-serif';
-const FONT_FAMILY_SECONDARY = "Merriweather, serif";
+const openSans = OpenSans({
+  weight: ["300", "400", "600", "700", "800"],
+  subsets: ["latin"],
+});
+
+const merriWeather = Merriweather({
+  weight: ["300", "400", "700"],
+  subsets: ["latin"],
+});
+
+const FONT_FAMILY_PRIMARY = openSans.style.fontFamily;
+const FONT_FAMILY_SECONDARY = merriWeather.style.fontFamily;
 
 const palette = {
   mode: "light",

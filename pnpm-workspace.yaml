@@ -228,24 +228,25 @@ catalogs:
     "@mui/x-date-pickers": ^7.1.0
     "@mui/x-tree-view": ^7.1.0
   payload-v3:
-    payload: "3.37.0"
-    "@payloadcms/db-mongodb": "3.37.0"
-    "@payloadcms/live-preview-react": "3.37.0"
-    "@payloadcms/next": "3.37.0"
-    "@payloadcms/payload-cloud": "3.37.0"
-    "@payloadcms/plugin-form-builder": "3.37.0"
-    "@payloadcms/plugin-nested-docs": "3.37.0"
-    "@payloadcms/plugin-redirects": "3.37.0"
-    "@payloadcms/plugin-search": "3.37.0"
-    "@payloadcms/plugin-seo": "3.37.0"
-    "@payloadcms/richtext-slate": "3.37.0"
-    "@payloadcms/db-sqlite": "3.37.0"
-    "@payloadcms/ui": "3.37.0"
-    "@payloadcms/plugin-sentry": "3.37.0"
-    "@payloadcms/plugin-cloud-storage": "3.37.0"
-    "@payloadcms/storage-s3": "3.37.0"
-    "@payloadcms/email-nodemailer": "3.37.0"
-    "@payloadcms/richtext-lexical": "3.37.0"
+    graphql: ^16.11.0
+    payload: ^3.37.0
+    "@payloadcms/db-mongodb": ^3.37.0
+    "@payloadcms/live-preview-react": ^3.37.0
+    "@payloadcms/next": ^3.37.0
+    "@payloadcms/payload-cloud": ^3.37.0
+    "@payloadcms/plugin-form-builder": ^3.37.0
+    "@payloadcms/plugin-nested-docs": ^3.37.0
+    "@payloadcms/plugin-redirects": ^3.37.0
+    "@payloadcms/plugin-search": ^3.37.0
+    "@payloadcms/plugin-seo": ^3.37.0
+    "@payloadcms/richtext-slate": ^3.37.0
+    "@payloadcms/db-sqlite": ^3.37.0
+    "@payloadcms/ui": ^3.37.0
+    "@payloadcms/plugin-sentry": ^3.37.0
+    "@payloadcms/plugin-cloud-storage": ^3.37.0
+    "@payloadcms/storage-s3": ^3.37.0
+    "@payloadcms/email-nodemailer": ^3.37.0
+    "@payloadcms/richtext-lexical": ^3.37.0
   react-19:
-    "react": "19.1.0"
-    "react-dom": "19.1.0"
+    "react": ^19.1.0
+    "react-dom": ^19.1.0
