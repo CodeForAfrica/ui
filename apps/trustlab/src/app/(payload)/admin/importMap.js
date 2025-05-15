@@ -27,6 +27,7 @@ import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { default as default_f5238f1b70ea6cf94e5a15e7dfec6dac } from "@/trustlab/payload/components/RowLabel";
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from "@payloadcms/storage-s3/client";
+import { AdminErrorBoundary as AdminErrorBoundary_e5a9e14bdbe97e70ba60697217fe7688 } from "@payloadcms/plugin-sentry/client";
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell":
@@ -87,4 +88,6 @@ export const importMap = {
     default_f5238f1b70ea6cf94e5a15e7dfec6dac,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler":
     S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
+  "@payloadcms/plugin-sentry/client#AdminErrorBoundary":
+    AdminErrorBoundary_e5a9e14bdbe97e70ba60697217fe7688,
 };
