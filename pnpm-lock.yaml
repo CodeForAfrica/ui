@@ -685,6 +685,9 @@ catalogs:
     react-dom:
       specifier: ^19.1.0
       version: 19.1.0
+    react-test-renderer:
+      specifier: ^19.1.0
+      version: 19.1.0
 
 overrides:
   sharp: ^0.33.5
@@ -2466,6 +2469,9 @@ importers:
       playwright-config-commons-ui:
         specifier: workspace:*
         version: link:../../packages/playwright-config-commons-ui
+      react-test-renderer:
+        specifier: catalog:react-19
+        version: 19.1.0(react@19.1.0)
 
   apps/twoopstracker:
     dependencies:
@@ -14633,6 +14639,11 @@ packages:
     resolution: {integrity: sha512-KkAgygexHUkQqtvvx/otwxtuFu5cVjfzTCtjXLH9boS19/Nbtg84zS7wIQn39G8IlrhThBpQsMKkq5ZHZIYFXA==}
     peerDependencies:
       react: ^18.3.1
+
+  react-test-renderer@19.1.0:
+    resolution: {integrity: sha512-jXkSl3CpvPYEF+p/eGDLB4sPoDX8pKkYvRl9+rR8HxLY0X04vW7hCm1/0zHoUSjPZ3bDa+wXWNTDVIw/R8aDVw==}
+    peerDependencies:
+      react: ^19.1.0
 
   react-toastify@10.0.5:
     resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
@@ -32532,6 +32543,12 @@ snapshots:
       react-is: 18.3.1
       react-shallow-renderer: 16.15.0(react@18.3.1)
       scheduler: 0.23.2
+
+  react-test-renderer@19.1.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      react-is: 19.1.0
+      scheduler: 0.26.0
 
   react-toastify@10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
