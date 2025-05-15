@@ -22,6 +22,7 @@
     "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/email-nodemailer": "catalog:payload-v3",
     "@payloadcms/next": "catalog:payload-v3",
+    "@payloadcms/live-preview-react": "catalog:payload-v3",
     "@payloadcms/plugin-cloud-storage": "catalog:payload-v3",
     "@payloadcms/plugin-nested-docs": "catalog:payload-v3",
     "@payloadcms/plugin-sentry": "catalog:payload-v3",

@@ -2368,6 +2368,9 @@ importers:
       '@payloadcms/email-nodemailer':
         specifier: catalog:payload-v3
         version: 3.37.0(payload@3.37.0(graphql@16.11.0)(typescript@5.8.3))
+      '@payloadcms/live-preview-react':
+        specifier: catalog:payload-v3
+        version: 3.37.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@payloadcms/next':
         specifier: catalog:payload-v3
         version: 3.37.0(@types/react@18.3.21)(graphql@16.11.0)(monaco-editor@0.51.0)(next@15.3.2(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.37.0(graphql@16.11.0)(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
@@ -21205,6 +21208,12 @@ snapshots:
       '@payloadcms/live-preview': 3.37.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@payloadcms/live-preview-react@3.37.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@payloadcms/live-preview': 3.37.0
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   '@payloadcms/live-preview@0.2.2': {}
 
