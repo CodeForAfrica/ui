@@ -914,10 +914,10 @@ CMD ["node", "apps/techlabblog/server.js"]
 
 FROM base-deps AS trustlab-deps
 
-COPY apps/techlabblog/package.json ./apps/techlabblog/package.json
+COPY apps/trustlab/package.json ./apps/trustlab/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/techlabblog" install --offline --frozen-lockfile
+RUN pnpm install --filter trustlab --offline --frozen-lockfile
 
 #
 # trustlab-builder: image that uses deps to build shippable output
@@ -946,7 +946,8 @@ COPY --from=trustlab-deps /workspace/apps/trustlab/node_modules ./apps/trustlab/
 
 COPY apps/trustlab ./apps/trustlab
 
-RUN pnpm --filter "./apps/trustlab" build
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm build --filter trustlab
 
 #
 # trustlab-runner: final deployable image
