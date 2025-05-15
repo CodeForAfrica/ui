@@ -1,11 +1,11 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
-import { getPageServerSideProps } from "@/trustlab/lib/data";
+import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {};
 
-function Index({ blocks, fallback }) {
+function Page({ blocks, fallback }) {
   if (!blocks?.length) {
     return null;
   }
@@ -29,8 +29,12 @@ function Index({ blocks, fallback }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  return getPageServerSideProps(context);
+export async function getStaticPaths() {
+  return getPageStaticPaths();
 }
 
-export default Index;
+export async function getStaticProps(context) {
+  return getPageStaticProps(context);
+}
+
+export default Page;

@@ -112,6 +112,20 @@ function getDefaultErrorPageProps(slug = "404") {
     ],
   };
 }
+export async function getPagePaths(api) {
+  const { docs: pages } = await api.getCollection("pages");
+
+  const pagesPromises = pages.map(async ({ slug }) => ({
+    params: {
+      slugs: [slug === "index" ? "" : slug],
+    },
+  }));
+  const paths = await Promise.all(pagesPromises);
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
 export async function getPageProps(api, context) {
   const slug = getPageSlug(context);
