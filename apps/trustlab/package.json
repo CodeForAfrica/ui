@@ -54,6 +54,7 @@
     "eslint-import-resolver-babel-module": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "playwright-config-commons-ui": "workspace:*"
+    "playwright-config-commons-ui": "workspace:*",
+    "@testing-library/react": "catalog:"
   }
 }
