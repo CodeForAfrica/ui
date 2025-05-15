@@ -187,6 +187,21 @@ services:
     ports:
       - 3000:3000
 
+  trustlab:
+    build:
+      context: .
+      target: trustlab-runner
+      args:
+        - SENTRY_ORG
+        - SENTRY_ENV
+        - SENTRY_PROJECT
+    environment:
+      SENTRY_ORG: ${SENTRY_ORG}
+      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
+      SENTRY_PROJECT: ${SENTRY_PROJECT}
+    ports:
+      - 3000:3000
+
   twoopstracker:
     build:
       context: .
