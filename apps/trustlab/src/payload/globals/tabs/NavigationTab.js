@@ -1,6 +1,4 @@
-import link from "@/trustlab/payload/fields/links/link";
-import linkArray from "@/trustlab/payload/fields/links/linkArray";
-import { socialMediaOptions } from "@/trustlab/payload/fields/socialLinks";
+import { socialMediaOptions, link, linkArray } from "@commons-ui/payload";
 
 const linkField = link({
   disableOpenInNewTab: true,

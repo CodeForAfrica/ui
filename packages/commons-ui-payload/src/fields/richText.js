@@ -1,5 +1,6 @@
-import { mapLinkTypeToHref } from "@commons-ui/payload";
 import { deepmerge } from "@mui/utils";
+
+import mapLinkTypeToHref from "@/commons-ui/payload/utils/mapLinkTypeToHref";
 
 async function insertHref(nodes, payload) {
   if (!nodes?.length) {

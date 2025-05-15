@@ -1,6 +1,6 @@
+import { slug, fullTitle } from "@commons-ui/payload";
+
 import TestBlock from "@/trustlab/payload/blocks/TestBlock";
-import fullTitle from "@/trustlab/payload/fields/fullTitle";
-import slug from "@/trustlab/payload/fields/slug";
 
 const Pages = {
   slug: "pages",
