@@ -1,8 +1,15 @@
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
+import { sentryPlugin } from "@payloadcms/plugin-sentry";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { s3Storage } from "@payloadcms/storage-s3";
+import * as Sentry from "@sentry/nextjs";
 
 const plugins = [
+  nestedDocsPlugin({
+    collections: ["pages"],
+    generateLabel: (_, doc) => doc.title,
+    generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+  }),
   s3Storage({
     collections: {
       media: true,
@@ -16,10 +23,18 @@ const plugins = [
       region: process.env.S3_REGION ?? "",
     },
   }),
-  nestedDocsPlugin({
-    collections: ["pages"],
-    generateLabel: (_, doc) => doc.title,
-    generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+  sentryPlugin({
+    options: {
+      context: ({ defaultContext, req }) => {
+        return {
+          ...defaultContext,
+          tags: {
+            locale: req.locale,
+          },
+        };
+      },
+    },
+    Sentry,
   }),
   seoPlugin({
     collections: ["pages"],
