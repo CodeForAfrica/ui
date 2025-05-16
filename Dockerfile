@@ -84,6 +84,9 @@ FROM pnpm-base AS base-builder
 
 COPY --from=base-deps /workspace/packages/ ./packages
 
+# Needed to run build commands from /workspace
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
+
 # TODO(kilemensi): Investigate why we need @commons-ui sources (charterafrica,
 #                  codeforafrica) when building final app
 COPY packages ./packages
@@ -934,7 +937,6 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
   SENTRY_ORG \
   SENTRY_PROJECT
@@ -946,8 +948,13 @@ COPY --from=trustlab-deps /workspace/apps/trustlab/node_modules ./apps/trustlab/
 
 COPY apps/trustlab ./apps/trustlab
 
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
-  pnpm build --filter trustlab
+# TODO(kilemensi): Investigate why `pnpm build --filter trustlab` causes env vars
+#                  not to be accessible and hence build to fail.
+#                  Note: `pnpm build` goes throw `turbo` first.
+RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter trustlab build
 
 #
 # trustlab-runner: final deployable image
@@ -955,24 +962,28 @@ RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
 
 FROM base-runner AS trustlab-runner
 
-RUN set -ex \
-  # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/trustlab/.next \
-  && chown nextjs:nodejs ./apps/trustlab/.next
+# RUN set -ex \
+#   # Create nextjs cache dir w/ correct permissions
+#   && mkdir -p ./apps/trustlab/.next \
+#   && chown nextjs:nodejs ./apps/trustlab/.next
 
 # PNPM
 # symlink some dependencies
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=trustlab-builder --link --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
 # Next.js
 # Public assets
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/public ./apps/trustlab/public
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/publi[c] ./apps/trustlab/public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./apps/trustlab
+# NOTE(kilemensi) since we're in a monorepo .next/standalone will contain apps/trustlab folder hence
+#                 no need to copy to ./apps/trustlab. Verify this is "always" the case
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./
 COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
 USER nextjs
+
+RUN ls -lah apps/trustlab/
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
