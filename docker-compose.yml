@@ -189,16 +189,18 @@ services:
 
   trustlab:
     build:
-      context: .
-      target: trustlab-runner
       args:
-        - SENTRY_ORG
-        - SENTRY_ENV
-        - SENTRY_PROJECT
-    environment:
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - SENTRY_ENVIRONMENT="local"
+      context: .
+      secrets:
+        - mongo_url
+        - payload_secret
+        - sentry_auth_token
+      target: trustlab-runner
+    env_file:
+      - path: ./apps/trustlab/.env
+      - path: ./apps/trustlab/.env.local
+        required: false
     ports:
       - 3000:3000
 
@@ -255,6 +257,10 @@ services:
     ports:
       - ${PROMISE_TRACKER_PORT:-3000}:3000
 secrets:
+  mongo_url:
+    environment: MONGO_URL
+  payload_secret:
+    environment: PAYLOAD_SECRET
   sentry_auth_token:
     environment: SENTRY_AUTH_TOKEN
 volumes:
