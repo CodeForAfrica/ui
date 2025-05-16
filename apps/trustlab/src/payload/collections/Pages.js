@@ -5,7 +5,14 @@ import TestBlock from "@/trustlab/payload/blocks/TestBlock";
 const Pages = {
   slug: "pages",
   access: {
-    read: () => true,
+    read: ({ req }) => {
+      if (req.user) return true;
+      return {
+        _status: {
+          equals: "published",
+        },
+      };
+    },
     create: () => true,
     update: () => true,
   },
@@ -13,6 +20,16 @@ const Pages = {
     defaultColumns: ["fullTitle", "updatedAt"],
     group: "Publication",
     useAsTitle: "title",
+    hideAPIURL: true,
+    preview: ({ slug: pageSlug }) => {
+      const encodedParams = new URLSearchParams({
+        slug: pageSlug,
+        path: `/${pageSlug}`,
+        previewSecret: process.env.PREVIEW_SECRET || "",
+      });
+
+      return `${process.env.NEXT_PUBLIC_APP_URL}/preview?${encodedParams.toString()}`;
+    },
   },
   fields: [
     {

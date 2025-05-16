@@ -227,6 +227,7 @@ catalogs:
   payload-v3:
     graphql: ^16.11.0
     payload: ^3.37.0
+    "@payloadcms/admin-bar": "^3.38.0"
     "@payloadcms/db-mongodb": ^3.37.0
     "@payloadcms/live-preview-react": ^3.37.0
     "@payloadcms/next": ^3.37.0

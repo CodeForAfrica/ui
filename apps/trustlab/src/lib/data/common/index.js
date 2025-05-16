@@ -128,10 +128,13 @@ export async function getPagePaths(api) {
 }
 
 export async function getPageProps(api, context) {
+  const { draftMode = false } = context;
   const slug = getPageSlug(context);
   const {
     docs: [page],
-  } = await api.findPage(slug);
+  } = await api.findPage(slug, {
+    draft: draftMode,
+  });
 
   if (!page) {
     if (["404", "500"].includes(slug)) {
