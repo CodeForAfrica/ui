@@ -107,7 +107,7 @@ jobs:
 
       - name: Push to Dokku
         if: steps.version-check.outputs.changed == 'true'
-        uses: dokku/github-action@v1.4.0
+        uses: dokku/github-action@v1.7.0
         with:
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}

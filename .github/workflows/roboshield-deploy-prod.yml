@@ -101,7 +101,7 @@ jobs:
 
       - name: Push to Dokku
         if: steps.version-check.outputs.changed == 'true'
-        uses: dokku/github-action@v1.4.0
+        uses: dokku/github-action@v1.7.0
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
           deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}

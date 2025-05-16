@@ -18,9 +18,9 @@ catalog:
   "@commons-ui/legacy": npm:@commons-ui/core@^0.1.0
   "@commons-ui/core": ^0.1.0
   "@emotion/cache": ^11.13.1
-  "@emotion/react": ^11.13.3
+  "@emotion/react": ^11.14.0
   "@emotion/server": ^11.11.0
-  "@emotion/styled": ^11.13.0
+  "@emotion/styled": ^11.14.0
   "@eslint/compat": ^1.1.2
   "@eslint/eslintrc": ^3.2.0
   "@eslint/js": ^9.16.0
@@ -221,6 +221,9 @@ catalogs:
     "@mui/styles": ^5.16.6
     "@mui/utils": ^5.16.6
     "@mui/private-theming": ^5.16.6
+  mui-v7:
+    "@mui/material": ^7.1.0
+    "@mui/utils": ^7.1.0
   payload-v3:
     graphql: ^16.11.0
     payload: ^3.37.0
