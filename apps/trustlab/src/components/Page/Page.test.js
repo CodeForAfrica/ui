@@ -1,6 +1,11 @@
+import { createRender } from "@commons-ui/testing-library";
+import React from "react";
+
 import Page from "./Page";
 
-import { render } from "@/trustlab/utils/testRender";
+import theme from "@/trustlab/theme";
+
+const render = createRender({ theme });
 
 const defaultProps = {
   seo: { title: "Test Page" },

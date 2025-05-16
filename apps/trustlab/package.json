@@ -20,6 +20,7 @@
     "@commons-ui/next": "workspace:*",
     "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
     "@mui/material": "catalog:mui-v7",
     "@mui/utils": "catalog:mui-v7",
     "@next/third-parties": "catalog:",
@@ -39,8 +40,8 @@
     "next": "catalog:",
     "next-seo": "catalog:",
     "payload": "catalog:payload-v3",
-    "react": "catalog:react-19",
-    "react-dom": "catalog:react-19",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "sharp": "catalog:",
     "swr": "catalog:"
   },
