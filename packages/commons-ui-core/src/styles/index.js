@@ -1,2 +1,2 @@
-/* eslint-disable import/prefer-default-export */
 export { default as createTheme } from "./createTheme";
+export { default as createEmotionCache } from "./createEmotionCache";
