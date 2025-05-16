@@ -1,4 +1,4 @@
-import formatPagePath from "./formatPagePath";
+import formatPagePath from "@/commons-ui/payload/utils/formatPagePath";
 
 const mapLinkTypeToHref = ({ doc: linkDoc, linkType, url }) => {
   // default to `null` for serialization.

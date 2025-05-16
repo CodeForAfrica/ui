@@ -1,4 +1,4 @@
-import formatPagePath from "./formatPagePath";
+import formatPagePath from "@/commons-ui/payload/utils/formatPagePath";
 
 async function findAndFormatPagePath(payload, slug) {
   const collection = "pages";

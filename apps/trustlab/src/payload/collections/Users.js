@@ -4,6 +4,7 @@ const Users = {
     defaultColumns: ["firstName", "lastName", "email", "updatedAt"],
     useAsTitle: "email",
     group: "Settings",
+    hideAPIURL: true,
   },
   auth: true,
   fields: [

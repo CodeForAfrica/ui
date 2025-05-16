@@ -7,6 +7,7 @@ const SiteSettings = {
   label: "Site",
   admin: {
     group: "Settings",
+    hideAPIURL: true,
   },
   fields: [
     {

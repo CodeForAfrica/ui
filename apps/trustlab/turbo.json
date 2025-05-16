@@ -4,6 +4,7 @@
     "build": {
       "env": [
         "NEXT_RUNTIME",
+        "PREVIEW_SECRET",
         "S3_BUCKET",
         "S3_REGION",
         "S3_ACCESS_KEY_ID",

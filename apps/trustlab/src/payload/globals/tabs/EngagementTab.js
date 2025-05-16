@@ -1,4 +1,4 @@
-import socialLinks from "@/trustlab/payload/fields/socialLinks";
+import { socialLinks } from "@commons-ui/payload";
 
 const EngagementTab = {
   label: "Engagement",

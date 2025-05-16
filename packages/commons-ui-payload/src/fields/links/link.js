@@ -1,6 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
-import mapLinkTypeToHref from "@/trustlab/payload/utils/mapLinkTypeToHref";
+import mapLinkTypeToHref from "@/commons-ui/payload/utils/mapLinkTypeToHref";
 
 export async function mapLinkToHrefBeforeValidate({
   siblingData,

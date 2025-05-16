@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-env browser */
 
 import { RichTypography as CuiRichTypography } from "@commons-ui/core";
