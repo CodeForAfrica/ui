@@ -1,0 +1,11 @@
+module.exports = {
+  __esModule: true,
+  Merriweather: () => ({
+    className: "mock-merriweather",
+    style: { fontFamily: "MockMerriweather" },
+  }),
+  Open_Sans: () => ({
+    className: "mock-opensans",
+    style: { fontFamily: "MockOpenSans" },
+  }),
+};

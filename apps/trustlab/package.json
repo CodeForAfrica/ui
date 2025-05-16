@@ -10,6 +10,8 @@
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "jest": "jest",
+    "playwright": "npx playwright test",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "clean": "rm -rf .next .turbo build dist node_modules"
   },
@@ -17,7 +19,10 @@
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
     "@commons-ui/payload": "workspace:*",
-    "@mui/utils": "catalog:",
+    "@emotion/react": "catalog:",
+    "@emotion/styled": "catalog:",
+    "@mui/material": "catalog:mui-v7",
+    "@mui/utils": "catalog:mui-v7",
     "@next/third-parties": "catalog:",
     "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/email-nodemailer": "catalog:payload-v3",
@@ -36,19 +41,22 @@
     "next": "catalog:",
     "next-seo": "catalog:",
     "payload": "catalog:payload-v3",
-    "react": "catalog:react-19",
-    "react-dom": "catalog:react-19",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "sharp": "catalog:",
     "swr": "catalog:"
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
     "@eslint/eslintrc": "catalog:",
+    "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
     "eslint-config-next": "catalog:",
     "eslint-import-resolver-babel-module": "catalog:",
+    "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "playwright-config-commons-ui": "workspace:*"
+    "playwright-config-commons-ui": "workspace:*",
+    "@testing-library/react": "catalog:"
   }
 }
