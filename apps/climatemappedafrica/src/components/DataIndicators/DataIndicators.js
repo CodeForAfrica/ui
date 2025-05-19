@@ -1,3 +1,4 @@
+import { Image, RichHeader } from "@hurumap/next";
 import { Box, ClickAwayListener, Grid, Slide } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -6,8 +7,6 @@ import Icon from "./Icon";
 import IndicatorPanel from "./IndicatorPanel";
 
 import bg from "@/climatemappedafrica/assets/images/Mask Group 8.png";
-import Image from "@/climatemappedafrica/components/Image";
-import RichHeader from "@/climatemappedafrica/components/RichHeader";
 
 function DataIndicators({ indicators, title }) {
   const [checked, setChecked] = useState(false);
@@ -98,7 +97,10 @@ function DataIndicators({ indicators, title }) {
               sx: {
                 width: "100%",
                 textAlign: "center",
-                padding: `40px 0`,
+                padding: {
+                  xs: "40px 0",
+                  lg: "102px 0 80px",
+                },
               },
             }}
           >

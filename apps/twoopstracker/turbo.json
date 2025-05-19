@@ -1,0 +1,33 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "build-next"]
+    },
+    "build-next": {
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": [
+        "ADMIN_OAUTH_CLIENT_SECRET",
+        "ADMIN_OAUTH_SCOPE",
+        "ADMIN_BACKEND_CALLBACK_ENDPOINT",
+        "ADMIN_OAUTH_CLIENT_ID",
+        "ADMIN_BACKEND_AUTH_ENDPOINT",
+        "ADMIN_BACKEND_REPO",
+        "NEXTAUTH_PROVIDERS_OAUTH_LOGIN_URL",
+        "NEXTAUTH_JWT_TOKEN_REFRESH_URL",
+        "NEXTAUTH_PROVIDERS_GOOGLE_CLIENT_ID",
+        "NEXTAUTH_PROVIDERS_GOOGLE_CLIENT_SECRET",
+        "NEXTAUTH_SECRET",
+        "NEXT_RUNTIME",
+        "TWOOPSTRACKER_API_URL",
+        "S3_UPLOAD_KEY",
+        "S3_UPLOAD_SECRET",
+        "S3_UPLOAD_REGION",
+        "S3_UPLOAD_BUCKET",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_AUTH_TOKEN"
+      ]
+    }
+  }
+}

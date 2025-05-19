@@ -1,4 +1,3 @@
-import { LocationTag } from "@hurumap/core";
 import { useTheme } from "@mui/material";
 import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import L from "leaflet";
@@ -11,6 +10,7 @@ import {
   defaultPrimaryGeoStyles,
   defaultSecondaryGeoStyles,
 } from "./geoStyles";
+import LocationTag from "./LocationTag";
 
 function Layers({
   PinnedLocationTagProps,

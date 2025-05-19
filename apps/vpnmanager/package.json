@@ -23,6 +23,7 @@
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
     "@next/env": "catalog:",
+    "@next/third-parties": "catalog:",
     "@sendgrid/mail": "catalog:",
     "@sentry/nextjs": "catalog:",
     "@svgr/webpack": "catalog:",

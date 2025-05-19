@@ -1,19 +1,17 @@
 import { loadEnvConfig } from "@next/env";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
-import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
-import nestedDocs from "@payloadcms/plugin-nested-docs";
-import seo from "@payloadcms/plugin-seo";
-import { slateEditor } from "@payloadcms/richtext-slate";
-import { buildConfig } from "payload/config";
-import { CollectionConfig, GlobalConfig } from "payload/types";
-import { Config } from "./payload-types";
+import { s3Storage } from "@payloadcms/storage-s3";
+import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
+import { seoPlugin } from "@payloadcms/plugin-seo";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { CollectionConfig, GlobalConfig, buildConfig } from "payload";
 import Media from "./src/payload/collections/Media";
 import Pages from "./src/payload/collections/Pages";
 import Users from "./src/payload/collections/Users";
 import Site from "./src/payload/globals/Site";
 import { defaultLocale, locales } from "./src/payload/utils/locales";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import { SlateToLexicalFeature } from "@payloadcms/richtext-lexical/migrate";
 
 const projectDir = process.cwd();
 loadEnvConfig(projectDir);
@@ -30,20 +28,30 @@ const csrf =
     ?.map((d) => d.trim())
     ?.filter(Boolean) ?? [];
 
-const adapter = s3Adapter({
-  config: {
-    region: process?.env?.S3_REGION,
-    credentials: {
-      accessKeyId: process?.env?.S3_ACCESS_KEY_ID,
-      secretAccessKey: process?.env?.S3_SECRET_ACCESS_KEY,
-    },
-  },
-  bucket: process?.env?.S3_BUCKET,
-} as any);
+const smtpAuthPass = process.env.SMTP_PASS || process.env.SENDGRID_API_KEY;
+const smtpFromName =
+  process.env.SMTP_FROM_NAME ||
+  process.env.SENDGRID_FROM_NAME ||
+  "Roboshield CMS";
+const smtpFromAddress =
+  process.env.SMTP_FROM_ADDRESS ||
+  process.env.SENDGRID_FROM_EMAIL ||
+  "noreply@codeforafrica.org";
+const smtpPort = Number(process.env.SMTP_PORT || 587);
+const smtpAuthUser = process.env.SMTP_USER || "apikey";
+const smtpHost = process.env.SMTP_HOST || "smtp.sendgrid.net";
 
 export default buildConfig({
   serverURL: appURL,
-  editor: slateEditor({}),
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      // Needed to support the Slate to Lexical migration
+      // See https://payloadcms.com/docs/rich-text/migration#migrating-from-slate
+      // TODO:: Plan to remove this after running the migration
+      SlateToLexicalFeature({ disableHooks: true }),
+    ],
+  }),
   db: mongooseAdapter({
     url: process.env.MONGO_URL ?? false,
     migrationDir: process.env.MIGRATIONS_DIR,
@@ -71,26 +79,12 @@ export default buildConfig({
         },
       ],
     },
-    webpack: (config) => ({
-      ...config,
-      resolve: {
-        ...config.resolve,
-        fallback: {
-          ...config?.resolve?.fallback,
-          fs: false,
-          os: false,
-          "process/browser": false,
-        },
-      },
-    }),
-    bundler: webpackBundler(),
   },
   cors,
   csrf,
   i18n: {
-    fallbackLng: "en", // default
-    debug: false, // default
-    resources: {
+    fallbackLanguage: "en",
+    translations: {
       en: {
         "codeforafrica.validation": {
           uniquePlatforms: "Please select a unique platform",
@@ -99,19 +93,12 @@ export default buildConfig({
     },
   },
   plugins: [
-    cloudStorage({
-      collections: {
-        media: {
-          adapter,
-          prefix: "media",
-        },
-      },
-    }),
-    seo({
+    seoPlugin({
       collections: ["pages"],
       globals: ["settings-site"],
-      fields: [
+      fields: ({ defaultFields }) => [
         // NOTE(kilemensi): This is only added to make sure Payload generate correct type
+        ...defaultFields,
         {
           name: "canonical",
           type: "text",
@@ -123,23 +110,52 @@ export default buildConfig({
         },
       ],
       uploadsCollection: "media",
-      generateTitle: ({ doc }: any) => doc?.title?.value as string,
+      generateTitle: ({ doc }: any) => (doc?.title as string) || "",
       generateURL: ({ doc }: any) =>
-        doc?.slug?.value ? `${appURL}/${doc.slug.value}` : undefined,
-    } as any),
-    nestedDocs({
-      collections: ["pages"],
-      generateLabel: (_, doc) => doc.title as string,
-      generateURL: (docs) =>
-        docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
+        doc?.slug ? `${appURL}/${doc?.slug}` : "",
     }),
-  ] as any[],
+    nestedDocsPlugin({
+      collections: ["pages"],
+      generateLabel: (_, doc) => (doc?.title as string) || "",
+      generateURL: (docs) =>
+        docs.reduce((url, doc) => `${url}/${doc?.slug}`, ""),
+    }),
+    s3Storage({
+      collections: {
+        media: true,
+        "media-with-prefix": {
+          prefix: "media",
+        },
+      },
+      bucket: process.env.S3_BUCKET ?? "",
+      config: {
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID ?? "",
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY ?? "",
+        },
+        region: process.env.S3_REGION ?? "",
+      },
+    }),
+  ],
+  ...(smtpAuthPass
+    ? {
+        email: nodemailerAdapter({
+          defaultFromAddress: smtpFromAddress,
+          defaultFromName: smtpFromName,
+          transportOptions: {
+            host: smtpHost,
+            port: smtpPort,
+            auth: {
+              user: smtpAuthUser,
+              pass: smtpAuthPass,
+            },
+          },
+        }),
+      }
+    : {}),
+  secret: process.env.PAYLOAD_SECRET ?? "",
   telemetry: process?.env?.NODE_ENV !== "production",
   typescript: {
     declare: false, // defaults to true if not set
   },
 });
-
-declare module "payload" {
-  export interface PayloadGeneratedTypes extends Config {}
-}

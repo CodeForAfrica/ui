@@ -5,60 +5,13 @@
     "CI",
     "GITHUB_TOKEN",
     "PORT",
-    "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID"
+    "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID",
+    "NODE_ENV"
   ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "codeforafrica#build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "env": [
-        "GOOGLE_API_KEY",
-        "NEXT_PUBLIC_APP_DIRECTORY",
-        "NEXT_PUBLIC_APP_LOGO_URL",
-        "NEXT_PUBLIC_APP_NAME",
-        "NEXT_PUBLIC_APP_URL",
-        "NEXT_PUBLIC_IMAGE_DOMAINS",
-        "NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
-        "NEXT_PUBLIC_VERCEL_ENV",
-        "NEXT_PUBLIC_VERCEL_URL",
-        "NODE_ENV",
-        "NODE_OPTIONS",
-        "PROJECT_ROOT"
-      ]
-    },
-    "promisetracker#build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "env": [
-        "ACTNOW_API_KEY",
-        "ACTNOW_URL",
-        "APP_SLUG",
-        "GOOGLE_ID",
-        "GOOGLE_SECRET",
-        "NEXT_PUBLIC_APP_NAME",
-        "NEXT_PUBLIC_APP_URL",
-        "NEXT_PUBLIC_GTM_ID",
-        "NEXT_PUBLIC_I18N_DEFAULT_LOCALE",
-        "NEXT_PUBLIC_I18N_LOCALES",
-        "NEXT_PUBLIC_IMAGE_DOMAINS",
-        "NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
-        "NEXT_PUBLIC_VERCEL_ENV",
-        "NEXT_PUBLIC_VERCEL_URL",
-        "NEXTAUTH_SECRET",
-        "NODE_ENV",
-        "NODE_OPTIONS",
-        "PROJECT_ROOT",
-        "PROMISE_TRACKER_SENTRY_DSN",
-        "PUBLIC_PROMISE_TRACKER_SENTRY_DSN",
-        "SOURCE_LIB"
-      ]
-    },
-    "@hurumap/core": {
-      "env": ["NEXT_PUBLIC_APP_URL"]
     },
     "jest": {
       "inputs": ["src/**/*.js"]

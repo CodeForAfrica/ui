@@ -180,6 +180,9 @@ export async function getPageProps(api, context) {
     { defaultLocale, locale },
     api,
   );
+
+  const { analytics } = settings;
+
   const seo = getPageSeoFromMeta(processedPage, settings, {
     defaultLocale,
     locale,
@@ -189,6 +192,7 @@ export async function getPageProps(api, context) {
   return {
     ...globalProps,
     ...processedPage,
+    analytics,
     seo,
   };
 }

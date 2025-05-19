@@ -2,7 +2,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "build-next", "build-payload"]
+      "dependsOn": ["build-next", "build-payload"]
     },
     "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
@@ -10,7 +10,6 @@
         "NEXT_PUBLIC_APP_LOGO_URL",
         "NEXT_PUBLIC_APP_NAME",
         "NEXT_PUBLIC_APP_URL",
-        "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID",
         "NEXT_PUBLIC_IMAGE_DOMAINS",
         "NEXT_PUBLIC_IMAGE_UNOPTIMIZED",
         "NEXT_PUBLIC_SENTRY_DSN",
@@ -21,6 +20,7 @@
         "PAYLOAD_PUBLIC_APP_URL",
         "PAYLOAD_PUBLIC_DEFAULT_LOCALE",
         "PAYLOAD_PUBLIC_LOCALES",
+        "PROJECT_ROOT",
         "SENTRY_AUTH_TOKEN",
         "SENTRY_ORG",
         "SENTRY_PROJECT"

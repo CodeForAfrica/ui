@@ -6,22 +6,23 @@ exports[`<Project /> renders unchanged 1`] = `
     class="MuiBox-root css-h16mw8"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-adddkm-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-2y1b9m-MuiContainer-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-znh1og-MuiPaper-root-MuiCard-root"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiCard-root css-a0mq7k-MuiPaper-root-MuiCard-root"
+        style="--Paper-shadow: none;"
       >
         <nav
-          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-19xgsyh-MuiTypography-root-MuiBreadcrumbs-root"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1fdeege-MuiTypography-root-MuiBreadcrumbs-root"
         >
           <ol
-            class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+            class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
           >
             <li
               class="MuiBreadcrumbs-li"
             >
               <a
-                class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
+                class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-17o088p-MuiTypography-root-MuiLink-root"
                 href="/projects"
               >
                 Our Work
@@ -29,7 +30,7 @@ exports[`<Project /> renders unchanged 1`] = `
             </li>
             <li
               aria-hidden="true"
-              class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+              class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
             >
               /
             </li>
@@ -37,7 +38,7 @@ exports[`<Project /> renders unchanged 1`] = `
               class="MuiBreadcrumbs-li"
             >
               <div
-                class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-hz33y3-MuiTypography-root"
               >
                 Knowedge
               </div>
@@ -46,23 +47,23 @@ exports[`<Project /> renders unchanged 1`] = `
         </nav>
         <img
           alt="knowledgeAFRICA"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-tm1rxb-MuiCardMedia-root"
+          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1da3jgb-MuiCardMedia-root"
           src="https://res.cloudinary.com/code-for-africa/image/upload/v1652705959/codeforafrica/images/Property_1_PesaCheck_iahlrh.jpg"
         />
         <div
           class="MuiBox-root css-1ntmuzk"
         >
           <nav
-            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-1y4hekn-MuiTypography-root-MuiBreadcrumbs-root"
+            class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-niza22-MuiTypography-root-MuiBreadcrumbs-root"
           >
             <ol
-              class="MuiBreadcrumbs-ol css-4pdmu4-MuiBreadcrumbs-ol"
+              class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
             >
               <li
                 class="MuiBreadcrumbs-li"
               >
                 <a
-                  class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-1xj2ue7-MuiTypography-root-MuiLink-root"
+                  class="MuiTypography-root MuiTypography-body1Underline MuiLink-root MuiLink-underlineAlways css-17o088p-MuiTypography-root-MuiLink-root"
                   href="/projects"
                 >
                   Our Work
@@ -70,7 +71,7 @@ exports[`<Project /> renders unchanged 1`] = `
               </li>
               <li
                 aria-hidden="true"
-                class="MuiBreadcrumbs-separator css-1wuw8dw-MuiBreadcrumbs-separator"
+                class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
               >
                 /
               </li>
@@ -78,7 +79,7 @@ exports[`<Project /> renders unchanged 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-body1 css-16a0ezn-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-body1 css-hz33y3-MuiTypography-root"
                 >
                   Knowedge
                 </div>
@@ -86,20 +87,20 @@ exports[`<Project /> renders unchanged 1`] = `
             </ol>
           </nav>
           <div
-            class="MuiCardContent-root css-nvlyan-MuiCardContent-root"
+            class="MuiCardContent-root css-t0p48k-MuiCardContent-root"
           >
             <div
-              class="MuiPaper-root MuiPaper-outlined css-1irxcig-MuiPaper-root"
+              class="MuiPaper-root MuiPaper-outlined css-pmvic8-MuiPaper-root"
             >
               <div
                 class="MuiBox-root css-uq7i85"
               >
                 <figure
-                  class="MuiBox-root css-f1ltsh"
+                  class="MuiBox-root css-1kpvnft"
                 >
                   <img
                     alt="knowledgeAFRICA"
-                    class="css-g98gbd"
+                    class="css-qv2885"
                     data-nimg="fill"
                     decoding="async"
                     loading="lazy"
@@ -108,7 +109,7 @@ exports[`<Project /> renders unchanged 1`] = `
                   />
                 </figure>
                 <h4
-                  class="MuiTypography-root MuiTypography-h4 css-yd0a7d-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h4 css-j4666c-MuiTypography-root"
                 >
                   knowledgeAFRICA
                 </h4>
@@ -116,12 +117,12 @@ exports[`<Project /> renders unchanged 1`] = `
                   class="MuiStack-root css-1v20l1v-MuiStack-root"
                 >
                   <span
-                    class="MuiTypography-root MuiTypography-body3SemiBold css-dyfp2-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body3SemiBold css-acgid4-MuiTypography-root"
                   >
                     knowledgeAFRICA
                   </span>
                   <div
-                    class="MuiTypography-root MuiTypography-body2 css-1s1s5lw-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-body2 css-tk7g08-MuiTypography-root"
                   >
                     Knowledge tag line
                   </div>
@@ -140,10 +141,10 @@ exports[`<Project /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardActions-root MuiCardActions-spacing css-1to78gr-MuiCardActions-root"
+            class="MuiCardActions-root MuiCardActions-spacing css-8kkylm-MuiCardActions-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-1wyu7kr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-roxh35-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="https://codeforafrica.org"
               rel="noreferrer noopener"
               tabindex="0"
@@ -151,11 +152,11 @@ exports[`<Project /> renders unchanged 1`] = `
             >
               Launch Project
               <span
-                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-1gnd1fd-MuiButton-endIcon"
+                class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-1wyk03i-MuiButton-endIcon"
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -167,10 +168,10 @@ exports[`<Project /> renders unchanged 1`] = `
     </div>
   </div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1mtya01-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-k1mu3d-MuiContainer-root"
   />
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1rw4djt-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ntmmg2-MuiContainer-root"
   >
     <div
       class="MuiGrid-root MuiGrid-container css-1ldf9ke-MuiGrid-root"
@@ -182,7 +183,7 @@ exports[`<Project /> renders unchanged 1`] = `
           class="MuiStack-root css-1b1mat0-MuiStack-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-h5Small css-msfork-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h5Small css-iq7yq-MuiTypography-root"
           >
             Details
           </div>
@@ -190,7 +191,7 @@ exports[`<Project /> renders unchanged 1`] = `
             class="MuiStack-root css-7d4qva-MuiStack-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-footerCap css-ybncnd-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-footerCap css-10h3evw-MuiTypography-root"
             >
               Share This Project
             </div>
@@ -205,7 +206,7 @@ exports[`<Project /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -218,7 +219,7 @@ exports[`<Project /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -231,7 +232,7 @@ exports[`<Project /> renders unchanged 1`] = `
               >
                 <div
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1dz6c5u-MuiSvgIcon-root"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
                   focusable="false"
                   viewbox="0 0 24 24"
                 />
@@ -241,7 +242,7 @@ exports[`<Project /> renders unchanged 1`] = `
         </div>
       </div>
       <hr
-        class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-11319uf-MuiDivider-root"
+        class="MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-1o055zn-MuiDivider-root"
       />
       <div
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-17q9xai-MuiGrid-root"

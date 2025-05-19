@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
 
 import link from "./link";
-import { Field } from "payload/types";
+import { type Field } from "payload";
 
 type LinkConfig = {
   defaultValue: string;

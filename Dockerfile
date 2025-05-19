@@ -99,7 +99,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID \
   PORT \
   SENTRY_ENVIRONMENT
 
@@ -298,13 +298,6 @@ ARG NEXT_PUBLIC_APP_LOGO_URL \
   PAYLOAD_CONFIG_PATH="dist/payload.config.js" \
   PAYLOAD_PUBLIC_APP_URL
 
-# TODO(koech): Standadise naming of GA MEASUREMENT ID. Our options:
-#              - GA_MEASUREMENT_ID (charterafrica)
-#              - GOOGLE_ANALYTICS_ID (pesayetu, vpnmanager)
-#              This is only needed at runtime
-# TODO(koech): Completely remove the use of ENV vars for Google Analytics
-#              for those app that have CMS. Measurement id should be set
-#              in the Settings part of a site.
 ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
   PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
   PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH}
@@ -379,7 +372,6 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SEO_DISABLED \
   NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
   NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
   # Payload (runtime)
   MONGO_URL \
   PAYLOAD_SECRET \
@@ -599,7 +591,6 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
   NEXT_PUBLIC_OPENAFRICA_DOMAINS="open.africa,openafrica.net,africaopendata.org" \
   NEXT_PUBLIC_SOURCEAFRICA_DOMAINS="dc.sourceafrica.net" \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -791,7 +782,6 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -866,7 +856,6 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -943,7 +932,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID \
   # Sentry (build time)
   SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
@@ -989,3 +978,69 @@ USER nextjs
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/promisetracker/server.js"]
+
+# ============================================================================
+# twoopstracker
+# ============================================================================
+
+#
+# twoopstracker-deps: image with all twoopstracker dependencies
+# ---------------------------------------------------
+  
+FROM base-deps AS twoopstracker-deps
+COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/twoopstracker" install --offline --frozen-lockfile
+
+#
+# twoopstracker-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+FROM base-builder AS twoopstracker-builder
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="TwoopsTracker" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT \
+  TWOOPSTRACKER_API_URL
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=twoopstracker-deps /workspace/node_modules ./node_modules
+COPY --from=twoopstracker-deps /workspace/apps/twoopstracker/node_modules ./apps/twoopstracker/node_modules
+COPY apps/twoopstracker ./apps/twoopstracker
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/twoopstracker" build
+#
+# twoopstracker-runner: final deployable image
+# -----------------------------------------
+FROM base-runner AS twoopstracker-runner
+ARG TWOOPSTRACKER_API_URL
+
+ENV TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/twoopstracker/.next \
+  && chown nextjs:nodejs ./apps/twoopstracker/.next
+# PNPM
+# symlink some dependencies
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+# Next.js
+# Public assets
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/public ./apps/twoopstracker/public
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/standalone ./apps/twoopstracker
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/static ./apps/twoopstracker/.next/static
+USER nextjs
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/twoopstracker/server.js"]
+# ============================================================================
+# End of Twoopstracker
+# ============================================================================

@@ -28,7 +28,7 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         >
           <div
-            class="MuiBox-root css-1lz18kf"
+            class="MuiBox-root css-si27w0"
           >
             Indicators
           </div>
@@ -40,7 +40,7 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
             class="MuiGrid-root MuiGrid-item css-18bgkre-MuiGrid-root"
           >
             <button
-              class="MuiButtonBase-root css-72d9li-MuiButtonBase-root"
+              class="MuiButtonBase-root css-1th1uai-MuiButtonBase-root"
               tabindex="0"
               type="button"
             >
@@ -55,13 +55,10 @@ exports[`<DataIndicators /> renders unchanged 1`] = `
                 />
               </div>
               <p
-                class="MuiTypography-root MuiTypography-body1 css-1eogcpa-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-body1 css-10xv6gm-MuiTypography-root"
               >
                 Overview
               </p>
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>

@@ -40,7 +40,7 @@ export default function Finish({
 
   const reportShieldEvent = (event: string) => {
     const value = new Date().toISOString();
-    sendGAEvent("event", event, { value: "xyz" });
+    sendGAEvent("event", event, { value });
   };
 
   const handleDownload = async () => {

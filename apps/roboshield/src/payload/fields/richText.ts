@@ -1,9 +1,9 @@
 import { deepmerge } from "@mui/utils";
 
 import mapLinkTypeToHref, { NodeType } from "../utils/mapLinkTypeToHref";
-import { Field, FieldHook, PayloadRequest } from "payload/types";
+import { Field, FieldHook, Payload } from "payload";
 
-async function insertHref(nodes: NodeType[] | null, payload: PayloadRequest) {
+async function insertHref(nodes: NodeType[] | null, payload: Payload) {
   if (!nodes?.length) {
     // Front-end needs `null` for serialization
     return null;
@@ -45,7 +45,7 @@ async function mapLinkToHrefAfterRead({
   value,
 }: {
   value?: any;
-  req: { payload: PayloadRequest };
+  req: { payload: Payload };
 }) {
   if (!value?.length) {
     return value;

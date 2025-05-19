@@ -1,17 +1,25 @@
-import payload from "payload";
-import { ByIDOptions } from "payload/dist/collections/operations/local/update";
-import { Options } from "payload/dist/globals/operations/local/findOne";
-import { PaginatedDocs } from "payload/database";
+import { getPayload } from "payload";
+import configPromise from "@/root/payload.config";
+import { PaginatedDocs } from "payload";
 import { Config, Page, SettingsSite } from "@/root/payload-types";
 
 export type CollectionConfig = keyof Config["collections"];
 export type CollectionItemTypes = Config["collections"][CollectionConfig];
 export type GlobalConfig = keyof Config["globals"];
 
+// Define a simple type for options requiring an ID
+interface OptionsWithID {
+  id: string | number;
+  [key: string]: any; // Allow other properties
+}
+
 async function findPage(
   slug: string,
-  options?: Partial<ByIDOptions<CollectionConfig>>,
+  options?: Partial<Record<string, any>>,
 ): Promise<PaginatedDocs<Page>> {
+  const payload = await getPayload({
+    config: configPromise,
+  });
   return payload.find({
     ...options,
     collection: "pages",
@@ -25,8 +33,11 @@ async function findPage(
 
 async function getCollection(
   collection: CollectionConfig,
-  options?: Partial<ByIDOptions<CollectionConfig>>,
+  options?: Partial<Record<string, any>>,
 ): Promise<PaginatedDocs<CollectionItemTypes>> {
+  const payload = await getPayload({
+    config: configPromise,
+  });
   return payload.find({
     limit: 0,
     ...options,
@@ -36,8 +47,9 @@ async function getCollection(
 
 async function findGlobal(
   slug: GlobalConfig,
-  options?: Partial<Options<GlobalConfig>>,
+  options?: Partial<Record<string, any>>,
 ): Promise<SettingsSite> {
+  const payload = await getPayload({ config: configPromise });
   return payload.findGlobal({
     ...options,
     slug,
@@ -47,8 +59,9 @@ async function findGlobal(
 async function createCollection(
   collection: CollectionConfig,
   data: any,
-  options?: Partial<ByIDOptions<CollectionConfig>>,
+  options?: Partial<Record<string, any>>,
 ): Promise<CollectionItemTypes> {
+  const payload = await getPayload({ config: configPromise });
   return payload.create({
     collection,
     data,
@@ -58,8 +71,9 @@ async function createCollection(
 
 async function deleteCollection(
   collection: CollectionConfig,
-  options: ByIDOptions<CollectionConfig>,
+  options: OptionsWithID,
 ): Promise<CollectionItemTypes> {
+  const payload = await getPayload({ config: configPromise });
   return payload.delete({
     ...options,
     collection,
@@ -70,8 +84,9 @@ async function updateCollection(
   collection: CollectionConfig,
   id: string,
   data: any,
-  options?: ByIDOptions<CollectionConfig>,
+  options?: Record<string, any>,
 ): Promise<CollectionItemTypes> {
+  const payload = await getPayload({ config: configPromise });
   const args = {
     ...options,
     collection,

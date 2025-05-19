@@ -37,6 +37,7 @@
     "@babel/preset-react": "catalog:",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@commons-ui/testing-library": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
@@ -61,6 +62,7 @@
     "@babel/core": "catalog:",
     "@commons-ui/core": "workspace:*",
     "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@hurumap/core": "workspace:*",
@@ -70,6 +72,8 @@
     "prop-types": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-leaflet": "catalog:"
+    "react-leaflet": "catalog:",
+    "video.js": "catalog:",
+    "videojs-youtube": "catalog:"
   }
 }

@@ -21,6 +21,12 @@ function DesktopPanel({ sx, ...props }) {
   const open = value === "rich-data" && !tutorialOpen;
   return (
     <>
+      <PanelButtons
+        {...props}
+        onValueChange={handleValueChange}
+        open={open}
+        value={value}
+      />
       <Drawer
         anchor="left"
         onClose={closeDrawer}
@@ -41,29 +47,25 @@ function DesktopPanel({ sx, ...props }) {
             overscrollBehaviorBlock: "none",
           },
         }}
+        {...(open && { variant: "persistent" })}
         PaperProps={{
           elevation: 0,
           square: true,
-          sx: ({ typography }) => ({
+          sx: () => ({
             background: "transparent",
             border: "none",
             display: "flex",
             flexDirection: "row",
-            height: "100%",
+            // Setting Drawer persistent causes header to be non sticky. We are setting the height to 100vh - 88px to account for the toolbar height.
+            height: "calc(100vh - 88px)", // Toolbar height
             overflowY: "visible",
             position: "relative",
-            top: typography.pxToRem(88), // Toolbar height
+            top: 0,
           }),
         }}
       >
         <PanelItem {...props} item={{ value: "rich-data" }} />
       </Drawer>
-      <PanelButtons
-        {...props}
-        onValueChange={handleValueChange}
-        open={open}
-        value={value}
-      />
     </>
   );
 }

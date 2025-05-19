@@ -1,3 +1,4 @@
+import { Loading } from "@hurumap/core";
 import { Grid } from "@mui/material";
 import dynamic from "next/dynamic";
 import PropTypes from "prop-types";
@@ -6,7 +7,6 @@ import React, { Fragment, memo } from "react";
 import CategoryHeader from "@/climatemappedafrica/components/HURUmap/CategoryHeader";
 import KeyMetric from "@/climatemappedafrica/components/HURUmap/KeyMetric";
 import SubcategoryHeader from "@/climatemappedafrica/components/HURUmap/SubcategoryHeader";
-import Loading from "@/climatemappedafrica/components/Loading";
 import formatNumericalValue from "@/climatemappedafrica/utils/formatNumericalValue";
 import slugify from "@/climatemappedafrica/utils/slugify";
 

@@ -1,3 +1,4 @@
+import { Loading } from "@hurumap/core";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
@@ -7,7 +8,6 @@ import ProfileItems from "./ProfileItems";
 import printIcon from "@/climatemappedafrica/assets/icons/print.svg?url";
 import LocationHeader from "@/climatemappedafrica/components/HURUmap/LocationHeader";
 import PinAndCompare from "@/climatemappedafrica/components/HURUmap/PinAndCompare";
-import Loading from "@/climatemappedafrica/components/Loading";
 import { hurumapArgs } from "@/climatemappedafrica/config";
 
 const Profile = forwardRef(function Profile(

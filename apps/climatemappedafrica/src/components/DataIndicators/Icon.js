@@ -10,7 +10,13 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
     <ButtonBase
       onClick={handleIconClick}
       sx={{
-        display: { xs: "flex", lg: "block" },
+        display: "flex",
+        flexDirection: {
+          xs: "row",
+          lg: "column",
+        },
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Box
@@ -28,7 +34,6 @@ function Icon({ item, handleIconClick, currentItemIndex, index }) {
       <Typography
         sx={({ typography }) => ({
           display: "flex",
-          marginLeft: typography.pxToRem(31),
           fontSize: typography.pxToRem(20),
           width: { xs: typography.pxToRem(200), lg: "auto" },
         })}

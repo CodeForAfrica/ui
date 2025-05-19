@@ -1,4 +1,6 @@
 import { Section } from "@commons-ui/core";
+import { NextImageButton } from "@commons-ui/next";
+import { Menu } from "@hurumap/next";
 import {
   Grid,
   Slide,
@@ -17,8 +19,6 @@ import SearchIcon from "@/climatemappedafrica/assets/icons/search-open.svg";
 import MenuCloseIcon from "@/climatemappedafrica/assets/menu_close.svg";
 import MenuOpenIcon from "@/climatemappedafrica/assets/menu_open.svg";
 import DropdownSearch from "@/climatemappedafrica/components/DropdownSearch";
-import Menu from "@/climatemappedafrica/components/Menu";
-import NextImageButton from "@/climatemappedafrica/components/NextImageButton";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="left" timeout={1000} ref={ref} {...props} />;
@@ -105,7 +105,12 @@ function MobileNavigation({
             padding: 0,
           }}
         >
-          <Section>
+          <Section
+            fixed={false}
+            sx={{
+              padding: `0 ${theme.typography.pxToRem(20)}`,
+            }}
+          >
             <Grid
               container
               alignItems="center"
@@ -152,15 +157,20 @@ function MobileNavigation({
             padding: `${typography.pxToRem(40)} 0`,
           })}
         >
-          <Section>
+          <Section
+            fixed={false}
+            sx={{
+              padding: `0 ${theme.typography.pxToRem(20)}`,
+            }}
+          >
             <Menu
               explorePagePath={explorePagePath}
               links={menus}
               socialLinks={socialLinks}
               LinkProps={{
                 sx: {
-                  padding: 0,
                   margin: `${theme.typography.pxToRem(10)} 0`,
+                  color: "text.secondary",
                 },
               }}
             >

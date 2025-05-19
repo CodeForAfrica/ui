@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/hurumap/next/*": ["./src/*"]
+      "@/hurumap/next/*": ["src/*"]
     }
   },
   "exclude": ["node_modules"]

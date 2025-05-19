@@ -2,12 +2,14 @@
 
 ## Applications
 
-| Name                                         | Description                                               |
-| -------------------------------------------- | --------------------------------------------------------- |
-| [**charterAFRICA**](./apps/charterafrica/)   | The largest digital database for communities              |
-| [**Code for Africa**](./apps/codeforafrica/) | Africa's largest network of civic tech and open data labs |
-| [**PesaYetu**](./apps/pesayetu/)             | Data to hold your government accountable                  |
-| [**RoboShield**](./apps/roboshield/)         | Guard your website against AI Bots                        |
+| Name                                                    | Description                                               |
+| ------------------------------------------------------- | --------------------------------------------------------- |
+| [**charterAFRICA**](./apps/charterafrica/)              | The largest digital database for communities              |
+| [**Code for Africa**](./apps/codeforafrica/)            | Africa's largest network of civic tech and open data labs |
+| [**ClimateMapped.AFRICA**](./apps/climatemappedafrica/) | Empowering action through climate data                    |
+| [**PesaYetu**](./apps/pesayetu/)                        | Data to hold your government accountable                  |
+| [**RoboShield**](./apps/roboshield/)                    | Guard your website against AI Bots                        |
+| [**TwoopsTracker**](./apps/twooptracker/)               | Track the trolls & sock-puppets poisoning our democracies |
 
 ## Blogs
 

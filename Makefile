@@ -30,15 +30,18 @@ mongodb-keyfile:
 pesayetu:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
 
+promisetracker:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/promisetracker/.env.local up promisetracker --build
+
 roboshield:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/roboshield/.env.local up roboshield --build
 
 techlabblog:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/techlabblog/.env.local up techlabblog --build
 
+twoopstracker:
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/twoopstracker/.env.local up twoopstracker --build
+
 vpnmanager:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/vpnmanager/.env.local up vpnmanager --build
-
-promisetracker:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/promisetracker/.env.local up promisetracker --build
 

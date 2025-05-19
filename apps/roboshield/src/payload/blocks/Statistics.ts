@@ -1,4 +1,4 @@
-import { Block } from "payload/types";
+import type { Block } from "payload";
 import image from "../fields/image";
 
 export const Statistics: Block = {

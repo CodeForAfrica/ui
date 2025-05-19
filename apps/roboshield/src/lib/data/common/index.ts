@@ -4,7 +4,7 @@ import { blockify } from "@/roboshield/lib/data/blockify";
 import getPageSeoFromMeta from "@/roboshield/lib/data/seo";
 import { Api } from "@/roboshield/lib/payload";
 import site from "@/roboshield/utils/site";
-import { SettingsSite } from "@/root/payload-types";
+import type { SettingsSite } from "@/root/payload-types";
 
 export function imageFromMedia(alt: string, url: string) {
   return { alt, src: url };

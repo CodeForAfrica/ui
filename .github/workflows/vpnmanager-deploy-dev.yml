@@ -52,11 +52,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           build-args: |
-            SENTRY_DSN=${{ secrets.VPNMANAGER_SENTRY_DSN }}
+            API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.VPNMANAGER_SENTRY_DSN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}
-            API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
@@ -75,7 +75,7 @@ jobs:
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       - name: Push to Dokku
-        uses: dokku/github-action@v1.4.0
+        uses: dokku/github-action@v1.7.0
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
