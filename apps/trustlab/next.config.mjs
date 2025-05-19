@@ -1,7 +1,10 @@
 import { withSentryConfig } from "@sentry/nextjs";
 import { withPayload } from "@payloadcms/next/withPayload";
+import { fileURLToPath } from "url";
 import path from "path";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT
   ? path.resolve(__dirname, PROJECT_ROOT)

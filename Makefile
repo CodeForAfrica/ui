@@ -39,6 +39,9 @@ roboshield:
 techlabblog:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/techlabblog/.env.local up techlabblog --build
 
+trustlab:
+	./scripts/dc.sh trustlab
+
 twoopstracker:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/twoopstracker/.env.local up twoopstracker --build
 

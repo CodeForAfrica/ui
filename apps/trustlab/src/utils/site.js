@@ -1,4 +1,4 @@
-const name = process.env.NEXT_PUBLIC_APP_NAME ?? "TRUSTLAB";
+const name = process.env.NEXT_PUBLIC_APP_NAME ?? "TrustLab";
 
 // see: https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
 const ensureTrailingSlash = (string) => {
