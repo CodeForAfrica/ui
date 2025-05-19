@@ -11,7 +11,7 @@
     "start": "next start",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "clean": "rm -rf .next .turbo node_modules",
-    "jest": "jest --passWithNoTests",
+    "jest": "node --expose-gc --max-old-space-size=4096 node_modules/jest/bin/jest.js --coverage --runInBand --logHeapUsage --forceExit --passWithNoTests",
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
     "generate:types": "payload generate:types"
@@ -62,6 +62,8 @@
     "tsconfig-paths": "catalog:"
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-methods": "catalog:",
+    "@babel/preset-env": "catalog:",
     "@commons-ui/testing-library": "workspace:*",
     "@svgr/webpack": "catalog:",
     "@types/express": "catalog:",

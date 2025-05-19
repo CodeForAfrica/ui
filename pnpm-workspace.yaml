@@ -10,6 +10,7 @@ catalog:
   "@babel/eslint-parser": ^7.25.1
   "@babel/preset-env": ^7.25.4
   "@babel/preset-react": ^7.24.7
+  "@babel/plugin-transform-private-methods": "^7.25.9"
   "@babel/register": ^7.24.6
   "@babel/runtime": ^7.25.0
   "@badrap/bar-of-progress": "^0.2.2"

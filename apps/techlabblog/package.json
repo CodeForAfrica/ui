@@ -36,6 +36,8 @@
     "shiki": "catalog:"
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-methods": "catalog:",
+    "@babel/preset-env": "catalog:",
     "@svgr/webpack": "catalog:",
     "@types/mdx": "catalog:",
     "@types/node": "catalog:",

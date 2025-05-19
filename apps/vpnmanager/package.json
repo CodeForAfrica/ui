@@ -9,7 +9,7 @@
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
     "clean": "rm -rf .next .turbo node_modules",
-    "jest": "jest --passWithNoTests",
+    "jest": "node --expose-gc --max-old-space-size=4096 node_modules/jest/bin/jest.js --coverage --runInBand --logHeapUsage --forceExit --passWithNoTests",
     "playwright": "npx playwright test"
   },
   "dependencies": {

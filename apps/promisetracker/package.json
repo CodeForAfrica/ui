@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@babel/core": "catalog:",
+    "@babel/plugin-transform-private-methods": "catalog:",
     "@babel/preset-env": "catalog:",
     "@babel/preset-react": "catalog:",
     "@commons-ui/testing-library": "workspace:*",
