@@ -30,10 +30,6 @@ const StyledPayloadAdminBar = styled(PayloadAdminBar)(({ theme }) => ({
   },
 }));
 
-function Title() {
-  return <Typography variant="body1">Dashboard</Typography>;
-}
-
 function AdminBar(props) {
   const { adminBarProps } = props || {};
   const segments = useSelectedLayoutSegments();
@@ -63,7 +59,7 @@ function AdminBar(props) {
             plural: collectionLabels[collection]?.plural || "Pages",
             singular: collectionLabels[collection]?.singular || "Page",
           }}
-          logo={<Title />}
+          logo={<Typography variant="body1">Dashboard</Typography>}
           onAuthChange={onAuthChange}
           onPreviewExit={() => {
             fetch("/preview/exit-preview").then(() => {
