@@ -1,4 +1,4 @@
-import image from "@/trustlab/payload/fields/image";
+import { image, richText } from "@commons-ui/payload";
 
 const GeneralTab = {
   label: "General",
@@ -13,12 +13,11 @@ const GeneralTab = {
           required: true,
           localized: true,
         },
-        {
+        richText({
           name: "description",
-          type: "richText",
           required: true,
           localized: true,
-        },
+        }),
       ],
     },
     {

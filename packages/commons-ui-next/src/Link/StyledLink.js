@@ -1,3 +1,5 @@
+"use client";
+
 import MuiLink from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import NextLink from "next/link";

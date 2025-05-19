@@ -49,6 +49,11 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: process.env.NEXT_PUBLIC_APP_URL,
+      collections: ["pages"],
+      globals: ["site-settings"],
+    },
   },
   collections: [Pages, Media, Users] as CollectionConfig[],
   cors,

@@ -112,12 +112,29 @@ function getDefaultErrorPageProps(slug = "404") {
     ],
   };
 }
+export async function getPagePaths(api) {
+  const { docs: pages } = await api.getCollection("pages");
+
+  const pagesPromises = pages.map(async ({ slug }) => ({
+    params: {
+      slugs: [slug === "index" ? "" : slug],
+    },
+  }));
+  const paths = await Promise.all(pagesPromises);
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
 export async function getPageProps(api, context) {
+  const { draftMode = false } = context;
   const slug = getPageSlug(context);
   const {
     docs: [page],
-  } = await api.findPage(slug);
+  } = await api.findPage(slug, {
+    draft: draftMode,
+  });
 
   if (!page) {
     if (["404", "500"].includes(slug)) {
