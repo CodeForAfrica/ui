@@ -25,7 +25,6 @@ const Pages = {
       const encodedParams = new URLSearchParams({
         slug: pageSlug,
         path: `/${pageSlug}`,
-        previewSecret: process.env.PREVIEW_SECRET || "",
       });
 
       return `${process.env.NEXT_PUBLIC_APP_URL}/preview?${encodedParams.toString()}`;
