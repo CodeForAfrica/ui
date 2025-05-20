@@ -19,6 +19,9 @@ module.exports = {
       "jest-config-commons-ui/__mocks__/fileMock.js",
     //       svg import should return React.element
     "^.+\\.svg$": "jest-config-commons-ui/__mocks__/elementMock.js",
+
+    // Payload shared
+    "^payload/shared$": "jest-config-commons-ui/__mocks__/payload/shared.js",
   },
   roots: ["<rootDir>/src"],
   // Add more setup options before each test is run

@@ -22,6 +22,7 @@
       "@/trustlab/*": ["./src/*"],
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
       "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"],
+      "@/commons-ui/payload/*": ["../../packages/commons-ui-payload/src/*"],
       "@payload-config": ["./payload.config.ts"],
       "@payload-types": ["./payload-types.ts"]
     },
