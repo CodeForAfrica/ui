@@ -1,13 +1,19 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
+import { canEditContent } from "../access/abilities";
+import { anyone } from "../access/anyone";
+
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
 const Media = {
   slug: "media",
   access: {
-    read: () => true,
+    read: anyone,
+    create: ({ req: { user } }) => canEditContent(user),
+    update: ({ req: { user } }) => canEditContent(user),
+    delete: ({ req: { user } }) => canEditContent(user),
   },
   admin: {
     group: "Publication",

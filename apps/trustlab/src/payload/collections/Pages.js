@@ -1,20 +1,18 @@
 import { slug, fullTitle } from "@commons-ui/payload";
 
+import { canEditContent, canPublish } from "../access/abilities";
+import { anyone } from "../access/anyone";
+
 import TestBlock from "@/trustlab/payload/blocks/TestBlock";
 
 const Pages = {
   slug: "pages",
   access: {
-    read: ({ req }) => {
-      if (req.user) return true;
-      return {
-        _status: {
-          equals: "published",
-        },
-      };
-    },
-    create: () => true,
-    update: () => true,
+    read: anyone,
+    create: ({ req: { user } }) => canEditContent(user),
+    update: ({ req: { user } }) => canEditContent(user),
+    delete: ({ req: { user } }) => canEditContent(user),
+    readVersions: ({ req: { user } }) => canPublish(user),
   },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt"],
@@ -28,6 +26,12 @@ const Pages = {
       });
 
       return `${process.env.NEXT_PUBLIC_APP_URL}/preview?${encodedParams.toString()}`;
+    },
+    components: {
+      edit: {
+        PublishButton:
+          "@/trustlab/payload/components/PagesPublishButton#PagesPublishButton",
+      },
     },
   },
   fields: [

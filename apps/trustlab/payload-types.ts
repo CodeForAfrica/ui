@@ -266,6 +266,7 @@ export interface User {
   id: string;
   firstName: string;
   lastName: string;
+  roles: ("admin" | "editor" | "reviewer" | "viewer")[];
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -476,6 +477,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface UsersSelect<T extends boolean = true> {
   firstName?: T;
   lastName?: T;
+  roles?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
