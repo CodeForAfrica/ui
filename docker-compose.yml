@@ -201,7 +201,7 @@ services:
       - path: ./apps/trustlab/.env
       - path: ./apps/trustlab/.env.local
         required: false
-    image: codeforafrica/trustlab-ui:latest
+    image: codeforafrica/trustlab-ui:${IMAGE_TAG:-latest}
     ports:
       - 3000:3000
 
