@@ -52,7 +52,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
       - name: Build Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
