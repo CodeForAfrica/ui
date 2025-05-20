@@ -1,9 +1,9 @@
-import { canPublish } from "../access/abilities";
-import { anyone } from "../access/anyone";
-
 import EngagementTab from "./tabs/EngagementTab";
 import GeneralTab from "./tabs/GeneralTab";
 import NavigationTab from "./tabs/NavigationTab";
+
+import { canPublish } from "@/trustlab/payload/access/abilities";
+import { anyone } from "@/trustlab/payload/access/anyone";
 
 const SiteSettings = {
   slug: "site-settings",

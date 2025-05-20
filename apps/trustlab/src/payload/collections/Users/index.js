@@ -1,8 +1,8 @@
-import { canUpdateRoles } from "../../access/abilities";
-import { admins, adminsOrSelf } from "../../access/admins";
-import { ROLE_DEFAULT, ROLE_OPTIONS } from "../../access/roles";
-
 import { protectRoles } from "./hooks/protectRoles";
+
+import { canUpdateRoles } from "@/trustlab/payload/access/abilities";
+import { admins, adminsOrSelf } from "@/trustlab/payload/access/admins";
+import { ROLE_DEFAULT, ROLE_OPTIONS } from "@/trustlab/payload/access/roles";
 
 const Users = {
   slug: "users",

@@ -1,8 +1,10 @@
 import { slug, fullTitle } from "@commons-ui/payload";
 
-import { canEditContent, canPublish } from "../access/abilities";
-import { anyone } from "../access/anyone";
-
+import {
+  canEditContent,
+  canPublish,
+} from "@/trustlab/payload/access/abilities";
+import { anyone } from "@/trustlab/payload/access/anyone";
 import TestBlock from "@/trustlab/payload/blocks/TestBlock";
 
 const Pages = {

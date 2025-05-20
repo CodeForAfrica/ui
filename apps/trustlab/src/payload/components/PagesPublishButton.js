@@ -5,7 +5,7 @@
 import { PublishButton } from "@payloadcms/ui";
 import React from "react";
 
-import { canPublish } from "../access/abilities";
+import { canPublish } from "@/trustlab/payload/access/abilities";
 
 export async function PagesPublishButton(props) {
   const { user } = props;

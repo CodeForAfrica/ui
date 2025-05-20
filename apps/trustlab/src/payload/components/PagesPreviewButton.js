@@ -5,7 +5,7 @@
 import { PreviewButton } from "@payloadcms/ui";
 import React from "react";
 
-import { canEditContent } from "../access/abilities";
+import { canEditContent } from "@/trustlab/payload/access/abilities";
 
 export async function PagesPreviewButton(props) {
   const { user } = props;

@@ -1,8 +1,8 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { canEditContent } from "../access/abilities";
-import { anyone } from "../access/anyone";
+import { canEditContent } from "@/trustlab/payload/access/abilities";
+import { anyone } from "@/trustlab/payload/access/anyone";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
