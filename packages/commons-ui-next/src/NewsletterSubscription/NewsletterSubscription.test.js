@@ -1,7 +1,9 @@
-import { render } from "@commons-ui/testing-library";
+import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
 import NewsletterSubscription from "./NewsletterSubscription";
+
+const render = createRender();
 
 const defaultProps = {
   embedCode: `

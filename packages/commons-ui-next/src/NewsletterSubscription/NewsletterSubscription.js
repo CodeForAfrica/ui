@@ -4,7 +4,7 @@ import React from "react";
 
 import RichTypography from "@/commons-ui/next/RichTypography";
 
-const newsletterSubscriptionStyles = {
+const newsletterSubscriptionStyles = (theme) => ({
   "& #mc_embed_signup": {
     typography: "body1",
     backgroundColor: "unset",
@@ -16,11 +16,11 @@ const newsletterSubscriptionStyles = {
     border: "1px solid #D0CBCB",
     borderRadius: 0,
     display: "flex",
-    height: (theme) => theme.typography.pxToRem(36),
+    height: theme.typography.pxToRem(36),
     marginTop: 0,
-    marginBottom: (theme) => theme.typography.pxToRem(30),
+    marginBottom: theme.typography.pxToRem(30),
     outline: "none",
-    padding: (theme) => `0 ${theme.typography.pxToRem(12)}`,
+    padding: `0 ${theme.typography.pxToRem(12)}`,
     width: "100%",
   },
   "& #mc_embed_signup input::placeholder": {
@@ -29,26 +29,25 @@ const newsletterSubscriptionStyles = {
     WebkitTextFillColor: "#D0CBCB",
   },
   "& #mc_embed_signup input:focus,  #mc_embed_signup textarea:focus": {
-    border: (theme) => `1px solid ${theme.palette.primary.main}`,
+    border: `1px solid ${theme.palette?.primary?.main}`,
   },
   "& #mc_embed_signup input:active,  #mc_embed_signup textarea:active": {
-    border: (theme) => `1px solid ${theme.palette.highlight.main}`,
+    border: `1px solid ${theme.palette?.highlight?.main}`,
   },
   "& #mc_embed_signup input[type=submit]": {
     typography: "subtitle1",
     background: "none",
-    border: (theme) => `1px solid ${theme.palette.text.secondary}`,
+    border: `1px solid ${theme.palette?.text?.secondary}`,
     color: "inherit",
-    padding: (theme) =>
-      `${theme.typography.pxToRem(6)} ${theme.typography.pxToRem(12)}`,
+    padding: `${theme.typography.pxToRem(6)} ${theme.typography.pxToRem(12)}`,
     textDecoration: "none",
   },
   "& #mc_embed_signup input[type=submit]:hover": {
     cursor: "pointer",
-    background: (theme) => theme.palette.text.secondary,
-    color: (theme) => theme.palette.text.primary,
+    background: theme.palette?.text?.secondary,
+    color: theme.palette?.text?.primary,
   },
-};
+});
 
 function NewsletterSubscriptionRoot(props) {
   return <RichTypography sx={newsletterSubscriptionStyles} {...props} />;
