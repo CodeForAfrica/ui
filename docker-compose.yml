@@ -201,9 +201,11 @@ services:
       - path: ./apps/trustlab/.env
       - path: ./apps/trustlab/.env.local
         required: false
-    image: codeforafrica/trustlab-ui:${IMAGE_TAG:-latest}
+    image: codeforafrica/trustlab-ui:${IMAGE_TAG}
     ports:
       - 3000:3000
+    # Force to always build just in case there is a matching tag in the registry
+    pull_policy: build
 
   twoopstracker:
     build:
