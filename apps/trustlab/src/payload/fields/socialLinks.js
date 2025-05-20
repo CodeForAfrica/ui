@@ -54,7 +54,7 @@ function socialLinks(overrides = {}) {
             options = socialMediaOptions,
             required = true,
           } = args;
-          return select(val, { hasMany, options, required, t });
+          return select(val, { ...args, hasMany, options, required });
         },
       },
       url({
