@@ -25,6 +25,7 @@ import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860
 import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
+import { PagesPreviewButton as PagesPreviewButton_912de85d78fdaba1bacc15e25b4e6ec9 } from "@/trustlab/payload/components/PagesPreviewButton";
 import { PagesPublishButton as PagesPublishButton_c7c45633dd0516a8cf7c314fd1e9c3bf } from "@/trustlab/payload/components/PagesPublishButton";
 import { default as default_f5238f1b70ea6cf94e5a15e7dfec6dac } from "@/trustlab/payload/components/RowLabel";
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from "@payloadcms/storage-s3/client";
@@ -85,6 +86,8 @@ export const importMap = {
     MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent":
     PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
+  "@/trustlab/payload/components/PagesPreviewButton#PagesPreviewButton":
+    PagesPreviewButton_912de85d78fdaba1bacc15e25b4e6ec9,
   "@/trustlab/payload/components/PagesPublishButton#PagesPublishButton":
     PagesPublishButton_c7c45633dd0516a8cf7c314fd1e9c3bf,
   "@/trustlab/payload/components/RowLabel#default":

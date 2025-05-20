@@ -12,5 +12,5 @@ export async function PagesPublishButton(props) {
   if (!user) return null;
   const isPublisher = canPublish(user);
   if (!isPublisher) return null;
-  return <PublishButton label="Publishdefefe" />;
+  return <PublishButton label="Publish" />;
 }

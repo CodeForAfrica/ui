@@ -5,6 +5,7 @@ import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 
 import configPromise from "@payload-config";
+import { canEditContent } from "@/trustlab/payload/access/abilities";
 
 export async function GET(
   req: {
@@ -31,10 +32,10 @@ export async function GET(
     );
   }
 
-  let user;
+  let authResult;
 
   try {
-    user = await payload.auth({
+    authResult = await payload.auth({
       req: req as unknown as PayloadRequest,
       headers: req.headers,
     });
@@ -50,14 +51,22 @@ export async function GET(
 
   const draft = await draftMode();
 
-  if (!user) {
+  if (!authResult) {
     draft.disable();
     return new Response("You are not allowed to preview this page", {
       status: 403,
     });
   }
 
-  //TODO: Add further checks to ensure the user is allowed to preview this page
+  const user = authResult.user || authResult;
+
+  const isEditor = canEditContent(user);
+  if (!isEditor) {
+    draft.disable();
+    return new Response("You are not allowed to preview this page", {
+      status: 403,
+    });
+  }
 
   draft.enable();
 

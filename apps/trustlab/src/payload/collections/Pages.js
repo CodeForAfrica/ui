@@ -31,6 +31,8 @@ const Pages = {
       edit: {
         PublishButton:
           "@/trustlab/payload/components/PagesPublishButton#PagesPublishButton",
+        PreviewButton:
+          "@/trustlab/payload/components/PagesPreviewButton#PagesPreviewButton",
       },
     },
   },
