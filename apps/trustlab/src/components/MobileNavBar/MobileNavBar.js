@@ -9,8 +9,9 @@ import {
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+// eslint-disable-next-line import/no-unresolved
 import menuIcon from "@/trustlab/assets/icons/menu-icon.svg?url";
+import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import NavBarNavList from "@/trustlab/components/NavBarNavList";
 import NextImageButton from "@/trustlab/components/NextImageButton";
 

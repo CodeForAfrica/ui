@@ -1,9 +1,10 @@
 import { NavListItem } from "@commons-ui/core";
-import FooterNavList from "@/trustlab/components/FooterNavList";
 import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
+
+import FooterNavList from "@/trustlab/components/FooterNavList";
 
 const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
   const { primaryMenus, secondaryMenus, sx } = props;

@@ -1,10 +1,9 @@
 /* eslint-env browser */
 
+import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 import { RichTypography as CuiRichTypography } from "@commons-ui/core";
 import { useRouter } from "next/router";
 import React from "react";
-
-import isExternalUrl from "@/commons-ui/next/utils/isExternalUrl";
 
 const RichTypography = React.forwardRef(function RichTypography(
   { LinkProps, ...props },
