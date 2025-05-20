@@ -3,8 +3,7 @@ import { Figure, Link } from "@commons-ui/next";
 import { Stack } from "@mui/material";
 import React from "react";
 
-// import RichText from "@/trustlab/components/RichText";
-const RichText = () => <></>;
+import RichText from "@/trustlab/components/RichText";
 
 const FooterDescription = React.forwardRef(
   function FooterDescription(props, ref) {

@@ -30,22 +30,31 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {/* Increase number of columns to getter columns size */}
-        <Grid container columns={24} justifyContent="space-between">
+        <Grid
+          container
+          sx={{ flexGrow: 1, width: "100%" }}
+          columns={24}
+          justifyContent="space-between"
+        >
           <Grid
             size={{
               xs: 24,
               md: 15,
               lg: 16,
             }}
-            sx={{
-              order: { xs: 1, md: 0 },
-            }}
+            order={{ xs: 1, md: 0 }}
           >
-            <Grid container justifyContent="space-between">
+            <Grid
+              container
+              sx={{ flexGrow: 1, width: "100%" }}
+              justifyContent="space-between"
+            >
               <Grid
                 size={{ xs: 12, md: "auto" }}
                 container
                 sx={{
+                  width: "100%",
+                  flexGrow: 1,
                   maxWidth: { xs: "none", md: "337px" },
                 }}
               >
@@ -56,7 +65,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                     sx={{ mt: { xs: 10, md: 0 } }}
                   />
                 </Grid>
-                <Grid>
+                <Grid sx={{ width: { xs: "100%", md: "auto" } }}>
                   <StayInTouch
                     {...connect}
                     LinkProps={{ component: Link }}
@@ -68,7 +77,10 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               <Grid
                 size={{
                   xs: 12,
-                  md: "auto",
+                }}
+                sx={{
+                  width: { xs: "100%", md: "auto" },
+                  px: 24,
                 }}
               >
                 <FooterLinks
@@ -84,7 +96,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               xs: 24,
               md: "auto",
             }}
-            sx={{ order: { xs: 0, md: 1 } }}
+            order={{ xs: 0, md: 1 }}
+            sx={{ width: { xs: "100%", md: "auto" } }}
           >
             <NewsletterSubscription {...newsletter} />
           </Grid>

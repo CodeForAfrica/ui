@@ -49,6 +49,7 @@
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
     "@eslint/eslintrc": "catalog:",
+    "@testing-library/react": "catalog:",
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
@@ -56,7 +57,6 @@
     "eslint-import-resolver-babel-module": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "playwright-config-commons-ui": "workspace:*",
-    "@testing-library/react": "catalog:"
+    "playwright-config-commons-ui": "workspace:*"
   }
 }

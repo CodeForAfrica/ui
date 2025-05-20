@@ -8086,6 +8086,7 @@ packages:
 
   '@swc/register@0.1.10':
     resolution: {integrity: sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==}
+    deprecated: Use @swc-node/register instead
     hasBin: true
     peerDependencies:
       '@swc/core': ^1.0.46
@@ -24278,33 +24279,33 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
+  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))(webpack@5.99.8(@swc/core@1.11.24))':
+    dependencies:
+      webpack: 5.99.8(@swc/core@1.11.24)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
+
   '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))(webpack@5.99.8)':
     dependencies:
       webpack: 5.99.8(@swc/core@1.11.24)(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
 
-  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0)(webpack@5.99.8(@swc/core@1.11.24))':
-    dependencies:
-      webpack: 5.99.8(@swc/core@1.11.24)
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
-
-  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))':
+  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))':
     dependencies:
       envinfo: 7.14.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
 
   '@webpack-cli/info@1.5.0(webpack-cli@4.10.0)':
     dependencies:
       envinfo: 7.14.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
-
-  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))':
-    dependencies:
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
+
+  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))':
+    dependencies:
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
 
   '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0)':
     dependencies:
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
 
   '@wry/caches@1.0.1':
     dependencies:
@@ -34770,9 +34771,9 @@ snapshots:
   webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0)(webpack@5.99.8(@swc/core@1.11.24))
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
+      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))(webpack@5.99.8(@swc/core@1.11.24))
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
@@ -34789,8 +34790,8 @@ snapshots:
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
       '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))(webpack@5.99.8)
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6

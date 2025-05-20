@@ -13,6 +13,8 @@ module.exports = {
     "next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.js`,
     // Disable server-only
     "server-only": `<rootDir>/__mocks__/empty.js`,
+    "^@payloadcms/richtext-lexical/react$":
+      "<rootDir>/__mocks__/richTextLexical.js",
   },
   testPathIgnorePatterns: [...testPathIgnorePatterns, "<rootDir>/.next/"],
   transform: {

@@ -93,7 +93,12 @@ module.exports = [
           "newlines-between": "always",
         },
       ],
-
+      "import/no-unresolved": [
+        "error",
+        {
+          ignore: ["@payloadcms/richtext-lexical/react"],
+        },
+      ],
       "no-restricted-imports": [
         "error",
         {
