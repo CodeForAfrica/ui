@@ -16,13 +16,13 @@ const dirname = path.dirname(filename);
 
 const cors =
   process?.env?.PAYLOAD_CORS?.split(",")
-    ?.map((d) => d.trim())
-    ?.filter(Boolean) ?? [];
+    .map((d) => d.trim())
+    .filter(Boolean) ?? [];
 
 const csrf =
   process?.env?.PAYLOAD_CSRF?.split(",")
-    ?.map((d) => d.trim())
-    ?.filter(Boolean) ?? [];
+    .map((d) => d.trim())
+    .filter(Boolean) ?? [];
 
 let email = nodemailerAdapter();
 if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
