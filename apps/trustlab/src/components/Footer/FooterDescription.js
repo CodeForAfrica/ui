@@ -32,16 +32,17 @@ const FooterDescription = React.forwardRef(
           typographyProps={{
             LinkProps: {
               color: "text.secondary",
-              sx: { textDecorationColor: "text.secondary" },
+              sx: { textDecorationColor: "text.secondary", mt: 0 },
             },
+            sx: { mt: { xs: 2, md: 0 } },
           }}
           sx={(theme) => ({
             a: {
               textDecorationColor: theme.palette.text.secondary,
             },
-            mt: "52px",
             textAlign: { xs: "center", md: "left" },
             typography: "footer",
+            mt: 0,
           })}
           ref={ref}
           elements={description}

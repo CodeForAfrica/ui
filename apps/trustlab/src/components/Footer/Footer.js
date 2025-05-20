@@ -8,14 +8,8 @@ import FooterDescription from "./FooterDescription";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const {
-    connect,
-    description,
-    logo,
-    newsletter,
-    primaryMenus,
-    secondaryMenus,
-  } = props;
+  const { connect, description, newsletter, primaryMenus, secondaryMenus } =
+    props;
 
   return (
     <Box
@@ -59,11 +53,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 }}
               >
                 <Grid>
-                  <FooterDescription
-                    description={description}
-                    logo={logo}
-                    sx={{ mt: { xs: 10, md: 0 } }}
-                  />
+                  <FooterDescription description={description} logo={null} />
                 </Grid>
                 <Grid sx={{ width: { xs: "100%", md: "auto" } }}>
                   <StayInTouch
@@ -80,7 +70,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 }}
                 sx={{
                   width: { xs: "100%", md: "auto" },
-                  px: 24,
+                  pl: { xs: 0, md: 40 },
                 }}
               >
                 <FooterLinks

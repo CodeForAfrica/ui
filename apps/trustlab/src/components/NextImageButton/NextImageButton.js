@@ -37,13 +37,4 @@ NextImageButton.propTypes = {
   priority: PropTypes.bool,
 };
 
-NextImageButton.defaultProps = {
-  src: undefined,
-  href: undefined,
-  alt: undefined,
-  width: undefined,
-  height: undefined,
-  priority: undefined,
-};
-
 export default NextImageButton;
