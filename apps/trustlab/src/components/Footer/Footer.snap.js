@@ -28,7 +28,7 @@ exports[`<Footer /> renders unchanged 1`] = `
               />
             </div>
             <div
-              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-pn02ft-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-yovsja-MuiGrid-root"
             />
           </div>
         </div>

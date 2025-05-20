@@ -9,7 +9,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-9be76x"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1j6axs-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-zr4hdg-MuiTypography-root-MuiLink-root"
         href="/our-work"
       >
         Our Work
@@ -19,7 +19,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-9be76x"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1j6axs-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-zr4hdg-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         About
@@ -29,7 +29,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-9be76x"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1j6axs-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-zr4hdg-MuiTypography-root-MuiLink-root"
         href="/about"
       >
         Stories
@@ -39,7 +39,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-9be76x"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1j6axs-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-zr4hdg-MuiTypography-root-MuiLink-root"
         href="/opportunity"
       >
         Opportunity
@@ -49,7 +49,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-9be76x"
     >
       <a
-        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-1j6axs-MuiTypography-root-MuiLink-root"
+        class="MuiTypography-root MuiTypography-h3 MuiLink-root MuiLink-underlineNone css-zr4hdg-MuiTypography-root-MuiLink-root"
         href="/contact"
       >
         Contact
