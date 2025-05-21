@@ -983,8 +983,6 @@ COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.nex
 COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
 USER nextjs
 
-RUN ls -lah apps/trustlab/
-
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/trustlab/server.js"]
