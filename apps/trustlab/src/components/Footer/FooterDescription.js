@@ -1,9 +1,8 @@
 /* eslint-env browser */
 import { Figure, Link } from "@commons-ui/next";
+import { LexicalRichText } from "@commons-ui/payload";
 import { Stack } from "@mui/material";
 import React from "react";
-
-import RichText from "@/trustlab/components/RichText";
 
 const FooterDescription = React.forwardRef(
   function FooterDescription(props, ref) {
@@ -27,9 +26,9 @@ const FooterDescription = React.forwardRef(
             }}
           />
         </Link>
-        <RichText
+        <LexicalRichText
           variant="footer"
-          typographyProps={{
+          TypographyProps={{
             LinkProps: {
               color: "text.secondary",
               sx: { textDecorationColor: "text.secondary", mt: 0 },

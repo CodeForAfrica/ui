@@ -7,8 +7,8 @@ const DEFAULT_PROPS = {
 export const styleConverter = (converterProps) => {
   const getTypographyProps = (node) => ({
     ...DEFAULT_PROPS,
-    ...converterProps.typographyProps,
-    ...(node?.typographyProps || {}),
+    ...converterProps.TypographyProps,
+    ...(node?.TypographyProps || {}),
   });
 
   return {

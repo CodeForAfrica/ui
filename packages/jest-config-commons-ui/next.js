@@ -13,10 +13,12 @@ module.exports = {
     "next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.js`,
     // Disable server-only
     "server-only": `<rootDir>/__mocks__/empty.js`,
-    "^@payloadcms/richtext-lexical/react$":
-      "<rootDir>/__mocks__/richTextLexical.js",
   },
   testPathIgnorePatterns: [...testPathIgnorePatterns, "<rootDir>/.next/"],
+  transformIgnorePatterns: [
+    ...defaultConfig.transformIgnorePatterns,
+    "<rootDir>/node_modules/@payloadcms/richtext-lexical/react",
+  ],
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object

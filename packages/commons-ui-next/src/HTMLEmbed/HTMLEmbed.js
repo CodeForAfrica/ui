@@ -1,5 +1,4 @@
 import { Stack } from "@mui/material";
-import PropTypes from "prop-types";
 import React from "react";
 
 import RichTypography from "@/commons-ui/next/RichTypography";
@@ -82,10 +81,5 @@ const NewsletterSubscription = React.forwardRef(
     );
   },
 );
-
-NewsletterSubscription.propTypes = {
-  children: PropTypes.node,
-  embedCode: PropTypes.node,
-};
 
 export default NewsletterSubscription;

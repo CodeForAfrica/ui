@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import NewsletterSubscription from "./NewsletterSubscription";
+import HTMLEmbed from "./HTMLEmbed";
 
 const render = createRender();
 
@@ -33,7 +33,7 @@ const defaultProps = {
 
 describe("<NewsletterSubscription />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<NewsletterSubscription {...defaultProps} />);
+    const { container } = render(<HTMLEmbed {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
