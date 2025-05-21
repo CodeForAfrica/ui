@@ -2,7 +2,6 @@ import NavList from "@/commons-ui/core/NavList";
 import NavListItem from "@/commons-ui/core/NavListItem";
 import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
-import PropTypes from "prop-types";
 import React from "react";
 
 function FooterNavList({ menus, children }) {
@@ -47,14 +46,5 @@ function FooterNavList({ menus, children }) {
     </Box>
   );
 }
-
-FooterNavList.propTypes = {
-  menus: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    }),
-  ),
-};
 
 export default FooterNavList;

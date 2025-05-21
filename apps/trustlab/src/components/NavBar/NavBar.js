@@ -1,5 +1,4 @@
 import { NavBar as NavigationBar, Section } from "@commons-ui/core";
-import PropTypes from "prop-types";
 import React from "react";
 
 import DesktopNavBar from "@/trustlab/components/DesktopNavBar";
@@ -29,14 +28,5 @@ function NavBar({ logo, menus, socialLinks }) {
     </NavigationBar>
   );
 }
-
-NavBar.propTypes = {
-  menus: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    }),
-  ),
-};
 
 export default NavBar;

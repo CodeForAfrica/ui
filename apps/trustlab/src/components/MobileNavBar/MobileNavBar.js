@@ -1,3 +1,4 @@
+import { NextImageButton } from "@commons-ui/next";
 import {
   Dialog,
   DialogContent,
@@ -13,7 +14,6 @@ import React from "react";
 import menuIcon from "@/trustlab/assets/icons/menu-icon.svg?url";
 import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 import NavBarNavList from "@/trustlab/components/NavBarNavList";
-import NextImageButton from "@/trustlab/components/NextImageButton";
 
 const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
   "& .MuiDialog-container": {

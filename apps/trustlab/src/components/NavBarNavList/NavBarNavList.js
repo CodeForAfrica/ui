@@ -1,6 +1,5 @@
 import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
-import PropTypes from "prop-types";
 import React from "react";
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
@@ -59,16 +58,5 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
     </NavList>
   );
 });
-
-NavBarNavList.propTypes = {
-  NavListItemProps: PropTypes.shape({}),
-  direction: PropTypes.string,
-  menus: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string,
-    }),
-  ),
-};
 
 export default NavBarNavList;

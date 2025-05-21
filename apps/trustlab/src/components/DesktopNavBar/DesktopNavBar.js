@@ -1,8 +1,8 @@
+import { NextImageButton } from "@commons-ui/next";
 import { Grid, Box } from "@mui/material";
 import React from "react";
 
 import NavBarNavList from "@/trustlab/components/NavBarNavList";
-import NextImageButton from "@/trustlab/components/NextImageButton";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
   const { logo, menus, socialLinks, sx } = props;
