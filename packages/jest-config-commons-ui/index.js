@@ -42,6 +42,5 @@ module.exports = {
   transformIgnorePatterns: [
     "/node_modules/",
     "^.+\\.module\\.(css|sass|scss)$",
-    "<rootDir>/node_modules/(?!@payloadcms/richtext-lexical/react)",
   ],
 };
