@@ -72,7 +72,7 @@ jobs:
 
       - name: Build Docker image
         if: steps.version-check.outputs.changed == 'true'
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             MONGO_URL=${{ secrets.CIVICSIGNALBLOG_MONGO_URL }}
