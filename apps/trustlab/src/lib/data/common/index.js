@@ -26,11 +26,9 @@ function getFooter(settings) {
     title,
     ...footer
   } = settings;
-  const media = secondaryLogo || primaryLogo;
 
   return {
     ...footer,
-    logo: imageFromMedia({ alt: title, ...media }),
     primaryMenus: primaryNavigation?.menus || null,
     secondaryMenus: secondaryNavigation?.menus || null,
   };

@@ -234,13 +234,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiGrid2: {
-      defaultProps: {
-        // all grids under this theme will apply
-        // negative margin on the top and left sides.
-        disableEqualOverflow: true,
-      },
-    },
   },
 });
 
