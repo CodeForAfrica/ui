@@ -4,7 +4,7 @@ import {
   canCreateAccounts,
   canManageUsers,
 } from "@/trustlab/payload/access/abilities";
-import { ROLE_DEFAULT, ROLE_OPTIONS } from "@/trustlab/payload/access/roles";
+import { ROLE_AUTHOR, ROLE_OPTIONS } from "@/trustlab/payload/access/roles";
 
 const Users = {
   slug: "users",
@@ -41,13 +41,13 @@ const Users = {
           type: "select",
           required: true,
           saveToJWT: true,
-          defaultValue: ROLE_DEFAULT,
+          defaultValue: ROLE_AUTHOR,
           options: ROLE_OPTIONS,
           hooks: {
             beforeChange: [protectRoleField],
           },
           access: {
-            update: ({ req: { user } }) => user?.role !== ROLE_DEFAULT,
+            update: ({ req: { user } }) => user?.role !== ROLE_AUTHOR,
           },
         },
       ],

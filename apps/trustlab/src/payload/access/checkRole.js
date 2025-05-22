@@ -1,6 +1,8 @@
-/* eslint-disable import/prefer-default-export */
-
 export const checkRole = (roles, user) => {
-  if (!user) return false;
+  if (!user) {
+    return false;
+  }
   return roles.includes(user.role);
 };
+
+export default undefined;

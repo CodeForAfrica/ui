@@ -60,15 +60,14 @@ export async function GET(
 
   const user = authResult.user || authResult;
 
-  const isEditor = canManageContent(user);
-  if (!isEditor) {
+  if (canManageContent(user)) {
+    draft.enable();
+  } else {
     draft.disable();
     return new Response("You are not allowed to preview this page", {
       status: 403,
     });
   }
-
-  draft.enable();
 
   redirect(path);
 }

@@ -5,6 +5,7 @@ import { createdBy } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
+import { loggedIn } from "@/trustlab/payload/access/loggedIn";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -13,7 +14,7 @@ const Media = {
   slug: "media",
   access: {
     read: anyone,
-    create: anyone,
+    create: ({ req: { user } }) => loggedIn(user),
     update: ({ req: { user } }) => canManageContent(user),
     delete: ({ req: { user } }) => canManageContent(user),
   },

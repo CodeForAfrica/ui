@@ -8,18 +8,22 @@ import { useRowLabel } from "@payloadcms/ui";
 import React from "react";
 
 const getLabelData = (path, data, rowNumber = 0) => {
-  if (path.includes("Headers")) return { label: "Header", data: data?.title };
+  if (path.includes("Headers")) {
+    return { label: "Header", data: data?.title };
+  }
 
-  if (path.includes("message"))
+  if (path.includes("message")) {
     return { label: "Message", data: data?.message };
+  }
 
-  if (path.includes("partners"))
+  if (path.includes("partners")) {
     return {
       label: "Partner",
       data:
         data?.name ||
         (rowNumber !== undefined ? `Partner ${rowNumber + 1}` : null),
     };
+  }
 
   if (path.includes("connect.links")) {
     return {

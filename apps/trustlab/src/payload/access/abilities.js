@@ -1,28 +1,13 @@
 import { checkRole } from "./checkRole";
-import { ROLE_ADMIN, ROLE_AUTHOR, ROLE_DEFAULT, ROLE_EDITOR } from "./roles";
+import { ROLE_ADMIN, ROLE_AUTHOR, ROLE_EDITOR } from "./roles";
 
 export const canManageContent = (user) => {
-  if (!user) return false;
-  const isAdmin = checkRole([ROLE_ADMIN], user);
-  if (isAdmin) return true;
+  // Admin and editors can manage any content
+  if (checkRole([ROLE_ADMIN, ROLE_EDITOR], user)) {
+    return true;
+  }
 
-  const isEditor = checkRole([ROLE_EDITOR], user);
-  if (isEditor)
-    return {
-      or: [
-        {
-          createdBy: {
-            equals: user.id,
-          },
-        },
-        {
-          "createdBy.role": {
-            in: [ROLE_EDITOR, ROLE_AUTHOR],
-          },
-        },
-      ],
-    };
-
+  // Everyone else can only manage their own content
   return {
     createdBy: {
       equals: user.id,
@@ -35,31 +20,39 @@ export const canManagePages = (user) =>
 
 export const canManageSiteSettings = (user) => checkRole([ROLE_ADMIN], user);
 
+// TODO: what happens on delete? cascade or not?
 export const canManageUsers = (user) => {
-  if (!user) return false;
+  if (!user) {
+    return false;
+  }
 
-  if (user.role === ROLE_ADMIN) return true;
+  // admin can manage all users
+  if (user.role === ROLE_ADMIN) {
+    return true;
+  }
 
-  if (user.role === ROLE_DEFAULT)
+  // editors can only manage authors and themselves
+  if (user.role === ROLE_EDITOR) {
     return {
-      id: {
-        equals: user.id,
-      },
+      or: [
+        {
+          role: {
+            equals: ROLE_AUTHOR,
+          },
+        },
+        {
+          id: {
+            equals: user.id,
+          },
+        },
+      ],
     };
+  }
 
   return {
-    or: [
-      {
-        role: {
-          not_equals: ROLE_ADMIN,
-        },
-      },
-      {
-        id: {
-          equals: user.id,
-        },
-      },
-    ],
+    id: {
+      equals: user.id,
+    },
   };
 };
 
