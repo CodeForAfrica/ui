@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-export const checkRole = (roles = [], user = null) => {
+export const checkRole = (roles, user) => {
   if (!user) return false;
-  return roles.some((role) => user.roles.includes(role));
+  return roles.includes(user.role);
 };

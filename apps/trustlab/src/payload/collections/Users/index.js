@@ -1,23 +1,25 @@
-import { protectRoles } from "./hooks/protectRoles";
+import { protectRoleField } from "./hooks/protectRoleField";
 
-import { canUpdateRoles } from "@/trustlab/payload/access/abilities";
-import { admins, adminsOrSelf } from "@/trustlab/payload/access/admins";
+import {
+  canCreateAccounts,
+  canManageUsers,
+} from "@/trustlab/payload/access/abilities";
 import { ROLE_DEFAULT, ROLE_OPTIONS } from "@/trustlab/payload/access/roles";
 
 const Users = {
   slug: "users",
   admin: {
-    defaultColumns: ["firstName", "lastName", "email", "roles", "updatedAt"],
+    defaultColumns: ["firstName", "lastName", "email", "role", "updatedAt"],
     useAsTitle: "email",
     group: "Settings",
     hideAPIURL: true,
   },
   access: {
-    delete: ({ req: { user } }) => admins(user),
-    create: ({ req: { user } }) => admins(user),
-    read: ({ req: { user } }) => adminsOrSelf(user),
-    update: ({ req: { user } }) => adminsOrSelf(user),
-    unlock: ({ req: { user } }) => admins(user),
+    delete: ({ req: { user } }) => canManageUsers(user),
+    create: ({ req: { user } }) => canCreateAccounts(user),
+    read: ({ req: { user } }) => canManageUsers(user),
+    update: ({ req: { user } }) => canManageUsers(user),
+    unlock: ({ req: { user } }) => canManageUsers(user),
   },
   auth: true,
   fields: [
@@ -35,18 +37,17 @@ const Users = {
           required: true,
         },
         {
-          name: "roles",
+          name: "role",
           type: "select",
-          hasMany: true,
           required: true,
           saveToJWT: true,
-          defaultValue: [ROLE_DEFAULT],
+          defaultValue: ROLE_DEFAULT,
           options: ROLE_OPTIONS,
           hooks: {
-            beforeChange: [protectRoles],
+            beforeChange: [protectRoleField],
           },
           access: {
-            update: ({ req: { user } }) => canUpdateRoles(user),
+            update: ({ req: { user } }) => user?.role !== ROLE_DEFAULT,
           },
         },
       ],

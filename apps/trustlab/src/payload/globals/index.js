@@ -2,7 +2,7 @@ import EngagementTab from "./tabs/EngagementTab";
 import GeneralTab from "./tabs/GeneralTab";
 import NavigationTab from "./tabs/NavigationTab";
 
-import { canPublish } from "@/trustlab/payload/access/abilities";
+import { canManageSiteSettings } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 
 const SiteSettings = {
@@ -14,7 +14,7 @@ const SiteSettings = {
   },
   access: {
     read: anyone,
-    update: ({ req: { user } }) => canPublish(user),
+    update: ({ req: { user } }) => canManageSiteSettings(user),
   },
   fields: [
     {

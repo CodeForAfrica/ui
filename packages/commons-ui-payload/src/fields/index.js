@@ -1,5 +1,6 @@
 import { socialMediaOptions } from "./socialLinks";
 
+export { default as createdBy } from "./createdBy";
 export { default as url } from "./url";
 export { default as socialLinks } from "./socialLinks";
 export { default as image } from "./image";

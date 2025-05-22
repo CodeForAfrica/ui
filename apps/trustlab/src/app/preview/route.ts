@@ -5,7 +5,7 @@ import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 
 import configPromise from "@payload-config";
-import { canEditContent } from "@/trustlab/payload/access/abilities";
+import { canManageContent } from "@/trustlab/payload/access/abilities";
 
 export async function GET(
   req: {
@@ -60,7 +60,7 @@ export async function GET(
 
   const user = authResult.user || authResult;
 
-  const isEditor = canEditContent(user);
+  const isEditor = canManageContent(user);
   if (!isEditor) {
     draft.disable();
     return new Response("You are not allowed to preview this page", {

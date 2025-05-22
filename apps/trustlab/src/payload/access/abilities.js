@@ -1,12 +1,66 @@
 import { checkRole } from "./checkRole";
-import { ROLE_ADMIN, ROLE_EDITOR, ROLE_REVIEWER } from "./roles";
+import { ROLE_ADMIN, ROLE_AUTHOR, ROLE_DEFAULT, ROLE_EDITOR } from "./roles";
 
-// Admins, editors, and reviewers can create/edit content
-export const canEditContent = (user) =>
-  checkRole([ROLE_ADMIN, ROLE_EDITOR, ROLE_REVIEWER], user);
+export const canManageContent = (user) => {
+  if (!user) return false;
+  const isAdmin = checkRole([ROLE_ADMIN], user);
+  if (isAdmin) return true;
 
-// Admins and editors can publish content
-export const canPublish = (user) => checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
+  const isAuthor = checkRole([ROLE_EDITOR], user);
+  if (isAuthor)
+    return {
+      or: [
+        {
+          createdBy: {
+            equals: user.id,
+          },
+        },
+        {
+          "createdBy.role": {
+            in: [ROLE_EDITOR, ROLE_AUTHOR],
+          },
+        },
+      ],
+    };
+  return {
+    createdBy: {
+      equals: user.id,
+    },
+  };
+};
 
-// Only Admins can update roles
-export const canUpdateRoles = (user) => checkRole([ROLE_ADMIN], user);
+export const canManagePages = (user) =>
+  checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
+
+export const canManageSiteSettings = (user) => checkRole([ROLE_ADMIN], user);
+
+export const canManageUsers = (user) => {
+  if (!user) return false;
+
+  if (user.role === ROLE_ADMIN) return true;
+
+  if (user.role === ROLE_DEFAULT)
+    return {
+      id: {
+        equals: user.id,
+      },
+    };
+
+  return {
+    or: [
+      {
+        role: {
+          not_equals: ROLE_ADMIN,
+        },
+      },
+      {
+        id: {
+          equals: user.id,
+        },
+      },
+    ],
+  };
+};
+
+export const canCreateAccounts = (user) =>
+  checkRole([ROLE_ADMIN, ROLE_EDITOR], user);

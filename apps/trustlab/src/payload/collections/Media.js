@@ -1,7 +1,9 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { canEditContent } from "@/trustlab/payload/access/abilities";
+import { createdBy } from "@commons-ui/payload";
+
+import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 
 const filename = fileURLToPath(import.meta.url);
@@ -11,9 +13,9 @@ const Media = {
   slug: "media",
   access: {
     read: anyone,
-    create: ({ req: { user } }) => canEditContent(user),
-    update: ({ req: { user } }) => canEditContent(user),
-    delete: ({ req: { user } }) => canEditContent(user),
+    create: anyone,
+    update: ({ req: { user } }) => canManageContent(user),
+    delete: ({ req: { user } }) => canManageContent(user),
   },
   admin: {
     group: "Publication",
@@ -25,6 +27,7 @@ const Media = {
       type: "text",
       required: true,
     },
+    createdBy(),
   ],
   upload: {
     staticDir: path.resolve(dirname, "../../media"),
