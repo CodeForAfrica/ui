@@ -1,6 +1,6 @@
 import { deepmerge } from "@mui/utils";
 
-import { populatCreatedBy } from "./hooks/populateCreatedBy";
+import { populateCreatedBy } from "./hooks/populateCreatedBy";
 
 const createdBy = ({ overrides = {} } = {}) => {
   const field = {
@@ -10,7 +10,7 @@ const createdBy = ({ overrides = {} } = {}) => {
     hasMany: false,
     hidden: true,
     hooks: {
-      beforeChange: [populatCreatedBy],
+      beforeChange: [populateCreatedBy],
     },
     admin: {
       position: "sidebar",
