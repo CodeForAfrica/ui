@@ -10,7 +10,7 @@ import { canManagePages } from "@/trustlab/payload/access/abilities";
 export async function PagesPublishButton(props) {
   const { user } = props;
   if (!user) return null;
-  const isPublisher = canManagePages(user);
-  if (!isPublisher) return null;
+  const isAllowed = canManagePages(user);
+  if (!isAllowed) return null;
   return <PublishButton label="Publish" />;
 }

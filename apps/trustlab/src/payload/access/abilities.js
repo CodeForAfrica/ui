@@ -6,8 +6,8 @@ export const canManageContent = (user) => {
   const isAdmin = checkRole([ROLE_ADMIN], user);
   if (isAdmin) return true;
 
-  const isAuthor = checkRole([ROLE_EDITOR], user);
-  if (isAuthor)
+  const isEditor = checkRole([ROLE_EDITOR], user);
+  if (isEditor)
     return {
       or: [
         {
@@ -22,6 +22,7 @@ export const canManageContent = (user) => {
         },
       ],
     };
+
   return {
     createdBy: {
       equals: user.id,
