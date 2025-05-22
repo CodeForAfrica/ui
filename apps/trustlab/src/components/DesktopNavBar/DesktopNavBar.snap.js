@@ -3,13 +3,13 @@
 exports[`<DesktopNavigation /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1fbdox-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-9cyib4-MuiGrid-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+      class="MuiGrid-root css-vj1n65-MuiGrid-root"
     />
     <div
-      class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+      class="MuiGrid-root css-vj1n65-MuiGrid-root"
     >
       <nav
         class="MuiBox-root css-1a9getn"

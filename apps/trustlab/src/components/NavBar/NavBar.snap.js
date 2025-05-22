@@ -13,13 +13,13 @@ exports[`<NavBar /> renders unchanged 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-iz79el-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-pb4q8j-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+            class="MuiGrid-root css-vj1n65-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+            class="MuiGrid-root css-vj1n65-MuiGrid-root"
           >
             <button
               class="MuiButtonBase-root css-qtrzli-MuiButtonBase-root"
@@ -41,13 +41,13 @@ exports[`<NavBar /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1hv51sv-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1au5hzx-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+            class="MuiGrid-root css-vj1n65-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+            class="MuiGrid-root css-vj1n65-MuiGrid-root"
           >
             <nav
               class="MuiBox-root css-1a9getn"

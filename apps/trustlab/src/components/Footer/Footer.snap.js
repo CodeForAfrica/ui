@@ -9,31 +9,31 @@ exports[`<Footer /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-iz79el-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-14ng730-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-irkpuv-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-24 MuiGrid-grid-md-15 MuiGrid-grid-lg-16 css-arew62-MuiGrid-root"
+          class="MuiGrid-root css-ikn0lo-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row css-1ck2tg7-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-container css-irkpuv-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-e9u556-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container css-1sej7rl-MuiGrid-root"
             >
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-17fpwt7-MuiGrid-root"
+                class="MuiGrid-root css-vj1n65-MuiGrid-root"
               />
               <div
-                class="MuiGrid-root MuiGrid-direction-xs-row css-yuwirm-MuiGrid-root"
+                class="MuiGrid-root css-aq03kz-MuiGrid-root"
               />
             </div>
             <div
-              class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-yovsja-MuiGrid-root"
+              class="MuiGrid-root css-27hxw2-MuiGrid-root"
             />
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-24 MuiGrid-grid-md-auto css-pnc889-MuiGrid-root"
+          class="MuiGrid-root css-trpmje-MuiGrid-root"
         />
       </div>
     </div>
