@@ -55,6 +55,7 @@ const link = ({
         defaultValue,
         admin: {
           hidden: disableLinkTypeSelection,
+          width: "30%",
         },
       },
     ],
@@ -63,6 +64,12 @@ const link = ({
   const linkTypes = [
     {
       type: "row",
+      admin: {
+        // Looks like nested rows do not respect the admin.width config. This style replicates the style given to the field if given an admin.width config
+        style: {
+          "--field-width": "40%",
+        },
+      },
       fields: [
         {
           name: "doc",
@@ -107,6 +114,12 @@ const link = ({
     labelFields = [
       {
         type: "row",
+        admin: {
+          // Looks like nested rows do not respect the admin.width config. This style replicates the style given to the field if given an admin.width config
+          style: {
+            "--field-width": "30%",
+          },
+        },
         fields: [
           {
             name: "label",
