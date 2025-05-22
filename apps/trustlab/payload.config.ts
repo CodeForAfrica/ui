@@ -2,6 +2,7 @@ import sharp from "sharp";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import type { NodemailerAdapterArgs } from "@payloadcms/email-nodemailer";
 import { buildConfig, CollectionConfig, GlobalConfig } from "payload";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -24,10 +25,10 @@ const csrf =
     .map((d) => d.trim())
     .filter(Boolean) ?? [];
 
-let email = nodemailerAdapter();
+let nodemailerAdapterArgs: NodemailerAdapterArgs | undefined;
 if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
   const smtpPort = Number(process.env.SMTP_PORT) || 587;
-  email = nodemailerAdapter({
+  nodemailerAdapterArgs = {
     defaultFromAddress:
       process.env.SMTP_FROM_ADDRESS || "noreply@trustlab.africa",
     defaultFromName: process.env.SENDGRID_FROM_NAME || "TrustLab CMS",
@@ -41,8 +42,9 @@ if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
         pass: process.env.SMTP_PASS,
       },
     },
-  });
+  };
 }
+const email = nodemailerAdapter(nodemailerAdapterArgs);
 
 export default buildConfig({
   admin: {
@@ -77,6 +79,7 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET || "",
   serverURL: process.env.NEXT_PUBLIC_APP_URL,
   sharp,
+  telemetry: process.env.NEXT_TELEMETRY_DISABLED === "0",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },

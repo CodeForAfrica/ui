@@ -73,7 +73,7 @@ jobs:
 
       - name: Build Docker image
         if: steps.version-check.outputs.changed == 'true'
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGODB_URL }}
