@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NewsletterSubscription /> renders unchanged 1`] = `
+exports[`<HTMLEmbed /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiStack-root css-gpx285-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-body1 css-wz3p6x-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-body1 css-1qowh4e-MuiTypography-root"
     >
       
           
