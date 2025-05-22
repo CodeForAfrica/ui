@@ -1,11 +1,17 @@
-import { NextImageButton } from "@commons-ui/next";
 import { Grid, Box } from "@mui/material";
 import React from "react";
 
-import NavBarNavList from "@/trustlab/components/NavBarNavList";
+import NavBarNavList from "@/commons-ui/core/NavBarNavList";
 
 const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
-  const { logo, menus, socialLinks, sx } = props;
+  const {
+    logo,
+    menus,
+    socialLinks,
+    sx,
+    NextImageButton = React.Fragment,
+    Link = React.Fragment,
+  } = props;
 
   return (
     <Grid
@@ -15,7 +21,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
       sx={sx}
       ref={ref}
     >
-      <Grid>
+      <Grid item>
         <NextImageButton
           {...logo}
           href="/"
@@ -25,12 +31,13 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
           priority
         />
       </Grid>
-      <Grid>
+      <Grid item>
         <Box component="nav" sx={{ justifyContent: "flex-end" }}>
           <NavBarNavList
             menus={menus}
             socialLinks={socialLinks}
             direction="row"
+            Component={Link}
           />
         </Box>
       </Grid>

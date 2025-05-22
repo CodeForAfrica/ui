@@ -11,6 +11,52 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   const { connect, description, newsletter, primaryMenus, secondaryMenus } =
     props;
 
+  const htmlEmbedStyles = (theme) => ({
+    "& #mc_embed_signup": {
+      typography: "body1",
+      backgroundColor: "unset",
+      color: "inherit",
+      width: "100%",
+    },
+    "& #mc_embed_signup input[type=text], & #mc_embed_signup input[type=email]":
+      {
+        typography: "body1",
+        border: "1px solid #D0CBCB",
+        borderRadius: 0,
+        display: "flex",
+        height: theme.typography.pxToRem(36),
+        marginTop: 0,
+        marginBottom: theme.typography.pxToRem(30),
+        outline: "none",
+        padding: `0 ${theme.typography.pxToRem(12)}`,
+        width: "100%",
+      },
+    "& #mc_embed_signup input::placeholder": {
+      color: "#D0CBCB",
+      opacity: 1.0,
+      WebkitTextFillColor: "#D0CBCB",
+    },
+    "& #mc_embed_signup input:focus,  #mc_embed_signup textarea:focus": {
+      border: `1px solid ${theme.palette?.primary?.main}`,
+    },
+    "& #mc_embed_signup input:active,  #mc_embed_signup textarea:active": {
+      border: `1px solid ${theme.palette?.highlight?.main}`,
+    },
+    "& #mc_embed_signup input[type=submit]": {
+      typography: "subtitle1",
+      background: "none",
+      border: `1px solid ${theme.palette?.text?.secondary}`,
+      color: "inherit",
+      padding: `${theme.typography.pxToRem(6)} ${theme.typography.pxToRem(12)}`,
+      textDecoration: "none",
+    },
+    "& #mc_embed_signup input[type=submit]:hover": {
+      cursor: "pointer",
+      background: theme.palette?.text?.secondary,
+      color: theme.palette?.text?.primary,
+    },
+  });
+
   return (
     <Box
       sx={({ palette }) => ({
@@ -24,38 +70,35 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {/* Increase number of columns to getter columns size */}
-        <Grid
-          container
-          sx={{ flexGrow: 1, width: "100%" }}
-          columns={24}
-          justifyContent="space-between"
-        >
+        <Grid container columns={24} justifyContent="space-between">
           <Grid
-            size={{
-              xs: 24,
-              md: 15,
-              lg: 16,
+            item
+            xs={24}
+            md={15}
+            lg={16}
+            sx={{
+              order: { xs: 1, md: 0 },
             }}
-            order={{ xs: 1, md: 0 }}
           >
-            <Grid
-              container
-              sx={{ flexGrow: 1, width: "100%" }}
-              justifyContent="space-between"
-            >
+            <Grid container justifyContent="space-between">
               <Grid
-                size={{ xs: 12, md: "auto" }}
+                item
+                xs={12}
+                md="auto"
                 container
+                direction="column"
                 sx={{
-                  width: "100%",
-                  flexGrow: 1,
                   maxWidth: { xs: "none", md: "337px" },
                 }}
               >
-                <Grid>
-                  <FooterDescription description={description} logo={null} />
+                <Grid item>
+                  <FooterDescription
+                    description={description}
+                    logo={null}
+                    sx={{ mt: { xs: 10, md: 0 } }}
+                  />
                 </Grid>
-                <Grid sx={{ width: { xs: "100%", md: "auto" } }}>
+                <Grid item>
                   <StayInTouch
                     {...connect}
                     LinkProps={{ component: Link }}
@@ -64,15 +107,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   />
                 </Grid>
               </Grid>
-              <Grid
-                size={{
-                  xs: 12,
-                }}
-                sx={{
-                  width: { xs: "100%", md: "auto" },
-                  pl: { xs: 0, md: 40 },
-                }}
-              >
+              <Grid item xs={12} md="auto">
                 <FooterLinks
                   primaryMenus={primaryMenus}
                   secondaryMenus={secondaryMenus}
@@ -81,15 +116,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               </Grid>
             </Grid>
           </Grid>
-          <Grid
-            size={{
-              xs: 24,
-              md: "auto",
-            }}
-            order={{ xs: 0, md: 1 }}
-            sx={{ width: { xs: "100%", md: "auto" } }}
-          >
-            <HTMLEmbed {...newsletter} />
+          <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
+            <HTMLEmbed htmlEmbedStyles={htmlEmbedStyles} {...newsletter} />
           </Grid>
         </Grid>
       </Section>

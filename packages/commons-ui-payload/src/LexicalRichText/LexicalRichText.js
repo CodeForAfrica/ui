@@ -11,7 +11,7 @@ export const jsxConverters =
     ...styleConverter(converterProps),
   });
 
-const RichText = forwardRef(function RichText(props, ref) {
+const LexicalRichText = forwardRef(function LexicalRichText(props, ref) {
   const { elements, ...others } = props;
   const converters = jsxConverters(others);
 
@@ -22,4 +22,4 @@ const RichText = forwardRef(function RichText(props, ref) {
   );
 });
 
-export default RichText;
+export default LexicalRichText;

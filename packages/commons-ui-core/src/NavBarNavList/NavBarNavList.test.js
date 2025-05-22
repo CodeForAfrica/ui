@@ -1,11 +1,7 @@
-import { createRender } from "@commons-ui/testing-library";
+import { render } from "@commons-ui/testing-library";
 import React from "react";
 
 import NavBarNavList from ".";
-
-import theme from "@/trustlab/theme";
-
-const render = createRender({ theme });
 
 const defaultProps = {
   menus: [
@@ -40,6 +36,7 @@ const defaultProps = {
       platform: "Twitter",
     },
   ],
+  Component: "a",
 };
 
 describe("<NavBarNavList />", () => {

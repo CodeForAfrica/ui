@@ -31,7 +31,7 @@ const defaultProps = {
     `,
 };
 
-describe("<NewsletterSubscription />", () => {
+describe("<HTMLEmbed />", () => {
   it("renders unchanged", () => {
     const { container } = render(<HTMLEmbed {...defaultProps} />);
     expect(container).toMatchSnapshot();

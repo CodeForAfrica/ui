@@ -16,10 +16,10 @@ exports[`<NavBar /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root css-vj1n65-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root css-vj1n65-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <button
               class="MuiButtonBase-root css-qtrzli-MuiButtonBase-root"
@@ -44,10 +44,10 @@ exports[`<NavBar /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-container css-1au5hzx-MuiGrid-root"
         >
           <div
-            class="MuiGrid-root css-vj1n65-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           />
           <div
-            class="MuiGrid-root css-vj1n65-MuiGrid-root"
+            class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
           >
             <nav
               class="MuiBox-root css-1a9getn"

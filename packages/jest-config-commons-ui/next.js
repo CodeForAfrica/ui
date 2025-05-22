@@ -15,10 +15,6 @@ module.exports = {
     "server-only": `<rootDir>/__mocks__/empty.js`,
   },
   testPathIgnorePatterns: [...testPathIgnorePatterns, "<rootDir>/.next/"],
-  transformIgnorePatterns: [
-    ...defaultConfig.transformIgnorePatterns,
-    "<rootDir>/node_modules/@payloadcms/richtext-lexical/react",
-  ],
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object

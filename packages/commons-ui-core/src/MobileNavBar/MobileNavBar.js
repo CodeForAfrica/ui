@@ -1,4 +1,3 @@
-import { NextImageButton } from "@commons-ui/next";
 import {
   Dialog,
   DialogContent,
@@ -7,34 +6,24 @@ import {
   Slide,
   SvgIcon,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import React from "react";
 
-// eslint-disable-next-line import/no-unresolved
-import menuIcon from "@/trustlab/assets/icons/menu-icon.svg?url";
-import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
-import NavBarNavList from "@/trustlab/components/NavBarNavList";
-
-const DialogContainer = styled(Dialog)(({ theme: { palette, spacing } }) => ({
-  "& .MuiDialog-container": {
-    height: "100%",
-  },
-  "& .MuiBackdrop-root": {
-    background: "transparent",
-  },
-  "& .MuiDialogContent-root": {
-    padding: spacing(5),
-    color: palette.text.secondary,
-    background: palette.primary.main,
-  },
-}));
+import NavBarNavList from "@/commons-ui/core/NavBarNavList";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { logo, menus, socialLinks, sx } = props;
+  const {
+    logo,
+    menus,
+    socialLinks,
+    sx,
+    CloseIcon,
+    menuIcon,
+    NextImageButton = React.Fragment,
+  } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -52,7 +41,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       sx={sx}
       ref={ref}
     >
-      <Grid>
+      <Grid item>
         <NextImageButton
           {...logo}
           href="/"
@@ -62,7 +51,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           priority
         />
       </Grid>
-      <Grid>
+      <Grid item>
         <NextImageButton
           src={menuIcon}
           alt="menu icon"
@@ -70,12 +59,25 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           width={32}
           height={32}
         />
-        <DialogContainer
+        <Dialog
           fullScreen
           onClose={handleClose}
           TransitionComponent={Transition}
           aria-labelledby="mobile-navbar-dialog"
           open={open}
+          sx={({ palette, spacing }) => ({
+            "& .MuiDialog-container": {
+              height: "100%",
+            },
+            "& .MuiBackdrop-root": {
+              background: "transparent",
+            },
+            "& .MuiDialogContent-root": {
+              padding: spacing(5),
+              color: palette.text.secondary,
+              background: palette.primary.main,
+            },
+          })}
         >
           <DialogContent
             id="mobile-navbar-dialog"
@@ -104,7 +106,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               />
             </IconButton>
           </DialogContent>
-        </DialogContainer>
+        </Dialog>
       </Grid>
     </Grid>
   );

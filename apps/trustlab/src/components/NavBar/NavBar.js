@@ -1,8 +1,15 @@
-import { NavBar as NavigationBar, Section } from "@commons-ui/core";
+import {
+  NavBar as NavigationBar,
+  Section,
+  DesktopNavBar,
+  MobileNavBar,
+} from "@commons-ui/core";
+import { Link, NextImageButton } from "@commons-ui/next";
 import React from "react";
 
-import DesktopNavBar from "@/trustlab/components/DesktopNavBar";
-import MobileNavBar from "@/trustlab/components/MobileNavBar";
+// eslint-disable-next-line import/no-unresolved
+import menuIcon from "@/trustlab/assets/icons/menu-icon.svg?url";
+import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (
@@ -12,6 +19,10 @@ function NavBar({ logo, menus, socialLinks }) {
           logo={logo}
           menus={menus}
           socialLinks={socialLinks}
+          menuIcon={menuIcon}
+          CloseIcon={CloseIcon}
+          NextImageButton={NextImageButton}
+          Link={Link}
           sx={{
             display: { xs: "flex", md: "none" },
           }}
@@ -20,6 +31,8 @@ function NavBar({ logo, menus, socialLinks }) {
           logo={logo}
           menus={menus}
           socialLinks={socialLinks}
+          NextImageButton={NextImageButton}
+          Link={Link}
           sx={{
             display: { xs: "none", md: "flex" },
           }}

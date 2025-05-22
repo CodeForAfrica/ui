@@ -1,9 +1,18 @@
-import { NavList, NavListItem, SocialMediaIconLink } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
 import React from "react";
 
+import NavList from "@/commons-ui/core/NavList";
+import NavListItem from "@/commons-ui/core/NavListItem";
+import SocialMediaIconLink from "@/commons-ui/core/SocialMediaIconLink";
+
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
-  const { NavListItemProps, direction, menus, socialLinks, ...other } = props;
+  const {
+    NavListItemProps,
+    direction,
+    menus,
+    socialLinks,
+    Component,
+    ...other
+  } = props;
 
   if (!menus?.length) {
     return null;
@@ -18,7 +27,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
             mr: { xs: 0, md: 2.5 },
           }}
         >
-          <Link
+          <Component
             color="inherit"
             underline="none"
             // in mobile h3 = h4 in desktop
@@ -35,14 +44,14 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
             }}
           >
             {item.label}
-          </Link>
+          </Component>
         </NavListItem>
       ))}
       {socialLinks?.map(({ platform, url }) => {
         return (
           <NavListItem key={platform}>
             <SocialMediaIconLink
-              component={Link}
+              component={Component}
               href={url}
               platform={platform}
               IconProps={{
