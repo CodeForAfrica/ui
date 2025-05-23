@@ -50,14 +50,13 @@
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
-    "@eslint/eslintrc": "catalog:",
     "@testing-library/react": "catalog:",
     "@svgr/webpack": "catalog:",
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "eslint-config-next": "catalog:",
-    "eslint-import-resolver-babel-module": "catalog:",
+    "eslint-import-resolver-webpack": "catalog:",
+    "eslint-plugin-import": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
     "playwright-config-commons-ui": "workspace:*"

@@ -7,9 +7,9 @@ import {
 import { Link, NextImageButton } from "@commons-ui/next";
 import React from "react";
 
-// eslint-disable-next-line import/no-unresolved
-import menuIcon from "@/trustlab/assets/icons/menu-icon.svg?url";
 import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+// eslint-disable-next-line import/no-unresolved
+import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (

@@ -1,5 +1,4 @@
 import { deepmerge } from "@mui/utils";
-// eslint-disable-next-line import/no-unresolved
 import { text } from "payload/shared";
 
 function url({ overrides = undefined } = {}) {
