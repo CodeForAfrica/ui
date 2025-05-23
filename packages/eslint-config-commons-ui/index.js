@@ -82,6 +82,7 @@ module.exports = [
     },
 
     rules: {
+      curly: ["error", "all"],
       "import/order": [
         "error",
         {
