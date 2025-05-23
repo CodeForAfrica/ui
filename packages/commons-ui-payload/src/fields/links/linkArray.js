@@ -12,9 +12,6 @@ function linkArray(args) {
     fields: [link(linkConfig)],
     admin: {
       initCollapsed: true,
-      components: {
-        RowLabel: "@/trustlab/payload/components/RowLabel",
-      },
     },
   };
 

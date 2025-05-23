@@ -1,0 +1,13 @@
+@import "~@payloadcms/ui/scss";
+
+.array-field-nested,
+.group-field-nested {
+  .array-field__header,
+  .group-field__header {
+    h3 {
+      @extend %body;
+      color: var(--theme-elevation-800);
+      font-family: var(--font-body);
+    }
+  }
+}
