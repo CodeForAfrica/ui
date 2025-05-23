@@ -33,7 +33,6 @@ export async function GET(
   }
 
   let authResult;
-
   try {
     authResult = await payload.auth({
       req: req as unknown as PayloadRequest,
@@ -44,30 +43,14 @@ export async function GET(
       { err: error },
       "Error verifying token for live preview",
     );
+  }
+  if (!(authResult && canManageContent(authResult?.user))) {
     return new Response("You are not allowed to preview this page", {
       status: 403,
     });
   }
 
   const draft = await draftMode();
-
-  if (!authResult) {
-    draft.disable();
-    return new Response("You are not allowed to preview this page", {
-      status: 403,
-    });
-  }
-
-  const user = authResult.user || authResult;
-
-  if (canManageContent(user)) {
-    draft.enable();
-  } else {
-    draft.disable();
-    return new Response("You are not allowed to preview this page", {
-      status: 403,
-    });
-  }
-
+  draft.enable();
   redirect(path);
 }

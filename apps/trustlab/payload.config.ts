@@ -12,7 +12,7 @@ import plugins from "@/trustlab/payload/plugins";
 import Pages from "@/trustlab/payload/collections/Pages";
 import SiteSettings from "@/trustlab/payload/globals";
 import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
-import Posts from "@/trustlab/payload/collections/Post";
+import Posts from "@/trustlab/payload/collections/Posts";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 

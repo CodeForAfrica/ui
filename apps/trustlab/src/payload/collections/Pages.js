@@ -11,7 +11,6 @@ const Pages = {
     create: ({ req: { user } }) => canManagePages(user),
     update: ({ req: { user } }) => canManagePages(user),
     delete: ({ req: { user } }) => canManagePages(user),
-    admin: ({ req: { user } }) => canManagePages(user),
   },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt", "_status"],
@@ -25,14 +24,6 @@ const Pages = {
       });
 
       return `${process.env.NEXT_PUBLIC_APP_URL}/preview?${encodedParams.toString()}`;
-    },
-    components: {
-      edit: {
-        PublishButton:
-          "@/trustlab/payload/components/PagesPublishButton#PagesPublishButton",
-        PreviewButton:
-          "@/trustlab/payload/components/PagesPreviewButton#PagesPreviewButton",
-      },
     },
   },
   fields: [
