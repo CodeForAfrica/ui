@@ -4,7 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import PropTypes from "prop-types";
-import * as React from "react";
+import React from "react";
 
 const NavBarRoot = styled(AppBar, {
   name: "CuiNavBar",
@@ -29,11 +29,6 @@ const NavBar = React.forwardRef(function NavBar(
 NavBar.propTypes = {
   children: PropTypes.node,
   ToolbarProps: PropTypes.shape({}),
-};
-
-NavBar.defaultProps = {
-  children: undefined,
-  ToolbarProps: undefined,
 };
 
 export default NavBar;

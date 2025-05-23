@@ -2,7 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/commons-ui/payload/*": ["./src/*"]
+      "@/commons-ui/payload/*": ["./src/*"],
+      "@payloadcms/richtext-lexical/react": [
+        "node_modules/@payloadcms/richtext-lexical/dist/exports/react/index.js"
+      ],
+      "payload/shared": ["node_modules/payload/dist/exports/shared.js"]
     }
   },
   "exclude": ["node_modules"]

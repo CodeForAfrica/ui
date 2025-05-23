@@ -1,5 +1,4 @@
 import { deepmerge } from "@mui/utils";
-// eslint-disable-next-line import/no-unresolved
 import { select } from "payload/shared";
 
 import url from "@/commons-ui/payload/fields/url";
@@ -54,7 +53,7 @@ function socialLinks(overrides = {}) {
             options = socialMediaOptions,
             required = true,
           } = args;
-          return select(val, { hasMany, options, required, t });
+          return select(val, { ...args, hasMany, options, required });
         },
       },
       url({

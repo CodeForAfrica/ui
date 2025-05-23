@@ -129,7 +129,7 @@ const theme = createTheme({
     body3: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 400,
+      fontWeight: 700,
     },
     button: {
       fontFamily: FONT_FAMILY_PRIMARY,

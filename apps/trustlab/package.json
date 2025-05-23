@@ -21,8 +21,8 @@
     "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
-    "@mui/material": "catalog:mui-v7",
-    "@mui/utils": "catalog:mui-v7",
+    "@mui/material": "catalog:",
+    "@mui/utils": "catalog:",
     "@next/third-parties": "catalog:",
     "@payloadcms/admin-bar": "catalog:payload-v3",
     "@payloadcms/db-mongodb": "catalog:payload-v3",
@@ -50,16 +50,15 @@
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
-    "@eslint/eslintrc": "catalog:",
+    "@testing-library/react": "catalog:",
     "@svgr/webpack": "catalog:",
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "eslint-config-next": "catalog:",
-    "eslint-import-resolver-babel-module": "catalog:",
+    "eslint-import-resolver-webpack": "catalog:",
+    "eslint-plugin-import": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "playwright-config-commons-ui": "workspace:*",
-    "@testing-library/react": "catalog:"
+    "playwright-config-commons-ui": "workspace:*"
   }
 }

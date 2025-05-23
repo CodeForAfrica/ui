@@ -1,12 +1,16 @@
 import { NextSeo } from "next-seo";
 import React from "react";
 
-function Page({ children, seo }) {
+import Footer from "@/trustlab/components/Footer";
+import NavBar from "@/trustlab/components/NavBar";
+
+function Page({ children, seo, navbar, footer }) {
   return (
     <>
       <NextSeo {...seo} />
-      {/* TODO: Add Navbar and footer */}
+      {navbar ? <NavBar {...navbar} /> : null}
       {children ? <main>{children}</main> : null}
+      {footer ? <Footer {...footer} /> : null}
     </>
   );
 }

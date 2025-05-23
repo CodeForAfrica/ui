@@ -37,6 +37,7 @@
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
+    "@payloadcms/richtext-lexical": "catalog:payload-v3",
     "@types/react": "catalog:",
     "babel-loader": "catalog:",
     "eslint": "catalog:",
