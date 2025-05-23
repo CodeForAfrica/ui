@@ -63,91 +63,74 @@ const link = ({
 
   const linkTypes = [
     {
-      type: "row",
-      admin: {
-        // Looks like nested rows do not respect the admin.width config. This style replicates the style given to the field if given an admin.width config
-        style: {
-          "--field-width": "40%",
-        },
+      name: "doc",
+      label: {
+        en: "Document to link to",
       },
-      fields: [
-        {
-          name: "doc",
-          label: {
-            en: "Document to link to",
-          },
-          type: "relationship",
-          relationTo: ["pages"],
-          required,
-          maxDepth: 1,
-          admin: {
-            condition: (_, siblingData) => siblingData?.linkType === "internal",
-          },
-        },
-        {
-          name: "url",
-          label: {
-            en: "Custom URL",
-          },
-          type: "text",
-          required,
-          admin: {
-            condition: (_, siblingData) => siblingData?.linkType === "custom",
-          },
-        },
-        {
-          name: "href",
-          type: "text",
-          required,
-          admin: {
-            hidden: true,
-          },
-          hooks: {
-            beforeValidate: [mapLinkToHrefBeforeValidate],
-          },
-        },
-      ],
+      type: "relationship",
+      relationTo: ["pages"],
+      required,
+      maxDepth: 1,
+      admin: {
+        condition: (_, siblingData) => siblingData?.linkType === "internal",
+        width: disableOpenInNewTab ? "40%" : "30%",
+      },
+    },
+    {
+      name: "url",
+      label: {
+        en: "Custom URL",
+      },
+      type: "text",
+      required,
+      admin: {
+        condition: (_, siblingData) => siblingData?.linkType === "custom",
+        width: disableOpenInNewTab ? "40%" : "30%",
+      },
+    },
+    {
+      name: "href",
+      type: "text",
+      required,
+      admin: {
+        hidden: true,
+      },
+      hooks: {
+        beforeValidate: [mapLinkToHrefBeforeValidate],
+      },
     },
   ];
   let labelFields = [];
   if (!disableLabel) {
     labelFields = [
       {
-        type: "row",
-        admin: {
-          // Looks like nested rows do not respect the admin.width config. This style replicates the style given to the field if given an admin.width config
-          style: {
-            "--field-width": "30%",
-          },
+        name: "label",
+        label: {
+          en: "Label",
+          pt: "Rótulo",
         },
-        fields: [
-          {
-            name: "label",
-            label: {
-              en: "Label",
-              pt: "Rótulo",
-            },
-            type: "text",
-            required,
-            localized: true,
-          },
-        ],
+        type: "text",
+        required,
+        localized: true,
+        admin: {
+          width: "30%",
+        },
       },
     ];
   }
   linkResult.fields = [...labelFields, ...linkResult.fields, ...linkTypes];
   if (!disableOpenInNewTab) {
     linkResult.fields.push({
-      type: "row",
-      fields: [
-        {
-          name: "newTab",
-          label: {
-            en: "Open in new tab",
-          },
-          type: "checkbox",
+      name: "newTab",
+      label: {
+        en: "Open in new tab",
+      },
+      type: "checkbox",
+      admin: {
+        style: {
+          alignSelf: "flex-end",
         },
-      ],
+      },
     });
   }
 
