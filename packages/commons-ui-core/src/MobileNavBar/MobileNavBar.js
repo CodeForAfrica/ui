@@ -23,6 +23,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
     CloseIcon,
     menuIcon,
     NextImageButton = React.Fragment,
+    Link = "a",
   } = props;
   const [open, setOpen] = React.useState(false);
 
@@ -95,6 +96,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               menus={menus}
               socialLinks={socialLinks}
               NavListItemProps={{ onClick: handleClose }}
+              Component={Link}
             />
             <IconButton color="inherit" onClick={handleClose} sx={{ p: 0 }}>
               <SvgIcon
