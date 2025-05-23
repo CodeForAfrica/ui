@@ -2,6 +2,9 @@ import { checkRole } from "./checkRole";
 import { ROLE_ADMIN, ROLE_AUTHOR, ROLE_EDITOR } from "./roles";
 
 export const canManageContent = (user) => {
+  if (!user) {
+    return false;
+  }
   // Admin and editors can manage any content
   if (checkRole([ROLE_ADMIN, ROLE_EDITOR], user)) {
     return true;
