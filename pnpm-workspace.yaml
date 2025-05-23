@@ -221,9 +221,6 @@ catalogs:
     "@mui/styles": ^5.16.6
     "@mui/utils": ^5.16.6
     "@mui/private-theming": ^5.16.6
-  mui-v7:
-    "@mui/material": ^7.1.0
-    "@mui/utils": ^7.1.0
   payload-v3:
     graphql: ^16.11.0
     payload: ^3.39.0
