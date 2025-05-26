@@ -1,11 +1,11 @@
 import { render } from "@commons-ui/testing-library";
 import React from "react";
 
-import DesktopNavigation from ".";
+import DesktopNavBar from "./DesktopNavBar";
 
-describe("<DesktopNavigation />", () => {
+describe("<DesktopNavBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<DesktopNavigation />);
+    const { container } = render(<DesktopNavBar />);
     expect(container).toMatchSnapshot();
   });
 });

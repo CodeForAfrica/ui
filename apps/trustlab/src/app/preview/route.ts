@@ -5,6 +5,7 @@ import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 
 import configPromise from "@payload-config";
+import { canManageContent } from "@/trustlab/payload/access/abilities";
 
 export async function GET(
   req: {
@@ -31,10 +32,9 @@ export async function GET(
     );
   }
 
-  let user;
-
+  let authResult;
   try {
-    user = await payload.auth({
+    authResult = await payload.auth({
       req: req as unknown as PayloadRequest,
       headers: req.headers,
     });
@@ -43,23 +43,14 @@ export async function GET(
       { err: error },
       "Error verifying token for live preview",
     );
+  }
+  if (!(authResult && canManageContent(authResult?.user))) {
     return new Response("You are not allowed to preview this page", {
       status: 403,
     });
   }
 
   const draft = await draftMode();
-
-  if (!user) {
-    draft.disable();
-    return new Response("You are not allowed to preview this page", {
-      status: 403,
-    });
-  }
-
-  //TODO: Add further checks to ensure the user is allowed to preview this page
-
   draft.enable();
-
   redirect(path);
 }
