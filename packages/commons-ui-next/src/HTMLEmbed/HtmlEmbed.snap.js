@@ -130,3 +130,4 @@ exports[`<HtmlEmbed /> renders unchanged 1`] = `
   </div>
 </div>
 `;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
