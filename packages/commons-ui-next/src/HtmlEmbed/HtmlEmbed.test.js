@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import HTMLEmbed from "./HTMLEmbed";
+import HtmlEmbed from "./HtmlEmbed";
 
 const render = createRender();
 
@@ -31,9 +31,9 @@ const defaultProps = {
     `,
 };
 
-describe("<HTMLEmbed />", () => {
+describe("<HtmlEmbed />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<HTMLEmbed {...defaultProps} />);
+    const { container } = render(<HtmlEmbed {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

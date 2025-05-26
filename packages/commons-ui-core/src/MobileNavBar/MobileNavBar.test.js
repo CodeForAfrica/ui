@@ -1,11 +1,11 @@
 import { render } from "@commons-ui/testing-library";
 import React from "react";
 
-import MobileNavigation from "./MobileNavBar";
+import MobileNavBar from "./MobileNavBar";
 
-describe("<MobileNavigation />", () => {
+describe("<MobileNavBar />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<MobileNavigation />);
+    const { container } = render(<MobileNavBar />);
     expect(container).toMatchSnapshot();
   });
 });

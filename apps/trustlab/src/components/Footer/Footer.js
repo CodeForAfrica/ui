@@ -1,5 +1,5 @@
 import { Section, StayInTouch } from "@commons-ui/core";
-import { Link, HTMLEmbed } from "@commons-ui/next";
+import { Link, HtmlEmbed } from "@commons-ui/next";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
@@ -117,7 +117,10 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             </Grid>
           </Grid>
           <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
-            <HTMLEmbed htmlEmbedStyles={htmlEmbedStyles} {...newsletter} />
+            <HtmlEmbed
+              EmbedCodeProps={{ sx: htmlEmbedStyles }}
+              {...newsletter}
+            />
           </Grid>
         </Grid>
       </Section>
