@@ -32,12 +32,12 @@ const nextConfig = {
       {
         test: /\.svg$/i,
         type: "asset",
-        resourceQuery: /url/, // *.svg?url
+        include: /node_modules/, // Handle all SVGs from node_modules as assets
       },
       {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        exclude: /node_modules/, // Handle project SVGs as React components
         use: ["@svgr/webpack"],
       },
     );
