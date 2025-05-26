@@ -3,10 +3,40 @@ import { SWRConfig } from "swr";
 
 import RefreshRouteOnSave from "@/trustlab/components/PayloadLivePreview";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
+import Hero from "@/trustlab/components/Hero";
 
-const componentsBySlugs = {};
+const componentsBySlugs = {
+  "our-hero": Hero,
+};
 
-function Page({ blocks, fallback }) {
+const slides = [
+  {
+    title: "Slide 1",
+    subtitle: "Subtitle 1",
+    description: "Description 1",
+    backgroundImage: "",
+    buttonText: "Explore our Resources",
+    buttonLink: "/",
+  },
+  {
+    title: "Slide 2",
+    subtitle: "Subtitle 2",
+    description: "Description 2",
+    backgroundImage: "",
+    buttonText: "Explore our Resources",
+    buttonLink: "/",
+  },
+  {
+    title: "Slide 3",
+    subtitle: "Subtitle 3",
+    description: "Description 3",
+    backgroundImage: "",
+    buttonText: "Explore our Resources",
+    buttonLink: "/",
+  },
+];
+
+function Page({ blocks = [{ slug: "our-hero", slides }], fallback }) {
   if (!blocks?.length) {
     return null;
   }
@@ -19,7 +49,7 @@ function Page({ blocks, fallback }) {
   }
   return (
     <PageComponent {...pageComponentProps}>
-      <RefreshRouteOnSave />
+      {/* <RefreshRouteOnSave /> */}
       {blocks.map((block) => {
         const Component = componentsBySlugs[block.slug];
         if (!Component) {
