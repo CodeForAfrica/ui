@@ -33,7 +33,9 @@ const defaultProps = {
 
 describe("<HtmlEmbed />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<HtmlEmbed {...defaultProps} />);
+    const { container } = render(
+      <HtmlEmbed {...defaultProps}>Some Embed Code</HtmlEmbed>,
+    );
     expect(container).toMatchSnapshot();
   });
 });
