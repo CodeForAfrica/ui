@@ -110,7 +110,7 @@ function Hero({ slides }) {
             px: { xs: 2.5, sm: 6, md: 0 },
           }}
         >
-          <Box sx={{ position: "absolute", top: { sm: 312, xs: 400 } }}>
+          <Box sx={{ position: "absolute", top: { sm: 336, xs: 400 } }}>
             {slides.map((_, index) => (
               <Button
                 key={slides[index].title}
