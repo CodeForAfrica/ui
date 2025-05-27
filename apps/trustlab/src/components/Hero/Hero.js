@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import { Box, Typography, Button } from "@mui/material";
 import { Section } from "@commons-ui/core";
-import { Slide } from "@mui/material";
 import { Link } from "@commons-ui/next";
+import { LexicalRichText } from "@commons-ui/payload";
+import { Slide, Box, Button } from "@mui/material";
+import React, { useState } from "react";
 
-const Hero = ({ slides }) => {
+function Hero({ slides }) {
   const [activeStep, setActiveStep] = useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % slides.length);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) =>
-      prevActiveStep === 0 ? slides.length - 1 : prevActiveStep - 1,
-    );
-  };
-
+  if (!slides || !slides.length) {
+    return null;
+  }
   return (
     <Box bgcolor="common.black" color="common.white">
       <Box
@@ -29,8 +21,8 @@ const Hero = ({ slides }) => {
       >
         {slides.map((slide, index) => (
           <Slide
-            key={index}
-            direction={"left"}
+            key={slide.id}
+            direction="left"
             in={activeStep === index}
             mountOnEnter
             unmountOnExit
@@ -44,58 +36,71 @@ const Hero = ({ slides }) => {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                backgroundImage: slide.backgroundImage
-                  ? `url(${slide.backgroundImage})`
+                backgroundImage: slide.backgroundImage?.url
+                  ? `url(${slide.backgroundImage?.url})`
                   : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 color: "#fff",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
+              }}
+            >
+              <Box
+                sx={{
                   width: "100%",
                   height: "100%",
                   backgroundColor: "rgba(0, 0, 0, 0.8)",
                   pointerEvents: "none",
                   zIndex: 1,
-                },
-              }}
-            >
-              <Section
-                sx={{
-                  mt: 10,
-                  px: { xs: 2.5, sm: 0 },
                 }}
               >
-                <Typography variant="display1" gutterBottom>
-                  {slide.title}
-                </Typography>
-                <Typography variant="h3" gutterBottom>
-                  {slide.subtitle}
-                </Typography>
-                <Typography variant="subtitle1" sx={{ mt: 2 }}>
-                  {slide.description}
-                </Typography>
-                {slide.buttonText && (
-                  <Button
-                    component={slide.buttonLink ? Link : undefined}
-                    href={slide.buttonLink}
-                    variant="outlined"
-                    sx={{
-                      backgroundColor: "common.white",
-                      color: "#463E3E",
-                      border: "none",
-                      "&:hover": {
-                        transform: "scale(0.95)",
-                      },
+                <Section
+                  sx={{
+                    pt: 10,
+                    px: { xs: 2.5, sm: 0 },
+                  }}
+                >
+                  <LexicalRichText
+                    elements={slide.title}
+                    TypographyProps={{
+                      variant: "display1",
+                      gutterBottom: true,
                     }}
-                  >
-                    {slide.buttonText}
-                  </Button>
-                )}
-              </Section>
+                  />
+                  <LexicalRichText
+                    elements={slide.subtitle}
+                    TypographyProps={{
+                      variant: "h3",
+                      gutterBottom: true,
+                    }}
+                  />
+                  <LexicalRichText
+                    elements={slide.description}
+                    TypographyProps={{
+                      variant: "subtitle1",
+                      sx: { mt: 2 },
+                    }}
+                  />
+
+                  {slide.href && (
+                    <Button
+                      component={slide.href ? Link : undefined}
+                      href={slide.href}
+                      variant="outlined"
+                      sx={{
+                        backgroundColor: "common.white",
+                        color: "#463E3E",
+                        border: "none",
+                        mt: 2,
+                        "&:hover": {
+                          transform: "scale(0.95)",
+                        },
+                      }}
+                    >
+                      {slide.label}
+                    </Button>
+                  )}
+                </Section>
+              </Box>
             </Box>
           </Slide>
         ))}
@@ -105,7 +110,7 @@ const Hero = ({ slides }) => {
             px: { xs: 2.5, sm: 6, md: 0 },
           }}
         >
-          <Box sx={{ position: "absolute", top: 312 }}>
+          <Box sx={{ position: "absolute", top: { sm: 312, xs: 400 } }}>
             {slides.map((_, index) => (
               <Button
                 key={slides[index].title}
@@ -128,6 +133,6 @@ const Hero = ({ slides }) => {
       </Box>
     </Box>
   );
-};
+}
 
 export default Hero;
