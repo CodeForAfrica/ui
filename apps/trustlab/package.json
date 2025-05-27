@@ -39,26 +39,26 @@
     "@sentry/nextjs": "catalog:",
     "cross-env": "catalog:",
     "graphql": "catalog:payload-v3",
-    "next": "catalog:",
     "next-seo": "catalog:",
+    "next": "catalog:",
     "payload": "catalog:payload-v3",
-    "react": "catalog:",
     "react-dom": "catalog:",
+    "react": "catalog:",
     "require-in-the-middle": "^7.5.2",
     "sharp": "catalog:",
     "swr": "catalog:"
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
-    "@testing-library/react": "catalog:",
     "@svgr/webpack": "catalog:",
+    "@testing-library/react": "catalog:",
     "babel-jest": "catalog:",
-    "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
-    "jest": "catalog:",
+    "eslint": "catalog:",
     "jest-config-commons-ui": "workspace:*",
+    "jest": "catalog:",
     "playwright-config-commons-ui": "workspace:*"
   }
 }
