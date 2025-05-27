@@ -47,13 +47,28 @@ const Hero = ({ slides }) => {
                 backgroundImage: slide.backgroundImage
                   ? `url(${slide.backgroundImage})`
                   : "none",
-                backgroundColor: slide.backgroundImage ? "transparent" : "#000",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 color: "#fff",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.8)",
+                  pointerEvents: "none",
+                  zIndex: 1,
+                },
               }}
             >
-              <Section sx={{ mt: 10, px: { xs: 2.5, sm: 0 } }}>
+              <Section
+                sx={{
+                  mt: 10,
+                  px: { xs: 2.5, sm: 0 },
+                }}
+              >
                 <Typography variant="display1" gutterBottom>
                   {slide.title}
                 </Typography>

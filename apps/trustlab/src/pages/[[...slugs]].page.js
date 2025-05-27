@@ -14,7 +14,8 @@ const slides = [
     title: "Slide 1",
     subtitle: "Subtitle 1",
     description: "Description 1",
-    backgroundImage: "",
+    backgroundImage:
+      "https://res.cloudinary.com/koech/image/upload/v1748327851/862180d153d4b0cdd5a5052c040c6572b2b8c776_pz5je7.jpg",
     buttonText: "Explore our Resources",
     buttonLink: "/",
   },
