@@ -1,5 +1,4 @@
-import NavList from "@/commons-ui/core/NavList";
-import NavListItem from "@/commons-ui/core/NavListItem";
+import { NavList, NavListItem } from "@/commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import React from "react";
