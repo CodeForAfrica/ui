@@ -94,7 +94,6 @@ module.exports = [
           "newlines-between": "always",
         },
       ],
-
       "no-restricted-imports": [
         "error",
         {

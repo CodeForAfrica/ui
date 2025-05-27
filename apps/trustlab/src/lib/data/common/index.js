@@ -1,3 +1,38 @@
+function imageFromMedia({ alt, url }) {
+  return { alt, src: url ?? null };
+}
+function getNavBar(settings) {
+  const {
+    connect: { links = [] },
+    primaryLogo: media,
+    primaryNavigation: { menus = null, connect },
+    title,
+  } = settings;
+  const socialLinks = links.filter((link) => link.platform === connect);
+
+  return {
+    logo: imageFromMedia({ alt: title, ...media }),
+    menus,
+    socialLinks,
+  };
+}
+
+function getFooter(settings) {
+  const {
+    primaryLogo,
+    primaryNavigation,
+    secondaryLogo,
+    secondaryNavigation,
+    title,
+    ...footer
+  } = settings;
+
+  return {
+    ...footer,
+    primaryMenus: primaryNavigation?.menus || null,
+    secondaryMenus: secondaryNavigation?.menus || null,
+  };
+}
 function getPageSlug({ params }) {
   const slugsCount = params?.slugs?.length;
   // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
@@ -142,7 +177,13 @@ export async function getPageProps(api, context) {
     }
     return null;
   }
-  return {};
+  const siteSettings = await api.findGlobal("site-settings");
+  const navbar = getNavBar(siteSettings);
+  const footer = getFooter(siteSettings);
+  return {
+    navbar,
+    footer,
+  };
 }
 
 export default getPageProps;
