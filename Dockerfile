@@ -965,7 +965,7 @@ FROM base-runner AS trustlab-runner
 
 # PNPM
 # symlink some dependencies
-COPY --from=trustlab-builder --link --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
 # Next.js
 # Public assets
