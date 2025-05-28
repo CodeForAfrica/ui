@@ -14,5 +14,5 @@
       "@/commons-ui/payload/*": ["./packages/commons-ui-payload/src/*"]
     }
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/node_modules/*"]
 }
