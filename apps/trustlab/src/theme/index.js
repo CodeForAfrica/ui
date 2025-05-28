@@ -55,7 +55,7 @@ const theme = createTheme({
     display1: {
       fontFamily: FONT_FAMILY_PRIMARY,
       fontStyle: "normal",
-      fontWeight: 300,
+      fontWeight: 700,
       lineHeight: 72 / 72,
     },
     display2: {

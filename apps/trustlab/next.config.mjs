@@ -12,6 +12,9 @@ const outputFileTracingRoot = PROJECT_ROOT
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    esmExternals: "loose",
+  },
   images: {
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
       .map((d) => d.trim())

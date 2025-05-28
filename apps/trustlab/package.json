@@ -38,6 +38,7 @@
     "@payloadcms/ui": "catalog:payload-v3",
     "@sentry/nextjs": "catalog:",
     "cross-env": "catalog:",
+    "date-fns": "catalog:",
     "graphql": "catalog:payload-v3",
     "next-seo": "catalog:",
     "next": "catalog:",

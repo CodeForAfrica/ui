@@ -14,9 +14,10 @@ export const jsxConverters =
 const LexicalRichText = forwardRef(function LexicalRichText(props, ref) {
   const { elements, ...others } = props;
   const converters = jsxConverters(others);
+  const { TypographyProps, ...boxProps } = others;
 
   return (
-    <Box {...others} ref={ref}>
+    <Box {...boxProps} ref={ref}>
       <ConvertRichText data={elements} converters={converters} />
     </Box>
   );
