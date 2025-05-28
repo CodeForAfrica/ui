@@ -96,6 +96,8 @@ COPY packages ./packages
 # --------------------------------------------
 
 FROM base AS base-runner
+ARG NEXT_JS_USER_ID=1001
+ARG NEXT_JS_GROUP_ID=1002
 
 ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_NAME \
@@ -118,8 +120,8 @@ ENV NODE_ENV=production \
 
 RUN set -ex \
   # Create a non-root user
-  && addgroup --system -g 1001 nodejs \
-  && adduser --system -u 1001 -g 1001 nextjs \
+  && addgroup --system -g ${NEXT_JS_GROUP_ID} nodejs \
+  && adduser --system -u ${NEXT_JS_USER_ID} -g ${NEXT_JS_GROUP_ID} nextjs \
   # Delete system cached files we don't need anymore
   && rm -rf /var/cache/apk/*
 
@@ -969,19 +971,19 @@ FROM base-runner AS trustlab-runner
 
 # PNPM
 # symlink some dependencies
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=trustlab-builder --link --chown=${NEXT_JS_USER_ID}:${NEXT_JS_GROUP_ID} /workspace/node_modules ./node_modules
 
 # Next.js
 # Public assets
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/public ./apps/trustlab/public
+COPY --from=trustlab-builder --chown=${NEXT_JS_USER_ID}:${NEXT_JS_GROUP_ID} /workspace/apps/trustlab/public ./apps/trustlab/public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 # NOTE(kilemensi) since we're in a monorepo .next/standalone will contain apps/trustlab folder hence
 #                 no need to copy to ./apps/trustlab. Verify this is "always" the case
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
-USER nextjs
+COPY --from=trustlab-builder --chown=${NEXT_JS_USER_ID}:${NEXT_JS_GROUP_ID} /workspace/apps/trustlab/.next/standalone ./
+COPY --from=trustlab-builder --chown=${NEXT_JS_USER_ID}:${NEXT_JS_GROUP_ID} /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
+USER ${NEXT_JS_USER_ID}
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
