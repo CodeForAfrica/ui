@@ -189,13 +189,20 @@ services:
 
   trustlab:
     build:
+      # env_file attribute is for runtime
+      # We need args to be available at build time & hence we need to
+      # specify them here; they come from --env-file command-line argument(s)
       args:
+        - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
         - SENTRY_ENVIRONMENT="local"
+        - SMTP_HOST=${SMTP_HOST}
+        - SMTP_USER=${SMTP_USER}
       context: .
       secrets:
         - mongo_url
         - payload_secret
         - sentry_auth_token
+        - smtp_pass
       target: trustlab-runner
     env_file:
       - path: ./apps/trustlab/.env
@@ -266,5 +273,7 @@ secrets:
     environment: PAYLOAD_SECRET
   sentry_auth_token:
     environment: SENTRY_AUTH_TOKEN
+  smtp_pass:
+    environment: SMTP_PASS
 volumes:
   db_data:
