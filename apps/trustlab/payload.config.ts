@@ -13,6 +13,7 @@ import Pages from "@/trustlab/payload/collections/Pages";
 import SiteSettings from "@/trustlab/payload/globals";
 import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
 import Posts from "@/trustlab/payload/collections/Posts";
+import Partners from "@/trustlab/payload/collections/Partners";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -58,7 +59,7 @@ export default buildConfig({
       globals: ["site-settings"],
     },
   },
-  collections: [Media, Pages, Posts, Users] as CollectionConfig[],
+  collections: [Media, Pages, Posts, Users, Partners] as CollectionConfig[],
   cors,
   csrf,
   db: mongooseAdapter({
