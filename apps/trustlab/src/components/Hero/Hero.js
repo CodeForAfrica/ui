@@ -10,7 +10,14 @@ function Hero({ slides }) {
     return null;
   }
   return (
-    <Box bgcolor="common.black" color="common.white">
+    <Section
+      sx={{
+        maxWidth: "unset",
+      }}
+      bgcolor="common.black"
+      color="common.white"
+      fixed={false}
+    >
       <Box
         sx={{
           position: "relative",
@@ -53,11 +60,13 @@ function Hero({ slides }) {
                   zIndex: 1,
                 }}
               >
-                <Section
-                  sx={{
+                <Box
+                  sx={(theme) => ({
                     pt: 10,
                     px: { xs: 2.5, sm: 0 },
-                  }}
+                    margin: "0 auto",
+                    maxWidth: theme.contentWidths.values,
+                  })}
                 >
                   <LexicalRichText
                     elements={slide.title}
@@ -99,7 +108,7 @@ function Hero({ slides }) {
                       {slide.label}
                     </Button>
                   )}
-                </Section>
+                </Box>
               </Box>
             </Box>
           </Slide>
@@ -131,7 +140,7 @@ function Hero({ slides }) {
           </Box>
         </Section>
       </Box>
-    </Box>
+    </Section>
   );
 }
 
