@@ -969,11 +969,11 @@ FROM base-runner AS trustlab-runner
 
 # PNPM
 # symlink some dependencies
-COPY --from=trustlab-builder --link --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
 # Next.js
 # Public assets
-COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/publi[c] ./apps/trustlab/public
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/public ./apps/trustlab/public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
