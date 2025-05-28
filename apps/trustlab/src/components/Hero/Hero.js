@@ -2,9 +2,9 @@ import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Slide, Box, Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 
-function Hero({ slides }) {
+const Hero = forwardRef(function Hero({ slides }, ref) {
   const [activeStep, setActiveStep] = useState(0);
   if (!slides || !slides.length) {
     return null;
@@ -17,6 +17,7 @@ function Hero({ slides }) {
       bgcolor="common.black"
       color="common.white"
       fixed={false}
+      ref={ref}
     >
       <Box
         sx={{
@@ -142,6 +143,6 @@ function Hero({ slides }) {
       </Box>
     </Section>
   );
-}
+});
 
 export default Hero;
