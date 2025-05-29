@@ -1,7 +1,10 @@
 // switch error code and return error description
 
 export default function getErrorDescription(code) {
-  if (!code) return null;
+  if (!code) {
+    return null;
+  }
+
   switch (code) {
     case "OAUTH_GET_ACCESS_TOKEN_ERROR":
     case "OAUTH_V1_GET_ACCESS_TOKEN_ERROR":
