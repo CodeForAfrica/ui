@@ -12,7 +12,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
   return (
     <Section
       sx={{
-        maxWidth: "unset",
+        maxWidth: { md: "100%", xs: "100%" },
       }}
       bgcolor="common.black"
       color="common.white"
@@ -120,7 +120,9 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             px: { xs: 2.5, sm: 6, md: 0 },
           }}
         >
-          <Box sx={{ position: "absolute", top: { sm: 336, xs: 400 } }}>
+          <Box
+            sx={{ position: "absolute", left: 0, top: { sm: 336, xs: 400 } }}
+          >
             {slides.map((_, index) => (
               <Button
                 key={slides[index].title}

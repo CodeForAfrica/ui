@@ -954,6 +954,7 @@ COPY apps/trustlab ./apps/trustlab
 RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
   --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=smtp_pass,env=SMTP_PASS \
   pnpm --filter trustlab build
 
 #
@@ -962,14 +963,9 @@ RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
 
 FROM base-runner AS trustlab-runner
 
-# RUN set -ex \
-#   # Create nextjs cache dir w/ correct permissions
-#   && mkdir -p ./apps/trustlab/.next \
-#   && chown nextjs:nodejs ./apps/trustlab/.next
-
 # PNPM
 # symlink some dependencies
-COPY --from=trustlab-builder --link --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
 
 # Next.js
 # Public assets
