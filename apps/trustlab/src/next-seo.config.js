@@ -9,11 +9,11 @@ const config = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: site.environmentUrl,
+    url: site.url,
     site_name: site.name,
     images: [
       {
-        url: `${site.environmentUrl}image.jpg`,
+        url: `${site.url}image.jpg`,
         width: 1600,
         height: 800,
         alt: site.name,

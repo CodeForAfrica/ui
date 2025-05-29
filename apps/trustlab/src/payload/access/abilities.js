@@ -21,7 +21,8 @@ export const canManageContent = (user) => {
 export const canManagePages = (user) =>
   checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
 
-export const canManageSiteSettings = (user) => checkRole([ROLE_ADMIN], user);
+export const canManageSiteSettings = ({ req: { user } }) =>
+  checkRole([ROLE_ADMIN], user);
 
 // TODO(@kelvinkipruto): what happens on delete? cascade or not?
 export const canManageUsers = (user) => {

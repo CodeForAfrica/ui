@@ -5,6 +5,7 @@ import { createdBy } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
+import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -19,7 +20,7 @@ const Media = {
   },
   admin: {
     group: "Publication",
-    hideAPIURL: true,
+    hideAPIURL,
   },
   fields: [
     {

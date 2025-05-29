@@ -7,6 +7,8 @@ const EngagementTab = {
       name: "connect",
       type: "group",
       label: "Social Accounts",
+      // If localized is enabled at group level, no need for localized at nested field level
+      // https://payloadcms.com/docs/fields/group
       localized: true,
       fields: [
         {
@@ -21,7 +23,6 @@ const EngagementTab = {
                   "Text that appears on contact links e.g Stay in Touch",
               },
               required: true,
-              localized: true,
             },
             socialLinks(),
           ],
@@ -32,6 +33,7 @@ const EngagementTab = {
       name: "newsletter",
       type: "group",
       label: "Email Newsletter",
+      localized: true,
       fields: [
         {
           type: "collapsible",
@@ -41,7 +43,6 @@ const EngagementTab = {
               name: "title",
               type: "text",
               required: true,
-              localized: true,
             },
             {
               name: "embedCode",
