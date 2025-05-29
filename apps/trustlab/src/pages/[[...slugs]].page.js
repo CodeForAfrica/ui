@@ -1,14 +1,15 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
-import OurPartners from "../components/OurPartners";
-
 import Hero from "@/trustlab/components/Hero";
+import OurDonors from "@/trustlab/components/OurDonors";
+import OurPartners from "@/trustlab/components/OurPartners";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   hero: Hero,
   "our-partners": OurPartners,
+  "our-donors": OurDonors,
 };
 
 function Page({ blocks, fallback }) {

@@ -10,23 +10,37 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
     return null;
   }
   return (
-    <Box
+    <Section
       sx={(theme) => ({
         background: theme.palette.grey.light,
+        maxWidth: { xs: "100%" },
       })}
     >
-      <Section
-        sx={{ px: { xs: 2.5, sm: 0 }, py: { xs: 5, md: 7, lg: 10 }, ...sx }}
+      <Box
+        sx={(theme) => ({
+          px: { xs: 2.5, sm: 0 },
+          py: { xs: 5, md: 7, lg: 10 },
+          maxWidth: theme.contentWidths.values,
+          m: "0 auto",
+          ...sx,
+        })}
         ref={ref}
       >
         <RichTypography
           variant="h4"
           textAlign="center"
-          sx={{ "& a": { textDecoration: "none" } }}
+          sx={{ "& a": { textDecoration: "none" }, mb: 4 }}
         >
           {title}
         </RichTypography>
-        <Grid container columns={10} justifyContent="center">
+        <Grid
+          flexWrap
+          container
+          flexDirection={{ xs: "column", sm: "row" }}
+          gap={4}
+          justifyContent="center"
+          alignItems="center"
+        >
           {partners.map(({ logo, id, link: { href } }) => {
             const { alt } = logo;
             const Wrapper = href?.length ? Link : React.Fragment;
@@ -34,12 +48,17 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
 
             return (
               <Grid
-                container
                 item
                 xs={5}
                 sm={2}
                 justifyContent="center"
                 key={id}
+                spacing={2}
+                sx={{
+                  width: {
+                    xs: "100%",
+                  },
+                }}
               >
                 <Wrapper {...wrapperProps}>
                   <Figure
@@ -48,23 +67,13 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
                       src: logo.url,
                     }}
                     sx={{
-                      filter: "grayscale(100%) opacity(50%)",
-                      height: {
-                        xs: "75.14px",
-                        sm: "73.54px",
-                        md: "90.67px",
-                        lg: "114.64px",
-                      },
+                      filter: "grayscale(100%)",
+                      height: "100px",
                       m: 0,
                       position: "relative",
-                      width: {
-                        xs: "131.49px",
-                        sm: "128.7px",
-                        md: "158.67px",
-                        lg: "200.63px",
-                      },
+                      width: "auto",
                       "&:hover": {
-                        ...(href && { filter: "none" }),
+                        filter: "none",
                       },
                     }}
                   />
@@ -89,8 +98,8 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
             {action?.content || action?.href}
           </Button>
         )}
-      </Section>
-    </Box>
+      </Box>
+    </Section>
   );
 });
 
