@@ -22,7 +22,9 @@ function HURUmapURL(props) {
   const { urlValid } = reduceFieldsToValues(formFields, true);
 
   const validateURL = async () => {
-    if (!value) return;
+    if (!value) {
+      return;
+    }
     setLoading(true);
     try {
       // For now we can use the profiles endpoint to check if the URL is valid
