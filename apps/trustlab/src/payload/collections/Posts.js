@@ -2,6 +2,7 @@ import { slug, createdBy } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
+import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const Posts = {
   slug: "posts",
@@ -15,7 +16,7 @@ const Posts = {
     defaultColumns: ["title", "createdBy", "updatedAt", "_status"],
     group: "Publication",
     useAsTitle: "title",
-    hideAPIURL: true,
+    hideAPIURL,
     preview: ({ slug: pageSlug }) => {
       const encodedParams = new URLSearchParams({
         slug: pageSlug,

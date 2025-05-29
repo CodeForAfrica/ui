@@ -2,19 +2,22 @@ import EngagementTab from "./tabs/EngagementTab";
 import GeneralTab from "./tabs/GeneralTab";
 import NavigationTab from "./tabs/NavigationTab";
 
+import { loggedIn } from "@/trustlab/payload/access";
 import { canManageSiteSettings } from "@/trustlab/payload/access/abilities";
-import { anyone } from "@/trustlab/payload/access/anyone";
+import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const SiteSettings = {
   slug: "site-settings",
   label: "Site",
   admin: {
     group: "Settings",
-    hideAPIURL: true,
+    hideAPIURL,
   },
   access: {
-    read: anyone,
-    update: ({ req: { user } }) => canManageSiteSettings(user),
+    // Since we're using Local APIs, we should still be able to pull data server-side
+    // See: note in https://payloadcms.com/docs/local-api/overview#transactions
+    read: loggedIn,
+    update: canManageSiteSettings,
   },
   fields: [
     {
