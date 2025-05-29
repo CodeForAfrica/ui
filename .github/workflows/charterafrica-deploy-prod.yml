@@ -2,7 +2,8 @@ name: charterAFRICA | Deploy | PROD
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -91,6 +92,8 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
+          # TODO(xavier): Follow up if we can switch this to arm64
+          platforms: linux/amd64
           push: true
           secrets: |
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
