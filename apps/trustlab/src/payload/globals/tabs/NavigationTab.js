@@ -1,6 +1,4 @@
-import link from "@/trustlab/payload/fields/links/link";
-import linkArray from "@/trustlab/payload/fields/links/linkArray";
-import { socialMediaOptions } from "@/trustlab/payload/fields/socialLinks";
+import { socialMediaOptions, link, linkArray } from "@commons-ui/payload";
 
 const linkField = link({
   disableOpenInNewTab: true,
@@ -32,6 +30,14 @@ const NavigationTab = {
                 fields: [linkField],
                 admin: {
                   className: "array-field-nested",
+                  components: {
+                    RowLabel: {
+                      path: "@/trustlab/payload/components/RowLabel",
+                      clientProps: {
+                        label: "label",
+                      },
+                    },
+                  },
                 },
               },
             }),
@@ -67,6 +73,14 @@ const NavigationTab = {
                 fields: [linkField],
                 admin: {
                   className: "array-field-nested",
+                  components: {
+                    RowLabel: {
+                      path: "@/trustlab/payload/components/RowLabel",
+                      clientProps: {
+                        label: "label",
+                      },
+                    },
+                  },
                 },
               },
             }),

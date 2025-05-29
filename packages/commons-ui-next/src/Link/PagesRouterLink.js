@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-env browser */
 import clsx from "clsx";
 import { useRouter } from "next/router";

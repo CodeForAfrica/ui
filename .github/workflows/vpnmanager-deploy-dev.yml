@@ -55,7 +55,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
       - name: Build Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           build-args: |
             API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}

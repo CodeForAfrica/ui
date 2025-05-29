@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/trustlab/server.js",
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -13,7 +13,7 @@
     "jest": "jest",
     "playwright": "npx playwright test",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "clean": "rm -rf .next .turbo build dist node_modules"
+    "clean": "rm -rf .next .turbo build coverage dist node_modules"
   },
   "dependencies": {
     "@commons-ui/core": "workspace:*",
@@ -21,11 +21,13 @@
     "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
-    "@mui/material": "catalog:mui-v7",
-    "@mui/utils": "catalog:mui-v7",
+    "@mui/material": "catalog:",
+    "@mui/utils": "catalog:",
     "@next/third-parties": "catalog:",
+    "@payloadcms/admin-bar": "catalog:payload-v3",
     "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/email-nodemailer": "catalog:payload-v3",
+    "@payloadcms/live-preview-react": "catalog:payload-v3",
     "@payloadcms/next": "catalog:payload-v3",
     "@payloadcms/plugin-cloud-storage": "catalog:payload-v3",
     "@payloadcms/plugin-nested-docs": "catalog:payload-v3",
@@ -37,25 +39,26 @@
     "@sentry/nextjs": "catalog:",
     "cross-env": "catalog:",
     "graphql": "catalog:payload-v3",
-    "next": "catalog:",
     "next-seo": "catalog:",
+    "next": "catalog:",
     "payload": "catalog:payload-v3",
-    "react": "catalog:",
     "react-dom": "catalog:",
+    "react": "catalog:",
+    "require-in-the-middle": "^7.5.2",
     "sharp": "catalog:",
     "swr": "catalog:"
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
-    "@eslint/eslintrc": "catalog:",
+    "@svgr/webpack": "catalog:",
+    "@testing-library/react": "catalog:",
     "babel-jest": "catalog:",
-    "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "eslint-config-next": "catalog:",
-    "eslint-import-resolver-babel-module": "catalog:",
-    "jest": "catalog:",
+    "eslint-import-resolver-webpack": "catalog:",
+    "eslint-plugin-import": "catalog:",
+    "eslint": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "playwright-config-commons-ui": "workspace:*",
-    "@testing-library/react": "catalog:"
+    "jest": "catalog:",
+    "playwright-config-commons-ui": "workspace:*"
   }
 }

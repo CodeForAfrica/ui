@@ -84,6 +84,9 @@ FROM pnpm-base AS base-builder
 
 COPY --from=base-deps /workspace/packages/ ./packages
 
+# Needed to run build commands from /workspace
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
+
 # TODO(kilemensi): Investigate why we need @commons-ui sources (charterafrica,
 #                  codeforafrica) when building final app
 COPY packages ./packages
@@ -657,6 +660,83 @@ CMD ["node", "apps/pesayetu/server.js"]
 
 
 # ============================================================================
+# Promise Tracker
+# ============================================================================
+
+#
+# promisetracker-desp: image with all pesayetu dependencies
+# -----------------------------------------------------
+
+FROM base-deps AS promisetracker-deps
+
+COPY apps/promisetracker/package.json ./apps/promisetracker/package.json
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/promisetracker" install --offline --frozen-lockfile
+
+#
+# promisetracker-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS promisetracker-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="Promise Tracker" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=promisetracker-deps /workspace/node_modules ./node_modules
+
+COPY --from=promisetracker-deps /workspace/apps/promisetracker/node_modules ./apps/promisetracker/node_modules
+
+COPY apps/promisetracker ./apps/promisetracker
+
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/promisetracker" build
+
+#
+# promisetracker-runner: final deployable image
+# -----------------------------------------
+
+FROM base-runner AS promisetracker-runner
+
+ARG API_SECRET_KEY
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/promisetracker/.next \
+  && chown nextjs:nodejs ./apps/promisetracker/.next
+
+# PNPM
+# symlink some dependencies
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Next.js
+# Public assets
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/public ./apps/promisetracker/public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/.next/standalone ./apps/promisetracker
+COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/.next/static ./apps/promisetracker/.next/static
+USER nextjs
+
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/promisetracker/server.js"]
+
+
+# ============================================================================
 # Roboshield
 # ============================================================================
 
@@ -818,6 +898,150 @@ CMD ["node", "apps/techlabblog/server.js"]
 
 
 # ============================================================================
+# TrustLab
+# ============================================================================
+
+#
+# trustlab-deps: image with all trustlab dependencies
+# -----------------------------------------------------
+
+FROM base-deps AS trustlab-deps
+
+COPY apps/trustlab/package.json ./apps/trustlab/package.json
+
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm install --filter trustlab --offline --frozen-lockfile
+
+#
+# trustlab-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS trustlab-builder
+
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="TrustLab" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  NEXT_PUBLIC_SEO_DISABLED \
+  # Sentry (build time)
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT
+
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=trustlab-deps /workspace/node_modules ./node_modules
+
+COPY --from=trustlab-deps /workspace/apps/trustlab/node_modules ./apps/trustlab/node_modules
+
+COPY apps/trustlab ./apps/trustlab
+
+# TODO(kilemensi): Investigate why `pnpm build --filter trustlab` causes env vars
+#                  not to be accessible and hence build to fail.
+#                  Note: `pnpm build` goes throw `turbo` first.
+RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=smtp_pass,env=SMTP_PASS \
+  pnpm --filter trustlab build
+
+#
+# trustlab-runner: final deployable image
+# -----------------------------------------
+
+FROM base-runner AS trustlab-runner
+
+# PNPM
+# symlink some dependencies
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+
+# Next.js
+# Public assets
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/publi[c] ./apps/trustlab/public
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+# NOTE(kilemensi) since we're in a monorepo .next/standalone will contain apps/trustlab folder hence
+#                 no need to copy to ./apps/trustlab. Verify this is "always" the case
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./
+COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
+USER nextjs
+
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/trustlab/server.js"]
+
+
+# ============================================================================
+# TwoopsTracker
+# ============================================================================
+
+#
+# twoopstracker-deps: image with all twoopstracker dependencies
+# ---------------------------------------------------
+
+FROM base-deps AS twoopstracker-deps
+COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
+# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
+RUN pnpm --filter "./apps/twoopstracker" install --offline --frozen-lockfile
+
+#
+# twoopstracker-builder: image that uses deps to build shippable output
+# ------------------------------------------------------------------
+
+FROM base-builder AS twoopstracker-builder
+ARG NEXT_TELEMETRY_DISABLED \
+  # Next.js / Payload (build time)
+  PORT \
+  # Next.js (runtime)
+  NEXT_PUBLIC_APP_NAME="TwoopsTracker" \
+  NEXT_PUBLIC_APP_URL \
+  NEXT_PUBLIC_SENTRY_DSN \
+  # Sentry (build time)
+  SENTRY_AUTH_TOKEN \
+  SENTRY_ENVIRONMENT \
+  SENTRY_ORG \
+  SENTRY_PROJECT \
+  TWOOPSTRACKER_API_URL
+# This is in app-builder instead of base-builder just incase app-deps adds deps
+COPY --from=twoopstracker-deps /workspace/node_modules ./node_modules
+COPY --from=twoopstracker-deps /workspace/apps/twoopstracker/node_modules ./apps/twoopstracker/node_modules
+COPY apps/twoopstracker ./apps/twoopstracker
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  pnpm --filter "./apps/twoopstracker" build
+
+#
+# twoopstracker-runner: final deployable image
+# -----------------------------------------
+
+FROM base-runner AS twoopstracker-runner
+ARG TWOOPSTRACKER_API_URL
+
+ENV TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
+
+RUN set -ex \
+  # Create nextjs cache dir w/ correct permissions
+  && mkdir -p ./apps/twoopstracker/.next \
+  && chown nextjs:nodejs ./apps/twoopstracker/.next
+# PNPM
+# symlink some dependencies
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
+# Next.js
+# Public assets
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/public ./apps/twoopstracker/public
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/standalone ./apps/twoopstracker
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/static ./apps/twoopstracker/.next/static
+USER nextjs
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD ["node", "apps/twoopstracker/server.js"]
+
+
+# ============================================================================
 # VPN Manager
 # ============================================================================
 
@@ -892,145 +1116,3 @@ USER nextjs
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "apps/vpnmanager/server.js"]
-
-# ============================================================================
-# Promise Tracker
-# ============================================================================
-
-#
-# promisetracker-desp: image with all pesayetu dependencies
-# -----------------------------------------------------
-
-FROM base-deps AS promisetracker-deps
-
-COPY apps/promisetracker/package.json ./apps/promisetracker/package.json
-
-# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/promisetracker" install --offline --frozen-lockfile
-
-#
-# promisetracker-builder: image that uses deps to build shippable output
-# ------------------------------------------------------------------
-
-FROM base-builder AS promisetracker-builder
-
-ARG NEXT_TELEMETRY_DISABLED \
-  # Next.js / Payload (build time)
-  PORT \
-  # Next.js (runtime)
-  NEXT_PUBLIC_APP_NAME="Promise Tracker" \
-  NEXT_PUBLIC_APP_URL \
-  NEXT_PUBLIC_SENTRY_DSN \
-  NEXT_PUBLIC_SEO_DISABLED \
-  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID \
-  # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
-
-# This is in app-builder instead of base-builder just incase app-deps adds deps
-COPY --from=promisetracker-deps /workspace/node_modules ./node_modules
-
-COPY --from=promisetracker-deps /workspace/apps/promisetracker/node_modules ./apps/promisetracker/node_modules
-
-COPY apps/promisetracker ./apps/promisetracker
-
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
-  pnpm --filter "./apps/promisetracker" build
-
-#
-# promisetracker-runner: final deployable image
-# -----------------------------------------
-
-FROM base-runner AS promisetracker-runner
-
-ARG API_SECRET_KEY
-RUN set -ex \
-  # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/promisetracker/.next \
-  && chown nextjs:nodejs ./apps/promisetracker/.next
-
-# PNPM
-# symlink some dependencies
-COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-
-# Next.js
-# Public assets
-COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/public ./apps/promisetracker/public
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/.next/standalone ./apps/promisetracker
-COPY --from=promisetracker-builder --chown=nextjs:nodejs /workspace/apps/promisetracker/.next/static ./apps/promisetracker/.next/static
-USER nextjs
-
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD ["node", "apps/promisetracker/server.js"]
-
-# ============================================================================
-# twoopstracker
-# ============================================================================
-
-#
-# twoopstracker-deps: image with all twoopstracker dependencies
-# ---------------------------------------------------
-
-FROM base-deps AS twoopstracker-deps
-COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
-# Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/twoopstracker" install --offline --frozen-lockfile
-
-#
-# twoopstracker-builder: image that uses deps to build shippable output
-# ------------------------------------------------------------------
-FROM base-builder AS twoopstracker-builder
-ARG NEXT_TELEMETRY_DISABLED \
-  # Next.js / Payload (build time)
-  PORT \
-  # Next.js (runtime)
-  NEXT_PUBLIC_APP_NAME="TwoopsTracker" \
-  NEXT_PUBLIC_APP_URL \
-  NEXT_PUBLIC_SENTRY_DSN \
-  # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT \
-  TWOOPSTRACKER_API_URL
-# This is in app-builder instead of base-builder just incase app-deps adds deps
-COPY --from=twoopstracker-deps /workspace/node_modules ./node_modules
-COPY --from=twoopstracker-deps /workspace/apps/twoopstracker/node_modules ./apps/twoopstracker/node_modules
-COPY apps/twoopstracker ./apps/twoopstracker
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
-  pnpm --filter "./apps/twoopstracker" build
-#
-# twoopstracker-runner: final deployable image
-# -----------------------------------------
-FROM base-runner AS twoopstracker-runner
-ARG TWOOPSTRACKER_API_URL
-
-ENV TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
-
-RUN set -ex \
-  # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/twoopstracker/.next \
-  && chown nextjs:nodejs ./apps/twoopstracker/.next
-# PNPM
-# symlink some dependencies
-COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/node_modules ./node_modules
-# Next.js
-# Public assets
-COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/public ./apps/twoopstracker/public
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/standalone ./apps/twoopstracker
-COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/static ./apps/twoopstracker/.next/static
-USER nextjs
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD ["node", "apps/twoopstracker/server.js"]
-# ============================================================================
-# End of Twoopstracker
-# ============================================================================

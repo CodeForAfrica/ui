@@ -15,8 +15,8 @@ catalog:
   "@badrap/bar-of-progress": "^0.2.2"
   "@changesets/changelog-github": ^0.5.0
   "@changesets/cli": ^2.27.8
-  "@commons-ui/legacy": npm:@commons-ui/core@^0.1.0
   "@commons-ui/core": ^0.1.0
+  "@commons-ui/legacy": npm:@commons-ui/core@^0.1.0
   "@emotion/cache": ^11.13.1
   "@emotion/react": ^11.14.0
   "@emotion/server": ^11.11.0
@@ -30,8 +30,8 @@ catalog:
   "@mdx-js/mdx": ^3.0.1
   "@mdx-js/react": ^3.0.1
   "@mui/icons-material": ^6.4.0
-  "@mui/material": ^6.4.0
   "@mui/material-nextjs": ^6.3.1
+  "@mui/material": ^6.4.0
   "@mui/utils": ^6.4.0
   "@mui/x-date-pickers": ^7.15.0
   "@mui/x-tree-view": ^7.15.0
@@ -45,8 +45,8 @@ catalog:
   "@nivo/waffle": ^0.84.0
   "@payloadcms/bundler-webpack": ^1.0.7
   "@payloadcms/db-mongodb": ^1.7.2
-  "@payloadcms/live-preview": ^0.2.2
   "@payloadcms/live-preview-react": ^0.2.0
+  "@payloadcms/live-preview": ^0.2.2
   "@payloadcms/plugin-cloud-storage": ^1.1.3
   "@payloadcms/plugin-nested-docs": ^1.0.12
   "@payloadcms/plugin-sentry": ^0.0.6
@@ -71,13 +71,13 @@ catalog:
   "@testing-library/dom": ^10.4.0
   "@testing-library/jest-dom": ^6.5.0
   "@testing-library/react": ^16.0.1
-  "@types/express": ^4.17.21
   "@types/better-sqlite3": "^7.6.11"
+  "@types/express": ^4.17.21
   "@types/jest": ^29.5.12
   "@types/mdx": ^2.0.13
   "@types/node": ^20.14.14
-  "@types/react": ^18.3.5
   "@types/react-dom": ^18.3.0
+  "@types/react": ^18.3.5
   ace-builds: ^1.36.2
   airtable: ^0.12.2
   apollo-link-rest: ^0.9.0
@@ -95,18 +95,17 @@ catalog:
   date-fns: ^4.1.0
   deepmerge: ^4.3.1
   dotenv: ^16.4.5
-  eslint: ^9.23.0
   eslint-config-airbnb: ^19.0.4
   eslint-config-next: ^15.2.4
   eslint-config-prettier: ^9.1.0
   eslint-config-turbo: ^2.5.2
   eslint-import-resolver-babel-module: ^5.3.2
   eslint-import-resolver-jsconfig: ^1.1.0
-  eslint-import-resolver-webpack: ^0.13.9
   eslint-import-resolver-typescript: ^3.6.3
+  eslint-import-resolver-webpack: ^0.13.9
   eslint-plugin-import: ^2.29.1
-  eslint-plugin-jest: ^28.8.3
   eslint-plugin-jest-dom: ^5.5.0
+  eslint-plugin-jest: ^28.8.3
   eslint-plugin-json: ^4.0.1
   eslint-plugin-jsx-a11y: ^6.10.0
   eslint-plugin-markdown: ^5.1.0
@@ -114,25 +113,26 @@ catalog:
   eslint-plugin-module-resolver: ^1.5.0
   eslint-plugin-playwright: ^2.1.0
   eslint-plugin-prettier: ^5.2.1
-  eslint-plugin-react: ^7.35.2
   eslint-plugin-react-hooks: ^4.6.2
+  eslint-plugin-react: ^7.35.2
   eslint-plugin-testing-library: ^6.2.2
+  eslint: ^9.23.0
   express: ^4.19.2
   fast-equals: ^5.0.1
   file-saver: ^2.0.5
   form-data: ^4.0.0
-  formik: ^2.4.6
-  formik-mui: ^4.0.0
   formik-mui-lab: ^1.0.0
+  formik-mui: ^4.0.0
+  formik: ^2.4.6
   frontmatter-markdown-loader: "^3.6.3"
-  googleapis: ^133.0.0
-  graphql: ^15.9.0
   globals: ^15.12.0
+  googleapis: ^133.0.0
   graphql-anywhere: ^4.2.8
+  graphql: ^15.9.0
   husky: ^9.1.7
   identity-obj-proxy: ^3.0.0
-  jest: ^29.7.0
   jest-environment-jsdom: ^29.7.0
+  jest: ^29.7.0
   js-yaml: ^4.1.0
   jscodeshift: ^0.15.2
   jsdom: ^24.1.3
@@ -140,17 +140,17 @@ catalog:
   leaflet: ^1.9.4
   lint-staged: ^15.2.10
   lodash: ^4.17.21
-  markdown-it: ^12.3.2
   markdown-it-link-attributes: ^4.0.0
+  markdown-it: ^12.3.2
   migrate-mongo: ^11.0.0
   monaco-editor: ^0.51.0
   nanoid: ^3.3.8
   netlify-cms-proxy-server: "^1.3.22"
-  next: ^15.3.2
   next-auth: ^4.24.7
   next-images: ^1.8.5
   next-seo: ^6.6.0
   next-sitemap: ^1.9.12
+  next: ^15.3.2
   papaparse: ^5.4.1
   parse-numeric-range: ^1.3.0
   payload: 2.30.0
@@ -158,19 +158,19 @@ catalog:
   prettier: ^3.3.3
   prop-types: ^15.8.1
   qs: ^6.13.0
-  react: ^18.3.1
   react-ace: ^11.0.1
-  react-dom: ^18.3.1
   react-copy-to-clipboard: ^5.1.0
+  react-dom: ^18.3.1
   react-dropzone: ^12.0.2
-  react-lines-ellipsis: ^0.15.0
   react-leaflet: ^4.2.1
+  react-lines-ellipsis: ^0.15.0
   react-multi-carousel: ^2.8.5
   react-rotating-text: ^1.4.1
   react-share: ^5.1.0
   react-swipeable-views-react-18-fix: ^0.14.1
   react-test-renderer: ^18.3.1
   react-vega: ^7.6.0
+  react: ^18.3.1
   reading-time: ^1.5.0
   rehype-autolink-headings: ^7.1.0
   rehype-pretty-code: ^0.14.0
@@ -182,27 +182,27 @@ catalog:
   scheduler: ^0.23.2
   sharp: ^0.33.5
   shiki: ^1.18.0
-  simplebar-react: ^3.2.6
   simple-oauth2: ^4.2.0
+  simplebar-react: ^3.2.6
   slate: ^0.103.0
   sqlite: ^5.1.1
   sqlite3: ^5.1.7
-  storybook: ^8.2.9
   storybook-addon-material-ui: ^0.9.0-alpha.24
   storybook-addon-next-router: ^3.0.8
+  storybook: ^8.2.9
   svg-url-loader: ^8.0.0
   swr: ^2.2.5
   tiny-warning: ^1.0.3
   tsc-alias: ^1.8.10
   tsconfig-paths: ^4.2.0
   tsx: ^4.19.1
-  typescript: ^5.5.4
-  typescript-eslint: ^8.16.0
   turbo: ^2.5.2
-  vega: ^5.31.0
+  typescript-eslint: ^8.16.0
+  typescript: ^5.5.4
   vega-embed: ^6.26.0
   vega-lite: ^5.21.0
   vega-tooltip: ^0.34.0
+  vega: ^5.31.0
   victory: ^36.9.2
   video.js: ^8.17.3
   videojs-youtube: ^3.0.1
@@ -221,29 +221,25 @@ catalogs:
     "@mui/styles": ^5.16.6
     "@mui/utils": ^5.16.6
     "@mui/private-theming": ^5.16.6
-  mui-v7:
-    "@mui/material": ^7.1.0
-    "@mui/utils": ^7.1.0
   payload-v3:
+    "@payloadcms/admin-bar": "^3.39.0"
+    "@payloadcms/db-mongodb": ^3.39.0
+    "@payloadcms/email-nodemailer": ^3.39.0
+    "@payloadcms/live-preview-react": ^3.39.0
+    "@payloadcms/next": ^3.39.0
+    "@payloadcms/payload-cloud": ^3.39.0
+    "@payloadcms/plugin-cloud-storage": ^3.39.0
+    "@payloadcms/plugin-form-builder": ^3.39.0
+    "@payloadcms/plugin-nested-docs": ^3.39.0
+    "@payloadcms/plugin-redirects": ^3.39.0
+    "@payloadcms/plugin-search": ^3.39.0
+    "@payloadcms/plugin-sentry": ^3.39.0
+    "@payloadcms/plugin-seo": ^3.39.0
+    "@payloadcms/richtext-lexical": ^3.39.0
+    "@payloadcms/storage-s3": ^3.39.0
+    "@payloadcms/ui": ^3.39.0
     graphql: ^16.11.0
-    payload: ^3.37.0
-    "@payloadcms/db-mongodb": ^3.37.0
-    "@payloadcms/live-preview-react": ^3.37.0
-    "@payloadcms/next": ^3.37.0
-    "@payloadcms/payload-cloud": ^3.37.0
-    "@payloadcms/plugin-form-builder": ^3.37.0
-    "@payloadcms/plugin-nested-docs": ^3.37.0
-    "@payloadcms/plugin-redirects": ^3.37.0
-    "@payloadcms/plugin-search": ^3.37.0
-    "@payloadcms/plugin-seo": ^3.37.0
-    "@payloadcms/richtext-slate": ^3.37.0
-    "@payloadcms/db-sqlite": ^3.37.0
-    "@payloadcms/ui": ^3.37.0
-    "@payloadcms/plugin-sentry": ^3.37.0
-    "@payloadcms/plugin-cloud-storage": ^3.37.0
-    "@payloadcms/storage-s3": ^3.37.0
-    "@payloadcms/email-nodemailer": ^3.37.0
-    "@payloadcms/richtext-lexical": ^3.37.0
+    payload: ^3.39.0
   react-19:
     "react": ^19.1.0
     "react-dom": ^19.1.0

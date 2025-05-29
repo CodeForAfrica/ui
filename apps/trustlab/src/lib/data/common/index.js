@@ -1,3 +1,38 @@
+function imageFromMedia({ alt, url }) {
+  return { alt, src: url ?? null };
+}
+function getNavBar(settings) {
+  const {
+    connect: { links = [] },
+    primaryLogo: media,
+    primaryNavigation: { menus = null, connect },
+    title,
+  } = settings;
+  const socialLinks = links.filter((link) => link.platform === connect);
+
+  return {
+    logo: imageFromMedia({ alt: title, ...media }),
+    menus,
+    socialLinks,
+  };
+}
+
+function getFooter(settings) {
+  const {
+    primaryLogo,
+    primaryNavigation,
+    secondaryLogo,
+    secondaryNavigation,
+    title,
+    ...footer
+  } = settings;
+
+  return {
+    ...footer,
+    primaryMenus: primaryNavigation?.menus || null,
+    secondaryMenus: secondaryNavigation?.menus || null,
+  };
+}
 function getPageSlug({ params }) {
   const slugsCount = params?.slugs?.length;
   // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
@@ -112,12 +147,29 @@ function getDefaultErrorPageProps(slug = "404") {
     ],
   };
 }
+export async function getPagePaths(api) {
+  const { docs: pages } = await api.getCollection("pages");
+
+  const pagesPromises = pages.map(async ({ slug }) => ({
+    params: {
+      slugs: [slug === "index" ? "" : slug],
+    },
+  }));
+  const paths = await Promise.all(pagesPromises);
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
 export async function getPageProps(api, context) {
+  const { draftMode = false } = context;
   const slug = getPageSlug(context);
   const {
     docs: [page],
-  } = await api.findPage(slug);
+  } = await api.findPage(slug, {
+    draft: draftMode,
+  });
 
   if (!page) {
     if (["404", "500"].includes(slug)) {
@@ -125,7 +177,13 @@ export async function getPageProps(api, context) {
     }
     return null;
   }
-  return {};
+  const siteSettings = await api.findGlobal("site-settings");
+  const navbar = getNavBar(siteSettings);
+  const footer = getFooter(siteSettings);
+  return {
+    navbar,
+    footer,
+  };
 }
 
 export default getPageProps;

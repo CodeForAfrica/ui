@@ -37,7 +37,7 @@ module.exports = {
     ],
   },
   transformIgnorePatterns: [
-    "/node_modules/",
+    "<rootDir>/node_modules/(?!(@payloadcms|payload))",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
 };

@@ -4,6 +4,12 @@ import { seoPlugin } from "@payloadcms/plugin-seo";
 import { s3Storage } from "@payloadcms/storage-s3";
 import * as Sentry from "@sentry/nextjs";
 
+const accessKeyId = process.env.S3_ACCESS_KEY_ID ?? "";
+const bucket = process.env.S3_BUCKET ?? "";
+const region = process.env.S3_REGION ?? "";
+const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY ?? "";
+const s3Enabled = !!accessKeyId && !!region && !!secretAccessKey;
+
 const plugins = [
   nestedDocsPlugin({
     collections: ["pages"],
@@ -14,14 +20,15 @@ const plugins = [
     collections: {
       media: true,
     },
-    bucket: process.env.S3_BUCKET ?? "",
+    bucket,
     config: {
       credentials: {
-        accessKeyId: process.env.S3_ACCESS_KEY_ID ?? "",
-        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY ?? "",
+        accessKeyId,
+        secretAccessKey,
       },
-      region: process.env.S3_REGION ?? "",
+      region,
     },
+    enabled: s3Enabled,
   }),
   sentryPlugin({
     options: {

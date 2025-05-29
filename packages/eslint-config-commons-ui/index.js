@@ -82,6 +82,7 @@ module.exports = [
     },
 
     rules: {
+      curly: ["error", "all"],
       "import/order": [
         "error",
         {
@@ -93,7 +94,6 @@ module.exports = [
           "newlines-between": "always",
         },
       ],
-
       "no-restricted-imports": [
         "error",
         {

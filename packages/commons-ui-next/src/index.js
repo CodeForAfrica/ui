@@ -5,3 +5,4 @@ export * from "./Link";
 
 export { default as RichTypography } from "./RichTypography";
 export { default as NextImageButton } from "./NextImageButton";
+export { default as HtmlEmbed } from "./HtmlEmbed";
