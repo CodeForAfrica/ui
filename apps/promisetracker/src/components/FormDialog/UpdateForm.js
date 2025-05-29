@@ -58,7 +58,9 @@ function Form({ promise_act_now: promiseActNow = { update: {} }, ...props }) {
     const file = URL.createObjectURL(e.target.files[0]);
     const fileSize = e.target.files[0].size;
 
-    if (handleFileValidation(fileSize)) return;
+    if (handleFileValidation(fileSize)) {
+      return;
+    }
 
     setImages([file]);
   };
@@ -78,7 +80,9 @@ function Form({ promise_act_now: promiseActNow = { update: {} }, ...props }) {
     const { files } = dt;
 
     [...files].forEach((file) => {
-      if (handleFileValidation(file.size)) return;
+      if (handleFileValidation(file.size)) {
+        return;
+      }
 
       // Get URL of image file to be used for thumbnail preview
       const reader = new FileReader();
