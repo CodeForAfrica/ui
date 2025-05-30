@@ -32,7 +32,11 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: "500px",
+          height: {
+            xs: "150px",
+            sm: "350px",
+            md: "400px",
+          },
           overflow: "hidden",
         }}
       >
@@ -71,7 +75,10 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               >
                 <Box
                   sx={(theme) => ({
-                    pt: 10,
+                    pt: {
+                      xs: 2,
+                      sm: 10,
+                    },
                     px: { xs: 2.5, sm: 0 },
                     margin: "0 auto",
                     maxWidth: theme.contentWidths.values,
@@ -83,6 +90,16 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                       color: "text.secondary",
                       gutterBottom: true,
                       variant: "display1",
+                      sx: {
+                        fontSize: {
+                          xs: "19.5px",
+                          sm: "72px",
+                        },
+                        lineHeight: {
+                          xs: "17.33px",
+                          sm: "64px",
+                        },
+                      },
                     }}
                   />
                   <LexicalRichText
@@ -90,6 +107,16 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     TypographyProps={{
                       variant: "h1",
                       color: "text.secondary",
+                      sx: {
+                        fontSize: {
+                          xs: "8.67px",
+                          sm: "32px",
+                        },
+                        lineHeight: {
+                          xs: "10.83px",
+                          sm: "40px",
+                        },
+                      },
                     }}
                   />
                   <LexicalRichText
@@ -97,7 +124,19 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     TypographyProps={{
                       variant: "h3",
                       color: "text.secondary",
-                      sx: { mt: 8 },
+                      sx: {
+                        mt: {
+                          xs: "2.67px",
+                        },
+                        fontSize: {
+                          xs: "4.88px",
+                          sm: "18px",
+                        },
+                        lineHeight: {
+                          xs: "6.5px",
+                          sm: "24px",
+                        },
+                      },
                     }}
                   />
 
@@ -132,6 +171,14 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           lg: "12px",
                           xl: "16px",
                         },
+                        fontSize: {
+                          xs: "4.88px",
+                          sm: "18px",
+                        },
+                        lineHeight: {
+                          xs: "6.5px",
+                          sm: "24px",
+                        },
                       }}
                     >
                       {slide.label}
@@ -154,7 +201,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             sx={{
               position: "absolute",
               left: 0,
-              top: { sm: 400, xs: 450 },
+              top: { md: 350, sm: 300, xs: 100 },
               px: { xs: 2.5, sm: 0 },
             }}
           >
@@ -163,9 +210,21 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 key={slides[index].id}
                 onClick={() => handleStepChange(index)}
                 sx={{
-                  width: 16,
-                  height: 16,
-                  minWidth: 16,
+                  width: {
+                    xs: "4.33px",
+                    sm: "8.53px",
+                    md: 16,
+                  },
+                  height: {
+                    xs: "4.33px",
+                    sm: "8.53px",
+                    md: 16,
+                  },
+                  minWidth: {
+                    xs: "4.33px",
+                    sm: "8.53px",
+                    md: 16,
+                  },
                   borderRadius: "50%",
                   border: "1px solid",
                   borderColor: neutral[200],
