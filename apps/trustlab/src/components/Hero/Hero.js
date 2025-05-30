@@ -57,7 +57,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   width: "100%",
                   height: "100%",
                   backgroundColor: "rgba(0, 0, 0, 0.8)",
-                  pointerEvents: "none",
                   zIndex: 1,
                 }}
               >
@@ -100,6 +99,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         backgroundColor: "common.white",
                         color: "#463E3E",
                         border: "none",
+
                         mt: 2,
                         "&:hover": {
                           transform: "scale(0.95)",
