@@ -2,7 +2,7 @@ import { slug, fullTitle } from "@commons-ui/payload";
 
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
-import TestBlock from "@/trustlab/payload/blocks/TestBlock";
+import Hero from "@/trustlab/payload/blocks/Hero";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const Pages = {
@@ -39,8 +39,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      // TODO: Remove TestBlock. Payload admin breaks if blocks is empty.
-      blocks: [TestBlock],
+      blocks: [Hero],
       localized: true,
       admin: {
         initCollapsed: true,
