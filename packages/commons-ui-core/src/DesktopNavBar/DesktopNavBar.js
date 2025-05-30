@@ -11,6 +11,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
     sx,
     NextImageButton = React.Fragment,
     Link = React.Fragment,
+    NavListItemProps = {},
   } = props;
 
   return (
@@ -38,6 +39,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
             socialLinks={socialLinks}
             direction="row"
             Component={Link}
+            NavListItemProps={NavListItemProps}
           />
         </Box>
       </Grid>
