@@ -37,7 +37,9 @@ function ActNow({ ...props }) {
   }, [session]);
 
   // When rendering client side don't display anything until loading is complete
-  if (typeof window !== "undefined" && status === "loading") return null;
+  if (typeof window !== "undefined" && status === "loading") {
+    return null;
+  }
 
   // If no session exists, show default landing page
   if (!session) {

@@ -1,10 +1,12 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
-import RefreshRouteOnSave from "@/trustlab/components/PayloadLivePreview";
+import Hero from "@/trustlab/components/Hero";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
-const componentsBySlugs = {};
+const componentsBySlugs = {
+  hero: Hero,
+};
 
 function Page({ blocks, fallback }) {
   if (!blocks?.length) {
@@ -19,7 +21,6 @@ function Page({ blocks, fallback }) {
   }
   return (
     <PageComponent {...pageComponentProps}>
-      <RefreshRouteOnSave />
       {blocks.map((block) => {
         const Component = componentsBySlugs[block.slug];
         if (!Component) {

@@ -1,3 +1,5 @@
+import blockify from "@/trustlab/lib/data/blockify";
+
 function imageFromMedia({ alt, url }) {
   return { alt, src: url ?? null };
 }
@@ -178,10 +180,12 @@ export async function getPageProps(api, context) {
     return null;
   }
   const siteSettings = await api.findGlobal("site-settings");
+  const blocks = await blockify(page?.blocks, api, context);
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
   return {
     navbar,
+    blocks,
     footer,
   };
 }

@@ -63,7 +63,9 @@ const generateLegend = (
 };
 
 export const generateChoropleth = (choroplethProps, locations, mapType) => {
-  if (mapType !== "choropleth") return null;
+  if (mapType !== "choropleth") {
+    return null;
+  }
 
   const filteredLocations = locations.filter(({ count }) => count !== null);
   const counts = filteredLocations.map(({ count }) => count);
@@ -112,7 +114,9 @@ export const generateChoropleth = (choroplethProps, locations, mapType) => {
   );
 
   const getColor = (count) => {
-    if (count === 0) return zeroColor;
+    if (count === 0) {
+      return zeroColor;
+    }
     const colorRange = count > 0 ? positiveColorRange : negativeColorRange;
     const thresholds = count > 0 ? positiveThresholds : negativeThresholds;
     const index = thresholds.findIndex(

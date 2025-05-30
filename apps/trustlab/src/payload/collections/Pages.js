@@ -2,7 +2,8 @@ import { slug, fullTitle } from "@commons-ui/payload";
 
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
-import TestBlock from "@/trustlab/payload/blocks/TestBlock";
+import Hero from "@/trustlab/payload/blocks/Hero";
+import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const Pages = {
   slug: "pages",
@@ -16,7 +17,7 @@ const Pages = {
     defaultColumns: ["fullTitle", "updatedAt", "_status"],
     group: "Publication",
     useAsTitle: "title",
-    hideAPIURL: true,
+    hideAPIURL,
     preview: ({ slug: pageSlug }) => {
       const encodedParams = new URLSearchParams({
         slug: pageSlug,
@@ -38,8 +39,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      // TODO: Remove TestBlock. Payload admin breaks if blocks is empty.
-      blocks: [TestBlock],
+      blocks: [Hero],
       localized: true,
       admin: {
         initCollapsed: true,
@@ -47,7 +47,9 @@ const Pages = {
     },
   ],
   versions: {
-    drafts: true,
+    drafts: {
+      autosave: true,
+    },
   },
 };
 
