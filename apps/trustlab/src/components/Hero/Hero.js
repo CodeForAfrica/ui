@@ -114,11 +114,13 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             </Box>
           </Slide>
         ))}
-        <Section
-          sx={{
+        <Box
+          sx={(theme) => ({
             position: "relative",
             px: { xs: 2.5, sm: 6, md: 0 },
-          }}
+            maxWidth: theme.contentWidths.values,
+            m: "0 auto",
+          })}
         >
           <Box
             sx={{ position: "absolute", left: 0, top: { sm: 336, xs: 400 } }}
@@ -141,7 +143,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               />
             ))}
           </Box>
-        </Section>
+        </Box>
       </Box>
     </Section>
   );
