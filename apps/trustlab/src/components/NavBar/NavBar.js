@@ -26,14 +26,14 @@ function NavBar({ logo, menus, socialLinks }) {
           Link={Link}
           NavListItemProps={{
             sx: {
-              color: "#000000",
+              color: "common.black",
               variant: "h3",
             },
           }}
           DialogProps={{
             sx: {
               "& .MuiDialogContent-root": {
-                backgroundColor: "#FFFFFF",
+                backgroundColor: "common.white",
               },
             },
           }}

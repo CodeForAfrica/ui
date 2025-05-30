@@ -4,8 +4,17 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Slide, Box, Button } from "@mui/material";
 import React, { forwardRef, useState } from "react";
 
+import { neutral } from "@/trustlab/colors";
+
 const Hero = forwardRef(function Hero({ slides }, ref) {
   const [activeStep, setActiveStep] = useState(0);
+  const [prevStep, setPrevStep] = useState(0);
+
+  const handleStepChange = (index) => {
+    setPrevStep(activeStep);
+    setActiveStep(index);
+  };
+
   if (!slides || !slides.length) {
     return null;
   }
@@ -30,11 +39,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         {slides.map((slide, index) => (
           <Slide
             key={slide.id}
-            direction="left"
+            direction={activeStep > prevStep ? "left" : "right"}
             in={activeStep === index}
             mountOnEnter
             unmountOnExit
             timeout={{ enter: 800, exit: 800 }}
+            easing={{ enter: "ease-in-out", exit: "ease-in-out" }}
             appear={false}
           >
             <Box
@@ -49,7 +59,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                color: "#fff",
               }}
             >
               <Box
@@ -57,7 +66,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   width: "100%",
                   height: "100%",
                   backgroundColor: "rgba(0, 0, 0, 0.8)",
-                  pointerEvents: "none",
                   zIndex: 1,
                 }}
               >
@@ -72,22 +80,24 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   <LexicalRichText
                     elements={slide.title}
                     TypographyProps={{
-                      variant: "display1",
+                      color: "text.secondary",
                       gutterBottom: true,
+                      variant: "display1",
                     }}
                   />
                   <LexicalRichText
                     elements={slide.subtitle}
                     TypographyProps={{
-                      variant: "h3",
-                      gutterBottom: true,
+                      variant: "h1",
+                      color: "text.secondary",
                     }}
                   />
                   <LexicalRichText
                     elements={slide.description}
                     TypographyProps={{
-                      variant: "subtitle1",
-                      sx: { mt: 2 },
+                      variant: "h3",
+                      color: "text.secondary",
+                      sx: { mt: 8 },
                     }}
                   />
 
@@ -97,12 +107,30 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                       href={slide.href}
                       variant="outlined"
                       sx={{
-                        backgroundColor: "common.white",
-                        color: "#463E3E",
-                        border: "none",
                         mt: 2,
                         "&:hover": {
                           transform: "scale(0.95)",
+                        },
+                        border: {
+                          xs: "0.27px solid",
+                          sm: "0.53px solid",
+                          md: "0.8px solid",
+                          lg: "1px solid",
+                          xl: "1.33px solid",
+                        },
+                        gap: {
+                          xs: "2.17px",
+                          sm: "4.27px",
+                          md: "6.4px",
+                          lg: "8px",
+                          xl: "10.67px",
+                        },
+                        padding: {
+                          xs: "3.25px",
+                          sm: "6.4px",
+                          md: "9.6px",
+                          lg: "12px",
+                          xl: "16px",
                         },
                       }}
                     >
@@ -123,20 +151,26 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           })}
         >
           <Box
-            sx={{ position: "absolute", left: 0, top: { sm: 336, xs: 400 } }}
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: { sm: 400, xs: 450 },
+              px: { xs: 2.5, sm: 0 },
+            }}
           >
             {slides.map((_, index) => (
               <Button
-                key={slides[index].title}
-                onClick={() => setActiveStep(index)}
+                key={slides[index].id}
+                onClick={() => handleStepChange(index)}
                 sx={{
-                  width: 12,
-                  height: 12,
-                  minWidth: 0,
+                  width: 16,
+                  height: 16,
+                  minWidth: 16,
                   borderRadius: "50%",
-                  border: "1px solid white",
+                  border: "1px solid",
+                  borderColor: neutral[200],
                   backgroundColor:
-                    activeStep === index ? "white" : "transparent",
+                    activeStep === index ? neutral[200] : "transparent",
                   mx: 0.5,
                   p: 0,
                 }}

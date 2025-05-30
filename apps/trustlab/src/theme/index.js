@@ -132,9 +132,10 @@ deepmerge(
           ...theme.typography.button,
           boxShadow: "none",
           border: "1px solid",
-          borderRadius: "none",
+          gap: "8px",
+          borderRadius: "0",
           backgroundColor: "#ffffff",
-          color: "#000000",
+          color: "#463E3E",
           "&:hover": {
             backgroundColor: "#F6F5F5",
           },
