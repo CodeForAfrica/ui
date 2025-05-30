@@ -1,31 +1,37 @@
 import { createTheme } from "@commons-ui/core";
+import { buttonClasses } from "@mui/material";
 import { deepmerge } from "@mui/utils";
-import { Merriweather, Open_Sans as OpenSans } from "next/font/google";
+import { Barlow, Open_Sans as OpenSans } from "next/font/google";
+
+import { neutral, primary } from "@/trustlab/colors";
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 const openSans = OpenSans({
-  weight: ["300", "400", "600", "700", "800"],
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const merriWeather = Merriweather({
-  weight: ["300", "400", "700"],
-  subsets: ["latin"],
-});
-
-const FONT_FAMILY_PRIMARY = openSans.style.fontFamily;
-const FONT_FAMILY_SECONDARY = merriWeather.style.fontFamily;
+const FONT_FAMILY_PRIMARY = barlow.style.fontFamily;
+const FONT_FAMILY_SECONDARY = openSans.style.fontFamily;
 
 const palette = {
   mode: "light",
-  primary: { main: "#1020E1", light: "#EFF0FD", dark: "#08125C" }, // blues
-  secondary: { main: "#000000", light: "#7F7272" },
-  error: { main: "#EF4444" },
-  grey: { main: "#B4ABAB", light: "#E3DFDF" },
+  primary: { main: primary[500] },
+  neutral: { light: neutral[200], main: neutral[500], dark: neutral[900] },
+  error: { main: "#FF0000" },
+  warning: { main: "#FEFF05" },
+  success: { main: "#34D399" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
-  divider: "#DAD5D5",
-  background: { main: "#F6F5F5" },
-  action: { hoverOpacity: 0, focusOpacity: 0 },
-  highlight: { main: "#ED1C24" },
+  background: {
+    default: neutral[100],
+  },
+  action: { focusOpacity: 0 },
 };
 
 const breakpoints = {
@@ -38,6 +44,22 @@ const breakpoints = {
   },
 };
 
+function initializeTypographyVariant(
+  fontSize,
+  lineHeight,
+  fontWeight = 400,
+  fontFamily = FONT_FAMILY_SECONDARY,
+  others = undefined,
+) {
+  return {
+    fontFamily,
+    fontSize,
+    fontWeight,
+    lineHeight: lineHeight / fontSize,
+    ...others,
+  };
+}
+
 const theme = createTheme({
   palette,
   breakpoints,
@@ -45,192 +67,43 @@ const theme = createTheme({
     values: {
       sm: 728,
       md: 1024,
-      lg: 1144,
-      xl: 1144,
+      lg: 1240,
+      xl: 1240,
     },
     unit: "px",
   },
   typography: {
-    fontFamily: FONT_FAMILY_PRIMARY,
-    display1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 300,
-      lineHeight: 72 / 72,
-    },
-    display2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      lineHeight: 72 / 60,
-      letterSpacing: "-0.04em",
-    },
-    h1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      letterSpacing: "-0.04em",
-    },
-    h2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      letterSpacing: "-0.04em",
-    },
-    h3: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      letterSpacing: "-0.02em",
-    },
-    h4: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      letterSpacing: "-0.02em",
-    },
-    h5: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      letterSpacing: "-0.02em",
-    },
-    h6: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-      letterSpacing: "-0.02em",
-    },
-    subheading: {
-      fontFamily: FONT_FAMILY_SECONDARY,
-      fontStyle: "normal",
-      fontWeight: 300,
-    },
-    subtitle1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 400,
-    },
-    subtitle2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 400,
-    },
-    body1: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 400,
-    },
-    body2: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 400,
-    },
-    body3: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 700,
-    },
-    button: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 600,
-    },
-    caption: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 400,
-      lineHeight: 14 / 12,
-    },
-    footer: {
-      fontFamily: FONT_FAMILY_PRIMARY,
-      fontStyle: "normal",
-      fontWeight: 400,
-      lineHeight: 14 / 12,
-      letterSpacing: "0.02rem",
-    },
+    fontFamily: FONT_FAMILY_SECONDARY,
+    display1: initializeTypographyVariant(72, 64, 800, FONT_FAMILY_PRIMARY),
+    display2: initializeTypographyVariant(64, 64, 800, FONT_FAMILY_PRIMARY),
+    h1: initializeTypographyVariant(32, 40, 700, FONT_FAMILY_PRIMARY),
+    h2: initializeTypographyVariant(24, 32, 700, FONT_FAMILY_PRIMARY),
+    h3: initializeTypographyVariant(18, 24, 700, FONT_FAMILY_PRIMARY),
+    button: initializeTypographyVariant(18, 24, 900, FONT_FAMILY_PRIMARY),
+    subheading1: initializeTypographyVariant(24, 32, 600, FONT_FAMILY_PRIMARY),
+    subheading2: initializeTypographyVariant(18, 24, 600, FONT_FAMILY_PRIMARY),
+    p1: initializeTypographyVariant(18, 24),
+    p2: initializeTypographyVariant(14, 20),
+    p3: initializeTypographyVariant(12, 16),
   },
   components: {
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
       },
-      styleOverrides: {
-        root: {
-          borderRadius: 0,
-        },
-      },
     },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 0,
-          boxShadow: "none",
-          "&:hover": {
-            boxShadow: "none",
-          },
-        },
-        containedPrimary: {
-          border: `1px solid ${palette.primary.main}`,
-          "&:hover": {
-            backgroundColor: palette.text.secondary,
-            color: palette.primary.main,
-          },
-        },
-        sizeSmall: {
-          padding: "8px 16px",
-        },
-        sizeMedium: {
-          padding: "12px 18px",
-        },
-        sizeLarge: {
-          padding: 24,
-        },
-      },
-      variants: [
-        {
-          props: { variant: "contained-reverse", color: "primary" },
-          style: {
-            backgroundColor: palette.text.secondary,
-            border: `1px solid ${palette.primary.main}`,
-            color: palette.primary.main,
-            "&:hover": {
-              backgroundColor: palette.primary.main,
-              border: `1px solid ${palette.text.secondary}`,
-              color: palette.text.secondary,
-            },
-          },
-        },
-      ],
-    },
-    MuiChip: {
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          borderRadius: 3,
-          padding: 0,
-          "&.MuiChip-clickable": {
-            "&:hover": {
-              backgroundColor: palette.background.main,
-              ...(ownerState.variant === "filled" &&
-                ownerState.color === "primary" && {
-                  backgroundColor: "#E0E2FC",
-                }),
-            },
-          },
-        }),
-        filled: ({ ownerState }) => ({
-          border: `1px solid ${palette.background.main}`,
-          backgroundColor: palette.background.main,
-          color: palette.secondary.light,
-          ...(ownerState.color === "primary" && {
-            border: `1px solid ${palette.primary.main}`,
-            backgroundColor: "#E0E2FC",
-            color: palette.primary.main,
-          }),
-        }),
-        label: {
-          paddingLeft: 8,
-          paddingRight: 8,
+    MuiTypography: {
+      defaultProps: {
+        variant: "p1",
+        variantMapping: {
+          h1: "h1",
+          h2: "h2",
+          h3: "h3",
+          subheading1: "h6",
+          subheading2: "h6",
+          p1: "p",
+          p2: "p",
+          p3: "p",
         },
       },
     },
@@ -239,209 +112,11 @@ const theme = createTheme({
 
 // deepmerge font-size so that we don't overide other settings such as
 // font-family set above
-const { pxToRem } = theme.typography;
 deepmerge(
   theme.typography,
   {
-    display1: {
-      fontSize: pxToRem(72),
-    },
-    display2: {
-      fontSize: pxToRem(60),
-    },
-    h1: {
-      fontSize: pxToRem(34),
-      lineHeight: 40 / 34,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(48),
-        lineHeight: 56 / 48,
-      },
-    },
-    h2: {
-      fontSize: pxToRem(33),
-      lineHeight: 40 / 33,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(39),
-        lineHeight: 47 / 39,
-      },
-    },
-    h3: {
-      fontSize: pxToRem(28),
-      lineHeight: 34 / 28,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(33),
-        lineHeight: 40 / 33,
-      },
-    },
-    h3Light: {
-      ...theme.typography.h3,
-      fontSize: pxToRem(28),
-      fontWeight: 300,
-      lineHeight: 34 / 28,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(28),
-        lineHeight: 34 / 28,
-      },
-    },
-    h4: {
-      fontSize: pxToRem(23),
-      lineHeight: 28 / 23,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(28),
-        lineHeight: 34 / 28,
-      },
-    },
-    h5: {
-      fontSize: pxToRem(23),
-      lineHeight: 28 / 23,
-    },
-    h5ExtraBold: {
-      ...theme.typography.h5,
-      fontSize: pxToRem(23),
-      fontWeight: 700,
-      lineHeight: 28 / 23,
-      textTransform: "uppercase",
-    },
-    h5Small: {
-      ...theme.typography.h5,
-      fontSize: pxToRem(19),
-      lineHeight: 23 / 19,
-    },
-    h5SemiBold: {
-      ...theme.typography.h5,
-      fontSize: pxToRem(23),
-      fontWeight: 300,
-      lineHeight: 28 / 23,
-    },
-    h6: {
-      fontSize: pxToRem(16),
-      lineHeight: 19 / 16,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(19),
-        lineHeight: 23 / 19,
-      },
-    },
-    subheading: {
-      fontSize: pxToRem(18),
-      lineHeight: 28 / 18,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(20),
-        lineHeight: 30 / 20,
-      },
-    },
-    subheadingSemiBold: {
-      ...theme.typography.subheading,
-      fontSize: pxToRem(20),
-      fontWeight: 600,
-      lineHeight: 28 / 20,
-    },
-    subheadingUnderline: {
-      ...theme.typography.subheading,
-      fontSize: pxToRem(20),
-      lineHeight: 28 / 20,
-      textDecoration: "underline",
-    },
-    subtitle1: {
-      fontSize: pxToRem(16),
-      lineHeight: 26 / 16,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(18),
-        lineHeight: 28 / 18,
-      },
-    },
-    subtitle2: {
-      fontSize: pxToRem(14),
-      lineHeight: 23 / 14,
-      [theme.breakpoints.up("md")]: {
-        fontSize: pxToRem(16),
-        lineHeight: 26 / 16,
-      },
-    },
-    body1: {
-      fontSize: pxToRem(14),
-      lineHeight: 23 / 14,
-      marginTop: pxToRem(28),
-      "&:first-of-type": {
-        marginTop: 0,
-      },
-    },
-    body1SemiBold: {
-      ...theme.typography.body1,
-      fontSize: pxToRem(14),
-      fontWeight: 600,
-      lineHeight: 17 / 14,
-    },
-    body1Underline: {
-      ...theme.typography.body1,
-      fontSize: pxToRem(14),
-      lineHeight: 17 / 14,
-    },
-    body2: {
-      fontSize: pxToRem(16),
-      lineHeight: 26 / 16,
-      marginTop: pxToRem(28),
-      "&:first-of-type": {
-        marginTop: 0,
-      },
-    },
-    body2SemiBold: {
-      ...theme.typography.body2,
-      fontSize: pxToRem(16),
-      fontWeight: 600,
-      lineHeight: 19 / 16,
-    },
-    body2Underline: {
-      ...theme.typography.body2,
-      fontSize: pxToRem(16),
-      lineHeight: 19 / 16,
-      textDecoration: "underline",
-    },
-    body3: {
-      fontSize: pxToRem(18),
-      lineHeight: 28 / 18,
-    },
-    body3SemiBold: {
-      ...theme.typography.body3,
-      fontSize: pxToRem(18),
-      fontWeight: 600,
-      lineHeight: 24 / 18,
-    },
-    body3Underline: {
-      ...theme.typography.body3,
-      fontSize: pxToRem(18),
-      lineHeight: 24 / 18,
-      textDecoration: "underline",
-    },
     button: {
-      fontSize: pxToRem(16),
-      lineHeight: 19 / 16,
-      // 10% of 16px = 1.6px
-      letterSpacing: pxToRem(0.16),
-    },
-    caption: {
-      fontSize: pxToRem(12),
-    },
-    captionCap: {
-      ...theme.typography.caption,
-      fontSize: pxToRem(12),
-      fontWeight: 600,
-      textTransform: "uppercase",
-    },
-    footer: {
-      fontSize: pxToRem(12),
-    },
-    footerSemiBold: {
-      ...theme.typography.footer,
-      fontWeight: 600,
-      fontSize: pxToRem(10),
-      lineHeight: 12 / 10,
-    },
-    footerCap: {
-      ...theme.typography.footer,
-      fontWeight: 700,
-      fontSize: pxToRem(10),
-      lineHeight: 14 / 10,
-      letterSpacing: "0.08rem",
+      ...theme.typography.button,
       textTransform: "uppercase",
     },
   },
@@ -451,108 +126,42 @@ deepmerge(
 deepmerge(
   theme.components,
   {
-    MuiCssBaseline: {
-      styleOverrides: `
-      blockquote {
-        background-color: ${palette.background.main};
-        font-size: ${pxToRem(16)};
-        line-height: ${26 / 16};
-        margin: 20px 0;
-        padding: 20px;
-      }
-      h4 {
-        font-size: ${pxToRem(23)};
-        line-height: ${28 / 23};
-        margin: 40px 0;
-      },
-      figure {
-        margin: 20px 0;
-      }
-      figcaption {
-        color: ${palette.primary.main};
-        margin-top: 20px;
-        text-align: center;
-        font-size: ${pxToRem(12)};
-      },
-      img {
-        height: auto;
-        object-fit: contain;
-        width: 100%;
-      }
-      hr {
-        border-bottom-width: thin;
-        border-color: ${palette.divider};
-        border-style: solid;
-        border-top: 0;
-        margin: 30px 0;
-      }
-      p, li {
-        font-size: ${pxToRem(16)};
-        line-height: ${26 / 16};
-      }
-      p {
-        margin: 30px 0;
-      }
-      p:first-of-type {
-        margin-top: 0;
-      }
-      p:last-of-type {
-        margin-bottom: 0;
-      }
-      @media (min-width: 1152px) {
-        blockquote {
-          padding: 50px 55.5px;
-          margin: 40px 0;
-        }
-        figure {
-          margin: 40px 0;
-        }
-        p, li {
-          font-size: ${pxToRem(18)};
-          line-height: ${28 / 18};
-        }
-      }
-    `,
-    },
     MuiButton: {
       styleOverrides: {
-        sizeSmall: {
-          ...theme.typography.button,
-        },
-        sizeLarge: {
-          ...theme.typography.button,
-        },
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
         root: {
-          ...theme.typography.body2,
-        },
-        sizeSmall: {
-          ...theme.typography.body1,
-        },
-      },
-    },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        input: {
-          ...theme.typography.body2,
-          height: 26,
-          padding: "12px 12px",
-          "&::placeholder": {
-            color: "#D0CBCB",
-            opacity: 1.0,
-            WebkitTextFillColor: "#D0CBCB",
+          ...theme.typography.button,
+          boxShadow: "none",
+          border: "1px solid",
+          borderRadius: "none",
+          backgroundColor: "#ffffff",
+          color: "#000000",
+          "&:hover": {
+            backgroundColor: "#F6F5F5",
+          },
+          "&:active": {
+            backgroundColor: "#FFFFFF",
+          },
+          [`&.${buttonClasses.disabled}`]: {
+            backgroundColor: "#E6E6E6",
+            color: "#888888",
+            borderColor: "#000000",
           },
         },
-        inputSizeSmall: {
-          ...theme.typography.body1,
-          height: 23,
-          padding: "6.5px 12px",
+        containedPrimary: {
+          backgroundColor: "#000000",
+          color: "#FFFFFF",
+          "&:active": {
+            backgroundColor: "#A0A0A0",
+          },
+          "&:hover": {
+            backgroundColor: "#727272",
+          },
         },
         sizeSmall: {
-          paddingRight: 10,
+          padding: "12px",
+        },
+        sizeLarge: {
+          padding: "16px 20px",
         },
       },
     },
