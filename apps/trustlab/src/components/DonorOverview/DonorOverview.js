@@ -3,7 +3,7 @@ import { Figure, Link, RichTypography } from "@commons-ui/next";
 import { Button, Grid } from "@mui/material";
 import React from "react";
 
-const OurDonors = React.forwardRef(function OurDonors(props, ref) {
+const DonorOverview = React.forwardRef(function DonorOverview(props, ref) {
   const { sx, partners, title, action } = props;
 
   if (!partners?.length) {
@@ -96,4 +96,4 @@ const OurDonors = React.forwardRef(function OurDonors(props, ref) {
   );
 });
 
-export default OurDonors;
+export default DonorOverview;

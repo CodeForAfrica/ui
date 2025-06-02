@@ -3,7 +3,7 @@ import { Figure, Link, RichTypography } from "@commons-ui/next";
 import { Button, Grid, Box } from "@mui/material";
 import React from "react";
 
-const OurPartners = React.forwardRef(function OurPartners(props, ref) {
+const PartnerOverview = React.forwardRef(function PartnerOverview(props, ref) {
   const { sx, partners, title, action } = props;
 
   if (!partners?.length) {
@@ -103,4 +103,4 @@ const OurPartners = React.forwardRef(function OurPartners(props, ref) {
   );
 });
 
-export default OurPartners;
+export default PartnerOverview;

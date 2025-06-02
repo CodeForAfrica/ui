@@ -1,20 +1,20 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OurDonors from "./OurDonors";
+import DonorOverview from "./DonorOverview";
 
 import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
 const defaultProps = {
-  slug: "our-donors",
+  slug: "donor-overview",
   partners: [],
 };
 
-describe("<OurDonors />", () => {
+describe("<DonorOverview />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<OurDonors {...defaultProps} />);
+    const { container } = render(<DonorOverview {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

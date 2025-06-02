@@ -1,13 +1,13 @@
-const Partners = {
-  slug: "our-partners",
+const Donors = {
+  slug: "donor-overview",
   imageURL: "/images/cms/blocks/partners.png",
-  imageAltText: "Our partners.",
+  imageAltText: "Donors overview",
   labels: {
     singular: {
-      en: "Partners",
+      en: "Donors",
     },
     plural: {
-      en: "Partners",
+      en: "Donors",
     },
   },
   fields: [
@@ -28,4 +28,4 @@ const Partners = {
   ],
 };
 
-export default Partners;
+export default Donors;
