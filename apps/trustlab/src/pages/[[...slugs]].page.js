@@ -1,15 +1,15 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
-import DonorOverview from "@/trustlab/components/DonorOverview";
+import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
-import PartnerOverview from "@/trustlab/components/PartnerOverview";
+import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   hero: Hero,
-  "partner-overview": PartnerOverview,
-  "donor-overview": DonorOverview,
+  "partner-overview-list": PartnerOverviewList,
+  "donor-overview-list": DonorOverviewList,
 };
 
 function Page({ blocks, fallback }) {

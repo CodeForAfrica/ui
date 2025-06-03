@@ -1,22 +1,17 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
-import { Button, Grid, Box } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import React from "react";
 
-const PartnerOverview = React.forwardRef(function PartnerOverview(props, ref) {
-  const { sx, partners, title, action } = props;
+const DonorOverviewList = React.forwardRef(
+  function DonorOverviewList(props, ref) {
+    const { sx, donors, title, action } = props;
 
-  if (!partners?.length) {
-    return null;
-  }
-  return (
-    <Section
-      sx={(theme) => ({
-        background: theme.palette.grey.light,
-        maxWidth: { xs: "100%" },
-      })}
-    >
-      <Box
+    if (!donors?.length) {
+      return null;
+    }
+    return (
+      <Section
         sx={(theme) => ({
           px: { xs: 2.5, sm: 0 },
           py: { xs: 5, md: 7, lg: 10 },
@@ -41,7 +36,7 @@ const PartnerOverview = React.forwardRef(function PartnerOverview(props, ref) {
           justifyContent="center"
           alignItems="center"
         >
-          {partners.map(({ logo, id, link: { href } }) => {
+          {donors.map(({ logo, id, link: { href } }) => {
             const { alt } = logo;
             const Wrapper = href?.length ? Link : React.Fragment;
             const wrapperProps = href?.length ? { href } : undefined;
@@ -98,9 +93,9 @@ const PartnerOverview = React.forwardRef(function PartnerOverview(props, ref) {
             {action?.content || action?.href}
           </Button>
         )}
-      </Box>
-    </Section>
-  );
-});
+      </Section>
+    );
+  },
+);
 
-export default PartnerOverview;
+export default DonorOverviewList;

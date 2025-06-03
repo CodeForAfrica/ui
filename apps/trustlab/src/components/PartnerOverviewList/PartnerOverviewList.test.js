@@ -1,20 +1,20 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import PartnerOverview from "./PartnerOverview";
+import PartnerOverviewList from "./PartnerOverviewList";
 
 import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
 const defaultProps = {
-  slug: "partner-overview",
+  slug: "partner-overview-list",
   partners: [],
 };
 
-describe("<PartnerOverview />", () => {
+describe("<PartnerOverviewList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<PartnerOverview {...defaultProps} />);
+    const { container } = render(<PartnerOverviewList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

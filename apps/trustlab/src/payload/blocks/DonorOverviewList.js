@@ -1,13 +1,13 @@
-const Partners = {
-  slug: "partner-overview",
-  imageURL: "/images/cms/blocks/partners.png",
-  imageAltText: "Partners Overview",
+const Donors = {
+  slug: "donor-overview-list",
+  imageURL: "/images/cms/blocks/donor-overview-list.png",
+  imageAltText: "Donors overview",
   labels: {
     singular: {
-      en: "Partners",
+      en: "Donors",
     },
     plural: {
-      en: "Partners",
+      en: "Donors",
     },
   },
   fields: [
@@ -17,9 +17,9 @@ const Partners = {
       required: true,
     },
     {
-      name: "partners",
+      name: "donors",
       type: "relationship",
-      relationTo: "partners",
+      relationTo: "donors",
       hasMany: true,
       admin: {
         isSortable: true,
@@ -28,4 +28,4 @@ const Partners = {
   ],
 };
 
-export default Partners;
+export default Donors;
