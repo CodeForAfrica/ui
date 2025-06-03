@@ -14,6 +14,7 @@ const HtmlEmbed = React.forwardRef(function HTMLEmbed(props, ref) {
     sx,
     title,
     EmbedCodeProps = {},
+    TitleProps = {},
   } = props;
   const children = childrenProp || embedCode;
 
@@ -30,7 +31,11 @@ const HtmlEmbed = React.forwardRef(function HTMLEmbed(props, ref) {
       ]}
       ref={ref}
     >
-      <RichTypography variant="h5SemiBold" sx={{ mb: "30px" }}>
+      <RichTypography
+        variant="h5SemiBold"
+        {...TitleProps}
+        sx={{ mb: "30px", ...TitleProps?.sx }}
+      >
         {title}
       </RichTypography>
       <EmbedCodeRoot {...EmbedCodeProps}>{children}</EmbedCodeRoot>

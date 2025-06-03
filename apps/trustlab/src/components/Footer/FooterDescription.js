@@ -27,22 +27,22 @@ const FooterDescription = React.forwardRef(
           />
         </Link>
         <LexicalRichText
-          variant="footer"
           TypographyProps={{
+            fontFamily: "Barlow",
+            variant: "p3",
             LinkProps: {
               color: "text.secondary",
-              sx: { textDecorationColor: "text.secondary" },
+              textDecoration: "underline",
+              textDecorationColor: "text.secondary",
             },
-            sx: { mt: { xs: 2, md: 0 } },
+            sx: {
+              mt: { xs: 2, md: 0 },
+            },
           }}
-          sx={(theme) => ({
-            a: {
-              textDecorationColor: theme.palette.text.secondary,
-            },
+          sx={{
             textAlign: { xs: "center", md: "left" },
-            typography: "footer",
             mt: 0,
-          })}
+          }}
           ref={ref}
           elements={description}
         />
