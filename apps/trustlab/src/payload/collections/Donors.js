@@ -6,14 +6,14 @@ import {
   slug,
 } from "@commons-ui/payload";
 
-const Partners = {
-  slug: "partners",
+const Donors = {
+  slug: "donors",
   labels: {
     singular: {
-      en: "Partner",
+      en: "Donor",
     },
     plural: {
-      en: "Partners",
+      en: "Donors",
     },
   },
   admin: {
@@ -59,7 +59,7 @@ const Partners = {
     }),
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("partners")],
+    afterRead: [nestCollectionUnderPage("donors")],
   },
 };
-export default Partners;
+export default Donors;

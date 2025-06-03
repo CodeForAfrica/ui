@@ -1,7 +1,7 @@
 const Partners = {
-  slug: "our-partners",
+  slug: "partner-overview-list",
   imageURL: "/images/cms/blocks/partners.png",
-  imageAltText: "Our partners.",
+  imageAltText: "Partners Overview",
   labels: {
     singular: {
       en: "Partners",

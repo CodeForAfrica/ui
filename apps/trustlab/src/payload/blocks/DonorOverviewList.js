@@ -1,7 +1,7 @@
 const Donors = {
-  slug: "our-donors",
-  imageURL: "/images/cms/blocks/partners.png",
-  imageAltText: "Our partners.",
+  slug: "donor-overview-list",
+  imageURL: "/images/cms/blocks/donor-overview-list.png",
+  imageAltText: "Donors overview",
   labels: {
     singular: {
       en: "Donors",
@@ -17,9 +17,9 @@ const Donors = {
       required: true,
     },
     {
-      name: "partners",
+      name: "donors",
       type: "relationship",
-      relationTo: "partners",
+      relationTo: "donors",
       hasMany: true,
       admin: {
         isSortable: true,
