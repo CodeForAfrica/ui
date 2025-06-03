@@ -8,4 +8,8 @@ module.exports = {
     className: "mock-opensans",
     style: { fontFamily: "MockOpenSans" },
   }),
+  Barlow: () => ({
+    className: "mock-barlow",
+    style: { fontFamily: "MockBarlow" },
+  }),
 };
