@@ -36,9 +36,15 @@ const nextConfig = {
       },
       {
         test: /\.svg$/i,
+        type: "asset",
+        resourceQuery: /url/, // *.svg?url
+      },
+      {
+        test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         exclude: /node_modules/, // Handle project SVGs as React components
         use: ["@svgr/webpack"],
+        resourceQuery: { not: [/url/] },
       },
     );
     config.experiments = { ...config.experiments, topLevelAwait: true };

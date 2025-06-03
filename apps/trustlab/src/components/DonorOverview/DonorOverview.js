@@ -4,9 +4,9 @@ import { Button, Grid } from "@mui/material";
 import React from "react";
 
 const DonorOverview = React.forwardRef(function DonorOverview(props, ref) {
-  const { sx, partners, title, action } = props;
+  const { sx, donors, title, action } = props;
 
-  if (!partners?.length) {
+  if (!donors?.length) {
     return null;
   }
   return (
@@ -35,7 +35,7 @@ const DonorOverview = React.forwardRef(function DonorOverview(props, ref) {
         justifyContent="center"
         alignItems="center"
       >
-        {partners.map(({ logo, id, link: { href } }) => {
+        {donors.map(({ logo, id, link: { href } }) => {
           const { alt } = logo;
           const Wrapper = href?.length ? Link : React.Fragment;
           const wrapperProps = href?.length ? { href } : undefined;

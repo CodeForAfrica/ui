@@ -17,9 +17,9 @@ const Donors = {
       required: true,
     },
     {
-      name: "partners",
+      name: "donors",
       type: "relationship",
-      relationTo: "partners",
+      relationTo: "donors",
       hasMany: true,
       admin: {
         isSortable: true,

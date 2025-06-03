@@ -21,11 +21,11 @@ import { StrikethroughFeatureClient as StrikethroughFeatureClient_e70f5e05f09f93
 import { UnderlineFeatureClient as UnderlineFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from "@payloadcms/richtext-lexical/client";
 import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from "@payloadcms/richtext-lexical/client";
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from "@payloadcms/richtext-lexical/client";
+import { default as default_f5238f1b70ea6cf94e5a15e7dfec6dac } from "@/trustlab/payload/components/RowLabel";
 import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
-import { default as default_f5238f1b70ea6cf94e5a15e7dfec6dac } from "@/trustlab/payload/components/RowLabel";
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from "@payloadcms/storage-s3/client";
 import { AdminErrorBoundary as AdminErrorBoundary_e5a9e14bdbe97e70ba60697217fe7688 } from "@payloadcms/plugin-sentry/client";
 
@@ -76,6 +76,8 @@ export const importMap = {
     BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient":
     ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
+  "@/trustlab/payload/components/RowLabel#default":
+    default_f5238f1b70ea6cf94e5a15e7dfec6dac,
   "@payloadcms/plugin-seo/client#OverviewComponent":
     OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaTitleComponent":
@@ -84,8 +86,6 @@ export const importMap = {
     MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent":
     PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
-  "@/trustlab/payload/components/RowLabel#default":
-    default_f5238f1b70ea6cf94e5a15e7dfec6dac,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler":
     S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
   "@payloadcms/plugin-sentry/client#AdminErrorBoundary":
