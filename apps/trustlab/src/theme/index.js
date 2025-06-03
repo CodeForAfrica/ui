@@ -76,6 +76,7 @@ const theme = createTheme({
     fontFamily: FONT_FAMILY_SECONDARY,
     display1: initializeTypographyVariant(72, 64, 800, FONT_FAMILY_PRIMARY),
     display2: initializeTypographyVariant(64, 64, 800, FONT_FAMILY_PRIMARY),
+    display3: initializeTypographyVariant(48, 48, 800, FONT_FAMILY_PRIMARY),
     h1: initializeTypographyVariant(32, 40, 700, FONT_FAMILY_PRIMARY),
     h2: initializeTypographyVariant(24, 32, 700, FONT_FAMILY_PRIMARY),
     h3: initializeTypographyVariant(18, 24, 700, FONT_FAMILY_PRIMARY),
