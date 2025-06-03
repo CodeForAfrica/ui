@@ -33,7 +33,7 @@ function Page({ blocks, fallback }) {
         }
         return <Component {...block} key={block.slug} />;
       })}
-      <ShowCase direction="row" />
+      <ShowCase />
     </PageComponent>
   );
 }

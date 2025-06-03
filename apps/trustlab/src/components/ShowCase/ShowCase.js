@@ -1,9 +1,9 @@
-import { Box, Typography, Button, Stack } from "@mui/material";
 import { Section } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
+import { Box, Typography, Button } from "@mui/material";
 import React from "react";
 
-const ShowCase = ({ direction = "row" }) => {
+function ShowCase({ direction = "rtl" }) {
   return (
     <Section
       sx={{
@@ -19,8 +19,9 @@ const ShowCase = ({ direction = "row" }) => {
           display: "flex",
           flexDirection: {
             xs: "column",
-            md: direction,
+            sm: direction === "ltr" ? "row" : "row-reverse",
           },
+          justifyContent: "flex-end",
           width: "100%",
           color: "white",
           overflow: "hidden",
@@ -32,8 +33,8 @@ const ShowCase = ({ direction = "row" }) => {
         <Box
           sx={{
             position: "relative",
-            height: "600px",
-            width: { xs: "100%", md: "572px" },
+            height: { sm: "600px", xs: "360px" },
+            width: { xs: "390px", sm: "572px" },
             maxWidth: "572px",
             margin: "0 auto",
           }}
@@ -47,8 +48,8 @@ const ShowCase = ({ direction = "row" }) => {
               display: {
                 sm: "block",
               },
-              height: "260px",
-              width: "203px",
+              height: { sm: "253px", xs: "153px" },
+              width: { sm: "203px", xs: 121 },
               position: "absolute",
               top: 0,
               left: 80,
@@ -63,11 +64,12 @@ const ShowCase = ({ direction = "row" }) => {
               display: {
                 sm: "block",
               },
-              height: "253px",
-              width: "260px",
+              height: { sm: "253px", xs: "157px" },
+              width: { sm: "260px", xs: "157px" },
               position: "absolute",
               right: 20,
-              bottom: "276px",
+              bottom: { sm: "276px", xs: "unset" },
+              top: { sm: "unset", xs: "16px" },
             }}
           />
           <Figure
@@ -79,11 +81,11 @@ const ShowCase = ({ direction = "row" }) => {
               display: {
                 sm: "block",
               },
-              height: "260px",
-              width: "260px",
+              height: { sm: "260px", xs: "157px" },
+              width: { sm: "260px", xs: "157px" },
               position: "absolute",
-              top: "276px",
-              left: 0,
+              top: { sm: "276px", xs: "160px" },
+              left: { sm: 0, xs: "32px" },
             }}
           />
 
@@ -96,11 +98,12 @@ const ShowCase = ({ direction = "row" }) => {
               display: {
                 sm: "block",
               },
-              height: "260px",
-              width: "200px",
+              height: { sm: "260px", xs: "157px" },
+              width: { sm: "200px", xs: "121px" },
               position: "absolute",
-              bottom: 0,
-              left: "276px",
+              bottom: { xs: "unset", sm: "0" },
+              top: { xs: "176px", sm: "unset" },
+              left: { sm: "276px", xs: "200px" },
             }}
           />
         </Box>
@@ -108,8 +111,11 @@ const ShowCase = ({ direction = "row" }) => {
         <Box
           flex={1}
           alignItems="center"
-          justifyContent={"center"}
+          justifyContent="center"
           display="flex"
+          sx={{
+            px: { xs: 2.5, sm: 0 },
+          }}
         >
           <Box
             sx={{
@@ -120,7 +126,8 @@ const ShowCase = ({ direction = "row" }) => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              ml: { xs: 0, md: -10 },
+              ml: { xs: 0, md: direction === "ltr" ? -10 : 0 },
+              mr: { xs: 0, md: direction === "ltr" ? 0 : -10 },
               zIndex: 1,
             }}
           >
@@ -152,6 +159,6 @@ const ShowCase = ({ direction = "row" }) => {
       </Box>
     </Section>
   );
-};
+}
 
 export default ShowCase;
