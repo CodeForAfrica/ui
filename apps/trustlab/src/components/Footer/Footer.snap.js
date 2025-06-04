@@ -6,7 +6,7 @@ exports[`<Footer /> renders unchanged 1`] = `
     class="MuiBox-root css-g6071f"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-iz79el-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1myirmg-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"

@@ -28,7 +28,7 @@ function FooterNavList({ menus, children }) {
               href={item.href}
               color="inherit"
               underline="none"
-              variant="h5"
+              variant="h2"
               sx={{
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",

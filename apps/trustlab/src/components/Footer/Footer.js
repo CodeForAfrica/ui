@@ -18,6 +18,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       color: "inherit",
       width: "100%",
     },
+    "& #mc_embed_signup label": {
+      fontFamily: "Barlow",
+      fontSize: "14px",
+      lineHeight: "23px",
+      fontWeight: 400,
+    },
     "& #mc_embed_signup input[type=text], & #mc_embed_signup input[type=email]":
       {
         typography: "body1",
@@ -45,15 +51,17 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     "& #mc_embed_signup input[type=submit]": {
       typography: "subtitle1",
       background: "none",
-      border: `1px solid ${theme.palette?.text?.secondary}`,
+      border: `none`,
       color: "inherit",
-      padding: `${theme.typography.pxToRem(6)} ${theme.typography.pxToRem(12)}`,
-      textDecoration: "none",
+      padding: 0,
+      textDecoration: "underline",
+      fontFamily: "Barlow",
+      fontSize: "16px",
+      lineHeight: "24px",
+      fontWeight: 600,
     },
     "& #mc_embed_signup input[type=submit]:hover": {
       cursor: "pointer",
-      background: theme.palette?.text?.secondary,
-      color: theme.palette?.text?.primary,
     },
   });
 
@@ -102,7 +110,13 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   <StayInTouch
                     {...connect}
                     LinkProps={{ component: Link }}
-                    TitleProps={{ variant: "footerCap" }}
+                    TitleProps={{
+                      sx: {
+                        textTransform: "uppercase",
+                        fontSize: "10px",
+                        fontWeight: 700,
+                      },
+                    }}
                     sx={{ mt: "52px" }}
                   />
                 </Grid>
@@ -119,6 +133,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
             <HtmlEmbed
               EmbedCodeProps={{ sx: htmlEmbedStyles }}
+              TitleProps={{
+                fontSize: "23px",
+                lineHeight: "28px",
+                letterSpacing: "-2%",
+                fontFamily: "Barlow",
+              }}
               {...newsletter}
             />
           </Grid>

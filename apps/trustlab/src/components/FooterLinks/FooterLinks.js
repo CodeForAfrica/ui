@@ -26,9 +26,12 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
           >
             <Link
               underline="none"
-              variant="body2SemiBold"
               sx={{
                 color: "text.secondary",
+                fontFamily: "Barlow",
+                fontSize: "16px",
+                lineHeight: "24px",
+                fontWeight: "600",
               }}
               href={item.href}
             >
