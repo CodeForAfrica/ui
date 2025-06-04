@@ -121,7 +121,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           })}
         >
           <Box
-            sx={{ position: "absolute", left: 0, top: { sm: 336, xs: 400 } }}
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: { sm: 336, xs: 400 },
+              px: { xs: 2.5, sm: 0 },
+            }}
           >
             {slides.map((_, index) => (
               <Button
