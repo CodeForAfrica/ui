@@ -28,7 +28,6 @@ const FooterDescription = React.forwardRef(
         </Link>
         <LexicalRichText
           TypographyProps={{
-            fontFamily: "Barlow",
             variant: "p3",
             LinkProps: {
               color: "text.secondary",

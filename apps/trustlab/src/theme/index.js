@@ -83,9 +83,9 @@ const theme = createTheme({
     button: initializeTypographyVariant(18, 24, 900, FONT_FAMILY_PRIMARY),
     subheading1: initializeTypographyVariant(24, 32, 600, FONT_FAMILY_PRIMARY),
     subheading2: initializeTypographyVariant(18, 24, 600, FONT_FAMILY_PRIMARY),
-    p1: initializeTypographyVariant(18, 24),
-    p2: initializeTypographyVariant(14, 20),
-    p3: initializeTypographyVariant(12, 16),
+    p1: initializeTypographyVariant(18, 24, 400, FONT_FAMILY_PRIMARY),
+    p2: initializeTypographyVariant(14, 20, 400, FONT_FAMILY_PRIMARY),
+    p3: initializeTypographyVariant(12, 16, 400, FONT_FAMILY_PRIMARY),
   },
   components: {
     MuiButtonBase: {
@@ -105,6 +105,7 @@ const theme = createTheme({
           p1: "p",
           p2: "p",
           p3: "p",
+          footer: "p",
         },
       },
     },
