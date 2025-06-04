@@ -28,25 +28,25 @@ const nextConfig = {
   pageExtensions: ["page.js", "js", "ts", "tsx"],
   reactStrictMode: true,
   webpack: (config) => {
-    config.module.rules.push(
-      {
-        test: /\.svg$/i,
-        type: "asset",
-        include: /node_modules/, // Handle all SVGs from node_modules as assets
-      },
-      {
-        test: /\.svg$/i,
-        type: "asset",
-        resourceQuery: /url/, // *.svg?url
-      },
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        exclude: /node_modules/, // Handle project SVGs as React components
-        use: ["@svgr/webpack"],
-        resourceQuery: { not: [/url/] },
-      },
-    );
+    config.module.rules.push({
+      test: /\.svg$/i,
+      oneOf: [
+        {
+          type: "asset",
+          include: /node_modules/, // Handle all SVGs from node_modules as assets
+        },
+        {
+          type: "asset",
+          resourceQuery: /url/, // *.svg?url
+        },
+        {
+          issuer: /\.[jt]sx?$/,
+          exclude: /node_modules/, // Handle project SVGs as React components
+          use: ["@svgr/webpack"],
+          resourceQuery: { not: [/url/] },
+        },
+      ],
+    });
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },

@@ -19,7 +19,7 @@ const Partners = {
   admin: {
     defaultColumns: ["name", "updatedAt"],
     enableRichTextLink: false,
-    group: "Consortium",
+    group: "Project",
     useAsTitle: "name",
   },
   access: {
