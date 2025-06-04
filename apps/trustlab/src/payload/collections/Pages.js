@@ -2,6 +2,7 @@ import { slug, fullTitle } from "@commons-ui/payload";
 
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
+import Banner from "@/trustlab/payload/blocks/Banner";
 import DonorOverviewList from "@/trustlab/payload/blocks/DonorOverviewList";
 import Hero from "@/trustlab/payload/blocks/Hero";
 import PartnerOverviewList from "@/trustlab/payload/blocks/PartnerOverviewList";
@@ -41,7 +42,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero, DonorOverviewList, PartnerOverviewList],
+      blocks: [Hero, Banner, DonorOverviewList, PartnerOverviewList],
       localized: true,
       admin: {
         initCollapsed: true,

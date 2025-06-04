@@ -1,12 +1,14 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import Banner from "@/trustlab/components/Banner";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
+  banner: Banner,
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
