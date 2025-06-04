@@ -47,7 +47,10 @@ function AdminBar(props) {
         py: 2,
         bgcolor: (theme) => theme.palette.secondary.main,
         color: (theme) => theme.palette.text.secondary,
-        display: show ? "block" : "none",
+        display: {
+          xs: "none",
+          lg: show ? "block" : "none",
+        },
       }}
     >
       <Container>

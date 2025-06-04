@@ -10,6 +10,7 @@ import React from "react";
 import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 // eslint-disable-next-line import/no-unresolved
 import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
+import { neutral } from "@/trustlab/colors";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (
@@ -23,6 +24,19 @@ function NavBar({ logo, menus, socialLinks }) {
           CloseIcon={CloseIcon}
           NextImageButton={NextImageButton}
           Link={Link}
+          NavListItemProps={{
+            sx: {
+              color: "common.black",
+              variant: "h3",
+            },
+          }}
+          DialogProps={{
+            sx: {
+              "& .MuiDialogContent-root": {
+                backgroundColor: "common.white",
+              },
+            },
+          }}
           sx={{
             display: { xs: "flex", md: "none" },
           }}
@@ -33,6 +47,12 @@ function NavBar({ logo, menus, socialLinks }) {
           socialLinks={socialLinks}
           NextImageButton={NextImageButton}
           Link={Link}
+          NavListItemProps={{
+            sx: {
+              color: neutral[400],
+              variant: "h1",
+            },
+          }}
           sx={{
             display: { xs: "none", md: "flex" },
           }}

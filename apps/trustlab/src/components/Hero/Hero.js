@@ -4,6 +4,8 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Slide, Box, Button } from "@mui/material";
 import React, { forwardRef, useState } from "react";
 
+import { neutral } from "@/trustlab/colors";
+
 const Hero = forwardRef(function Hero({ slides }, ref) {
   const [activeStep, setActiveStep] = useState(0);
   if (!slides || !slides.length) {
@@ -72,20 +74,19 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     elements={slide.title}
                     TypographyProps={{
                       variant: "display1",
-                      gutterBottom: true,
                     }}
                   />
                   <LexicalRichText
                     elements={slide.subtitle}
                     TypographyProps={{
-                      variant: "h3",
+                      variant: "h1",
                       gutterBottom: true,
                     }}
                   />
                   <LexicalRichText
                     elements={slide.description}
                     TypographyProps={{
-                      variant: "subtitle1",
+                      variant: "h3",
                       sx: { mt: 2 },
                     }}
                   />
@@ -96,13 +97,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                       href={slide.href}
                       variant="outlined"
                       sx={{
-                        backgroundColor: "common.white",
-                        color: "#463E3E",
-                        border: "none",
                         mt: 2,
-                        "&:hover": {
-                          transform: "scale(0.95)",
-                        },
                       }}
                     >
                       {slide.label}
@@ -138,9 +133,10 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   height: 12,
                   minWidth: 0,
                   borderRadius: "50%",
-                  border: "1px solid white",
+                  border: "1px solid",
+                  borderColor: neutral[200],
                   backgroundColor:
-                    activeStep === index ? "white" : "transparent",
+                    activeStep === index ? neutral[200] : "transparent",
                   mx: 0.5,
                   p: 0,
                 }}

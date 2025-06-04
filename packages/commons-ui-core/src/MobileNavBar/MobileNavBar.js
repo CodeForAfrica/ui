@@ -24,6 +24,9 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
     menuIcon,
     NextImageButton = React.Fragment,
     Link = "a",
+    DialogProps,
+    DialogContentProps,
+    NavListItemProps,
   } = props;
   const [open, setOpen] = React.useState(false);
 
@@ -66,6 +69,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           TransitionComponent={Transition}
           aria-labelledby="mobile-navbar-dialog"
           open={open}
+          {...DialogProps}
           sx={({ palette, spacing }) => ({
             "& .MuiDialog-container": {
               height: "100%",
@@ -78,10 +82,12 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               color: palette.text.secondary,
               background: palette.primary.main,
             },
+            ...DialogProps?.sx,
           })}
         >
           <DialogContent
             id="mobile-navbar-dialog"
+            {...DialogContentProps}
             sx={{
               m: 0,
               p: 0,
@@ -89,13 +95,17 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               color: "inherit",
               justifyContent: "space-between",
               alignItems: "flex-start",
+              ...DialogContentProps?.sx,
             }}
             onClose={handleClose}
           >
             <NavBarNavList
               menus={menus}
               socialLinks={socialLinks}
-              NavListItemProps={{ onClick: handleClose }}
+              NavListItemProps={{
+                onClick: handleClose,
+                ...NavListItemProps,
+              }}
               Component={Link}
             />
             <IconButton color="inherit" onClick={handleClose} sx={{ p: 0 }}>

@@ -28,7 +28,7 @@ const PartnerOverviewList = React.forwardRef(
           ref={ref}
         >
           <RichTypography
-            variant="h4"
+            variant="h1"
             textAlign="center"
             sx={{ "& a": { textDecoration: "none" }, mb: 4 }}
           >
