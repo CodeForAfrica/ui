@@ -26,7 +26,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
     Link = "a",
     DialogProps,
     DialogContentProps,
-    NavListItemProps = {},
+    NavListItemProps,
   } = props;
   const [open, setOpen] = React.useState(false);
 

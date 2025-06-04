@@ -11,7 +11,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
     sx,
     NextImageButton = React.Fragment,
     Link = React.Fragment,
-    NavListItemProps = {},
+    NavListItemProps,
   } = props;
 
   return (
