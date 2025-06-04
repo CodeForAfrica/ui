@@ -3,7 +3,7 @@ import { buttonClasses } from "@mui/material";
 import { deepmerge } from "@mui/utils";
 import { Barlow, Open_Sans as OpenSans } from "next/font/google";
 
-import { neutral, primary } from "@/trustlab/colors";
+import { neutral } from "@/trustlab/colors";
 
 const barlow = Barlow({
   subsets: ["latin"],
@@ -22,7 +22,7 @@ const FONT_FAMILY_SECONDARY = openSans.style.fontFamily;
 
 const palette = {
   mode: "light",
-  primary: { main: primary[500] },
+  primary: { main: "#000000" },
   neutral: { light: neutral[200], main: neutral[500], dark: neutral[900] },
   error: { main: "#FF0000" },
   warning: { main: "#FEFF05" },
