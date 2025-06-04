@@ -3,14 +3,42 @@ import { Figure } from "@commons-ui/next";
 import { Box, Typography, Button } from "@mui/material";
 import React from "react";
 
-function ShowCase({ direction = "rtl" }) {
+function ShowCase({
+  direction = "ltr",
+  images,
+  title = " Digital Security Course",
+  description = `Enrol in our digital security course and gain expert guidance to
+              safeguard yourself and your community from digital threats`,
+  action = {
+    label: "START LEARNING",
+    href: "/courses/digital-security",
+  },
+}) {
+  const [image1, image2, image3, image4] = images || [
+    {
+      src: "/images/4.png",
+      alt: "Code Africa Logo 4",
+    },
+    {
+      src: "/images/3.png",
+      alt: "Code Africa Logo 3",
+    },
+    {
+      src: "/images/2.png",
+      alt: "Code Africa Logo 2",
+    },
+    {
+      src: "/images/1.png",
+      alt: "Code Africa Logo 1",
+    },
+  ];
   return (
     <Section
       sx={{
         maxWidth: { md: "100%", xs: "100%" },
         bgcolor: "common.black",
         color: "common.white",
-        py: 4,
+        py: 8,
       }}
       fixed={false}
     >
@@ -19,7 +47,7 @@ function ShowCase({ direction = "rtl" }) {
           display: "flex",
           flexDirection: {
             xs: "column",
-            sm: direction === "ltr" ? "row" : "row-reverse",
+            md: direction === "ltr" ? "row" : "row-reverse",
           },
           justifyContent: "flex-end",
           width: "100%",
@@ -40,10 +68,7 @@ function ShowCase({ direction = "rtl" }) {
           }}
         >
           <Figure
-            ImageProps={{
-              src: "/images/4.png",
-              alt: "Code Africa Logo",
-            }}
+            ImageProps={image1}
             sx={{
               display: {
                 sm: "block",
@@ -56,10 +81,7 @@ function ShowCase({ direction = "rtl" }) {
             }}
           />
           <Figure
-            ImageProps={{
-              src: "/images/3.png",
-              alt: "Code Africa Logo",
-            }}
+            ImageProps={image2}
             sx={{
               display: {
                 sm: "block",
@@ -73,10 +95,7 @@ function ShowCase({ direction = "rtl" }) {
             }}
           />
           <Figure
-            ImageProps={{
-              src: "/images/2.png",
-              alt: "Code Africa Logo",
-            }}
+            ImageProps={image3}
             sx={{
               display: {
                 sm: "block",
@@ -90,10 +109,7 @@ function ShowCase({ direction = "rtl" }) {
           />
 
           <Figure
-            ImageProps={{
-              src: "/images/1.png",
-              alt: "Code Africa Logo",
-            }}
+            ImageProps={image4}
             sx={{
               display: {
                 sm: "block",
@@ -131,12 +147,11 @@ function ShowCase({ direction = "rtl" }) {
               zIndex: 1,
             }}
           >
-            <Typography variant="h4" fontWeight="bold" gutterBottom>
-              Digital Security Course
+            <Typography variant="display3" fontWeight="bold" gutterBottom>
+              {title}
             </Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
-              Enrol in our digital security course and gain expert guidance to
-              safeguard yourself and your community from digital threats
+              {description}
             </Typography>
             <Button
               variant="contained"
@@ -150,9 +165,10 @@ function ShowCase({ direction = "rtl" }) {
                   bgcolor: "#222",
                 },
                 width: "fit-content",
+                mt: 6,
               }}
             >
-              START LEARNING
+              {action.label}
             </Button>
           </Box>
         </Box>
