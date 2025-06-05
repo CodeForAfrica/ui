@@ -2,7 +2,14 @@ import { Section, RichTypography } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
 import { Box, Grid } from "@mui/material";
 
-function Banner({ backgroundColor, title, description, image, isPageHeader }) {
+function Banner({
+  backgroundColor,
+  textColour,
+  title,
+  description,
+  image,
+  isPageHeader,
+}) {
   const hasImage = image && image.url;
 
   return (
@@ -24,7 +31,7 @@ function Banner({ backgroundColor, title, description, image, isPageHeader }) {
         <Grid container>
           <Grid item xs={12} md={hasImage ? 9 : 12}>
             <RichTypography
-              color={isPageHeader ? "common.white" : "common.black"}
+              color={textColour}
               variant={isPageHeader ? "display2" : "display3"}
               sx={{
                 mb: 4,
@@ -38,7 +45,7 @@ function Banner({ backgroundColor, title, description, image, isPageHeader }) {
             </RichTypography>
             {description && (
               <RichTypography
-                color={isPageHeader ? "common.white" : "common.black"}
+                color={textColour}
                 variant={isPageHeader ? "subheading1" : "p1"}
                 sx={{ mb: 4 }}
               >

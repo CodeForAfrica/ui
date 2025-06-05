@@ -12,6 +12,7 @@ const componentsBySlugs = {
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
+  "what-we-do": Banner,
 };
 
 function Page({ blocks, fallback }) {

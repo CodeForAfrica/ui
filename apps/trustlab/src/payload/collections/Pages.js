@@ -6,6 +6,7 @@ import Banner from "@/trustlab/payload/blocks/Banner";
 import DonorOverviewList from "@/trustlab/payload/blocks/DonorOverviewList";
 import Hero from "@/trustlab/payload/blocks/Hero";
 import PartnerOverviewList from "@/trustlab/payload/blocks/PartnerOverviewList";
+import WhatWeDo from "@/trustlab/payload/blocks/WhatWeDo";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const Pages = {
@@ -42,7 +43,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero, Banner, DonorOverviewList, PartnerOverviewList],
+      blocks: [Hero, Banner, DonorOverviewList, PartnerOverviewList, WhatWeDo],
       localized: true,
       admin: {
         initCollapsed: true,
