@@ -1,3 +1,4 @@
+import { image, richText } from "@commons-ui/payload";
 import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
 import { validateHTMLColorHex } from "validate-color";
 
@@ -10,17 +11,17 @@ const WhatWeDo = {
       name: "title",
       required: true,
     },
-    {
-      type: "textarea",
+    richText({
       name: "description",
       required: true,
-    },
-    {
-      type: "upload",
-      name: "image",
-      relationTo: "media",
-      required: true,
-    },
+      localized: true,
+    }),
+    image({
+      overrides: {
+        name: "image",
+        required: true,
+      },
+    }),
     {
       type: "checkbox",
       name: "isPageHeader",

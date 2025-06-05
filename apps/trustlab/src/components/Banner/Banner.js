@@ -1,5 +1,6 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
+import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Grid } from "@mui/material";
 
 function Banner({
@@ -44,13 +45,21 @@ function Banner({
               {title}
             </RichTypography>
             {description && (
-              <RichTypography
-                color={textColour}
-                variant={isPageHeader ? "subheading1" : "p1"}
-                sx={{ mb: 4 }}
-              >
-                {description}
-              </RichTypography>
+              <LexicalRichText
+                TypographyProps={{
+                  color: textColour,
+                  variant: isPageHeader ? "subheading1" : "p1",
+                  LinkProps: {
+                    color: textColour,
+                    textDecoration: "underline",
+                    textDecorationColor: textColour,
+                  },
+                  sx: {
+                    mb: 4,
+                  },
+                }}
+                elements={description}
+              />
             )}
           </Grid>
           {hasImage && (
