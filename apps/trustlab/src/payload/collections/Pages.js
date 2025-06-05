@@ -5,6 +5,7 @@ import { anyone } from "@/trustlab/payload/access/anyone";
 import DonorOverviewList from "@/trustlab/payload/blocks/DonorOverviewList";
 import Hero from "@/trustlab/payload/blocks/Hero";
 import PartnerOverviewList from "@/trustlab/payload/blocks/PartnerOverviewList";
+import ShowCase from "@/trustlab/payload/blocks/ShowCase";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const Pages = {
@@ -41,7 +42,7 @@ const Pages = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [Hero, DonorOverviewList, PartnerOverviewList],
+      blocks: [Hero, DonorOverviewList, PartnerOverviewList, ShowCase],
       localized: true,
       admin: {
         initCollapsed: true,

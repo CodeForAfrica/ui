@@ -4,12 +4,14 @@ import { SWRConfig } from "swr";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
+import ShowCase from "@/trustlab/components/ShowCase";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
+  showcase: ShowCase,
 };
 
 function Page({ blocks, fallback }) {
@@ -30,7 +32,7 @@ function Page({ blocks, fallback }) {
         if (!Component) {
           return null;
         }
-        return <Component {...block} key={block.slug} />;
+        return <Component {...block} key={block.id} />;
       })}
     </PageComponent>
   );

@@ -14,7 +14,7 @@ const DonorOverviewList = React.forwardRef(
       <Section
         sx={(theme) => ({
           px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, md: 7, lg: 10 },
+          py: 4.5,
           maxWidth: theme.contentWidths.values,
           m: "0 auto",
           ...sx,
@@ -48,7 +48,6 @@ const DonorOverviewList = React.forwardRef(
                 sm={2}
                 justifyContent="center"
                 key={id}
-                spacing={2}
                 sx={{
                   width: {
                     xs: "100%",
