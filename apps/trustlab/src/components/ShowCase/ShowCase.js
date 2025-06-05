@@ -1,37 +1,21 @@
 import { Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
-import { Box, Typography, Button } from "@mui/material";
+import { Figure, Link } from "@commons-ui/next";
+import { LexicalRichText } from "@commons-ui/payload";
+import { Box, Button } from "@mui/material";
 import React from "react";
 
 function ShowCase({
-  direction = "ltr",
+  direction = "rtl",
   images,
-  title = " Digital Security Course",
-  description = `Enrol in our digital security course and gain expert guidance to
-              safeguard yourself and your community from digital threats`,
-  action = {
-    label: "START LEARNING",
-    href: "/courses/digital-security",
-  },
+  title,
+  description,
+  label,
+  href,
 }) {
-  const [image1, image2, image3, image4] = images || [
-    {
-      src: "/images/4.png",
-      alt: "Code Africa Logo 4",
-    },
-    {
-      src: "/images/3.png",
-      alt: "Code Africa Logo 3",
-    },
-    {
-      src: "/images/2.png",
-      alt: "Code Africa Logo 2",
-    },
-    {
-      src: "/images/1.png",
-      alt: "Code Africa Logo 1",
-    },
-  ];
+  if (!images || images.length < 4) {
+    return null;
+  }
+  const [image1, image2, image3, image4] = images;
   return (
     <Section
       sx={{
@@ -68,7 +52,10 @@ function ShowCase({
           }}
         >
           <Figure
-            ImageProps={image1}
+            ImageProps={{
+              src: image1.image.src,
+              alt: image1.image.alt || "Showcase Image 1",
+            }}
             sx={{
               display: {
                 sm: "block",
@@ -81,7 +68,10 @@ function ShowCase({
             }}
           />
           <Figure
-            ImageProps={image2}
+            ImageProps={{
+              src: image2.image.src,
+              alt: image2.image.alt || "Showcase Image 2",
+            }}
             sx={{
               display: {
                 sm: "block",
@@ -95,7 +85,10 @@ function ShowCase({
             }}
           />
           <Figure
-            ImageProps={image3}
+            ImageProps={{
+              src: image3.image.src,
+              alt: image3.image.alt || "Showcase Image 3",
+            }}
             sx={{
               display: {
                 sm: "block",
@@ -109,7 +102,10 @@ function ShowCase({
           />
 
           <Figure
-            ImageProps={image4}
+            ImageProps={{
+              src: image4.image.src,
+              alt: image4.image.alt || "Showcase Image 4",
+            }}
             sx={{
               display: {
                 sm: "block",
@@ -147,14 +143,23 @@ function ShowCase({
               zIndex: 1,
             }}
           >
-            <Typography variant="display3" fontWeight="bold" gutterBottom>
-              {title}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3 }}>
-              {description}
-            </Typography>
+            <LexicalRichText
+              elements={title}
+              TypographyProps={{
+                variant: "display3",
+                gutterBottom: true,
+              }}
+            />
+            <LexicalRichText
+              elements={description}
+              TypographyProps={{
+                sx: { mb: 3 },
+              }}
+            />
             <Button
               variant="contained"
+              component={href ? Link : undefined}
+              href={href}
               sx={{
                 bgcolor: "black",
                 color: "white",
@@ -168,7 +173,7 @@ function ShowCase({
                 mt: 6,
               }}
             >
-              {action.label}
+              {label}
             </Button>
           </Box>
         </Box>

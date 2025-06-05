@@ -11,6 +11,7 @@ const componentsBySlugs = {
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
+  showcase: ShowCase,
 };
 
 function Page({ blocks, fallback }) {
@@ -31,9 +32,8 @@ function Page({ blocks, fallback }) {
         if (!Component) {
           return null;
         }
-        return <Component {...block} key={block.slug} />;
+        return <Component {...block} key={block.id} />;
       })}
-      <ShowCase />
     </PageComponent>
   );
 }
