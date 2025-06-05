@@ -22,6 +22,7 @@ import { UnderlineFeatureClient as UnderlineFeatureClient_e70f5e05f09f93e00b997e
 import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from "@payloadcms/richtext-lexical/client";
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from "@payloadcms/richtext-lexical/client";
 import { default as default_f5238f1b70ea6cf94e5a15e7dfec6dac } from "@/trustlab/payload/components/RowLabel";
+import { ColourTextComponent as ColourTextComponent_5eca6d89486e7fecc5e5204e28af0de5 } from "@nouance/payload-better-fields-plugin/ColourText/client";
 import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from "@payloadcms/plugin-seo/client";
@@ -78,6 +79,8 @@ export const importMap = {
     ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/trustlab/payload/components/RowLabel#default":
     default_f5238f1b70ea6cf94e5a15e7dfec6dac,
+  "@nouance/payload-better-fields-plugin/ColourText/client#ColourTextComponent":
+    ColourTextComponent_5eca6d89486e7fecc5e5204e28af0de5,
   "@payloadcms/plugin-seo/client#OverviewComponent":
     OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaTitleComponent":

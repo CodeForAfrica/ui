@@ -199,6 +199,7 @@ catalog:
   turbo: ^2.5.2
   typescript-eslint: ^8.16.0
   typescript: ^5.5.4
+  validate-color: ^2.2.4
   vega-embed: ^6.26.0
   vega-lite: ^5.21.0
   vega-tooltip: ^0.34.0
@@ -222,6 +223,7 @@ catalogs:
     "@mui/utils": ^5.16.6
     "@mui/private-theming": ^5.16.6
   payload-v3:
+    "@nouance/payload-better-fields-plugin": ^2.0.2
     "@payloadcms/admin-bar": "^3.39.0"
     "@payloadcms/db-mongodb": ^3.39.0
     "@payloadcms/email-nodemailer": ^3.39.0
