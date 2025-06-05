@@ -1,4 +1,5 @@
-import { validateHexColor } from "@commons-ui/payload";
+import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
+import { validateHTMLColorHex } from "validate-color";
 
 const Banner = {
   slug: "banner",
@@ -21,16 +22,24 @@ const Banner = {
     {
       type: "row",
       fields: [
-        {
-          type: "text",
+        ...ColourTextField({
           name: "backgroundColor",
           defaultValue: "#02041C",
-          required: true,
           admin: {
             description: "Background color of the banner in hex format",
           },
-          validate: validateHexColor,
-        },
+          validate: (value) =>
+            validateHTMLColorHex(value) || "Invalid hex color",
+        }),
+        ...ColourTextField({
+          name: "textColour",
+          defaultValue: "#000000",
+          admin: {
+            description: "Background color of the banner in hex format",
+          },
+          validate: (value) =>
+            validateHTMLColorHex(value) || "Invalid hex color",
+        }),
         {
           type: "checkbox",
           name: "isPageHeader",
