@@ -8,7 +8,6 @@ import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
-  banner: Banner,
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
