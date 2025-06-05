@@ -12,6 +12,7 @@ const componentsBySlugs = {
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
+  "page-header": Banner,
   "what-we-do": Banner,
 };
 
