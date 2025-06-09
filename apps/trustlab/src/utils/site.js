@@ -19,8 +19,8 @@ const site = {
   image: {
     alt: name,
     height: 888,
-    type: "image/jpg",
-    url: `${url}image.jpeg`,
+    type: "image/jpeg",
+    url: `${url}image.jpg`,
     width: 1692,
   },
   name,
