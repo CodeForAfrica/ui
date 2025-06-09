@@ -1,6 +1,8 @@
 import { createEmotionCache } from "@/commons-ui/core/styles";
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
+/* eslint-disable-next-line import/no-unresolved */
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import React from "react";
@@ -13,16 +15,18 @@ import theme from "@/trustlab/theme";
 function getDefaultLayout(page, pageProps) {
   return <Page {...pageProps}>{page}</Page>;
 }
+
 const clientSideEmotionCache = createEmotionCache();
 
 function MyApp(props) {
   const {
     Component,
     emotionCache = clientSideEmotionCache,
-    pageProps,
+    pageProps: appProps,
     router: { isPreview },
   } = props;
-
+  const { analytics, ...pageProps } = appProps;
+  const { analyticsId: gaId } = analytics || {};
   const getLayout = Component.getLayout || getDefaultLayout;
 
   return (
@@ -45,6 +49,7 @@ function MyApp(props) {
           {getLayout(<Component {...pageProps} />, pageProps)}
         </ThemeProvider>
       </CacheProvider>
+      <GoogleAnalytics gaId={gaId} />
     </>
   );
 }
