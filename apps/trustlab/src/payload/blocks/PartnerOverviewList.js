@@ -1,4 +1,4 @@
-const Partners = {
+const PartnersOverviewList = {
   slug: "partner-overview-list",
   imageURL: "/images/cms/blocks/partners.png",
   imageAltText: "Partners Overview",
@@ -28,4 +28,4 @@ const Partners = {
   ],
 };
 
-export default Partners;
+export default PartnersOverviewList;

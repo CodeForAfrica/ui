@@ -2,11 +2,13 @@ import { slug, fullTitle } from "@commons-ui/payload";
 
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
-import DonorOverviewList from "@/trustlab/payload/blocks/DonorOverviewList";
-import Hero from "@/trustlab/payload/blocks/Hero";
-import PageHeader from "@/trustlab/payload/blocks/PageHeader";
-import PartnerOverviewList from "@/trustlab/payload/blocks/PartnerOverviewList";
-import WhatWeDo from "@/trustlab/payload/blocks/WhatWeDo";
+import {
+  DonorOverviewList,
+  Hero,
+  PageHeader,
+  PartnerOverviewList,
+  WhatWeDo,
+} from "@/trustlab/payload/blocks";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const Pages = {
