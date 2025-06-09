@@ -41,7 +41,11 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
         aria-live="off"
         class="vjs-text-track-display"
         translate="yes"
-      />
+      >
+        <div
+          style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; margin: 1.5%;"
+        />
+      </div>
       <div
         class="vjs-loading-spinner"
         dir="ltr"
@@ -1160,7 +1164,7 @@ exports[`<YoutubeVideoPlayer /> renders unchanged 1`] = `
             <button
               aria-disabled="false"
               class="vjs-done-button"
-              title="restore all settings to the default values"
+              title="Done"
               type="button"
             >
               Done
