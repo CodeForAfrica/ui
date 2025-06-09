@@ -23,7 +23,7 @@ exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-1l7pz24-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-1gvhhsw-MuiPaper-root-MuiCard-root"
             style="--Paper-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);"
           >
             <div
@@ -36,14 +36,14 @@ exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
                 class="MuiBox-root css-w0ujdf"
               >
                 <span
-                  class="MuiTypography-root MuiTypography-button css-ljjl5x-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-button css-1bwyue7-MuiTypography-root"
                 >
                   Toolkits
                 </span>
               </div>
             </div>
             <div
-              class="MuiCardHeader-root css-149tc0y-MuiCardHeader-root"
+              class="MuiCardHeader-root css-1wbqn5u-MuiCardHeader-root"
             >
               <div
                 class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
@@ -56,7 +56,7 @@ exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
               </div>
             </div>
             <div
-              class="MuiCardContent-root css-x4lmbv-MuiCardContent-root"
+              class="MuiCardContent-root css-1bxti0l-MuiCardContent-root"
             >
               <div
                 class="MuiBox-root css-nplt6p"

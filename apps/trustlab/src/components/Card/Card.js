@@ -11,10 +11,28 @@ import {
   Button,
 } from "@mui/material";
 
-function Card({ title, media, tag, description, link, linkLabel }) {
+function Card({
+  description,
+  link,
+  linkLabel,
+  media,
+  tag,
+  title,
+  DescriptionProps,
+  CardProps,
+  CardActionsProps,
+  CardContentProps,
+  CardHeaderProps,
+  CardMediaProps,
+  LinkProps,
+  TagProps,
+  TagTypographyProps,
+  TitleProps,
+}) {
   return (
     <MuiCard
       raised
+      {...CardProps}
       sx={{
         width: 380,
         maxWidth: 380,
@@ -22,18 +40,24 @@ function Card({ title, media, tag, description, link, linkLabel }) {
         flexDirection: "column",
         height: "100%",
         borderRadius: 0,
+        border: "1px solid #9F9494",
+        ...CardProps?.sx,
       }}
     >
       <CardMedia
         image={media.src}
         title={title}
+        {...CardMediaProps}
         sx={{
           height: 270,
           position: "relative",
+          ...CardMediaProps?.sx,
         }}
       >
         {tag && (
           <Box
+            component="div"
+            {...TagProps}
             sx={{
               backgroundColor: "common.black",
               opacity: 0.8,
@@ -45,49 +69,65 @@ function Card({ title, media, tag, description, link, linkLabel }) {
               display: "flex",
               alignItems: "center",
               pl: 2.5,
+              ...TagProps?.sx,
             }}
           >
-            <Typography
-              variant="button"
-              sx={{
-                color: "common.white",
-              }}
-            >
+            <Typography variant="button" {...TagTypographyProps}>
               {tag}
             </Typography>
           </Box>
         )}
       </CardMedia>
-      <CardHeader title={<Typography variant="h2">{title}</Typography>} />
+      <CardHeader
+        {...CardHeaderProps}
+        title={
+          <Typography variant="h2" {...TitleProps}>
+            {title}
+          </Typography>
+        }
+        sx={{
+          px: 3,
+          ...CardHeaderProps?.sx,
+        }}
+      />
       <CardContent
+        {...CardContentProps}
         sx={{
           flexGrow: 1,
+          px: 3,
+          ...CardContentProps?.sx,
         }}
       >
         <LexicalRichText
+          elements={description}
+          {...DescriptionProps}
           sx={{
             overflow: "hidden",
             textOverflow: "ellipsis",
             display: "-webkit-box",
             "-webkit-line-clamp": "3",
             "-webkit-box-orient": "vertical",
+            ...DescriptionProps?.sx,
           }}
-          elements={description}
         />
       </CardContent>
-      <CardActions>
-        <Button
-          href={link}
-          component={Link}
-          size="small"
-          variant="contained"
-          sx={{
-            width: "100%",
-          }}
-        >
-          {linkLabel}
-        </Button>
-      </CardActions>
+      {link && linkLabel && (
+        <CardActions {...CardActionsProps}>
+          <Button
+            href={link}
+            component={Link}
+            size="small"
+            variant="contained"
+            {...LinkProps}
+            sx={{
+              width: "100%",
+              ...LinkProps?.sx,
+            }}
+          >
+            {linkLabel}
+          </Button>
+        </CardActions>
+      )}
     </MuiCard>
   );
 }
