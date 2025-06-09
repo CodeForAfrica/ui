@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ShowCase from "./ShowCase";
+import CallToAction from "./CallToAction";
 
 import theme from "@/trustlab/theme";
 
@@ -9,9 +9,9 @@ const render = createRender({ theme });
 
 const defaultProps = {};
 
-describe("<ShowCase />", () => {
+describe("<CallToAction />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ShowCase {...defaultProps} />);
+    const { container } = render(<CallToAction {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

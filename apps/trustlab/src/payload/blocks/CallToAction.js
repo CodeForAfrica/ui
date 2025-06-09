@@ -1,18 +1,21 @@
 import { richText, image, link } from "@commons-ui/payload";
 
-const ShowCase = {
-  slug: "showcase",
+const CallToAction = {
+  slug: "call-to-action",
   labels: {
-    singular: "Showcase Block",
-    plural: "Showcase Blocks",
+    singular: "Call to Action",
+    plural: "Calls to Action",
   },
-  imageURL: "/images/cms/blocks/showcase.png",
+  imageURL: "/images/cms/blocks/call-to-action.png",
   imageAltText: "Showcases images and content.",
   fields: [
-    richText({
+    {
       name: "title",
+      type: "text",
       required: true,
-    }),
+      localized: true,
+      admin: {},
+    },
     richText({
       name: "description",
       required: true,
@@ -21,16 +24,13 @@ const ShowCase = {
       },
     }),
     {
-      name: "direction",
-      type: "select",
-      options: [
-        { label: "Left to Right", value: "ltr" },
-        { label: "Right to Left", value: "rtl" },
-      ],
-      defaultValue: "ltr",
+      name: "reverse",
+      type: "checkbox",
+      label: { en: "Reverse Layout" },
+      defaultValue: false,
       admin: {
         description:
-          "Direction of images -> content card the showcase block. This is used to determine the layout of the showcase block.",
+          "If enabled, the layout of the showcase block will be reversed. This is used to determine the layout of the showcase block.",
       },
     },
     link({
@@ -59,4 +59,4 @@ const ShowCase = {
   ],
 };
 
-export default ShowCase;
+export default CallToAction;

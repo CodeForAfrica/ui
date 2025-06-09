@@ -1,17 +1,17 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import CallToAction from "@/trustlab/components/CallToAction";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
-import ShowCase from "@/trustlab/components/ShowCase";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
-  showcase: ShowCase,
+  "call-to-action": CallToAction,
 };
 
 function Page({ blocks, fallback }) {
