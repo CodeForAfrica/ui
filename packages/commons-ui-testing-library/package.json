@@ -63,5 +63,10 @@
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",
     "prop-types": "catalog:"
-  }
+  },
+  "engines": {
+    "node": "20.x",
+    "pnpm": "10"
+  },
+  "packageManager": "pnpm@10.12.1"
 }

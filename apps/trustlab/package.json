@@ -60,5 +60,10 @@
     "jest-config-commons-ui": "workspace:*",
     "jest": "catalog:",
     "playwright-config-commons-ui": "workspace:*"
-  }
+  },
+  "engines": {
+    "node": "20.x",
+    "pnpm": "10"
+  },
+  "packageManager": "pnpm@10.12.1"
 }

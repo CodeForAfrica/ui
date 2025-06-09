@@ -106,8 +106,10 @@
     "webpack": "catalog:"
   },
   "engines": {
-    "node": "20.x"
+    "node": "20.x",
+    "pnpm": "10"
   },
+  "packageManager": "pnpm@10.12.1",
   "imports": {
     "#civicsignalblog/*": {
       "dev": [
