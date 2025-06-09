@@ -5,7 +5,7 @@ import { Box, Grid } from "@mui/material";
 
 function Banner({
   backgroundColor,
-  textColour,
+  textColor,
   title,
   description,
   image,
@@ -15,6 +15,7 @@ function Banner({
 
   return (
     <Box
+      component="section"
       sx={{
         backgroundColor,
         py: 8,
@@ -24,7 +25,7 @@ function Banner({
         <Grid container>
           <Grid item xs={12} md={hasImage ? 9 : 12}>
             <RichTypography
-              color={textColour}
+              color={textColor}
               variant={isPageHeader ? "display2" : "display3"}
               sx={{
                 mb: 4,
@@ -39,12 +40,12 @@ function Banner({
             {description && (
               <LexicalRichText
                 TypographyProps={{
-                  color: textColour,
+                  color: textColor,
                   variant: isPageHeader ? "subheading1" : "p1",
                   LinkProps: {
-                    color: textColour,
+                    color: textColor,
                     textDecoration: "underline",
-                    textDecorationColor: textColour,
+                    textDecorationColor: textColor,
                   },
                   sx: {
                     mb: 4,

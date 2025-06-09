@@ -2,7 +2,7 @@
 
 exports[`<Banner /> renders unchanged 1`] = `
 <div>
-  <div
+  <section
     class="MuiBox-root css-1kxqcqz"
   >
     <div
@@ -35,6 +35,6 @@ exports[`<Banner /> renders unchanged 1`] = `
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </div>
 `;
