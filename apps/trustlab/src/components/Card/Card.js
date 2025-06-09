@@ -34,8 +34,14 @@ function Card({
       raised
       {...CardProps}
       sx={{
-        width: 380,
-        maxWidth: 380,
+        width: {
+          xs: "100%",
+          md: 330,
+        },
+        maxWidth: {
+          xs: "100%",
+          md: 330,
+        },
         display: "flex",
         flexDirection: "column",
         height: "100%",
@@ -72,7 +78,14 @@ function Card({
               ...TagProps?.sx,
             }}
           >
-            <Typography variant="button" {...TagTypographyProps}>
+            <Typography
+              variant="button"
+              {...TagTypographyProps}
+              sx={{
+                color: "common.white",
+                ...TagTypographyProps?.sx,
+              }}
+            >
               {tag}
             </Typography>
           </Box>

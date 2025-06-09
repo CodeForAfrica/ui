@@ -16,14 +16,12 @@ function ResourcesOverViewList({ linkLabel, title: sectionTitle, resources }) {
         />
         <Grid
           container
-          direction={{
-            xs: "column",
-            md: "row",
-          }}
           sx={{
             gap: 1,
-            justifyContent: "space-between",
-            alignItems: "center",
+            justifyContent: {
+              xs: "center",
+              md: "space-between",
+            },
             mt: 3,
           }}
         >
