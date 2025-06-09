@@ -67,11 +67,11 @@ export default buildConfig({
     Media,
     Pages,
     Posts,
+    Tags,
     // Group: Project
     Donors,
     Partners,
     Resources,
-    Tags,
     // Group: Settings
     Users,
   ] as CollectionConfig[],
