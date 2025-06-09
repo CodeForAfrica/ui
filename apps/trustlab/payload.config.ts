@@ -61,11 +61,14 @@ export default buildConfig({
     },
   },
   collections: [
-    Donors,
+    // Group: Publication
     Media,
     Pages,
-    Partners,
     Posts,
+    // Group: Project
+    Donors,
+    Partners,
+    // Group: Settings
     Users,
   ] as CollectionConfig[],
   cors,
