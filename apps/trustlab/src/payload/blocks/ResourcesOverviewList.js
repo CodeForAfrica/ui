@@ -1,0 +1,21 @@
+const ResourcesOverviewList = {
+  slug: "resourcesOverviewList",
+  imageURL: "/images/cms/blocks/resources-overview-list.png",
+  fields: [
+    {
+      name: "title",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "resources",
+      type: "relationship",
+      relationTo: "resources",
+      hasMany: true,
+      minRows: 1,
+      maxRows: 3,
+    },
+  ],
+};
+
+export default ResourcesOverviewList;
