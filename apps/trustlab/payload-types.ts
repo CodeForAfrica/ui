@@ -67,13 +67,13 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    donors: Donor;
     media: Media;
     pages: Page;
-    partners: Partner;
     posts: Post;
-    resources: Resource;
     tags: Tag;
+    donors: Donor;
+    partners: Partner;
+    resources: Resource;
     users: User;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
@@ -81,13 +81,13 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    donors: DonorsSelect<false> | DonorsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
-    partners: PartnersSelect<false> | PartnersSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
-    resources: ResourcesSelect<false> | ResourcesSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
+    donors: DonorsSelect<false> | DonorsSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
+    resources: ResourcesSelect<false> | ResourcesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
@@ -134,46 +134,6 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "donors".
- */
-export interface Donor {
-  id: string;
-  name: string;
-  slug?: string | null;
-  logo: string | Media;
-  description: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  connect?:
-    | {
-        platform:
-          | "Facebook"
-          | "Twitter"
-          | "Instagram"
-          | "Linkedin"
-          | "Github"
-          | "Slack";
-        url: string;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -382,10 +342,92 @@ export interface Page {
           }
         | {
             title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image: string | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-header";
+          }
+        | {
+            title: string;
             partners?: (string | Partner)[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: "partner-overview-list";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image: string | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "what-we-do";
+          }
+        | {
+            title: string;
+            resources: (string | Resource)[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources-overview-list";
           }
       )[]
     | null;
@@ -401,10 +443,54 @@ export interface Page {
   meta?: {
     title?: string | null;
     description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
   };
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors".
+ */
+export interface Donor {
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  connect?:
+    | {
+        platform:
+          | "Facebook"
+          | "Twitter"
+          | "Instagram"
+          | "Linkedin"
+          | "Github"
+          | "Slack";
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -448,19 +534,6 @@ export interface Partner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title: string;
-  slug?: string | null;
-  createdBy?: (string | null) | User;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ("draft" | "published") | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resources".
  */
 export interface Resource {
@@ -500,15 +573,32 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  slug?: string | null;
+  createdBy?: (string | null) | User;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
   id: string;
   document?:
-    | ({
-        relationTo: "donors";
-        value: string | Donor;
-      } | null)
     | ({
         relationTo: "media";
         value: string | Media;
@@ -518,20 +608,24 @@ export interface PayloadLockedDocument {
         value: string | Page;
       } | null)
     | ({
-        relationTo: "partners";
-        value: string | Partner;
-      } | null)
-    | ({
         relationTo: "posts";
         value: string | Post;
       } | null)
     | ({
-        relationTo: "resources";
-        value: string | Resource;
-      } | null)
-    | ({
         relationTo: "tags";
         value: string | Tag;
+      } | null)
+    | ({
+        relationTo: "donors";
+        value: string | Donor;
+      } | null)
+    | ({
+        relationTo: "partners";
+        value: string | Partner;
+      } | null)
+    | ({
+        relationTo: "resources";
+        value: string | Resource;
       } | null)
     | ({
         relationTo: "users";
@@ -578,25 +672,6 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "donors_select".
- */
-export interface DonorsSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
-  logo?: T;
-  description?: T;
-  connect?:
-    | T
-    | {
-        platform?: T;
-        url?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -731,11 +806,42 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        "page-header"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
         "partner-overview-list"?:
           | T
           | {
               title?: T;
               partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "what-we-do"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "resources-overview-list"?:
+          | T
+          | {
+              title?: T;
+              resources?: T;
+              linkLabel?: T;
               id?: T;
               blockName?: T;
             };
@@ -754,10 +860,59 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
+        image?: T;
       };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  createdBy?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors_select".
+ */
+export interface DonorsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  logo?: T;
+  description?: T;
+  connect?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -780,18 +935,6 @@ export interface PartnersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
- */
-export interface PostsSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  createdBy?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resources_select".
  */
 export interface ResourcesSelect<T extends boolean = true> {
@@ -800,16 +943,6 @@ export interface ResourcesSelect<T extends boolean = true> {
   description?: T;
   image?: T;
   tags?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags_select".
- */
-export interface TagsSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -952,6 +1085,14 @@ export interface SiteSetting {
   analytics?: {
     analyticsId?: string | null;
   };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1015,6 +1156,13 @@ export interface SiteSettingsSelect<T extends boolean = true> {
     | T
     | {
         analyticsId?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
       };
   updatedAt?: T;
   createdAt?: T;

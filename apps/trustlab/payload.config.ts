@@ -85,12 +85,12 @@ export default buildConfig({
   globals: [SiteSettings] as GlobalConfig[],
   ...(locales?.length
     ? {
-      localization: {
-        locales,
-        defaultLocale,
-        fallback: true,
-      },
-    }
+        localization: {
+          locales,
+          defaultLocale,
+          fallback: true,
+        },
+      }
     : undefined),
   plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET || "",
