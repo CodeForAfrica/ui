@@ -1,7 +1,7 @@
 const environment = (process.env.SENTRY_ENVIRONMENT ?? "local")
   .trim()
   .toLowerCase();
-const name = process.env.NEXT_PUBLIC_APP_NAME ?? "TrustLab";
+const name = process.env.NEXT_PUBLIC_APP_NAME?.trim() ?? "TrustLab";
 
 // see: https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname
 const ensureTrailingSlash = (string) => {
@@ -15,6 +15,14 @@ const url = ensureTrailingSlash(process.env.NEXT_PUBLIC_APP_URL);
 
 const site = {
   environment,
+  // Default image for SEO
+  image: {
+    alt: name,
+    height: 888,
+    type: "image/jpg",
+    url: `${url}image.jpeg`,
+    width: 1692,
+  },
   name,
   url,
 };
