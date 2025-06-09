@@ -1,5 +1,5 @@
 const ResourcesOverviewList = {
-  slug: "resourcesOverviewList",
+  slug: "resources-overview-list",
   imageURL: "/images/cms/blocks/resources-overview-list.png",
   fields: [
     {
@@ -14,6 +14,13 @@ const ResourcesOverviewList = {
       hasMany: true,
       minRows: 1,
       maxRows: 3,
+      required: true,
+    },
+    {
+      name: "linkLabel",
+      type: "text",
+      required: true,
+      defaultValue: "Learn more",
     },
   ],
 };
