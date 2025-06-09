@@ -1,4 +1,4 @@
-const Donors = {
+const DonorsOverviewList = {
   slug: "donor-overview-list",
   imageURL: "/images/cms/blocks/donor-overview-list.png",
   imageAltText: "Donors overview",
@@ -28,4 +28,4 @@ const Donors = {
   ],
 };
 
-export default Donors;
+export default DonorsOverviewList;

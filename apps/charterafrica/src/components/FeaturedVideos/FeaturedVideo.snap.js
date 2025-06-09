@@ -61,11 +61,7 @@ exports[`FeaturedVideos should render 1`] = `
                   aria-live="off"
                   class="vjs-text-track-display"
                   translate="yes"
-                >
-                  <div
-                    style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; margin: 1.5%;"
-                  />
-                </div>
+                />
                 <div
                   class="vjs-loading-spinner"
                   dir="ltr"
@@ -1184,7 +1180,7 @@ exports[`FeaturedVideos should render 1`] = `
                       <button
                         aria-disabled="false"
                         class="vjs-done-button"
-                        title="Done"
+                        title="restore all settings to the default values"
                         type="button"
                       >
                         Done
