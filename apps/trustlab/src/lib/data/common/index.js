@@ -1,3 +1,5 @@
+import { getPageSeoFromMeta } from "./seo";
+
 import blockify from "@/trustlab/lib/data/blockify";
 
 function imageFromMedia({ alt, url }) {
@@ -183,10 +185,14 @@ export async function getPageProps(api, context) {
   const blocks = await blockify(page?.blocks, api, context);
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
+  const { analytics } = siteSettings;
+  const seo = getPageSeoFromMeta(page, siteSettings);
   return {
-    navbar,
+    analytics,
     blocks,
     footer,
+    navbar,
+    seo,
   };
 }
 

@@ -63,13 +63,16 @@ export default buildConfig({
     },
   },
   collections: [
-    Donors,
+    // Group: Publication
     Media,
     Pages,
-    Partners,
     Posts,
+    // Group: Project
+    Donors,
+    Partners,
     Resources,
     Tags,
+    // Group: Settings
     Users,
   ] as CollectionConfig[],
   cors,
@@ -82,12 +85,12 @@ export default buildConfig({
   globals: [SiteSettings] as GlobalConfig[],
   ...(locales?.length
     ? {
-        localization: {
-          locales,
-          defaultLocale,
-          fallback: true,
-        },
-      }
+      localization: {
+        locales,
+        defaultLocale,
+        fallback: true,
+      },
+    }
     : undefined),
   plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET || "",

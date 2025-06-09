@@ -1,8 +1,12 @@
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { sentryPlugin } from "@payloadcms/plugin-sentry";
 import { seoPlugin } from "@payloadcms/plugin-seo";
+/* eslint-disable-next-line import/no-unresolved */
+import { convertLexicalToPlaintext } from "@payloadcms/richtext-lexical/plaintext";
 import { s3Storage } from "@payloadcms/storage-s3";
 import * as Sentry from "@sentry/nextjs";
+
+import { site } from "@/trustlab/utils";
 
 const accessKeyId = process.env.S3_ACCESS_KEY_ID ?? "";
 const bucket = process.env.S3_BUCKET ?? "";
@@ -44,14 +48,17 @@ const plugins = [
     Sentry,
   }),
   seoPlugin({
-    collections: ["pages"],
-    generateTitle: ({ doc }) => {
-      return doc.title ?? "";
+    collections: ["pages", "posts"],
+    generateDescription: ({ doc }) => {
+      const data = doc?.description || doc?.excerpt;
+      if (data) {
+        return convertLexicalToPlaintext({ data });
+      }
+      return "";
     },
-    generateURL: ({ doc }) => {
-      const url = process.env.NEXT_PUBLIC_APP_URL ?? "";
-      return doc.slug ? `${url}/${doc.slug}` : "";
-    },
+    generateTitle: ({ doc }) => doc?.title ?? "",
+    generateURL: ({ doc }) => (doc?.slug ? `${site.url}${doc.slug}` : ""),
+    uploadsCollection: "media",
   }),
 ];
 
