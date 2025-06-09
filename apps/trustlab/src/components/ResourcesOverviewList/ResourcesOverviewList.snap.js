@@ -17,7 +17,7 @@ exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
         class="MuiDivider-root MuiDivider-fullWidth css-1kzkyux-MuiDivider-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-1smxifd-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] css-1sxerwy-MuiGrid-root"
       >
         <div
           class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
