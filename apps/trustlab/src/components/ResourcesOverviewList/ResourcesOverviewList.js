@@ -5,7 +5,7 @@ import Card from "@/trustlab/components/Card";
 
 function ResourcesOverViewList({ linkLabel, title: sectionTitle, resources }) {
   return (
-    <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
+    <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 8 }}>
       <Typography variant="h1">{sectionTitle}</Typography>
       <Divider
         sx={{

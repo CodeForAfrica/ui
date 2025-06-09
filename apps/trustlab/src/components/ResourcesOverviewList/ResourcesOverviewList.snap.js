@@ -3,7 +3,7 @@
 exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1myirmg-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1uol3l4-MuiContainer-root"
   >
     <h1
       class="MuiTypography-root MuiTypography-h1 css-2p1qp0-MuiTypography-root"
