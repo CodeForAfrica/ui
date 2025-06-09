@@ -67,9 +67,13 @@ export interface Config {
   };
   blocks: {};
   collections: {
+    donors: Donor;
     media: Media;
     pages: Page;
+    partners: Partner;
     posts: Post;
+    resources: Resource;
+    tags: Tag;
     users: User;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
@@ -77,9 +81,13 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
+    donors: DonorsSelect<false> | DonorsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    resources: ResourcesSelect<false> | ResourcesSelect<true>;
+    tags: TagsSelect<false> | TagsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
@@ -126,6 +134,46 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors".
+ */
+export interface Donor {
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  connect?:
+    | {
+        platform:
+          | "Facebook"
+          | "Twitter"
+          | "Instagram"
+          | "Linkedin"
+          | "Github"
+          | "Slack";
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -235,34 +283,111 @@ export interface Page {
   fullTitle?: string | null;
   slug?: string | null;
   blocks?:
-    | {
-        title: string;
-        content: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ("ltr" | "rtl") | null;
-            format:
-              | "left"
-              | "start"
-              | "center"
-              | "right"
-              | "end"
-              | "justify"
-              | "";
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "test";
-      }[]
+    | (
+        | {
+            slides?:
+              | {
+                  title: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  subtitle: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  /**
+                   * A brief description of the slide content.
+                   */
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  backgroundImage: string | Media;
+                  label: string;
+                  linkType?: ("custom" | "internal") | null;
+                  doc?: {
+                    relationTo: "pages";
+                    value: string | Page;
+                  } | null;
+                  url?: string | null;
+                  href: string;
+                  newTab?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "hero";
+          }
+        | {
+            title: string;
+            donors?: (string | Donor)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "donor-overview-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partner-overview-list";
+          }
+      )[]
     | null;
   parent?: (string | null) | Page;
   breadcrumbs?:
@@ -283,6 +408,46 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  connect?:
+    | {
+        platform:
+          | "Facebook"
+          | "Twitter"
+          | "Instagram"
+          | "Linkedin"
+          | "Github"
+          | "Slack";
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -296,11 +461,54 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "resources".
+ */
+export interface Resource {
+  id: string;
+  title: string;
+  slug?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  tags?: (string | Tag)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: "donors";
+        value: string | Donor;
+      } | null)
     | ({
         relationTo: "media";
         value: string | Media;
@@ -310,8 +518,20 @@ export interface PayloadLockedDocument {
         value: string | Page;
       } | null)
     | ({
+        relationTo: "partners";
+        value: string | Partner;
+      } | null)
+    | ({
         relationTo: "posts";
         value: string | Post;
+      } | null)
+    | ({
+        relationTo: "resources";
+        value: string | Resource;
+      } | null)
+    | ({
+        relationTo: "tags";
+        value: string | Tag;
       } | null)
     | ({
         relationTo: "users";
@@ -358,6 +578,25 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors_select".
+ */
+export interface DonorsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  logo?: T;
+  description?: T;
+  connect?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -463,11 +702,40 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        test?:
+        hero?:
+          | T
+          | {
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    description?: T;
+                    backgroundImage?: T;
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "donor-overview-list"?:
           | T
           | {
               title?: T;
-              content?: T;
+              donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
               id?: T;
               blockName?: T;
             };
@@ -493,6 +761,25 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners_select".
+ */
+export interface PartnersSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  logo?: T;
+  description?: T;
+  connect?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
@@ -502,6 +789,29 @@ export interface PostsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "resources_select".
+ */
+export interface ResourcesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  image?: T;
+  tags?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

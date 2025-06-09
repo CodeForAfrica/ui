@@ -15,6 +15,8 @@ import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
 import Posts from "@/trustlab/payload/collections/Posts";
 import Partners from "@/trustlab/payload/collections/Partners";
 import Donors from "@/trustlab/payload/collections/Donors";
+import Resources from "@/trustlab/payload/collections/Resources";
+import Tags from "@/trustlab/payload/collections/Tags";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -66,6 +68,8 @@ export default buildConfig({
     Pages,
     Partners,
     Posts,
+    Resources,
+    Tags,
     Users,
   ] as CollectionConfig[],
   cors,
