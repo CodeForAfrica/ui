@@ -3,86 +3,82 @@
 exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-0"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1myirmg-MuiContainer-root"
   >
-    <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fqfx6w-MuiContainer-root"
+    <h1
+      class="MuiTypography-root MuiTypography-h1 css-2p1qp0-MuiTypography-root"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 css-2p1qp0-MuiTypography-root"
-      >
-        Resources
-      </h1>
-      <hr
-        class="MuiDivider-root MuiDivider-fullWidth css-1kzkyux-MuiDivider-root"
-      />
+      Resources
+    </h1>
+    <hr
+      class="MuiDivider-root MuiDivider-fullWidth css-1kzkyux-MuiDivider-root"
+    />
+    <div
+      class="MuiGrid-root MuiGrid-container css-1cbqmz1-MuiGrid-root"
+    >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-[object Object] css-1sxerwy-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item css-4pkl32-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-80vc92-MuiPaper-root-MuiCard-root"
+          style="--Paper-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-1gvhhsw-MuiPaper-root-MuiCard-root"
-            style="--Paper-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);"
+            class="MuiCardMedia-root css-soupfp-MuiCardMedia-root"
+            role="img"
+            style="background-image: url(/resources-1.jpg);"
+            title="Digital Security Toolkit for Kenyan Activists"
           >
             <div
-              class="MuiCardMedia-root css-soupfp-MuiCardMedia-root"
-              role="img"
-              style="background-image: url(/resources-1.jpg);"
-              title="Digital Security Toolkit for Kenyan Activists"
+              class="MuiBox-root css-w0ujdf"
+            >
+              <span
+                class="MuiTypography-root MuiTypography-button css-ljjl5x-MuiTypography-root"
+              >
+                Toolkits
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiCardHeader-root css-1wbqn5u-MuiCardHeader-root"
+          >
+            <div
+              class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
+            >
+              <h2
+                class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
+              >
+                Digital Security Toolkit for Kenyan Activists
+              </h2>
+            </div>
+          </div>
+          <div
+            class="MuiCardContent-root css-1bxti0l-MuiCardContent-root"
+          >
+            <div
+              class="MuiBox-root css-nplt6p"
             >
               <div
-                class="MuiBox-root css-w0ujdf"
+                class="payload-richtext"
               >
-                <span
-                  class="MuiTypography-root MuiTypography-button css-1bwyue7-MuiTypography-root"
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-1d776u7-MuiTypography-root"
                 >
-                  Toolkits
-                </span>
+                  A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
+                </p>
               </div>
             </div>
-            <div
-              class="MuiCardHeader-root css-1wbqn5u-MuiCardHeader-root"
+          </div>
+          <div
+            class="MuiCardActions-root MuiCardActions-spacing css-1q4nm6f-MuiCardActions-root"
+          >
+            <a
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-17immvj-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              href="/resources/digital-security-toolkit-for-kenyan-activists"
+              tabindex="0"
             >
-              <div
-                class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
-              >
-                <h2
-                  class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
-                >
-                  Digital Security Toolkit for Kenyan Activists
-                </h2>
-              </div>
-            </div>
-            <div
-              class="MuiCardContent-root css-1bxti0l-MuiCardContent-root"
-            >
-              <div
-                class="MuiBox-root css-nplt6p"
-              >
-                <div
-                  class="payload-richtext"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-p1 css-1d776u7-MuiTypography-root"
-                  >
-                    A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div
-              class="MuiCardActions-root MuiCardActions-spacing css-1q4nm6f-MuiCardActions-root"
-            >
-              <a
-                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-17immvj-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-                href="/resources/digital-security-toolkit-for-kenyan-activists"
-                tabindex="0"
-              >
-                Learn More
-              </a>
-            </div>
+              Learn More
+            </a>
           </div>
         </div>
       </div>

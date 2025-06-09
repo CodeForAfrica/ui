@@ -3,7 +3,7 @@
 exports[`<Card /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-1gvhhsw-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-80vc92-MuiPaper-root-MuiCard-root"
     style="--Paper-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);"
   >
     <div
@@ -16,7 +16,7 @@ exports[`<Card /> renders unchanged 1`] = `
         class="MuiBox-root css-w0ujdf"
       >
         <span
-          class="MuiTypography-root MuiTypography-button css-1bwyue7-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-button css-ljjl5x-MuiTypography-root"
         >
           Toolkits
         </span>
