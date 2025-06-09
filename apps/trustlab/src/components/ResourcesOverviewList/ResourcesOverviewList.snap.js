@@ -75,13 +75,13 @@ exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
             <div
               class="MuiCardActions-root MuiCardActions-spacing css-1q4nm6f-MuiCardActions-root"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1qby8hr-MuiButtonBase-root-MuiButton-root"
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-17immvj-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="/resources/digital-security-toolkit-for-kenyan-activists"
                 tabindex="0"
-                type="button"
               >
                 Learn More
-              </button>
+              </a>
             </div>
           </div>
         </div>
