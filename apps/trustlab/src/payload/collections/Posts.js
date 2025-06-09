@@ -1,4 +1,4 @@
-import { slug, createdBy } from "@commons-ui/payload";
+import { createdBy, slug } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
