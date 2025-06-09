@@ -3,10 +3,10 @@
 exports[`<Banner /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-1pzpi70-MuiContainer-root"
+    class="MuiBox-root css-1kxqcqz"
   >
     <div
-      class="MuiBox-root css-1tllabt"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fqfx6w-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"

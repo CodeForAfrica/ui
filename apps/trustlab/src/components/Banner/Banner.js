@@ -14,21 +14,13 @@ function Banner({
   const hasImage = image && image.url;
 
   return (
-    <Section
+    <Box
       sx={{
-        maxWidth: { md: "100%", xs: "100%" },
         backgroundColor,
+        py: 8,
       }}
-      fixed={false}
     >
-      <Box
-        sx={(theme) => ({
-          maxWidth: theme.contentWidths.values,
-          px: { xs: 2.5, sm: 0 },
-          py: { xs: 5, md: 7, lg: 10 },
-          m: "0 auto",
-        })}
-      >
+      <Section>
         <Grid container>
           <Grid item xs={12} md={hasImage ? 9 : 12}>
             <RichTypography
@@ -77,8 +69,8 @@ function Banner({
             </Grid>
           )}
         </Grid>
-      </Box>
-    </Section>
+      </Section>
+    </Box>
   );
 }
 

@@ -23,16 +23,6 @@ const WhatWeDo = {
       },
     }),
     {
-      type: "checkbox",
-      name: "isPageHeader",
-      defaultValue: false,
-      label: "Is Page Header",
-      admin: {
-        hidden: true,
-        readOnly: true,
-      },
-    },
-    {
       type: "row",
       fields: [
         ...ColourTextField({

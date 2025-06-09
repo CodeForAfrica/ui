@@ -21,16 +21,6 @@ const PageHeader = {
       },
     }),
     {
-      type: "checkbox",
-      name: "isPageHeader",
-      defaultValue: true,
-      label: "Is Page Header",
-      admin: {
-        hidden: true,
-        readOnly: true,
-      },
-    },
-    {
       type: "row",
       fields: [
         ...ColourTextField({
@@ -56,6 +46,9 @@ const PageHeader = {
       ],
     },
   ],
+  hooks: {
+    afterRead: [({ doc }) => ({ ...doc, isPageHeader: true })],
+  },
 };
 
 export default PageHeader;
