@@ -17,6 +17,7 @@ import Partners from "@/trustlab/payload/collections/Partners";
 import Donors from "@/trustlab/payload/collections/Donors";
 import Resources from "@/trustlab/payload/collections/Resources";
 import Tags from "@/trustlab/payload/collections/Tags";
+import Opportunities from "@/trustlab/payload/collections/Opportunities";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -65,6 +66,7 @@ export default buildConfig({
   collections: [
     // Group: Publication
     Media,
+    Opportunities,
     Pages,
     Posts,
     Tags,
