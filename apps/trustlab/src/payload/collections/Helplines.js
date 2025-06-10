@@ -1,4 +1,9 @@
-import { image, richText, slug } from "@commons-ui/payload";
+import {
+  image,
+  richText,
+  nestCollectionUnderPage,
+  slug,
+} from "@commons-ui/payload";
 
 const Helplines = {
   slug: "helplines",
@@ -32,6 +37,9 @@ const Helplines = {
       },
     }),
   ],
+  hooks: {
+    afterRead: [nestCollectionUnderPage("helplines")],
+  },
 };
 
 export default Helplines;

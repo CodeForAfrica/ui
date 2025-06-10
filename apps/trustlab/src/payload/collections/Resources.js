@@ -1,4 +1,9 @@
-import { image, richText, slug } from "@commons-ui/payload";
+import {
+  image,
+  nestCollectionUnderPage,
+  richText,
+  slug,
+} from "@commons-ui/payload";
 
 const Resources = {
   slug: "resources",
@@ -32,6 +37,9 @@ const Resources = {
       hasMany: true,
     },
   ],
+  hooks: {
+    afterRead: [nestCollectionUnderPage("resources")],
+  },
 };
 
 export default Resources;

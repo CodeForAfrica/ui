@@ -1,28 +1,12 @@
-const ResourcesOverviewList = {
-  slug: "resources-overview-list",
-  imageURL: "/images/cms/blocks/resources-overview-list.png",
-  fields: [
-    {
-      name: "title",
-      type: "text",
-      required: true,
-    },
-    {
-      name: "resources",
-      type: "relationship",
-      relationTo: "resources",
-      hasMany: true,
-      minRows: 1,
-      maxRows: 3,
-      required: true,
-    },
-    {
-      name: "linkLabel",
-      type: "text",
-      required: true,
-      defaultValue: "Learn more",
-    },
-  ],
-};
+import RelationshipOverview from "./RelationshipOverview";
+
+const ResourcesOverviewList = RelationshipOverview(
+  "resources-overview-list",
+  "/images/cms/blocks/resources-overview-list.png",
+  {
+    relationTo: "resources",
+    relationshipLabel: "Resources",
+  },
+);
 
 export default ResourcesOverviewList;

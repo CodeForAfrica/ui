@@ -3,7 +3,11 @@ import { Divider, Grid, Typography } from "@mui/material";
 
 import Card from "@/trustlab/components/Card";
 
-function ResourcesOverViewList({ linkLabel, title: sectionTitle, resources }) {
+function ResourcesOverViewList({
+  linkLabel,
+  title: sectionTitle,
+  relationship,
+}) {
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 8 }}>
       <Typography variant="h1">{sectionTitle}</Typography>
@@ -24,7 +28,7 @@ function ResourcesOverViewList({ linkLabel, title: sectionTitle, resources }) {
           mt: 3,
         }}
       >
-        {resources.map(({ title, image, id, tags, description, slug }) => {
+        {relationship.map(({ title, image, id, tags, description, slug }) => {
           return (
             <Grid
               item

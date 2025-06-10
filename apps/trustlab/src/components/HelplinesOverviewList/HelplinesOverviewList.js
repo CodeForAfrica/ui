@@ -3,7 +3,11 @@ import { Divider, Grid, Typography } from "@mui/material";
 
 import HelplineCard from "@/trustlab/components/HelplineCard";
 
-function HelplinesOverviewList({ linkLabel, title: sectionTitle, resources }) {
+function HelplinesOverviewList({
+  linkLabel,
+  title: sectionTitle,
+  relationship,
+}) {
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 8 }}>
       <Typography variant="h1">{sectionTitle}</Typography>
@@ -24,7 +28,7 @@ function HelplinesOverviewList({ linkLabel, title: sectionTitle, resources }) {
           mt: 3,
         }}
       >
-        {resources.map(({ title, image, id, shortDescription, slug }) => {
+        {relationship.map(({ title, image, id, shortDescription, slug }) => {
           return (
             <Grid
               item
