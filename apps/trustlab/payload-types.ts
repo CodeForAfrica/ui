@@ -335,6 +335,59 @@ export interface Page {
           }
         | {
             title: string;
+            /**
+             * A brief description of the content.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * If enabled, the layout of the showcase block will be reversed. This is used to determine the layout of the showcase block.
+             */
+            reverse?: boolean | null;
+            label: string;
+            linkType?: ("custom" | "internal") | null;
+            doc?: {
+              relationTo: "pages";
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            href: string;
+            newTab?: boolean | null;
+            images?:
+              | {
+                  /**
+                   * Image to display in the showcase block.
+                   */
+                  image: string | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "call-to-action";
+          }
+        | {
+            title: string;
             donors?: (string | Donor)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -793,6 +846,27 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                     href?: T;
                     newTab?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "call-to-action"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              reverse?: T;
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              newTab?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
                     id?: T;
                   };
               id?: T;
