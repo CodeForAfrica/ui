@@ -4,9 +4,17 @@ const PageHeader = BannerBlock(
   "page-header",
   "/images/cms/blocks/page-header.png",
   {
-    hooks: {
-      afterRead: [({ doc }) => ({ ...doc, isPageHeader: true })],
-    },
+    fields: [
+      {
+        name: "isPageHeader",
+        type: "checkbox",
+        defaultValue: true,
+        virtual: true,
+        admin: {
+          hidden: true,
+        },
+      },
+    ],
   },
 );
 
