@@ -2,7 +2,6 @@ import {
   NavBar as NavigationBar,
   Section,
   DesktopNavBar,
-  MobileNavBar,
 } from "@commons-ui/core";
 import { Link, NextImageButton } from "@commons-ui/next";
 import React from "react";
@@ -11,6 +10,7 @@ import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentCol
 // eslint-disable-next-line import/no-unresolved
 import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
 import { neutral } from "@/trustlab/colors";
+import MobileNavBar from "@/trustlab/components/MobileNavBar";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (
@@ -24,22 +24,6 @@ function NavBar({ logo, menus, socialLinks }) {
           CloseIcon={CloseIcon}
           NextImageButton={NextImageButton}
           Link={Link}
-          NavListItemProps={{
-            sx: {
-              color: "common.black",
-              variant: "h3",
-            },
-          }}
-          DialogProps={{
-            sx: {
-              "& .MuiDialogContent-root": {
-                backgroundColor: "common.white",
-              },
-            },
-          }}
-          sx={{
-            display: { xs: "flex", md: "none" },
-          }}
         />
         <DesktopNavBar
           logo={logo}
@@ -48,9 +32,13 @@ function NavBar({ logo, menus, socialLinks }) {
           NextImageButton={NextImageButton}
           Link={Link}
           NavListItemProps={{
-            sx: {
-              color: neutral[400],
-              variant: "h1",
+            slotProps: {
+              typography: {
+                sx: {
+                  color: neutral[400],
+                  variant: "h1",
+                },
+              },
             },
           }}
           sx={{

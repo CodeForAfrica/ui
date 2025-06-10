@@ -6,7 +6,7 @@ import SocialMediaIconLink from "@/commons-ui/core/SocialMediaIconLink";
 
 const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
   const {
-    NavListItemProps,
+    slotProps: { item: ItemProps, typography } = {},
     direction,
     menus,
     socialLinks,
@@ -22,26 +22,34 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
       {menus.map((item) => (
         <NavListItem
           key={item.label}
-          sx={{
-            mb: { xs: 2.5, md: 0 },
-            mr: { xs: 0, md: 2.5 },
-          }}
+          {...ItemProps}
+          sx={[
+            {
+              mb: { xs: 2.5, md: 0 },
+              mr: { xs: 0, md: 2.5 },
+            },
+            ...(Array.isArray(ItemProps?.sx) ? ItemProps.sx : [ItemProps?.sx]),
+          ]}
         >
           <Component
             color="inherit"
             underline="none"
             // in mobile h3 = h4 in desktop
             variant="h3"
-            {...NavListItemProps}
+            {...typography}
             href={item.href}
-            sx={{
-              typography: { md: "body3" },
-              "&:hover, &:active, &:focus, &:focus-within": {
-                textDecoration: "none",
-                color: { xs: "inherit", md: "primary.main" },
+            sx={[
+              {
+                typography: { md: "body3" },
+                "&:hover, &:active, &:focus, &:focus-within": {
+                  textDecoration: "none",
+                  color: { xs: "inherit", md: "primary.main" },
+                },
               },
-              ...NavListItemProps?.sx,
-            }}
+              ...(Array.isArray(typography?.sx)
+                ? typography.sx
+                : [typography?.sx]),
+            ]}
           >
             {item.label}
           </Component>
