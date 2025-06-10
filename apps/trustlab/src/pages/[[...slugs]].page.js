@@ -4,20 +4,19 @@ import { SWRConfig } from "swr";
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
-import HelplinesOverviewList from "@/trustlab/components/HelplinesOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
-import ResourcesOverView from "@/trustlab/components/ResourcesOverviewList";
+import RelationshipOverviewList from "@/trustlab/components/RelationshipOverviewList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   "call-to-action": CallToAction,
   "donor-overview-list": DonorOverviewList,
-  "helplines-overview-list": HelplinesOverviewList,
+  "helplines-overview-list": RelationshipOverviewList,
   hero: Hero,
   "page-header": Banner,
   "partner-overview-list": PartnerOverviewList,
-  "resources-overview-list": ResourcesOverView,
+  "resources-overview-list": RelationshipOverviewList,
   "what-we-do": Banner,
 };
 
