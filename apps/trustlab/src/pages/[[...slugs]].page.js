@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
@@ -12,6 +13,8 @@ const componentsBySlugs = {
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
   "call-to-action": CallToAction,
+  "page-header": Banner,
+  "what-we-do": Banner,
 };
 
 function Page({ blocks, fallback }) {
