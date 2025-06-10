@@ -111,18 +111,35 @@ function Card({
           ...CardContentProps?.sx,
         }}
       >
-        <LexicalRichText
-          elements={description}
-          {...DescriptionProps}
-          sx={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            display: "-webkit-box",
-            "-webkit-line-clamp": "3",
-            "-webkit-box-orient": "vertical",
-            ...DescriptionProps?.sx,
-          }}
-        />
+        {typeof description === "string" ? (
+          <Typography
+            variant="body1"
+            {...DescriptionProps}
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              "-webkit-line-clamp": "3",
+              "-webkit-box-orient": "vertical",
+              ...DescriptionProps?.sx,
+            }}
+          >
+            {description}
+          </Typography>
+        ) : (
+          <LexicalRichText
+            elements={description}
+            {...DescriptionProps}
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              "-webkit-line-clamp": "3",
+              "-webkit-box-orient": "vertical",
+              ...DescriptionProps?.sx,
+            }}
+          />
+        )}
       </CardContent>
       {link && linkLabel && (
         <CardActions {...CardActionsProps}>
