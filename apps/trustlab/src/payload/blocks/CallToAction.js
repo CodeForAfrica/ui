@@ -20,7 +20,7 @@ const CallToAction = {
       name: "description",
       required: true,
       admin: {
-        description: "A brief description of the slide content.",
+        description: "A brief description of the content.",
       },
     }),
     {
