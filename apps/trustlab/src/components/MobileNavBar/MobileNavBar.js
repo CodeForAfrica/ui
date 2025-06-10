@@ -63,7 +63,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           zIndex: theme.zIndex.appBar - 1,
         })}
       >
-        <Section>
+        <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
           <NavBarNavList
             menus={menus}
             socialLinks={socialLinks}
