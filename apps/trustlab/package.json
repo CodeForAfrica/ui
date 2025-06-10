@@ -10,6 +10,7 @@
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:all": "pnpm generate:importmap && pnpm generate:types",
     "jest": "jest",
     "playwright": "npx playwright test",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",

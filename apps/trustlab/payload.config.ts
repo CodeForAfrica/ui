@@ -8,6 +8,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import {
   Donors,
+  Helplines,
   Media,
   Pages,
   Posts,
@@ -72,6 +73,7 @@ export default buildConfig({
     Tags,
     // Group: Project
     Donors,
+    Helplines,
     Partners,
     Resources,
     // Group: Settings

@@ -1,5 +1,6 @@
 export { default as Users } from "./Users";
 export { default as Donors } from "./Donors";
+export { default as Helplines } from "./Helplines";
 export { default as Media } from "./Media";
 export { default as Pages } from "./Pages";
 export { default as Partners } from "./Partners";

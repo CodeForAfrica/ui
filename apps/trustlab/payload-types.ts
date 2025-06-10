@@ -72,6 +72,7 @@ export interface Config {
     posts: Post;
     tags: Tag;
     donors: Donor;
+    helplines: Helpline;
     partners: Partner;
     resources: Resource;
     users: User;
@@ -86,6 +87,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     donors: DonorsSelect<false> | DonorsSelect<true>;
+    helplines: HelplinesSelect<false> | HelplinesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
     resources: ResourcesSelect<false> | ResourcesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -244,6 +246,14 @@ export interface Page {
   slug?: string | null;
   blocks?:
     | (
+        | {
+            title: string;
+            resources: (string | Helpline)[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines-overview-list";
+          }
         | {
             slides?:
               | {
@@ -507,6 +517,34 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "helplines".
+ */
+export interface Helpline {
+  id: string;
+  title: string;
+  slug?: string | null;
+  shortDescription: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "donors".
  */
 export interface Donor {
@@ -673,6 +711,10 @@ export interface PayloadLockedDocument {
         value: string | Donor;
       } | null)
     | ({
+        relationTo: "helplines";
+        value: string | Helpline;
+      } | null)
+    | ({
         relationTo: "partners";
         value: string | Partner;
       } | null)
@@ -830,6 +872,15 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
+        "helplines-overview-list"?:
+          | T
+          | {
+              title?: T;
+              resources?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
         hero?:
           | T
           | {
@@ -985,6 +1036,19 @@ export interface DonorsSelect<T extends boolean = true> {
         url?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "helplines_select".
+ */
+export interface HelplinesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  shortDescription?: T;
+  description?: T;
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
 }
