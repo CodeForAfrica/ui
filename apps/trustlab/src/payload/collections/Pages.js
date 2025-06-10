@@ -3,6 +3,7 @@ import { slug, fullTitle } from "@commons-ui/payload";
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 import {
+  CallToAction,
   DonorOverviewList,
   Hero,
   PageHeader,
@@ -47,6 +48,7 @@ const Pages = {
       type: "blocks",
       blocks: [
         Hero,
+        CallToAction,
         DonorOverviewList,
         PageHeader,
         PartnerOverviewList,
