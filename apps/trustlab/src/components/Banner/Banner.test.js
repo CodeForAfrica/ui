@@ -45,7 +45,7 @@ const defaultProps = {
     src: "/images/cms/blocks/banner.png",
     alt: "TrustLab Banner",
   },
-  isPageHeader: true,
+  blockType: "page-header",
 };
 
 describe("<Banner />", () => {
