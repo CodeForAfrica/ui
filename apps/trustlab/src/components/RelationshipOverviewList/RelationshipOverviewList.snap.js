@@ -17,11 +17,11 @@ exports[`<RelationshipOverviewList /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-container css-1cbqmz1-MuiGrid-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item css-4pkl32-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-item css-1bz7o24-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-80vc92-MuiPaper-root-MuiCard-root"
-          style="--Paper-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1i7y0rx-MuiPaper-root-MuiCard-root"
+          style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <div
             class="MuiCardMedia-root css-soupfp-MuiCardMedia-root"

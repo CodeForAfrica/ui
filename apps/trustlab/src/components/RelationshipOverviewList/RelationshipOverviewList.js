@@ -46,7 +46,10 @@ function RelationshipOverviewList({
                 item
                 key={id}
                 sx={{
-                  flexGrow: 1,
+                  flexGrow: {
+                    xs: 1,
+                    md: 0,
+                  },
                 }}
               >
                 {isHelplines ? (

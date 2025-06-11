@@ -11,6 +11,8 @@ import {
   Button,
 } from "@mui/material";
 
+import { neutral } from "@/trustlab/colors";
+
 function Card({
   description,
   link,
@@ -31,22 +33,22 @@ function Card({
 }) {
   return (
     <MuiCard
-      raised
       {...CardProps}
       sx={{
         width: {
           xs: "100%",
-          md: 330,
+          md: 336,
         },
         maxWidth: {
           xs: "100%",
-          md: 330,
+          md: 336,
         },
         display: "flex",
         flexDirection: "column",
         height: "100%",
         borderRadius: 0,
-        border: "1px solid #9F9494",
+        border: "1px solid",
+        borderColor: neutral[300],
         ...CardProps?.sx,
       }}
     >
