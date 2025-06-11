@@ -38,7 +38,7 @@ exports[`<ResourcesOverViewList /> renders unchanged 1`] = `
     >
       <a
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-17immvj-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-        href="/resources/anti-trolling"
+        href="/helplines/anti-trolling"
         tabindex="0"
       >
         Get Support

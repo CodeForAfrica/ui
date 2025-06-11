@@ -40,6 +40,7 @@ function RelationshipOverviewList({
             tags = [],
             description,
             slug,
+            link: { href },
           }) => {
             return (
               <Grid
@@ -57,7 +58,7 @@ function RelationshipOverviewList({
                     title={title}
                     media={image}
                     description={shortDescription}
-                    link={`/resources/${slug}`}
+                    link={href || `/${slug}`}
                     linkLabel={linkLabel}
                   />
                 ) : (
@@ -66,7 +67,7 @@ function RelationshipOverviewList({
                     media={image}
                     tag={tags[0]?.name}
                     description={description}
-                    link={`/resources/${slug}`}
+                    link={href || `/${slug}`}
                     linkLabel={linkLabel}
                   />
                 )}

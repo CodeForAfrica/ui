@@ -1,13 +1,13 @@
 import { neutral } from "@/trustlab/colors";
 import Card from "@/trustlab/components/Card";
 
-function HelplineCard({ title, media, description, slug, linkLabel }) {
+function HelplineCard({ title, media, description, link, linkLabel }) {
   return (
     <Card
       title={title}
       media={media}
       description={description}
-      link={`/resources/${slug}`}
+      link={link}
       linkLabel={linkLabel}
       CardProps={{
         sx: {

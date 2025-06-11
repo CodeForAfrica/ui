@@ -50,6 +50,9 @@ const defaultProps = {
           name: "Toolkits",
         },
       ],
+      link: {
+        href: "/resources/digital-security-toolkit-for-kenyan-activists",
+      },
       id: 1,
     },
   ],

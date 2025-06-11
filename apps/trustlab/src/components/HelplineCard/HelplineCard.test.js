@@ -10,6 +10,7 @@ const render = createRender({ theme });
 const defaultProps = {
   title: "Anti Trolling",
   slug: "anti-trolling",
+  link: "/helplines/anti-trolling",
   shortDescription:
     "Our fact-checkers & forensic investigators are on standby to verify claims or expose the puppet masters behind smear campaigns.",
   media: {
