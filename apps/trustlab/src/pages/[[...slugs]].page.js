@@ -1,6 +1,8 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import Banner from "@/trustlab/components/Banner";
+import CallToAction from "@/trustlab/components/CallToAction";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
@@ -10,6 +12,9 @@ const componentsBySlugs = {
   hero: Hero,
   "partner-overview-list": PartnerOverviewList,
   "donor-overview-list": DonorOverviewList,
+  "call-to-action": CallToAction,
+  "page-header": Banner,
+  "what-we-do": Banner,
 };
 
 function Page({ blocks, fallback }) {
@@ -30,7 +35,7 @@ function Page({ blocks, fallback }) {
         if (!Component) {
           return null;
         }
-        return <Component {...block} key={block.slug} />;
+        return <Component {...block} key={block.id} />;
       })}
     </PageComponent>
   );
