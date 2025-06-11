@@ -53,6 +53,7 @@ const defaultProps = {
       id: 1,
     },
   ],
+  blockType: "resources-overview-list",
 };
 
 describe("<RelationshipOverviewList />", () => {

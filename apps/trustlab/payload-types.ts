@@ -248,7 +248,7 @@ export interface Page {
     | (
         | {
             title: string;
-            resources: (string | Helpline)[];
+            relationship: (string | Helpline)[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -486,7 +486,7 @@ export interface Page {
           }
         | {
             title: string;
-            resources: (string | Resource)[];
+            relationship: (string | Resource)[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -876,7 +876,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              resources?: T;
+              relationship?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -965,7 +965,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              resources?: T;
+              relationship?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;

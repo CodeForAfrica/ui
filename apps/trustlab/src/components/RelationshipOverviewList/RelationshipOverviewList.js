@@ -8,8 +8,9 @@ function RelationshipOverviewList({
   linkLabel,
   title: sectionTitle,
   relationship,
-  isHelplines,
+  blockType,
 }) {
+  const isHelplines = blockType === "helplines-overview-list";
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 8 }}>
       <Typography variant="h1">{sectionTitle}</Typography>
