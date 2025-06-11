@@ -9,9 +9,10 @@ function Banner({
   title,
   description,
   image,
-  isPageHeader,
+  blockType,
 }) {
   const hasImage = image && image.url;
+  const isPageHeader = blockType === "page-header";
 
   return (
     <Box
