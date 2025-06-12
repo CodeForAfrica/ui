@@ -3,68 +3,72 @@
 exports[`<OverviewCardList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1uol3l4-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-puam0a-MuiContainer-root"
   >
-    <h1
-      class="MuiTypography-root MuiTypography-h1 css-2p1qp0-MuiTypography-root"
-    >
-      Resources
-    </h1>
-    <hr
-      class="MuiDivider-root MuiDivider-fullWidth css-1kzkyux-MuiDivider-root"
-    />
     <div
-      class="MuiGrid-root MuiGrid-container css-1cbqmz1-MuiGrid-root"
+      class="MuiBox-root css-1u870lt"
     >
+      <h1
+        class="MuiTypography-root MuiTypography-h1 css-leq0nk-MuiTypography-root"
+      >
+        Resources
+      </h1>
+      <hr
+        class="MuiDivider-root MuiDivider-fullWidth css-1kzkyux-MuiDivider-root"
+      />
       <div
-        class="MuiGrid-root MuiGrid-item css-1bz7o24-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-1cbqmz1-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tjmr4c-MuiPaper-root-MuiCard-root"
-          style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+          class="MuiGrid-root MuiGrid-item css-1bz7o24-MuiGrid-root"
         >
           <div
-            class="MuiCardMedia-root css-1avv2mj-MuiCardMedia-root"
-            role="img"
-            style="background-image: url(/resources-1.jpg);"
-            title="Digital Security Toolkit for Kenyan Activists"
-          >
-            <span
-              class="MuiTypography-root MuiTypography-button css-a543di-MuiTypography-root"
-            >
-              Toolkits
-            </span>
-          </div>
-          <div
-            class="MuiCardHeader-root css-3m74zm-MuiCardHeader-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tjmr4c-MuiPaper-root-MuiCard-root"
+            style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <div
-              class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
+              class="MuiCardMedia-root css-1avv2mj-MuiCardMedia-root"
+              role="img"
+              style="background-image: url(/resources-1.jpg);"
+              title="Digital Security Toolkit for Kenyan Activists"
             >
-              <h2
-                class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
+              <span
+                class="MuiTypography-root MuiTypography-button css-a543di-MuiTypography-root"
               >
-                Digital Security Toolkit for Kenyan Activists
-              </h2>
+                Toolkits
+              </span>
             </div>
-          </div>
-          <div
-            class="MuiCardContent-root css-1na367p-MuiCardContent-root"
-          >
             <div
-              class="MuiBox-root css-7x1cxm"
-            />
-          </div>
-          <div
-            class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"
-          >
-            <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1y0cma0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-              href="/resources/digital-security-toolkit-for-kenyan-activists"
-              tabindex="0"
+              class="MuiCardHeader-root css-3m74zm-MuiCardHeader-root"
             >
-              Learn More
-            </a>
+              <div
+                class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
+              >
+                <h2
+                  class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
+                >
+                  Digital Security Toolkit for Kenyan Activists
+                </h2>
+              </div>
+            </div>
+            <div
+              class="MuiCardContent-root css-1na367p-MuiCardContent-root"
+            >
+              <div
+                class="MuiBox-root css-7x1cxm"
+              />
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"
+            >
+              <a
+                class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1y0cma0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                href="/resources/digital-security-toolkit-for-kenyan-activists"
+                tabindex="0"
+              >
+                Learn More
+              </a>
+            </div>
           </div>
         </div>
       </div>
