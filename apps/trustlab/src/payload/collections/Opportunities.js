@@ -1,36 +1,25 @@
-import { image, richText, slug } from "@commons-ui/payload";
+import BaseContentCollection from "./BaseContentCollection";
 
-const Opportunities = {
-  slug: "opportunities",
-  admin: {
-    group: "Publication",
-    hideAPIURL: true,
-    useAsTitle: "title",
-  },
+const Opportunities = BaseContentCollection("opportunities", {
+  hasTags: true,
   fields: [
-    {
-      name: "title",
-      type: "text",
-      required: true,
-      localized: true,
-    },
-    slug({ fieldToUse: "title" }),
-    richText({
-      name: "description",
-      localized: true,
-    }),
-    image({
-      overrides: {
-        name: "image",
-        required: true,
-      },
-    }),
     {
       name: "deadline",
       type: "date",
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
   ],
-};
+  labels: {
+    singular: {
+      en: "Opportinity",
+    },
+    plural: {
+      en: "Opportunities",
+    },
+  },
+});
 
 export default Opportunities;

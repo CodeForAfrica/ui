@@ -245,6 +245,7 @@ export interface Opportunity {
   id: string;
   title: string;
   slug?: string | null;
+  shortDescription: string;
   description?: {
     root: {
       type: string;
@@ -261,7 +262,19 @@ export interface Opportunity {
     [k: string]: unknown;
   } | null;
   image: string | Media;
+  tags?: (string | Tag)[] | null;
   deadline: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -522,6 +535,26 @@ export interface Page {
             blockName?: string | null;
             blockType: "resources-overview-list";
           }
+        | {
+            title: string;
+            relationship: (
+              | {
+                  relationTo: "helplines";
+                  value: string | Helpline;
+                }
+              | {
+                  relationTo: "opportunities";
+                  value: string | Opportunity;
+                }
+              | {
+                  relationTo: "resources";
+                  value: string | Resource;
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "spotlight";
+          }
       )[]
     | null;
   parent?: (string | null) | Page;
@@ -679,17 +712,6 @@ export interface Resource {
   } | null;
   image: string | Media;
   tags?: (string | Tag)[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags".
- */
-export interface Tag {
-  id: string;
-  name: string;
-  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -903,8 +925,10 @@ export interface MediaSelect<T extends boolean = true> {
 export interface OpportunitiesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  shortDescription?: T;
   description?: T;
   image?: T;
+  tags?: T;
   deadline?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1015,6 +1039,14 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               relationship?: T;
               linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              title?: T;
+              relationship?: T;
               id?: T;
               blockName?: T;
             };
