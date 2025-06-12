@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import RelationshipOverviewList from "./RelationshipOverviewList";
+import OverviewCardList from "./OverviewCardList";
 
 import theme from "@/trustlab/theme";
 
@@ -59,11 +59,9 @@ const defaultProps = {
   blockType: "resources-overview-list",
 };
 
-describe("<RelationshipOverviewList />", () => {
+describe("<OverviewCardList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(
-      <RelationshipOverviewList {...defaultProps} />,
-    );
+    const { container } = render(<OverviewCardList {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

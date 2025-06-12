@@ -20,6 +20,12 @@ const Resources = {
       localized: true,
     },
     slug({ fieldToUse: "title" }),
+    {
+      name: "shortDescription",
+      type: "textarea",
+      localized: true,
+      required: true,
+    },
     richText({
       name: "description",
       localized: true,

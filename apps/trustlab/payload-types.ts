@@ -631,6 +631,7 @@ export interface Resource {
   id: string;
   title: string;
   slug?: string | null;
+  shortDescription: string;
   description?: {
     root: {
       type: string;
@@ -1078,6 +1079,7 @@ export interface PartnersSelect<T extends boolean = true> {
 export interface ResourcesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  shortDescription?: T;
   description?: T;
   image?: T;
   tags?: T;

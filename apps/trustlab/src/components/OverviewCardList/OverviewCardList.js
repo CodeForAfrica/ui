@@ -4,13 +4,14 @@ import { Divider, Grid, Typography } from "@mui/material";
 import Card from "@/trustlab/components/Card";
 import HelplineCard from "@/trustlab/components/HelplineCard";
 
-function RelationshipOverviewList({
+function OverviewCardList({
   linkLabel,
   title: sectionTitle,
   relationship,
   blockType,
 }) {
   const isHelplines = blockType === "helplines-overview-list";
+  const OverviewCard = isHelplines ? HelplineCard : Card;
   return (
     <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 8 }}>
       <Typography variant="h1">{sectionTitle}</Typography>
@@ -38,8 +39,6 @@ function RelationshipOverviewList({
             id,
             shortDescription,
             tags = [],
-            description,
-            slug,
             link: { href },
           }) => {
             return (
@@ -53,24 +52,14 @@ function RelationshipOverviewList({
                   },
                 }}
               >
-                {isHelplines ? (
-                  <HelplineCard
-                    title={title}
-                    media={image}
-                    description={shortDescription}
-                    link={href || `/${slug}`}
-                    linkLabel={linkLabel}
-                  />
-                ) : (
-                  <Card
-                    title={title}
-                    media={image}
-                    tag={tags[0]?.name}
-                    description={description}
-                    link={href || `/${slug}`}
-                    linkLabel={linkLabel}
-                  />
-                )}
+                <OverviewCard
+                  title={title}
+                  media={image}
+                  description={shortDescription}
+                  tag={tags[0]?.name}
+                  link={href}
+                  linkLabel={linkLabel}
+                />
               </Grid>
             );
           },
@@ -80,4 +69,4 @@ function RelationshipOverviewList({
   );
 }
 
-export default RelationshipOverviewList;
+export default OverviewCardList;

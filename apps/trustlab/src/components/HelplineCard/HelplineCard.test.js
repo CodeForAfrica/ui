@@ -20,7 +20,7 @@ const defaultProps = {
   linkLabel: "Get Support",
 };
 
-describe("<ResourcesOverViewList />", () => {
+describe("<HelplineCard />", () => {
   it("renders unchanged", () => {
     const { container } = render(<HelplineCard {...defaultProps} />);
     expect(container).toMatchSnapshot();

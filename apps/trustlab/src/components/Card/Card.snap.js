@@ -3,27 +3,23 @@
 exports[`<Card /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1i7y0rx-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tjmr4c-MuiPaper-root-MuiCard-root"
     style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
   >
     <div
-      class="MuiCardMedia-root css-soupfp-MuiCardMedia-root"
+      class="MuiCardMedia-root css-1avv2mj-MuiCardMedia-root"
       role="img"
       style="background-image: url(/resources-1.jpg);"
       title="Digital Security Toolkit for Kenyan Activists"
     >
-      <div
-        class="MuiBox-root css-w0ujdf"
+      <span
+        class="MuiTypography-root MuiTypography-button css-a543di-MuiTypography-root"
       >
-        <span
-          class="MuiTypography-root MuiTypography-button css-ljjl5x-MuiTypography-root"
-        >
-          Toolkits
-        </span>
-      </div>
+        Toolkits
+      </span>
     </div>
     <div
-      class="MuiCardHeader-root css-1wbqn5u-MuiCardHeader-root"
+      class="MuiCardHeader-root css-3m74zm-MuiCardHeader-root"
     >
       <div
         class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
@@ -36,10 +32,10 @@ exports[`<Card /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiCardContent-root css-1bxti0l-MuiCardContent-root"
+      class="MuiCardContent-root css-1na367p-MuiCardContent-root"
     >
       <div
-        class="MuiBox-root css-nplt6p"
+        class="MuiBox-root css-7x1cxm"
       >
         <div
           class="payload-richtext"
@@ -53,10 +49,10 @@ exports[`<Card /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiCardActions-root MuiCardActions-spacing css-1q4nm6f-MuiCardActions-root"
+      class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary active css-17immvj-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary active css-1y0cma0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"
         tabindex="0"
       >
