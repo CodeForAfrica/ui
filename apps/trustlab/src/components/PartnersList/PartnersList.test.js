@@ -8,7 +8,7 @@ import theme from "@/trustlab/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  slug: "partner-overview-list",
+  slug: "partners-list",
   partners: [
     {
       connect: [],

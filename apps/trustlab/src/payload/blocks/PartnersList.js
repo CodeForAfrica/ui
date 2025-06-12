@@ -16,6 +16,7 @@ const PartnersList = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "partners",

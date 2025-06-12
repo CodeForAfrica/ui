@@ -10,7 +10,6 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
   if (!partners?.length) {
     return null;
   }
-
   return (
     <Section
       sx={(theme) => ({
