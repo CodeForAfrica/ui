@@ -5,6 +5,7 @@ import { anyone } from "@/trustlab/payload/access/anyone";
 import {
   CallToAction,
   DonorOverviewList,
+  HelplinesOverviewList,
   Hero,
   PageHeader,
   PartnerOverviewList,
@@ -48,6 +49,7 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [
+        HelplinesOverviewList,
         Hero,
         CallToAction,
         DonorOverviewList,

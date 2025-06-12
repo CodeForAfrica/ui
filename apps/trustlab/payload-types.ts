@@ -73,6 +73,7 @@ export interface Config {
     posts: Post;
     tags: Tag;
     donors: Donor;
+    helplines: Helpline;
     partners: Partner;
     resources: Resource;
     users: User;
@@ -88,6 +89,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     donors: DonorsSelect<false> | DonorsSelect<true>;
+    helplines: HelplinesSelect<false> | HelplinesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
     resources: ResourcesSelect<false> | ResourcesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -274,6 +276,14 @@ export interface Page {
   slug?: string | null;
   blocks?:
     | (
+        | {
+            title: string;
+            relationship: (string | Helpline)[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines-overview-list";
+          }
         | {
             slides?:
               | {
@@ -506,7 +516,7 @@ export interface Page {
           }
         | {
             title: string;
-            resources: (string | Resource)[];
+            relationship: (string | Resource)[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -534,6 +544,34 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "helplines".
+ */
+export interface Helpline {
+  id: string;
+  title: string;
+  slug?: string | null;
+  shortDescription: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -623,6 +661,7 @@ export interface Resource {
   id: string;
   title: string;
   slug?: string | null;
+  shortDescription: string;
   description?: {
     root: {
       type: string;
@@ -705,6 +744,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: "donors";
         value: string | Donor;
+      } | null)
+    | ({
+        relationTo: "helplines";
+        value: string | Helpline;
       } | null)
     | ({
         relationTo: "partners";
@@ -877,6 +920,15 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
+        "helplines-overview-list"?:
+          | T
+          | {
+              title?: T;
+              relationship?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
         hero?:
           | T
           | {
@@ -961,7 +1013,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              resources?: T;
+              relationship?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -1037,6 +1089,19 @@ export interface DonorsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "helplines_select".
+ */
+export interface HelplinesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  shortDescription?: T;
+  description?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "partners_select".
  */
 export interface PartnersSelect<T extends boolean = true> {
@@ -1061,6 +1126,7 @@ export interface PartnersSelect<T extends boolean = true> {
 export interface ResourcesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  shortDescription?: T;
   description?: T;
   image?: T;
   tags?: T;
