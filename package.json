@@ -35,8 +35,8 @@
     "lint-staged": "catalog:",
     "playwright-config-commons-ui": "workspace:*",
     "prettier": "catalog:",
-    "turbo": "catalog:",
-    "react": "catalog:"
+    "react": "catalog:",
+    "turbo": "catalog:"
   },
   "engines": {
     "node": "20.x",
