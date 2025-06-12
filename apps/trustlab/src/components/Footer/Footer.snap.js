@@ -3,7 +3,7 @@
 exports[`<Footer /> renders unchanged 1`] = `
 <div>
   <footer
-    class="MuiBox-root css-g6071f"
+    class="MuiBox-root css-s4zq4f"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1myirmg-MuiContainer-root"
@@ -12,7 +12,7 @@ exports[`<Footer /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-15 MuiGrid-grid-lg-16 css-182fz6w-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-15 MuiGrid-grid-lg-16 css-xsdxuo-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"

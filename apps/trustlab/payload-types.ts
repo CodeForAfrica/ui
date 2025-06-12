@@ -70,6 +70,11 @@ export interface Config {
     media: Media;
     pages: Page;
     posts: Post;
+    tags: Tag;
+    donors: Donor;
+    helplines: Helpline;
+    partners: Partner;
+    resources: Resource;
     users: User;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
@@ -80,6 +85,11 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    tags: TagsSelect<false> | TagsSelect<true>;
+    donors: DonorsSelect<false> | DonorsSelect<true>;
+    helplines: HelplinesSelect<false> | HelplinesSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
+    resources: ResourcesSelect<false> | ResourcesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
@@ -235,34 +245,254 @@ export interface Page {
   fullTitle?: string | null;
   slug?: string | null;
   blocks?:
-    | {
-        title: string;
-        content: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
+    | (
+        | {
+            title: string;
+            relationship: (string | Helpline)[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines-overview-list";
+          }
+        | {
+            slides?:
+              | {
+                  title: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  subtitle: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  /**
+                   * A brief description of the slide content.
+                   */
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  backgroundImage: string | Media;
+                  label: string;
+                  linkType?: ("custom" | "internal") | null;
+                  doc?: {
+                    relationTo: "pages";
+                    value: string | Page;
+                  } | null;
+                  url?: string | null;
+                  href: string;
+                  newTab?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "hero";
+          }
+        | {
+            title: string;
+            /**
+             * A brief description of the content.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
               [k: string]: unknown;
-            }[];
-            direction: ("ltr" | "rtl") | null;
-            format:
-              | "left"
-              | "start"
-              | "center"
-              | "right"
-              | "end"
-              | "justify"
-              | "";
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "test";
-      }[]
+            };
+            /**
+             * If enabled, the layout of the showcase block will be reversed. This is used to determine the layout of the showcase block.
+             */
+            reverse?: boolean | null;
+            label: string;
+            linkType?: ("custom" | "internal") | null;
+            doc?: {
+              relationTo: "pages";
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            href: string;
+            newTab?: boolean | null;
+            images?:
+              | {
+                  /**
+                   * Image to display in the showcase block.
+                   */
+                  image: string | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "call-to-action";
+          }
+        | {
+            title: string;
+            donors?: (string | Donor)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "donor-overview-list";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image: string | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-header";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partner-overview-list";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image: string | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "what-we-do";
+          }
+        | {
+            title: string;
+            relationship: (string | Resource)[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources-overview-list";
+          }
+      )[]
     | null;
   parent?: (string | null) | Page;
   breadcrumbs?:
@@ -276,10 +506,162 @@ export interface Page {
   meta?: {
     title?: string | null;
     description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
   };
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "helplines".
+ */
+export interface Helpline {
+  id: string;
+  title: string;
+  slug?: string | null;
+  shortDescription: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors".
+ */
+export interface Donor {
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  connect?:
+    | {
+        platform:
+          | "Facebook"
+          | "Twitter"
+          | "Instagram"
+          | "Linkedin"
+          | "Github"
+          | "Slack";
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  connect?:
+    | {
+        platform:
+          | "Facebook"
+          | "Twitter"
+          | "Instagram"
+          | "Linkedin"
+          | "Github"
+          | "Slack";
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "resources".
+ */
+export interface Resource {
+  id: string;
+  title: string;
+  slug?: string | null;
+  shortDescription: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  tags?: (string | Tag)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -290,6 +672,14 @@ export interface Post {
   title: string;
   slug?: string | null;
   createdBy?: (string | null) | User;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
@@ -312,6 +702,26 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: "posts";
         value: string | Post;
+      } | null)
+    | ({
+        relationTo: "tags";
+        value: string | Tag;
+      } | null)
+    | ({
+        relationTo: "donors";
+        value: string | Donor;
+      } | null)
+    | ({
+        relationTo: "helplines";
+        value: string | Helpline;
+      } | null)
+    | ({
+        relationTo: "partners";
+        value: string | Partner;
+      } | null)
+    | ({
+        relationTo: "resources";
+        value: string | Resource;
       } | null)
     | ({
         relationTo: "users";
@@ -463,11 +873,101 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        test?:
+        "helplines-overview-list"?:
           | T
           | {
               title?: T;
-              content?: T;
+              relationship?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        hero?:
+          | T
+          | {
+              slides?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    description?: T;
+                    backgroundImage?: T;
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "call-to-action"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              reverse?: T;
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              newTab?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "donor-overview-list"?:
+          | T
+          | {
+              title?: T;
+              donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "page-header"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "what-we-do"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "resources-overview-list"?:
+          | T
+          | {
+              title?: T;
+              relationship?: T;
+              linkLabel?: T;
               id?: T;
               blockName?: T;
             };
@@ -486,6 +986,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
+        image?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -499,9 +1000,91 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   createdBy?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors_select".
+ */
+export interface DonorsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  logo?: T;
+  description?: T;
+  connect?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "helplines_select".
+ */
+export interface HelplinesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  shortDescription?: T;
+  description?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners_select".
+ */
+export interface PartnersSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  logo?: T;
+  description?: T;
+  connect?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "resources_select".
+ */
+export interface ResourcesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  shortDescription?: T;
+  description?: T;
+  image?: T;
+  tags?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -642,6 +1225,14 @@ export interface SiteSetting {
   analytics?: {
     analyticsId?: string | null;
   };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -705,6 +1296,13 @@ export interface SiteSettingsSelect<T extends boolean = true> {
     | T
     | {
         analyticsId?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
       };
   updatedAt?: T;
   createdAt?: T;

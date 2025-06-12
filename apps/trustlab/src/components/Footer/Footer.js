@@ -59,6 +59,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       fontSize: "16px",
       lineHeight: "24px",
       fontWeight: 600,
+      textAlign: "center",
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        cursor: "pointer",
+        width: "unset",
+      },
     },
     "& #mc_embed_signup input[type=submit]:hover": {
       cursor: "pointer",
@@ -71,7 +77,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         backgroundColor: palette.common.black,
         color: palette.text.secondary,
         px: 0,
-        py: { xs: 10, md: 13.75, lg: 12.5 },
+        py: 8,
       })}
       component="footer"
       ref={ref}
@@ -79,15 +85,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {/* Increase number of columns to getter columns size */}
         <Grid container columns={24} justifyContent="space-between">
-          <Grid
-            item
-            xs={24}
-            md={15}
-            lg={16}
-            sx={{
-              order: { xs: 1, md: 0 },
-            }}
-          >
+          <Grid item xs={24} md={15} lg={16}>
             <Grid container justifyContent="space-between">
               <Grid
                 item
@@ -100,11 +98,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 }}
               >
                 <Grid item>
-                  <FooterDescription
-                    description={description}
-                    logo={null}
-                    sx={{ mt: { xs: 10, md: 0 } }}
-                  />
+                  <FooterDescription description={description} logo={null} />
                 </Grid>
                 <Grid item>
                   <StayInTouch
@@ -115,9 +109,15 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                         textTransform: "uppercase",
                         fontSize: "10px",
                         fontWeight: 700,
+                        mb: 0,
+                        mr: 4,
                       },
                     }}
-                    sx={{ mt: "52px" }}
+                    sx={{
+                      mt: "52px",
+                      justifyContent: { xs: "center", md: "flex-start" },
+                    }}
+                    direction="row"
                   />
                 </Grid>
               </Grid>
@@ -138,6 +138,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 lineHeight: "28px",
                 letterSpacing: "-2%",
                 fontFamily: "Barlow",
+                textAlign: { xs: "center", md: "left" },
+                mt: { xs: 8, md: 0 },
               }}
               {...newsletter}
             />

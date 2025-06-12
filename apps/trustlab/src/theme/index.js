@@ -29,6 +29,7 @@ const palette = {
   warning: { main: "#FEFF05" },
   success: { main: "#34D399" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
+  yellow: { main: "#FEFF05" },
   background: {
     default: neutral[100],
   },
