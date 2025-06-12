@@ -5,9 +5,11 @@ import { anyone } from "@/trustlab/payload/access/anyone";
 import {
   CallToAction,
   DonorOverviewList,
+  HelplinesOverviewList,
   Hero,
   PageHeader,
   PartnerOverviewList,
+  ResourcesOverviewList,
   WhatWeDo,
 } from "@/trustlab/payload/blocks";
 import { hideAPIURL } from "@/trustlab/payload/utils";
@@ -47,12 +49,14 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [
+        HelplinesOverviewList,
         Hero,
         CallToAction,
         DonorOverviewList,
         PageHeader,
         PartnerOverviewList,
         WhatWeDo,
+        ResourcesOverviewList,
       ],
       localized: true,
       admin: {

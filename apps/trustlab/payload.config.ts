@@ -6,15 +6,20 @@ import type { NodemailerAdapterArgs } from "@payloadcms/email-nodemailer";
 import { buildConfig, CollectionConfig, GlobalConfig } from "payload";
 import path from "path";
 import { fileURLToPath } from "url";
-import Users from "@/trustlab/payload/collections/Users";
-import Media from "@/trustlab/payload/collections/Media";
+import {
+  Donors,
+  Helplines,
+  Media,
+  Pages,
+  Posts,
+  Partners,
+  Resources,
+  Tags,
+  Users,
+} from "@/trustlab/payload/collections";
 import plugins from "@/trustlab/payload/plugins";
-import Pages from "@/trustlab/payload/collections/Pages";
 import SiteSettings from "@/trustlab/payload/globals";
 import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
-import Posts from "@/trustlab/payload/collections/Posts";
-import Partners from "@/trustlab/payload/collections/Partners";
-import Donors from "@/trustlab/payload/collections/Donors";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -65,9 +70,12 @@ export default buildConfig({
     Media,
     Pages,
     Posts,
+    Tags,
     // Group: Project
     Donors,
+    Helplines,
     Partners,
+    Resources,
     // Group: Settings
     Users,
   ] as CollectionConfig[],
