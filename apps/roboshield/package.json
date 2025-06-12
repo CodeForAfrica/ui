@@ -81,5 +81,10 @@
     "tsx": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"
-  }
+  },
+  "engines": {
+    "node": "20.x",
+    "pnpm": "10"
+  },
+  "packageManager": "pnpm@10.12.1"
 }

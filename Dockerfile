@@ -6,7 +6,7 @@
 
 ARG \
   # Must match packageManager in package.json
-  PNPM_VERSION=9.9.0 \
+  PNPM_VERSION=10.12.1 \
   # Next.js / Payload (build time)
   PORT=3000 \
   # Next.js (runtime)
