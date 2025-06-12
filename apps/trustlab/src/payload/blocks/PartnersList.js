@@ -1,13 +1,14 @@
-const PartnersOverviewList = {
-  slug: "partner-overview-list",
-  imageURL: "/images/cms/blocks/partner-overview-list.png",
-  imageAltText: "Partners Overview",
+const PartnersList = {
+  slug: "partners-list",
+  imageURL: "/images/cms/blocks/partners.png",
+  imageAltText:
+    "Used in About page to display partner name, logo and description.",
   labels: {
     singular: {
-      en: "Partner Overview List",
+      en: "Partners",
     },
     plural: {
-      en: "Partner Overview Lists",
+      en: "Partners",
     },
   },
   fields: [
@@ -28,4 +29,4 @@ const PartnersOverviewList = {
   ],
 };
 
-export default PartnersOverviewList;
+export default PartnersList;

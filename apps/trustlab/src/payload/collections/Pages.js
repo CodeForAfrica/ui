@@ -8,6 +8,7 @@ import {
   Hero,
   PageHeader,
   PartnerOverviewList,
+  PartnersList,
   WhatWeDo,
 } from "@/trustlab/payload/blocks";
 import { hideAPIURL } from "@/trustlab/payload/utils";
@@ -52,6 +53,7 @@ const Pages = {
         DonorOverviewList,
         PageHeader,
         PartnerOverviewList,
+        PartnersList,
         WhatWeDo,
       ],
       localized: true,

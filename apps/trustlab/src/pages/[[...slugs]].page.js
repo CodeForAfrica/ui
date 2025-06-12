@@ -6,6 +6,7 @@ import CallToAction from "@/trustlab/components/CallToAction";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
+import PartnersList from "@/trustlab/components/PartnersList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
@@ -15,6 +16,7 @@ const componentsBySlugs = {
   "call-to-action": CallToAction,
   "page-header": Banner,
   "what-we-do": Banner,
+  "partners-list": PartnersList,
 };
 
 function Page({ blocks, fallback }) {
