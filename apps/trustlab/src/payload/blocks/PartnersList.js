@@ -1,6 +1,6 @@
 const PartnersList = {
   slug: "partners-list",
-  imageURL: "/images/cms/blocks/partners.png",
+  imageURL: "/images/cms/blocks/partners-list.png",
   imageAltText:
     "Used in About page to display partner name, logo and description.",
   labels: {
