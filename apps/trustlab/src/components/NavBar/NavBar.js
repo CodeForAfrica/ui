@@ -14,7 +14,13 @@ import MobileNavBar from "@/trustlab/components/MobileNavBar";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (
-    <NavigationBar sx={{ py: { xs: "10px", md: "15.5" } }}>
+    <NavigationBar
+      sx={(theme) => ({
+        boxShadow: "none",
+        height: 64,
+        borderBottom: `1px solid ${theme.palette.yellow.main}`,
+      })}
+    >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar
           logo={logo}
