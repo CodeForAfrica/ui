@@ -29,7 +29,6 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
           alt="Logo"
           width={136}
           height={61}
-          priority
         />
       </Grid>
       <Grid item>
@@ -39,7 +38,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
             socialLinks={socialLinks}
             direction="row"
             Component={Link}
-            NavListItemProps={NavListItemProps}
+            {...NavListItemProps}
           />
         </Box>
       </Grid>

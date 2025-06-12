@@ -6,12 +6,12 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
     class="css-f15emd"
   >
     <li
-      class="css-ronwsu"
+      class="css-1xj1f5c"
     >
       <a
         color="inherit"
         href="/our-work"
-        sx="[object Object]"
+        sx="[object Object],"
         underline="none"
         variant="h3"
       >
@@ -19,12 +19,12 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </a>
     </li>
     <li
-      class="css-ronwsu"
+      class="css-1xj1f5c"
     >
       <a
         color="inherit"
         href="/about"
-        sx="[object Object]"
+        sx="[object Object],"
         underline="none"
         variant="h3"
       >
@@ -32,12 +32,12 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </a>
     </li>
     <li
-      class="css-ronwsu"
+      class="css-1xj1f5c"
     >
       <a
         color="inherit"
         href="/about"
-        sx="[object Object]"
+        sx="[object Object],"
         underline="none"
         variant="h3"
       >
@@ -45,12 +45,12 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </a>
     </li>
     <li
-      class="css-ronwsu"
+      class="css-1xj1f5c"
     >
       <a
         color="inherit"
         href="/opportunity"
-        sx="[object Object]"
+        sx="[object Object],"
         underline="none"
         variant="h3"
       >
@@ -58,12 +58,12 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       </a>
     </li>
     <li
-      class="css-ronwsu"
+      class="css-1xj1f5c"
     >
       <a
         color="inherit"
         href="/contact"
-        sx="[object Object]"
+        sx="[object Object],"
         underline="none"
         variant="h3"
       >
