@@ -14,7 +14,7 @@ const Opportunities = BaseContentCollection("opportunities", {
   ],
   labels: {
     singular: {
-      en: "Opportinity",
+      en: "Opportunity",
     },
     plural: {
       en: "Opportunities",
