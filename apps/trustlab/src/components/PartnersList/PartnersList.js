@@ -16,6 +16,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
         background: theme.palette.background.default,
         py: 8,
       })}
+      fixed={false}
       ref={ref}
     >
       <Box
