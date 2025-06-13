@@ -30,7 +30,7 @@
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
-    "clean": "rm -rf .next .turbo node_modules"
+    "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "catalog:",
@@ -98,6 +98,8 @@
     "webpack": "catalog:"
   },
   "engines": {
-    "node": "20.x"
-  }
+    "node": "20.x",
+    "pnpm": "10"
+  },
+  "packageManager": "pnpm@10.12.1"
 }
