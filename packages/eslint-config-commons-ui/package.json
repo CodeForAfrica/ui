@@ -47,5 +47,10 @@
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
-  }
+  },
+  "engines": {
+    "node": "20.x",
+    "pnpm": "10"
+  },
+  "packageManager": "pnpm@10.12.1"
 }

@@ -1,6 +1,9 @@
+# Workspaces
 packages:
   - apps/*
   - packages/*
+
+# Catalogs
 catalog:
   "@actions/exec": ^1.1.1
   "@apollo/client": ^3.11.7
@@ -196,7 +199,7 @@ catalog:
   tsc-alias: ^1.8.10
   tsconfig-paths: ^4.2.0
   tsx: ^4.19.1
-  turbo: ^2.5.2
+  turbo: ^2.5.4
   typescript-eslint: ^8.16.0
   typescript: ^5.5.4
   validate-color: ^2.2.4
@@ -245,3 +248,9 @@ catalogs:
   react-19:
     "react": ^19.1.0
     "react-dom": ^19.1.0
+
+# Settings
+## Node-Modules Settings
+nodeLinker: hoisted
+## Peer Dependency Settings
+autoInstallPeers: true

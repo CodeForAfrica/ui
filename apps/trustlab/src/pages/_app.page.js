@@ -1,7 +1,6 @@
 import { createEmotionCache } from "@/commons-ui/core/styles";
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-/* eslint-disable-next-line import/no-unresolved */
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";

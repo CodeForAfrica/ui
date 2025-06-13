@@ -35,14 +35,14 @@
     "lint-staged": "catalog:",
     "playwright-config-commons-ui": "workspace:*",
     "prettier": "catalog:",
-    "turbo": "catalog:",
-    "react": "catalog:"
+    "react": "catalog:",
+    "turbo": "catalog:"
   },
   "engines": {
     "node": "20.x",
-    "pnpm": "9"
+    "pnpm": "10"
   },
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@10.12.1",
   "pnpm": {
     "overrides": {
       "sharp": "catalog:"
