@@ -115,7 +115,7 @@ function Card({
       >
         {typeof description === "string" ? (
           <Typography
-            variant="body1"
+            variant="p1"
             {...DescriptionProps}
             sx={[
               {
