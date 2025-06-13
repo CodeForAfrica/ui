@@ -96,7 +96,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                     fontWeight: 700,
                   },
                 }}
-                sx={{ mt: 5 }}
+                sx={{ mt: { xs: 0, md: 5 }, order: 2 }}
               />
             </Grid>
           </Grid>

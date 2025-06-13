@@ -8,6 +8,7 @@ import { neutral } from "@/trustlab/colors";
 
 const Hero = forwardRef(function Hero({ slides }, ref) {
   const [activeStep, setActiveStep] = useState(0);
+
   if (!slides || !slides.length) {
     return null;
   }

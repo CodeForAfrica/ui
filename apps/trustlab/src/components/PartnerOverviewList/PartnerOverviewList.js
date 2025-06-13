@@ -14,7 +14,7 @@ const PartnerOverviewList = React.forwardRef(
       <Section
         sx={(theme) => ({
           background: theme.palette.grey.light,
-          maxWidth: { xs: "100%" },
+          maxWidth: { xs: "100%", sm: "100%" },
         })}
         fixed={false}
         ref={ref}

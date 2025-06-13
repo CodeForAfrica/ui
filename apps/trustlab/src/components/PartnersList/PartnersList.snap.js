@@ -3,7 +3,7 @@
 exports[`<PartnersList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-154g1yg-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-ukqic2-MuiContainer-root"
   >
     <div
       class="MuiBox-root css-4tsfqu"

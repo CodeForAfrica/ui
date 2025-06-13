@@ -138,7 +138,6 @@ const CallToAction = forwardRef(function CallToAction(
                 justifyContent: "center",
                 ml: { xs: 0, md: reverse ? 0 : -10 },
                 mr: { xs: 0, md: reverse ? -10 : 0 },
-                zIndex: 1,
               }}
             >
               <Typography variant="display3" gutterBottom>
