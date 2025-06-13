@@ -9,6 +9,7 @@ import {
   Hero,
   PageHeader,
   PartnerOverviewList,
+  PartnersList,
   ResourcesOverviewList,
   WhatWeDo,
 } from "@/trustlab/payload/blocks";
@@ -55,6 +56,7 @@ const Pages = {
         DonorOverviewList,
         PageHeader,
         PartnerOverviewList,
+        PartnersList,
         WhatWeDo,
         ResourcesOverviewList,
       ],

@@ -20218,7 +20218,7 @@ snapshots:
       '@babel/runtime': 7.27.1
       '@mui/material': 6.4.11(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/system': 7.1.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1)
-      '@mui/utils': 6.4.9(@types/react@18.3.21)(react@18.3.1)
+      '@mui/utils': 7.1.0(@types/react@18.3.21)(react@18.3.1)
       '@mui/x-internals': 7.29.0(@types/react@18.3.21)(react@18.3.1)
       '@types/react-transition-group': 4.4.12(@types/react@18.3.21)
       clsx: 2.1.1
@@ -20246,7 +20246,7 @@ snapshots:
       '@babel/runtime': 7.27.1
       '@mui/material': 5.17.1(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/system': 7.1.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1)
-      '@mui/utils': 6.4.9(@types/react@18.3.21)(react@18.3.1)
+      '@mui/utils': 7.1.0(@types/react@18.3.21)(react@18.3.1)
       '@mui/x-internals': 7.29.0(@types/react@18.3.21)(react@18.3.1)
       '@types/react-transition-group': 4.4.12(@types/react@18.3.21)
       clsx: 2.1.1
@@ -20265,7 +20265,7 @@ snapshots:
       '@babel/runtime': 7.27.1
       '@mui/material': 6.4.11(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/system': 7.1.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1))(@types/react@18.3.21)(react@18.3.1)
-      '@mui/utils': 6.4.9(@types/react@18.3.21)(react@18.3.1)
+      '@mui/utils': 7.1.0(@types/react@18.3.21)(react@18.3.1)
       '@mui/x-internals': 7.29.0(@types/react@18.3.21)(react@18.3.1)
       '@types/react-transition-group': 4.4.12(@types/react@18.3.21)
       clsx: 2.1.1
@@ -24890,7 +24890,7 @@ snapshots:
   buffer@4.9.2:
     dependencies:
       base64-js: 1.5.1
-      ieee754: 1.1.13
+      ieee754: 1.2.1
       isarray: 1.0.0
 
   buffer@5.6.0:
@@ -25420,13 +25420,13 @@ snapshots:
 
   css-loader@5.2.7(webpack@5.99.8(@swc/core@1.11.24)):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.4.31)
+      icss-utils: 5.1.0(postcss@8.5.3)
       loader-utils: 2.0.4
-      postcss: 8.4.31
-      postcss-modules-extract-imports: 3.1.0(postcss@8.4.31)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.4.31)
-      postcss-modules-scope: 3.2.1(postcss@8.4.31)
-      postcss-modules-values: 4.0.0(postcss@8.4.31)
+      postcss: 8.5.3
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
+      postcss-modules-scope: 3.2.1(postcss@8.5.3)
+      postcss-modules-values: 4.0.0(postcss@8.5.3)
       postcss-value-parser: 4.2.0
       schema-utils: 3.3.0
       semver: 7.7.2
@@ -25434,13 +25434,13 @@ snapshots:
 
   css-loader@5.2.7(webpack@5.99.8):
     dependencies:
-      icss-utils: 5.1.0(postcss@8.4.31)
+      icss-utils: 5.1.0(postcss@8.5.3)
       loader-utils: 2.0.4
-      postcss: 8.4.31
-      postcss-modules-extract-imports: 3.1.0(postcss@8.4.31)
-      postcss-modules-local-by-default: 4.2.0(postcss@8.4.31)
-      postcss-modules-scope: 3.2.1(postcss@8.4.31)
-      postcss-modules-values: 4.0.0(postcss@8.4.31)
+      postcss: 8.5.3
+      postcss-modules-extract-imports: 3.1.0(postcss@8.5.3)
+      postcss-modules-local-by-default: 4.2.0(postcss@8.5.3)
+      postcss-modules-scope: 3.2.1(postcss@8.5.3)
+      postcss-modules-values: 4.0.0(postcss@8.5.3)
       postcss-value-parser: 4.2.0
       schema-utils: 3.3.0
       semver: 7.7.2
@@ -28020,10 +28020,6 @@ snapshots:
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
-
-  icss-utils@5.1.0(postcss@8.4.31):
-    dependencies:
-      postcss: 8.4.31
 
   icss-utils@5.1.0(postcss@8.5.3):
     dependencies:
@@ -31284,20 +31280,9 @@ snapshots:
       postcss: 8.4.31
       postcss-value-parser: 4.2.0
 
-  postcss-modules-extract-imports@3.1.0(postcss@8.4.31):
-    dependencies:
-      postcss: 8.4.31
-
   postcss-modules-extract-imports@3.1.0(postcss@8.5.3):
     dependencies:
       postcss: 8.5.3
-
-  postcss-modules-local-by-default@4.2.0(postcss@8.4.31):
-    dependencies:
-      icss-utils: 5.1.0(postcss@8.4.31)
-      postcss: 8.4.31
-      postcss-selector-parser: 7.1.0
-      postcss-value-parser: 4.2.0
 
   postcss-modules-local-by-default@4.2.0(postcss@8.5.3):
     dependencies:
@@ -31306,20 +31291,10 @@ snapshots:
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
 
-  postcss-modules-scope@3.2.1(postcss@8.4.31):
-    dependencies:
-      postcss: 8.4.31
-      postcss-selector-parser: 7.1.0
-
   postcss-modules-scope@3.2.1(postcss@8.5.3):
     dependencies:
       postcss: 8.5.3
       postcss-selector-parser: 7.1.0
-
-  postcss-modules-values@4.0.0(postcss@8.4.31):
-    dependencies:
-      icss-utils: 5.1.0(postcss@8.4.31)
-      postcss: 8.4.31
 
   postcss-modules-values@4.0.0(postcss@8.5.3):
     dependencies:
@@ -35058,7 +35033,7 @@ snapshots:
 
   xml2js@0.6.2:
     dependencies:
-      sax: 1.2.1
+      sax: 1.4.1
       xmlbuilder: 11.0.1
 
   xmlbuilder@11.0.1: {}
