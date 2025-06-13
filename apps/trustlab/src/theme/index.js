@@ -25,6 +25,7 @@ const palette = {
   primary: { main: "#000000" },
   neutral: { light: neutral[200], main: neutral[500], dark: neutral[900] },
   error: { main: "#FF0000" },
+  grey: { main: "#B4ABAB", light: "#E3DFDF" },
   warning: { main: "#FEFF05" },
   success: { main: "#34D399" },
   text: { primary: "#000000", secondary: "#FFFFFF" },
@@ -85,8 +86,9 @@ const theme = createTheme({
     subheading1: initializeTypographyVariant(24, 32, 600, FONT_FAMILY_PRIMARY),
     subheading2: initializeTypographyVariant(18, 24, 600, FONT_FAMILY_PRIMARY),
     p1: initializeTypographyVariant(18, 24, 400, FONT_FAMILY_PRIMARY),
-    p2: initializeTypographyVariant(14, 20, 400, FONT_FAMILY_PRIMARY),
-    p3: initializeTypographyVariant(12, 16, 400, FONT_FAMILY_PRIMARY),
+    p2: initializeTypographyVariant(16, 20, 400, FONT_FAMILY_PRIMARY),
+    p3: initializeTypographyVariant(14, 20, 400, FONT_FAMILY_PRIMARY),
+    p4: initializeTypographyVariant(12, 16, 400, FONT_FAMILY_PRIMARY),
   },
   components: {
     MuiButtonBase: {
@@ -106,6 +108,7 @@ const theme = createTheme({
           p1: "p",
           p2: "p",
           p3: "p",
+          p4: "p",
           footer: "p",
         },
       },
