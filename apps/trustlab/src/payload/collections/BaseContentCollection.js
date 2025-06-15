@@ -49,6 +49,9 @@ function BaseContentCollection(
       type: "relationship",
       relationTo: "tags",
       hasMany: true,
+      admin: {
+        position: "sidebar",
+      },
     });
   }
 

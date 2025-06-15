@@ -1,4 +1,3 @@
-import { neutral } from "@/trustlab/colors";
 import Card from "@/trustlab/components/Card";
 
 function HelplineCard({ title, media, description, link, linkLabel }) {
@@ -11,7 +10,6 @@ function HelplineCard({ title, media, description, link, linkLabel }) {
       linkLabel={linkLabel}
       CardProps={{
         sx: {
-          borderColor: neutral[300],
           padding: 2,
         },
       }}
@@ -29,10 +27,6 @@ function HelplineCard({ title, media, description, link, linkLabel }) {
         sx: {
           textAlign: "center",
         },
-      }}
-      DescriptionProps={{
-        variant: "p1",
-        sx: {},
       }}
       CardActionsProps={{
         sx: {

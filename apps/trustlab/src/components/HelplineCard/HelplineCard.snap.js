@@ -30,7 +30,6 @@ exports[`<HelplineCard /> renders unchanged 1`] = `
     >
       <div
         class="MuiBox-root css-7x1cxm"
-        variant="p1"
       />
     </div>
     <div

@@ -68,6 +68,7 @@ export interface Config {
   blocks: {};
   collections: {
     media: Media;
+    opportunities: Opportunity;
     pages: Page;
     posts: Post;
     tags: Tag;
@@ -83,6 +84,7 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     media: MediaSelect<false> | MediaSelect<true>;
+    opportunities: OpportunitiesSelect<false> | OpportunitiesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
@@ -234,6 +236,47 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "opportunities".
+ */
+export interface Opportunity {
+  id: string;
+  title: string;
+  slug?: string | null;
+  shortDescription: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image: string | Media;
+  tags?: (string | Tag)[] | null;
+  deadline: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -492,6 +535,26 @@ export interface Page {
             blockName?: string | null;
             blockType: "resources-overview-list";
           }
+        | {
+            title: string;
+            relationship: (
+              | {
+                  relationTo: "helplines";
+                  value: string | Helpline;
+                }
+              | {
+                  relationTo: "opportunities";
+                  value: string | Opportunity;
+                }
+              | {
+                  relationTo: "resources";
+                  value: string | Resource;
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "spotlight";
+          }
       )[]
     | null;
   parent?: (string | null) | Page;
@@ -654,17 +717,6 @@ export interface Resource {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags".
- */
-export interface Tag {
-  id: string;
-  name: string;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -694,6 +746,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: "media";
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: "opportunities";
+        value: string | Opportunity;
       } | null)
     | ({
         relationTo: "pages";
@@ -864,6 +920,21 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "opportunities_select".
+ */
+export interface OpportunitiesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  shortDescription?: T;
+  description?: T;
+  image?: T;
+  tags?: T;
+  deadline?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
@@ -968,6 +1039,14 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               relationship?: T;
               linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              title?: T;
+              relationship?: T;
               id?: T;
               blockName?: T;
             };
