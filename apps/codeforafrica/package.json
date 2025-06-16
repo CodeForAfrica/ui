@@ -30,7 +30,7 @@
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "jest": "jest",
     "playwright": "npx playwright test",
-    "clean": "rm -rf .next .turbo node_modules"
+    "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "catalog:",

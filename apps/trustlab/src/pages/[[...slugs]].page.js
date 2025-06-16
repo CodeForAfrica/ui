@@ -7,6 +7,7 @@ import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
+import PartnersList from "@/trustlab/components/PartnersList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
@@ -19,6 +20,7 @@ const componentsBySlugs = {
   "resources-overview-list": OverviewCardList,
   spotlight: OverviewCardList,
   "what-we-do": Banner,
+  "partners-list": PartnersList,
 };
 
 function Page({ blocks, fallback }) {

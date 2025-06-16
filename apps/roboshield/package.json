@@ -10,7 +10,7 @@
     "payload-migrate:down": "payload migrate:down",
     "start": "next start",
     "dev": "NODE_OPTIONS='--inspect' next dev",
-    "clean": "rm -rf .next .turbo node_modules",
+    "clean": "rm -rf .next .turbo build dist node_modules",
     "jest": "jest --passWithNoTests",
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
