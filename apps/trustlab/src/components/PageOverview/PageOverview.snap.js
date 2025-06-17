@@ -6,7 +6,7 @@ exports[`<PageOverview /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1rx5gpk-MuiContainer-root"
   >
     <div
-      class="MuiGrid-root MuiGrid-container css-my52dn-MuiGrid-root"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-6 css-1nj03o-MuiGrid-root"
     >
       <div
         class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
