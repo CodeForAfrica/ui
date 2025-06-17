@@ -3,6 +3,7 @@ import { SWRConfig } from "swr";
 
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
+import Content from "@/trustlab/components/Content";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
@@ -18,6 +19,7 @@ const componentsBySlugs = {
   hero: Hero,
   "page-header": Banner,
   "page-overview": PageOverview,
+  content: Content,
   "partner-overview-list": PartnerOverviewList,
   "resources-overview-list": OverviewCardList,
   "what-we-do": Banner,

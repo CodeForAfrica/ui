@@ -4,6 +4,7 @@ export { default as HelplinesOverviewList } from "./HelplinesOverviewList";
 export { default as Hero } from "./Hero";
 export { default as PageHeader } from "./PageHeader";
 export { default as PageOverview } from "./PageOverview";
+export { default as Content } from "./Content";
 export { default as PartnerOverviewList } from "./PartnerOverviewList";
 export { default as PartnersList } from "./PartnersList";
 export { default as ResourcesOverviewList } from "./ResourcesOverviewList";
