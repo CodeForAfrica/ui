@@ -3,7 +3,7 @@
 exports[`<SpotlightCard /> renders unchanged 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-inds3t-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-11h7il2-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
     href=""
     style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
   >
@@ -35,11 +35,9 @@ exports[`<SpotlightCard /> renders unchanged 1`] = `
     <div
       class="MuiCardContent-root css-1na367p-MuiCardContent-root"
     >
-      <p
-        class="MuiTypography-root MuiTypography-p1 css-9tlvhj-MuiTypography-root"
-      >
-        Our fact-checkers & forensic investigators are on standby to verify claims or expose the puppet masters behind smear campaigns.
-      </p>
+      <div
+        class="MuiBox-root css-7x1cxm"
+      />
     </div>
   </a>
 </div>
