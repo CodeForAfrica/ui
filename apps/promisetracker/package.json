@@ -88,7 +88,7 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "engines": {
-    "node": "22.x",
+    "node": "20.x",
     "pnpm": "10"
   },
   "packageManager": "pnpm@10.12.1"

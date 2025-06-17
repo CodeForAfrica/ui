@@ -20,7 +20,7 @@ ARG \
   SENTRY_PROJECT=""
 
 
-FROM node:22-alpine AS node
+FROM node:20.18-alpine AS node
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
@@ -51,6 +51,8 @@ FROM base AS pnpm-base
 
 ARG PNPM_VERSION
 
+# After upgrading to PNPM v10, we're getting an error with corepack integrity signature. Manually upgrading corepack solves the issue: https://github.com/nodejs/corepack/issues/570#issuecomment-2620467717
+RUN npm install -g corepack@latest
 RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 #
