@@ -1,6 +1,6 @@
 import { image, richText } from "@commons-ui/payload";
-import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
-import { validateHTMLColorHex } from "validate-color";
+
+import colorPicker from "../fields/colorPicker";
 
 function BannerBlock(
   slug,
@@ -32,31 +32,14 @@ function BannerBlock(
           required: true,
         },
       }),
-      {
-        type: "row",
-        fields: [
-          ...ColourTextField({
-            name: "backgroundColor",
-            defaultValue: backgroundColor,
-            admin: {
-              description: "Background color in hex format",
-            },
-            required: true,
-            validate: (value) =>
-              validateHTMLColorHex(value) || "Invalid hex color",
-          }),
-          ...ColourTextField({
-            name: "textColor",
-            defaultValue: textColor,
-            required: true,
-            admin: {
-              description: "Text color in hex format",
-            },
-            validate: (value) =>
-              validateHTMLColorHex(value) || "Invalid hex color",
-          }),
-        ],
-      },
+      colorPicker({
+        backgroundOverrides: {
+          defaultValue: backgroundColor,
+        },
+        textOverrides: {
+          defaultValue: textColor,
+        },
+      }),
       ...fields,
     ],
     ...others,

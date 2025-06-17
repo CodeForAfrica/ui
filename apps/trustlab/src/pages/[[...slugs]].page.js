@@ -14,12 +14,12 @@ import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   "call-to-action": CallToAction,
+  content: Content,
   "donor-overview-list": DonorOverviewList,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
   "page-header": Banner,
   "page-overview": PageOverview,
-  content: Content,
   "partner-overview-list": PartnerOverviewList,
   "resources-overview-list": OverviewCardList,
   "what-we-do": Banner,
