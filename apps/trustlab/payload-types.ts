@@ -442,6 +442,65 @@ export interface Page {
           }
         | {
             title: string;
+            /**
+             * A brief description of the content.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-overview";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content";
+          }
+        | {
+            title: string;
             partners?: (string | Partner)[] | null;
             id?: string | null;
             blockName?: string | null;
@@ -550,8 +609,8 @@ export interface Helpline {
   id: string;
   title: string;
   slug?: string | null;
-  shortDescription: string;
-  description?: {
+  excerpt: string;
+  content?: {
     root: {
       type: string;
       children: {
@@ -569,6 +628,7 @@ export interface Helpline {
   image: string | Media;
   updatedAt: string;
   createdAt: string;
+  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -658,8 +718,8 @@ export interface Resource {
   id: string;
   title: string;
   slug?: string | null;
-  shortDescription: string;
-  description?: {
+  excerpt: string;
+  content?: {
     root: {
       type: string;
       children: {
@@ -678,6 +738,7 @@ export interface Resource {
   tags?: (string | Tag)[] | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -697,10 +758,7 @@ export interface Tag {
 export interface Post {
   id: string;
   title: string;
-  deadline: string;
   slug?: string | null;
-  image: string | Media;
-  author: string | User;
   excerpt: string;
   content?: {
     root: {
@@ -717,6 +775,9 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
+  image: string | Media;
+  deadline: string;
+  author: string | User;
   parentPage: string | Page;
   meta?: {
     title?: string | null;
@@ -989,6 +1050,22 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        "page-overview"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
+        content?:
+          | T
+          | {
+              content?: T;
+              id?: T;
+              blockName?: T;
+            };
         "partner-overview-list"?:
           | T
           | {
@@ -1060,12 +1137,12 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
-  deadline?: T;
   slug?: T;
-  image?: T;
-  author?: T;
   excerpt?: T;
   content?: T;
+  image?: T;
+  deadline?: T;
+  author?: T;
   parentPage?: T;
   meta?:
     | T
@@ -1114,11 +1191,12 @@ export interface DonorsSelect<T extends boolean = true> {
 export interface HelplinesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  shortDescription?: T;
-  description?: T;
+  excerpt?: T;
+  content?: T;
   image?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1146,12 +1224,13 @@ export interface PartnersSelect<T extends boolean = true> {
 export interface ResourcesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  shortDescription?: T;
-  description?: T;
+  excerpt?: T;
+  content?: T;
   image?: T;
   tags?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
