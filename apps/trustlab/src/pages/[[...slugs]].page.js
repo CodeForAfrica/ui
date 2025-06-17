@@ -3,10 +3,10 @@ import { SWRConfig } from "swr";
 
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
+import Content from "@/trustlab/components/Content";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Hero from "@/trustlab/components/Hero";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
-import PageContent from "@/trustlab/components/PageContent";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
@@ -17,7 +17,7 @@ const componentsBySlugs = {
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
   "page-header": Banner,
-  "page-content": PageContent,
+  content: Content,
   "partner-overview-list": PartnerOverviewList,
   "resources-overview-list": OverviewCardList,
   "what-we-do": Banner,

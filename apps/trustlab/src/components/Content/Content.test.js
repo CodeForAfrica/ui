@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import PageContent from "./PageContent";
+import Content from "./Content";
 
 import theme from "@/trustlab/theme";
 
@@ -20,9 +20,9 @@ const defaultProps = {
   ],
 };
 
-describe("<PageContent />", () => {
+describe("<Content />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<PageContent {...defaultProps} />);
+    const { container } = render(<Content {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

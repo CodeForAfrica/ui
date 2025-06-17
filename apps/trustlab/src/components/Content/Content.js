@@ -3,7 +3,7 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
-const PageContent = forwardRef((props, ref) => {
+const Content = forwardRef((props, ref) => {
   const { content } = props;
   if (!content) {
     return null;
@@ -35,4 +35,4 @@ const PageContent = forwardRef((props, ref) => {
   );
 });
 
-export default PageContent;
+export default Content;

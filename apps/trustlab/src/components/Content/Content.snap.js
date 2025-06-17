@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PageContent /> renders unchanged 1`] = `
+exports[`<Content /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-6tfog6"
