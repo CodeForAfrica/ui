@@ -18,6 +18,7 @@ const PageOverview = {
     richText({
       name: "description",
       required: true,
+      localized: true,
       admin: {
         description: "A brief description of the content.",
       },

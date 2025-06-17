@@ -18,7 +18,7 @@ const PageOverview = forwardRef(function PageOverview(
         container
         alignItems="center"
         flexWrap="nowrap"
-        gap={{ xs: 6, md: 0 }}
+        spacing={{ xs: 6, md: 0 }}
         flexDirection={{ xs: "column", md: "row" }}
         justifyContent="space-between"
       >
