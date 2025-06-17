@@ -18,6 +18,7 @@ function NavBar({ logo, menus, socialLinks }) {
         boxShadow: "none",
         height: 64,
         borderBottom: `1px solid ${theme.palette.yellow.main}`,
+        backgroundColor: theme.palette.common.white,
       })}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
