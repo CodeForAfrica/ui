@@ -1,4 +1,8 @@
-import { createdBy, nestCollectionUnderPage } from "@commons-ui/payload";
+import {
+  createdBy,
+  linkGroup,
+  nestCollectionUnderPage,
+} from "@commons-ui/payload";
 
 import BaseContentCollection from "./BaseContentCollection";
 
@@ -21,6 +25,13 @@ const Posts = BaseContentCollection("posts", {
         position: "sidebar",
       },
     },
+    linkGroup({
+      overrides: {
+        name: "applicationLink",
+        required: true,
+        label: "Application Link",
+      },
+    }),
     createdBy({
       overrides: {
         name: "author",
@@ -45,7 +56,7 @@ const Posts = BaseContentCollection("posts", {
   hooks: {
     afterRead: [
       ({ doc, req }) => {
-        const parentPage = doc.parentPage.slug;
+        const parentPage = doc?.parentPage?.slug;
         if (!parentPage) {
           return doc;
         }

@@ -2,6 +2,7 @@ import { image, richText, slug } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
+import { hideAPIURL } from "@/trustlab/payload/utils";
 
 function BaseContentCollection(
   collectionSlug,
@@ -69,7 +70,7 @@ function BaseContentCollection(
     },
     admin: {
       group: adminGroup,
-      hideAPIURL: true,
+      hideAPIURL,
       useAsTitle,
       ...admin,
     },

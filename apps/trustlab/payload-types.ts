@@ -495,6 +495,14 @@ export interface Page {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             id?: string | null;
             blockName?: string | null;
             blockType: "content";
@@ -777,6 +785,17 @@ export interface Post {
   } | null;
   image: string | Media;
   deadline: string;
+  applicationLink: {
+    label: string;
+    linkType?: ("custom" | "internal") | null;
+    doc?: {
+      relationTo: "pages";
+      value: string | Page;
+    } | null;
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
+  };
   author: string | User;
   parentPage: string | Page;
   meta?: {
@@ -1063,6 +1082,8 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               content?: T;
+              backgroundColor?: T;
+              textColor?: T;
               id?: T;
               blockName?: T;
             };
@@ -1142,6 +1163,16 @@ export interface PostsSelect<T extends boolean = true> {
   content?: T;
   image?: T;
   deadline?: T;
+  applicationLink?:
+    | T
+    | {
+        label?: T;
+        linkType?: T;
+        doc?: T;
+        url?: T;
+        href?: T;
+        newTab?: T;
+      };
   author?: T;
   parentPage?: T;
   meta?:
