@@ -2,15 +2,11 @@ import { richText, image } from "@commons-ui/payload";
 
 const PageOverview = {
   slug: "page-overview",
-  imageURL: "/images/cms/blocks/overview.png",
+  imageURL: "/images/cms/blocks/page-overview.png",
   imageAltText: "Page Overview.",
   labels: {
-    singular: {
-      en: "Page Overview",
-    },
-    plural: {
-      en: "Page Overviews",
-    },
+    singular: "Page Overview",
+    plural: "Page Overviews",
   },
   fields: [
     {
@@ -23,7 +19,7 @@ const PageOverview = {
       name: "description",
       required: true,
       admin: {
-        description: "A brief description of the slide content.",
+        description: "A brief description of the content.",
       },
     }),
     image({

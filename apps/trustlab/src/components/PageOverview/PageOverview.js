@@ -8,7 +8,7 @@ const PageOverview = forwardRef(function PageOverview(
   { title, description, image },
   ref,
 ) {
-  if (!title || !description || !image) {
+  if (!title || !description || !image?.url) {
     return null;
   }
   const { url, alt } = image;
