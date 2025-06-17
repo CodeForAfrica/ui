@@ -17,14 +17,9 @@ const PageOverview = forwardRef(function PageOverview(
       <Grid
         container
         alignItems="center"
-        sx={{
-          flexWrap: "nowrap",
-          gap: {
-            xs: 6,
-            md: 0,
-          },
-          flexDirection: { xs: "column", md: "row" },
-        }}
+        flexWrap="nowrap"
+        gap={{ xs: 6, md: 0 }}
+        flexDirection={{ xs: "column", md: "row" }}
         justifyContent="space-between"
       >
         <Grid item>
