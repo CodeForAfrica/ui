@@ -3,9 +3,8 @@ import { Link, NextImageButton } from "@commons-ui/next";
 import { Drawer, Grid } from "@mui/material";
 import React, { useState } from "react";
 
-// eslint-disable-next-line import/no-unresolved
-import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=currentColor.svg?url";
-import MenuIcon from "@/trustlab/assets/menu-icon.svg?url";
+import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import MenuIcon from "@/trustlab/assets/menu-icon.svg";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
   const { logo, menus, socialLinks } = props;
