@@ -1,4 +1,4 @@
-import { createdBy, slug } from "@commons-ui/payload";
+import { createdBy, image, richText, slug } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
@@ -34,12 +34,56 @@ const Posts = {
       localized: true,
       admin: {},
     },
-    slug(),
-    createdBy({
+    {
+      name: "deadline",
+      type: "date",
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    slug({
+      fieldToUse: "title",
+    }),
+    image({
       overrides: {
-        hidden: false,
+        name: "image",
+        required: true,
       },
     }),
+    createdBy({
+      overrides: {
+        name: "author",
+        hidden: false,
+        required: true,
+        admin: {
+          readOnly: false,
+        },
+      },
+    }),
+    {
+      name: "excerpt",
+      type: "textarea",
+      required: true,
+      localized: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    richText({
+      name: "content",
+      localized: true,
+    }),
+    {
+      name: "parentPage",
+      type: "relationship",
+      relationTo: "pages",
+      required: true,
+      hasMany: false,
+      admin: {
+        position: "sidebar",
+      },
+    },
   ],
   versions: {
     drafts: {
