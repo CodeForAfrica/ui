@@ -12,7 +12,7 @@ const defaultProps = {
   slug: "trustlab-incubator-programme",
   link: "/opportunities/trustlab-incubator-programme",
   tag: "Opportunity",
-  shortDescription:
+  excerpt:
     "Our fact-checkers & forensic investigators are on standby to verify claims or expose the puppet masters behind smear campaigns.",
   media: {
     alt: "Resources 1",

@@ -2,12 +2,12 @@ import { Link } from "@commons-ui/next";
 
 import Card from "@/trustlab/components/Card";
 
-function SpotlightCard({ title, media, description, tag, link }) {
+function SpotlightCard({ title, media, excerpt, tag, link }) {
   return (
     <Card
       title={title}
       media={media}
-      description={description}
+      description={excerpt}
       tag={tag}
       CardProps={{
         component: Link,

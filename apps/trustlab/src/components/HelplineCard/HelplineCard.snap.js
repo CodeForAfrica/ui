@@ -28,9 +28,11 @@ exports[`<HelplineCard /> renders unchanged 1`] = `
     <div
       class="MuiCardContent-root css-yjf187-MuiCardContent-root"
     >
-      <div
-        class="MuiBox-root css-7x1cxm"
-      />
+      <p
+        class="MuiTypography-root MuiTypography-p1 css-9tlvhj-MuiTypography-root"
+      >
+        Our fact-checkers & forensic investigators are on standby to verify claims or expose the puppet masters behind smear campaigns.
+      </p>
     </div>
     <div
       class="MuiCardActions-root MuiCardActions-spacing css-t9qhmi-MuiCardActions-root"

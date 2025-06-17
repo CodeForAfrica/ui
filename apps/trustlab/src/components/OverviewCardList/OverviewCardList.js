@@ -58,14 +58,7 @@ function OverviewCardList({
           }}
         >
           {relationship.map(
-            ({
-              title,
-              image,
-              id,
-              shortDescription,
-              tags = [],
-              link: { href },
-            }) => {
+            ({ title, image, id, excerpt, tags = [], link: { href } }) => {
               return (
                 <Grid
                   item
@@ -80,7 +73,7 @@ function OverviewCardList({
                   <OverviewCard
                     title={title}
                     media={image}
-                    description={shortDescription}
+                    description={excerpt}
                     tag={tags[0]?.name}
                     link={href}
                     linkLabel={linkLabel}

@@ -56,7 +56,17 @@ exports[`<OverviewCardList /> renders unchanged 1`] = `
             >
               <div
                 class="MuiBox-root css-7x1cxm"
-              />
+              >
+                <div
+                  class="payload-richtext"
+                >
+                  <p
+                    class="MuiTypography-root MuiTypography-p1 css-1d776u7-MuiTypography-root"
+                  >
+                    A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
+                  </p>
+                </div>
+              </div>
             </div>
             <div
               class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"

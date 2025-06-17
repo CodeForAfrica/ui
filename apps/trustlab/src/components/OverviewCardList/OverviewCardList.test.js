@@ -14,7 +14,7 @@ const defaultProps = {
     {
       title: "Digital Security Toolkit for Kenyan Activists",
       slug: "digital-security-toolkit-for-kenyan-activists",
-      description: {
+      excerpt: {
         root: {
           children: [
             {

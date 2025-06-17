@@ -1,11 +1,11 @@
 import Card from "@/trustlab/components/Card";
 
-function HelplineCard({ title, media, description, link, linkLabel }) {
+function HelplineCard({ title, media, excerpt, link, linkLabel }) {
   return (
     <Card
       title={title}
       media={media}
-      description={description}
+      description={excerpt}
       link={link}
       linkLabel={linkLabel}
       CardProps={{

@@ -5,6 +5,9 @@ import {
   slug,
 } from "@commons-ui/payload";
 
+import { canManageContent } from "@/trustlab/payload/access/abilities";
+import { anyone } from "@/trustlab/payload/access/anyone";
+
 function BaseContentCollection(
   collectionSlug,
   {
@@ -14,6 +17,7 @@ function BaseContentCollection(
     fields: additionalFields = [],
     hooks = {},
     admin = {},
+
     ...other
   } = {},
 ) {
@@ -26,13 +30,16 @@ function BaseContentCollection(
     },
     slug({ fieldToUse: "title" }),
     {
-      name: "shortDescription",
+      name: "excerpt",
       type: "textarea",
       localized: true,
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     richText({
-      name: "description",
+      name: "content",
       localized: true,
     }),
     image({
@@ -59,6 +66,12 @@ function BaseContentCollection(
 
   return {
     slug: collectionSlug,
+    access: {
+      read: anyone,
+      create: ({ req: { user } }) => canManageContent(user),
+      update: ({ req: { user } }) => canManageContent(user),
+      delete: ({ req: { user } }) => canManageContent(user),
+    },
     admin: {
       group: adminGroup,
       hideAPIURL: true,
@@ -69,6 +82,11 @@ function BaseContentCollection(
     hooks: {
       afterRead: [nestCollectionUnderPage(collectionSlug)],
       ...hooks,
+    },
+    versions: {
+      drafts: {
+        autosave: true,
+      },
     },
     ...other,
   };
