@@ -34,4 +34,26 @@ export async function getPost(api, slug) {
   };
 }
 
+export async function getPosts(api, parentPage) {
+  const { slug } = parentPage;
+
+  const {
+    docs: posts,
+    totalPages,
+    page,
+  } = await api.getCollection("posts", {
+    where: {
+      parentPage: {
+        equals: slug,
+      },
+    },
+  });
+
+  return {
+    posts,
+    totalPages,
+    page,
+  };
+}
+
 export default undefined;
