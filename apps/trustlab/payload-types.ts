@@ -68,7 +68,6 @@ export interface Config {
   blocks: {};
   collections: {
     media: Media;
-    opportunities: Opportunity;
     pages: Page;
     posts: Post;
     tags: Tag;
@@ -84,7 +83,6 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     media: MediaSelect<false> | MediaSelect<true>;
-    opportunities: OpportunitiesSelect<false> | OpportunitiesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
@@ -236,47 +234,6 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "opportunities".
- */
-export interface Opportunity {
-  id: string;
-  title: string;
-  slug?: string | null;
-  shortDescription: string;
-  description?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  image: string | Media;
-  tags?: (string | Tag)[] | null;
-  deadline: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags".
- */
-export interface Tag {
-  id: string;
-  name: string;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -492,6 +449,13 @@ export interface Page {
           }
         | {
             title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partners-list";
+          }
+        | {
+            title: string;
             description?: {
               root: {
                 type: string;
@@ -543,8 +507,8 @@ export interface Page {
                   value: string | Helpline;
                 }
               | {
-                  relationTo: "opportunities";
-                  value: string | Opportunity;
+                  relationTo: "posts";
+                  value: string | Post;
                 }
               | {
                   relationTo: "resources";
@@ -717,13 +681,43 @@ export interface Resource {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
   id: string;
   title: string;
+  deadline: string;
   slug?: string | null;
-  createdBy?: (string | null) | User;
+  image: string | Media;
+  author: string | User;
+  excerpt: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  parentPage: string | Page;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -746,10 +740,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: "media";
         value: string | Media;
-      } | null)
-    | ({
-        relationTo: "opportunities";
-        value: string | Opportunity;
       } | null)
     | ({
         relationTo: "pages";
@@ -920,21 +910,6 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "opportunities_select".
- */
-export interface OpportunitiesSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  shortDescription?: T;
-  description?: T;
-  image?: T;
-  tags?: T;
-  deadline?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
@@ -1022,6 +997,14 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        "partners-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
         "what-we-do"?:
           | T
           | {
@@ -1077,8 +1060,13 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  deadline?: T;
   slug?: T;
-  createdBy?: T;
+  image?: T;
+  author?: T;
+  excerpt?: T;
+  content?: T;
+  parentPage?: T;
   meta?:
     | T
     | {

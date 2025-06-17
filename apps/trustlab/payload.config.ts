@@ -10,7 +10,6 @@ import {
   Donors,
   Helplines,
   Media,
-  Opportunities,
   Pages,
   Posts,
   Partners,
@@ -69,7 +68,6 @@ export default buildConfig({
   collections: [
     // Group: Publication
     Media,
-    Opportunities,
     Pages,
     Posts,
     Tags,

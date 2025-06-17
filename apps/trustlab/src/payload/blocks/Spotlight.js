@@ -4,7 +4,7 @@ const Spotlight = RelationshipOverview(
   "spotlight",
   "/images/cms/blocks/spotlight.png",
   {
-    relationTo: ["helplines", "opportunities", "resources"],
+    relationTo: ["helplines", "posts", "resources"],
     relationshipLabel: "Spotlight Items",
     hasLinkButton: false,
     minRows: 2,
