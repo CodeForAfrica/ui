@@ -9,8 +9,13 @@ const Content = forwardRef((props, ref) => {
     return null;
   }
   return (
-    <Box sx={{ py: 8, px: { xs: 2.5 } }} ref={ref} bgcolor="common.white">
-      <Section sx={{ m: "0 auto" }} {...props}>
+    <Box
+      sx={{ py: 8, px: { xs: 2.5 } }}
+      ref={ref}
+      bgcolor="common.white"
+      {...props}
+    >
+      <Section sx={{ m: "0 auto" }}>
         <LexicalRichText
           elements={content}
           sx={{
