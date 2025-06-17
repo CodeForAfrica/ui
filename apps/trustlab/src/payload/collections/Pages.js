@@ -4,10 +4,11 @@ import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 import {
   CallToAction,
+  Content,
   DonorOverviewList,
   HelplinesOverviewList,
   Hero,
-  Content,
+  Legal,
   PageHeader,
   PageOverview,
   PartnerOverviewList,
@@ -63,6 +64,7 @@ const Pages = {
         PartnersList,
         WhatWeDo,
         ResourcesOverviewList,
+        Legal,
       ],
       localized: true,
       admin: {

@@ -1,9 +1,9 @@
 import { richText } from "@commons-ui/payload";
 
-const Content = {
-  slug: "content",
-  imageURL: "/images/cms/blocks/content.png",
-  imageAltText: "Adds rich text to a page.",
+const Legal = {
+  slug: "legal",
+  imageURL: "/images/cms/blocks/legal.png",
+  imageAltText: "Adds legal page content.",
   fields: [
     richText({
       name: "content",
@@ -13,4 +13,4 @@ const Content = {
   ],
 };
 
-export default Content;
+export default Legal;
