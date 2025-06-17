@@ -1,3 +1,5 @@
+import { nestCollectionUnderPage } from "@commons-ui/payload";
+
 import BaseContentCollection from "./BaseContentCollection";
 
 const Resources = BaseContentCollection("resources", {
@@ -8,6 +10,9 @@ const Resources = BaseContentCollection("resources", {
     plural: {
       en: "Resources",
     },
+  },
+  hooks: {
+    afterRead: [nestCollectionUnderPage("resources")],
   },
 });
 

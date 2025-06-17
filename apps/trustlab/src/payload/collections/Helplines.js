@@ -1,3 +1,5 @@
+import { nestCollectionUnderPage } from "@commons-ui/payload";
+
 import BaseContentCollection from "./BaseContentCollection";
 
 const Helplines = BaseContentCollection("helplines", {
@@ -9,6 +11,9 @@ const Helplines = BaseContentCollection("helplines", {
     plural: {
       en: "Helplines",
     },
+  },
+  hooks: {
+    afterRead: [nestCollectionUnderPage("helplines")],
   },
 });
 

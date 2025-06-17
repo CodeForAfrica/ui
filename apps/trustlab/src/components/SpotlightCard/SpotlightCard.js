@@ -11,7 +11,7 @@ function SpotlightCard({ title, media, description, tag, link }) {
       tag={tag}
       CardProps={{
         component: Link,
-        href: { link },
+        href: link,
         sx: {
           borderColor: "common.white",
           width: {

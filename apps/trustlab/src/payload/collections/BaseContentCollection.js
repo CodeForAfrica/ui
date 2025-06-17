@@ -1,9 +1,4 @@
-import {
-  image,
-  nestCollectionUnderPage,
-  richText,
-  slug,
-} from "@commons-ui/payload";
+import { image, richText, slug } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
@@ -79,10 +74,7 @@ function BaseContentCollection(
       ...admin,
     },
     fields,
-    hooks: {
-      afterRead: [nestCollectionUnderPage(collectionSlug)],
-      ...hooks,
-    },
+    hooks,
     versions: {
       drafts: {
         autosave: true,

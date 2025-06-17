@@ -1,4 +1,4 @@
-import { createdBy } from "@commons-ui/payload";
+import { createdBy, nestCollectionUnderPage } from "@commons-ui/payload";
 
 import BaseContentCollection from "./BaseContentCollection";
 
@@ -42,6 +42,18 @@ const Posts = BaseContentCollection("posts", {
       },
     },
   ],
+  hooks: {
+    afterRead: [
+      ({ doc, req }) => {
+        const parentPage = doc.parentPage.slug;
+        if (!parentPage) {
+          return doc;
+        }
+        const hook = nestCollectionUnderPage(parentPage);
+        return hook({ doc, req });
+      },
+    ],
+  },
 });
 
 export default Posts;
