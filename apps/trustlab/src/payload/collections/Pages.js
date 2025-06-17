@@ -4,10 +4,10 @@ import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 import {
   CallToAction,
+  Content,
   DonorOverviewList,
   HelplinesOverviewList,
   Hero,
-  Content,
   PageHeader,
   PageOverview,
   PartnerOverviewList,
