@@ -7,7 +7,8 @@ import { Link, NextImageButton } from "@commons-ui/next";
 import React from "react";
 
 import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
-import menuIcon from "@/trustlab/assets/menu-icon.svg";
+/* eslint-disable-next-line import/no-unresolved */
+import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
 import { neutral } from "@/trustlab/colors";
 import MobileNavBar from "@/trustlab/components/MobileNavBar";
 
