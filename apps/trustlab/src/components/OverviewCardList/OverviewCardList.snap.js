@@ -54,19 +54,11 @@ exports[`<OverviewCardList /> renders unchanged 1`] = `
             <div
               class="MuiCardContent-root css-1na367p-MuiCardContent-root"
             >
-              <div
-                class="MuiBox-root css-7x1cxm"
+              <p
+                class="MuiTypography-root MuiTypography-p1 css-9tlvhj-MuiTypography-root"
               >
-                <div
-                  class="payload-richtext"
-                >
-                  <p
-                    class="MuiTypography-root MuiTypography-p1 css-1d776u7-MuiTypography-root"
-                  >
-                    A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
-                  </p>
-                </div>
-              </div>
+                A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
+              </p>
             </div>
             <div
               class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"
