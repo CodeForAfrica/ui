@@ -1,6 +1,7 @@
 import { getPageSeoFromMeta } from "./seo";
 
 import blockify from "@/trustlab/lib/data/blockify";
+import pagify from "@/trustlab/lib/data/pagify";
 
 function imageFromMedia({ alt, url }) {
   return { alt, src: url ?? null };
@@ -38,11 +39,9 @@ function getFooter(settings) {
   };
 }
 function getPageSlug({ params }) {
-  const slugsCount = params?.slugs?.length;
-  // count < 3, page slug is the last slug e.g. ["about"] or ["knowldge/news"]
-  // count == 3, page slug is the 2nd slug (index 1); last slug (index 3)
-  //             is the post. e.g. opportunities/grants/democratic-governance-in-zambia
-  const pageSlugIndex = slugsCount < 3 ? slugsCount - 1 : 1;
+  // We only have 2 slugs for the page, e.g. ["about"] or ["opportunities/opportunities-name"]
+  // The first slug is the page
+  const pageSlugIndex = 0;
   return params?.slugs?.[pageSlugIndex] || "index";
 }
 
@@ -167,9 +166,9 @@ export async function getPagePaths(api) {
 }
 
 export async function getPageProps(api, context) {
-  const { draftMode = false } = context;
+  const { draftMode = false, params } = context;
   const slug = getPageSlug(context);
-  const {
+  let {
     docs: [page],
   } = await api.findPage(slug, {
     draft: draftMode,
@@ -181,7 +180,16 @@ export async function getPageProps(api, context) {
     }
     return null;
   }
+
+  if (params?.slugs?.length > 1) {
+    page = await pagify(page, api, context);
+    if (!page) {
+      return null;
+    }
+  }
+
   const siteSettings = await api.findGlobal("site-settings");
+
   const blocks = await blockify(page?.blocks, api, context);
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);

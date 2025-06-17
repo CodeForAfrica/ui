@@ -248,8 +248,3 @@ catalogs:
   react-19:
     "react": ^19.1.0
     "react-dom": ^19.1.0
-# Settings
-## Node-Modules Settings
-nodeLinker: hoisted
-## Peer Dependency Settings
-autoInstallPeers: true
