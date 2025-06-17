@@ -10,7 +10,7 @@ exports[`<Content /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zvho4q-MuiContainer-root"
     >
       <div
-        class="MuiBox-root css-geixop"
+        class="MuiBox-root css-1n3ttdb"
       >
         <div
           class="payload-richtext"

@@ -1,5 +1,7 @@
 import { richText } from "@commons-ui/payload";
 
+import colorPicker from "../fields/colorPicker";
+
 const Content = {
   slug: "content",
   imageURL: "/images/cms/blocks/content.png",
@@ -9,6 +11,14 @@ const Content = {
       name: "content",
       required: true,
       localized: true,
+    }),
+    colorPicker({
+      backgroundOverrides: {
+        defaultValue: "#F0F0F5",
+      },
+      textOverrides: {
+        defaultValue: "#000000",
+      },
     }),
   ],
 };

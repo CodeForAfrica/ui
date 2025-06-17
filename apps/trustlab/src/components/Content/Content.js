@@ -4,13 +4,21 @@ import { Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const Content = forwardRef((props, ref) => {
-  const { content } = props;
+  const {
+    content,
+    backgroundColor = "common.white",
+    textColor = "text.primary",
+  } = props;
   if (!content) {
     return null;
   }
   return (
     <Box
-      sx={{ py: 8, px: { xs: 2.5 } }}
+      sx={{
+        py: 8,
+        px: { xs: 2.5 },
+        backgroundColor,
+      }}
       ref={ref}
       bgcolor="common.white"
       {...props}
@@ -27,11 +35,13 @@ const Content = forwardRef((props, ref) => {
             p: {
               mb: 3,
             },
+            color: textColor,
           }}
           TypographyProps={{
             gutterBottom: true,
             sx: {
               mb: 3,
+              color: textColor,
             },
           }}
         />

@@ -8,7 +8,6 @@ import {
   DonorOverviewList,
   HelplinesOverviewList,
   Hero,
-  Legal,
   PageHeader,
   PageOverview,
   PartnerOverviewList,
@@ -64,7 +63,6 @@ const Pages = {
         PartnersList,
         WhatWeDo,
         ResourcesOverviewList,
-        Legal,
       ],
       localized: true,
       admin: {
