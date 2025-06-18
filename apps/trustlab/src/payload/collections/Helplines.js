@@ -2,7 +2,7 @@ import BaseContentCollection from "./BaseContentCollection";
 
 const Helplines = BaseContentCollection("helplines", {
   hasTags: false,
-  abels: {
+  labels: {
     singular: {
       en: "Helpline",
     },
