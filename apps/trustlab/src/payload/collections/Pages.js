@@ -13,6 +13,7 @@ import {
   PartnerOverviewList,
   PartnersList,
   ResourcesOverviewList,
+  Spotlight,
   WhatWeDo,
 } from "@/trustlab/payload/blocks";
 import { hideAPIURL } from "@/trustlab/payload/utils";
@@ -63,6 +64,7 @@ const Pages = {
         PartnersList,
         WhatWeDo,
         ResourcesOverviewList,
+        Spotlight,
       ],
       localized: true,
       admin: {

@@ -248,7 +248,10 @@ export interface Page {
     | (
         | {
             title: string;
-            relationship: (string | Helpline)[];
+            items: {
+              relationTo: "helplines";
+              value: string | Helpline;
+            }[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -442,10 +445,84 @@ export interface Page {
           }
         | {
             title: string;
+            /**
+             * A brief description of the content.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-overview";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content";
+          }
+        | {
+            title: string;
             partners?: (string | Partner)[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: "partner-overview-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partners-list";
           }
         | {
             title: string;
@@ -486,11 +563,34 @@ export interface Page {
           }
         | {
             title: string;
-            relationship: (string | Resource)[];
+            items: {
+              relationTo: "resources";
+              value: string | Resource;
+            }[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
             blockType: "resources-overview-list";
+          }
+        | {
+            title: string;
+            items: (
+              | {
+                  relationTo: "helplines";
+                  value: string | Helpline;
+                }
+              | {
+                  relationTo: "posts";
+                  value: string | Post;
+                }
+              | {
+                  relationTo: "resources";
+                  value: string | Resource;
+                }
+            )[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "spotlight";
           }
       )[]
     | null;
@@ -523,8 +623,8 @@ export interface Helpline {
   id: string;
   title: string;
   slug?: string | null;
-  shortDescription: string;
-  description?: {
+  excerpt: string;
+  content?: {
     root: {
       type: string;
       children: {
@@ -631,8 +731,8 @@ export interface Resource {
   id: string;
   title: string;
   slug?: string | null;
-  shortDescription: string;
-  description?: {
+  excerpt: string;
+  content?: {
     root: {
       type: string;
       children: {
@@ -648,7 +748,7 @@ export interface Resource {
     [k: string]: unknown;
   } | null;
   image: string | Media;
-  tags?: (string | Tag)[] | null;
+  tags: (string | Tag)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -672,6 +772,24 @@ export interface Post {
   title: string;
   slug?: string | null;
   createdBy?: (string | null) | User;
+  image: string | Media;
+  excerpt: string;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  tags?: (string | Tag)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -877,7 +995,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -943,7 +1061,33 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        "page-overview"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
+        content?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
         "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partners-list"?:
           | T
           | {
               title?: T;
@@ -966,8 +1110,16 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              title?: T;
+              items?: T;
               id?: T;
               blockName?: T;
             };
@@ -1000,6 +1152,10 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   createdBy?: T;
+  image?: T;
+  excerpt?: T;
+  content?: T;
+  tags?: T;
   meta?:
     | T
     | {
@@ -1047,8 +1203,8 @@ export interface DonorsSelect<T extends boolean = true> {
 export interface HelplinesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  shortDescription?: T;
-  description?: T;
+  excerpt?: T;
+  content?: T;
   image?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1079,8 +1235,8 @@ export interface PartnersSelect<T extends boolean = true> {
 export interface ResourcesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  shortDescription?: T;
-  description?: T;
+  excerpt?: T;
+  content?: T;
   image?: T;
   tags?: T;
   updatedAt?: T;

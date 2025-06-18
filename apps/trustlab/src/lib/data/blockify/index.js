@@ -1,4 +1,10 @@
-const propsifyBlockBySlug = {};
+import collectionOverview from "./collectionOverview";
+
+const propsifyBlockBySlug = {
+  spotlight: collectionOverview,
+  "helplines-overview-list": collectionOverview,
+  "resources-overview-list": collectionOverview,
+};
 
 async function blockify(blocks, api, context) {
   const promises = blocks?.map(async (block) => {

@@ -17,10 +17,10 @@ function Card({
   link,
   linkLabel,
   media,
+  sx,
   tag,
   title,
   DescriptionProps,
-  CardProps,
   CardActionsProps,
   CardContentProps,
   CardHeaderProps,
@@ -28,10 +28,11 @@ function Card({
   LinkProps,
   TagProps,
   TitleProps,
+  ...props
 }) {
   return (
     <MuiCard
-      {...CardProps}
+      {...props}
       sx={[
         {
           width: {
@@ -48,7 +49,7 @@ function Card({
           borderRadius: 0,
           border: "1px solid",
           borderColor: neutral[300],
-          ...CardProps?.sx,
+          ...sx,
         },
       ]}
     >
@@ -115,7 +116,7 @@ function Card({
       >
         {typeof description === "string" ? (
           <Typography
-            variant="body1"
+            variant="p1"
             {...DescriptionProps}
             sx={[
               {

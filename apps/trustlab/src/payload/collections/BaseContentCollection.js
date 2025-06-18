@@ -5,6 +5,8 @@ import {
   slug,
 } from "@commons-ui/payload";
 
+import { hideAPIURL } from "@/trustlab/payload/utils";
+
 function BaseContentCollection(
   collectionSlug,
   {
@@ -26,13 +28,16 @@ function BaseContentCollection(
     },
     slug({ fieldToUse: "title" }),
     {
-      name: "shortDescription",
+      name: "excerpt",
       type: "textarea",
       localized: true,
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     richText({
-      name: "description",
+      name: "content",
       localized: true,
     }),
     image({
@@ -49,6 +54,12 @@ function BaseContentCollection(
       type: "relationship",
       relationTo: "tags",
       hasMany: true,
+      required: true,
+      localized: true,
+      minRows: 1,
+      admin: {
+        position: "sidebar",
+      },
     });
   }
 
@@ -58,7 +69,7 @@ function BaseContentCollection(
     slug: collectionSlug,
     admin: {
       group: adminGroup,
-      hideAPIURL: true,
+      hideAPIURL,
       useAsTitle,
       ...admin,
     },

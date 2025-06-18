@@ -1,46 +1,61 @@
 import { Section } from "@commons-ui/core";
-import { Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid, Typography } from "@mui/material";
 
 import Card from "@/trustlab/components/Card";
 import HelplineCard from "@/trustlab/components/HelplineCard";
+import SpotlightCard from "@/trustlab/components/SpotlightCard";
 
 function OverviewCardList({
   linkLabel,
   title: sectionTitle,
-  relationship,
+  items,
   blockType,
 }) {
   const isHelplines = blockType === "helplines-overview-list";
-  const OverviewCard = isHelplines ? HelplineCard : Card;
+  const isSpotlight = blockType === "spotlight";
+  let OverviewCard = isHelplines ? HelplineCard : Card;
+  if (isSpotlight) {
+    OverviewCard = SpotlightCard;
+  }
+
+  const foregroundColor = isSpotlight ? "common.white" : "common.black";
+  const backgroundColor = isSpotlight ? "common.black" : "common.white";
+
   return (
-    <Section sx={{ px: { xs: 2.5, sm: 0 }, py: 8 }}>
-      <Typography variant="h1">{sectionTitle}</Typography>
-      <Divider
-        sx={{
-          border: "1px solid",
-          borderColor: "common.black",
-        }}
-      />
-      <Grid
-        container
-        sx={{
-          gap: 1,
-          justifyContent: {
-            xs: "center",
-            md: "space-between",
-          },
-          mt: 3,
-        }}
-      >
-        {relationship.map(
-          ({
-            title,
-            image,
-            id,
-            shortDescription,
-            tags = [],
-            link: { href },
-          }) => {
+    <Box
+      sx={{
+        backgroundColor,
+        px: { xs: 2.5, sm: 0 },
+        py: 8,
+      }}
+    >
+      <Section>
+        <Typography
+          variant="h1"
+          sx={{
+            color: foregroundColor,
+          }}
+        >
+          {sectionTitle}
+        </Typography>
+        <Divider
+          sx={{
+            border: "1px solid",
+            borderColor: foregroundColor,
+          }}
+        />
+        <Grid
+          container
+          sx={{
+            gap: 1,
+            justifyContent: {
+              xs: "center",
+              md: "space-between",
+            },
+            mt: 3,
+          }}
+        >
+          {items.map(({ title, image, id, excerpt, tag, href }) => {
             return (
               <Grid
                 item
@@ -55,17 +70,17 @@ function OverviewCardList({
                 <OverviewCard
                   title={title}
                   media={image}
-                  description={shortDescription}
-                  tag={tags[0]?.name}
+                  description={excerpt}
+                  tag={tag}
                   link={href}
                   linkLabel={linkLabel}
                 />
               </Grid>
             );
-          },
-        )}
-      </Grid>
-    </Section>
+          })}
+        </Grid>
+      </Section>
+    </Box>
   );
 }
 
