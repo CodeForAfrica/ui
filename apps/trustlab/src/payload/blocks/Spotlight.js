@@ -1,11 +1,11 @@
-import RelationshipOverview from "./RelationshipOverview";
+import CollectionOverview from "./CollectionOverview";
 
-const Spotlight = RelationshipOverview(
+const Spotlight = CollectionOverview(
   "spotlight",
   "/images/cms/blocks/spotlight.png",
+  ["helplines", "posts", "resources"],
   {
-    relationTo: ["helplines", "posts", "resources"],
-    relationshipLabel: "Spotlight Items",
+    collectionLabel: "Spotlight Items",
     hasLinkButton: false,
     minRows: 2,
     maxRows: 2,

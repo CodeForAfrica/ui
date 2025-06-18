@@ -1,7 +1,9 @@
-import spotlight from "./spotlight";
+import collectionOverview from "./collectionOverview";
 
 const propsifyBlockBySlug = {
-  spotlight,
+  spotlight: collectionOverview,
+  "helplines-overview-list": collectionOverview,
+  "resources-overview-list": collectionOverview,
 };
 
 async function blockify(blocks, api, context) {

@@ -77,7 +77,7 @@ const Posts = {
     },
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("posts")],
+    afterRead: [nestCollectionUnderPage("posts")], // TODO:(@kelvinkipruto) Nest this under parent page once it's available
   },
   versions: {
     drafts: {
