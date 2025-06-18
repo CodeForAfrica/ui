@@ -10,7 +10,7 @@ const render = createRender({ theme });
 const defaultProps = {
   title: "Resources",
   linkLabel: "Learn More",
-  collections: [
+  items: [
     {
       title: "Digital Security Toolkit for Kenyan Activists",
       excerpt:

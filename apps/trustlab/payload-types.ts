@@ -248,7 +248,10 @@ export interface Page {
     | (
         | {
             title: string;
-            relationship: (string | Helpline)[];
+            items: {
+              relationTo: "helplines";
+              value: string | Helpline;
+            }[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -560,7 +563,10 @@ export interface Page {
           }
         | {
             title: string;
-            relationship: (string | Resource)[];
+            items: {
+              relationTo: "resources";
+              value: string | Resource;
+            }[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -568,7 +574,7 @@ export interface Page {
           }
         | {
             title: string;
-            relationship: (
+            items: (
               | {
                   relationTo: "helplines";
                   value: string | Helpline;
@@ -742,7 +748,7 @@ export interface Resource {
     [k: string]: unknown;
   } | null;
   image: string | Media;
-  tags?: (string | Tag)[] | null;
+  tags: (string | Tag)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -989,7 +995,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -1104,7 +1110,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -1113,7 +1119,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               id?: T;
               blockName?: T;
             };

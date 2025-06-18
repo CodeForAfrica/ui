@@ -9,7 +9,7 @@ function CollectionOverview(
     required = true,
     titleLabel = "Title",
     collectionLabel = "Resources",
-    hasLinkButton = true,
+    hasAction = true,
     linkLabelDefaultValue = "Learn more",
     ...others
   },
@@ -23,7 +23,7 @@ function CollectionOverview(
       localized: true,
     },
     {
-      name: "collections",
+      name: "items",
       label: collectionLabel,
       type: "relationship",
       relationTo: collections,
@@ -35,7 +35,7 @@ function CollectionOverview(
     },
   ];
 
-  if (hasLinkButton) {
+  if (hasAction) {
     fields.push({
       name: "linkLabel",
       type: "text",

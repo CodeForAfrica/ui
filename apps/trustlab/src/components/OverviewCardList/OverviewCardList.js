@@ -8,7 +8,7 @@ import SpotlightCard from "@/trustlab/components/SpotlightCard";
 function OverviewCardList({
   linkLabel,
   title: sectionTitle,
-  collections,
+  items,
   blockType,
 }) {
   const isHelplines = blockType === "helplines-overview-list";
@@ -55,7 +55,7 @@ function OverviewCardList({
             mt: 3,
           }}
         >
-          {collections.map(({ title, image, id, excerpt, tag, href }) => {
+          {items.map(({ title, image, id, excerpt, tag, href }) => {
             return (
               <Grid
                 item

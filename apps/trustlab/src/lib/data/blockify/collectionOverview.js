@@ -1,6 +1,6 @@
 async function collectionOverview(block) {
-  const { blockType, collections: collectionList, ...other } = block;
-  const collections = collectionList.map(({ value }) => {
+  const { blockType, items: collectionList, ...other } = block;
+  const items = collectionList.map(({ value }) => {
     const { excerpt, image = {}, title, tags = [], id, link = {} } = value;
 
     const [firstTag] = tags;
@@ -20,7 +20,7 @@ async function collectionOverview(block) {
 
   return {
     ...other,
-    collections,
+    items,
     blockType,
     slug: blockType,
   };
