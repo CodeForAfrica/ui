@@ -15,7 +15,7 @@ catalog:
   "@babel/preset-react": ^7.24.7
   "@babel/register": ^7.24.6
   "@babel/runtime": ^7.25.0
-  "@badrap/bar-of-progress": "^0.2.2"
+  "@badrap/bar-of-progress": ^0.2.2
   "@changesets/changelog-github": ^0.5.0
   "@changesets/cli": ^2.27.8
   "@commons-ui/core": ^0.1.0
@@ -60,7 +60,7 @@ catalog:
   "@reactour/tour": ^3.7.0
   "@sendgrid/mail": ^8.1.3
   "@sentry/nextjs": ^9.15.0
-  "@storybook/addon-actions": "^8.2.9"
+  "@storybook/addon-actions": ^8.2.9
   "@storybook/addon-essentials": ^8.2.9
   "@storybook/addon-interactions": ^8.2.9
   "@storybook/addon-links": ^8.2.9
@@ -74,7 +74,7 @@ catalog:
   "@testing-library/dom": ^10.4.0
   "@testing-library/jest-dom": ^6.5.0
   "@testing-library/react": ^16.0.1
-  "@types/better-sqlite3": "^7.6.11"
+  "@types/better-sqlite3": ^7.6.11
   "@types/express": ^4.17.21
   "@types/jest": ^29.5.12
   "@types/mdx": ^2.0.13
@@ -88,11 +88,11 @@ catalog:
   babel-jest: ^29.7.0
   babel-loader: ^9.1.3
   babel-plugin-transform-imports: ^2.0.0
-  better-sqlite3: "^11.9.1"
+  better-sqlite3: ^11.9.1
   camelcase-keys: ^9.1.3
   clsx: ^2.1.1
   crawler-user-agents: ^1.0.146
-  cross-env: "^7.0.3"
+  cross-env: ^7.0.3
   css-loader: ^7.1.2
   d3-format: ^3.1.0
   date-fns: ^4.1.0
@@ -127,7 +127,7 @@ catalog:
   formik-mui-lab: ^1.0.0
   formik-mui: ^4.0.0
   formik: ^2.4.6
-  frontmatter-markdown-loader: "^3.6.3"
+  frontmatter-markdown-loader: ^3.6.3
   globals: ^15.12.0
   googleapis: ^133.0.0
   graphql-anywhere: ^4.2.8
@@ -148,7 +148,7 @@ catalog:
   migrate-mongo: ^11.0.0
   monaco-editor: ^0.51.0
   nanoid: ^3.3.8
-  netlify-cms-proxy-server: "^1.3.22"
+  netlify-cms-proxy-server: ^1.3.22
   next-auth: ^4.24.7
   next-images: ^1.8.5
   next-seo: ^6.6.0
@@ -227,7 +227,7 @@ catalogs:
     "@mui/private-theming": ^5.16.6
   payload-v3:
     "@nouance/payload-better-fields-plugin": ^2.0.2
-    "@payloadcms/admin-bar": "^3.39.0"
+    "@payloadcms/admin-bar": ^3.39.0
     "@payloadcms/db-mongodb": ^3.39.0
     "@payloadcms/email-nodemailer": ^3.39.0
     "@payloadcms/live-preview-react": ^3.39.0
@@ -248,9 +248,3 @@ catalogs:
   react-19:
     "react": ^19.1.0
     "react-dom": ^19.1.0
-
-# Settings
-## Node-Modules Settings
-nodeLinker: hoisted
-## Peer Dependency Settings
-autoInstallPeers: true
