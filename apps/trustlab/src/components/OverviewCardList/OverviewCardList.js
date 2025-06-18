@@ -17,13 +17,17 @@ function OverviewCardList({
   if (isSpotlight) {
     OverviewCard = SpotlightCard;
   }
+
+  const foregroundColor = isSpotlight ? "common.white" : "common.black";
+  const backgroundColor = isSpotlight ? "common.black" : "common.white";
+
   return (
     <Section
       sx={{
         maxWidth: { md: "100%", xs: "100%" },
         px: { xs: 2.5, sm: 0 },
         py: 8,
-        backgroundColor: isSpotlight ? "common.black" : "common.white",
+        backgroundColor,
       }}
     >
       <Box
@@ -35,7 +39,7 @@ function OverviewCardList({
         <Typography
           variant="h1"
           sx={{
-            color: isSpotlight ? "common.white" : "common.black",
+            color: foregroundColor,
           }}
         >
           {sectionTitle}
@@ -43,7 +47,7 @@ function OverviewCardList({
         <Divider
           sx={{
             border: "1px solid",
-            borderColor: isSpotlight ? "common.white" : "common.black",
+            borderColor: foregroundColor,
           }}
         />
         <Grid
