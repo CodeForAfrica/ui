@@ -4,7 +4,7 @@ import { Drawer, Grid } from "@mui/material";
 import React, { useState } from "react";
 
 /* eslint-disable-next-line import/no-unresolved */
-import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=currentColor.svg?url";
+import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg?url";
 /* eslint-disable-next-line import/no-unresolved */
 import MenuIcon from "@/trustlab/assets/menu-icon.svg?url";
 
