@@ -1,11 +1,11 @@
-import RelationshipOverview from "./RelationshipOverview";
+import CollectionOverview from "./CollectionOverview";
 
-const ResourcesOverviewList = RelationshipOverview(
+const ResourcesOverviewList = CollectionOverview(
   "resources-overview-list",
   "/images/cms/blocks/resources-overview-list.png",
+  ["resources"],
   {
-    relationTo: "resources",
-    relationshipLabel: "Resources",
+    collectionLabel: "Resources",
   },
 );
 

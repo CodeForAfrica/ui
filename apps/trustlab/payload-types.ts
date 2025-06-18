@@ -248,7 +248,10 @@ export interface Page {
     | (
         | {
             title: string;
-            relationship: (string | Helpline)[];
+            items: {
+              relationTo: "helplines";
+              value: string | Helpline;
+            }[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -560,7 +563,10 @@ export interface Page {
           }
         | {
             title: string;
-            relationship: (string | Resource)[];
+            items: {
+              relationTo: "resources";
+              value: string | Resource;
+            }[];
             linkLabel: string;
             id?: string | null;
             blockName?: string | null;
@@ -568,7 +574,11 @@ export interface Page {
           }
         | {
             title: string;
+<<<<<<< HEAD
             relationship: (
+=======
+            items: (
+>>>>>>> main
               | {
                   relationTo: "helplines";
                   value: string | Helpline;
@@ -743,7 +753,7 @@ export interface Resource {
     [k: string]: unknown;
   } | null;
   image: string | Media;
-  tags?: (string | Tag)[] | null;
+  tags: (string | Tag)[];
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
@@ -767,6 +777,11 @@ export interface Post {
   id: string;
   title: string;
   slug?: string | null;
+<<<<<<< HEAD
+=======
+  createdBy?: (string | null) | User;
+  image: string | Media;
+>>>>>>> main
   excerpt: string;
   content?: {
     root: {
@@ -783,6 +798,7 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
+<<<<<<< HEAD
   image: string | Media;
   deadline: string;
   applicationLink: {
@@ -798,6 +814,9 @@ export interface Post {
   };
   author: string | User;
   parentPage: string | Page;
+=======
+  tags?: (string | Tag)[] | null;
+>>>>>>> main
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1003,7 +1022,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -1118,7 +1137,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              relationship?: T;
+              items?: T;
               linkLabel?: T;
               id?: T;
               blockName?: T;
@@ -1127,7 +1146,11 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
+<<<<<<< HEAD
               relationship?: T;
+=======
+              items?: T;
+>>>>>>> main
               id?: T;
               blockName?: T;
             };
@@ -1159,6 +1182,7 @@ export interface PagesSelect<T extends boolean = true> {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+<<<<<<< HEAD
   excerpt?: T;
   content?: T;
   image?: T;
@@ -1175,6 +1199,13 @@ export interface PostsSelect<T extends boolean = true> {
       };
   author?: T;
   parentPage?: T;
+=======
+  createdBy?: T;
+  image?: T;
+  excerpt?: T;
+  content?: T;
+  tags?: T;
+>>>>>>> main
   meta?:
     | T
     | {

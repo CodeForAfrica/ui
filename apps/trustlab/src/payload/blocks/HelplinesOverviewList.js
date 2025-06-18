@@ -1,11 +1,11 @@
-import RelationshipOverview from "./RelationshipOverview";
+import CollectionOverview from "./CollectionOverview";
 
-const HelplinesOverviewList = RelationshipOverview(
+const HelplinesOverviewList = CollectionOverview(
   "helplines-overview-list",
   "/images/cms/blocks/helpline-overview-list.png",
+  ["helplines"],
   {
-    relationTo: "helplines",
-    relationshipLabel: "Helplines",
+    collectionLabel: "Helplines",
     linkLabelDefaultValue: "Get Support",
   },
 );

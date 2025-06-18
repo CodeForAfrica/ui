@@ -52,6 +52,9 @@ function BaseContentCollection(
       type: "relationship",
       relationTo: "tags",
       hasMany: true,
+      required: true,
+      localized: true,
+      minRows: 1,
       admin: {
         position: "sidebar",
       },

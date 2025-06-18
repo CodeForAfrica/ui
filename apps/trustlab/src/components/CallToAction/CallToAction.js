@@ -126,6 +126,7 @@ const CallToAction = forwardRef(function CallToAction(
             sx={{
               px: { xs: 2.5, sm: 0 },
             }}
+            zIndex={reverse ? "unset" : 1}
           >
             <Box
               sx={{

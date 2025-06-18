@@ -8,10 +8,8 @@ function HelplineCard({ title, media, description, link, linkLabel }) {
       description={description}
       link={link}
       linkLabel={linkLabel}
-      CardProps={{
-        sx: {
-          padding: 2,
-        },
+      sx={{
+        padding: 2,
       }}
       CardHeaderProps={{
         sx: {

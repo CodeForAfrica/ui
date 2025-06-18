@@ -8,7 +8,7 @@ import SpotlightCard from "@/trustlab/components/SpotlightCard";
 function OverviewCardList({
   linkLabel,
   title: sectionTitle,
-  relationship,
+  items,
   blockType,
 }) {
   const isHelplines = blockType === "helplines-overview-list";
@@ -17,25 +17,23 @@ function OverviewCardList({
   if (isSpotlight) {
     OverviewCard = SpotlightCard;
   }
+
+  const foregroundColor = isSpotlight ? "common.white" : "common.black";
+  const backgroundColor = isSpotlight ? "common.black" : "common.white";
+
   return (
-    <Section
+    <Box
       sx={{
-        maxWidth: { md: "100%", xs: "100%" },
+        backgroundColor,
         px: { xs: 2.5, sm: 0 },
         py: 8,
-        backgroundColor: isSpotlight ? "common.black" : "common.white",
       }}
     >
-      <Box
-        sx={(theme) => ({
-          margin: "0 auto",
-          maxWidth: theme.contentWidths.values,
-        })}
-      >
+      <Section>
         <Typography
           variant="h1"
           sx={{
-            color: isSpotlight ? "common.white" : "common.black",
+            color: foregroundColor,
           }}
         >
           {sectionTitle}
@@ -43,7 +41,7 @@ function OverviewCardList({
         <Divider
           sx={{
             border: "1px solid",
-            borderColor: isSpotlight ? "common.white" : "common.black",
+            borderColor: foregroundColor,
           }}
         />
         <Grid
@@ -57,34 +55,32 @@ function OverviewCardList({
             mt: 3,
           }}
         >
-          {relationship.map(
-            ({ title, image, id, excerpt, tags = [], link: { href } }) => {
-              return (
-                <Grid
-                  item
-                  key={id}
-                  sx={{
-                    flexGrow: {
-                      xs: 1,
-                      md: 0,
-                    },
-                  }}
-                >
-                  <OverviewCard
-                    title={title}
-                    media={image}
-                    description={excerpt}
-                    tag={tags[0]?.name}
-                    link={href}
-                    linkLabel={linkLabel}
-                  />
-                </Grid>
-              );
-            },
-          )}
+          {items.map(({ title, image, id, excerpt, tag, href }) => {
+            return (
+              <Grid
+                item
+                key={id}
+                sx={{
+                  flexGrow: {
+                    xs: 1,
+                    md: 0,
+                  },
+                }}
+              >
+                <OverviewCard
+                  title={title}
+                  media={image}
+                  description={excerpt}
+                  tag={tag}
+                  link={href}
+                  linkLabel={linkLabel}
+                />
+              </Grid>
+            );
+          })}
         </Grid>
-      </Box>
-    </Section>
+      </Section>
+    </Box>
   );
 }
 

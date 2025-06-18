@@ -1,15 +1,15 @@
-function RelationshipOverview(
+function CollectionOverview(
   slug,
   imageURL,
+  collections,
   {
-    relationTo,
     fields: additionalFields = [],
     minRows = 1,
     maxRows = 3,
     required = true,
     titleLabel = "Title",
-    relationshipLabel = "Resources",
-    hasLinkButton = true,
+    collectionLabel = "Resources",
+    hasAction = true,
     linkLabelDefaultValue = "Learn more",
     ...others
   },
@@ -23,10 +23,10 @@ function RelationshipOverview(
       localized: true,
     },
     {
-      name: "relationship",
-      label: relationshipLabel,
+      name: "items",
+      label: collectionLabel,
       type: "relationship",
-      relationTo,
+      relationTo: collections,
       hasMany: true,
       minRows,
       maxRows,
@@ -35,7 +35,7 @@ function RelationshipOverview(
     },
   ];
 
-  if (hasLinkButton) {
+  if (hasAction) {
     fields.push({
       name: "linkLabel",
       type: "text",
@@ -55,4 +55,4 @@ function RelationshipOverview(
   };
 }
 
-export default RelationshipOverview;
+export default CollectionOverview;
