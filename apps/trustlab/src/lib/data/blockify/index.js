@@ -1,4 +1,8 @@
-const propsifyBlockBySlug = {};
+import spotlight from "./spotlight";
+
+const propsifyBlockBySlug = {
+  spotlight,
+};
 
 async function blockify(blocks, api, context) {
   const promises = blocks?.map(async (block) => {

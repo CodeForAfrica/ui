@@ -22,6 +22,7 @@ const componentsBySlugs = {
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
   "resources-overview-list": OverviewCardList,
+  spotlight: OverviewCardList,
   "what-we-do": Banner,
   "partners-list": PartnersList,
 };

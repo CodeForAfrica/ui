@@ -8,4 +8,5 @@ export { default as PageOverview } from "./PageOverview";
 export { default as PartnerOverviewList } from "./PartnerOverviewList";
 export { default as PartnersList } from "./PartnersList";
 export { default as ResourcesOverviewList } from "./ResourcesOverviewList";
+export { default as Spotlight } from "./Spotlight";
 export { default as WhatWeDo } from "./WhatWeDo";

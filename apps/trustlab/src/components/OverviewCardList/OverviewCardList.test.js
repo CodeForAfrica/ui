@@ -14,7 +14,9 @@ const defaultProps = {
     {
       title: "Digital Security Toolkit for Kenyan Activists",
       slug: "digital-security-toolkit-for-kenyan-activists",
-      description: {
+      excerpt:
+        "A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.",
+      content: {
         root: {
           children: [
             {
