@@ -1,23 +1,13 @@
 import {
   createdBy,
-  image,
   nestCollectionUnderPage,
   linkGroup,
-  richText,
 } from "@commons-ui/payload";
 
 import BaseContentCollection from "./BaseContentCollection";
 
 const Posts = BaseContentCollection("posts", {
-  hasTags: false,
-  labels: {
-    singular: {
-      en: "Post",
-    },
-    plural: {
-      en: "Posts",
-    },
-  },
+  hasTags: true,
   fields: [
     {
       name: "deadline",
@@ -44,43 +34,28 @@ const Posts = BaseContentCollection("posts", {
         },
       },
     }),
-    image({
-      overrides: {
-        name: "image",
-        required: true,
-      },
-    }),
     {
-      name: "excerpt",
-      type: "textarea",
-      localized: true,
-      required: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
-    richText({
-      name: "content",
-      localized: true,
-    }),
-    {
-      name: "tags",
+      name: "parentPage",
       type: "relationship",
-      relationTo: "tags",
-      hasMany: true,
-      localized: true,
+      relationTo: "pages",
+      required: true,
+      hasMany: false,
       admin: {
         position: "sidebar",
       },
     },
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("posts")], // TODO:(@kelvinkipruto) Nest this under parent page once it's available
-  },
-  versions: {
-    drafts: {
-      autosave: true,
-    },
+    afterRead: [
+      ({ doc, req }) => {
+        const parentPage = doc?.parentPage?.slug;
+        if (!parentPage) {
+          return doc;
+        }
+        const hook = nestCollectionUnderPage(parentPage);
+        return hook({ doc, req });
+      },
+    ],
   },
 });
 
