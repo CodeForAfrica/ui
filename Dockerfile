@@ -51,8 +51,6 @@ FROM base AS pnpm-base
 
 ARG PNPM_VERSION
 
-# After upgrading to PNPM v10, we're getting an error with corepack integrity signature. Manually upgrading corepack solves the issue: https://github.com/nodejs/corepack/issues/570#issuecomment-2620467717
-RUN npm install -g corepack@latest
 RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
 
 #
