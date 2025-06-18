@@ -4,6 +4,7 @@ import {
   MetaTitleField,
   OverviewField,
   PreviewField,
+  /* eslint-disable-next-line import/no-unresolved */
 } from "@payloadcms/plugin-seo/fields";
 
 const SeoTab = {
