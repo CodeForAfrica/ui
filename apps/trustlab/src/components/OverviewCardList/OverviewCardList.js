@@ -22,20 +22,14 @@ function OverviewCardList({
   const backgroundColor = isSpotlight ? "common.black" : "common.white";
 
   return (
-    <Section
+    <Box
       sx={{
-        maxWidth: { md: "100%", xs: "100%" },
+        backgroundColor,
         px: { xs: 2.5, sm: 0 },
         py: 8,
-        backgroundColor,
       }}
     >
-      <Box
-        sx={(theme) => ({
-          margin: "0 auto",
-          maxWidth: theme.contentWidths.values,
-        })}
-      >
+      <Section>
         <Typography
           variant="h1"
           sx={{
@@ -87,8 +81,8 @@ function OverviewCardList({
             },
           )}
         </Grid>
-      </Box>
-    </Section>
+      </Section>
+    </Box>
   );
 }
 
