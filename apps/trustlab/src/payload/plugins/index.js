@@ -1,6 +1,7 @@
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { sentryPlugin } from "@payloadcms/plugin-sentry";
 import { seoPlugin } from "@payloadcms/plugin-seo";
+/* eslint-disable-next-line import/no-unresolved */
 import { convertLexicalToPlaintext } from "@payloadcms/richtext-lexical/plaintext";
 import { s3Storage } from "@payloadcms/storage-s3";
 import * as Sentry from "@sentry/nextjs";

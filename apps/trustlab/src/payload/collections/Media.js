@@ -1,7 +1,7 @@
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { createdBy } from "@commons-ui/payload";
-import { fileURLToPath } from "url";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
