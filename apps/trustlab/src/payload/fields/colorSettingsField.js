@@ -3,7 +3,10 @@ import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourTex
 import { validateHTMLColorHex } from "validate-color";
 
 const validate = (value) => validateHTMLColorHex(value) || "Invalid hex color";
-const colorField = ({ backgroundOverrides = {}, textOverrides = {} }) => {
+const colorSettingsField = ({
+  backgroundOverrides = {},
+  textOverrides = {},
+}) => {
   const background = deepmerge(
     {
       name: "backgroundColor",
@@ -33,4 +36,4 @@ const colorField = ({ backgroundOverrides = {}, textOverrides = {} }) => {
   };
 };
 
-export default colorField;
+export default colorSettingsField;
