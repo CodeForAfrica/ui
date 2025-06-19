@@ -2,7 +2,8 @@ import { deepmerge } from "@mui/utils";
 import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
 import { validateHTMLColorHex } from "validate-color";
 
-const colorPicker = ({ backgroundOverrides = {}, textOverrides = {} }) => {
+const validate = (value) => validateHTMLColorHex(value) || "Invalid hex color";
+const colorField = ({ backgroundOverrides = {}, textOverrides = {} }) => {
   const background = deepmerge(
     {
       name: "backgroundColor",
@@ -10,7 +11,7 @@ const colorPicker = ({ backgroundOverrides = {}, textOverrides = {} }) => {
         description: "Background color in hex format",
       },
       required: true,
-      validate: (value) => validateHTMLColorHex(value) || "Invalid hex color",
+      validate,
     },
     backgroundOverrides,
   );
@@ -22,7 +23,7 @@ const colorPicker = ({ backgroundOverrides = {}, textOverrides = {} }) => {
         description: "Text color in hex format",
       },
       required: true,
-      validate: (value) => validateHTMLColorHex(value) || "Invalid hex color",
+      validate,
     },
     textOverrides,
   );
@@ -32,4 +33,4 @@ const colorPicker = ({ backgroundOverrides = {}, textOverrides = {} }) => {
   };
 };
 
-export default colorPicker;
+export default colorField;

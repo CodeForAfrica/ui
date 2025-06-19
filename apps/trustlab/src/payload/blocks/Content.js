@@ -1,6 +1,6 @@
 import { richText } from "@commons-ui/payload";
 
-import colorPicker from "../fields/colorPicker";
+import colourField from "../fields/colourField";
 
 const Content = {
   slug: "content",
@@ -12,7 +12,7 @@ const Content = {
       required: true,
       localized: true,
     }),
-    colorPicker({
+    colourField({
       backgroundOverrides: {
         defaultValue: "#F0F0F5",
       },
