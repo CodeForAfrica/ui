@@ -1,6 +1,6 @@
 import { image, richText } from "@commons-ui/payload";
 
-import colorPicker from "../fields/colorPicker";
+import colorSettingsField from "../fields/colorSettingsField";
 
 function BannerBlock(
   slug,
@@ -32,7 +32,7 @@ function BannerBlock(
           required: true,
         },
       }),
-      colorPicker({
+      colorSettingsField({
         backgroundOverrides: {
           defaultValue: backgroundColor,
         },
