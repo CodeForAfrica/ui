@@ -38,6 +38,18 @@ const defaultProps = {
       href: "/contact",
     },
   ],
+  partners: [
+    {
+      id: "1",
+      logo: {
+        url: "https://example.com/logo.png",
+        alt: "Example Partner",
+      },
+      link: {
+        href: "https://example.com",
+      },
+    },
+  ],
 };
 
 describe("<Footer />", () => {
