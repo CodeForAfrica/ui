@@ -13,24 +13,17 @@ export async function getPost(api, slug) {
 
   const [post] = docs;
 
-  const { title, excerpt: description, image, meta } = post;
-
-  const postMeta = {
-    title,
-    description,
-    image,
-    ...meta,
-  };
+  const { meta, ...other } = post;
 
   const blocks = [
     {
-      ...post,
+      ...other,
       blockType: "content",
     },
   ];
   return {
     blocks,
-    meta: postMeta,
+    meta,
   };
 }
 
