@@ -642,6 +642,7 @@ export interface Helpline {
   image: string | Media;
   updatedAt: string;
   createdAt: string;
+  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -751,6 +752,7 @@ export interface Resource {
   tags: (string | Tag)[];
   updatedAt: string;
   createdAt: string;
+  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -771,8 +773,6 @@ export interface Post {
   id: string;
   title: string;
   slug?: string | null;
-  createdBy?: (string | null) | User;
-  image: string | Media;
   excerpt: string;
   content?: {
     root: {
@@ -789,7 +789,22 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  tags?: (string | Tag)[] | null;
+  image: string | Media;
+  tags: (string | Tag)[];
+  deadline: string;
+  applicationLink: {
+    label: string;
+    linkType?: ("custom" | "internal") | null;
+    doc?: {
+      relationTo: "pages";
+      value: string | Page;
+    } | null;
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
+  };
+  author: string | User;
+  parent: string | Page;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1151,11 +1166,23 @@ export interface PagesSelect<T extends boolean = true> {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  createdBy?: T;
-  image?: T;
   excerpt?: T;
   content?: T;
+  image?: T;
   tags?: T;
+  deadline?: T;
+  applicationLink?:
+    | T
+    | {
+        label?: T;
+        linkType?: T;
+        doc?: T;
+        url?: T;
+        href?: T;
+        newTab?: T;
+      };
+  author?: T;
+  parent?: T;
   meta?:
     | T
     | {
@@ -1208,6 +1235,7 @@ export interface HelplinesSelect<T extends boolean = true> {
   image?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1241,6 +1269,7 @@ export interface ResourcesSelect<T extends boolean = true> {
   tags?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

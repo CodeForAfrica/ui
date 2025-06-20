@@ -1,10 +1,7 @@
-import {
-  image,
-  nestCollectionUnderPage,
-  richText,
-  slug,
-} from "@commons-ui/payload";
+import { image, richText, slug } from "@commons-ui/payload";
 
+import { canManageContent } from "@/trustlab/payload/access/abilities";
+import { anyone } from "@/trustlab/payload/access/anyone";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 function BaseContentCollection(
@@ -16,6 +13,7 @@ function BaseContentCollection(
     fields: additionalFields = [],
     hooks = {},
     admin = {},
+
     ...other
   } = {},
 ) {
@@ -67,6 +65,12 @@ function BaseContentCollection(
 
   return {
     slug: collectionSlug,
+    access: {
+      read: anyone,
+      create: ({ req: { user } }) => canManageContent(user),
+      update: ({ req: { user } }) => canManageContent(user),
+      delete: ({ req: { user } }) => canManageContent(user),
+    },
     admin: {
       group: adminGroup,
       hideAPIURL,
@@ -74,9 +78,11 @@ function BaseContentCollection(
       ...admin,
     },
     fields,
-    hooks: {
-      afterRead: [nestCollectionUnderPage(collectionSlug)],
-      ...hooks,
+    hooks,
+    versions: {
+      drafts: {
+        autosave: true,
+      },
     },
     ...other,
   };
