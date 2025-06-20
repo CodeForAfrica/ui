@@ -804,7 +804,7 @@ export interface Post {
     newTab?: boolean | null;
   };
   author: string | User;
-  parentPage: string | Page;
+  parent: string | Page;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1182,7 +1182,7 @@ export interface PostsSelect<T extends boolean = true> {
         newTab?: T;
       };
   author?: T;
-  parentPage?: T;
+  parent?: T;
   meta?:
     | T
     | {

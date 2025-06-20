@@ -3,6 +3,7 @@ import {
   nestCollectionUnderPage,
   linkGroup,
 } from "@commons-ui/payload";
+import { createParentField } from "@payloadcms/plugin-nested-docs";
 
 import BaseContentCollection from "./BaseContentCollection";
 
@@ -34,25 +35,18 @@ const Posts = BaseContentCollection("posts", {
         },
       },
     }),
-    {
-      name: "parentPage",
-      type: "relationship",
-      relationTo: "pages",
+    createParentField("pages", {
       required: true,
-      hasMany: false,
-      admin: {
-        position: "sidebar",
-      },
-    },
+    }),
   ],
   hooks: {
     afterRead: [
       ({ doc, req }) => {
-        const parentPage = doc?.parentPage?.slug;
-        if (!parentPage) {
+        const parent = doc?.parent?.slug;
+        if (!parent) {
           return doc;
         }
-        const hook = nestCollectionUnderPage(parentPage);
+        const hook = nestCollectionUnderPage(parent);
         return hook({ doc, req });
       },
     ],

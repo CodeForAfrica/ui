@@ -13,7 +13,7 @@ export async function getPost(api, slug) {
 
   const [post] = docs;
 
-  const { title, excerpt: description, image, ...meta } = post;
+  const { title, excerpt: description, image, meta } = post;
 
   const postMeta = {
     title,
@@ -43,7 +43,7 @@ export async function getPosts(api, parentPage) {
     page,
   } = await api.getCollection("posts", {
     where: {
-      parentPage: {
+      parent: {
         equals: slug,
       },
     },

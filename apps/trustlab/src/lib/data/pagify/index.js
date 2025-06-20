@@ -6,8 +6,8 @@ const COLLECTION_BY_SLUG = {
 
 async function pagify(parentPage, api, context) {
   const { slug: collection } = parentPage;
-  const pageProps = COLLECTION_BY_SLUG[collection];
-  return pageProps?.(api, context, parentPage) ?? null;
+  const pagifyCollection = COLLECTION_BY_SLUG[collection];
+  return pagifyCollection?.(api, context, parentPage) ?? null;
 }
 
 export default pagify;
