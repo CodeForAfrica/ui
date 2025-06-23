@@ -808,6 +808,14 @@ export interface Post {
   };
   author: string | User;
   parent: string | Page;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Post;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1187,6 +1195,14 @@ export interface PostsSelect<T extends boolean = true> {
       };
   author?: T;
   parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   meta?:
     | T
     | {
