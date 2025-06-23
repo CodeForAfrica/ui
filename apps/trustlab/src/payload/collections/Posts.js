@@ -11,20 +11,38 @@ const Posts = BaseContentCollection("posts", {
   hasTags: true,
   fields: [
     {
-      name: "deadline",
-      type: "date",
-      required: true,
-      admin: {
-        position: "sidebar",
-      },
+      type: "group",
+      fields: [
+        {
+          type: "checkbox",
+          name: "isApplication",
+          label: "Is Application",
+          defaultValue: false,
+          required: true,
+          admin: {
+            description: "Select if this is an application post",
+          },
+        },
+        {
+          name: "deadline",
+          type: "date",
+          admin: {
+            position: "sidebar",
+            condition: (_, siblingData) => siblingData?.isApplication,
+          },
+        },
+        linkGroup({
+          overrides: {
+            name: "applicationLink",
+            label: "Application Link",
+            admin: {
+              hideGutter: true,
+              condition: (_, siblingData) => siblingData?.isApplication,
+            },
+          },
+        }),
+      ],
     },
-    linkGroup({
-      overrides: {
-        name: "applicationLink",
-        required: true,
-        label: "Application Link",
-      },
-    }),
     createdBy({
       overrides: {
         name: "author",

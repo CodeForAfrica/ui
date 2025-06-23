@@ -794,8 +794,12 @@ export interface Post {
   } | null;
   publishedOn: string;
   tags?: (string | Tag)[] | null;
-  deadline: string;
-  applicationLink: {
+  /**
+   * Select if this is an application post
+   */
+  isApplication: boolean;
+  deadline?: string | null;
+  applicationLink?: {
     label: string;
     linkType?: ("custom" | "internal") | null;
     doc?: {
@@ -1182,6 +1186,7 @@ export interface PostsSelect<T extends boolean = true> {
   content?: T;
   publishedOn?: T;
   tags?: T;
+  isApplication?: T;
   deadline?: T;
   applicationLink?:
     | T
