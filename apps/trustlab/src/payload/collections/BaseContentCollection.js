@@ -1,4 +1,4 @@
-import { image, richText, slug } from "@commons-ui/payload";
+import { image, publishedOn, richText, slug } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
@@ -25,6 +25,12 @@ function BaseContentCollection(
       localized: true,
     },
     slug({ fieldToUse: "title" }),
+    image({
+      overrides: {
+        name: "image",
+        required: true,
+      },
+    }),
     {
       name: "excerpt",
       type: "textarea",
@@ -38,12 +44,7 @@ function BaseContentCollection(
       name: "content",
       localized: true,
     }),
-    image({
-      overrides: {
-        name: "image",
-        required: true,
-      },
-    }),
+    publishedOn(),
   ];
 
   if (hasTags) {
@@ -52,7 +53,6 @@ function BaseContentCollection(
       type: "relationship",
       relationTo: "tags",
       hasMany: true,
-      required: true,
       localized: true,
       minRows: 1,
       admin: {

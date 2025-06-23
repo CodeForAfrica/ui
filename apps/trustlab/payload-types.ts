@@ -623,6 +623,7 @@ export interface Helpline {
   id: string;
   title: string;
   slug?: string | null;
+  image: string | Media;
   excerpt: string;
   content?: {
     root: {
@@ -639,7 +640,7 @@ export interface Helpline {
     };
     [k: string]: unknown;
   } | null;
-  image: string | Media;
+  publishedOn: string;
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
@@ -732,6 +733,7 @@ export interface Resource {
   id: string;
   title: string;
   slug?: string | null;
+  image: string | Media;
   excerpt: string;
   content?: {
     root: {
@@ -748,8 +750,8 @@ export interface Resource {
     };
     [k: string]: unknown;
   } | null;
-  image: string | Media;
-  tags: (string | Tag)[];
+  publishedOn: string;
+  tags?: (string | Tag)[] | null;
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
@@ -773,6 +775,7 @@ export interface Post {
   id: string;
   title: string;
   slug?: string | null;
+  image: string | Media;
   excerpt: string;
   content?: {
     root: {
@@ -789,8 +792,8 @@ export interface Post {
     };
     [k: string]: unknown;
   } | null;
-  image: string | Media;
-  tags: (string | Tag)[];
+  publishedOn: string;
+  tags?: (string | Tag)[] | null;
   deadline: string;
   applicationLink: {
     label: string;
@@ -1166,9 +1169,10 @@ export interface PagesSelect<T extends boolean = true> {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  image?: T;
   excerpt?: T;
   content?: T;
-  image?: T;
+  publishedOn?: T;
   tags?: T;
   deadline?: T;
   applicationLink?:
@@ -1230,9 +1234,10 @@ export interface DonorsSelect<T extends boolean = true> {
 export interface HelplinesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  image?: T;
   excerpt?: T;
   content?: T;
-  image?: T;
+  publishedOn?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
@@ -1263,9 +1268,10 @@ export interface PartnersSelect<T extends boolean = true> {
 export interface ResourcesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  image?: T;
   excerpt?: T;
   content?: T;
-  image?: T;
+  publishedOn?: T;
   tags?: T;
   updatedAt?: T;
   createdAt?: T;
