@@ -1,89 +1,74 @@
 import {
   createdBy,
-  image,
   nestCollectionUnderPage,
-  slug,
-  richText,
+  linkGroup,
 } from "@commons-ui/payload";
+import { createParentField } from "@payloadcms/plugin-nested-docs";
 
-import { canManageContent } from "@/trustlab/payload/access/abilities";
-import { anyone } from "@/trustlab/payload/access/anyone";
-import { hideAPIURL } from "@/trustlab/payload/utils";
+import BaseContentCollection from "./BaseContentCollection";
 
-const Posts = {
-  slug: "posts",
-  access: {
-    read: anyone,
-    create: ({ req: { user } }) => canManageContent(user),
-    update: ({ req: { user } }) => canManageContent(user),
-    delete: ({ req: { user } }) => canManageContent(user),
-  },
-  admin: {
-    defaultColumns: ["title", "createdBy", "updatedAt", "_status"],
-    group: "Publication",
-    useAsTitle: "title",
-    hideAPIURL,
-    preview: ({ slug: pageSlug }) => {
-      const encodedParams = new URLSearchParams({
-        slug: pageSlug,
-        path: `/${pageSlug}`,
-      });
-
-      return `${process.env.NEXT_PUBLIC_APP_URL}/preview?${encodedParams.toString()}`;
-    },
-  },
+const Posts = BaseContentCollection("posts", {
+  hasTags: true,
   fields: [
     {
-      name: "title",
-      type: "text",
-      required: true,
-      localized: true,
-      admin: {},
+      type: "group",
+      fields: [
+        {
+          type: "checkbox",
+          name: "isApplication",
+          label: "Is Application",
+          defaultValue: false,
+          required: true,
+          admin: {
+            description: "Select if this is an application post",
+          },
+        },
+        {
+          name: "deadline",
+          type: "date",
+          admin: {
+            position: "sidebar",
+            condition: (_, siblingData) => siblingData?.isApplication,
+          },
+        },
+        linkGroup({
+          overrides: {
+            name: "applicationLink",
+            label: "Application Link",
+            admin: {
+              hideGutter: true,
+              condition: (_, siblingData) => siblingData?.isApplication,
+            },
+          },
+        }),
+      ],
     },
-    slug(),
     createdBy({
       overrides: {
+        name: "author",
         hidden: false,
-      },
-    }),
-    image({
-      overrides: {
-        name: "image",
         required: true,
+        admin: {
+          readOnly: false,
+        },
       },
     }),
-    {
-      name: "excerpt",
-      type: "textarea",
-      localized: true,
+    createParentField("pages", {
       required: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
-    richText({
-      name: "content",
-      localized: true,
     }),
-    {
-      name: "tags",
-      type: "relationship",
-      relationTo: "tags",
-      hasMany: true,
-      localized: true,
-      admin: {
-        position: "sidebar",
-      },
-    },
   ],
   hooks: {
-    afterRead: [nestCollectionUnderPage("posts")], // TODO:(@kelvinkipruto) Nest this under parent page once it's available
+    afterRead: [
+      ({ doc, req }) => {
+        const parent = doc?.parent?.slug;
+        if (!parent) {
+          return doc;
+        }
+        const hook = nestCollectionUnderPage(parent);
+        return hook({ doc, req });
+      },
+    ],
   },
-  versions: {
-    drafts: {
-      autosave: true,
-    },
-  },
-};
+});
 
 export default Posts;

@@ -16,7 +16,7 @@ const s3Enabled = !!accessKeyId && !!region && !!secretAccessKey;
 
 const plugins = [
   nestedDocsPlugin({
-    collections: ["pages"],
+    collections: ["pages", "posts"],
     generateLabel: (_, doc) => doc.title,
     generateURL: (docs) => docs.reduce((url, doc) => `${url}/${doc.slug}`, ""),
   }),
