@@ -8,11 +8,14 @@ import {
   CardHeader,
   CardMedia,
   Button,
+  Divider,
 } from "@mui/material";
 
 import { neutral } from "@/trustlab/colors";
 
 function Card({
+  deadline,
+  deadlineLabel,
   description,
   link,
   linkLabel,
@@ -37,11 +40,11 @@ function Card({
         {
           width: {
             xs: "100%",
-            md: 336,
+            md: 384,
           },
           maxWidth: {
             xs: "100%",
-            md: 336,
+            md: 384,
           },
           display: "flex",
           flexDirection: "column",
@@ -158,6 +161,30 @@ function Card({
             },
           ]}
         >
+          {deadline && (
+            <>
+              <Divider
+                sx={[
+                  {
+                    border: "1px solid",
+                    borderColor: "#7F7272",
+                    width: "100%",
+                  },
+                ]}
+              />
+              <Typography
+                variant="p1"
+                sx={[
+                  {
+                    textTransform: "capitalize",
+                    my: 3,
+                  },
+                ]}
+              >
+                {`${deadlineLabel} ${deadline}`}
+              </Typography>
+            </>
+          )}
           <Button
             href={link}
             component={Link}
