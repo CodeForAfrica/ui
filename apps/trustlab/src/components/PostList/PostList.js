@@ -1,14 +1,12 @@
 import { Section } from "@commons-ui/core";
 import { Box, Grid } from "@mui/material";
 
-import { neutral } from "@/trustlab/colors";
 import PostCard from "@/trustlab/components/PostCard";
 
 function PostList({ deadlineLabel, linkLabel, posts }) {
   return (
     <Box
       sx={{
-        backgroundColor: neutral[100],
         px: { xs: 2.5, sm: 0 },
         py: 8,
       }}

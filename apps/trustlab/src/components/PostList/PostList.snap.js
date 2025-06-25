@@ -3,7 +3,7 @@
 exports[`<PostList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-148ace7"
+    class="MuiBox-root css-1wqbekt"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fqfx6w-MuiContainer-root"
