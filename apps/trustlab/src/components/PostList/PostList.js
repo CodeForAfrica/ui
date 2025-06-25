@@ -3,7 +3,7 @@ import { Box, Grid } from "@mui/material";
 
 import PostCard from "@/trustlab/components/PostCard";
 
-function PostList({ deadlineLabel, linkLabel, posts }) {
+function PostList({ posts }) {
   return (
     <Box
       sx={{
@@ -21,12 +21,7 @@ function PostList({ deadlineLabel, linkLabel, posts }) {
           }}
         >
           {posts.map((post) => (
-            <PostCard
-              {...post}
-              deadlineLabel={deadlineLabel}
-              linkLabel={linkLabel}
-              key={post.id}
-            />
+            <PostCard {...post} key={post.id} />
           ))}
         </Grid>
       </Section>

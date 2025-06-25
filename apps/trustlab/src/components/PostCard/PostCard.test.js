@@ -15,6 +15,7 @@ const defaultProps = {
   title: "TrustLab Incubator Programme",
   href: "/opportunities/trustlab-incubator-programme",
   linkLabel: "Apply Now",
+  isClosed: false,
   image: {
     alt: "Resources 1",
     src: "/resources-1.jpg",

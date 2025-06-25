@@ -8,8 +8,6 @@ import theme from "@/trustlab/theme";
 const render = createRender({ theme });
 
 const defaultProps = {
-  deadlineLabel: "Deadline On",
-  linkLabel: "Apply Now",
   posts: [
     {
       id: 1,
@@ -22,6 +20,8 @@ const defaultProps = {
         alt: "Resources 1",
         src: "/resources-1.jpg",
       },
+      deadlineLabel: "Deadline On",
+      linkLabel: "Apply Now",
     },
   ],
 };

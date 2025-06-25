@@ -11,6 +11,13 @@ const PostList = {
       defaultValue: "Apply Now",
     },
     {
+      name: "closedLabel",
+      type: "text",
+      required: true,
+      localized: true,
+      defaultValue: "Closed",
+    },
+    {
       name: "deadlineLabel",
       type: "text",
       localized: true,

@@ -4,6 +4,7 @@ function PostCard({
   deadline,
   deadlineLabel,
   excerpt,
+  isClosed,
   href,
   image,
   linkLabel,
@@ -51,6 +52,9 @@ function PostCard({
             width: "fit-content",
           },
         },
+      }}
+      LinkProps={{
+        disabled: isClosed,
       }}
     />
   );
