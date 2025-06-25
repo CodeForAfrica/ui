@@ -14,7 +14,7 @@ function PostList({ deadlineLabel, linkLabel, posts }) {
       <Section>
         <Grid
           container
-          gap={3}
+          gap={1}
           justifyContent={{
             xs: "center",
             md: "space-between",
