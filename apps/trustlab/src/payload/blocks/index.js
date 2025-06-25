@@ -10,3 +10,4 @@ export { default as PartnersList } from "./PartnersList";
 export { default as ResourcesOverviewList } from "./ResourcesOverviewList";
 export { default as Spotlight } from "./Spotlight";
 export { default as WhatWeDo } from "./WhatWeDo";
+export { default as PostImageContent } from "./PostImageContent";

@@ -1,4 +1,11 @@
-import { image, publishedOn, richText, slug } from "@commons-ui/payload";
+import { image, publishedOn, slug } from "@commons-ui/payload";
+
+import {
+  Content,
+  DonorOverviewList,
+  PartnerOverviewList,
+  PostImageContent,
+} from "../blocks";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
@@ -40,10 +47,18 @@ function BaseContentCollection(
         position: "sidebar",
       },
     },
-    richText({
+    {
       name: "content",
+      type: "blocks",
+      blocks: [
+        Content,
+        PostImageContent,
+        DonorOverviewList,
+        PartnerOverviewList,
+      ],
       localized: true,
-    }),
+      required: true,
+    },
     publishedOn(),
   ];
 

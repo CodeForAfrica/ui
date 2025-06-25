@@ -10,6 +10,7 @@ import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
+import PostImageOverview from "@/trustlab/components/PostImageOverview";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
@@ -21,10 +22,11 @@ const componentsBySlugs = {
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
+  "partners-list": PartnersList,
+  "post-image-overview": PostImageOverview,
   "resources-overview-list": OverviewCardList,
   spotlight: OverviewCardList,
   "what-we-do": Banner,
-  "partners-list": PartnersList,
 };
 
 function Page({ blocks, fallback }) {
