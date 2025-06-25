@@ -12,11 +12,11 @@ exports[`<PostList /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-111q75m-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-g8xav8-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-l2fifj-MuiPaper-root-MuiCard-root"
           style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <div
-            class="MuiCardMedia-root css-1avv2mj-MuiCardMedia-root"
+            class="MuiCardMedia-root css-1h6d4aj-MuiCardMedia-root"
             role="img"
             style="background-image: url(/resources-1.jpg);"
             title="TrustLab Incubator Programme"
@@ -40,7 +40,7 @@ exports[`<PostList /> renders unchanged 1`] = `
             <p
               class="MuiTypography-root MuiTypography-p1 css-9tlvhj-MuiTypography-root"
             >
-              Our fact-checkers & forensic investigators are on standby to verify claims or expose the puppet masters behind smear campaigns.
+              The TrustLab supports Kenyan CSOs/CBOs to counter digital threats that affect them and the communities they serve
             </p>
           </div>
           <div

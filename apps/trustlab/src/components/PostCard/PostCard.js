@@ -20,6 +20,7 @@ function PostCard({
       linkLabel={linkLabel}
       sx={{
         padding: 2,
+        height: 548,
       }}
       CardHeaderProps={{
         sx: {
@@ -29,6 +30,11 @@ function PostCard({
       CardContentProps={{
         sx: {
           px: 0,
+        },
+      }}
+      CardMediaProps={{
+        sx: {
+          height: 170,
         },
       }}
       TitleProps={{
