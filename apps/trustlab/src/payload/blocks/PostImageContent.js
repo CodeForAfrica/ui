@@ -2,7 +2,7 @@ import { richText, image } from "@commons-ui/payload";
 
 const PostImageOverview = {
   slug: "post-image-overview",
-  imageURL: "/images/cms/blocks/page-overview.png",
+  imageURL: "/images/cms/blocks/post-image-overview.png",
   imageAltText: "Page Overview.",
   labels: {
     singular: "Page Overview",
