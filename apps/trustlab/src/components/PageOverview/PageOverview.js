@@ -5,7 +5,16 @@ import { Grid, Typography, Button, Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const PostImageOverview = forwardRef(function PostImageOverview(
-  { content, image, date, caption, buttonLink, applicationActive = false },
+  {
+    content,
+    image,
+    date,
+    caption,
+    buttonLink,
+    applicationActive = false,
+    backgroundColor = "common.white",
+    textColor = "text.primary",
+  },
   ref,
 ) {
   if (!content && !image) {
@@ -15,7 +24,12 @@ const PostImageOverview = forwardRef(function PostImageOverview(
   const { url, alt } = image;
 
   return (
-    <Box bgcolor="common.white" ref={ref}>
+    <Box
+      sx={{
+        backgroundColor,
+      }}
+      ref={ref}
+    >
       <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
         <Grid
           container
@@ -47,6 +61,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 gutterBottom: true,
                 sx: {
                   mb: 3,
+                  color: textColor,
                 },
               }}
             />
@@ -75,8 +90,8 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 width: { xs: "100%", md: "360px" },
               }}
             />
-            <Typography sx={{ mt: 2 }}>{caption}</Typography>
-            <Typography sx={{ mt: 4 }}>{date}</Typography>
+            <Typography sx={{ mt: 2, color: textColor }}>{caption}</Typography>
+            <Typography sx={{ mt: 4, color: textColor }}>{date}</Typography>
             {buttonLink?.href ? (
               <Button
                 variant="contained"
