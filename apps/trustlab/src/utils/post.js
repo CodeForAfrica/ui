@@ -18,14 +18,12 @@ export async function getPost(api, slug) {
   const { meta, content } = post;
 
   const postImageOverviewBlockIndex = content.findIndex(
-    (block) => block.blockType === "post-image-overview",
+    (block) => block.blockType === "page-overview",
   );
   if (postImageOverviewBlockIndex !== -1) {
     content[postImageOverviewBlockIndex] = {
       ...content[postImageOverviewBlockIndex],
-      deadline: formatDate(post.deadline),
-      location: post.location ?? null,
-      applicationLink: post.applicationLink ?? null,
+      date: formatDate(post.deadline),
       applicationActive: post.deadline && new Date(post.deadline) > new Date(),
     };
   }

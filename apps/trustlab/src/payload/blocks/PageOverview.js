@@ -1,4 +1,4 @@
-import { richText, image } from "@commons-ui/payload";
+import { richText, image, linkGroup } from "@commons-ui/payload";
 
 const PageOverview = {
   slug: "page-overview",
@@ -9,14 +9,8 @@ const PageOverview = {
     plural: "Page Overviews",
   },
   fields: [
-    {
-      name: "title",
-      type: "text",
-      required: true,
-      localized: true,
-    },
     richText({
-      name: "description",
+      name: "content",
       required: true,
       localized: true,
       admin: {
@@ -27,6 +21,21 @@ const PageOverview = {
       overrides: {
         name: "image",
         required: true,
+      },
+    }),
+    {
+      name: "caption",
+      type: "text",
+      localized: true,
+    },
+    linkGroup({
+      overrides: {
+        name: "buttonLink",
+        label: "Button Link",
+        required: false,
+      },
+      linkConfig: {
+        required: false,
       },
     }),
   ],
