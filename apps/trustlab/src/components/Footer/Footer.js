@@ -5,11 +5,22 @@ import React from "react";
 
 import FooterDescription from "./FooterDescription";
 
+import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import FooterLinks from "@/trustlab/components/FooterLinks";
+import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { connect, description, newsletter, primaryMenus, secondaryMenus } =
-    props;
+  const {
+    connect,
+    description,
+    newsletter,
+    primaryMenus,
+    secondaryMenus,
+    partners = [],
+    partnerTitle = "Partners",
+    donors = [],
+    donorTitle = "Donors",
+  } = props;
 
   const htmlEmbedStyles = (theme) => ({
     "& #mc_embed_signup": {
@@ -72,81 +83,88 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   });
 
   return (
-    <Box
-      sx={({ palette }) => ({
-        backgroundColor: palette.common.black,
-        color: palette.text.secondary,
-        px: 0,
-        py: 8,
-      })}
+    <Section
       component="footer"
+      sx={{ maxWidth: { md: "100%" } }}
+      fixed={false}
       ref={ref}
     >
-      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-        {/* Increase number of columns to getter columns size */}
-        <Grid container columns={24} justifyContent="space-between">
-          <Grid item xs={24} md={15} lg={16}>
-            <Grid container justifyContent="space-between">
-              <Grid
-                item
-                xs={12}
-                md="auto"
-                container
-                direction="column"
-                sx={{
-                  maxWidth: { xs: "none", md: "337px" },
-                }}
-              >
-                <Grid item>
-                  <FooterDescription description={description} logo={null} />
+      <DonorOverviewList donors={donors} title={donorTitle} />
+      <PartnerOverviewList partners={partners} title={partnerTitle} />
+      <Box
+        sx={({ palette }) => ({
+          backgroundColor: palette.common.black,
+          color: palette.text.secondary,
+          px: 0,
+          py: 8,
+        })}
+      >
+        <Section component="div" sx={{ px: { xs: 2.5, sm: 0 } }}>
+          {/* Increase number of columns to getter columns size */}
+          <Grid container columns={24} justifyContent="space-between">
+            <Grid item xs={24} md={15} lg={16}>
+              <Grid container justifyContent="space-between">
+                <Grid
+                  item
+                  xs={12}
+                  md="auto"
+                  container
+                  direction="column"
+                  sx={{
+                    maxWidth: { xs: "none", md: "337px" },
+                  }}
+                >
+                  <Grid item>
+                    <FooterDescription description={description} logo={null} />
+                  </Grid>
+                  <Grid item>
+                    <StayInTouch
+                      {...connect}
+                      LinkProps={{ component: Link }}
+                      TitleProps={{
+                        sx: {
+                          textTransform: "uppercase",
+                          fontSize: "10px",
+                          fontWeight: 700,
+                          mb: 0,
+                          mr: 4,
+                        },
+                      }}
+                      sx={{
+                        mt: "52px",
+                        justifyContent: { xs: "center", md: "flex-start" },
+                      }}
+                      direction="row"
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <StayInTouch
-                    {...connect}
-                    LinkProps={{ component: Link }}
-                    TitleProps={{
-                      sx: {
-                        textTransform: "uppercase",
-                        fontSize: "10px",
-                        fontWeight: 700,
-                        mb: 0,
-                        mr: 4,
-                      },
-                    }}
-                    sx={{
-                      mt: "52px",
-                      justifyContent: { xs: "center", md: "flex-start" },
-                    }}
-                    direction="row"
+                <Grid item xs={12} md="auto">
+                  <FooterLinks
+                    primaryMenus={primaryMenus}
+                    secondaryMenus={secondaryMenus}
+                    sx={{ mt: { xs: "52px", md: 0 } }}
                   />
                 </Grid>
               </Grid>
-              <Grid item xs={12} md="auto">
-                <FooterLinks
-                  primaryMenus={primaryMenus}
-                  secondaryMenus={secondaryMenus}
-                  sx={{ mt: { xs: "52px", md: 0 } }}
-                />
-              </Grid>
+            </Grid>
+            <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
+              <HtmlEmbed
+                EmbedCodeProps={{ sx: htmlEmbedStyles }}
+                TitleProps={{
+                  fontSize: "23px",
+                  lineHeight: "28px",
+                  letterSpacing: "-2%",
+                  fontFamily: "Barlow",
+                  textAlign: { xs: "center", md: "left" },
+                  mt: { xs: 8, md: 0 },
+                }}
+                {...newsletter}
+              />
             </Grid>
           </Grid>
-          <Grid item xs={24} md="auto" sx={{ order: { xs: 0, md: 1 } }}>
-            <HtmlEmbed
-              EmbedCodeProps={{ sx: htmlEmbedStyles }}
-              TitleProps={{
-                fontSize: "23px",
-                lineHeight: "28px",
-                letterSpacing: "-2%",
-                fontFamily: "Barlow",
-                textAlign: { xs: "center", md: "left" },
-                mt: { xs: 8, md: 0 },
-              }}
-              {...newsletter}
-            />
-          </Grid>
-        </Grid>
-      </Section>
-    </Box>
+        </Section>
+      </Box>
+    </Section>
   );
 });
 
