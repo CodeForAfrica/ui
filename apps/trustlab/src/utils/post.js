@@ -24,7 +24,7 @@ export async function getPost(api, slug) {
     content[postImageOverviewBlockIndex] = {
       ...content[postImageOverviewBlockIndex],
       date: formatDate(post.deadline),
-      applicationActive: post.deadline && new Date(post.deadline) > new Date(),
+      isClosed: post.deadline && new Date(post.deadline) < new Date(),
     };
   }
   const blocks = [

@@ -11,7 +11,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
     date,
     caption,
     buttonLink,
-    applicationActive = false,
+    isClosed = false,
     backgroundColor = "common.white",
     textColor = "text.primary",
   },
@@ -95,11 +95,9 @@ const PostImageOverview = forwardRef(function PostImageOverview(
             {buttonLink?.href ? (
               <Button
                 variant="contained"
-                component={
-                  buttonLink?.href && applicationActive ? Link : undefined
-                }
+                component={buttonLink?.href && !isClosed ? Link : undefined}
                 href={buttonLink?.href}
-                disabled={!applicationActive}
+                disabled={isClosed}
                 sx={{
                   mt: 2,
                 }}
