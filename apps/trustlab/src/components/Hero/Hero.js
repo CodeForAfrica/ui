@@ -27,6 +27,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           width: "100%",
           height: "500px",
           overflow: "hidden",
+          backgroundColor: "common.black",
         }}
       >
         {slides.map((slide, index) => (
@@ -36,8 +37,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             in={activeStep === index}
             mountOnEnter
             unmountOnExit
-            timeout={{ enter: 800, exit: 800 }}
-            appear={false}
+            timeout={{ enter: 800, exit: 0 }}
           >
             <Box
               sx={{
@@ -58,7 +58,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 sx={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "rgba(0, 0, 0, 0.8)",
                   zIndex: 1,
                 }}
               >
