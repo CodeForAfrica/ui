@@ -21,10 +21,10 @@ const componentsBySlugs = {
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
+  "partners-list": PartnersList,
   "resources-overview-list": OverviewCardList,
   spotlight: OverviewCardList,
   "what-we-do": Banner,
-  "partners-list": PartnersList,
 };
 
 function Page({ blocks, fallback }) {

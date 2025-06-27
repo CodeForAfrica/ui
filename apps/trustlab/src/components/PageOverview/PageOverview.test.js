@@ -7,23 +7,7 @@ import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
-const defaultProps = {
-  title: "Overview Title",
-  description: [
-    {
-      type: "paragraph",
-      children: [
-        {
-          text: "This is an overview description.",
-        },
-      ],
-    },
-  ],
-  image: {
-    url: "/images/cms/blocks/overview.png",
-    alt: "Example Image",
-  },
-};
+const defaultProps = {};
 
 describe("<PageOverview />", () => {
   it("renders unchanged", () => {
