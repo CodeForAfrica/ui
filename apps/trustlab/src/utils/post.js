@@ -1,3 +1,5 @@
+import formatDate from "@/trustlab/payload/utils/formatDate";
+
 export async function getPost(api, slug) {
   const { docs } = await api.getCollection("posts", {
     where: {
@@ -13,13 +15,29 @@ export async function getPost(api, slug) {
 
   const [post] = docs;
 
-  const { meta, ...other } = post;
+  const { meta, content } = post;
 
+  const postImageOverviewBlockIndex = content.findIndex(
+    (block) => block.blockType === "page-overview",
+  );
+  if (postImageOverviewBlockIndex !== -1) {
+    content[postImageOverviewBlockIndex] = {
+      ...content[postImageOverviewBlockIndex],
+      date: formatDate(post.deadline),
+      isClosed: post.deadline && new Date(post.deadline) < new Date(),
+    };
+  }
   const blocks = [
     {
-      ...other,
-      blockType: "content",
+      slug: "page-header",
+      blockType: "page-header",
+      backgroundColor: "#02041C",
+      textColor: "#ffffff",
+      title: post.title,
+      description: post.excerpt,
+      id: post.id,
     },
+    ...content,
   ];
   return {
     blocks,

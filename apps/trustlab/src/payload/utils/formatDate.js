@@ -1,4 +1,4 @@
-const formatDate = (date, options) => {
+const formatDate = (date, options = {}) => {
   const { locale = "en", includeTime, ...restOptions } = options;
 
   const formatOptions = {
