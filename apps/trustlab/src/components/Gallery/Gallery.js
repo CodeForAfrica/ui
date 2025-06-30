@@ -7,7 +7,6 @@ const Gallery = forwardRef(function Gallery({ title, images }, ref) {
   if (!images?.length) {
     return null;
   }
-
   return (
     <Section
       sx={{
