@@ -45,19 +45,18 @@ export async function getPost(api, slug) {
   };
 }
 
-export async function getPosts(api, parentPage) {
-  const { slug } = parentPage;
-
+export async function getPosts(api, parentPage, options) {
   const {
     docs: posts,
     totalPages,
     page,
   } = await api.getCollection("posts", {
     where: {
-      parent: {
-        equals: slug,
+      "parent.slug": {
+        equals: parentPage,
       },
     },
+    ...options,
   });
 
   return {
