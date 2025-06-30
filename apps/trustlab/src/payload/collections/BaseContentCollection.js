@@ -5,6 +5,7 @@ import {
   DonorOverviewList,
   PartnerOverviewList,
   PageOverview,
+  Gallery,
 } from "../blocks";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
@@ -50,7 +51,13 @@ function BaseContentCollection(
     {
       name: "content",
       type: "blocks",
-      blocks: [Content, PageOverview, DonorOverviewList, PartnerOverviewList],
+      blocks: [
+        Content,
+        PageOverview,
+        DonorOverviewList,
+        Gallery,
+        PartnerOverviewList,
+      ],
       localized: true,
       required: true,
     },
