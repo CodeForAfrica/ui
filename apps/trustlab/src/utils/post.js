@@ -1,4 +1,4 @@
-import { formatDate } from ".";
+import formatDate from "@/trustlab/payload/utils/formatDate";
 
 export async function getPost(api, slug) {
   const { docs } = await api.getCollection("posts", {
