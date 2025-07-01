@@ -20,10 +20,15 @@ const defaultProps = {
         alt: "Resources 1",
         src: "/resources-1.jpg",
       },
-      deadlineLabel: "Deadline On",
-      linkLabel: "Apply Now",
     },
   ],
+  pagination: {
+    count: 5,
+    page: 1,
+  },
+  deadlineLabel: "Deadline On",
+  linkLabel: "Apply Now",
+  closedLabel: "Closed",
 };
 
 describe("<PostList />", () => {

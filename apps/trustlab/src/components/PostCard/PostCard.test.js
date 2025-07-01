@@ -10,6 +10,7 @@ const render = createRender({ theme });
 const defaultProps = {
   deadline: "17 June 2025",
   deadlineLabel: "Deadline On",
+  closedLabel: "Closed",
   excerpt:
     "The TrustLab supports Kenyan CSOs/CBOs to counter digital threats that affect them and the communities they serve",
   title: "TrustLab Incubator Programme",
