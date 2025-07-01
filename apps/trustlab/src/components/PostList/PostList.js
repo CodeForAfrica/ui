@@ -19,18 +19,18 @@ function PostList({
 
   const router = useRouter();
   const { query } = router;
-  const { page: queryPage, slugs } = query;
+  const { page: initialPage, slugs } = query;
   const path = Array.isArray(slugs) ? slugs[0] : slugs || "";
 
   useEffect(() => {
-    if (queryPage) {
-      const parsed = parseInt(queryPage, 10);
+    if (initialPage) {
+      const parsed = parseInt(initialPage, 10);
       if (parsed !== page) {
         setPage(parsed);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryPage]);
+  }, [initialPage]);
 
   const {
     posts,
