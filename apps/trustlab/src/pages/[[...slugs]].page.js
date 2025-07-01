@@ -5,6 +5,7 @@ import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
 import Content from "@/trustlab/components/Content";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
+import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Hero from "@/trustlab/components/Hero";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
@@ -17,6 +18,7 @@ const componentsBySlugs = {
   "call-to-action": CallToAction,
   content: Content,
   "donor-overview-list": DonorOverviewList,
+  gallery: Gallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
   "page-header": Banner,

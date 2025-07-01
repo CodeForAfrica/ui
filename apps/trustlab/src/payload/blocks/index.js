@@ -11,3 +11,4 @@ export { default as PostList } from "./PostList";
 export { default as ResourcesOverviewList } from "./ResourcesOverviewList";
 export { default as Spotlight } from "./Spotlight";
 export { default as WhatWeDo } from "./WhatWeDo";
+export { default as Gallery } from "./Gallery";

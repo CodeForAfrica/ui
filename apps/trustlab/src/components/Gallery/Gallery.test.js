@@ -1,17 +1,20 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import PageOverview from "./PageOverview";
+import Gallery from "./Gallery";
 
 import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
-const defaultProps = {};
+const defaultProps = {
+  images: [],
+  title: "Gallery Title",
+};
 
-describe("<PageOverview />", () => {
+describe("<Gallery />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<PageOverview {...defaultProps} />);
+    const { container } = render(<Gallery {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

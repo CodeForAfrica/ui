@@ -7,7 +7,7 @@ function Banner({
   backgroundColor,
   textColor,
   title,
-  description,
+  description = "",
   image,
   blockType,
 }) {
@@ -38,7 +38,21 @@ function Banner({
             >
               {title}
             </RichTypography>
-            {description && (
+            {typeof description === "string" ? (
+              <RichTypography
+                color={textColor}
+                variant={isPageHeader ? "subheading1" : "p1"}
+                sx={{
+                  mb: 4,
+                  textAlign: {
+                    xs: "center",
+                    md: "start",
+                  },
+                }}
+              >
+                {description}
+              </RichTypography>
+            ) : (
               <LexicalRichText
                 TypographyProps={{
                   color: textColor,
