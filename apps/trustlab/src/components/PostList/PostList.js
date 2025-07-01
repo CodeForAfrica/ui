@@ -32,11 +32,10 @@ function PostList({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryPage]);
 
-  const res = usePosts(page, path, initialPosts, countProp);
   const {
     posts,
     pagination: { count },
-  } = res;
+  } = usePosts(page, path, initialPosts, countProp);
 
   const handlePageChange = (value) => {
     setPage(value);
