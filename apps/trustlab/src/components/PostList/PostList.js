@@ -16,8 +16,6 @@ function PostList({
   linkLabel,
 }) {
   const [page, setPage] = useState(pageProp);
-  const [count, setCount] = useState(countProp);
-  const [posts, setPosts] = useState(initialPosts || []);
 
   const router = useRouter();
   const { query } = router;
@@ -34,18 +32,11 @@ function PostList({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryPage]);
 
-  const res = usePosts(page, path);
-
-  useEffect(() => {
-    if (!res.isLoading) {
-      const {
-        posts: fetchedPosts,
-        pagination: { count: fetchedCount },
-      } = res;
-      setPosts(fetchedPosts);
-      setCount(fetchedCount);
-    }
-  }, [res]);
+  const res = usePosts(page, path, initialPosts, countProp);
+  const {
+    posts,
+    pagination: { count },
+  } = res;
 
   const handlePageChange = (value) => {
     setPage(value);

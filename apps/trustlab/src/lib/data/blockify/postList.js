@@ -7,7 +7,7 @@ async function postList(block, api, context) {
   const [page] = slugs;
 
   const { posts = [], pagination } = await getPosts(api, page, {
-    limit: 1,
+    limit: 9,
   });
 
   return {

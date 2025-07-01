@@ -6,11 +6,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { page = 1, path = "" } = req.query;
+  const { page, path } = req.query;
+  if (!page || typeof parseInt(page, 10) !== "number") {
+    return res.status(400).json({ error: "Invalid page number" });
+  }
+  if (!path || typeof path !== "string") {
+    return res.status(400).json({ error: "Invalid path" });
+  }
 
   const posts = await getPosts(api, path, {
     page: Number(page),
-    limit: 1,
+    limit: 9,
   });
 
   return res.status(200).json({ ...posts });
