@@ -48,7 +48,7 @@ const plugins = [
     Sentry,
   }),
   seoPlugin({
-    collections: ["pages", "posts"],
+    collections: ["pages", "posts", "helplines", "resources"],
     generateDescription: ({ doc }) => {
       const data = doc?.description || doc?.excerpt;
       if (data) {
