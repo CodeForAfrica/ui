@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, LinearProgress } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -33,12 +33,28 @@ function PostList({
   }, [initialPage]);
 
   const {
+    isLoading,
     posts,
     pagination: { count },
   } = usePosts(page, path, initialPosts, countProp);
 
   const handlePageChange = (value) => {
     setPage(value);
+
+    const urlParams = new URLSearchParams(router.query);
+    if (value === 1) {
+      urlParams.delete("page");
+    } else {
+      urlParams.set("page", value);
+    }
+    router.push(
+      {
+        pathname: router.pathname,
+        query: urlParams.toString(),
+      },
+      undefined,
+      { shallow: true, scroll: true },
+    );
   };
 
   return (
@@ -49,6 +65,7 @@ function PostList({
       }}
     >
       <Section>
+        {isLoading && <LinearProgress sx={{ my: 2 }} />}
         <Grid
           container
           gap={1}
