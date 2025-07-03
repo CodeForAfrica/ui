@@ -1,7 +1,7 @@
 "use server";
 
 /* eslint-disable no-underscore-dangle */
-import findAndFormatPagePath from "@/commons-ui/payload/utils/findAndFormatPagePath";
+import { findAndFormatPagePath } from "@commons-ui/payload";
 import { revalidatePath } from "next/cache";
 
 export const revalidatePage = async ({

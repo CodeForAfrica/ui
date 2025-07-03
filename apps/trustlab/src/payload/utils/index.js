@@ -1,4 +1,4 @@
 export { default as hideAPIURL } from "./hideAPIURL";
-export * from "./revalidatePage";
+export * from "./revalidateCache";
 
 export default undefined;
