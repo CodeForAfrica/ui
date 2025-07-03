@@ -1,7 +1,7 @@
 import { Section } from "@commons-ui/core";
 import { Box, Grid, LinearProgress } from "@mui/material";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import usePosts from "./usePosts";
 
@@ -16,6 +16,7 @@ function PostList({
   linkLabel,
 }) {
   const [page, setPage] = useState(pageProp);
+  const listRef = useRef(null);
 
   const router = useRouter();
   const { query } = router;
@@ -53,12 +54,19 @@ function PostList({
         query: urlParams.toString(),
       },
       undefined,
-      { shallow: true, scroll: true },
+      { shallow: true, scroll: false },
     );
+    if (listRef.current) {
+      listRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   return (
     <Box
+      ref={listRef}
       sx={{
         px: { xs: 2.5, sm: 0 },
         py: 8,
