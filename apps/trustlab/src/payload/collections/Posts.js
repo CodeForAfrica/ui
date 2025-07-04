@@ -7,6 +7,8 @@ import { createParentField } from "@payloadcms/plugin-nested-docs";
 
 import BaseContentCollection from "./BaseContentCollection";
 
+import { revalidatePost } from "@/trustlab/payload/utils";
+
 const Posts = BaseContentCollection("posts", {
   hasTags: true,
   fields: [
@@ -68,6 +70,7 @@ const Posts = BaseContentCollection("posts", {
         return hook({ doc, req });
       },
     ],
+    afterChange: [revalidatePost],
   },
 });
 

@@ -18,7 +18,11 @@ import {
   Spotlight,
   WhatWeDo,
 } from "@/trustlab/payload/blocks";
-import { hideAPIURL } from "@/trustlab/payload/utils";
+import {
+  hideAPIURL,
+  revalidatePage,
+  revalidateDelete,
+} from "@/trustlab/payload/utils";
 
 const Pages = {
   slug: "pages",
@@ -80,6 +84,10 @@ const Pages = {
     drafts: {
       autosave: true,
     },
+  },
+  hooks: {
+    afterChange: [revalidatePage],
+    afterDelete: [revalidateDelete],
   },
 };
 
