@@ -25,7 +25,7 @@ export function getPageSeoFromMeta(page, settings) {
   const titleTemplate = `%s | ${siteTitle}`;
   let title = null;
   if (pageMetaTitle || !HOMEPAGE_TITLES.includes(pageTitle?.toLowerCase())) {
-    title = (pageMetaTitle || pageTitle)?.trim() || null;
+    title = (pageMetaTitle || pageTitle).trim() || null;
   }
   const description =
     (pageMetaDescription || settingsMetaDescription)?.trim() || null;

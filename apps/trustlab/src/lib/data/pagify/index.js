@@ -1,11 +1,12 @@
 import post from "./post";
 
 const COLLECTION_BY_SLUG = {
-  opportunities: post,
-  incubator: post,
-  helplines: post,
-  resources: post,
   events: post,
+  helplines: post,
+  incubator: post,
+  opportunities: post,
+  reports: post,
+  resources: post,
 };
 
 async function pagify(parentPage, api, context) {
