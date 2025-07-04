@@ -1,14 +1,27 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Slide, Box, Button } from "@mui/material";
-import React, { forwardRef, useState } from "react";
+import { useTheme, Slide, Box, Button } from "@mui/material";
+import React, { forwardRef, useRef, useState } from "react";
 
 import { neutral } from "@/trustlab/colors";
 
+const direction = (activeStep, prevStep, index) => {
+  // Going backwards, slide right
+  if (activeStep < prevStep) {
+    return activeStep === index ? "right" : "left";
+  }
+  // Going forward, slide left
+  return activeStep === index ? "left" : "right";
+};
+
 const Hero = forwardRef(function Hero({ slides }, ref) {
   const [activeStep, setActiveStep] = useState(0);
-  if (!slides || !slides.length) {
+  // NOTE(kilemensi): needed for Slide.easing
+  const theme = useTheme();
+  // NOTE(kilemensi): useRef 'cause we need to remember prev step without a rerender
+  const prevStepRef = useRef(0);
+  if (!slides?.length) {
     return null;
   }
   return (
@@ -33,11 +46,17 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         {slides.map((slide, index) => (
           <Slide
             key={slide.id}
-            direction="left"
+            appear={false}
+            direction={direction(activeStep, prevStepRef.current, index)}
+            easing={{
+              // We need same enter/exit transition
+              enter: theme.transitions.easing.easeOut,
+              exit: theme.transitions.easing.easeOut,
+            }}
             in={activeStep === index}
             mountOnEnter
             unmountOnExit
-            timeout={{ enter: 800, exit: 0 }}
+            timeout={800}
           >
             <Box
               sx={{
@@ -62,12 +81,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 }}
               >
                 <Box
-                  sx={(theme) => ({
+                  sx={{
                     pt: 10,
                     px: { xs: 2.5, sm: 0 },
                     margin: "0 auto",
                     maxWidth: theme.contentWidths.values,
-                  })}
+                  }}
                 >
                   <LexicalRichText
                     elements={slide.title}
@@ -108,12 +127,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           </Slide>
         ))}
         <Box
-          sx={(theme) => ({
+          sx={{
             position: "relative",
             px: { xs: 2.5, sm: 6, md: 0 },
             maxWidth: theme.contentWidths.values,
             m: "0 auto",
-          })}
+          }}
         >
           <Box
             sx={{
@@ -123,10 +142,15 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               px: { xs: 2.5, sm: 0 },
             }}
           >
-            {slides.map((_, index) => (
+            {slides.map((slide, index) => (
               <Button
-                key={slides[index].title}
-                onClick={() => setActiveStep(index)}
+                key={slide.id}
+                onClick={() =>
+                  setActiveStep((prevStep) => {
+                    prevStepRef.current = prevStep;
+                    return index;
+                  })
+                }
                 sx={{
                   width: 12,
                   height: 12,
