@@ -129,7 +129,7 @@ function Card({
                 textOverflow: "ellipsis",
                 display: "-webkit-box",
                 // NOTE(kilemensi): Using kebab-case for css properties in objects is not supported
-                WebkitLineClamp: "3",
+                WebkitLineClamp: 3,
                 WebkitBoxOrient: "vertical",
                 ...DescriptionProps?.sx,
               },
@@ -146,7 +146,7 @@ function Card({
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 display: "-webkit-box",
-                WebkitLineClamp: "3",
+                WebkitLineClamp: 3,
                 WebkitBoxOrient: "vertical",
                 ...DescriptionProps?.sx,
               },

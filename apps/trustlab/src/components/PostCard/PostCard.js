@@ -1,6 +1,7 @@
 import Card from "@/trustlab/components/Card";
 
 function PostCard({
+  closedLabel,
   deadline,
   deadlineLabel,
   excerpt,
@@ -18,7 +19,7 @@ function PostCard({
       deadline={deadline}
       description={excerpt}
       link={href}
-      linkLabel={linkLabel}
+      linkLabel={isClosed ? closedLabel : linkLabel}
       sx={{
         padding: 2,
         height: 548,
