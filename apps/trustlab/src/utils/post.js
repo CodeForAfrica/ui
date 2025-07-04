@@ -45,6 +45,26 @@ export async function getPost(api, slug) {
   };
 }
 
+const formatPosts = (posts) => {
+  return posts.map((post) => {
+    const isClosed = new Date(post.deadline) < new Date();
+    return {
+      id: post.id,
+      deadline: post?.deadline
+        ? formatDate(post?.deadline, { locale: "en-GB", includeTime: false })
+        : null,
+      excerpt: post.excerpt,
+      image: {
+        src: post.image.src,
+        alt: post.image.alt,
+      },
+      isClosed,
+      href: post.link?.href || "",
+      title: post?.title,
+    };
+  });
+};
+
 export async function getPosts(api, parentPage, options) {
   const {
     docs: posts,
@@ -60,9 +80,11 @@ export async function getPosts(api, parentPage, options) {
   });
 
   return {
-    posts,
-    totalPages,
-    page,
+    posts: formatPosts(posts),
+    pagination: {
+      count: totalPages,
+      page,
+    },
   };
 }
 
