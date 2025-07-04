@@ -1,15 +1,86 @@
 import {
   createdBy,
-  nestCollectionUnderPage,
+  image,
   linkGroup,
+  nestCollectionUnderPage,
+  publishedOn,
+  slug,
 } from "@commons-ui/payload";
 import { createParentField } from "@payloadcms/plugin-nested-docs";
 
-import BaseContentCollection from "./BaseContentCollection";
+import {
+  Content,
+  DonorOverviewList,
+  Gallery,
+  PartnerOverviewList,
+  PageOverview,
+} from "../blocks";
 
-const Posts = BaseContentCollection("posts", {
-  hasTags: true,
+import { canManageContent } from "@/trustlab/payload/access/abilities";
+import { anyone } from "@/trustlab/payload/access/anyone";
+import { hideAPIURL } from "@/trustlab/payload/utils";
+
+const Posts = {
+  slug: "posts",
+  admin: {
+    group: "Publication",
+    defaultColumns: ["title", "excerpt", "image"],
+    hideAPIURL,
+    useAsTitle: "title",
+  },
+  access: {
+    read: anyone,
+    create: ({ req: { user } }) => canManageContent(user),
+    update: ({ req: { user } }) => canManageContent(user),
+    delete: ({ req: { user } }) => canManageContent(user),
+  },
   fields: [
+    {
+      name: "title",
+      type: "text",
+      required: true,
+      localized: true,
+    },
+    slug({ fieldToUse: "title" }),
+    image({
+      overrides: {
+        name: "image",
+        required: true,
+      },
+    }),
+    {
+      name: "excerpt",
+      type: "textarea",
+      localized: true,
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "content",
+      type: "blocks",
+      blocks: [
+        Content,
+        PageOverview,
+        DonorOverviewList,
+        Gallery,
+        PartnerOverviewList,
+      ],
+      localized: true,
+      required: true,
+    },
+    {
+      name: "tags",
+      type: "relationship",
+      relationTo: "tags",
+      hasMany: true,
+      localized: true,
+      minRows: 1,
+      admin: {
+        position: "sidebar",
+      },
+    },
     {
       type: "group",
       fields: [
@@ -56,6 +127,7 @@ const Posts = BaseContentCollection("posts", {
     createParentField("pages", {
       required: true,
     }),
+    publishedOn(),
   ],
   hooks: {
     afterRead: [
@@ -69,6 +141,11 @@ const Posts = BaseContentCollection("posts", {
       },
     ],
   },
-});
+  versions: {
+    drafts: {
+      autosave: true,
+    },
+  },
+};
 
 export default Posts;

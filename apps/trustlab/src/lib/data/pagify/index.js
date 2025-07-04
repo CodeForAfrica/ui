@@ -1,12 +1,11 @@
-import helplines from "./helplines";
 import post from "./post";
-import resources from "./resources";
 
 const COLLECTION_BY_SLUG = {
   opportunities: post,
   incubator: post,
-  helplines,
-  resources,
+  helplines: post,
+  resources: post,
+  events: post,
 };
 
 async function pagify(parentPage, api, context) {
