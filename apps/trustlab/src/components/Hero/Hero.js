@@ -56,7 +56,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             in={activeStep === index}
             mountOnEnter
             unmountOnExit
-            timeout={{ enter: 800, exit: 800 }}
+            timeout={800}
           >
             <Box
               sx={{
