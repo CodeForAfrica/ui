@@ -8,12 +8,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import {
   Donors,
-  Helplines,
   Media,
   Pages,
   Posts,
   Partners,
-  Resources,
   Tags,
   Users,
 } from "@/trustlab/payload/collections";
@@ -73,9 +71,7 @@ export default buildConfig({
     Tags,
     // Group: Project
     Donors,
-    Helplines,
     Partners,
-    Resources,
     // Group: Settings
     Users,
   ] as CollectionConfig[],
