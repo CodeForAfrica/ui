@@ -23,6 +23,7 @@ class MyDocument extends Document {
       <style
         key={style.key}
         data-emotion={`${style.key} ${style.ids.join(" ")}`}
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: style.css }}
       />
     ));
