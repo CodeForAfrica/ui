@@ -5,7 +5,7 @@ import { createdBy } from "@commons-ui/payload";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
-import { hideAPIURL } from "@/trustlab/payload/utils";
+import { hideAPIURL, slugify } from "@/trustlab/payload/utils";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -67,11 +67,26 @@ const Media = {
         crop: "center",
       },
     ],
+    safeFileNames: true,
   },
   hooks: {
+    beforeChange: [
+      ({ data }) => {
+        if (data?.filename) {
+          const ext = path.extname(data.filename);
+          const baseName = path.basename(data.filename, ext);
+          const name = slugify(baseName) + ext;
+          return {
+            ...data,
+            filename: name,
+          };
+        }
+        return data;
+      },
+    ],
     afterRead: [
       ({ doc }) => {
-        const { pathname } = new URL(doc.url);
+        const { pathname } = new URL(doc?.url);
         return {
           ...doc,
           url: pathname,
