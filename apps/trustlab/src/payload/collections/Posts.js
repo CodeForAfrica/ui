@@ -18,7 +18,7 @@ import {
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
-import { hideAPIURL } from "@/trustlab/payload/utils";
+import { hideAPIURL, revalidatePost } from "@/trustlab/payload/utils";
 
 const Posts = {
   slug: "posts",
@@ -140,6 +140,7 @@ const Posts = {
         return hook({ doc, req });
       },
     ],
+    afterChange: [revalidatePost],
   },
   versions: {
     drafts: {
