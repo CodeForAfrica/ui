@@ -32,6 +32,7 @@ function CollectionOverview(
       maxRows,
       required,
       localized: true,
+      maxDepth: 6,
     },
   ];
 

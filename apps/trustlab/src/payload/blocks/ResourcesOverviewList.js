@@ -6,6 +6,7 @@ const ResourcesOverviewList = CollectionOverview(
   ["posts"],
   {
     collectionLabel: "Resources",
+    hasAction: true,
   },
 );
 

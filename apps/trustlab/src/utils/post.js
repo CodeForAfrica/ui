@@ -43,6 +43,7 @@ export async function getPost(api, slug) {
     title,
     blocks,
     meta,
+    link: post.link,
   };
 }
 
