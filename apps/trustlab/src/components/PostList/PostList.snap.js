@@ -61,12 +61,12 @@ exports[`<PostList /> renders unchanged 1`] = `
               class="MuiDivider-root MuiDivider-fullWidth css-146xkzv-MuiDivider-root"
             />
             <p
-              class="MuiTypography-root MuiTypography-p1 css-14y3bko-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-6stwzi-MuiTypography-root"
             >
               Deadline On 17 June 2025
             </p>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1y0cma0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-yn7syr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="/opportunities/trustlab-incubator-programme"
               tabindex="0"
             >

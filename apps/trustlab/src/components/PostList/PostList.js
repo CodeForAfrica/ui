@@ -13,6 +13,7 @@ function PostList({
   pagination: { count: countProp, page: pageProp = 1 },
   closedLabel,
   deadlineLabel,
+  publishedLabel,
   linkLabel,
 }) {
   const [page, setPage] = useState(pageProp);
@@ -89,6 +90,7 @@ function PostList({
               closedLabel={closedLabel}
               deadlineLabel={deadlineLabel}
               linkLabel={linkLabel}
+              publishedLabel={publishedLabel}
             />
           ))}
         </Grid>

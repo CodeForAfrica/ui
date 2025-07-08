@@ -180,7 +180,9 @@ function Card({
                 sx={[
                   {
                     textTransform: "capitalize",
-                    my: 3,
+                    mb: 3,
+                    mt: 1,
+                    ml: "0 !important",
                   },
                 ]}
               >
@@ -197,6 +199,7 @@ function Card({
             sx={[
               {
                 width: "100%",
+                ml: "0 !important",
                 ...LinkProps?.sx,
               },
             ]}

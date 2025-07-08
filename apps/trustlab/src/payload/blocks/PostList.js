@@ -23,6 +23,12 @@ const PostList = {
       localized: true,
       defaultValue: "Deadline On",
     },
+    {
+      name: "publishedLabel",
+      type: "text",
+      localized: true,
+      defaultValue: "Published On",
+    },
   ],
 };
 

@@ -10,13 +10,15 @@ function PostCard({
   image,
   linkLabel,
   title,
+  publishedOn,
+  publishedLabel,
 }) {
   return (
     <Card
       title={title}
       media={image}
-      deadlineLabel={deadlineLabel}
-      deadline={deadline}
+      deadlineLabel={deadline ? deadlineLabel : publishedLabel}
+      deadline={deadline || publishedOn}
       description={excerpt}
       link={href}
       linkLabel={isClosed ? closedLabel : linkLabel}

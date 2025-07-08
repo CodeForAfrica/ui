@@ -56,6 +56,9 @@ const formatPosts = (posts) => {
         ? formatDate(post?.deadline, { locale: "en-GB", includeTime: false })
         : null,
       excerpt: post.excerpt,
+      publishedOn: post.publishedOn
+        ? formatDate(post.publishedOn, { locale: "en-GB", includeTime: false })
+        : null,
       image: {
         src: post.image.src,
         alt: post.image.alt,
