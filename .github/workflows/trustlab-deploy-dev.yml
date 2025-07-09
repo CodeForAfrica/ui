@@ -2,7 +2,7 @@ name: TrustLab | Deploy | DEV
 
 on:
   push:
-    branches: [fix/remove_revalidate]
+    branches: [main]
     paths:
       - "apps/trustlab/**"
       - "Dockerfile"
