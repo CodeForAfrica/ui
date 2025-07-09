@@ -3,8 +3,8 @@ import { getPost } from "@/trustlab/utils/post";
 async function collectionOverview(block, api) {
   const { blockType, items: collectionList, ...other } = block;
   const promises = collectionList.map(async ({ value }) => {
-    const { excerpt, image = {}, title, tags = [], id } = value;
-    const post = await getPost(api, value.slug);
+    const { excerpt, image = {}, title, tags = [], id, slug } = value;
+    const post = await getPost(api, slug);
     const href = post?.link?.href || null;
     const [firstTag] = tags;
 
