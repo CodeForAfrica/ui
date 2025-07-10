@@ -23,7 +23,7 @@ export async function getPost(api, slug) {
   if (postImageOverviewBlockIndex !== -1) {
     content[postImageOverviewBlockIndex] = {
       ...content[postImageOverviewBlockIndex],
-      date: formatDate(post.deadline),
+      date: post.deadline ? formatDate(post.deadline) : null,
       isClosed: post.deadline && new Date(post.deadline) < new Date(),
     };
   }

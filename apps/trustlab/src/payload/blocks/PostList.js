@@ -18,16 +18,9 @@ const PostList = {
       defaultValue: "Closed",
     },
     {
-      name: "deadlineLabel",
+      name: "dateLabel",
       type: "text",
       localized: true,
-      defaultValue: "Deadline On",
-    },
-    {
-      name: "publishedLabel",
-      type: "text",
-      localized: true,
-      defaultValue: "Published On",
     },
   ],
 };

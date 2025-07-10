@@ -14,8 +14,8 @@ import {
 import { neutral } from "@/trustlab/colors";
 
 function Card({
-  deadline,
-  deadlineLabel,
+  date,
+  dateLabel,
   description,
   link,
   linkLabel,
@@ -164,7 +164,7 @@ function Card({
             },
           ]}
         >
-          {deadline && (
+          {dateLabel && (
             <>
               <Divider
                 sx={[
@@ -186,7 +186,7 @@ function Card({
                   },
                 ]}
               >
-                {`${deadlineLabel} ${deadline}`}
+                {`${dateLabel} ${date}`}
               </Typography>
             </>
           )}

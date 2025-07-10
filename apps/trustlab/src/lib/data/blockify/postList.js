@@ -4,7 +4,7 @@ async function postList(block, api, context) {
   const {
     blockType,
     closedLabel,
-    deadlineLabel,
+    dateLabel = null,
     linkLabel,
     publishedLabel = null,
   } = block;
@@ -21,7 +21,7 @@ async function postList(block, api, context) {
     slug: blockType,
     posts,
     closedLabel,
-    deadlineLabel,
+    dateLabel,
     linkLabel,
     publishedLabel,
     pagination,

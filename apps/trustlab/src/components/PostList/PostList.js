@@ -12,7 +12,7 @@ function PostList({
   posts: initialPosts,
   pagination: { count: countProp, page: pageProp = 1 },
   closedLabel,
-  deadlineLabel,
+  dateLabel,
   publishedLabel,
   linkLabel,
 }) {
@@ -88,7 +88,7 @@ function PostList({
               {...post}
               key={post.id}
               closedLabel={closedLabel}
-              deadlineLabel={deadlineLabel}
+              dateLabel={dateLabel}
               linkLabel={linkLabel}
               publishedLabel={publishedLabel}
             />
