@@ -1,15 +1,32 @@
 import { getPosts } from "@/trustlab/utils/post";
 
 async function postList(block, api, context) {
-  const { blockType, closedLabel, deadlineLabel, linkLabel } = block;
+  const {
+    blockType,
+    closedLabel,
+    deadlineLabel,
+    linkLabel,
+    title = null,
+    showAllPosts = true,
+    posts: initialPosts = [],
+  } = block;
   const { params } = context;
   const { slugs } = params;
   const [page] = slugs;
 
-  const { posts = [], pagination } = await getPosts(api, page, {
-    limit: 9,
-  });
+  let posts = initialPosts;
+  let pagination = {
+    count: initialPosts.length,
+    page: 1,
+  };
 
+  if (showAllPosts) {
+    const postData = await getPosts(api, page, {
+      limit: 9,
+    });
+    pagination = postData.pagination;
+    posts = postData.posts;
+  }
   return {
     blockType,
     slug: blockType,
@@ -18,6 +35,8 @@ async function postList(block, api, context) {
     deadlineLabel,
     linkLabel,
     pagination,
+    title,
+    showAllPosts,
   };
 }
 
