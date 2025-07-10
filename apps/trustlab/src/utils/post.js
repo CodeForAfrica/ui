@@ -23,7 +23,7 @@ export async function getPost(api, slug) {
   if (postImageOverviewBlockIndex !== -1) {
     content[postImageOverviewBlockIndex] = {
       ...content[postImageOverviewBlockIndex],
-      date: formatDate(post.deadline),
+      date: post.deadline ? formatDate(post.deadline) : null,
       isClosed: post.deadline && new Date(post.deadline) < new Date(),
     };
   }
@@ -43,6 +43,7 @@ export async function getPost(api, slug) {
     title,
     blocks,
     meta,
+    link: post.link,
   };
 }
 
@@ -55,6 +56,9 @@ const formatPosts = (posts) => {
         ? formatDate(post?.deadline, { locale: "en-GB", includeTime: false })
         : null,
       excerpt: post.excerpt,
+      publishedOn: post.publishedOn
+        ? formatDate(post.publishedOn, { locale: "en-GB", includeTime: false })
+        : null,
       image: {
         src: post.image.src,
         alt: post.image.alt,

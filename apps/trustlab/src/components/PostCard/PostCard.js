@@ -3,26 +3,27 @@ import Card from "@/trustlab/components/Card";
 function PostCard({
   closedLabel,
   deadline,
-  deadlineLabel,
+  dateLabel,
   excerpt,
   isClosed,
   href,
   image,
   linkLabel,
   title,
+  publishedOn,
 }) {
   return (
     <Card
       title={title}
       media={image}
-      deadlineLabel={deadlineLabel}
-      deadline={deadline}
+      dateLabel={dateLabel}
+      date={deadline || publishedOn}
       description={excerpt}
       link={href}
       linkLabel={isClosed ? closedLabel : linkLabel}
       sx={{
         padding: 2,
-        height: 548,
+        height: dateLabel ? 548 : 456,
       }}
       CardHeaderProps={{
         sx: {

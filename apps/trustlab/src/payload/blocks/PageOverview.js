@@ -40,6 +40,27 @@ const PageOverview = {
         required: false,
       },
     }),
+    {
+      name: "textAlign",
+      type: "select",
+      defaultValue: "left",
+      localized: true,
+      label: "Text Alignment",
+      options: [
+        {
+          label: "Left",
+          value: "left",
+        },
+        {
+          label: "Center",
+          value: "center",
+        },
+        {
+          label: "Right",
+          value: "right",
+        },
+      ],
+    },
     colorSettingsField({
       backgroundOverrides: {
         defaultValue: "#F0F0F5",

@@ -1,7 +1,13 @@
 import { getPosts } from "@/trustlab/utils/post";
 
 async function postList(block, api, context) {
-  const { blockType, closedLabel, deadlineLabel, linkLabel } = block;
+  const {
+    blockType,
+    closedLabel,
+    dateLabel = null,
+    linkLabel,
+    publishedLabel = null,
+  } = block;
   const { params } = context;
   const { slugs } = params;
   const [page] = slugs;
@@ -15,8 +21,9 @@ async function postList(block, api, context) {
     slug: blockType,
     posts,
     closedLabel,
-    deadlineLabel,
+    dateLabel,
     linkLabel,
+    publishedLabel,
     pagination,
   };
 }
