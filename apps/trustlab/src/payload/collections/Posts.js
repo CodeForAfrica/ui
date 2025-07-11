@@ -14,6 +14,7 @@ import {
   Gallery,
   PartnerOverviewList,
   PageOverview,
+  PostList,
 } from "../blocks";
 
 import { canManageContent } from "@/trustlab/payload/access/abilities";
@@ -62,10 +63,11 @@ const Posts = {
       type: "blocks",
       blocks: [
         Content,
-        PageOverview,
         DonorOverviewList,
         Gallery,
         PartnerOverviewList,
+        PostList,
+        PageOverview,
       ],
       localized: true,
       required: true,

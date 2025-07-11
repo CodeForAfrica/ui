@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid, LinearProgress } from "@mui/material";
+import { Box, Grid, LinearProgress, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 
@@ -15,6 +15,8 @@ function PostList({
   dateLabel,
   publishedLabel,
   linkLabel,
+  title,
+  showAllPosts,
 }) {
   const [page, setPage] = useState(pageProp);
   const listRef = useRef(null);
@@ -23,7 +25,6 @@ function PostList({
   const { query } = router;
   const { page: initialPage, slugs } = query;
   const path = Array.isArray(slugs) ? slugs[0] : slugs || "";
-
   useEffect(() => {
     if (initialPage) {
       const parsed = parseInt(initialPage, 10);
@@ -38,7 +39,7 @@ function PostList({
     isLoading,
     posts,
     pagination: { count },
-  } = usePosts(page, path, initialPosts, countProp);
+  } = usePosts(page, path, initialPosts, countProp, showAllPosts);
 
   const handlePageChange = (value) => {
     setPage(value);
@@ -75,6 +76,18 @@ function PostList({
     >
       <Section>
         {isLoading && <LinearProgress sx={{ my: 2 }} />}
+        {title && (
+          <Typography
+            variant="h1"
+            sx={{
+              borderBottom: `1px solid`,
+              mb: 3,
+              pb: 1,
+            }}
+          >
+            {title}
+          </Typography>
+        )}
         <Grid
           container
           gap={1}
