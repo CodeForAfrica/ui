@@ -1,8 +1,11 @@
-async function collectionOverview(block) {
-  const { blockType, items: collectionList, ...other } = block;
-  const items = collectionList.map(({ value }) => {
-    const { excerpt, image = {}, title, tags = [], id, link = {} } = value;
+import { getPost } from "@/trustlab/utils/post";
 
+async function collectionOverview(block, api) {
+  const { blockType, items: collectionList, ...other } = block;
+  const promises = collectionList.map(async ({ value }) => {
+    const { excerpt, image = {}, title, tags = [], id, slug } = value;
+    const post = await getPost(api, slug);
+    const href = post?.link?.href || null;
     const [firstTag] = tags;
 
     return {
@@ -14,10 +17,11 @@ async function collectionOverview(block) {
       title,
       tag: firstTag?.name || null,
       id,
-      href: link?.href || "",
+      href,
     };
   });
 
+  const items = await Promise.all(promises);
   return {
     ...other,
     items,

@@ -4,11 +4,12 @@ async function postList(block, api, context) {
   const {
     blockType,
     closedLabel,
-    deadlineLabel,
+    dateLabel = null,
     linkLabel,
     title = null,
     showAllPosts = true,
     posts: initialPosts = [],
+    publishedLabel = null,
   } = block;
   const { params } = context;
   const { slugs } = params;
@@ -32,8 +33,9 @@ async function postList(block, api, context) {
     slug: blockType,
     posts,
     closedLabel,
-    deadlineLabel,
+    dateLabel,
     linkLabel,
+    publishedLabel,
     pagination,
     title,
     showAllPosts,

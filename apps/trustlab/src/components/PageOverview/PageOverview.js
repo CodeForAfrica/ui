@@ -14,6 +14,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
     isClosed = false,
     backgroundColor = "common.white",
     textColor = "text.primary",
+    textAlign = "left",
   },
   ref,
 ) {
@@ -71,9 +72,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
             sx={{
               width: { xs: "100%", md: "360px" },
               minWidth: "360px",
-              textAlign: { xs: "center", md: "left" },
-              position: "sticky",
-              top: 64,
+              textAlign: { xs: "center", md: textAlign },
               alignSelf:
                 caption || date || buttonLink?.href ? "flex-start" : "center",
             }}

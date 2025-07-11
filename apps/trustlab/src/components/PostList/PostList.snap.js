@@ -23,7 +23,7 @@ exports[`<PostList /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-1r8a92l-MuiGrid-root"
       >
         <div
-          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-19jguas-MuiPaper-root-MuiCard-root"
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-o1fl1x-MuiPaper-root-MuiCard-root"
           style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <div
@@ -57,16 +57,8 @@ exports[`<PostList /> renders unchanged 1`] = `
           <div
             class="MuiCardActions-root MuiCardActions-spacing css-1qg28ok-MuiCardActions-root"
           >
-            <hr
-              class="MuiDivider-root MuiDivider-fullWidth css-146xkzv-MuiDivider-root"
-            />
-            <p
-              class="MuiTypography-root MuiTypography-p1 css-14y3bko-MuiTypography-root"
-            >
-              Deadline On 17 June 2025
-            </p>
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1y0cma0-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-yn7syr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="/opportunities/trustlab-incubator-programme"
               tabindex="0"
             >
