@@ -20,6 +20,7 @@ const PostList = {
       type: "relationship",
       relationTo: "posts",
       hasMany: true,
+      minRows: 1,
       admin: {
         condition: (_, { showAllPosts }) => {
           return !showAllPosts;

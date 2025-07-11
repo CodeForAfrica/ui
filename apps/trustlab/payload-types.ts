@@ -72,9 +72,7 @@ export interface Config {
     posts: Post;
     tags: Tag;
     donors: Donor;
-    helplines: Helpline;
     partners: Partner;
-    resources: Resource;
     users: User;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
@@ -87,9 +85,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     donors: DonorsSelect<false> | DonorsSelect<true>;
-    helplines: HelplinesSelect<false> | HelplinesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
-    resources: ResourcesSelect<false> | ResourcesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
@@ -249,8 +245,8 @@ export interface Page {
         | {
             title: string;
             items: {
-              relationTo: "helplines";
-              value: string | Helpline;
+              relationTo: "posts";
+              value: string | Post;
             }[];
             linkLabel: string;
             id?: string | null;
@@ -407,6 +403,19 @@ export interface Page {
             blockType: "donor-overview-list";
           }
         | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "gallery";
+          }
+        | {
             title: string;
             description?: {
               root: {
@@ -444,11 +453,10 @@ export interface Page {
             blockType: "page-header";
           }
         | {
-            title: string;
             /**
              * A brief description of the content.
              */
-            description: {
+            content: {
               root: {
                 type: string;
                 children: {
@@ -471,6 +479,26 @@ export interface Page {
               [k: string]: unknown;
             };
             image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             id?: string | null;
             blockName?: string | null;
             blockType: "page-overview";
@@ -525,6 +553,17 @@ export interface Page {
             blockType: "partners-list";
           }
         | {
+            title?: string | null;
+            showAllPosts?: boolean | null;
+            posts?: (string | Post)[] | null;
+            linkLabel: string;
+            closedLabel: string;
+            deadlineLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "post-list";
+          }
+        | {
             title: string;
             description?: {
               root: {
@@ -564,8 +603,8 @@ export interface Page {
         | {
             title: string;
             items: {
-              relationTo: "resources";
-              value: string | Resource;
+              relationTo: "posts";
+              value: string | Post;
             }[];
             linkLabel: string;
             id?: string | null;
@@ -574,20 +613,10 @@ export interface Page {
           }
         | {
             title: string;
-            items: (
-              | {
-                  relationTo: "helplines";
-                  value: string | Helpline;
-                }
-              | {
-                  relationTo: "posts";
-                  value: string | Post;
-                }
-              | {
-                  relationTo: "resources";
-                  value: string | Resource;
-                }
-            )[];
+            items: {
+              relationTo: "posts";
+              value: string | Post;
+            }[];
             id?: string | null;
             blockName?: string | null;
             blockType: "spotlight";
@@ -617,30 +646,176 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "helplines".
+ * via the `definition` "posts".
  */
-export interface Helpline {
+export interface Post {
   id: string;
   title: string;
   slug?: string | null;
   image: string | Media;
   excerpt: string;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
+  content: (
+    | {
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "content";
+      }
+    | {
+        title: string;
+        donors?: (string | Donor)[] | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "donor-overview-list";
+      }
+    | {
+        /**
+         * The title of the gallery.
+         */
+        title: string;
+        images: {
+          image?: (string | null) | Media;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "gallery";
+      }
+    | {
+        title: string;
+        partners?: (string | Partner)[] | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "partner-overview-list";
+      }
+    | {
+        title?: string | null;
+        showAllPosts?: boolean | null;
+        posts?: (string | Post)[] | null;
+        linkLabel: string;
+        closedLabel: string;
+        deadlineLabel?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "post-list";
+      }
+    | {
+        /**
+         * A brief description of the content.
+         */
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        image: string | Media;
+        caption?: string | null;
+        buttonLink?: {
+          label?: string | null;
+          linkType?: ("custom" | "internal") | null;
+          doc?: {
+            relationTo: "pages";
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href?: string | null;
+          newTab?: boolean | null;
+        };
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "page-overview";
+      }
+  )[];
+  tags?: (string | Tag)[] | null;
+  /**
+   * Select if this is an application post
+   */
+  isApplication: boolean;
+  deadline?: string | null;
+  applicationLink?: {
+    label: string;
+    linkType?: ("custom" | "internal") | null;
+    doc?: {
+      relationTo: "pages";
+      value: string | Page;
+    } | null;
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
+  };
+  author: string | User;
+  parent: string | Page;
   publishedOn: string;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Post;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
   _status?: ("draft" | "published") | null;
@@ -727,37 +902,6 @@ export interface Partner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "resources".
- */
-export interface Resource {
-  id: string;
-  title: string;
-  slug?: string | null;
-  image: string | Media;
-  excerpt: string;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  publishedOn: string;
-  tags?: (string | Tag)[] | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ("draft" | "published") | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "tags".
  */
 export interface Tag {
@@ -766,71 +910,6 @@ export interface Tag {
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title: string;
-  slug?: string | null;
-  image: string | Media;
-  excerpt: string;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ("ltr" | "rtl") | null;
-      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  publishedOn: string;
-  tags?: (string | Tag)[] | null;
-  /**
-   * Select if this is an application post
-   */
-  isApplication: boolean;
-  deadline?: string | null;
-  applicationLink?: {
-    label: string;
-    linkType?: ("custom" | "internal") | null;
-    doc?: {
-      relationTo: "pages";
-      value: string | Page;
-    } | null;
-    url?: string | null;
-    href: string;
-    newTab?: boolean | null;
-  };
-  author: string | User;
-  parent: string | Page;
-  breadcrumbs?:
-    | {
-        doc?: (string | null) | Post;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ("draft" | "published") | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -860,16 +939,8 @@ export interface PayloadLockedDocument {
         value: string | Donor;
       } | null)
     | ({
-        relationTo: "helplines";
-        value: string | Helpline;
-      } | null)
-    | ({
         relationTo: "partners";
         value: string | Partner;
-      } | null)
-    | ({
-        relationTo: "resources";
-        value: string | Resource;
       } | null)
     | ({
         relationTo: "users";
@@ -1080,6 +1151,19 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        gallery?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
         "page-header"?:
           | T
           | {
@@ -1094,9 +1178,21 @@ export interface PagesSelect<T extends boolean = true> {
         "page-overview"?:
           | T
           | {
-              title?: T;
-              description?: T;
+              content?: T;
               image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              backgroundColor?: T;
+              textColor?: T;
               id?: T;
               blockName?: T;
             };
@@ -1122,6 +1218,18 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               title?: T;
               partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "post-list"?:
+          | T
+          | {
+              title?: T;
+              showAllPosts?: T;
+              posts?: T;
+              linkLabel?: T;
+              closedLabel?: T;
+              deadlineLabel?: T;
               id?: T;
               blockName?: T;
             };
@@ -1183,8 +1291,81 @@ export interface PostsSelect<T extends boolean = true> {
   slug?: T;
   image?: T;
   excerpt?: T;
-  content?: T;
-  publishedOn?: T;
+  content?:
+    | T
+    | {
+        content?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "donor-overview-list"?:
+          | T
+          | {
+              title?: T;
+              donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        gallery?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "post-list"?:
+          | T
+          | {
+              title?: T;
+              showAllPosts?: T;
+              posts?: T;
+              linkLabel?: T;
+              closedLabel?: T;
+              deadlineLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "page-overview"?:
+          | T
+          | {
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   tags?: T;
   isApplication?: T;
   deadline?: T;
@@ -1200,6 +1381,7 @@ export interface PostsSelect<T extends boolean = true> {
       };
   author?: T;
   parent?: T;
+  publishedOn?: T;
   breadcrumbs?:
     | T
     | {
@@ -1250,21 +1432,6 @@ export interface DonorsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "helplines_select".
- */
-export interface HelplinesSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  image?: T;
-  excerpt?: T;
-  content?: T;
-  publishedOn?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "partners_select".
  */
 export interface PartnersSelect<T extends boolean = true> {
@@ -1281,22 +1448,6 @@ export interface PartnersSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "resources_select".
- */
-export interface ResourcesSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  image?: T;
-  excerpt?: T;
-  content?: T;
-  publishedOn?: T;
-  tags?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
