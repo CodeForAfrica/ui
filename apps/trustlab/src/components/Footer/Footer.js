@@ -1,15 +1,15 @@
-import { Section, StayInTouch } from "@commons-ui/core";
-import { Link, HtmlEmbed } from "@commons-ui/next";
+import { Section } from "@commons-ui/core";
+import { HtmlEmbed } from "@commons-ui/next";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
 import FooterDescription from "./FooterDescription";
 
+import { grey } from "@/trustlab/colors";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
-  const { connect, description, newsletter, primaryMenus, secondaryMenus } =
-    props;
+  const { description, newsletter, primaryMenus, secondaryMenus, logo } = props;
 
   const htmlEmbedStyles = (theme) => ({
     "& #mc_embed_signup": {
@@ -74,7 +74,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
   return (
     <Box
       sx={({ palette }) => ({
-        backgroundColor: palette.common.black,
+        backgroundColor: grey[900],
         color: palette.text.secondary,
         px: 0,
         py: 8,
@@ -98,27 +98,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 }}
               >
                 <Grid item>
-                  <FooterDescription description={description} logo={null} />
-                </Grid>
-                <Grid item>
-                  <StayInTouch
-                    {...connect}
-                    LinkProps={{ component: Link }}
-                    TitleProps={{
-                      sx: {
-                        textTransform: "uppercase",
-                        fontSize: "10px",
-                        fontWeight: 700,
-                        mb: 0,
-                        mr: 4,
-                      },
-                    }}
-                    sx={{
-                      mt: "52px",
-                      justifyContent: { xs: "center", md: "flex-start" },
-                    }}
-                    direction="row"
-                  />
+                  <FooterDescription description={description} logo={logo} />
                 </Grid>
               </Grid>
               <Grid item xs={12} md="auto">

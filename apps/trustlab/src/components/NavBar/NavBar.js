@@ -9,18 +9,18 @@ import React from "react";
 import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
 /* eslint-disable-next-line import/no-unresolved */
 import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
-import { neutral } from "@/trustlab/colors";
+import { grey } from "@/trustlab/colors";
 import MobileNavBar from "@/trustlab/components/MobileNavBar";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (
     <NavigationBar
-      sx={(theme) => ({
+      sx={{
         boxShadow: "none",
         height: 64,
-        borderBottom: `1px solid ${theme.palette.yellow.main}`,
-        backgroundColor: theme.palette.common.white,
-      })}
+        borderBottom: `1px solid ${grey[900]}`,
+        backgroundColor: grey[900],
+      }}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <MobileNavBar
@@ -42,8 +42,8 @@ function NavBar({ logo, menus, socialLinks }) {
             slotProps: {
               typography: {
                 sx: {
-                  color: neutral[400],
-                  variant: "h1",
+                  color: "common.white",
+                  variant: "p3",
                 },
               },
             },
