@@ -15,19 +15,20 @@ async function postList(block, api, context) {
   const { slugs } = params;
   const [page] = slugs;
 
-  let posts = initialPosts;
-  let pagination = {
-    count: initialPosts.length,
-    page: 1,
-  };
+  // afterRead hook doesn't run in the relationship field for selected posts of a block. We are adding this to query the posts by ids so we can have links populated.
+  const options = showAllPosts
+    ? {
+        limit: 9,
+      }
+    : {
+        where: {
+          id: {
+            in: initialPosts.map((post) => post.id).join(","),
+          },
+        },
+      };
+  const { pagination, posts } = await getPosts(api, page, options);
 
-  if (showAllPosts) {
-    const postData = await getPosts(api, page, {
-      limit: 9,
-    });
-    pagination = postData.pagination;
-    posts = postData.posts;
-  }
   return {
     blockType,
     slug: blockType,
