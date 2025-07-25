@@ -1,10 +1,12 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, SvgIcon } from "@mui/material";
 import React from "react";
 
 import FooterDescription from "./FooterDescription";
 import Funders from "./Funders";
 
+import LeftIcon from "@/trustlab/assets/left-footer-icon.svg";
+import RightIcon from "@/trustlab/assets/right-footer-icon.svg";
 import { grey } from "@/trustlab/colors";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
@@ -25,10 +27,43 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         color: palette.text.secondary,
         px: 0,
         py: 8,
+        position: "relative",
+        overflow: "hidden",
       })}
       component="footer"
       ref={ref}
     >
+      <SvgIcon
+        component={LeftIcon}
+        width="155"
+        height="299"
+        viewBox="0 0 155 299"
+        fill={grey[900]}
+        sx={{
+          color: "transparent",
+          position: "absolute",
+          left: -75,
+          top: "50%",
+          transform: "translateY(-50%)",
+          zIndex: 1,
+          fontSize: 300,
+          display: { xs: "none", sm: "block" },
+        }}
+      />
+      <SvgIcon
+        component={RightIcon}
+        viewBox="0 0 297 297"
+        sx={{
+          color: "common.white",
+          position: "absolute",
+          right: 0,
+          bottom: -150,
+          zIndex: 1,
+          width: "300px",
+          height: "300px",
+          display: { xs: "none", sm: "block" },
+        }}
+      />
       <Section
         sx={(theme) => ({
           px: { xs: 2.5, sm: 0 },

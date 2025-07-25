@@ -3,8 +3,23 @@
 exports[`<Footer /> renders unchanged 1`] = `
 <div>
   <footer
-    class="MuiBox-root css-1mm00tn"
+    class="MuiBox-root css-ot7ihh"
   >
+    <div
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1oojpdp-MuiSvgIcon-root"
+      fill="#181D27"
+      focusable="false"
+      height="299"
+      viewbox="0 0 155 299"
+      width="155"
+    />
+    <div
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ujiery-MuiSvgIcon-root"
+      focusable="false"
+      viewbox="0 0 297 297"
+    />
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1kxvpqg-MuiContainer-root"
     >
