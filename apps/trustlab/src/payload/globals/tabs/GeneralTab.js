@@ -44,6 +44,26 @@ const GeneralTab = {
         }),
       ],
     },
+    {
+      type: "collapsible",
+      label: "Donors & Sponsors",
+      fields: [
+        {
+          name: "donorTitle",
+          type: "text",
+          required: true,
+          localized: true,
+          defaultValue: "Funders",
+        },
+        {
+          name: "funders",
+          type: "relationship",
+          relationTo: "donors",
+          hasMany: true,
+          localized: true,
+        },
+      ],
+    },
   ],
 };
 

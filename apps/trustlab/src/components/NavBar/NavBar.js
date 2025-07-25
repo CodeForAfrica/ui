@@ -22,7 +22,18 @@ function NavBar({ logo, menus, socialLinks }) {
         backgroundColor: grey[900],
       }}
     >
-      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
+      <Section
+        sx={(theme) => ({
+          px: { xs: 2.5, sm: 0 },
+          maxWidth: {
+            xs: "100%",
+            sm: theme.breakpoints.values.sm,
+            md: theme.breakpoints.values.sm,
+            lg: theme.breakpoints.values.sm,
+            xl: theme.breakpoints.values.sm,
+          },
+        })}
+      >
         <MobileNavBar
           logo={logo}
           menus={menus}
@@ -44,6 +55,9 @@ function NavBar({ logo, menus, socialLinks }) {
                 sx: {
                   color: "common.white",
                   variant: "p3",
+                  "&:hover": {
+                    color: "common.white",
+                  },
                 },
               },
             },

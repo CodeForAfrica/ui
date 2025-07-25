@@ -17,18 +17,18 @@ function FooterNavList({ menus, children }) {
     >
       <NavList
         direction="column"
-        sx={{ padding: 0, alignItems: { xs: "center", md: "flex-start" } }}
+        sx={{
+          padding: "0 24px",
+          alignItems: { xs: "center", md: "flex-start", textAlign: "left" },
+        }}
       >
-        {menus.map((item, i) => (
-          <NavListItem
-            key={item.label}
-            sx={{ mb: i < menus.length - 1 ? "20px" : 0 }}
-          >
+        {menus.map((item) => (
+          <NavListItem key={item.label} sx={{ mb: 0, listStyleType: "disc" }}>
             <Link
               href={item.href}
               color="inherit"
               underline="none"
-              variant="h2"
+              variant="p2"
               sx={{
                 "&:hover, &:active, &:focus, &:focus-within": {
                   textDecoration: "none",
