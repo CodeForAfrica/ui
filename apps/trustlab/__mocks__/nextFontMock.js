@@ -12,4 +12,8 @@ module.exports = {
     className: "mock-barlow",
     style: { fontFamily: "MockBarlow" },
   }),
+  Inter: () => ({
+    className: "mock-inter",
+    style: { fontFamily: "MockInter" },
+  }),
 };

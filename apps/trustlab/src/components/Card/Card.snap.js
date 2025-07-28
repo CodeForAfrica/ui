@@ -13,7 +13,7 @@ exports[`<Card /> renders unchanged 1`] = `
       title="Digital Security Toolkit for Kenyan Activists"
     >
       <span
-        class="MuiTypography-root MuiTypography-button css-a543di-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-button css-lrr9mk-MuiTypography-root"
       >
         Toolkits
       </span>
@@ -25,7 +25,7 @@ exports[`<Card /> renders unchanged 1`] = `
         class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"
         >
           Digital Security Toolkit for Kenyan Activists
         </h2>
@@ -41,7 +41,7 @@ exports[`<Card /> renders unchanged 1`] = `
           class="payload-richtext"
         >
           <p
-            class="MuiTypography-root MuiTypography-p1 css-1d776u7-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p1 css-4upu4p-MuiTypography-root"
           >
             A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
           </p>
@@ -52,7 +52,7 @@ exports[`<Card /> renders unchanged 1`] = `
       class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary active css-yn7syr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary active css-15f3whe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"
         tabindex="0"
       >
