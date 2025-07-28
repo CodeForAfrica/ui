@@ -65,16 +65,9 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         }}
       />
       <Section
-        sx={(theme) => ({
+        sx={{
           px: { xs: 2.5, sm: 0 },
-          maxWidth: {
-            xs: "100%",
-            sm: theme.breakpoints.values.sm,
-            md: theme.breakpoints.values.sm,
-            lg: theme.breakpoints.values.sm,
-            xl: theme.breakpoints.values.sm,
-          },
-        })}
+        }}
       >
         {/* Increase number of columns to getter columns size */}
         <Grid container columns={24} justifyContent="space-between">

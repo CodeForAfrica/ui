@@ -40,9 +40,9 @@ const breakpoints = {
   values: {
     xs: 0,
     sm: 768,
-    md: 1152,
-    lg: 1440,
-    xl: 1920,
+    md: 1024,
+    lg: 1024,
+    xl: 1024,
   },
 };
 
@@ -69,8 +69,8 @@ const theme = createTheme({
     values: {
       sm: 728,
       md: 1024,
-      lg: 1240,
-      xl: 1240,
+      lg: 1024,
+      xl: 1024,
     },
     unit: "px",
   },

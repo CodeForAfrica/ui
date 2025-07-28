@@ -6,16 +6,16 @@ exports[`<Banner /> renders unchanged 1`] = `
     class="MuiBox-root css-1kxqcqz"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fqfx6w-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-5tejxd-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-18qart5-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-mla0bw-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-display2 css-1xj439w-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-display2 css-gqcftx-MuiTypography-root"
           >
             About TrustLab
           </div>

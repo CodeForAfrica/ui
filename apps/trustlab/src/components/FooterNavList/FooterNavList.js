@@ -19,7 +19,7 @@ function FooterNavList({ menus, children }) {
         direction="column"
         sx={{
           padding: "0 24px",
-          alignItems: { xs: "center", md: "flex-start", textAlign: "left" },
+          alignItems: { md: "flex-start" },
         }}
       >
         {menus.map((item) => (

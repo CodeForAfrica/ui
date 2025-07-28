@@ -23,16 +23,9 @@ function NavBar({ logo, menus, socialLinks }) {
       }}
     >
       <Section
-        sx={(theme) => ({
+        sx={{
           px: { xs: 2.5, sm: 0 },
-          maxWidth: {
-            xs: "100%",
-            sm: theme.breakpoints.values.sm,
-            md: theme.breakpoints.values.sm,
-            lg: theme.breakpoints.values.sm,
-            xl: theme.breakpoints.values.sm,
-          },
-        })}
+        }}
       >
         <MobileNavBar
           logo={logo}

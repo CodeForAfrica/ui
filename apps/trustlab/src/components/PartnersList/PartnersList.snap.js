@@ -3,19 +3,19 @@
 exports[`<PartnersList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-ukqic2-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-1d76ofs-MuiContainer-root"
   >
     <div
-      class="MuiBox-root css-4tsfqu"
+      class="MuiBox-root css-nlsuu5"
     >
       <h2
         class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-evu8pu-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-d2j6go-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-u57qo0-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-tcimgz-MuiGrid-root"
         >
           <figure
             class="MuiBox-root css-ojmbah"
@@ -34,15 +34,15 @@ exports[`<PartnersList /> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-znmkeg-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-1t47bgb-MuiGrid-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 css-1e2n37a-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-bhh18e-MuiTypography-root"
           >
             Example Partner
           </h2>
           <div
-            class="MuiBox-root css-1jsamsp"
+            class="MuiBox-root css-1io9phq"
           />
         </div>
       </div>

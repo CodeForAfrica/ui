@@ -21,37 +21,37 @@ exports[`<Footer /> renders unchanged 1`] = `
       viewbox="0 0 297 297"
     />
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1kxvpqg-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1dq1xuf-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-17 css-k8m3h4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-17 css-l7ooso-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-12olfi-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-1j9xv2e-MuiGrid-root"
             >
               <div
                 class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
               />
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-1s3fmsz-MuiGrid-root"
             />
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-auto css-4ah52f-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-auto css-wz693t-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-0"
           >
             <div
-              class="MuiTypography-root MuiTypography-h1 css-ypwyql-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h1 css-7fe90y-MuiTypography-root"
             >
               <div
                 class="MuiBox-root css-x5z91q"
