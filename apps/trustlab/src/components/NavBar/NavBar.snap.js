@@ -10,10 +10,10 @@ exports[`<NavBar /> renders unchanged 1`] = `
       class="MuiToolbar-root MuiToolbar-regular css-1twxsqv-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1dq1xuf-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-3utm6i-MuiContainer-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-container css-bo41hp-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
@@ -36,7 +36,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container css-1xtue6q-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1au5hzx-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"

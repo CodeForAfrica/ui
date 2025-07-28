@@ -3,7 +3,7 @@
 exports[`<SpotlightCard /> renders unchanged 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1fnzchv-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-11h7il2-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
     href="/opportunities/trustlab-incubator-programme"
     style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
   >
