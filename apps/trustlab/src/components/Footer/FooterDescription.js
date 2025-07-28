@@ -21,21 +21,30 @@ const FooterDescription = React.forwardRef(
                 sm: "block",
               },
               filter: "grayscale(100%)",
-              height: { xs: "113px", md: "113px", lg: "113px" },
-              width: { xs: "251px", md: "251px", lg: "251px" },
+              height: "60px",
+              width: "140px",
+              "&::after": {
+                content: '""',
+                display: "block",
+                backgroundColor: "text.secondary",
+                width: "18px",
+                height: "2px",
+                position: "absolute",
+                bottom: "0",
+              },
             }}
           />
         </Link>
         <LexicalRichText
           TypographyProps={{
-            variant: "p3",
+            variant: "p1",
             LinkProps: {
               color: "text.secondary",
               textDecoration: "underline",
               textDecorationColor: "text.secondary",
             },
             sx: {
-              mt: { xs: 2, md: 0 },
+              mt: { xs: 2, md: 2.5 },
             },
           }}
           sx={{

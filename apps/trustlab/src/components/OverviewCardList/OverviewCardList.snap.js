@@ -6,7 +6,7 @@ exports[`<OverviewCardList /> renders unchanged 1`] = `
     class="MuiBox-root css-zaigo1"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-fqfx6w-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12jaa2h-MuiContainer-root"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 css-leq0nk-MuiTypography-root"

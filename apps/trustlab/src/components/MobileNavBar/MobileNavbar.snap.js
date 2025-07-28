@@ -12,20 +12,15 @@ exports[`<MobileNavBar /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
       <button
-        class="MuiButtonBase-root css-1rdqmag-MuiButtonBase-root"
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-53g0n7-MuiButtonBase-root-MuiIconButton-root"
         tabindex="0"
         type="button"
       >
-        <img
-          alt="menu icon"
-          data-nimg="1"
-          decoding="async"
-          height="32"
-          loading="lazy"
-          src="/_next/image?url=%2Furl&w=64&q=75"
-          srcset="/_next/image?url=%2Furl&w=32&q=75 1x, /_next/image?url=%2Furl&w=64&q=75 2x"
-          style="color: transparent;"
-          width="32"
+        <div
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1liew4k-MuiSvgIcon-root"
+          focusable="false"
+          viewbox="0 0 24 24"
         />
       </button>
     </div>
