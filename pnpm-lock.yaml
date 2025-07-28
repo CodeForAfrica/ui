@@ -496,8 +496,8 @@ catalogs:
       specifier: ^0.14.1
       version: 0.14.1
     react-test-renderer:
-      specifier: ^18.3.1
-      version: 18.3.1
+      specifier: ^19.1.1
+      version: 19.1.1
     react-vega:
       specifier: ^7.6.0
       version: 7.6.0
@@ -937,7 +937,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -1136,7 +1136,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -1425,7 +1425,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       svg-url-loader:
         specifier: 'catalog:'
         version: 8.0.0(webpack@5.99.8)
@@ -1612,7 +1612,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -1865,7 +1865,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       storybook:
         specifier: 'catalog:'
         version: 8.6.14(prettier@3.5.3)
@@ -2037,7 +2037,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -3010,7 +3010,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -3168,7 +3168,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -3241,7 +3241,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -3426,7 +3426,7 @@ importers:
         version: 5.2.2(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.1(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -14508,6 +14508,9 @@ packages:
   react-is@19.1.0:
     resolution: {integrity: sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg==}
 
+  react-is@19.1.1:
+    resolution: {integrity: sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA==}
+
   react-leaflet@4.2.1:
     resolution: {integrity: sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q==}
     peerDependencies:
@@ -14591,11 +14594,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-shallow-renderer@16.15.0:
-    resolution: {integrity: sha512-oScf2FqQ9LFVQgA73vr86xl2NaOIX73rh+YFqcOp68CWj56tSfgtGKrEbyhCj0rSijyG9M1CYprTh39fBi5hzA==}
-    peerDependencies:
-      react: ^16.0.0 || ^17.0.0 || ^18.0.0
-
   react-share@5.2.2:
     resolution: {integrity: sha512-z0nbOX6X6vHHWAvXduNkYeJUKTKNpKM5Xpmc5a2BxjJhUWl+sE7AsSEMmYEUj2DuDjZr5m7KFIGF0sQPKcUN6w==}
     peerDependencies:
@@ -14624,10 +14622,10 @@ packages:
     peerDependencies:
       react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
-  react-test-renderer@18.3.1:
-    resolution: {integrity: sha512-KkAgygexHUkQqtvvx/otwxtuFu5cVjfzTCtjXLH9boS19/Nbtg84zS7wIQn39G8IlrhThBpQsMKkq5ZHZIYFXA==}
+  react-test-renderer@19.1.1:
+    resolution: {integrity: sha512-aGRXI+zcBTtg0diHofc7+Vy97nomBs9WHHFY1Csl3iV0x6xucjNYZZAkiVKGiNYUv23ecOex5jE67t8ZzqYObA==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^19.1.1
 
   react-toastify@10.0.5:
     resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
@@ -15038,6 +15036,9 @@ packages:
 
   scheduler@0.25.0:
     resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
+
+  scheduler@0.26.0:
+    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
 
   schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
@@ -31817,6 +31818,8 @@ snapshots:
 
   react-is@19.1.0: {}
 
+  react-is@19.1.1: {}
+
   react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -31938,12 +31941,6 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  react-shallow-renderer@16.15.0(react@18.3.1):
-    dependencies:
-      object-assign: 4.1.1
-      react: 18.3.1
-      react-is: 18.3.1
-
   react-share@5.2.2(react@18.3.1):
     dependencies:
       classnames: 2.5.1
@@ -31981,12 +31978,11 @@ snapshots:
       react-swipeable-views-core-react-18-fix: 0.14.0(react@18.3.1)
       shallow-equal: 1.2.1
 
-  react-test-renderer@18.3.1(react@18.3.1):
+  react-test-renderer@19.1.1(react@18.3.1):
     dependencies:
       react: 18.3.1
-      react-is: 18.3.1
-      react-shallow-renderer: 16.15.0(react@18.3.1)
-      scheduler: 0.23.2
+      react-is: 19.1.1
+      scheduler: 0.26.0
 
   react-toastify@10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -32511,6 +32507,8 @@ snapshots:
       loose-envify: 1.4.0
 
   scheduler@0.25.0: {}
+
+  scheduler@0.26.0: {}
 
   schema-utils@3.3.0:
     dependencies:
