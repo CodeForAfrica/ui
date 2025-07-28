@@ -1,3 +1,4 @@
+export { default as ActionBanner } from "./ActionBanner";
 export { default as CallToAction } from "./CallToAction";
 export { default as Content } from "./Content";
 export { default as DonorOverviewList } from "./DonorOverviewList";

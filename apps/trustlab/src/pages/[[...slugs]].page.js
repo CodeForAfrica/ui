@@ -1,6 +1,7 @@
 import React from "react";
 import { SWRConfig } from "swr";
 
+import ActionBanner from "@/trustlab/components/ActionBanner";
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
 import Content from "@/trustlab/components/Content";
@@ -16,6 +17,7 @@ import PostList from "@/trustlab/components/PostList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
+  "action-banner": ActionBanner,
   "call-to-action": CallToAction,
   content: Content,
   "donor-overview-list": DonorOverviewList,
