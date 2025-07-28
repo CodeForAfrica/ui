@@ -7,6 +7,7 @@ import Content from "@/trustlab/components/Content";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Hero from "@/trustlab/components/Hero";
+import Incubator from "@/trustlab/components/Incubator";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
@@ -21,6 +22,7 @@ const componentsBySlugs = {
   gallery: Gallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
+  incubator: Incubator,
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,

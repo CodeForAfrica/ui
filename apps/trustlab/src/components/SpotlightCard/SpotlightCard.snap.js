@@ -14,7 +14,7 @@ exports[`<SpotlightCard /> renders unchanged 1`] = `
       title="TrustLab Incubator Programme"
     >
       <span
-        class="MuiTypography-root MuiTypography-button css-a543di-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-button css-lrr9mk-MuiTypography-root"
       >
         Opportunity
       </span>
@@ -26,7 +26,7 @@ exports[`<SpotlightCard /> renders unchanged 1`] = `
         class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"
         >
           TrustLab Incubator Programme
         </h2>

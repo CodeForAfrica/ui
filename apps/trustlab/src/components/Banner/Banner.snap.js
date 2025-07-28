@@ -15,7 +15,7 @@ exports[`<Banner /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-18qart5-MuiGrid-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-display2 css-1xj439w-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-display2 css-190onpw-MuiTypography-root"
           >
             About TrustLab
           </div>
@@ -26,7 +26,7 @@ exports[`<Banner /> renders unchanged 1`] = `
               class="payload-richtext"
             >
               <h6
-                class="MuiTypography-root MuiTypography-subheading1 css-1r528k3-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-subheading1 css-8c0bgy-MuiTypography-root"
               >
                 TrustLab is a three-year EU-funded initiative by DW Akademie, Code for Africa (CfA), and Siasa Place. 
               </h6>
