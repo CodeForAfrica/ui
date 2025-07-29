@@ -14,3 +14,4 @@ export { default as Spotlight } from "./Spotlight";
 export { default as WhatWeDo } from "./WhatWeDo";
 export { default as Gallery } from "./Gallery";
 export { default as Incubator } from "./Incubator";
+export { default as PartnerLocations } from "./PartnerLocations";

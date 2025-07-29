@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import React from "react";
 import { SWRConfig } from "swr";
 
@@ -16,6 +17,10 @@ import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
+const PartnerLocations = dynamic(
+  () => import("../components/PartnerLocations"),
+  { ssr: false },
+);
 const componentsBySlugs = {
   "action-banner": ActionBanner,
   "call-to-action": CallToAction,
@@ -28,6 +33,7 @@ const componentsBySlugs = {
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
+  "partner-locations": PartnerLocations,
   "partners-list": PartnersList,
   "post-list": PostList,
   "resources-overview-list": OverviewCardList,
