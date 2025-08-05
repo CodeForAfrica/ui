@@ -23,15 +23,8 @@ const FooterDescription = React.forwardRef(
               filter: "grayscale(100%)",
               height: "60px",
               width: "140px",
-              "&::after": {
-                content: '""',
-                display: "block",
-                backgroundColor: "text.secondary",
-                width: "18px",
-                height: "2px",
-                position: "absolute",
-                bottom: "0",
-              },
+              borderBottom: "2px solid",
+              borderColor: "text.secondary",
             }}
           />
         </Link>

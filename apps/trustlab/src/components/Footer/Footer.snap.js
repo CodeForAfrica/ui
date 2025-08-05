@@ -7,7 +7,7 @@ exports[`<Footer /> renders unchanged 1`] = `
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1oojpdp-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-p0adv2-MuiSvgIcon-root"
       fill="#181D27"
       focusable="false"
       height="299"
@@ -16,7 +16,7 @@ exports[`<Footer /> renders unchanged 1`] = `
     />
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1ujiery-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ymob92-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 297 297"
     />
@@ -27,7 +27,7 @@ exports[`<Footer /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-17 css-k8m3h4-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-16 css-ucdck3-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
@@ -54,7 +54,7 @@ exports[`<Footer /> renders unchanged 1`] = `
               class="MuiTypography-root MuiTypography-h1 css-ypwyql-MuiTypography-root"
             >
               <div
-                class="MuiBox-root css-x5z91q"
+                class="MuiBox-root css-108puoe"
               />
             </div>
             <div

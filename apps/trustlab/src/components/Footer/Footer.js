@@ -42,7 +42,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         sx={{
           color: "transparent",
           position: "absolute",
-          left: -75,
+          left: { md: -120, lg: -75 },
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 1,
@@ -56,11 +56,11 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         sx={{
           color: "common.white",
           position: "absolute",
-          right: 0,
-          bottom: -150,
+          right: -90,
+          bottom: -170,
           zIndex: 1,
-          width: "300px",
-          height: "300px",
+          width: "240px",
+          height: "240px",
           display: { xs: "none", sm: "block" },
         }}
       />
@@ -69,9 +69,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           px: { xs: 2.5, sm: 0 },
         }}
       >
-        {/* Increase number of columns to getter columns size */}
         <Grid container columns={24} justifyContent="space-between">
-          <Grid item xs={24} md={17}>
+          <Grid item xs={24} md={16}>
             <Grid container justifyContent="space-between">
               <Grid
                 item
