@@ -1,11 +1,12 @@
 import { Section } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Button, SvgIcon } from "@mui/material";
+import { Box, SvgIcon } from "@mui/material";
 import React, { forwardRef } from "react";
 
 import UserIcon from "@/trustlab/assets/icons/Type=user, Size=20, Color=CurrentColor.svg";
 import VisitIcon from "@/trustlab/assets/icons/Type=visit, Size=20, Color=CurrentColor.svg";
+import Button from "@/trustlab/components/StyledButton";
 
 const ActionBanner = forwardRef(
   (
@@ -33,6 +34,7 @@ const ActionBanner = forwardRef(
               elements={title}
               TypographyProps={{
                 gutterBottom: true,
+                variant: "banner",
                 sx: {
                   mb: 0,
                   color: textColor,
@@ -40,19 +42,10 @@ const ActionBanner = forwardRef(
               }}
             />
             <Button
-              sx={{
-                backgroundColor:
-                  buttonProps.variant === "contained"
-                    ? undefined
-                    : "transparent",
-                borderRadius: 1,
-                borderColor: buttonProps.borderColor,
-                textTransform: "none",
-              }}
-              variant={buttonProps.variant}
               size="large"
               href={buttonLink?.href}
               component={buttonLink?.href ? Link : undefined}
+              color={buttonProps.borderColor || "#000"}
             >
               <SvgIcon
                 sx={{ height: 20, width: 20, fill: "transparent" }}
