@@ -28,15 +28,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
           sx={{
             width: 170,
             position: "relative",
-            "&::after": {
-              content: '""',
-              display: "block",
-              width: "18px",
-              height: "2px",
-              backgroundColor: "common.white",
-              position: "absolute",
-              bottom: 0,
-            },
+            borderBottom: "2px solid",
           }}
           component="div"
         >
