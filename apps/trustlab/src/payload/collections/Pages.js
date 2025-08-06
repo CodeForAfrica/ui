@@ -19,6 +19,7 @@ import {
   Spotlight,
   WhatWeDo,
   Incubator,
+  CourseList,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -69,6 +70,7 @@ const Pages = {
         Gallery,
         PageHeader,
         PageOverview,
+        CourseList,
         Content,
         PartnerOverviewList,
         PartnersList,
