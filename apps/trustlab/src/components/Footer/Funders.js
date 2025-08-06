@@ -25,6 +25,7 @@ const Funders = forwardRef((props, ref) => {
             position: "relative",
             borderBottom: "2px solid",
             borderColor: "text.secondary",
+            lineHeight: "50px",
           }}
           component="div"
         >

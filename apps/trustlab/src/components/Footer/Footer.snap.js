@@ -54,7 +54,7 @@ exports[`<Footer /> renders unchanged 1`] = `
               class="MuiTypography-root MuiTypography-h1 css-ypwyql-MuiTypography-root"
             >
               <div
-                class="MuiBox-root css-108puoe"
+                class="MuiBox-root css-zm17t2"
               />
             </div>
             <div
