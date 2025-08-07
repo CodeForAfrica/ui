@@ -34,7 +34,7 @@ function getFooter(settings) {
 
   return {
     ...footer,
-    logo: imageFromMedia({ alt: title, ...primaryLogo }),
+    logo: imageFromMedia({ alt: title, ...(secondaryLogo || primaryLogo) }),
     primaryMenus: primaryNavigation?.menus || null,
     secondaryMenus: secondaryNavigation?.menus || null,
   };

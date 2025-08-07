@@ -29,6 +29,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
             width: 170,
             position: "relative",
             borderBottom: "2px solid",
+            lineHeight: "50px",
           }}
           component="div"
         >
