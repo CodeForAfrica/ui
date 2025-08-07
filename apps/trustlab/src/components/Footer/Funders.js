@@ -46,10 +46,11 @@ const Funders = forwardRef((props, ref) => {
                 }}
                 sx={{
                   filter: "grayscale(100%)",
-                  height: "100px",
+                  height: "35px",
                   m: 0,
                   position: "relative",
                   width: "auto",
+                  mb: 2,
                   "&:hover": {
                     filter: "none",
                   },
