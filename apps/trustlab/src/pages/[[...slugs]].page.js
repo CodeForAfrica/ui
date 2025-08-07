@@ -10,11 +10,13 @@ import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
+import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
+import RapidResponse from "@/trustlab/components/RapidResponse";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
@@ -37,10 +39,186 @@ const componentsBySlugs = {
   "what-we-do": Banner,
 };
 
+const testSection = (
+  <>
+    <RapidResponse
+      title="Rapid Response"
+      briefs={[
+        {
+          icon: {
+            url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
+            alt: "Rapid Response icon",
+          },
+          title: "Rapid Response Briefing",
+          description: {
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: "normal",
+                      style: "",
+                      text: "This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.",
+                      type: "text",
+                      version: 1,
+                    },
+                  ],
+                  direction: "ltr",
+                  format: "",
+                  indent: 0,
+                  type: "paragraph",
+                  version: 1,
+                },
+              ],
+              direction: "ltr",
+              format: "",
+              indent: 0,
+              type: "root",
+              version: 1,
+            },
+          },
+        },
+        {
+          icon: {
+            url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
+            alt: "Rapid Response icon",
+          },
+          title: "Rapid Response Briefing",
+          description: {
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: "normal",
+                      style: "",
+                      text: "This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.",
+                      type: "text",
+                      version: 1,
+                    },
+                  ],
+                  direction: "ltr",
+                  format: "",
+                  indent: 0,
+                  type: "paragraph",
+                  version: 1,
+                },
+              ],
+              direction: "ltr",
+              format: "",
+              indent: 0,
+              type: "root",
+              version: 1,
+            },
+          },
+        },
+        {
+          icon: {
+            url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
+            alt: "Rapid Response icon",
+          },
+          title: "Rapid Response Briefing",
+          description: {
+            root: {
+              children: [
+                {
+                  children: [
+                    {
+                      detail: 0,
+                      format: 0,
+                      mode: "normal",
+                      style: "",
+                      text: "This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.",
+                      type: "text",
+                      version: 1,
+                    },
+                  ],
+                  direction: "ltr",
+                  format: "",
+                  indent: 0,
+                  type: "paragraph",
+                  version: 1,
+                },
+              ],
+              direction: "ltr",
+              format: "",
+              indent: 0,
+              type: "root",
+              version: 1,
+            },
+          },
+        },
+      ]}
+    />
+    <IntelligenceBriefings
+      title="Intelligence briefings"
+      subtitle="Stakeholder round table to strengthen grass roots defenders"
+      description={{
+        root: {
+          children: [
+            {
+              children: [
+                {
+                  detail: 0,
+                  format: 0,
+                  mode: "normal",
+                  style: "",
+                  text: "This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders",
+                  type: "text",
+                  version: 1,
+                },
+              ],
+              direction: "ltr",
+              format: "",
+              indent: 0,
+              type: "paragraph",
+              version: 1,
+              textFormat: 0,
+              textStyle: "",
+            },
+          ],
+          direction: "ltr",
+          format: "",
+          indent: 0,
+          type: "root",
+          version: 1,
+        },
+      }}
+      ctaItems={[
+        {
+          icon: {
+            url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
+            alt: "Fact-checking icon",
+          },
+          title: "Expert Analysis",
+        },
+        {
+          icon: {
+            url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
+            alt: "Fact-checking icon",
+          },
+          title: "Share Evidence",
+        },
+        {
+          icon: {
+            url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
+            alt: "Fact-checking icon",
+          },
+          title: "Brainstorm Solutions",
+        },
+      ]}
+    />
+  </>
+);
+
 function Page({ blocks, fallback }) {
-  if (!blocks?.length) {
-    return null;
-  }
+  // if (!blocks?.length) {
+  //   return null;
+  // }
 
   let PageComponent = React.Fragment;
   let pageComponentProps;
@@ -57,6 +235,7 @@ function Page({ blocks, fallback }) {
         }
         return <Component {...block} key={block.id} />;
       })}
+      {testSection}
     </PageComponent>
   );
 }
