@@ -1,12 +1,10 @@
 import { NavBarNavList, Section } from "@commons-ui/core";
 import { Link, NextImageButton } from "@commons-ui/next";
-import { Drawer, Grid } from "@mui/material";
+import { SvgIcon, Drawer, Grid, IconButton } from "@mui/material";
 import React, { useState } from "react";
 
-/* eslint-disable-next-line import/no-unresolved */
-import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg?url";
-/* eslint-disable-next-line import/no-unresolved */
-import MenuIcon from "@/trustlab/assets/menu-icon.svg?url";
+import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
+import MenuIcon from "@/trustlab/assets/menu-icon.svg";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
   const { logo, menus, socialLinks } = props;
@@ -34,13 +32,15 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         />
       </Grid>
       <Grid item>
-        <NextImageButton
-          src={Icon}
-          alt="menu icon"
-          onClick={handleClick}
-          width={32}
-          height={32}
-        />
+        <IconButton onClick={handleClick}>
+          <SvgIcon
+            component={Icon}
+            sx={{
+              fill: "transparent",
+              color: "common.white",
+            }}
+          />
+        </IconButton>
       </Grid>
       <Drawer
         anchor="top"
