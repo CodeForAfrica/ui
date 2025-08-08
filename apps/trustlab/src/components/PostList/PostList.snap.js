@@ -39,7 +39,7 @@ exports[`<PostList /> renders unchanged 1`] = `
               class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 css-cipl4i-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 css-s9xaj3-MuiTypography-root"
               >
                 TrustLab Incubator Programme
               </h2>
@@ -49,7 +49,7 @@ exports[`<PostList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-yjf187-MuiCardContent-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-p1 css-9tlvhj-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1p2figo-MuiTypography-root"
             >
               The TrustLab supports Kenyan CSOs/CBOs to counter digital threats that affect them and the communities they serve
             </p>
@@ -58,7 +58,7 @@ exports[`<PostList /> renders unchanged 1`] = `
             class="MuiCardActions-root MuiCardActions-spacing css-1qg28ok-MuiCardActions-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-yn7syr-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-15f3whe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="/opportunities/trustlab-incubator-programme"
               tabindex="0"
             >
@@ -71,7 +71,7 @@ exports[`<PostList /> renders unchanged 1`] = `
         class="MuiBox-root css-1u52lvo"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-sl2rpx-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-zym6q8-MuiButtonBase-root-MuiButton-root"
           page="2"
           tabindex="0"
           type="next"

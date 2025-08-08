@@ -1,0 +1,21 @@
+<svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top border -->
+  <line x1="2" y1="2" x2="298" y2="2" stroke="black" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Left border -->
+  <line x1="2" y1="2" x2="2" y2="148" stroke="black" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Bottom border -->
+  <line x1="2" y1="148" x2="298" y2="148" stroke="black" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Right border -->
+  <line x1="298" y1="2" x2="298" y2="148" stroke="black" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Gaps in the border -->
+  <rect x="0" y="0" width="300" height="150" fill="none" stroke="none" />
+  
+  <!-- Customizable text -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="black">
+    Customizable Text
+  </text>
+</svg>

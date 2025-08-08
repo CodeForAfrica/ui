@@ -9,7 +9,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
       class="MuiBox-root css-la5ci3"
     >
       <h2
-        class="MuiTypography-root MuiTypography-h2 css-1bu7104-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"
       />
       <div
         class="MuiGrid-root MuiGrid-container css-evu8pu-MuiGrid-root"
@@ -37,7 +37,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-znmkeg-MuiGrid-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 css-1e2n37a-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-g5tpob-MuiTypography-root"
           >
             Example Partner
           </h2>

@@ -1,11 +1,11 @@
 import { createTheme } from "@commons-ui/core";
 import { buttonClasses } from "@mui/material";
 import { deepmerge } from "@mui/utils";
-import { Barlow, Open_Sans as OpenSans } from "next/font/google";
+import { Inter, Open_Sans as OpenSans } from "next/font/google";
 
 import { neutral } from "@/trustlab/colors";
 
-const barlow = Barlow({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
@@ -17,7 +17,7 @@ const openSans = OpenSans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const FONT_FAMILY_PRIMARY = barlow.style.fontFamily;
+const FONT_FAMILY_PRIMARY = inter.style.fontFamily;
 const FONT_FAMILY_SECONDARY = openSans.style.fontFamily;
 
 const palette = {
@@ -82,7 +82,8 @@ const theme = createTheme({
     h1: initializeTypographyVariant(32, 40, 700, FONT_FAMILY_PRIMARY),
     h2: initializeTypographyVariant(24, 32, 700, FONT_FAMILY_PRIMARY),
     h3: initializeTypographyVariant(18, 24, 700, FONT_FAMILY_PRIMARY),
-    button: initializeTypographyVariant(18, 24, 900, FONT_FAMILY_PRIMARY),
+    button: initializeTypographyVariant(14, 20, 600, FONT_FAMILY_PRIMARY),
+    banner: initializeTypographyVariant(34, 38, 500, FONT_FAMILY_PRIMARY),
     subheading1: initializeTypographyVariant(24, 32, 600, FONT_FAMILY_PRIMARY),
     subheading2: initializeTypographyVariant(18, 24, 600, FONT_FAMILY_PRIMARY),
     p1: initializeTypographyVariant(18, 24, 400, FONT_FAMILY_PRIMARY),
@@ -109,6 +110,7 @@ const theme = createTheme({
           p2: "p",
           p3: "p",
           p4: "p",
+          banner: "p",
           footer: "p",
         },
       },
@@ -155,7 +157,7 @@ deepmerge(
           },
         },
         containedPrimary: {
-          backgroundColor: "#000000",
+          backgroundColor: "#252B37",
           color: "#FFFFFF",
           "&:active": {
             backgroundColor: "#A0A0A0",
@@ -168,7 +170,7 @@ deepmerge(
           padding: "12px",
         },
         sizeLarge: {
-          padding: "16px 20px",
+          padding: "13px 20px",
         },
       },
     },

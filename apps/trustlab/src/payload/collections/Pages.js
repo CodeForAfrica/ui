@@ -3,6 +3,7 @@ import { slug, fullTitle } from "@commons-ui/payload";
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 import {
+  ActionBanner,
   CallToAction,
   Content,
   DonorOverviewList,
@@ -17,6 +18,7 @@ import {
   ResourcesOverviewList,
   Spotlight,
   WhatWeDo,
+  Incubator,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -59,6 +61,7 @@ const Pages = {
       name: "blocks",
       type: "blocks",
       blocks: [
+        ActionBanner,
         HelplinesOverviewList,
         Hero,
         CallToAction,
@@ -73,6 +76,7 @@ const Pages = {
         WhatWeDo,
         ResourcesOverviewList,
         Spotlight,
+        Incubator,
       ],
       localized: true,
       admin: {
