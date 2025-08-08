@@ -1,7 +1,7 @@
 import { Section } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Grid, Typography, Stack, Divider, Box } from "@mui/material";
+import { Grid2 as Grid, Typography, Stack, Divider, Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const RapidResponse = forwardRef(function RapidResponse(
@@ -18,7 +18,7 @@ const RapidResponse = forwardRef(function RapidResponse(
           <Typography variant="h1">{title}</Typography>
           <Grid container sx={{ ml: -2 }} spacing={2}>
             {briefs.map((brief) => (
-              <Grid item xs={12} sm={6} md={4} key={brief.title}>
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={brief.title}>
                 <Stack alignItems="center" gap={2}>
                   <Figure
                     ImageProps={{
@@ -31,9 +31,9 @@ const RapidResponse = forwardRef(function RapidResponse(
                     }}
                   />
                   <Box sx={{ width: "100%" }}>
-                    <Divider sx={{ background: "black", mb: 1 }} />
+                    <Divider sx={{ background: "black", mb: 2 }} />
                     <Typography variant="h3">{brief.title}</Typography>
-                    <Divider sx={{ background: "black", mt: 1 }} />
+                    <Divider sx={{ background: "black", mt: 2 }} />
                   </Box>
 
                   <LexicalRichText

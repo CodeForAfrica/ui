@@ -7,6 +7,7 @@ import CallToAction from "@/trustlab/components/CallToAction";
 import Content from "@/trustlab/components/Content";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
+import FreeResources from "@/trustlab/components/FreeResources";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
@@ -17,6 +18,7 @@ import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
 import RapidResponse from "@/trustlab/components/RapidResponse";
+import Spotlight from "@/trustlab/components/Spotlight";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
@@ -35,7 +37,7 @@ const componentsBySlugs = {
   "partners-list": PartnersList,
   "post-list": PostList,
   "resources-overview-list": OverviewCardList,
-  spotlight: OverviewCardList,
+  spotlight: Spotlight,
   "what-we-do": Banner,
 };
 
@@ -150,6 +152,43 @@ const testSection = (
               type: "root",
               version: 1,
             },
+          },
+        },
+      ]}
+    />
+    <FreeResources
+      title="Free Resources"
+      resources={[
+        {
+          title: "RiskDetection toolkit",
+          description: "This is a description of the resource.",
+          image: {
+            src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
+            alt: "Resource Image",
+          },
+        },
+        {
+          title: "Roboshield toolkit",
+          description: "This is a description of the resource.",
+          image: {
+            src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
+            alt: "Resource Image",
+          },
+        },
+        {
+          title: "SelfDefence software",
+          description: "This is a description of the resource.",
+          image: {
+            src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
+            alt: "Resource Image",
+          },
+        },
+        {
+          title: "PolicyForge toolkit",
+          description: "This is a description of the resource.",
+          image: {
+            src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
+            alt: "Resource Image",
           },
         },
       ]}
