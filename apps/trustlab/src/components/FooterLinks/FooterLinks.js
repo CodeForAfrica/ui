@@ -17,7 +17,6 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
         <Typography
           sx={{
             mb: 2.5,
-            pb: 1,
             div: {
               paddingBottom: "8px",
             },
@@ -47,7 +46,6 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
         <Typography
           sx={{
             mb: 2.5,
-            pb: 1,
             div: {
               paddingBottom: "8px",
             },
