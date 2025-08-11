@@ -31,7 +31,7 @@ function NavBar({ logo, menus, socialLinks }) {
         <MobileNavBar
           logo={logo}
           menus={menus}
-          socialLinks={[]}
+          socialLinks={socialLinks}
           menuIcon={menuIcon}
           CloseIcon={CloseIcon}
           NextImageButton={NextImageButton}

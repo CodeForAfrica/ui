@@ -11,6 +11,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
     NextImageButton = React.Fragment,
     Link = React.Fragment,
     NavListItemProps,
+    socialLinks = [],
     children,
   } = props;
 
@@ -35,7 +36,7 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
         <Box component="nav" sx={{ justifyContent: "flex-end" }}>
           <NavBarNavList
             menus={menus}
-            socialLinks={[]}
+            socialLinks={socialLinks}
             direction="row"
             Component={Link}
             {...NavListItemProps}
