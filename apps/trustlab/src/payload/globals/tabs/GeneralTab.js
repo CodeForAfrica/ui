@@ -71,19 +71,6 @@ const GeneralTab = {
         },
       ],
     },
-    {
-      type: "collapsible",
-      label: "Labels",
-      fields: [
-        {
-          name: "quickLinksLabel",
-          type: "text",
-          required: true,
-          localized: true,
-          defaultValue: "Quick Links",
-        },
-      ],
-    },
   ],
 };
 

@@ -13,11 +13,10 @@ import FooterLinks from "@/trustlab/components/FooterLinks";
 const Footer = React.forwardRef(function Footer(props, ref) {
   const {
     description,
-    primaryMenus,
-    secondaryMenus,
+    secondaryNavigation,
+    primaryNavigation,
     logo,
     donorTitle,
-    quickLinksLabel,
     funders = [],
   } = props;
 
@@ -89,9 +88,8 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               </Grid>
               <Grid item xs={12} md="auto">
                 <FooterLinks
-                  primaryMenus={primaryMenus}
-                  secondaryMenus={secondaryMenus}
-                  title={quickLinksLabel}
+                  primaryNavigation={primaryNavigation}
+                  secondaryNavigation={secondaryNavigation}
                   sx={{ mt: { xs: "52px", md: 0 }, mb: 2 }}
                 />
               </Grid>

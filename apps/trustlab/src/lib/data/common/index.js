@@ -36,8 +36,8 @@ function getFooter(settings) {
   return {
     ...footer,
     logo: imageFromMedia({ alt: title, ...(secondaryLogo || primaryLogo) }),
-    primaryMenus: primaryNavigation?.menus || null,
-    secondaryMenus: secondaryNavigation?.menus || null,
+    primaryNavigation,
+    secondaryNavigation,
     quickLinksLabel: quickLinksLabel || "Quick Lins",
   };
 }
