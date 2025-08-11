@@ -11,6 +11,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
     menus,
     socialLinks,
     Component,
+    children,
     ...other
   } = props;
 
@@ -72,6 +73,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           </NavListItem>
         );
       })}
+      {children}
     </NavList>
   );
 });

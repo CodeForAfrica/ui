@@ -32,16 +32,6 @@ const ActionBanner = {
       type: "group",
       required: true,
       fields: [
-        {
-          name: "variant",
-          type: "select",
-          options: [
-            { label: "Contained", value: "contained" },
-            { label: "Outlined", value: "outlined" },
-          ],
-          required: true,
-          localized: true,
-        },
         ...ColourTextField({
           name: "borderColor",
           admin: {
@@ -51,14 +41,6 @@ const ActionBanner = {
           validate: validateColor,
           defaultValue: "#FFFFFF",
         }),
-        {
-          name: "iconType",
-          type: "select",
-          options: [
-            { label: "User", value: "user" },
-            { label: "Call Made", value: "callMade" },
-          ],
-        },
       ],
     },
     colorSettingsField({

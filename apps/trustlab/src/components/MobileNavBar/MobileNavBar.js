@@ -7,7 +7,7 @@ import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.s
 import MenuIcon from "@/trustlab/assets/menu-icon.svg";
 
 const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
-  const { logo, menus, socialLinks } = props;
+  const { logo, menus, socialLinks, children } = props;
   const [open, setOpen] = useState(false);
   const handleClick = () => setOpen((prev) => !prev);
   const handleClose = () => setOpen(false);
@@ -83,6 +83,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
             }}
             Component={Link}
           />
+          {children}
         </Section>
       </Drawer>
     </Grid>

@@ -26,10 +26,12 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
       >
         <Box
           sx={{
-            width: 170,
+            width: 180,
             position: "relative",
             borderBottom: "2px solid",
             lineHeight: "50px",
+            whiteSpace: "nowrap",
+            my: 0,
           }}
           component="div"
         >

@@ -11,6 +11,7 @@ import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentCol
 import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
 import { grey } from "@/trustlab/colors";
 import MobileNavBar from "@/trustlab/components/MobileNavBar";
+import Button from "@/trustlab/components/StyledButton";
 
 function NavBar({ logo, menus, socialLinks }) {
   return (
@@ -30,12 +31,16 @@ function NavBar({ logo, menus, socialLinks }) {
         <MobileNavBar
           logo={logo}
           menus={menus}
-          socialLinks={socialLinks}
+          socialLinks={[]}
           menuIcon={menuIcon}
           CloseIcon={CloseIcon}
           NextImageButton={NextImageButton}
           Link={Link}
-        />
+        >
+          <Button size="large" color="#000" component={Link} href="/">
+            Search
+          </Button>
+        </MobileNavBar>
         <DesktopNavBar
           logo={logo}
           menus={menus}
@@ -61,7 +66,11 @@ function NavBar({ logo, menus, socialLinks }) {
               objectFit: "contain",
             },
           }}
-        />
+        >
+          <Button size="large" color="#fff" component={Link} href="/">
+            Search
+          </Button>
+        </DesktopNavBar>
       </Section>
     </NavigationBar>
   );
