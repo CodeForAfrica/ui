@@ -17,6 +17,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
     secondaryMenus,
     logo,
     donorTitle,
+    quickLinksLabel,
     funders = [],
   } = props;
 
@@ -90,6 +91,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                 <FooterLinks
                   primaryMenus={primaryMenus}
                   secondaryMenus={secondaryMenus}
+                  title={quickLinksLabel}
                   sx={{ mt: { xs: "52px", md: 0 }, mb: 2 }}
                 />
               </Grid>

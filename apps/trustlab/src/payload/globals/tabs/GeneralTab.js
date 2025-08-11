@@ -18,6 +18,13 @@ const GeneralTab = {
           required: true,
           localized: true,
         }),
+        {
+          name: "quickLinksTitle",
+          type: "text",
+          required: true,
+          localized: true,
+          defaultValue: "Quick Links",
+        },
       ],
     },
     {
@@ -61,6 +68,19 @@ const GeneralTab = {
           relationTo: "donors",
           hasMany: true,
           localized: true,
+        },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Labels",
+      fields: [
+        {
+          name: "quickLinksLabel",
+          type: "text",
+          required: true,
+          localized: true,
+          defaultValue: "Quick Links",
         },
       ],
     },

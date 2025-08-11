@@ -29,6 +29,7 @@ function getFooter(settings) {
     secondaryLogo,
     secondaryNavigation,
     title,
+    quickLinksLabel,
     ...footer
   } = settings;
 
@@ -37,6 +38,7 @@ function getFooter(settings) {
     logo: imageFromMedia({ alt: title, ...(secondaryLogo || primaryLogo) }),
     primaryMenus: primaryNavigation?.menus || null,
     secondaryMenus: secondaryNavigation?.menus || null,
+    quickLinksLabel: quickLinksLabel || "Quick Lins",
   };
 }
 function getPageSlug({ params }) {
