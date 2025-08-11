@@ -57,6 +57,9 @@ function NavBar({ logo, menus, socialLinks }) {
           }}
           sx={{
             display: { xs: "none", md: "flex" },
+            img: {
+              objectFit: "contain",
+            },
           }}
         />
       </Section>

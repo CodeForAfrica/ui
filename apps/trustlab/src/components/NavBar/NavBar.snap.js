@@ -36,7 +36,7 @@ exports[`<NavBar /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container css-1au5hzx-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-container css-1lm82qp-MuiGrid-root"
         >
           <div
             class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
