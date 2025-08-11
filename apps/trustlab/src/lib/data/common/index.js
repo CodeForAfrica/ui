@@ -38,7 +38,6 @@ function getFooter(settings) {
     logo: imageFromMedia({ alt: title, ...(secondaryLogo || primaryLogo) }),
     primaryNavigation,
     secondaryNavigation,
-    quickLinksLabel: quickLinksLabel || "Quick Lins",
   };
 }
 function getPageSlug({ params }) {

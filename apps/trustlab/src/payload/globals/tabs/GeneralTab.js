@@ -18,13 +18,6 @@ const GeneralTab = {
           required: true,
           localized: true,
         }),
-        {
-          name: "quickLinksTitle",
-          type: "text",
-          required: true,
-          localized: true,
-          defaultValue: "Quick Links",
-        },
       ],
     },
     {

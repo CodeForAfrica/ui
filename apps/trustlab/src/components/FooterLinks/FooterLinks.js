@@ -51,23 +51,17 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
             },
             justifyContent: { xs: "center", md: "left" },
             display: "flex",
+            width: 180,
+            position: "relative",
+            borderBottom: "2px solid",
+            lineHeight: "50px",
+            whiteSpace: "nowrap",
+            my: 0,
           }}
           component="div"
           variant="h1"
         >
-          <Box
-            sx={{
-              width: 180,
-              position: "relative",
-              borderBottom: "2px solid",
-              lineHeight: "50px",
-              whiteSpace: "nowrap",
-              my: 0,
-            }}
-            component="div"
-          >
-            {secondaryNavigation?.title}
-          </Box>
+          {secondaryNavigation?.title}
         </Typography>
       ) : null}
       <FooterNavList menus={secondaryNavigation?.menus} sx={{}} />
