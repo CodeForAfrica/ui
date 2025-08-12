@@ -35,8 +35,8 @@ function getFooter(settings) {
   return {
     ...footer,
     logo: imageFromMedia({ alt: title, ...(secondaryLogo || primaryLogo) }),
-    primaryMenus: primaryNavigation?.menus || null,
-    secondaryMenus: secondaryNavigation?.menus || null,
+    primaryNavigation,
+    secondaryNavigation,
   };
 }
 function getPageSlug({ params }) {

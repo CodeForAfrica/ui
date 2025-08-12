@@ -3,17 +3,20 @@ import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import React from "react";
 
-function FooterNavList({ menus, children }) {
+function FooterNavList({ menus, children, sx }) {
   if (!menus?.length) {
     return null;
   }
   return (
     <Box
       component="nav"
-      sx={{
-        display: "flex",
-        justifyContent: { xs: "center", md: "flex-start" },
-      }}
+      sx={[
+        {
+          display: "flex",
+          justifyContent: { xs: "center", md: "flex-start" },
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       <NavList
         direction="column"
