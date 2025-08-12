@@ -29,7 +29,6 @@ function getFooter(settings) {
     secondaryLogo,
     secondaryNavigation,
     title,
-    quickLinksLabel,
     ...footer
   } = settings;
 

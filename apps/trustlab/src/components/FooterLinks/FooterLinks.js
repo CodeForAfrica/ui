@@ -12,7 +12,13 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
     return null;
   }
   return (
-    <Box sx={sx} ref={ref}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems={{ xs: "center", md: "flex-start" }}
+      sx={sx}
+      ref={ref}
+    >
       {primaryNavigation?.title ? (
         <Typography
           sx={{
@@ -22,23 +28,17 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
             },
             justifyContent: { xs: "center", md: "left" },
             display: "flex",
+            width: 180,
+            position: "relative",
+            borderBottom: "2px solid",
+            lineHeight: "50px",
+            whiteSpace: "nowrap",
+            pb: 1,
           }}
           component="div"
           variant="h1"
         >
-          <Box
-            sx={{
-              width: 180,
-              position: "relative",
-              borderBottom: "2px solid",
-              lineHeight: "50px",
-              whiteSpace: "nowrap",
-              my: 0,
-            }}
-            component="div"
-          >
-            {primaryNavigation?.title}
-          </Box>
+          {primaryNavigation?.title}
         </Typography>
       ) : null}
       <FooterNavList menus={primaryNavigation?.menus} sx={{ mb: 2 }} />
