@@ -67,7 +67,13 @@ function NavBar({ logo, menus, socialLinks }) {
             },
           }}
         >
-          <Button size="large" color="#fff" component={Link} href="/">
+          <Button
+            size="large"
+            color="#fff"
+            sx={{ ml: 2 }}
+            component={Link}
+            href="/"
+          >
             Search
           </Button>
         </DesktopNavBar>
