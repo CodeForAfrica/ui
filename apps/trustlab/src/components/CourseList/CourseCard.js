@@ -40,7 +40,12 @@ const CourseCard = React.forwardRef(function CourseCard(props, ref) {
         ]}
       />
       <CardContent sx={{ p: 0 }}>
-        <Typography variant="h3" component="div" noWrap>
+        <Typography
+          variant="h3"
+          component="div"
+          sx={{ textTransform: "uppercase" }}
+          noWrap
+        >
           {title}
         </Typography>
         <LexicalRichText

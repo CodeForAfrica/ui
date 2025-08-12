@@ -11,6 +11,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
     menus,
     socialLinks,
     Component,
+    children,
     ...other
   } = props;
 
@@ -55,6 +56,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           </Component>
         </NavListItem>
       ))}
+      {children}
       {socialLinks?.map(({ platform, url }) => {
         return (
           <NavListItem key={platform}>

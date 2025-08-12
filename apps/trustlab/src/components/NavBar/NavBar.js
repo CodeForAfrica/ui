@@ -11,8 +11,9 @@ import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentCol
 import menuIcon from "@/trustlab/assets/menu-icon.svg?url";
 import { grey } from "@/trustlab/colors";
 import MobileNavBar from "@/trustlab/components/MobileNavBar";
+import Button from "@/trustlab/components/StyledButton";
 
-function NavBar({ logo, menus, socialLinks }) {
+function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
   return (
     <NavigationBar
       sx={{
@@ -35,7 +36,17 @@ function NavBar({ logo, menus, socialLinks }) {
           CloseIcon={CloseIcon}
           NextImageButton={NextImageButton}
           Link={Link}
-        />
+        >
+          <Button
+            size="large"
+            color="#000"
+            sx={{ mb: 2, maxWidth: "fit-content" }}
+            component={Link}
+            href="/"
+          >
+            {searchButtonLabel}
+          </Button>
+        </MobileNavBar>
         <DesktopNavBar
           logo={logo}
           menus={menus}
@@ -57,8 +68,26 @@ function NavBar({ logo, menus, socialLinks }) {
           }}
           sx={{
             display: { xs: "none", md: "flex" },
+            color: "common.white",
+            img: {
+              objectFit: "contain",
+            },
           }}
-        />
+        >
+          <Button
+            sx={{
+              mr: 2,
+              "&:last-child": {
+                marginRight: 0,
+              },
+            }}
+            color="#fff"
+            component={Link}
+            href="/"
+          >
+            {searchButtonLabel}
+          </Button>
+        </DesktopNavBar>
       </Section>
     </NavigationBar>
   );
