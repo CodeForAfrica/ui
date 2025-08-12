@@ -1,11 +1,13 @@
 import { Section } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
+import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Divider, Grid2 as Grid, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const FreeResources = forwardRef(function FreeResources(props, ref) {
   const { title, resources = [] } = props;
 
+  console.log(resources);
   return (
     <Box ref={ref} sx={{ background: "#CDCDCD" }}>
       <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
@@ -45,8 +47,8 @@ const FreeResources = forwardRef(function FreeResources(props, ref) {
                 >
                   <Figure
                     ImageProps={{
-                      alt: resource.image.alt,
-                      src: resource.image.src,
+                      alt: resource.icon.alt,
+                      src: resource.icon.src,
                     }}
                     sx={{
                       height: { xs: "108px", md: "180px" },
@@ -94,7 +96,16 @@ const FreeResources = forwardRef(function FreeResources(props, ref) {
                 >
                   {resource.title}
                 </Typography>
-                <Typography variant="p3">{resource.description}</Typography>
+                <LexicalRichText
+                  elements={resource.description}
+                  TypographyProps={{
+                    gutterBottom: true,
+                    variant: "p3",
+                    sx: {
+                      mb: 0,
+                    },
+                  }}
+                />
               </Box>
             </Grid>
           ))}

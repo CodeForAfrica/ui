@@ -2,6 +2,7 @@ import { Link } from "@commons-ui/next";
 import { Button, Card, CardMedia } from "@mui/material";
 
 function SpotlightCard({ title, image, href, linkLabel = "Apply" }) {
+  console.log(href);
   return (
     <Card
       sx={{
@@ -43,6 +44,7 @@ function SpotlightCard({ title, image, href, linkLabel = "Apply" }) {
           right: 16,
           textDecoration: "none",
         }}
+        href={href}
       >
         {linkLabel}
       </Button>

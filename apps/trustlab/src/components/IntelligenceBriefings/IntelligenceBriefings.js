@@ -6,7 +6,7 @@ import React from "react";
 
 const IntelligenceBriefings = React.forwardRef(
   function IntelligenceBriefings(props, ref) {
-    const { title, subtitle, description, ctaItems = [] } = props;
+    const { title, subtitle, description, briefs = [] } = props;
 
     return (
       <Box ref={ref} bgcolor="common.white">
@@ -40,13 +40,13 @@ const IntelligenceBriefings = React.forwardRef(
                   </Box>
                 )}
 
-                {ctaItems.length > 0 && (
+                {briefs.length > 0 && (
                   <Stack
                     direction="row"
                     spacing={4}
                     justifyContent="space-between"
                   >
-                    {ctaItems.map((item) => (
+                    {briefs.map((item) => (
                       <Box
                         display="flex"
                         flexDirection="column"
