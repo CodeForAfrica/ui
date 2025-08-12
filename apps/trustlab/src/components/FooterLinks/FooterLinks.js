@@ -23,11 +23,6 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
         <Typography
           sx={{
             mb: 2.5,
-            div: {
-              paddingBottom: "8px",
-            },
-            justifyContent: { xs: "center", md: "left" },
-            display: "flex",
             width: 180,
             position: "relative",
             borderBottom: "2px solid",
@@ -46,17 +41,13 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
         <Typography
           sx={{
             mb: 2.5,
-            div: {
-              paddingBottom: "8px",
-            },
-            justifyContent: { xs: "center", md: "left" },
-            display: "flex",
             width: 180,
             position: "relative",
             borderBottom: "2px solid",
             lineHeight: "50px",
             whiteSpace: "nowrap",
-            my: 0,
+            mt: 0,
+            pb: 1,
           }}
           component="div"
           variant="h1"
