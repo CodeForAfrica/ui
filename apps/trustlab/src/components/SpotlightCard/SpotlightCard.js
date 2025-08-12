@@ -20,7 +20,7 @@ function SpotlightCard({ title, image, href, linkLabel = "Apply" }) {
     >
       <CardMedia
         component="img"
-        src={image.src}
+        src={image?.src}
         alt={title}
         sx={{
           width: "100%",
@@ -30,27 +30,22 @@ function SpotlightCard({ title, image, href, linkLabel = "Apply" }) {
           display: "block",
         }}
       />
-      <Link
-        href={href}
+      <Button
+        component={href ? Link : undefined}
         sx={{
+          backgroundColor: "#FFDE59",
+          py: 0.75,
+          px: 2,
+          color: "#000",
+          border: "2px solid #000",
           position: "absolute",
           bottom: 16,
           right: 16,
           textDecoration: "none",
         }}
       >
-        <Button
-          sx={{
-            backgroundColor: "#FFDE59",
-            py: 0.75,
-            px: 2,
-            color: "#000",
-            border: "2px solid #000",
-          }}
-        >
-          {linkLabel}
-        </Button>
-      </Link>
+        {linkLabel}
+      </Button>
     </Card>
   );
 }

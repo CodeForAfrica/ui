@@ -9,10 +9,10 @@ const IntelligenceBriefings = React.forwardRef(
     const { title, subtitle, description, ctaItems = [] } = props;
 
     return (
-      <Box bgcolor="common.white">
-        <Section ref={ref} sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
+      <Box ref={ref} bgcolor="common.white">
+        <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
+          <Grid container spacing={4}>
+            <Grid item size={{ xs: 12, md: 4 }}>
               <Typography variant="h1" gutterBottom>
                 {title}
               </Typography>

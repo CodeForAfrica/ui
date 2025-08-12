@@ -2,43 +2,21 @@
 
 exports[`<SpotlightCard /> renders unchanged 1`] = `
 <div>
-  <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-11h7il2-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
-    href="/opportunities/trustlab-incubator-programme"
-    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-1hhwu4v-MuiPaper-root-MuiCard-root"
+    style="--Paper-shadow: none;"
   >
-    <div
-      class="MuiCardMedia-root css-1rbvx8k-MuiCardMedia-root"
-      role="img"
-      style="background-image: url(/resources-1.jpg);"
-      title="TrustLab Incubator Programme"
+    <img
+      alt="TrustLab Incubator Programme"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-iknk7a-MuiCardMedia-root"
+    />
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-cu1t2t-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
     >
-      <span
-        class="MuiTypography-root MuiTypography-button css-lrr9mk-MuiTypography-root"
-      >
-        Opportunity
-      </span>
-    </div>
-    <div
-      class="MuiCardHeader-root css-3m74zm-MuiCardHeader-root"
-    >
-      <div
-        class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
-      >
-        <h2
-          class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"
-        >
-          TrustLab Incubator Programme
-        </h2>
-      </div>
-    </div>
-    <div
-      class="MuiCardContent-root css-1na367p-MuiCardContent-root"
-    >
-      <div
-        class="MuiBox-root css-7x1cxm"
-      />
-    </div>
-  </a>
+      Apply
+    </button>
+  </div>
 </div>
 `;
