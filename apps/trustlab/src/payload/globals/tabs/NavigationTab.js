@@ -16,6 +16,11 @@ const NavigationTab = {
           type: "collapsible",
           label: "Title & Links",
           fields: [
+            {
+              name: "title",
+              type: "text",
+              localized: true,
+            },
             linkArray({
               overrides: {
                 name: "menus",
@@ -59,6 +64,11 @@ const NavigationTab = {
           type: "collapsible",
           label: "Title & Links",
           fields: [
+            {
+              name: "title",
+              type: "text",
+              localized: true,
+            },
             linkArray({
               overrides: {
                 name: "menus",

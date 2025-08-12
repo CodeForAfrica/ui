@@ -4,39 +4,58 @@ import React from "react";
 import FooterNavList from "@/trustlab/components/FooterNavList";
 
 const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
-  const { primaryMenus, secondaryMenus, sx, title = "Quick Links" } = props;
+  const { primaryNavigation, secondaryNavigation, sx } = props;
 
-  if (!(primaryMenus?.length || secondaryMenus?.length)) {
+  if (
+    !(primaryNavigation?.menus?.length || secondaryNavigation?.menus?.length)
+  ) {
     return null;
   }
   return (
-    <Box sx={sx} ref={ref}>
-      <Typography
-        sx={{
-          mb: 2.5,
-          pb: 1,
-          div: {
-            paddingBottom: "8px",
-          },
-          justifyContent: { xs: "center", md: "left" },
-          display: "flex",
-        }}
-        component="div"
-        variant="h1"
-      >
-        <Box
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems={{ xs: "center", md: "flex-start" }}
+      sx={sx}
+      ref={ref}
+    >
+      {primaryNavigation?.title ? (
+        <Typography
           sx={{
-            width: 170,
+            mb: 2.5,
+            width: 180,
             position: "relative",
             borderBottom: "2px solid",
             lineHeight: "50px",
+            whiteSpace: "nowrap",
+            pb: 1,
           }}
           component="div"
+          variant="h1"
         >
-          {title}
-        </Box>
-      </Typography>
-      <FooterNavList menus={primaryMenus} />
+          {primaryNavigation?.title}
+        </Typography>
+      ) : null}
+      <FooterNavList menus={primaryNavigation?.menus} sx={{ mb: 2 }} />
+      {secondaryNavigation?.title ? (
+        <Typography
+          sx={{
+            mb: 2.5,
+            width: 180,
+            position: "relative",
+            borderBottom: "2px solid",
+            lineHeight: "50px",
+            whiteSpace: "nowrap",
+            mt: 0,
+            pb: 1,
+          }}
+          component="div"
+          variant="h1"
+        >
+          {secondaryNavigation?.title}
+        </Typography>
+      ) : null}
+      <FooterNavList menus={secondaryNavigation?.menus} sx={{}} />
     </Box>
   );
 });
