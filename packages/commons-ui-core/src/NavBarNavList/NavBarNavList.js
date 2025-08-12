@@ -56,6 +56,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           </Component>
         </NavListItem>
       ))}
+      {children}
       {socialLinks?.map(({ platform, url }) => {
         return (
           <NavListItem key={platform}>
@@ -73,7 +74,6 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           </NavListItem>
         );
       })}
-      {children}
     </NavList>
   );
 });

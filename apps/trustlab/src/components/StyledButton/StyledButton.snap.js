@@ -3,10 +3,10 @@
 exports[`<StyledButton /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-ishpgg"
+    class="MuiBox-root css-jgfde4"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1aa1f65-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-uxdeih-MuiButtonBase-root-MuiButton-root"
       tabindex="0"
       type="button"
     >

@@ -82,8 +82,9 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
               },
             }}
             Component={Link}
-          />
-          {children}
+          >
+            {children}
+          </NavBarNavList>
         </Section>
       </Drawer>
     </Grid>

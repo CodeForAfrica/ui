@@ -15,10 +15,10 @@ exports[`<Page /> renders unchanged 1`] = `
           class="MuiBox-root css-0"
         />
         <div
-          class="MuiBox-root css-1y8kukx"
+          class="MuiBox-root css-zti5e1"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-1trruzi-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-1kr0ga8-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
