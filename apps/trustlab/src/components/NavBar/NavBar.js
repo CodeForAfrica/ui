@@ -4,7 +4,6 @@ import {
   DesktopNavBar,
 } from "@commons-ui/core";
 import { Link, NextImageButton } from "@commons-ui/next";
-import { Box } from "@mui/material";
 import React from "react";
 
 import CloseIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
@@ -38,17 +37,15 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
           NextImageButton={NextImageButton}
           Link={Link}
         >
-          <Box>
-            <Button
-              size="large"
-              color="#000"
-              sx={{ mb: 2 }}
-              component={Link}
-              href="/"
-            >
-              {searchButtonLabel}
-            </Button>
-          </Box>
+          <Button
+            size="large"
+            color="#000"
+            sx={{ mb: 2, maxWidth: "fit-content" }}
+            component={Link}
+            href="/"
+          >
+            {searchButtonLabel}
+          </Button>
         </MobileNavBar>
         <DesktopNavBar
           logo={logo}
@@ -78,8 +75,12 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
           }}
         >
           <Button
-            sx={{ mr: 2 }}
-            size="large"
+            sx={{
+              mr: 2,
+              "&:last-child": {
+                marginRight: 0,
+              },
+            }}
             color="#fff"
             component={Link}
             href="/"
