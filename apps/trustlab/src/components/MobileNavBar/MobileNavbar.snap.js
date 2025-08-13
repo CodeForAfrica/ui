@@ -3,7 +3,7 @@
 exports[`<MobileNavBar /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiGrid-root MuiGrid-container css-hs5ptp-MuiGrid-root"
+    class="MuiGrid-root MuiGrid-container css-c114m4-MuiGrid-root"
   >
     <div
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"

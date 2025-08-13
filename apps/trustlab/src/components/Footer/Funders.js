@@ -46,7 +46,7 @@ const Funders = forwardRef((props, ref) => {
                 }}
                 sx={{
                   filter: "grayscale(100%)",
-                  height: "35px",
+                  minHeight: "35px",
                   m: 0,
                   position: "relative",
                   width: "auto",

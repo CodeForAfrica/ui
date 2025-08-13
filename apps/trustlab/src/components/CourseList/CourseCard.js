@@ -43,7 +43,7 @@ const CourseCard = React.forwardRef(function CourseCard(props, ref) {
         <Typography
           variant="h3"
           component="div"
-          sx={{ textTransform: "uppercase" }}
+          sx={{ textTransform: "uppercase", mb: 1, mt: 2 }}
           noWrap
         >
           {title}

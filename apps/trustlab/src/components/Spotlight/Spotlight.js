@@ -61,6 +61,7 @@ const Spotlight = React.forwardRef(function Spotlight(
               borderRadius: "50%",
               width: 50,
               height: 50,
+              display: section > 0 ? "block" : "none",
             }}
           >
             <SvgIcon

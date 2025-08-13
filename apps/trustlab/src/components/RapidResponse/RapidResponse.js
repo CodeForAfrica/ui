@@ -19,21 +19,47 @@ const RapidResponse = forwardRef(function RapidResponse(
           <Grid container sx={{ ml: -2 }} spacing={2}>
             {briefs.map((brief) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={brief.title}>
-                <Stack alignItems="center" gap={2}>
+                <Stack alignItems={{ xs: "flex-start", sm: "center" }} gap={2}>
                   <Figure
                     ImageProps={{
                       alt: brief.icon.alt,
                       src: brief.icon.url,
                     }}
                     sx={{
-                      height: "180px",
-                      width: "180px",
+                      height: { xs: "108px", md: "180px" },
+                      width: { xs: "108px", md: "180px" },
                     }}
                   />
                   <Box sx={{ width: "100%" }}>
-                    <Divider sx={{ background: "black", mb: 2 }} />
-                    <Typography variant="h3">{brief.title}</Typography>
-                    <Divider sx={{ background: "black", mt: 2 }} />
+                    <Divider
+                      sx={{
+                        background: "black",
+                        mb: 2,
+                        display: { xs: "none", sm: "block" },
+                      }}
+                    />
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        "&:after": {
+                          content: '""',
+                          display: { sm: "none", xs: "block" },
+                          width: "18px",
+                          height: "1px",
+                          backgroundColor: "black",
+                          marginTop: "8px",
+                        },
+                      }}
+                    >
+                      {brief.title}
+                    </Typography>
+                    <Divider
+                      sx={{
+                        background: "black",
+                        mt: 2,
+                        display: { xs: "none", sm: "block" },
+                      }}
+                    />
                   </Box>
 
                   <LexicalRichText

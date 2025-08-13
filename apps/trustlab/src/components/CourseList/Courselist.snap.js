@@ -44,7 +44,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-1ov3csj-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-7r4ghm-MuiTypography-root"
             >
               Course 1 Title
             </div>
@@ -79,7 +79,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-1ov3csj-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-7r4ghm-MuiTypography-root"
             >
               Course 2 Title
             </div>
@@ -114,7 +114,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-1ov3csj-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-7r4ghm-MuiTypography-root"
             >
               Course 3 Title
             </div>

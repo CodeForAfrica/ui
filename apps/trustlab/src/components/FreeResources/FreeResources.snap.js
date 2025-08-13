@@ -52,15 +52,17 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-beg6gu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
             >
               RiskDetection toolkit
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p3 css-2m1huf-MuiTypography-root"
+            <div
+              class="MuiBox-root css-jeo9ow"
             >
-              This is a description of the resource.
-            </p>
+              <div
+                class="payload-richtext"
+              />
+            </div>
           </div>
         </div>
         <div
@@ -99,15 +101,17 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-beg6gu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
             >
               Roboshield toolkit
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p3 css-2m1huf-MuiTypography-root"
+            <div
+              class="MuiBox-root css-jeo9ow"
             >
-              This is a description of the resource.
-            </p>
+              <div
+                class="payload-richtext"
+              />
+            </div>
           </div>
         </div>
         <div
@@ -146,15 +150,17 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-beg6gu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
             >
               SelfDefence software
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p3 css-2m1huf-MuiTypography-root"
+            <div
+              class="MuiBox-root css-jeo9ow"
             >
-              This is a description of the resource.
-            </p>
+              <div
+                class="payload-richtext"
+              />
+            </div>
           </div>
         </div>
         <div
@@ -193,15 +199,17 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-beg6gu-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
             >
               PolicyForge toolkit
             </h6>
-            <p
-              class="MuiTypography-root MuiTypography-p3 css-2m1huf-MuiTypography-root"
+            <div
+              class="MuiBox-root css-jeo9ow"
             >
-              This is a description of the resource.
-            </p>
+              <div
+                class="payload-richtext"
+              />
+            </div>
           </div>
         </div>
       </div>

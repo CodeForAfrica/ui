@@ -13,7 +13,7 @@ const defaultProps = {
     {
       title: "RiskDetection toolkit",
       description: "This is a description of the resource.",
-      image: {
+      icon: {
         src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
         alt: "Resource Image",
       },
@@ -21,7 +21,7 @@ const defaultProps = {
     {
       title: "Roboshield toolkit",
       description: "This is a description of the resource.",
-      image: {
+      icon: {
         src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
         alt: "Resource Image",
       },
@@ -29,7 +29,7 @@ const defaultProps = {
     {
       title: "SelfDefence software",
       description: "This is a description of the resource.",
-      image: {
+      icon: {
         src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
         alt: "Resource Image",
       },
@@ -37,7 +37,7 @@ const defaultProps = {
     {
       title: "PolicyForge toolkit",
       description: "This is a description of the resource.",
-      image: {
+      icon: {
         src: "/api/media/file/screenshot-2025-07-21-at-13642-pm-1.png",
         alt: "Resource Image",
       },

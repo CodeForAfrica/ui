@@ -7,7 +7,6 @@ import React, { forwardRef } from "react";
 const FreeResources = forwardRef(function FreeResources(props, ref) {
   const { title, resources = [] } = props;
 
-  console.log(resources);
   return (
     <Box ref={ref} sx={{ background: "#CDCDCD" }}>
       <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
@@ -82,6 +81,8 @@ const FreeResources = forwardRef(function FreeResources(props, ref) {
                 </Box>
                 <Typography
                   sx={{
+                    alignSelf: "flex-start",
+                    textAlign: "left",
                     mb: 2,
                     "&:after": {
                       content: "''",
@@ -98,10 +99,15 @@ const FreeResources = forwardRef(function FreeResources(props, ref) {
                 </Typography>
                 <LexicalRichText
                   elements={resource.description}
+                  sx={{
+                    textAlign: "left",
+                    alignSelf: "flex-start",
+                  }}
                   TypographyProps={{
                     gutterBottom: true,
-                    variant: "p3",
+                    variant: "p2",
                     sx: {
+                      textAlign: "left",
                       mb: 0,
                     },
                   }}
