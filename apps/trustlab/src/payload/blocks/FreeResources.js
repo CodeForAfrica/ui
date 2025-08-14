@@ -1,4 +1,4 @@
-import { richText, image } from "@/commons-ui/payload/fields";
+import { richText, image, linkGroup } from "@/commons-ui/payload/fields";
 
 const FreeResources = {
   slug: "free-resources",
@@ -41,6 +41,12 @@ const FreeResources = {
           overrides: {
             name: "icon",
             required: true,
+          },
+        }),
+        linkGroup({
+          overrides: {
+            name: "link",
+            label: "Resource Link",
           },
         }),
       ],

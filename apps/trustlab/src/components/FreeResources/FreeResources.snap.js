@@ -20,7 +20,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-2zkxxu"
+            class="MuiBox-root css-g6p57z"
           >
             <div
               class="MuiBox-root css-qtoxhl"
@@ -52,7 +52,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
             >
               RiskDetection toolkit
             </h6>
@@ -69,7 +69,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-2zkxxu"
+            class="MuiBox-root css-g6p57z"
           >
             <div
               class="MuiBox-root css-qtoxhl"
@@ -101,7 +101,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
             >
               Roboshield toolkit
             </h6>
@@ -118,7 +118,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-2zkxxu"
+            class="MuiBox-root css-g6p57z"
           >
             <div
               class="MuiBox-root css-qtoxhl"
@@ -150,7 +150,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
             >
               SelfDefence software
             </h6>
@@ -167,7 +167,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-2zkxxu"
+            class="MuiBox-root css-g6p57z"
           >
             <div
               class="MuiBox-root css-qtoxhl"
@@ -199,7 +199,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-2ziq97-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
             >
               PolicyForge toolkit
             </h6>

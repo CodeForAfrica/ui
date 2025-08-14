@@ -23,7 +23,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
           >
             <div
-              class="MuiStack-root css-1ixtn66-MuiStack-root"
+              class="MuiStack-root css-7u69oc-MuiStack-root"
             >
               <figure
                 class="MuiBox-root css-ngndkr"
@@ -47,7 +47,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
                   class="MuiDivider-root MuiDivider-fullWidth css-1bnn69k-MuiDivider-root"
                 />
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-1jh1xz8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-oeu987-MuiTypography-root"
                 >
                   Rapid Response Briefing
                 </h3>
@@ -62,7 +62,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
                   class="payload-richtext"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-y94o99-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
@@ -74,7 +74,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
           >
             <div
-              class="MuiStack-root css-1ixtn66-MuiStack-root"
+              class="MuiStack-root css-7u69oc-MuiStack-root"
             >
               <figure
                 class="MuiBox-root css-ngndkr"
@@ -98,7 +98,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
                   class="MuiDivider-root MuiDivider-fullWidth css-1bnn69k-MuiDivider-root"
                 />
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-1jh1xz8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-oeu987-MuiTypography-root"
                 >
                   Rapid Response Briefing
                 </h3>
@@ -113,7 +113,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
                   class="payload-richtext"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-y94o99-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
@@ -125,7 +125,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
           >
             <div
-              class="MuiStack-root css-1ixtn66-MuiStack-root"
+              class="MuiStack-root css-7u69oc-MuiStack-root"
             >
               <figure
                 class="MuiBox-root css-ngndkr"
@@ -149,7 +149,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
                   class="MuiDivider-root MuiDivider-fullWidth css-1bnn69k-MuiDivider-root"
                 />
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-1jh1xz8-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-oeu987-MuiTypography-root"
                 >
                   Rapid Response Briefing
                 </h3>
@@ -164,7 +164,7 @@ exports[`<RapidResponse /> renders unchanged 1`] = `
                   class="payload-richtext"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-y94o99-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>

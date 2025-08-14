@@ -1,4 +1,4 @@
-import { richText, image } from "@/commons-ui/payload/fields";
+import { richText, image, linkGroup } from "@/commons-ui/payload/fields";
 
 const RapidResponse = {
   slug: "rapid-response",
@@ -42,6 +42,12 @@ const RapidResponse = {
           name: "description",
           localized: true,
           required: true,
+        }),
+        linkGroup({
+          overrides: {
+            name: "link",
+            label: "Rapid Response Link",
+          },
         }),
       ],
     },
