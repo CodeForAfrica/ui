@@ -1,17 +1,8 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import {
-  Grid2 as Grid,
-  Typography,
-  Stack,
-  Divider,
-  Box,
-  SvgIcon,
-} from "@mui/material";
+import { Grid2 as Grid, Typography, Stack, Divider, Box } from "@mui/material";
 import React, { forwardRef } from "react";
-
-import ArrowUpRightIcon from "@/trustlab/assets/icons/Type=arrowUpRight, Size=20, Color=CurrentColor.svg";
 
 const RapidResponse = forwardRef(function RapidResponse(
   { title, briefs = [] },
@@ -92,31 +83,6 @@ const RapidResponse = forwardRef(function RapidResponse(
                       },
                     }}
                   />
-                  {brief.link?.label && (
-                    <Box
-                      display={{ xs: "flex", sm: "none" }}
-                      alignItems="center"
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{
-                          cursor: "pointer",
-                          alignSelf: "flex-start",
-                          textDecoration: "none",
-                          color: "#1020E1",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {brief.link.label}
-                      </Typography>
-                      <SvgIcon
-                        sx={{
-                          color: "#1020E1",
-                        }}
-                        component={ArrowUpRightIcon}
-                      />
-                    </Box>
-                  )}
                 </Stack>
               </Grid>
             ))}

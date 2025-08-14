@@ -1,16 +1,8 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import {
-  Box,
-  Divider,
-  Grid2 as Grid,
-  Typography,
-  SvgIcon,
-} from "@mui/material";
+import { Box, Divider, Grid2 as Grid, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
-
-import ArrowUpRightIcon from "@/trustlab/assets/icons/Type=arrowUpRight, Size=20, Color=CurrentColor.svg";
 
 const FreeResources = forwardRef(function FreeResources(props, ref) {
   const { title, resources = [] } = props;
@@ -127,33 +119,6 @@ const FreeResources = forwardRef(function FreeResources(props, ref) {
                     },
                   }}
                 />
-                {resource.link?.label && (
-                  <Box
-                    alignSelf="flex-start"
-                    display={{ xs: "flex", sm: "none" }}
-                    alignItems="center"
-                    sx={{ mt: 2, textDecoration: "none" }}
-                  >
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        textDecoration: "none",
-                        cursor: "pointer",
-                        alignSelf: "flex-start",
-                        color: "#1020E1",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {resource.link.label}
-                    </Typography>
-                    <SvgIcon
-                      sx={{
-                        color: "#1020E1",
-                      }}
-                      component={ArrowUpRightIcon}
-                    />
-                  </Box>
-                )}
               </Box>
             </Grid>
           ))}
