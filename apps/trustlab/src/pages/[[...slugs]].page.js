@@ -45,9 +45,9 @@ const componentsBySlugs = {
 };
 
 function Page({ blocks, fallback }) {
-  // if (!blocks?.length) {
-  //   return null;
-  // }
+  if (!blocks?.length) {
+    return null;
+  }
 
   let PageComponent = React.Fragment;
   let pageComponentProps;
