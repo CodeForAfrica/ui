@@ -1,15 +1,15 @@
 import { richText, image, linkGroup } from "@/commons-ui/payload/fields";
 
-const FreeResources = {
+const Resources = {
   slug: "free-resources",
   imageURL: "/images/cms/blocks/free-resources.png",
-  imageAltText: "Free Resources",
+  imageAltText: "Helplines",
   labels: {
     singular: {
-      en: "Free Resource",
+      en: "Resource",
     },
     plural: {
-      en: "Free Resources",
+      en: "Helplines",
     },
   },
   fields: [
@@ -24,7 +24,7 @@ const FreeResources = {
       minRows: 4,
       maxRows: 4,
       admin: {
-        description: "Add Free Resources",
+        description: "Add Helplines",
       },
       fields: [
         {
@@ -54,4 +54,4 @@ const FreeResources = {
   ],
 };
 
-export default FreeResources;
+export default Resources;

@@ -4,7 +4,7 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Divider, Grid2 as Grid, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 
-const FreeResources = forwardRef(function FreeResources(props, ref) {
+const Resources = forwardRef(function Resources(props, ref) {
   const { title, resources = [] } = props;
 
   return (
@@ -128,4 +128,4 @@ const FreeResources = forwardRef(function FreeResources(props, ref) {
   );
 });
 
-export default FreeResources;
+export default Resources;

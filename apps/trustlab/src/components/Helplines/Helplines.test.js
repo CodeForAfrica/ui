@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import RapidResponse from "./RapidResponse";
+import Helplines from "./Helplines";
 
 import theme from "@/trustlab/theme";
 
@@ -121,9 +121,9 @@ const defaultProps = {
   ],
 };
 
-describe("<RapidResponse />", () => {
+describe("<Helplines />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<RapidResponse {...defaultProps} />);
+    const { container } = render(<Helplines {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

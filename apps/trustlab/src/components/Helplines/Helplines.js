@@ -4,10 +4,7 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Grid2 as Grid, Typography, Stack, Divider, Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
-const RapidResponse = forwardRef(function RapidResponse(
-  { title, briefs = [] },
-  ref,
-) {
+const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
   return (
     <Box bgcolor="common.white">
       <Section
@@ -93,4 +90,4 @@ const RapidResponse = forwardRef(function RapidResponse(
   );
 });
 
-export default RapidResponse;
+export default Helplines;

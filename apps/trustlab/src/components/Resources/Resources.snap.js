@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FreeResources /> renders unchanged 1`] = `
+exports[`<Resources /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-49ynfi"
@@ -11,7 +11,7 @@ exports[`<FreeResources /> renders unchanged 1`] = `
       <h1
         class="MuiTypography-root MuiTypography-h1 css-148vakw-MuiTypography-root"
       >
-        Free Resources
+        Helplines
       </h1>
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-4 css-4q6p23-MuiGrid2-root"

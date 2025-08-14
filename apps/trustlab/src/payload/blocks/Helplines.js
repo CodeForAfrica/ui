@@ -1,15 +1,15 @@
 import { richText, image, linkGroup } from "@/commons-ui/payload/fields";
 
-const RapidResponse = {
+const Helplines = {
   slug: "rapid-response",
   imageURL: "/images/cms/blocks/rapid-response.png",
-  imageAltText: "Rapid Response",
+  imageAltText: "Helpline",
   labels: {
     singular: {
-      en: "Rapid Response",
+      en: "Helpline",
     },
     plural: {
-      en: "Rapid Responses",
+      en: "Helplines",
     },
   },
   fields: [
@@ -54,4 +54,4 @@ const RapidResponse = {
   ],
 };
 
-export default RapidResponse;
+export default Helplines;

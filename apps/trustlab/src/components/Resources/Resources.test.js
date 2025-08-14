@@ -1,14 +1,14 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import FreeResources from "./FreeResources";
+import Resources from "./Resources";
 
 import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
 const defaultProps = {
-  title: "Free Resources",
+  title: "Helplines",
   resources: [
     {
       title: "RiskDetection toolkit",
@@ -45,9 +45,9 @@ const defaultProps = {
   ],
 };
 
-describe("<FreeResources />", () => {
+describe("<Resources />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<FreeResources {...defaultProps} />);
+    const { container } = render(<Resources {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });

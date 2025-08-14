@@ -7,8 +7,8 @@ import CallToAction from "@/trustlab/components/CallToAction";
 import Content from "@/trustlab/components/Content";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
-import FreeResources from "@/trustlab/components/FreeResources";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
+import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
@@ -17,7 +17,7 @@ import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
-import RapidResponse from "@/trustlab/components/RapidResponse";
+import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
@@ -27,7 +27,7 @@ const componentsBySlugs = {
   content: Content,
   "course-list": CourseList,
   "donor-overview-list": DonorOverviewList,
-  "free-resources": FreeResources,
+  "free-resources": Resources,
   gallery: Gallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
@@ -38,7 +38,7 @@ const componentsBySlugs = {
   "partner-overview-list": PartnerOverviewList,
   "partners-list": PartnersList,
   "post-list": PostList,
-  "rapid-response": RapidResponse,
+  "rapid-response": Helplines,
   "resources-overview-list": OverviewCardList,
   spotlight: Spotlight,
   "what-we-do": Banner,

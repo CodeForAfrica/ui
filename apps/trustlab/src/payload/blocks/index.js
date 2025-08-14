@@ -16,5 +16,5 @@ export { default as WhatWeDo } from "./WhatWeDo";
 export { default as Gallery } from "./Gallery";
 export { default as Incubator } from "./Incubator";
 export { default as IntelligenceBriefings } from "./IntelligenceBriefings";
-export { default as FreeResources } from "./FreeResources";
-export { default as RapidResponse } from "./RapidResponse";
+export { default as Resources } from "./Resources";
+export { default as Helplines } from "./Helplines";
