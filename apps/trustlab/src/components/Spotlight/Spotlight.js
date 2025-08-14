@@ -57,7 +57,6 @@ const Spotlight = React.forwardRef(function Spotlight(
             onClick={handlePrev}
             disabled={section === 0}
             sx={{
-              border: "1px solid #fff",
               borderRadius: "50%",
               width: 50,
               height: 50,
@@ -68,10 +67,10 @@ const Spotlight = React.forwardRef(function Spotlight(
               sx={{
                 fill: "none",
                 color: "common.white",
-                fontSize: "32px",
+                fontSize: "50px",
                 transform: "rotate(180deg)",
               }}
-              viewBox="0 0 20 20"
+              viewBox="0 0 50 50"
               component={ChevronRightDoubleIcon}
             />
           </IconButton>
@@ -85,20 +84,20 @@ const Spotlight = React.forwardRef(function Spotlight(
             onClick={handleNext}
             disabled={section >= maxSection}
             sx={{
-              border: "1px solid #fff",
               borderRadius: "50%",
               width: 50,
               height: 50,
               display: section < maxSection ? "block" : "none",
+              color: "common.white",
             }}
           >
             <SvgIcon
               sx={{
                 fill: "none",
                 color: "common.white",
-                fontSize: "32px",
+                fontSize: "50px",
               }}
-              viewBox="0 0 20 20"
+              viewBox="0 0 50 50"
               component={ChevronRightDoubleIcon}
             />
           </IconButton>

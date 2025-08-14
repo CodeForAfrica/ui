@@ -11,7 +11,7 @@ exports[`<SpotlightCard /> renders unchanged 1`] = `
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tht44p-MuiCardMedia-root"
     />
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-cu1t2t-MuiButtonBase-root-MuiButton-root"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-k3yvek-MuiButtonBase-root-MuiButton-root"
       tabindex="0"
       type="button"
     />

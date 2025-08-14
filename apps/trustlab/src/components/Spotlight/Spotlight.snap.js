@@ -16,16 +16,16 @@ exports[`<Spotlight /> renders unchanged 1`] = `
       >
         <button
           aria-label="Next"
-          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-1t2pbx2-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-xs8zuz-MuiButtonBase-root-MuiIconButton-root"
           disabled=""
           tabindex="-1"
           type="button"
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-qhy2ic-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-aqay7e-MuiSvgIcon-root"
             focusable="false"
-            viewbox="0 0 20 20"
+            viewbox="0 0 50 50"
           />
         </button>
         <div
@@ -33,16 +33,16 @@ exports[`<Spotlight /> renders unchanged 1`] = `
         />
         <button
           aria-label="Next"
-          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-1t2pbx2-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-g3wzh5-MuiButtonBase-root-MuiIconButton-root"
           disabled=""
           tabindex="-1"
           type="button"
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1mlq796-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-hgwuxl-MuiSvgIcon-root"
             focusable="false"
-            viewbox="0 0 20 20"
+            viewbox="0 0 50 50"
           />
         </button>
       </div>

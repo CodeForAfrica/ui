@@ -45,6 +45,7 @@ function SpotlightCard(props) {
           bottom: 16,
           right: 16,
           textDecoration: "none",
+          textTransform: "none",
         }}
         href={href}
       >
