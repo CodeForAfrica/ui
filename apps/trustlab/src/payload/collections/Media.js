@@ -1,5 +1,4 @@
 import path from "path";
-import { fileURLToPath } from "url";
 
 import { createdBy } from "@commons-ui/payload";
 
@@ -7,8 +6,14 @@ import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
 import { hideAPIURL, slugify } from "@/trustlab/payload/utils";
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+function slugifyFilename(filename) {
+  if (!filename) {
+    return filename;
+  }
+  const ext = path.extname(filename);
+  const baseName = path.basename(filename, ext);
+  return slugify(baseName) + ext;
+}
 
 const Media = {
   slug: "media",
@@ -31,7 +36,8 @@ const Media = {
     createdBy(),
   ],
   upload: {
-    staticDir: path.resolve(dirname, "../../media"),
+    // Relative to the directory that contains Paylod config
+    staticDir: "media",
     adminThumbnail: "thumbnail",
     focalPoint: true,
     imageSizes: [
@@ -70,18 +76,13 @@ const Media = {
     safeFileNames: true,
   },
   hooks: {
-    beforeChange: [
-      ({ data }) => {
-        if (data?.filename) {
-          const ext = path.extname(data.filename);
-          const baseName = path.basename(data.filename, ext);
-          const name = slugify(baseName) + ext;
-          return {
-            ...data,
-            filename: name,
-          };
+    // Rename files before operation i.e. before even URL is generated, etc.
+    beforeOperation: [
+      async ({ req, operation, args }) => {
+        if ((operation === "create" || operation === "update") && req.file) {
+          req.file.name = slugifyFilename(req.file.name);
         }
-        return data;
+        return args; // Important: return args to allow the operation to proceed
       },
     ],
     afterRead: [
@@ -89,6 +90,8 @@ const Media = {
         const { pathname } = new URL(doc?.url);
         return {
           ...doc,
+          // Need relative URLs since we're deploying Payload and Next.js
+          // in same process
           url: pathname,
           src: pathname,
         };
