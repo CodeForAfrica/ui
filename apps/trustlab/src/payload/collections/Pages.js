@@ -17,6 +17,7 @@ import {
   PageHeader,
   PageOverview,
   PartnerOverviewList,
+  PartnerLocations,
   PartnersList,
   PostList,
   Helplines,
@@ -85,6 +86,7 @@ const Pages = {
         ResourcesOverviewList,
         Spotlight,
         WhatWeDo,
+        PartnerLocations,
       ],
       localized: true,
       admin: {
