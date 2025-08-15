@@ -42,7 +42,7 @@ const CourseList = {
           },
         }),
       ],
-      minRows: 3,
+      minRows: 1,
     },
   ],
 };
