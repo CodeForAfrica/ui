@@ -1,10 +1,18 @@
 import { Section } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { useTheme, Slide, Box, Button } from "@mui/material";
+import {
+  useTheme,
+  Slide,
+  Box,
+  Button,
+  Grid2 as Grid,
+  IconButton,
+  SvgIcon,
+} from "@mui/material";
 import React, { forwardRef, useRef, useState } from "react";
 
-import { neutral } from "@/trustlab/colors";
+import ChevronRightDouble from "@/trustlab/assets/icons/Type=chevronRightDouble, Size=20, Color=currentColor.svg";
 
 const direction = (activeStep, prevStep, index) => {
   // Going backwards, slide right
@@ -29,7 +37,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
       sx={{
         maxWidth: { md: "100%", xs: "100%" },
       }}
-      bgcolor="common.black"
+      backgroundColor="common.black"
       color="common.white"
       fixed={false}
       ref={ref}
@@ -38,9 +46,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: "500px",
+          height: { xs: "828px", sm: "1174px", md: "741px" },
           overflow: "hidden",
-          backgroundColor: "common.black",
         }}
       >
         {slides.map((slide, index) => (
@@ -60,17 +67,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           >
             <Box
               sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
                 width: "100%",
                 height: "100%",
-                backgroundImage: slide.backgroundImage?.url
-                  ? `url(${slide.backgroundImage?.url})`
-                  : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 color: "#fff",
+                backgroundColor: slide.backgroundColor,
               }}
             >
               <Box
@@ -82,45 +84,89 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               >
                 <Box
                   sx={{
-                    pt: 10,
+                    pt: 6,
                     px: { xs: 2.5, sm: 0 },
                     margin: "0 auto",
                     maxWidth: theme.contentWidths.values,
                   }}
                 >
-                  <LexicalRichText
-                    elements={slide.title}
-                    TypographyProps={{
-                      variant: "display1",
-                    }}
-                  />
-                  <LexicalRichText
-                    elements={slide.subtitle}
-                    TypographyProps={{
-                      variant: "h1",
-                      gutterBottom: true,
-                    }}
-                  />
-                  <LexicalRichText
-                    elements={slide.description}
-                    TypographyProps={{
-                      variant: "h3",
-                      sx: { mt: 2 },
-                    }}
-                  />
+                  <Grid container spacing={2} alignItems="center">
+                    <Grid size={{ xs: 12, md: 6 }}>
+                      <LexicalRichText
+                        elements={slide.title}
+                        TypographyProps={{
+                          variant: "display2",
+                          color: slide.textColor,
+                          sx: {
+                            fontSize: { xs: "40px", sm: "64px" },
+                            lineHeight: { xs: "40px", sm: "64px" },
+                          },
+                        }}
+                      />
 
-                  {slide.href && (
-                    <Button
-                      component={slide.href ? Link : undefined}
-                      href={slide.href}
-                      variant="outlined"
+                      <LexicalRichText
+                        elements={slide.description}
+                        TypographyProps={{
+                          variant: "h1",
+                          sx: {
+                            mt: 2,
+                            color: slide.textColor,
+                            fontSize: { xs: "24px", sm: "36px" },
+                            fontWeight: 500,
+                            lineHeight: { xs: "32px", sm: "40px" },
+                          },
+                        }}
+                      />
+                      {slide.buttons?.links?.length > 0 && (
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: 2,
+                            mt: 3,
+                          }}
+                        >
+                          {slide.buttons.links.map((link) => (
+                            <Button
+                              key={link.label}
+                              variant="contained"
+                              color="primary"
+                              href={link.href}
+                              component={link.href ? Link : undefined}
+                              sx={{
+                                backgroundColor: slide.buttons.backgroundColor,
+                                color: slide.buttons.textColor,
+                                border: "none",
+                                textTransform: "none",
+                                height: "50px",
+                              }}
+                            >
+                              {link.label}
+                            </Button>
+                          ))}
+                        </Box>
+                      )}
+                    </Grid>
+                    <Grid
+                      size={{ xs: 12, md: 6 }}
                       sx={{
-                        mt: 2,
+                        display: "flex",
+                        justifyContent: { xs: "flex-start", md: "flex-end" },
                       }}
                     >
-                      {slide.label}
-                    </Button>
-                  )}
+                      <Figure
+                        ImageProps={{
+                          alt: slide.image.alt,
+                          src: slide.image.url,
+                          sx: { objectPosition: { xs: "left", md: "right" } },
+                        }}
+                        sx={{
+                          height: { xs: "502px", sm: "700px", md: "520px" },
+                          width: { xs: "100%", sm: "540px", md: "402px" },
+                        }}
+                      />
+                    </Grid>
+                  </Grid>
                 </Box>
               </Box>
             </Box>
@@ -128,44 +174,102 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         ))}
         <Box
           sx={{
-            position: "relative",
-            px: { xs: 2.5, sm: 6, md: 0 },
-            maxWidth: theme.contentWidths.values,
-            m: "0 auto",
+            position: "absolute",
+            bottom: 60,
+            left: "50%",
+            transform: "translateX(-50%)",
+            px: { xs: 2.5, sm: 0 },
+            height: "50px",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <Box
+          <IconButton
             sx={{
-              position: "absolute",
-              left: 0,
-              top: { sm: 336, xs: 400 },
-              px: { xs: 2.5, sm: 0 },
+              backgroundColor: "rgba(255, 255, 255, 0.40)",
+              transform: "rotate(180deg)",
+              mr: 1.875,
+              height: "50px",
+              width: "50px",
+              "&:hover": {
+                backgroundColor: slides[activeStep].buttons.backgroundColor,
+                color: slides[activeStep].buttons.textColor,
+              },
+              "&:disabled": {
+                backgroundColor: "common.white",
+                cursor: "no-drop",
+              },
             }}
+            onClick={() =>
+              setActiveStep((prevStep) => {
+                prevStepRef.current = prevStep;
+                return prevStep - 1;
+              })
+            }
+            disabled={activeStep <= 0}
           >
-            {slides.map((slide, index) => (
-              <Button
-                key={slide.id}
-                onClick={() =>
-                  setActiveStep((prevStep) => {
-                    prevStepRef.current = prevStep;
-                    return index;
-                  })
-                }
-                sx={{
-                  width: 12,
-                  height: 12,
-                  minWidth: 0,
-                  borderRadius: "50%",
-                  border: "1px solid",
-                  borderColor: neutral[200],
-                  backgroundColor:
-                    activeStep === index ? neutral[200] : "transparent",
-                  mx: 0.5,
-                  p: 0,
-                }}
-              />
-            ))}
-          </Box>
+            <SvgIcon
+              sx={{
+                fill: "none",
+                fontSize: "24px",
+              }}
+              viewBox="0 0 20 20"
+              component={ChevronRightDouble}
+            />
+          </IconButton>
+          {slides.map((slide, index) => (
+            <Button
+              key={slide.id}
+              onClick={() =>
+                setActiveStep((prevStep) => {
+                  prevStepRef.current = prevStep;
+                  return index;
+                })
+              }
+              sx={{
+                width: 12,
+                height: 12,
+                minWidth: 0,
+                borderRadius: "50%",
+                border: "none",
+                backgroundColor: activeStep === index ? "#717680" : "#A4A7AE",
+                mx: 0.5,
+                p: 0,
+              }}
+            />
+          ))}
+          <IconButton
+            sx={{
+              backgroundColor: "rgba(255, 255, 255, 0.40)",
+              ml: 1.875,
+              height: "50px",
+              width: "50px",
+              "&:hover": {
+                backgroundColor: slides[activeStep].buttons.backgroundColor,
+                color: slides[activeStep].buttons.textColor,
+              },
+              "&:disabled": {
+                backgroundColor: "common.white",
+                cursor: "no-drop",
+              },
+            }}
+            disabled={activeStep >= slides.length - 1}
+            onClick={() =>
+              setActiveStep((prevStep) => {
+                prevStepRef.current = prevStep;
+                return prevStep + 1;
+              })
+            }
+          >
+            <SvgIcon
+              sx={{
+                fill: "none",
+                fontSize: "24px",
+              }}
+              viewBox="0 0 20 20"
+              component={ChevronRightDouble}
+            />
+          </IconButton>
         </Box>
       </Box>
     </Section>
