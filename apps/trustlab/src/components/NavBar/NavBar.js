@@ -18,7 +18,7 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
     <NavigationBar
       sx={{
         boxShadow: "none",
-        height: 64,
+        height: 94,
         borderBottom: `1px solid ${grey[900]}`,
         backgroundColor: grey[900],
       }}
@@ -69,6 +69,7 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
           sx={{
             display: { xs: "none", md: "flex" },
             color: "common.white",
+            height: 94,
             img: {
               objectFit: "contain",
             },
@@ -84,6 +85,7 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
             color="#fff"
             component={Link}
             href="/"
+            size="large"
           >
             {searchButtonLabel}
           </Button>

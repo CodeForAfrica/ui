@@ -1,5 +1,17 @@
 import { getPost } from "@/trustlab/utils/post";
 
+function getSpotlightButtonLink(post) {
+  if (post.isApplication) {
+    return {
+      href: post.applicationLink?.href,
+      label: post.applicationLink?.label || "Apply",
+    };
+  }
+  return {
+    href: post.link?.href || "",
+    label: post.link?.label || "Read",
+  };
+}
 async function collectionOverview(block, api) {
   const { blockType, items: collectionList, ...other } = block;
   const promises = collectionList.map(async ({ value }) => {
@@ -18,6 +30,7 @@ async function collectionOverview(block, api) {
       tag: firstTag?.name || null,
       id,
       href,
+      buttonLink: getSpotlightButtonLink(post),
     };
   });
 

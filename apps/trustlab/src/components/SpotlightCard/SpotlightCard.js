@@ -1,41 +1,57 @@
 import { Link } from "@commons-ui/next";
+import { Button, Card, CardMedia } from "@mui/material";
 
-import Card from "@/trustlab/components/Card";
-
-function SpotlightCard({ title, media, description, tag, link }) {
+function SpotlightCard(props) {
+  const { title, image, buttonLink } = props;
+  const { href, label: linkLabel } = buttonLink || {};
   return (
     <Card
-      title={title}
-      media={media}
-      description={description}
-      tag={tag}
-      component={Link}
-      href={link}
       sx={{
-        borderColor: "common.white",
-        width: {
-          xs: "100%",
-          md: 500,
-          lg: 588,
-        },
-        maxWidth: {
-          xs: "100%",
-          md: 500,
-          lg: 588,
-        },
-        backgroundColor: "common.black",
-        color: "common.white",
-        textDecoration: "none",
+        width: "100%",
+        height: 220,
+        maxWidth: { xs: "100%", sm: 350 },
+        borderRadius: "10px",
+        position: "relative",
+        overflow: "hidden",
+        p: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
-      CardMediaProps={{
-        sx: {
+      elevation={0}
+    >
+      <CardMedia
+        component="img"
+        src={image?.src}
+        alt={title}
+        sx={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "10px",
+          display: "block",
           filter: "grayscale(100%)",
-          "&:hover": {
-            filter: "none",
-          },
-        },
-      }}
-    />
+        }}
+      />
+      <Button
+        component={href ? Link : undefined}
+        sx={{
+          backgroundColor: "#FFDE59",
+          py: 0.75,
+          px: 2,
+          color: "#000",
+          border: "2px solid #000",
+          position: "absolute",
+          bottom: 16,
+          right: 16,
+          textDecoration: "none",
+          textTransform: "none",
+        }}
+        href={href}
+      >
+        {linkLabel}
+      </Button>
+    </Card>
   );
 }
 

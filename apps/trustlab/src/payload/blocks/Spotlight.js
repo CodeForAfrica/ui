@@ -7,8 +7,8 @@ const Spotlight = CollectionOverview(
   {
     collectionLabel: "Spotlight Items",
     hasAction: false,
-    minRows: 2,
-    maxRows: 2,
+    minRows: 3,
+    maxRows: 12,
   },
 );
 
