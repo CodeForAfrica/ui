@@ -1,8 +1,8 @@
 import { richText, image, linkGroup } from "@/commons-ui/payload/fields";
 
 const Helplines = {
-  slug: "rapid-response",
-  imageURL: "/images/cms/blocks/rapid-response.png",
+  slug: "helplines",
+  imageURL: "/images/cms/blocks/helplines.png",
   imageAltText: "Helpline",
   labels: {
     singular: {

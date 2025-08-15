@@ -1,8 +1,8 @@
 import { richText, image, linkGroup } from "@/commons-ui/payload/fields";
 
 const Resources = {
-  slug: "free-resources",
-  imageURL: "/images/cms/blocks/free-resources.png",
+  slug: "resources",
+  imageURL: "/images/cms/blocks/resources.png",
   imageAltText: "Helplines",
   labels: {
     singular: {
