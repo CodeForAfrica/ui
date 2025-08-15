@@ -36,8 +36,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
     <Section
       sx={{
         maxWidth: { md: "100%", xs: "100%" },
+        backgroundColor: slides[activeStep]?.backgroundColor,
       }}
-      backgroundColor="common.black"
       color="common.white"
       fixed={false}
       ref={ref}
@@ -72,7 +72,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 color: "#fff",
-                backgroundColor: slide.backgroundColor,
               }}
             >
               <Box
@@ -172,105 +171,107 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             </Box>
           </Slide>
         ))}
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: 60,
-            left: "50%",
-            transform: "translateX(-50%)",
-            px: { xs: 2.5, sm: 0 },
-            height: "50px",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <IconButton
+        {slides.length > 1 ? (
+          <Box
             sx={{
-              backgroundColor: "rgba(255, 255, 255, 0.40)",
-              transform: "rotate(180deg)",
-              mr: 1.875,
+              position: "absolute",
+              bottom: 60,
+              left: "50%",
+              transform: "translateX(-50%)",
+              px: { xs: 2.5, sm: 0 },
               height: "50px",
-              width: "50px",
-              "&:hover": {
-                backgroundColor: slides[activeStep].buttons.backgroundColor,
-                color: slides[activeStep].buttons.textColor,
-              },
-              "&:disabled": {
-                backgroundColor: "common.white",
-                cursor: "no-drop",
-              },
+              display: "flex",
+              alignItems: "center",
             }}
-            onClick={() =>
-              setActiveStep((prevStep) => {
-                prevStepRef.current = prevStep;
-                return prevStep - 1;
-              })
-            }
-            disabled={activeStep <= 0}
           >
-            <SvgIcon
+            <IconButton
               sx={{
-                fill: "none",
-                fontSize: "24px",
+                backgroundColor: "rgba(255, 255, 255, 0.40)",
+                transform: "rotate(180deg)",
+                mr: 1.875,
+                height: "50px",
+                width: "50px",
+                "&:hover": {
+                  backgroundColor: slides[activeStep].buttons.backgroundColor,
+                  color: slides[activeStep].buttons.textColor,
+                },
+                "&:disabled": {
+                  backgroundColor: "common.white",
+                  cursor: "no-drop",
+                },
               }}
-              viewBox="0 0 20 20"
-              component={ChevronRightDouble}
-            />
-          </IconButton>
-          {slides.map((slide, index) => (
-            <Button
-              key={slide.id}
               onClick={() =>
                 setActiveStep((prevStep) => {
                   prevStepRef.current = prevStep;
-                  return index;
+                  return prevStep - 1;
                 })
               }
+              disabled={activeStep <= 0}
+            >
+              <SvgIcon
+                sx={{
+                  fill: "none",
+                  fontSize: "24px",
+                }}
+                viewBox="0 0 20 20"
+                component={ChevronRightDouble}
+              />
+            </IconButton>
+            {slides.map((slide, index) => (
+              <Button
+                key={slide.id}
+                onClick={() =>
+                  setActiveStep((prevStep) => {
+                    prevStepRef.current = prevStep;
+                    return index;
+                  })
+                }
+                sx={{
+                  width: 12,
+                  height: 12,
+                  minWidth: 0,
+                  borderRadius: "50%",
+                  border: "none",
+                  backgroundColor: activeStep === index ? "#717680" : "#A4A7AE",
+                  mx: 0.5,
+                  p: 0,
+                }}
+              />
+            ))}
+            <IconButton
               sx={{
-                width: 12,
-                height: 12,
-                minWidth: 0,
-                borderRadius: "50%",
-                border: "none",
-                backgroundColor: activeStep === index ? "#717680" : "#A4A7AE",
-                mx: 0.5,
-                p: 0,
+                backgroundColor: "rgba(255, 255, 255, 0.40)",
+                ml: 1.875,
+                height: "50px",
+                width: "50px",
+                "&:hover": {
+                  backgroundColor: slides[activeStep].buttons.backgroundColor,
+                  color: slides[activeStep].buttons.textColor,
+                },
+                "&:disabled": {
+                  backgroundColor: "common.white",
+                  cursor: "no-drop",
+                },
               }}
-            />
-          ))}
-          <IconButton
-            sx={{
-              backgroundColor: "rgba(255, 255, 255, 0.40)",
-              ml: 1.875,
-              height: "50px",
-              width: "50px",
-              "&:hover": {
-                backgroundColor: slides[activeStep].buttons.backgroundColor,
-                color: slides[activeStep].buttons.textColor,
-              },
-              "&:disabled": {
-                backgroundColor: "common.white",
-                cursor: "no-drop",
-              },
-            }}
-            disabled={activeStep >= slides.length - 1}
-            onClick={() =>
-              setActiveStep((prevStep) => {
-                prevStepRef.current = prevStep;
-                return prevStep + 1;
-              })
-            }
-          >
-            <SvgIcon
-              sx={{
-                fill: "none",
-                fontSize: "24px",
-              }}
-              viewBox="0 0 20 20"
-              component={ChevronRightDouble}
-            />
-          </IconButton>
-        </Box>
+              disabled={activeStep >= slides.length - 1}
+              onClick={() =>
+                setActiveStep((prevStep) => {
+                  prevStepRef.current = prevStep;
+                  return prevStep + 1;
+                })
+              }
+            >
+              <SvgIcon
+                sx={{
+                  fill: "none",
+                  fontSize: "24px",
+                }}
+                viewBox="0 0 20 20"
+                component={ChevronRightDouble}
+              />
+            </IconButton>
+          </Box>
+        ) : null}
       </Box>
     </Section>
   );
