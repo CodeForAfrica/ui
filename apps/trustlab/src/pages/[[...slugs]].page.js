@@ -14,6 +14,7 @@ import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
+import PartnerLocations from "@/trustlab/components/PartnerLocations";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
@@ -37,6 +38,7 @@ const componentsBySlugs = {
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
   "partners-list": PartnersList,
+  "partner-locations": PartnerLocations,
   "post-list": PostList,
   helplines: Helplines,
   "resources-overview-list": OverviewCardList,
