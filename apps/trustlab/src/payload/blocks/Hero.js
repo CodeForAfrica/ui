@@ -1,4 +1,6 @@
-import { richText, image, link } from "@commons-ui/payload";
+import { richText, image, linkArray } from "@commons-ui/payload";
+
+import colorSettingsField from "../fields/colorSettingsField";
 
 const Hero = {
   slug: "hero",
@@ -16,30 +18,52 @@ const Hero = {
           required: true,
         }),
         richText({
-          name: "subtitle",
-          required: true,
-        }),
-        richText({
           name: "description",
-          required: true,
           admin: {
             description: "A brief description of the slide content.",
           },
         }),
         image({
           overrides: {
-            name: "backgroundImage",
             required: true,
           },
         }),
-        link({
-          name: "buttonLink",
-          label: "Button Link",
-          required: true,
-          admin: {
-            description: "The link to navigate to when the button is clicked.",
+        colorSettingsField({
+          backgroundOverrides: {
+            defaultValue: "#F0F0F5",
+          },
+          textOverrides: {
+            defaultValue: "#000000",
           },
         }),
+        {
+          name: "buttons",
+          type: "group",
+          fields: [
+            colorSettingsField({
+              backgroundOverrides: {
+                defaultValue: "#F0F0F5",
+              },
+              textOverrides: {
+                defaultValue: "#000000",
+              },
+            }),
+            linkArray({
+              overrides: {
+                name: "links",
+                maxRows: 2,
+                labels: {
+                  singular: {
+                    en: "Button",
+                  },
+                  plural: {
+                    en: "Buttons",
+                  },
+                },
+              },
+            }),
+          ],
+        },
       ],
     },
   ],
