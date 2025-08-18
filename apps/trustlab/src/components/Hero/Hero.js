@@ -47,6 +47,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           position: "relative",
           width: "100%",
           height: { xs: "828px", sm: "1174px", md: "741px" },
+          display: "flex",
           overflow: "hidden",
         }}
       >
