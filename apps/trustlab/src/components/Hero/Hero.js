@@ -46,7 +46,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: { xs: "828px", sm: "1174px", md: "680px" },
+          height: { xs: "828px", sm: "1174px", md: "500px" },
           overflow: "hidden",
           display: "flex",
         }}
@@ -151,8 +151,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         sx: { objectPosition: { xs: "left", md: "right" } },
                       }}
                       sx={{
-                        height: { xs: "502px", sm: "700px", md: "520px" },
-                        width: { xs: "100%", sm: "540px", md: "402px" },
+                        height: { xs: "402px", sm: "560px", md: "416px" },
+                        width: { xs: "100%", sm: "432px", md: "321.6px" },
                       }}
                     />
                   </Grid>
