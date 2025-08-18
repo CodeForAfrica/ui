@@ -24,8 +24,9 @@ const Hero = {
           },
         }),
         image({
-          name: "image",
-          required: true,
+          overrides: {
+            required: true,
+          },
         }),
         colorSettingsField({
           backgroundOverrides: {
