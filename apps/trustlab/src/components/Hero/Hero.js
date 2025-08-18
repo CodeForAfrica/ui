@@ -46,7 +46,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: { xs: "828px", sm: "1174px", md: "741px" },
+          height: { xs: "828px", sm: "1174px", md: "680px" },
           overflow: "hidden",
           display: "flex",
         }}
