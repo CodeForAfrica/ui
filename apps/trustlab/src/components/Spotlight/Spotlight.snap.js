@@ -12,11 +12,11 @@ exports[`<Spotlight /> renders unchanged 1`] = `
         class="MuiTypography-root MuiTypography-h1 css-148vakw-MuiTypography-root"
       />
       <div
-        class="MuiBox-root css-2xseyw"
+        class="MuiBox-root css-6jninf"
       >
         <button
           aria-label="Next"
-          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-xs8zuz-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-iaafgf-MuiButtonBase-root-MuiIconButton-root"
           disabled=""
           tabindex="-1"
           type="button"
@@ -29,11 +29,11 @@ exports[`<Spotlight /> renders unchanged 1`] = `
           />
         </button>
         <div
-          class="MuiBox-root css-jym0mx"
+          class="MuiBox-root css-l7m7w2"
         />
         <button
           aria-label="Next"
-          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-g3wzh5-MuiButtonBase-root-MuiIconButton-root"
+          class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-c2xhbv-MuiButtonBase-root-MuiIconButton-root"
           disabled=""
           tabindex="-1"
           type="button"

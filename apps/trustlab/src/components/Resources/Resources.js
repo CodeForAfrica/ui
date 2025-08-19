@@ -18,7 +18,6 @@ const Resources = forwardRef(function Resources(props, ref) {
         <Grid container spacing={4}>
           {resources.map((resource, idx) => (
             <Grid
-              item
               key={resource.title || `resource-${idx}`}
               size={{
                 xs: 6,
