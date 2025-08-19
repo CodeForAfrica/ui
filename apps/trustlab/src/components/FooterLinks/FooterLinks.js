@@ -15,7 +15,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
     <Box
       display="flex"
       flexDirection="column"
-      alignItems={{ xs: "center", md: "flex-start" }}
+      alignItems="flex-start"
       sx={sx}
       ref={ref}
     >

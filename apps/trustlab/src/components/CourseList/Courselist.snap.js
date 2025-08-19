@@ -6,7 +6,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1yex5ce-MuiContainer-root"
   >
     <div
-      class="MuiBox-root css-3mrajc"
+      class="MuiBox-root css-gq77ek"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 css-1h4ey4a-MuiTypography-root"

@@ -22,7 +22,8 @@ const Resources = forwardRef(function Resources(props, ref) {
               key={resource.title || `resource-${idx}`}
               size={{
                 xs: 6,
-                md: 12 / resources.length,
+                sm: 4,
+                md: 3,
               }}
               display="flex"
               justifyContent="center"
@@ -45,8 +46,6 @@ const Resources = forwardRef(function Resources(props, ref) {
                     alignItems: "center",
                     justifyContent: "center",
                     mb: 2,
-                    width: 64,
-                    height: 64,
                   }}
                 >
                   <Figure
@@ -55,8 +54,8 @@ const Resources = forwardRef(function Resources(props, ref) {
                       src: resource.icon.src,
                     }}
                     sx={{
-                      height: { xs: "108px", md: "180px" },
-                      width: { xs: "108px", md: "180px" },
+                      height: { xs: "211px", md: "253px" },
+                      width: { xs: "184px", md: "221px" },
                     }}
                   />
                 </Box>

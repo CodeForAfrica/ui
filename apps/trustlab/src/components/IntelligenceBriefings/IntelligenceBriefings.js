@@ -60,8 +60,8 @@ const IntelligenceBriefings = React.forwardRef(
                             src: item.icon.url,
                           }}
                           sx={{
-                            height: { xs: "108px", md: "180px" },
-                            width: { xs: "108px", md: "180px" },
+                            height: { xs: "115px", md: "180px" },
+                            width: { xs: "115px", md: "180px" },
                           }}
                         />
                         <Typography

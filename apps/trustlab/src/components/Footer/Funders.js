@@ -13,24 +13,14 @@ const Funders = forwardRef((props, ref) => {
           div: {
             paddingBottom: "8px",
           },
-          justifyContent: { xs: "center", md: "left" },
-          display: "flex",
+          borderBottom: "2px solid",
+          borderColor: "text.secondary",
+          lineHeight: "50px",
         }}
         component="div"
         variant="h1"
       >
-        <Box
-          sx={{
-            width: 170,
-            position: "relative",
-            borderBottom: "2px solid",
-            borderColor: "text.secondary",
-            lineHeight: "50px",
-          }}
-          component="div"
-        >
-          {title}
-        </Box>
+        {title}
       </Typography>
       <Box>
         {funders.map(({ logo, link: { href }, id }) => {
@@ -50,6 +40,9 @@ const Funders = forwardRef((props, ref) => {
                   m: 0,
                   position: "relative",
                   width: "auto",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
                   mb: 2,
                   "&:hover": {
                     filter: "none",

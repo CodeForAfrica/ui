@@ -20,7 +20,7 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
         boxShadow: "none",
         height: 94,
         borderBottom: `1px solid ${grey[900]}`,
-        backgroundColor: grey[900],
+        backgroundColor: "common.black",
       }}
     >
       <Section
