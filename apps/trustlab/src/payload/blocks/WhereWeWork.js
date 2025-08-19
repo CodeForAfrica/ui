@@ -1,9 +1,11 @@
 import { image, richText } from "@/commons-ui/payload/fields";
 
+import colorSettingsField from "../fields/colorSettingsField";
+
 const WhereWeWork = {
   slug: "where-we-work",
   imageURL: "/images/cms/blocks/where-we-work.png",
-  imageAltText: "Interactive map with title and description.",
+  imageAltText: "Map with title and description.",
   labels: {
     singular: {
       en: "Where We Work",
@@ -13,6 +15,14 @@ const WhereWeWork = {
     },
   },
   fields: [
+    colorSettingsField({
+      backgroundOverrides: {
+        defaultValue: "#CDCDCD",
+      },
+      textOverrides: {
+        defaultValue: "#000000",
+      },
+    }),
     {
       name: "title",
       type: "text",
@@ -37,6 +47,7 @@ const WhereWeWork = {
       overrides: {
         name: "image",
         required: true,
+        localized: true,
       },
     }),
   ],

@@ -14,11 +14,11 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
         <div
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 css-it7ga0-MuiGrid2-root"
         >
-          <h1
-            class="MuiTypography-root MuiTypography-h1 css-udmass-MuiTypography-root"
+          <h2
+            class="MuiTypography-root MuiTypography-h2 css-12gvj67-MuiTypography-root"
           >
             Partner Locations
-          </h1>
+          </h2>
         </div>
         <div
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-8 css-1o12qqw-MuiGrid2-root"
