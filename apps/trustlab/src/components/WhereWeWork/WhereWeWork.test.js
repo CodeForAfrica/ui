@@ -1,16 +1,16 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import PartnerLocations from "./PartnerLocations";
+import WhereWeWork from "./WhereWeWork";
 
 import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
-describe("<PartnerLocations />", () => {
+describe("<WhereWeWork />", () => {
   it("renders unchanged", () => {
     const { container } = render(
-      <PartnerLocations
+      <WhereWeWork
         title="Partner Locations"
         description={{
           root: {
