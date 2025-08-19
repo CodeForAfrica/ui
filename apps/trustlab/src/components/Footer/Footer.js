@@ -76,7 +76,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
             <FooterLinks
               primaryNavigation={primaryNavigation}
               secondaryNavigation={secondaryNavigation}
-              sx={{ mt: { xs: "52px", md: 0 }, mb: 2 }}
+              sx={{ mb: 2 }}
             />
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 4 }}>
