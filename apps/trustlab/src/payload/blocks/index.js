@@ -8,6 +8,7 @@ export { default as Hero } from "./Hero";
 export { default as PageHeader } from "./PageHeader";
 export { default as PageOverview } from "./PageOverview";
 export { default as PartnerOverviewList } from "./PartnerOverviewList";
+export { default as WhereWeWork } from "./WhereWeWork";
 export { default as PartnersList } from "./PartnersList";
 export { default as PostList } from "./PostList";
 export { default as ResourcesOverviewList } from "./ResourcesOverviewList";

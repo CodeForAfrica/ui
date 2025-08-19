@@ -19,6 +19,7 @@ import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
 import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
+import WhereWeWork from "@/trustlab/components/WhereWeWork";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
@@ -37,6 +38,7 @@ const componentsBySlugs = {
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
   "partners-list": PartnersList,
+  "where-we-work": WhereWeWork,
   "post-list": PostList,
   helplines: Helplines,
   "resources-overview-list": OverviewCardList,
