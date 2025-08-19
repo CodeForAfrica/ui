@@ -1,15 +1,15 @@
 import { image, richText } from "@/commons-ui/payload/fields";
 
-const PartnerLocations = {
-  slug: "partner-locations",
-  imageURL: "/images/cms/blocks/partner-locations.png",
+const WhereWeWork = {
+  slug: "where-we-work",
+  imageURL: "/images/cms/blocks/where-we-work.png",
   imageAltText: "Interactive map with title and description.",
   labels: {
     singular: {
-      en: "Partner Location",
+      en: "Where We Work",
     },
     plural: {
-      en: "Partner Locations",
+      en: "Where We Work",
     },
   },
   fields: [
@@ -21,7 +21,7 @@ const PartnerLocations = {
       defaultValue: "Where we work",
       localized: true,
       admin: {
-        description: "The title of the partner locations block.",
+        description: "The title of the where we work block.",
       },
     },
     richText({
@@ -30,11 +30,16 @@ const PartnerLocations = {
       label: { en: "Description" },
       localized: true,
       admin: {
-        description: "A brief description of the partner locations.",
+        description: "A brief description of the where we work block.",
       },
     }),
-    image(),
+    image({
+      overrides: {
+        name: "image",
+        required: true,
+      },
+    }),
   ],
 };
 
-export default PartnerLocations;
+export default WhereWeWork;

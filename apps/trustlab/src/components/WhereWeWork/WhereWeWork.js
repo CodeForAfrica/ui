@@ -4,7 +4,7 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Typography, Grid2 as Grid, Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
-const PartnerLocations = forwardRef(({ title, description, image }, ref) => {
+const WhereWeWork = forwardRef(({ title, description, image }, ref) => {
   if (!title || !description || !image) {
     return null;
   }
@@ -50,4 +50,4 @@ const PartnerLocations = forwardRef(({ title, description, image }, ref) => {
   );
 });
 
-export default PartnerLocations;
+export default WhereWeWork;
