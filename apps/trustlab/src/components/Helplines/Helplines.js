@@ -20,7 +20,6 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                   component={brief?.link?.href ? Link : "div"}
                   href={brief?.link?.href}
                   alignItems={{
-                    xs: "flex-start",
                     sm: "center",
                     textDecoration: "none",
                   }}
@@ -34,6 +33,7 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                     sx={{
                       height: { xs: "108px", md: "180px" },
                       width: { xs: "108px", md: "180px" },
+                      alignSelf: "center",
                     }}
                   />
                   <Box sx={{ width: "100%" }}>
@@ -41,21 +41,12 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                       sx={{
                         background: "black",
                         mb: 2,
-                        display: { xs: "none", sm: "block" },
                       }}
                     />
                     <Typography
                       variant="h3"
                       sx={{
                         textDecoration: "none",
-                        "&:after": {
-                          content: '""',
-                          display: { sm: "none", xs: "block" },
-                          width: "18px",
-                          height: "1px",
-                          backgroundColor: "black",
-                          marginTop: "8px",
-                        },
                       }}
                     >
                       {brief.title}
@@ -64,7 +55,6 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                       sx={{
                         background: "black",
                         mt: 2,
-                        display: { xs: "none", sm: "block" },
                       }}
                     />
                   </Box>

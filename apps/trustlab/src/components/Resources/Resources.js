@@ -61,7 +61,7 @@ const Resources = forwardRef(function Resources(props, ref) {
                   />
                 </Box>
                 <Box
-                  display={{ xs: "none", sm: "flex" }}
+                  display="flex"
                   alignItems="center"
                   sx={{ width: "100%" }}
                   mb={2}
@@ -90,14 +90,6 @@ const Resources = forwardRef(function Resources(props, ref) {
                     textAlign: "left",
                     mb: 2,
                     textDecoration: "none",
-                    "&:after": {
-                      content: "''",
-                      display: { xs: "block", sm: "none" },
-                      height: "1px",
-                      bgcolor: "#000",
-                      width: "18px",
-                      mt: 1.25,
-                    },
                   }}
                   variant="subheading2"
                 >

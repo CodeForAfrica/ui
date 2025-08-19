@@ -12,7 +12,7 @@ const CourseList = forwardRef(
         <Box
           display="flex"
           justifyContent="space-between"
-          alignItems="center"
+          alignItems={{ xs: "flex-start", md: "center" }}
           gap={{ xs: 2.5, md: 8 }}
           mb={3.75}
           sx={{
