@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid2 as Grid } from "@mui/material";
 import React, { forwardRef } from "react";
 
 import CourseCard from "./CourseCard";
@@ -35,7 +35,15 @@ const CourseList = forwardRef(
         </Box>
         <Grid spacing={2.5} container>
           {courses.map((course) => (
-            <Grid item key={course.id} xs={12} sm={4} md={4}>
+            <Grid
+              item
+              key={course.id}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4,
+              }}
+            >
               <CourseCard {...course} />
             </Grid>
           ))}
