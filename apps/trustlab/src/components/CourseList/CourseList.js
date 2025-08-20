@@ -8,7 +8,7 @@ import CourseCard from "./CourseCard";
 const CourseList = forwardRef(
   ({ title, description, courses, ...props }, ref) => {
     return (
-      <Section ref={ref} sx={{ py: 4, px: { xs: 2.5, md: 0 } }} {...props}>
+      <Section ref={ref} sx={{ py: 5, px: { xs: 2.5, md: 0 } }} {...props}>
         <Box
           display="flex"
           justifyContent="space-between"
