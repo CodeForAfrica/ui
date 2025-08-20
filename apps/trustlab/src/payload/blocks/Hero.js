@@ -13,6 +13,14 @@ const Hero = {
       label: { en: "Slides" },
 
       fields: [
+        colorSettingsField({
+          backgroundOverrides: {
+            defaultValue: "#F0F0F5",
+          },
+          textOverrides: {
+            defaultValue: "#000000",
+          },
+        }),
         richText({
           name: "title",
           required: true,
@@ -28,14 +36,15 @@ const Hero = {
             required: true,
           },
         }),
-        colorSettingsField({
-          backgroundOverrides: {
-            defaultValue: "#F0F0F5",
-          },
-          textOverrides: {
-            defaultValue: "#000000",
-          },
-        }),
+        {
+          name: "imagePosition",
+          type: "select",
+          options: [
+            { label: "Left", value: "left" },
+            { label: "Right", value: "right" },
+          ],
+          defaultValue: "right",
+        },
         {
           name: "buttons",
           type: "group",
