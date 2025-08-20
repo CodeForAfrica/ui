@@ -13,7 +13,7 @@ const IntelligenceBriefings = React.forwardRef(
         <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
           <Grid container spacing={4}>
             <Grid item size={{ xs: 12, md: 4 }}>
-              <Typography variant="h1" gutterBottom>
+              <Typography variant="display4" gutterBottom>
                 {title}
               </Typography>
             </Grid>

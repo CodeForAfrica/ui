@@ -11,11 +11,11 @@ exports[`<Helplines /> renders unchanged 1`] = `
       <div
         class="MuiStack-root css-8mcjw0-MuiStack-root"
       >
-        <h1
-          class="MuiTypography-root MuiTypography-h1 css-osazyw-MuiTypography-root"
+        <h2
+          class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
         >
           Rapid Response
-        </h1>
+        </h2>
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wvj9mg-MuiGrid2-root"
         >

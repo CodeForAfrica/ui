@@ -19,7 +19,7 @@ const CourseList = forwardRef(
             flexDirection: { xs: "column", md: "row" },
           }}
         >
-          <Typography sx={{ whiteSpace: "nowrap" }} variant="h1">
+          <Typography sx={{ whiteSpace: "nowrap" }} variant="display4">
             {title}
           </Typography>
           <LexicalRichText

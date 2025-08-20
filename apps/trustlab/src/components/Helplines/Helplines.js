@@ -12,7 +12,7 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
         sx={{ background: "common.white", py: 4, px: { xs: 2.5, md: 0 } }}
       >
         <Stack spacing={4}>
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="display4">{title}</Typography>
           <Grid container sx={{ ml: -2 }} spacing={2}>
             {briefs.map((brief) => (
               <Grid size={{ xs: 12, sm: 6, md: 4 }} key={brief.title}>

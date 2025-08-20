@@ -8,8 +8,8 @@ exports[`<Spotlight /> renders unchanged 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-k28obk-MuiContainer-root"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 css-148vakw-MuiTypography-root"
+      <h2
+        class="MuiTypography-root MuiTypography-display4 css-y858bl-MuiTypography-root"
       />
       <div
         class="MuiBox-root css-6jninf"
