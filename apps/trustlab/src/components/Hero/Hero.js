@@ -82,7 +82,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     maxWidth: theme.contentWidths.values,
                   }}
                 >
-                  <Grid container spacing={2} alignItems="center">
+                  <Grid
+                    container
+                    rowSpacing={4}
+                    columnSpacing={2}
+                    alignItems="center"
+                  >
                     <Grid
                       size={{ xs: 12, md: 6 }}
                       order={{ xs: 1, md: isReversed ? 2 : 1 }}
@@ -160,8 +165,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           sx: { objectPosition: { xs: "left", md: "right" } },
                         }}
                         sx={{
-                          height: { xs: "402px", sm: "560px", md: "416px" },
-                          width: { xs: "100%", sm: "432px", md: "321.6px" },
+                          height: { xs: "402px", sm: "700px", md: "416px" },
+                          width: { xs: "100%", md: "321.6px" },
                         }}
                       />
                     </Grid>

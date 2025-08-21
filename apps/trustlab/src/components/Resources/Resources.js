@@ -21,7 +21,6 @@ const Resources = forwardRef(function Resources(props, ref) {
               key={resource.title || `resource-${idx}`}
               size={{
                 xs: 6,
-                sm: 4,
                 md: 3,
               }}
               display="flex"

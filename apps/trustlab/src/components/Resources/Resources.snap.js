@@ -17,7 +17,7 @@ exports[`<Resources /> renders unchanged 1`] = `
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-4 css-4q6p23-MuiGrid2-root"
       >
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-sm-4 MuiGrid2-grid-md-3 css-1lbnq16-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-g6p57z"
@@ -66,7 +66,7 @@ exports[`<Resources /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-sm-4 MuiGrid2-grid-md-3 css-1lbnq16-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-g6p57z"
@@ -115,7 +115,7 @@ exports[`<Resources /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-sm-4 MuiGrid2-grid-md-3 css-1lbnq16-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-g6p57z"
@@ -164,7 +164,7 @@ exports[`<Resources /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-sm-4 MuiGrid2-grid-md-3 css-1lbnq16-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-6 MuiGrid2-grid-md-3 css-1ov4rlx-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-g6p57z"
