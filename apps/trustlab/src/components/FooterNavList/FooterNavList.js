@@ -23,6 +23,7 @@ function FooterNavList({ menus, children, sx }) {
         sx={{
           padding: "0 24px",
           alignItems: { md: "flex-start" },
+          mb: 0,
         }}
       >
         {menus.map((item) => (

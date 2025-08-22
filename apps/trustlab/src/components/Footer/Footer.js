@@ -28,7 +28,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       sx={({ palette }) => ({
         backgroundColor: "common.black",
         color: palette.text.secondary,
-        px: 0,
+        px: 2.5,
         py: 8,
         position: "relative",
         overflow: "hidden",
@@ -45,7 +45,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         sx={{
           color: "transparent",
           position: "absolute",
-          left: -130,
+          left: -140,
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 1,
@@ -68,7 +68,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       />
       <Section
         sx={{
-          px: { xs: 2.5 },
+          px: { xs: 2.5, sm: 8.5, md: 2, lg: 0 },
         }}
         component="div"
       >
