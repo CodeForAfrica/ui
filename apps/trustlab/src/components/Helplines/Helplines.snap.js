@@ -20,7 +20,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wvj9mg-MuiGrid2-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
           >
             <div
               class="MuiStack-root css-gi12co-MuiStack-root"
@@ -71,7 +71,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
           >
             <div
               class="MuiStack-root css-gi12co-MuiStack-root"
@@ -122,7 +122,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
           >
             <div
               class="MuiStack-root css-gi12co-MuiStack-root"
