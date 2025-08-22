@@ -43,7 +43,7 @@ const IntelligenceBriefings = React.forwardRef(
                 {briefs.length > 0 && (
                   <Stack
                     direction="row"
-                    spacing={4}
+                    spacing={{ xs: 2, md: 4 }}
                     justifyContent="space-between"
                   >
                     {briefs.map((item) => (
@@ -60,14 +60,15 @@ const IntelligenceBriefings = React.forwardRef(
                             src: item.icon.url,
                           }}
                           sx={{
-                            height: { xs: "115px", md: "180px" },
-                            width: { xs: "115px", md: "180px" },
+                            height: { xs: "90px", md: "180px" },
+                            width: { xs: "90px", md: "180px" },
                           }}
                         />
                         <Typography
                           sx={{
                             textTransform: "uppercase",
                             maxWidth: 140,
+                            textOverflow: "break-word",
                           }}
                           textAlign="center"
                           variant="h3"

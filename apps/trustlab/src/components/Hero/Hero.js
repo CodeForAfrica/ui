@@ -46,7 +46,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: { xs: "828px", sm: "1174px", md: "500px" },
+          height: { xs: "748px", sm: "974px", md: "500px" },
           overflow: "hidden",
           display: "flex",
         }}
@@ -88,10 +88,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     columnSpacing={2}
                     alignItems="center"
                   >
-                    <Grid
-                      size={{ xs: 12, md: 6 }}
-                      order={{ xs: 1, md: isReversed ? 2 : 1 }}
-                    >
+                    <Grid size={{ xs: 12, md: 6 }} order={isReversed ? 2 : 1}>
                       <LexicalRichText
                         elements={slide.title}
                         TypographyProps={{
@@ -156,7 +153,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           md: isReversed ? "flex-start" : "flex-end",
                         },
                       }}
-                      order={{ xs: 2, md: isReversed ? 1 : 2 }}
+                      order={isReversed ? 1 : 2}
                     >
                       <Figure
                         ImageProps={{
@@ -165,7 +162,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           sx: { objectPosition: { xs: "left", md: "right" } },
                         }}
                         sx={{
-                          height: { xs: "402px", sm: "700px", md: "416px" },
+                          height: { xs: "402px", sm: "600px", md: "416px" },
                           width: { xs: "100%", md: "321.6px" },
                         }}
                       />
@@ -180,7 +177,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           <Box
             sx={{
               position: "absolute",
-              bottom: 60,
+              bottom: { xs: 16, md: 32 },
               left: "50%",
               transform: "translateX(-50%)",
               px: { xs: 2.5, sm: 0 },
