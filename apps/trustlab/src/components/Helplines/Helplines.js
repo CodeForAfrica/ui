@@ -15,7 +15,7 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
           <Typography variant="display4">{title}</Typography>
           <Grid container sx={{ ml: -2 }} spacing={2}>
             {briefs.map((brief) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={brief.title}>
+              <Grid size={{ xs: 12, sm: 4 }} key={brief.title}>
                 <Stack
                   component={brief?.link?.href ? Link : "div"}
                   href={brief?.link?.href}
