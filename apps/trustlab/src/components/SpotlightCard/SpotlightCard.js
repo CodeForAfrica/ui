@@ -10,6 +10,7 @@ function SpotlightCard(props) {
         width: "100%",
         height: 220,
         maxWidth: { xs: "100%", sm: 350 },
+        minWidth: 300,
         borderRadius: "10px",
         position: "relative",
         overflow: "hidden",

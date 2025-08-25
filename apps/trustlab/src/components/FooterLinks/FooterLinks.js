@@ -15,7 +15,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
     <Box
       display="flex"
       flexDirection="column"
-      alignItems={{ xs: "center", md: "flex-start" }}
+      alignItems="flex-start"
       sx={sx}
       ref={ref}
     >
@@ -36,7 +36,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
           {primaryNavigation?.title}
         </Typography>
       ) : null}
-      <FooterNavList menus={primaryNavigation?.menus} sx={{ mb: 2 }} />
+      <FooterNavList menus={primaryNavigation?.menus} />
       {secondaryNavigation?.title ? (
         <Typography
           sx={{
@@ -46,7 +46,7 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
             borderBottom: "2px solid",
             lineHeight: "50px",
             whiteSpace: "nowrap",
-            mt: 0,
+            mt: 1,
             pb: 1,
           }}
           component="div"

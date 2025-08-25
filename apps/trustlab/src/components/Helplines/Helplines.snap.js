@@ -11,22 +11,22 @@ exports[`<Helplines /> renders unchanged 1`] = `
       <div
         class="MuiStack-root css-8mcjw0-MuiStack-root"
       >
-        <h1
-          class="MuiTypography-root MuiTypography-h1 css-osazyw-MuiTypography-root"
+        <h2
+          class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
         >
           Rapid Response
-        </h1>
+        </h2>
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wvj9mg-MuiGrid2-root"
         >
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
           >
             <div
-              class="MuiStack-root css-7u69oc-MuiStack-root"
+              class="MuiStack-root css-gi12co-MuiStack-root"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-cqflv1"
               >
                 <img
                   alt="Rapid Response icon"
@@ -44,15 +44,15 @@ exports[`<Helplines /> renders unchanged 1`] = `
                 class="MuiBox-root css-8atqhb"
               >
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-1bnn69k-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-7osdb6-MuiDivider-root"
                 />
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-oeu987-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
                 >
                   Rapid Response Briefing
                 </h3>
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-12ty8dd-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-i722bu-MuiDivider-root"
                 />
               </div>
               <div
@@ -71,13 +71,13 @@ exports[`<Helplines /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
           >
             <div
-              class="MuiStack-root css-7u69oc-MuiStack-root"
+              class="MuiStack-root css-gi12co-MuiStack-root"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-cqflv1"
               >
                 <img
                   alt="Rapid Response icon"
@@ -95,15 +95,15 @@ exports[`<Helplines /> renders unchanged 1`] = `
                 class="MuiBox-root css-8atqhb"
               >
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-1bnn69k-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-7osdb6-MuiDivider-root"
                 />
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-oeu987-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
                 >
                   Rapid Response Briefing
                 </h3>
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-12ty8dd-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-i722bu-MuiDivider-root"
                 />
               </div>
               <div
@@ -122,13 +122,13 @@ exports[`<Helplines /> renders unchanged 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
           >
             <div
-              class="MuiStack-root css-7u69oc-MuiStack-root"
+              class="MuiStack-root css-gi12co-MuiStack-root"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-cqflv1"
               >
                 <img
                   alt="Rapid Response icon"
@@ -146,15 +146,15 @@ exports[`<Helplines /> renders unchanged 1`] = `
                 class="MuiBox-root css-8atqhb"
               >
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-1bnn69k-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-7osdb6-MuiDivider-root"
                 />
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-oeu987-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
                 >
                   Rapid Response Briefing
                 </h3>
                 <hr
-                  class="MuiDivider-root MuiDivider-fullWidth css-12ty8dd-MuiDivider-root"
+                  class="MuiDivider-root MuiDivider-fullWidth css-i722bu-MuiDivider-root"
                 />
               </div>
               <div

@@ -13,7 +13,7 @@ const IntelligenceBriefings = React.forwardRef(
         <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
           <Grid container spacing={4}>
             <Grid item size={{ xs: 12, md: 4 }}>
-              <Typography variant="h1" gutterBottom>
+              <Typography variant="display4" gutterBottom>
                 {title}
               </Typography>
             </Grid>
@@ -43,7 +43,7 @@ const IntelligenceBriefings = React.forwardRef(
                 {briefs.length > 0 && (
                   <Stack
                     direction="row"
-                    spacing={4}
+                    spacing={{ xs: 2, md: 4 }}
                     justifyContent="space-between"
                   >
                     {briefs.map((item) => (
@@ -60,14 +60,15 @@ const IntelligenceBriefings = React.forwardRef(
                             src: item.icon.url,
                           }}
                           sx={{
-                            height: { xs: "108px", md: "180px" },
-                            width: { xs: "108px", md: "180px" },
+                            height: { xs: "90px", md: "180px" },
+                            width: { xs: "90px", md: "180px" },
                           }}
                         />
                         <Typography
                           sx={{
                             textTransform: "uppercase",
                             maxWidth: 140,
+                            textOverflow: "break-word",
                           }}
                           textAlign="center"
                           variant="h3"

@@ -1,4 +1,4 @@
-import { socialLinks } from "@commons-ui/payload";
+import { socialLinks, richText } from "@commons-ui/payload";
 
 const EngagementTab = {
   label: "Engagement",
@@ -29,33 +29,11 @@ const EngagementTab = {
         },
       ],
     },
-    {
-      name: "newsletter",
-      type: "group",
-      label: "Email Newsletter",
+    richText({
+      name: "initiativeAttribution",
+      required: true,
       localized: true,
-      fields: [
-        {
-          type: "collapsible",
-          label: "Title & Embed Code",
-          fields: [
-            {
-              name: "title",
-              type: "text",
-              required: true,
-            },
-            {
-              name: "embedCode",
-              type: "code",
-              required: true,
-              admin: {
-                language: "html",
-              },
-            },
-          ],
-        },
-      ],
-    },
+    }),
     {
       name: "analytics",
       type: "group",

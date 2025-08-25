@@ -8,11 +8,11 @@ exports[`<Resources /> renders unchanged 1`] = `
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1yex5ce-MuiContainer-root"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 css-148vakw-MuiTypography-root"
+      <h2
+        class="MuiTypography-root MuiTypography-display4 css-y858bl-MuiTypography-root"
       >
         Helplines
-      </h1>
+      </h2>
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-4 css-4q6p23-MuiGrid2-root"
       >
@@ -23,10 +23,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-qtoxhl"
+              class="MuiBox-root css-15qltjq"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-lg2nrx"
               >
                 <img
                   alt="Resource Image"
@@ -42,7 +42,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               </figure>
             </div>
             <div
-              class="MuiBox-root css-xt57mg"
+              class="MuiBox-root css-1cykqy5"
             >
               <div
                 class="MuiBox-root css-ksbmfa"
@@ -52,7 +52,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               RiskDetection toolkit
             </h6>
@@ -72,10 +72,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-qtoxhl"
+              class="MuiBox-root css-15qltjq"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-lg2nrx"
               >
                 <img
                   alt="Resource Image"
@@ -91,7 +91,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               </figure>
             </div>
             <div
-              class="MuiBox-root css-xt57mg"
+              class="MuiBox-root css-1cykqy5"
             >
               <div
                 class="MuiBox-root css-ksbmfa"
@@ -101,7 +101,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               Roboshield toolkit
             </h6>
@@ -121,10 +121,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-qtoxhl"
+              class="MuiBox-root css-15qltjq"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-lg2nrx"
               >
                 <img
                   alt="Resource Image"
@@ -140,7 +140,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               </figure>
             </div>
             <div
-              class="MuiBox-root css-xt57mg"
+              class="MuiBox-root css-1cykqy5"
             >
               <div
                 class="MuiBox-root css-ksbmfa"
@@ -150,7 +150,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               SelfDefence software
             </h6>
@@ -170,10 +170,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-qtoxhl"
+              class="MuiBox-root css-15qltjq"
             >
               <figure
-                class="MuiBox-root css-ngndkr"
+                class="MuiBox-root css-lg2nrx"
               >
                 <img
                   alt="Resource Image"
@@ -189,7 +189,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               </figure>
             </div>
             <div
-              class="MuiBox-root css-xt57mg"
+              class="MuiBox-root css-1cykqy5"
             >
               <div
                 class="MuiBox-root css-ksbmfa"
@@ -199,7 +199,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h6
-              class="MuiTypography-root MuiTypography-subheading2 css-1ovqr5y-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               PolicyForge toolkit
             </h6>

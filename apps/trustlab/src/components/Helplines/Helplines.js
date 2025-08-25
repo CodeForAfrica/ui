@@ -12,15 +12,14 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
         sx={{ background: "common.white", py: 4, px: { xs: 2.5, md: 0 } }}
       >
         <Stack spacing={4}>
-          <Typography variant="h1">{title}</Typography>
+          <Typography variant="display4">{title}</Typography>
           <Grid container sx={{ ml: -2 }} spacing={2}>
             {briefs.map((brief) => (
-              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={brief.title}>
+              <Grid size={{ xs: 12, sm: 4 }} key={brief.title}>
                 <Stack
                   component={brief?.link?.href ? Link : "div"}
                   href={brief?.link?.href}
                   alignItems={{
-                    xs: "flex-start",
                     sm: "center",
                     textDecoration: "none",
                   }}
@@ -34,6 +33,7 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                     sx={{
                       height: { xs: "108px", md: "180px" },
                       width: { xs: "108px", md: "180px" },
+                      alignSelf: "center",
                     }}
                   />
                   <Box sx={{ width: "100%" }}>
@@ -41,21 +41,12 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                       sx={{
                         background: "black",
                         mb: 2,
-                        display: { xs: "none", sm: "block" },
                       }}
                     />
                     <Typography
                       variant="h3"
                       sx={{
                         textDecoration: "none",
-                        "&:after": {
-                          content: '""',
-                          display: { sm: "none", xs: "block" },
-                          width: "18px",
-                          height: "1px",
-                          backgroundColor: "black",
-                          marginTop: "8px",
-                        },
                       }}
                     >
                       {brief.title}
@@ -64,7 +55,6 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                       sx={{
                         background: "black",
                         mt: 2,
-                        display: { xs: "none", sm: "block" },
                       }}
                     />
                   </Box>

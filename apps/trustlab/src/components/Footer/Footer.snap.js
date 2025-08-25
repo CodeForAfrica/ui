@@ -3,11 +3,11 @@
 exports[`<Footer /> renders unchanged 1`] = `
 <div>
   <footer
-    class="MuiBox-root css-ot7ihh"
+    class="MuiBox-root css-n5djmj"
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-p0adv2-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hlgak4-MuiSvgIcon-root"
       fill="#181D27"
       focusable="false"
       height="299"
@@ -16,51 +16,42 @@ exports[`<Footer /> renders unchanged 1`] = `
     />
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ymob92-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1etbe97-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 297 297"
     />
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-3utm6i-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-pgy3mg-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-8z9gj-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-16 css-ucdck3-MuiGrid-root"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-container css-1xzqqmo-MuiGrid-root"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-12olfi-MuiGrid-root"
-            >
-              <div
-                class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
-              />
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-auto css-gjb3vx-MuiGrid-root"
-            />
-          </div>
-        </div>
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-7 MuiGrid2-grid-md-5 css-19zswd6-MuiGrid2-root"
+        />
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-24 MuiGrid-grid-md-auto css-4ah52f-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-5 MuiGrid2-grid-md-3 css-17879ew-MuiGrid2-root"
+        />
+        <div
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-pf9jw7-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-0"
+            class="MuiBox-root css-cf3le8"
           >
             <div
-              class="MuiTypography-root MuiTypography-h1 css-17s36h5-MuiTypography-root"
-            >
-              <div
-                class="MuiBox-root css-zm17t2"
-              />
-            </div>
+              class="MuiTypography-root MuiTypography-h1 css-bswrlz-MuiTypography-root"
+            />
             <div
               class="MuiBox-root css-0"
             />
           </div>
+        </div>
+        <div
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-6 css-11ikjo4-MuiGrid2-root"
+        >
+          <div
+            class="MuiBox-root css-0"
+          />
         </div>
       </div>
     </div>

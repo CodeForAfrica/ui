@@ -1,12 +1,6 @@
 import { Section } from "@commons-ui/core";
-import {
-  Box,
-  IconButton,
-  SvgIcon,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import React, { useState } from "react";
+import { Box, IconButton, SvgIcon, Typography } from "@mui/material";
+import React, { useState, useRef, useEffect } from "react";
 
 import ChevronRightDoubleIcon from "@/trustlab/assets/icons/chevron-right-double.svg";
 import SpotlightCard from "@/trustlab/components/SpotlightCard";
@@ -15,52 +9,68 @@ const Spotlight = React.forwardRef(function Spotlight(
   { items = [], title },
   ref,
 ) {
-  const [section, setSection] = useState(0);
+  const scrollRef = useRef(null);
+  const [showPrev, setShowPrev] = useState(false);
+  const [showNext, setShowNext] = useState(true);
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const cardsPerSection = isSmallScreen ? 1 : 3;
-  const maxSection = Math.ceil(items.length / cardsPerSection) - 1;
+  const checkScrollButtons = () => {
+    const container = scrollRef.current;
+    if (container) {
+      setShowPrev(container.scrollLeft > 0);
+      setShowNext(
+        container.scrollLeft < container.scrollWidth - container.clientWidth,
+      );
+    }
+  };
+
+  useEffect(() => {
+    checkScrollButtons();
+  }, []);
+
+  const scroll = (direction) => {
+    const container = scrollRef.current;
+    const cardWidth = 350;
+    const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
+
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
 
   const handleNext = () => {
-    if (section < maxSection) {
-      setSection(section + 1);
-    }
+    scroll("right");
   };
 
   const handlePrev = () => {
-    if (section > 0) {
-      setSection(section - 1);
-    }
+    scroll("left");
   };
-
-  const startIdx = section * cardsPerSection;
-  const visibleCards = items.slice(startIdx, startIdx + cardsPerSection);
 
   return (
     <Box ref={ref} sx={{ background: "#7C7C7C" }}>
       <Section sx={{ py: 7.5, px: { xs: 2.5, md: 0 } }}>
-        <Typography variant="h1" sx={{ mb: 2 }}>
+        <Typography variant="display4" sx={{ mb: 2 }}>
           {title}
         </Typography>
         <Box
-          ref={ref}
           sx={{
             width: "100%",
+            position: "relative",
           }}
           display="flex"
           alignItems="center"
-          justifyContent="center"
-          gap={2}
+          justifyContent="flex-start"
+          gap={0}
         >
           <IconButton
             aria-label="Next"
             onClick={handlePrev}
-            disabled={section === 0}
+            disabled={!showPrev}
             sx={{
               borderRadius: "50%",
               width: 50,
               height: 50,
-              display: section > 0 ? "block" : "none",
+              display: showPrev ? "block" : "none",
+              position: "absolute",
+              left: 0,
+              zIndex: 10,
             }}
           >
             <SvgIcon
@@ -74,21 +84,35 @@ const Spotlight = React.forwardRef(function Spotlight(
               component={ChevronRightDoubleIcon}
             />
           </IconButton>
-          <Box sx={{ display: "flex", gap: 2, flex: 1 }}>
-            {visibleCards.map((cardProps) => (
+          <Box
+            ref={scrollRef}
+            onScroll={checkScrollButtons}
+            display="flex"
+            gap={2}
+            flex={1}
+            sx={{
+              overflowX: "auto",
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": { display: "none" },
+            }}
+          >
+            {items.map((cardProps) => (
               <SpotlightCard key={cardProps.title} {...cardProps} />
             ))}
           </Box>
           <IconButton
             aria-label="Next"
             onClick={handleNext}
-            disabled={section >= maxSection}
+            disabled={!showNext}
             sx={{
               borderRadius: "50%",
               width: 50,
               height: 50,
-              display: section < maxSection ? "block" : "none",
+              display: showNext ? "block" : "none",
               color: "common.white",
+              position: "absolute",
+              right: 0,
+              zIndex: 10,
             }}
           >
             <SvgIcon

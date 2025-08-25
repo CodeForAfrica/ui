@@ -11,18 +11,17 @@ const Resources = forwardRef(function Resources(props, ref) {
     <Box ref={ref} sx={{ background: "#CDCDCD" }}>
       <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
         {title && (
-          <Typography variant="h1" sx={{ mb: 2 }}>
+          <Typography variant="display4" sx={{ mb: 2 }}>
             {title}
           </Typography>
         )}
         <Grid container spacing={4}>
           {resources.map((resource, idx) => (
             <Grid
-              item
               key={resource.title || `resource-${idx}`}
               size={{
                 xs: 6,
-                md: 12 / resources.length,
+                md: 3,
               }}
               display="flex"
               justifyContent="center"
@@ -45,8 +44,6 @@ const Resources = forwardRef(function Resources(props, ref) {
                     alignItems: "center",
                     justifyContent: "center",
                     mb: 2,
-                    width: 64,
-                    height: 64,
                   }}
                 >
                   <Figure
@@ -55,13 +52,13 @@ const Resources = forwardRef(function Resources(props, ref) {
                       src: resource.icon.src,
                     }}
                     sx={{
-                      height: { xs: "108px", md: "180px" },
-                      width: { xs: "108px", md: "180px" },
+                      height: { xs: "211px", md: "253px" },
+                      width: { xs: "184px", md: "221px" },
                     }}
                   />
                 </Box>
                 <Box
-                  display={{ xs: "none", sm: "flex" }}
+                  display="flex"
                   alignItems="center"
                   sx={{ width: "100%" }}
                   mb={2}
@@ -90,14 +87,6 @@ const Resources = forwardRef(function Resources(props, ref) {
                     textAlign: "left",
                     mb: 2,
                     textDecoration: "none",
-                    "&:after": {
-                      content: "''",
-                      display: { xs: "block", sm: "none" },
-                      height: "1px",
-                      bgcolor: "#000",
-                      width: "18px",
-                      mt: 1.25,
-                    },
                   }}
                   variant="subheading2"
                 >

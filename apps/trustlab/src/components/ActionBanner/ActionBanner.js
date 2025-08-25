@@ -19,12 +19,11 @@ const ActionBanner = forwardRef(
           color: textColor,
         }}
       >
-        <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: { xs: 2.5, md: 4 }, px: { xs: 2.5, md: 0 } }}>
           <Box
             alignItems={{ md: "center", xs: "flex-start" }}
             justifyContent="space-between"
             display="flex"
-            flexDirection={{ xs: "column", md: "row" }}
             gap={2}
           >
             <LexicalRichText

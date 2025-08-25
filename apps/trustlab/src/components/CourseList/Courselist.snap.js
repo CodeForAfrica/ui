@@ -3,16 +3,16 @@
 exports[`<CourseList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1yex5ce-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-x8vj6g-MuiContainer-root"
   >
     <div
-      class="MuiBox-root css-3mrajc"
+      class="MuiBox-root css-gq77ek"
     >
-      <h1
-        class="MuiTypography-root MuiTypography-h1 css-1h4ey4a-MuiTypography-root"
+      <h2
+        class="MuiTypography-root MuiTypography-display4 css-myk591-MuiTypography-root"
       >
         Test Course List
-      </h1>
+      </h2>
       <div
         class="MuiBox-root css-0"
       >
@@ -22,10 +22,10 @@ exports[`<CourseList /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2.5 css-1tbc6t1-MuiGrid-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 css-4udl9f-MuiGrid2-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 css-1dte7n6-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
       >
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-mm7cz9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
@@ -44,7 +44,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-7r4ghm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-114uinv-MuiTypography-root"
             >
               Course 1 Title
             </div>
@@ -60,7 +60,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
         </a>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 css-1dte7n6-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
       >
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-mm7cz9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
@@ -79,7 +79,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-7r4ghm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-114uinv-MuiTypography-root"
             >
               Course 2 Title
             </div>
@@ -95,7 +95,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
         </a>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 MuiGrid-grid-md-4 css-1dte7n6-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-101l4n6-MuiGrid2-root"
       >
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-mm7cz9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
@@ -114,7 +114,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-7r4ghm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-114uinv-MuiTypography-root"
             >
               Course 3 Title
             </div>

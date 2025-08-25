@@ -12,7 +12,7 @@ const FooterDescription = React.forwardRef(
       return null;
     }
     return (
-      <Stack alignItems={{ xs: "center", md: "flex-start" }} sx={sx} ref={ref}>
+      <Stack alignItems="flex-start" sx={sx} ref={ref}>
         <Link href="/">
           <Figure
             ImageProps={logo}
@@ -41,7 +41,6 @@ const FooterDescription = React.forwardRef(
             },
           }}
           sx={{
-            textAlign: { xs: "center", md: "left" },
             mt: 0,
           }}
           ref={ref}

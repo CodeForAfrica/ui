@@ -15,9 +15,7 @@ const WhereWeWork = forwardRef(
         <Section sx={{ py: 7.5, px: { xs: 2.5, md: 0 } }}>
           <Grid container spacing={4} sx={{ mb: 1 }}>
             <Grid size={{ xs: 12, md: 4 }}>
-              <Typography variant="h2" fontWeight="bold">
-                {title}
-              </Typography>
+              <Typography variant="display4">{title}</Typography>
             </Grid>
             <Grid size={{ xs: 12, md: 8 }}>
               <LexicalRichText
