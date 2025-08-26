@@ -45,6 +45,7 @@ function SpotlightCard(props) {
           position: "absolute",
           bottom: 16,
           right: 16,
+          minWidth: "106px",
           textDecoration: "none",
           textTransform: "none",
         }}
