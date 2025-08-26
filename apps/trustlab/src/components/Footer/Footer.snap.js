@@ -7,7 +7,7 @@ exports[`<Footer /> renders unchanged 1`] = `
   >
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1hlgak4-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-w38g3b-MuiSvgIcon-root"
       fill="#181D27"
       focusable="false"
       height="299"
@@ -16,12 +16,12 @@ exports[`<Footer /> renders unchanged 1`] = `
     />
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1etbe97-MuiSvgIcon-root"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kdr9n7-MuiSvgIcon-root"
       focusable="false"
       viewbox="0 0 297 297"
     />
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-pgy3mg-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-udcqpn-MuiContainer-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-8z9gj-MuiGrid2-root"

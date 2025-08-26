@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box, Grid, LinearProgress, Typography } from "@mui/material";
+import { Box, Grid2 as Grid, LinearProgress, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 
