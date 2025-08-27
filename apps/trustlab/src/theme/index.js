@@ -69,8 +69,8 @@ const theme = createTheme({
     values: {
       sm: 728,
       md: 1024,
-      lg: 1024,
-      xl: 1024,
+      lg: 1160,
+      xl: 1240,
     },
     unit: "px",
   },

@@ -6,7 +6,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-ukqic2-MuiContainer-root"
   >
     <div
-      class="MuiBox-root css-la5ci3"
+      class="MuiBox-root css-aei1ck"
     >
       <h2
         class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"

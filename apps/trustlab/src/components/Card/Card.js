@@ -41,12 +41,10 @@ function Card({
           width: {
             xs: "100%",
             md: 336,
-            lg: 384,
           },
           maxWidth: {
             xs: "100%",
             md: 336,
-            lg: 384,
           },
           display: "flex",
           flexDirection: "column",

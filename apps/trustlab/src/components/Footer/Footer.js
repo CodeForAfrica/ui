@@ -45,7 +45,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         sx={{
           color: "transparent",
           position: "absolute",
-          left: -140,
+          left: { xs: -140, md: -100 },
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 1,
@@ -60,7 +60,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           color: "common.white",
           position: "absolute",
           right: -90,
-          bottom: -170,
+          bottom: { xs: -170, md: -92 },
           zIndex: 1,
           width: "240px",
           height: "240px",
@@ -68,7 +68,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       />
       <Section
         sx={{
-          px: { xs: 2.5, sm: 8.5, md: 2, lg: 0 },
+          px: { xs: 2.5, sm: 8.5, md: 15, lg: 0 },
         }}
         component="div"
       >

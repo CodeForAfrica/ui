@@ -6,7 +6,7 @@ exports[`<Incubator /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-xylr7o-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-iw4vnk-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1cth5tq-MuiGrid-root"

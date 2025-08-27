@@ -6,7 +6,7 @@ exports[`<OverviewCardList /> renders unchanged 1`] = `
     class="MuiBox-root css-zaigo1"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12jaa2h-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-smj2lv-MuiContainer-root"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 css-12uhedm-MuiTypography-root"
@@ -23,7 +23,7 @@ exports[`<OverviewCardList /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item css-1bz7o24-MuiGrid-root"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-16r66l5-MuiPaper-root-MuiCard-root"
+            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tjmr4c-MuiPaper-root-MuiCard-root"
             style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
           >
             <div
