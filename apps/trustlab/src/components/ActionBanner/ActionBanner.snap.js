@@ -17,13 +17,19 @@ exports[`<Page /> renders unchanged 1`] = `
         <div
           class="MuiBox-root css-zti5e1"
         >
+          <div
+            class="MuiBox-root css-18pkikv"
+          />
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-1kr0ga8-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-dl8dev-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
             Learn More
           </button>
+          <div
+            class="MuiBox-root css-9oi1yl"
+          />
         </div>
       </div>
     </div>

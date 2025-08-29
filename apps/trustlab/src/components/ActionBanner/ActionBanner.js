@@ -42,6 +42,7 @@ const ActionBanner = forwardRef(
               href={buttonLink?.href}
               component={buttonLink?.href ? Link : undefined}
               color={buttonProps.borderColor || "#000"}
+              bgcolor={backgroundColor || "transparent"}
             >
               {buttonLink?.label || "Learn More"}
             </Button>

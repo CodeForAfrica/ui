@@ -46,7 +46,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: { xs: "748px", sm: "974px", md: "500px" },
+          height: { xs: "808px", sm: "1074px", md: "562px" },
           overflow: "hidden",
           display: "flex",
         }}
@@ -169,6 +169,33 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     </Grid>
                   </Grid>
                 </Box>
+                {slide?.divider && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      backgroundColor: "#000",
+                      height: "30px",
+                      width: "100%",
+                      py: 1.5,
+                      px: { xs: 2.5, sm: 0 },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        maxWidth: theme.contentWidths.values,
+                        height: "6px",
+                        backgroundColor: "common.white",
+                        width: "100%",
+                        borderRadius: "3px",
+                        margin: "0 auto",
+                      }}
+                    >
+                      &nbsp;
+                    </Box>
+                  </Box>
+                )}
               </Box>
             </Slide>
           );
@@ -177,7 +204,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           <Box
             sx={{
               position: "absolute",
-              bottom: { xs: 16, md: 32 },
+              bottom: { xs: 46, md: 62 },
               left: "50%",
               transform: "translateX(-50%)",
               px: { xs: 2.5, sm: 0 },

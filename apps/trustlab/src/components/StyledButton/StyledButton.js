@@ -2,7 +2,10 @@ import { Button, Box } from "@mui/material";
 import React from "react";
 
 const StyledButton = React.forwardRef(
-  ({ color = "#000", sx, children, ...props }, ref) => {
+  (
+    { color = "#000", bgcolor = "transparent", sx, children, ...props },
+    ref,
+  ) => {
     return (
       <Box
         sx={[
@@ -38,6 +41,18 @@ const StyledButton = React.forwardRef(
           ...(Array.isArray(props.sx) ? sx : [sx]),
         ]}
       >
+        <Box
+          sx={{
+            position: "absolute",
+            top: -4,
+            left: 6,
+            zIndex: 10,
+            width: "34px",
+            height: "8px",
+            backgroundColor: bgcolor,
+            transform: "rotate(12deg)",
+          }}
+        />
         <Button
           ref={ref}
           sx={{
@@ -45,6 +60,9 @@ const StyledButton = React.forwardRef(
             border: "none",
             color,
             fontWeight: 700,
+            height: 48,
+            minWidth: 100,
+            fontSize: 18,
             "&:hover": {
               backgroundColor: "transparent",
               boxShadow: "none",
@@ -77,6 +95,18 @@ const StyledButton = React.forwardRef(
         >
           {children}
         </Button>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            right: 6,
+            zIndex: 10,
+            width: "34px",
+            height: "8px",
+            backgroundColor: bgcolor,
+            transform: "rotate(12deg)",
+          }}
+        />
       </Box>
     );
   },

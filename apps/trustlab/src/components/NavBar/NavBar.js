@@ -42,6 +42,7 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
             color="#000"
             sx={{ mb: 2, maxWidth: "fit-content" }}
             component={Link}
+            bgcolor="#fff"
             href="/"
           >
             {searchButtonLabel}
@@ -86,6 +87,7 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
             component={Link}
             href="/"
             size="large"
+            bgcolor="#000"
           >
             {searchButtonLabel}
           </Button>
