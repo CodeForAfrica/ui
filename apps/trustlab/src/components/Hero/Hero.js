@@ -150,7 +150,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         display: "flex",
                         justifyContent: {
                           xs: "flex-start",
-                          md: isReversed ? "flex-start" : "flex-end",
+                          md: isReversed ? "center" : "flex-end",
                         },
                       }}
                       order={isReversed ? 1 : 2}
