@@ -3,7 +3,14 @@ import React from "react";
 
 const StyledButton = React.forwardRef(
   (
-    { color = "#000", bgcolor = "transparent", sx, children, ...props },
+    {
+      color = "#000",
+      bgcolor = "transparent",
+      sx,
+      children,
+      buttonProps = {},
+      ...props
+    },
     ref,
   ) => {
     return (
@@ -55,42 +62,50 @@ const StyledButton = React.forwardRef(
         />
         <Button
           ref={ref}
-          sx={{
-            backgroundColor: "transparent",
-            border: "none",
-            color,
-            fontWeight: 700,
-            height: 48,
-            minWidth: 100,
-            fontSize: 18,
-            "&:hover": {
+          sx={[
+            {
               backgroundColor: "transparent",
-              boxShadow: "none",
+              border: "none",
+              color,
+              fontWeight: 700,
+              height: 54,
+              minWidth: 100,
+              fontSize: 18,
+              "&:hover": {
+                backgroundColor: "transparent",
+                boxShadow: "none",
+              },
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: -4,
+                left: 2,
+                height: "4px",
+                width: "98%",
+                background: `linear-gradient(to left, ${color} 0%, ${color} 100%)`,
+                clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 75%)",
+                zIndex: 0,
+              },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                height: "4px",
+                width: "98%",
+                background: `linear-gradient(to left, ${color} 0%, ${color} 100%)`,
+                clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 75%)",
+                transform: "rotate(180deg)",
+                zIndex: 0,
+              },
+              px: 2,
+              py: 3,
             },
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              top: -4,
-              left: 2,
-              height: "4px",
-              width: "98%",
-              background: `linear-gradient(to left, ${color} 0%, ${color} 100%)`,
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 75%)",
-              zIndex: 0,
-            },
-            "&::after": {
-              content: '""',
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              height: "4px",
-              width: "98%",
-              background: `linear-gradient(to left, ${color} 0%, ${color} 100%)`,
-              clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 75%)",
-              transform: "rotate(180deg)",
-              zIndex: 0,
-            },
-          }}
+
+            ...(Array.isArray(buttonProps.sx)
+              ? buttonProps.sx
+              : [buttonProps.sx]),
+          ]}
           {...props}
         >
           {children}
