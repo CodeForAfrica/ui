@@ -68,7 +68,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       />
       <Section
         sx={{
-          px: { xs: 2.5, sm: 8.5, md: 15, lg: 0 },
+          px: { xs: 2.5, sm: 8.5, md: 15, lg: 15 },
         }}
         component="div"
       >
