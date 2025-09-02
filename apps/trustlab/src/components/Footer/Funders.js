@@ -9,7 +9,6 @@ const Funders = forwardRef((props, ref) => {
       <Typography
         sx={{
           mb: 2.5,
-          pb: 1,
           div: {
             paddingBottom: "8px",
           },

@@ -35,6 +35,9 @@ const ActionBanner = forwardRef(
                   mb: 0,
                   fontSize: { xs: 34, md: 44 },
                   color: textColor,
+                  strong: {
+                    fontWeight: 800,
+                  },
                 },
               }}
             />
@@ -49,6 +52,7 @@ const ActionBanner = forwardRef(
                 sx: {
                   height: 76,
                   fontSize: 24,
+                  px: 3,
                 },
               }}
             >

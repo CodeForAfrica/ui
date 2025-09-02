@@ -72,7 +72,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         }}
         component="div"
       >
-        <Grid container columnSpacing={4} sx={{ mt: 2 }}>
+        <Grid container columnSpacing={5} sx={{ mt: 2 }}>
           <Grid order={1} sx={{ mb: 2 }} size={{ xs: 12, sm: 7, md: 5 }}>
             <FooterDescription description={description} logo={logo} />
           </Grid>
@@ -83,7 +83,12 @@ const Footer = React.forwardRef(function Footer(props, ref) {
               sx={{ mb: 2 }}
             />
           </Grid>
-          <Grid order={{ xs: 4, md: 3 }} size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid
+            justifyContent={{ xs: "flex-start", md: "center" }}
+            display="flex"
+            order={{ xs: 4, md: 3 }}
+            size={{ xs: 12, sm: 6, md: 4 }}
+          >
             <Funders
               sx={{ width: "max-content" }}
               title={donorTitle}

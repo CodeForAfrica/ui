@@ -21,7 +21,7 @@ const FooterDescription = React.forwardRef(
                 sm: "block",
               },
               filter: "grayscale(100%)",
-              height: "60px",
+              height: "52px",
               width: "140px",
               borderBottom: "2px solid",
               borderColor: "text.secondary",
