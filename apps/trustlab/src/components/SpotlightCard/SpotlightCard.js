@@ -48,6 +48,7 @@ function SpotlightCard(props) {
           minWidth: "106px",
           textDecoration: "none",
           textTransform: "none",
+          fontWeight: 700,
         }}
         href={href}
       >

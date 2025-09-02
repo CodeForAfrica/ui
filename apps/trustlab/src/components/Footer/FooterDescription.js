@@ -38,6 +38,7 @@ const FooterDescription = React.forwardRef(
             },
             sx: {
               mt: { xs: 2, md: 2.5 },
+              mb: { xs: 0, md: 2 },
             },
           }}
           sx={{

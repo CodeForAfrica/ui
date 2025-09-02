@@ -115,7 +115,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   fontWeight: 700,
                 },
               }}
-              sx={{ mb: 2 }}
+              sx={{ mb: 4 }}
               alignItems="flex-start"
             />
             <LexicalRichText
