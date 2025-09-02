@@ -88,7 +88,7 @@ const Spotlight = React.forwardRef(function Spotlight(
             ref={scrollRef}
             onScroll={checkScrollButtons}
             display="flex"
-            gap={2}
+            gap={4}
             flex={1}
             sx={{
               overflowX: "auto",
