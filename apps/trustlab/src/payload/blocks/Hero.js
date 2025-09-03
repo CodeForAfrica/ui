@@ -73,6 +73,13 @@ const Hero = {
             }),
           ],
         },
+        {
+          name: "divider",
+          type: "checkbox",
+          label: "Show divider below slide",
+          localized: true,
+          defaultValue: false,
+        },
       ],
     },
   ],

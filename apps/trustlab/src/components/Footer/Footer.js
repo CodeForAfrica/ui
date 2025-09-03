@@ -68,22 +68,32 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       />
       <Section
         sx={{
-          px: { xs: 2.5, sm: 8.5, md: 15, lg: 0 },
+          px: { xs: 2.5, sm: 8.5, md: 15, lg: 15 },
         }}
         component="div"
       >
-        <Grid container columnSpacing={4} sx={{ mt: 2 }}>
-          <Grid order={1} sx={{ mb: 2 }} size={{ xs: 12, sm: 7, md: 5 }}>
+        <Grid container columnSpacing={5} sx={{ mt: 2 }}>
+          <Grid order={1} sx={{ mb: 2 }} size={{ xs: 12, sm: 7, md: 4 }}>
             <FooterDescription description={description} logo={logo} />
           </Grid>
-          <Grid order={2} size={{ xs: 12, sm: 5, md: 3 }}>
+          <Grid
+            order={2}
+            justifyContent={{ xs: "flex-start", md: "center" }}
+            display="flex"
+            size={{ xs: 12, sm: 5, md: 4 }}
+          >
             <FooterLinks
               primaryNavigation={primaryNavigation}
               secondaryNavigation={secondaryNavigation}
               sx={{ mb: 2 }}
             />
           </Grid>
-          <Grid order={{ xs: 4, md: 3 }} size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid
+            justifyContent={{ xs: "flex-start", md: "center" }}
+            display="flex"
+            order={{ xs: 4, md: 3 }}
+            size={{ xs: 12, sm: 6, md: 3 }}
+          >
             <Funders
               sx={{ width: "max-content" }}
               title={donorTitle}
@@ -105,7 +115,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
                   fontWeight: 700,
                 },
               }}
-              sx={{ mb: 2 }}
+              sx={{ mb: 4 }}
               alignItems="flex-start"
             />
             <LexicalRichText

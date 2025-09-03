@@ -12,7 +12,7 @@ exports[`<Incubator /> renders unchanged 1`] = `
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1cth5tq-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 css-1bzrmhg-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-7 css-1nvtlyt-MuiGrid-root"
         >
           <div
             class="MuiBox-root css-1gl9ksj"
@@ -32,10 +32,10 @@ exports[`<Incubator /> renders unchanged 1`] = `
           </a>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1dte7n6-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5 css-n1lwnh-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-16r86dc"
+            class="MuiBox-root css-10tt6jw"
           >
             <img
               alt="Incubator Image"

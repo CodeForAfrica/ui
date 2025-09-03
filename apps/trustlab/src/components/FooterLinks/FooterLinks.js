@@ -28,7 +28,6 @@ const FooterLinks = React.forwardRef(function FooterLinks(props, ref) {
             borderBottom: "2px solid",
             lineHeight: "50px",
             whiteSpace: "nowrap",
-            pb: 1,
           }}
           component="div"
           variant="h1"

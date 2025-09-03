@@ -29,7 +29,7 @@ const Incubator = forwardRef((props, ref) => {
     >
       <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={7}>
             <LexicalRichText
               elements={content}
               sx={{
@@ -71,17 +71,17 @@ const Incubator = forwardRef((props, ref) => {
               </Button>
             )}
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={5}>
             <Figure
               ImageProps={{
                 alt,
                 src: url,
               }}
               sx={{
-                height: { xs: "374.47px", md: "268px" },
+                height: { xs: "374.47px", md: "420px" },
                 m: 0,
                 position: "relative",
-                width: { xs: "100%", md: "360px" },
+                width: "100%",
               }}
             />
           </Grid>

@@ -19,7 +19,7 @@ const ActionBanner = forwardRef(
           color: textColor,
         }}
       >
-        <Section sx={{ py: { xs: 2.5, md: 4 }, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: { xs: 2.5, md: 3 }, px: { xs: 2.5, md: 0 } }}>
           <Box
             alignItems={{ md: "center", xs: "flex-start" }}
             justifyContent="space-between"
@@ -33,7 +33,11 @@ const ActionBanner = forwardRef(
                 variant: "banner",
                 sx: {
                   mb: 0,
+                  fontSize: { xs: 34, md: 44 },
                   color: textColor,
+                  strong: {
+                    fontWeight: 800,
+                  },
                 },
               }}
             />
@@ -42,6 +46,16 @@ const ActionBanner = forwardRef(
               href={buttonLink?.href}
               component={buttonLink?.href ? Link : undefined}
               color={buttonProps.borderColor || "#000"}
+              bgcolor={backgroundColor || "transparent"}
+              sx={{ mr: { xs: 0, md: 10 } }}
+              buttonProps={{
+                sx: {
+                  height: 76,
+                  fontSize: 24,
+                  width: { xs: 160, md: 180 },
+                  fontWeight: 900,
+                },
+              }}
             >
               {buttonLink?.label || "Learn More"}
             </Button>

@@ -9,7 +9,7 @@ function SpotlightCard(props) {
       sx={{
         width: "100%",
         height: 220,
-        maxWidth: { xs: "100%", sm: 350 },
+        maxWidth: { xs: "100%", sm: 370 },
         minWidth: 300,
         borderRadius: "10px",
         position: "relative",
@@ -48,6 +48,7 @@ function SpotlightCard(props) {
           minWidth: "106px",
           textDecoration: "none",
           textTransform: "none",
+          fontWeight: 700,
         }}
         href={href}
       >

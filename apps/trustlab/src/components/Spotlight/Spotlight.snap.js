@@ -29,7 +29,7 @@ exports[`<Spotlight /> renders unchanged 1`] = `
           />
         </button>
         <div
-          class="MuiBox-root css-l7m7w2"
+          class="MuiBox-root css-krv710"
         />
         <button
           aria-label="Next"
