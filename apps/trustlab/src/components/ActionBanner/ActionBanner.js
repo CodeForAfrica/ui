@@ -52,7 +52,7 @@ const ActionBanner = forwardRef(
                 sx: {
                   height: 76,
                   fontSize: 24,
-                  width: 180,
+                  width: { xs: 160, md: 180 },
                   fontWeight: 900,
                 },
               }}
