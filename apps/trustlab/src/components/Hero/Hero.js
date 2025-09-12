@@ -13,6 +13,7 @@ import {
 import React, { forwardRef, useRef, useState } from "react";
 
 import ChevronRightDouble from "@/trustlab/assets/icons/Type=chevronRightDouble, Size=20, Color=currentColor.svg";
+import Line from "@/trustlab/assets/line.svg";
 
 const direction = (activeStep, prevStep, index) => {
   // Going backwards, slide right
@@ -183,20 +184,20 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                       width: "100%",
                       py: 1.5,
                       px: { xs: 2.5, sm: 0 },
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    <Box
+                    <SvgIcon
+                      component={Line}
+                      width="100%"
+                      viewBox="0 0 1000 10"
                       sx={{
                         maxWidth: theme.contentWidths.values,
-                        height: "6px",
-                        backgroundColor: "common.white",
                         width: "100%",
-                        borderRadius: "3px",
-                        margin: "0 auto",
                       }}
-                    >
-                      &nbsp;
-                    </Box>
+                    />
                   </Box>
                 )}
               </Box>
