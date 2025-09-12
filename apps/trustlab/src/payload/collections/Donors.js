@@ -2,8 +2,8 @@ import {
   image,
   richText,
   socialLinks,
-  nestCollectionUnderPage,
   slug,
+  linkGroup,
 } from "@commons-ui/payload";
 
 const Donors = {
@@ -51,6 +51,12 @@ const Donors = {
       required: true,
       localized: true,
     }),
+    linkGroup({
+      overrides: {
+        name: "link",
+        required: true,
+      },
+    }),
     socialLinks({
       name: "connect",
       label: "Social Media Links",
@@ -58,8 +64,5 @@ const Donors = {
       localized: true,
     }),
   ],
-  hooks: {
-    afterRead: [nestCollectionUnderPage("donors")],
-  },
 };
 export default Donors;

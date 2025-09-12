@@ -22,10 +22,11 @@ const Funders = forwardRef((props, ref) => {
         {title}
       </Typography>
       <Box>
-        {funders.map(({ logo, link: { href }, id }) => {
+        {funders.map(({ logo, link: { href }, id, name }) => {
           const { alt } = logo;
           const Wrapper = href?.length ? Link : React.Fragment;
           const wrapperProps = href?.length ? { href } : undefined;
+
           return (
             <Wrapper key={id} {...wrapperProps}>
               <Figure
@@ -34,7 +35,16 @@ const Funders = forwardRef((props, ref) => {
                   src: logo.url,
                 }}
                 sx={{
-                  filter: "grayscale(100%)",
+                  /*
+                  This is a hack for giz logo which has a dim background
+                  and needs to be fully visible in dark mode. We could have used invert(1)
+                  but that would have affected the other logos as well.
+                  So we are using a specific filter for giz logo only.
+                  */
+                  filter:
+                    name?.toLowerCase() === "giz"
+                      ? "grayscale(100%) brightness(0) invert(1)"
+                      : "grayscale(100%)",
                   minHeight: "35px",
                   m: 0,
                   position: "relative",
@@ -43,8 +53,9 @@ const Funders = forwardRef((props, ref) => {
                   alignItems: "center",
                   justifyContent: "flex-start",
                   mb: 2,
+                  transition: "filter 0.3s ease",
                   "&:hover": {
-                    filter: "none",
+                    filter: "grayscale(0%) brightness(1) invert(0)",
                   },
                 }}
               />

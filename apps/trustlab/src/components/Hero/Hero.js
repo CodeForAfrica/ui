@@ -10,7 +10,7 @@ import {
   IconButton,
   SvgIcon,
 } from "@mui/material";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useRef, useState, useEffect } from "react";
 
 import ChevronRightDouble from "@/trustlab/assets/icons/Type=chevronRightDouble, Size=20, Color=currentColor.svg";
 import Line from "@/trustlab/assets/line.svg";
@@ -30,6 +30,23 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
   const theme = useTheme();
   // NOTE(kilemensi): useRef 'cause we need to remember prev step without a rerender
   const prevStepRef = useRef(0);
+  // Automatically move to next slide every 10s
+  useEffect(() => {
+    if (slides.length <= 1) {
+      return undefined;
+    }
+    const timer = setInterval(() => {
+      setActiveStep((prevStep) => {
+        prevStepRef.current = prevStep;
+        if (prevStep >= slides.length - 1) {
+          return 0;
+        }
+        return prevStep + 1;
+      });
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   if (!slides?.length) {
     return null;
   }

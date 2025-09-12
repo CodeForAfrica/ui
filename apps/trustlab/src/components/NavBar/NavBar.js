@@ -59,8 +59,10 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
               typography: {
                 sx: {
                   color: "common.white",
-                  variant: "p3",
                   "&:hover": {
+                    color: "common.white",
+                  },
+                  "&.active": {
                     color: "common.white",
                   },
                 },
@@ -78,6 +80,8 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
         >
           <Button
             sx={{
+              // Hide Search button. Hide since search design is not available yet
+              display: "none",
               mr: 2,
               "&:last-child": {
                 marginRight: 0,
