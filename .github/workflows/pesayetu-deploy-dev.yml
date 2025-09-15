@@ -72,7 +72,7 @@ jobs:
             "jwt_secret_key=${{ secrets.PESAYETU_JWT_SECRET_KEY }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
-            "sentry_project=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}"
+            "sentry_project=${{ secrets.PESAYETU_SENTRY_PROJECT }}"
             "wordpress_preview_secret=${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}"
             "wordpress_application_username=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}"
             "wordpress_application_password=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}"

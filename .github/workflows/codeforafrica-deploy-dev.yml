@@ -74,7 +74,7 @@ jobs:
             "payload_secret=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
-            "sentry_project=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}"
+            "sentry_project=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: codeforafrica-runner
 
