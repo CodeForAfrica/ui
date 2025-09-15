@@ -1,8 +1,10 @@
-name: Techlab Blog | Deploy | DEV
+name: TechLab Blog | Deploy | DEV
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+
     paths:
       - "apps/techlabblog/**"
       - "Dockerfile"
@@ -13,24 +15,79 @@ concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: true
 
-jobs:
-  build-docker-image:
-    name: Build Docker Image
-    uses: ./.github/workflows/build-docker-image.yml
-    secrets: inherit
-    with:
-      build_args: |
-        SENTRY_ENVIRONMENT=development
-        NEXT_PUBLIC_SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
-      build_secrets: |
-        "sentry_org=${{ secrets.SENTRY_ORG }}"
-        "sentry_project=${{ secrets.TECHLABBLOG_SENTRY_PROJECT }}"
+env:
+  APP_NAME: techlabblog-ui
+  DOKKU_REMOTE_BRANCH: "master"
+  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  IMAGE_NAME: "codeforafrica/techlabblog"
+  NEXT_PUBLIC_APP_URL: "https://techlabblog-ui.dev.codeforafrica.org"
+  SENTRY_ENVIRONMENT: "development"
 
-  push-to-dokku:
-    name: Push to Dokku
-    needs: [build-docker-image]
-    uses: ./.github/workflows/push-to-dokku.yml
-    secrets: inherit
-    with:
-      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog-ui"
-      deploy_docker_image: "codeforafrica/techlabblog:${{ github.sha }}"
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [20.16]
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Add support for more platforms with QEMU (optional)
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Cache Docker layers
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          path: /tmp/.buildx-cache
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v6
+        with:
+          build-args: |
+            NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
+            NEXT_PUBLIC_SENTRY_DSN=${{ secrets.TECHLABBLOG_SENTRY_DSN }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          context: .
+          platforms: linux/arm64
+          push: true
+          secrets: |
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.TECHLABBLOG_SENTRY_PROJECT }}"
+          tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          target: techlabblog-runner
+
+      # Temp fix
+      # https://github.com/docker/build-push-action/issues/252
+      # https://github.com/moby/buildkit/issues/1896
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+      - name: Push to Dokku
+        uses: dokku/github-action@v1.7.0
+        with:
+          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
