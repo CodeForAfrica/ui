@@ -15,6 +15,10 @@ on:
         required: true
         type: string
         description: "The build args to use for the Docker image"
+      build_secrets:
+        required: false
+        type: string
+        description: "The build secrets to use for the Docker image"
 
 jobs:
   build:
@@ -56,13 +60,16 @@ jobs:
         with:
           build-args: |
             ${{ inputs.build_args }}
-            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_ORG=${{ vars.SENTRY_ORG }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
+          secrets: |
+            ${{ inputs.build_secrets }}
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
           tags: ${{ inputs.tags }}
           target: ${{ inputs.target }}
 

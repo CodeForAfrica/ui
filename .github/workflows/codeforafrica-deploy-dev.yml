@@ -60,21 +60,21 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
-            PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
           secrets: |
+            "mongodb_url=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}"
+            "payload_secret=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: codeforafrica-runner
 

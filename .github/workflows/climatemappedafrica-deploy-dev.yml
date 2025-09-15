@@ -59,13 +59,17 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            MONGO_URL=${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
-            PAYLOAD_SECRET=${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
+          secrets: |
+            "mongo_url=${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}"
+            "payload_secret=${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}"
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.CLIMATEMAPPEDAFRICA_SENTRY_PROJECT }}"
           target: climatemappedafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"

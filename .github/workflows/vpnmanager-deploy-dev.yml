@@ -58,18 +58,18 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            API_SECRET_KEY=${{ secrets.VPNMANAGER_API_SECRET_KEY }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.VPNMANAGER_SENTRY_DSN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
           secrets: |
+            "api_secret_key=${{ secrets.VPNMANAGER_API_SECRET_KEY }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: vpnmanager-runner
 

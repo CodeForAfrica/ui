@@ -19,11 +19,12 @@ jobs:
     uses: ./.github/workflows/build-docker-image.yml
     secrets: inherit
     with:
-      tags: "codeforafrica/techlabblog:${{ github.sha }}"
-      target: "techlabblog-runner"
       build_args: |
         SENTRY_ENVIRONMENT=development
         NEXT_PUBLIC_SENTRY_DSN: ${{ vars.TECHLABBLOG_SENTRY_DSN }}
+      build_secrets: |
+        "sentry_org=${{ secrets.SENTRY_ORG }}"
+        "sentry_project=${{ secrets.TECHLABBLOG_SENTRY_PROJECT }}"
 
   push-to-dokku:
     name: Push to Dokku
