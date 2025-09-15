@@ -3,48 +3,47 @@
 COMPOSE=docker compose
 COMPOSE_BUILD_ENV=BUILDKIT_PROGRESS=plain
 
-.PHONY: charterafrica codeforafrica down mongodb mongodb-keyfile pesayetu roboshield vpnmanager
+.PHONY: charterafrica civicsignalblog climatemappedafrica codeforafrica down mongodb mongodb-keyfile pesayetu promisetracker roboshield techlabblog trustlab twoopstracker vpnmanager
 
 charterafrica:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env.local up charterafrica --build
+	./scripts/dc.sh charterafrica
 
 civicsignalblog:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/civicsignalblog/.env.local up civicsignalblog --build
-
-codeforafrica:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/codeforafrica/.env.local up codeforafrica --build
+	./scripts/dc.sh civicsignalblog
 
 climatemappedafrica:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/climatemappedafrica/.env.local up climatemappedafrica --build
+	./scripts/dc.sh climatemappedafrica
+
+codeforafrica:
+	./scripts/dc.sh codeforafrica
 
 down:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) down --volumes
 
 mongodb:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env.local up --wait mongodb
+	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/charterafrica/.env --env-file apps/charterafrica/.env.local up --wait mongodb
 
 mongodb-keyfile:
 	openssl rand -base64 741 > ./mongo-keyfile
 	chmod 600 ./mongo-keyfile
 
 pesayetu:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/pesayetu/.env.local up pesayetu --build
+	./scripts/dc.sh pesayetu
 
 promisetracker:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/promisetracker/.env.local up promisetracker --build
+	./scripts/dc.sh promisetracker
 
 roboshield:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/roboshield/.env.local up roboshield --build
+	./scripts/dc.sh roboshield
 
 techlabblog:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/techlabblog/.env.local up techlabblog --build
+	./scripts/dc.sh techlabblog
 
 trustlab:
 	./scripts/dc.sh trustlab
 
 twoopstracker:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/twoopstracker/.env.local up twoopstracker --build
+	./scripts/dc.sh twoopstracker
 
 vpnmanager:
-	$(COMPOSE_BUILD_ENV) $(COMPOSE) --env-file apps/vpnmanager/.env.local up vpnmanager --build
-
+	./scripts/dc.sh vpnmanager
