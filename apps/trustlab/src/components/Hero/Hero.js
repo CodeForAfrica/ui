@@ -156,7 +156,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                                 border: "none",
                                 textTransform: "none",
                                 height: "50px",
-                                minWidth: "140px",
                               }}
                             >
                               {link.label}
