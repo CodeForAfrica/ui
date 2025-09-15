@@ -15,10 +15,6 @@ on:
         required: true
         type: string
         description: "The build args to use for the Docker image"
-      build_secrets:
-        required: false
-        type: string
-        description: "The build secrets to use for the Docker image"
 
 jobs:
   build:
@@ -67,7 +63,6 @@ jobs:
           platforms: linux/arm64
           push: true
           secrets: |
-            ${{ inputs.build_secrets }}
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
           tags: ${{ inputs.tags }}
