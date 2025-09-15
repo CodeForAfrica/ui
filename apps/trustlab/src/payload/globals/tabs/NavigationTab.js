@@ -51,6 +51,11 @@ const NavigationTab = {
               type: "select",
               options: socialMediaOptions,
             },
+            {
+              name: "searchButtonLabel",
+              type: "text",
+              localized: true,
+            },
           ],
         },
       ],

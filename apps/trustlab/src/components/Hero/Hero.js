@@ -31,8 +31,10 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
   // NOTE(kilemensi): useRef 'cause we need to remember prev step without a rerender
   const prevStepRef = useRef(0);
   // Automatically move to next slide every 10s
+  const [autoSlide, setAutoSlide] = useState(true);
+
   useEffect(() => {
-    if (slides.length <= 1) {
+    if (slides.length <= 1 || !autoSlide) {
       return undefined;
     }
     const timer = setInterval(() => {
@@ -45,7 +47,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
       });
     }, 10000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, autoSlide]);
 
   if (!slides?.length) {
     return null;
@@ -270,12 +272,13 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             {slides.map((slide, index) => (
               <Button
                 key={slide.id}
-                onClick={() =>
+                onClick={() => {
                   setActiveStep((prevStep) => {
                     prevStepRef.current = prevStep;
                     return index;
-                  })
-                }
+                  });
+                  setAutoSlide(false);
+                }}
                 sx={{
                   width: 12,
                   height: 12,
@@ -304,12 +307,13 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 },
               }}
               disabled={activeStep >= slides.length - 1}
-              onClick={() =>
+              onClick={() => {
                 setActiveStep((prevStep) => {
                   prevStepRef.current = prevStep;
                   return prevStep + 1;
-                })
-              }
+                });
+                setAutoSlide(false);
+              }}
             >
               <SvgIcon
                 sx={{
