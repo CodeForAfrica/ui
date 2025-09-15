@@ -56,7 +56,6 @@ jobs:
         with:
           build-args: |
             ${{ inputs.build_args }}
-            SENTRY_ORG=${{ vars.SENTRY_ORG }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .

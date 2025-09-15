@@ -61,8 +61,6 @@ jobs:
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
