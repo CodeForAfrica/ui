@@ -58,20 +58,20 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            MONGO_URL=${{ secrets.CHARTERAFRICA_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
-            PAYLOAD_SECRET_KEY=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
           secrets: |
+            "mongo_url=${{ secrets.CHARTERAFRICA_MONGO_URL }}"
+            "payload_secret_key=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: charterafrica-runner
 

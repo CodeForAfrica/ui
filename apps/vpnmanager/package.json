@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/vpnmanager/server.js",
     "lint-check": "TIMING=1 next lint './'",
     "lint": "TIMING=1 next lint --fix './'",
     "clean": "rm -rf .next .turbo node_modules",

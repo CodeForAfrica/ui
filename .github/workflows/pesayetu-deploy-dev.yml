@@ -61,19 +61,21 @@ jobs:
           build-args: |
             WORDPRESS_URL=${{ secrets.PESAYETU_WORDPRESS_URL }}
             WORDPRESS_MULTISITE_PREFIX=${{ secrets.PESAYETU_WORDPRESS_MULTISITE_PREFIX }}
-            WORDPRESS_PREVIEW_SECRET=${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}
-            WORDPRESS_APPLICATION_USERNAME=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}
-            WORDPRESS_APPLICATION_PASSWORD=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}
-            JWT_SECRET_KEY=${{ secrets.PESAYETU_JWT_SECRET_KEY }}
             HURUMAP_API_URL=${{ secrets.PESAYETU_HURUMAP_API_URL }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.PESAYETU_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
+          secrets: |
+            "jwt_secret_key=${{ secrets.PESAYETU_JWT_SECRET_KEY }}"
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.PESAYETU_SENTRY_PROJECT }}"
+            "wordpress_preview_secret=${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}"
+            "wordpress_application_username=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}"
+            "wordpress_application_password=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: pesayetu-runner
 

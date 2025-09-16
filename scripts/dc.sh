@@ -14,4 +14,4 @@ IMAGE_TAG=${IMAGE_TAG:-${REPO_SHA}} \
   docker compose \
   --env-file "./apps/${APP}/.env" \
   --env-file "./apps/${APP}/.env.local" \
-  up "${APP}"
+  up "${APP}" --build

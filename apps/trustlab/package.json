@@ -48,7 +48,7 @@
     "payload": "catalog:payload-v3",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "require-in-the-middle": "^7.5.2",
+    "require-in-the-middle": "catalog:payload-v3",
     "sharp": "catalog:",
     "swr": "catalog:",
     "validate-color": "catalog:"
