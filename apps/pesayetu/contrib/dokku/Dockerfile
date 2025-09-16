@@ -1,1 +1,1 @@
-FROM codeforafrica/pesayetu-ui:1.0.2
+FROM codeforafrica/pesayetu-ui:1.0.3
