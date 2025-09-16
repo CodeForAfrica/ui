@@ -1,1 +1,1 @@
-FROM codeforafrica/civicsignalblog-ui:0.1.19
+FROM codeforafrica/civicsignalblog-ui:0.1.21

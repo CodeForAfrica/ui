@@ -1,1 +1,1 @@
-FROM codeforafrica/climatemapped-africa-ui:0.0.5
+FROM codeforafrica/climatemapped-africa-ui:0.0.7
