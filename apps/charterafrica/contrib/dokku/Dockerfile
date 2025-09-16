@@ -1,1 +1,1 @@
-FROM codeforafrica/charterafrica-ui:0.1.38
+FROM codeforafrica/charterafrica-ui:0.1.39
