@@ -1,1 +1,1 @@
-FROM codeforafrica/promise-tracker-ui:0.3.1
+FROM codeforafrica/promise-tracker-ui:0.3.2
