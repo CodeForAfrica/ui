@@ -16,7 +16,7 @@ concurrency:
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://azureuser@ui-2.dev.codeforafrica.org"
+  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   ORIGINAL_APP_NAME: "codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui-pr-${{github.event.pull_request.number}}.dev.codeforafrica.org"
