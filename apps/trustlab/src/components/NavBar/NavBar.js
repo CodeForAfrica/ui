@@ -13,7 +13,7 @@ import { grey } from "@/trustlab/colors";
 import MobileNavBar from "@/trustlab/components/MobileNavBar";
 import Button from "@/trustlab/components/StyledButton";
 
-function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
+function NavBar({ logo, menus, searchButtonLabel, socialLinks }) {
   return (
     <NavigationBar
       sx={{
@@ -37,16 +37,18 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
           NextImageButton={NextImageButton}
           Link={Link}
         >
-          <Button
-            size="large"
-            color="#000"
-            sx={{ mb: 2, maxWidth: "fit-content" }}
-            component={Link}
-            bgcolor="#fff"
-            href="/"
-          >
-            {searchButtonLabel}
-          </Button>
+          {searchButtonLabel ? (
+            <Button
+              size="large"
+              color="#000"
+              sx={{ mb: 2, maxWidth: "fit-content" }}
+              component={Link}
+              bgcolor="#fff"
+              href="/"
+            >
+              {searchButtonLabel}
+            </Button>
+          ) : null}
         </MobileNavBar>
         <DesktopNavBar
           logo={logo}
@@ -59,8 +61,10 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
               typography: {
                 sx: {
                   color: "common.white",
-                  variant: "p3",
                   "&:hover": {
+                    color: "common.white",
+                  },
+                  "&.active": {
                     color: "common.white",
                   },
                 },
@@ -76,21 +80,23 @@ function NavBar({ logo, menus, searchButtonLabel = "Search", socialLinks }) {
             },
           }}
         >
-          <Button
-            sx={{
-              mr: 2,
-              "&:last-child": {
-                marginRight: 0,
-              },
-            }}
-            color="#fff"
-            component={Link}
-            href="/"
-            size="large"
-            bgcolor="#000"
-          >
-            {searchButtonLabel}
-          </Button>
+          {searchButtonLabel ? (
+            <Button
+              sx={{
+                mr: 2,
+                "&:last-child": {
+                  marginRight: 0,
+                },
+              }}
+              color="#fff"
+              component={Link}
+              href="/"
+              size="large"
+              bgcolor="#000"
+            >
+              {searchButtonLabel}
+            </Button>
+          ) : null}
         </DesktopNavBar>
       </Section>
     </NavigationBar>

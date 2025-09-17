@@ -10,7 +10,7 @@ function getNavBar(settings) {
   const {
     connect: { links = [] },
     primaryLogo: media,
-    primaryNavigation: { menus = null, connect },
+    primaryNavigation: { menus = null, connect, searchButtonLabel = null } = {},
     title,
   } = settings;
   const socialLinks = links.filter((link) => link.platform === connect);
@@ -19,6 +19,7 @@ function getNavBar(settings) {
     logo: imageFromMedia({ alt: title, ...media }),
     menus,
     socialLinks,
+    searchButtonLabel,
   };
 }
 

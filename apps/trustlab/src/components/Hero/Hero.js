@@ -10,9 +10,10 @@ import {
   IconButton,
   SvgIcon,
 } from "@mui/material";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useRef, useState, useEffect } from "react";
 
 import ChevronRightDouble from "@/trustlab/assets/icons/Type=chevronRightDouble, Size=20, Color=currentColor.svg";
+import Line from "@/trustlab/assets/line.svg";
 
 const direction = (activeStep, prevStep, index) => {
   // Going backwards, slide right
@@ -29,6 +30,25 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
   const theme = useTheme();
   // NOTE(kilemensi): useRef 'cause we need to remember prev step without a rerender
   const prevStepRef = useRef(0);
+  // Automatically move to next slide every 10s
+  const [autoSlide, setAutoSlide] = useState(true);
+
+  useEffect(() => {
+    if (slides.length <= 1 || !autoSlide) {
+      return undefined;
+    }
+    const timer = setInterval(() => {
+      setActiveStep((prevStep) => {
+        prevStepRef.current = prevStep;
+        if (prevStep >= slides.length - 1) {
+          return 0;
+        }
+        return prevStep + 1;
+      });
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [slides.length, autoSlide]);
+
   if (!slides?.length) {
     return null;
   }
@@ -183,20 +203,20 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                       width: "100%",
                       py: 1.5,
                       px: { xs: 2.5, sm: 0 },
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    <Box
+                    <SvgIcon
+                      component={Line}
+                      width="100%"
+                      viewBox="0 0 1000 10"
                       sx={{
                         maxWidth: theme.contentWidths.values,
-                        height: "6px",
-                        backgroundColor: "common.white",
                         width: "100%",
-                        borderRadius: "3px",
-                        margin: "0 auto",
                       }}
-                    >
-                      &nbsp;
-                    </Box>
+                    />
                   </Box>
                 )}
               </Box>
@@ -252,12 +272,13 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             {slides.map((slide, index) => (
               <Button
                 key={slide.id}
-                onClick={() =>
+                onClick={() => {
                   setActiveStep((prevStep) => {
                     prevStepRef.current = prevStep;
                     return index;
-                  })
-                }
+                  });
+                  setAutoSlide(false);
+                }}
                 sx={{
                   width: 12,
                   height: 12,
@@ -286,12 +307,13 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 },
               }}
               disabled={activeStep >= slides.length - 1}
-              onClick={() =>
+              onClick={() => {
                 setActiveStep((prevStep) => {
                   prevStepRef.current = prevStep;
                   return prevStep + 1;
-                })
-              }
+                });
+                setAutoSlide(false);
+              }}
             >
               <SvgIcon
                 sx={{
