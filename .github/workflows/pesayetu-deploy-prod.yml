@@ -1,27 +1,26 @@
-name: TwoopsTracker | Deploy | Dev
+name: Pesayetu | Deploy | DEV
 
 on:
   push:
     branches: [main]
     paths:
-      - "apps/twoopstracker/**"
-      - "Dockerfile"
-      - ".github/workflows/twoopstracker-deploy-dev.yml"
+      - "apps/pesayetu/**"
+      - "Dockerfile.pesayetu"
+      - ".github/workflows/pesayetu-deploy-prod.yml"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
   cancel-in-progress: true
 
 env:
-  APP_NAME: twoopstracker-ui
+  APP_NAME: pesayetu-ui
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://azureuser@ui-2.prod.codeforafrica.org"
+  DOKKU_REMOTE_URL: "ssh://ubuntu@ui-2.prod.codeforafrica.org"
+  IMAGE_NAME: "codeforafrica/pesayetu-ui"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  IMAGE_NAME: "codeforafrica/twoopstracker-ui"
-  NEXT_PUBLIC_APP_URL: "https://trolltracker.investigate.africa"
-  NEXT_PUBLIC_APP_NAME: "TwoopsTracker"
-  SENTRY_ENVIRONMENT: "development"
-  TWOOPSTRACKER_API_URL: "https://dev.investigate.africa/v1"
+  NEXT_PUBLIC_APP_URL: "https://pesayetu.pesacheck.org"
+  SENTRY_ENVIRONMENT: "production"
+  VERSION_FILE_NAME: "./apps/pesayetu/package.json"
 
 jobs:
   deploy:
@@ -30,21 +29,35 @@ jobs:
       matrix:
         node-version: [20.16]
         os: [ubuntu-latest]
-
     steps:
       - name: Cloning repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Check if version is bumped
+        id: version-check
+        uses: EndBug/version-check@v2
+        with:
+          diff-search: true
+          file-name: "${{ env.VERSION_FILE_NAME }}"
+
       # Add support for more platforms with QEMU (optional)
       - name: Set up QEMU
+        if: steps.version-check.outputs.changed == 'true'
         uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
+        if: steps.version-check.outputs.changed == 'true'
         uses: docker/setup-buildx-action@v3
 
       - name: Cache Docker layers
+        if: steps.version-check.outputs.changed == 'true'
         uses: actions/cache@v4
         with:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
@@ -53,37 +66,48 @@ jobs:
             ${{ runner.os }}-buildx-
 
       - name: Login to DockerHub
+        if: steps.version-check.outputs.changed == 'true'
         uses: docker/login-action@v3
         with:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
       - name: Build Docker image
+        if: steps.version-check.outputs.changed == 'true'
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            TWOOPSTRACKER_API_URL=${{ env.TWOOPSTRACKER_API_URL }}
+            WORDPRESS_URL=${{ secrets.PESAYETU_WORDPRESS_URL }}
+            WORDPRESS_MULTISITE_PREFIX=${{ secrets.PESAYETU_WORDPRESS_MULTISITE_PREFIX }}
+            HURUMAP_API_URL=${{ secrets.PESAYETU_HURUMAP_API_URL }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
           secrets: |
+            "jwt_secret_key=${{ secrets.PESAYETU_JWT_SECRET_KEY }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
-            "sentry_project=${{ secrets.TWOOPSTRACKER_SENTRY_PROJECT }}"
+            "sentry_project=${{ secrets.PESAYETU_SENTRY_PROJECT }}"
+            "wordpress_preview_secret=${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}"
+            "wordpress_application_username=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}"
+            "wordpress_application_password=${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
-          target: twoopstracker-runner
+          target: pesayetu-runner
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
       # https://github.com/moby/buildkit/issues/1896
       - name: Move cache
+        if: steps.version-check.outputs.changed == 'true'
         run: |
           rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cach
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       - name: Push to Dokku
+        if: steps.version-check.outputs.changed == 'true'
         uses: dokku/github-action@v1.7.0
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}

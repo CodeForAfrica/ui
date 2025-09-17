@@ -20,7 +20,7 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  IMAGE_NAME: "codeforafrica/techlabblog"
+  IMAGE_NAME: "codeforafrica/techlabblog-ui"
   NEXT_PUBLIC_APP_URL: "https://techlabblog-ui.dev.codeforafrica.org"
   SENTRY_ENVIRONMENT: "development"
 
@@ -86,6 +86,9 @@ jobs:
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       - name: Push to Dokku
+        # We don't have DEV techlabblog app on ui-1 DEV
+        # TODO(xavier): Confirm if we need this or not.
+        if: false
         uses: dokku/github-action@v1.7.0
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
