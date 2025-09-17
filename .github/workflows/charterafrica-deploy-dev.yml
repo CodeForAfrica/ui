@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.dev.codeforafrica.org/charterafrica"
+  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org/charterafrica-ui"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charterafrica.dev.codeforafrica.org"
   SENTRY_ENVIRONMENT: "development"
@@ -83,9 +83,4 @@ jobs:
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
-      - name: Push to Dokku
-        uses: dokku/github-action@v1.7.0
-        with:
-          git_remote_url: ${{ env.DOKKU_REMOTE_URL }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+      # We don't have DEV charterafrica app on ui-1/ui-2 DEV and we don't need it NOW

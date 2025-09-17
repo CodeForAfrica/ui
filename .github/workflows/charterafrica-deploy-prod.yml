@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica"
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica-ui"
   IMAGE_NAME: "codeforafrica/charterafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://charter.africa"
   NEXT_PUBLIC_SEO_DISABLED: "false"
@@ -110,7 +110,11 @@ jobs:
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       - name: Push to Dokku
-        if: steps.version-check.outputs.changed == 'true'
+        # We don't have PROD charterafrica app on ui-1/ui-2 PROD
+        # TODO(xavier): Confirm if we need to point to a different server e.g. in different
+        #               AWS account. If not, lets delete this code.
+        # if: steps.version-check.outputs.changed == 'true'
+        if: false
         uses: dokku/github-action@v1.7.0
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}

@@ -16,7 +16,7 @@ concurrency:
 
 env:
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
+  DOKKU_REMOTE_URL: "ssh://azureuser@ui-2.dev.codeforafrica.org"
   IMAGE_NAME: "codeforafrica/codeforafrica-ui"
   ORIGINAL_APP_NAME: "codeforafrica-ui"
   NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui-pr-${{github.event.pull_request.number}}.dev.codeforafrica.org"
@@ -31,7 +31,11 @@ jobs:
       matrix:
         node-version: [20.16]
         os: [ubuntu-latest]
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+
+    # Temporarily disable the deployment of review apps until we've reviewed all apps
+    # in the repo
+    # if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    if: false
     steps:
       - name: Cloning repo
         uses: actions/checkout@v4
@@ -98,7 +102,8 @@ jobs:
 
   destroy_review_app:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: false
+    # if: github.event_name == 'pull_request' && github.event.action == 'closed'
     steps:
       - name: Destroy review app
         uses: dokku/github-action@master
