@@ -3,7 +3,7 @@ import { getPost } from "@/trustlab/utils/post";
 function getSpotlightButtonLink(post) {
   if (post.isApplication) {
     return {
-      href: post.applicationLink?.href,
+      href: post.applicationLink?.href ?? "",
       label: post.applicationLink?.label || "Apply",
     };
   }
