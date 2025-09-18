@@ -34,6 +34,7 @@
     "@payloadcms/live-preview-react": "catalog:payload-v3",
     "@payloadcms/next": "catalog:payload-v3",
     "@payloadcms/plugin-cloud-storage": "catalog:payload-v3",
+    "@payloadcms/plugin-form-builder": "catalog:payload-v3",
     "@payloadcms/plugin-nested-docs": "catalog:payload-v3",
     "@payloadcms/plugin-sentry": "catalog:payload-v3",
     "@payloadcms/plugin-seo": "catalog:payload-v3",

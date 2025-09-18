@@ -7,6 +7,7 @@ import CallToAction from "@/trustlab/components/CallToAction";
 import Content from "@/trustlab/components/Content";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
+import ErrorPage from "@/trustlab/components/ErrorPage";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
@@ -29,6 +30,7 @@ const componentsBySlugs = {
   "course-list": CourseList,
   "donor-overview-list": DonorOverviewList,
   resources: Resources,
+  error: ErrorPage,
   gallery: Gallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
