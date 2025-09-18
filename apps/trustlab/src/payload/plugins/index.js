@@ -7,6 +7,8 @@ import { convertLexicalToPlaintext } from "@payloadcms/richtext-lexical/plaintex
 import { s3Storage } from "@payloadcms/storage-s3";
 import * as Sentry from "@sentry/nextjs";
 
+import { FormSubmissions, Forms } from "../collections";
+
 import { site } from "@/trustlab/utils";
 
 const accessKeyId = process.env.S3_ACCESS_KEY_ID ?? "";
@@ -63,7 +65,7 @@ const plugins = [
   }),
   // Add Form builder plugin to store page under construction submissions email.
   formBuilderPlugin({
-    collections: ["page-under-construction"],
+    collections: [Forms, FormSubmissions],
   }),
 ];
 
