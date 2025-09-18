@@ -33,7 +33,6 @@ const CourseCard = React.forwardRef(function CourseCard(props, ref) {
             position: "relative",
             border: "1px solid",
             borderRadius: "10px",
-            filter: "grayscale(100%)",
             pb: "0 !important",
             ...image?.sx,
           },
