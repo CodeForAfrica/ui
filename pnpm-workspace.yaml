@@ -234,7 +234,7 @@ catalogs:
     "@payloadcms/next": ^3.39.0
     "@payloadcms/payload-cloud": ^3.39.0
     "@payloadcms/plugin-cloud-storage": ^3.39.0
-    "@payloadcms/plugin-form-builder": ^3.39.0
+    "@payloadcms/plugin-form-builder": ^3.56.0
     "@payloadcms/plugin-nested-docs": ^3.39.0
     "@payloadcms/plugin-redirects": ^3.39.0
     "@payloadcms/plugin-search": ^3.39.0

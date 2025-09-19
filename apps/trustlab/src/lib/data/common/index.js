@@ -47,86 +47,6 @@ function getPageSlug({ params }) {
   return params?.slugs?.[pageSlugIndex] || "index";
 }
 
-function getDefaultErrorPageProps(slug = "404") {
-  if (slug === "500") {
-    return {
-      blocks: [
-        {
-          title: "Server Error.",
-          subtitle: [
-            {
-              children: [
-                {
-                  text: "Don't worry!, you can head back to our ",
-                  children: null,
-                },
-                {
-                  type: "link",
-                  newTab: false,
-                  url: "/",
-                  children: [
-                    {
-                      text: "homepage",
-                      children: null,
-                    },
-                  ],
-                  href: "/",
-                },
-                {
-                  text: "check out our most recent ",
-                  children: null,
-                },
-                {
-                  type: "link",
-                  newTab: false,
-                  url: "/projects",
-                  children: [
-                    {
-                      text: "projects",
-                      children: null,
-                    },
-                  ],
-                  href: "/projects",
-                },
-                {
-                  text: ", or read below some of the contents produced by our amazing team while the technical team is working on fixing the issue.",
-                  children: null,
-                },
-              ],
-            },
-          ],
-          slug: "error",
-        },
-      ],
-    };
-  }
-
-  return {
-    blocks: [
-      {
-        title: "Page Under Construction",
-        subtitle: {
-          root: {
-            children: [
-              {
-                detail: 0,
-                format: 0,
-                mode: "normal",
-                style: "",
-                text: `The page you are looking for is not Live yet.
-Please enter your email below so that we can notify you when it is ready.`,
-                children: null,
-                type: "text",
-              },
-            ],
-          },
-        },
-
-        slug: "error",
-      },
-    ],
-  };
-}
 export async function getPagePaths(api) {
   const { docs: pages } = await api.getCollection("pages");
 
@@ -153,17 +73,6 @@ export async function getPageProps(api, context) {
   const siteSettings = await api.findGlobal("site-settings");
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
-  if (!page) {
-    if (["404", "500"].includes(slug)) {
-      const errorPageProps = getDefaultErrorPageProps(slug);
-      return {
-        ...errorPageProps,
-        footer,
-        navbar,
-      };
-    }
-    return null;
-  }
 
   if (params?.slugs?.length > 1) {
     page = await pagify(page, api, context);

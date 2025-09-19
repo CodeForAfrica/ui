@@ -1,20 +1,20 @@
-import payload from "payload";
+import api from "@/trustlab/lib/payload";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { email } = req.body;
+  const { form, ...rest } = req.body;
 
-  if (!email || !email.includes("@")) {
-    return res.status(400).json({ error: "Invalid email" });
-  }
-
+  const submissionData = Object.entries(rest).map(([field, value]) => ({
+    field,
+    value,
+  }));
   try {
-    await payload.create({
-      collection: "page-under-construction",
-      data: { email },
+    await api.createCollection("form-submissions", {
+      submissionData,
+      form,
     });
 
     return res.status(200).json({ success: true });
