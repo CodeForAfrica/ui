@@ -48,7 +48,9 @@ function getPageSlug({ params }) {
 }
 
 export async function getPagePaths(api) {
-  const { docs: pages } = await api.getCollection("pages");
+  const { docs: pages } = await api.getCollection("pages", {
+    where: { slug: { not_equals: "404" } },
+  });
 
   const pagesPromises = pages.map(async ({ slug }) => ({
     params: {
@@ -62,6 +64,22 @@ export async function getPagePaths(api) {
   };
 }
 
+const getErrorPageProps = async (api) => {
+  const siteSettings = await api.findGlobal("site-settings");
+  const {
+    docs: [page],
+  } = await api.findPage("404", {});
+  const navbar = getNavBar(siteSettings);
+  const footer = getFooter(siteSettings);
+  const { analytics } = siteSettings;
+  return {
+    analytics,
+    footer,
+    navbar,
+    blocks: page?.blocks || [],
+  };
+};
+
 export async function getPageProps(api, context) {
   const { draftMode = false, params } = context;
   const slug = getPageSlug(context);
@@ -73,17 +91,22 @@ export async function getPageProps(api, context) {
   const siteSettings = await api.findGlobal("site-settings");
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
-
+  if (!page) {
+    page = await getErrorPageProps(api);
+  }
   if (params?.slugs?.length > 1) {
     page = await pagify(page, api, context);
     if (!page) {
-      return null;
+      page = await getErrorPageProps(api);
     }
   }
 
   const blocks = await blockify(page?.blocks, api, context);
   const { analytics } = siteSettings;
-  const seo = getPageSeoFromMeta(page, siteSettings);
+  let seo = null;
+  if (page?.meta) {
+    seo = getPageSeoFromMeta(page, siteSettings);
+  }
   return {
     analytics,
     blocks,

@@ -7,16 +7,21 @@ import {
   TextField,
   Grid2 as Grid,
   Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
 } from "@mui/material";
 import React, { forwardRef } from "react";
 
+// eslint-disable-next-line import/no-unresolved
+import CheckIcon from "@/trustlab/assets/check-circle.svg?url";
 // eslint-disable-next-line import/no-unresolved
 import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 
 const ErrorPage = forwardRef(function ErrorPage(props, ref) {
   const { title, subtitle, form, image, link, ...other } = props;
-  console.log(other);
   const [formValues, setFormValues] = React.useState({});
+  const [open, setOpen] = React.useState(false);
   const onChange = (e) => {
     const { name, value } = e.target;
     setFormValues((prev) => ({
@@ -32,11 +37,12 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        form: form.id,
+        form: form?.id,
         ...formValues,
       }),
     });
     const data = await res.json();
+    setOpen(true);
     setFormValues({});
     return data;
   };
@@ -51,6 +57,73 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
         px: { xs: 2.5, md: 0 },
       }}
     >
+      <Dialog
+        sx={{ borderRadius: 16 }}
+        open={open}
+        onClose={() => setOpen(false)}
+        placement="center"
+      >
+        <DialogContent sx={{ width: "400px" }}>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+              borderRadius: "50%",
+              width: "48px",
+              height: "48px",
+              backgroundColor: "#DCFAE6",
+              mb: 1,
+            }}
+          >
+            <Figure
+              ImageProps={{
+                src: CheckIcon,
+              }}
+              sx={{
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+                height: 20,
+                width: 20,
+                padding: "14px",
+              }}
+            />
+          </Box>
+          <LexicalRichText
+            elements={form?.confirmationMessage}
+            TypographyProps={{
+              gutterBottom: true,
+              sx: {
+                mb: 0,
+              },
+            }}
+          />
+        </DialogContent>
+        <DialogActions sx={{ p: 3 }}>
+          <Button
+            onClick={() => setOpen(false)}
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{
+              borderRadius: 4,
+              height: 58,
+              backgroundColor: "#252B37",
+              textTransform: "none",
+              border: "none",
+              "&:hover": {
+                backgroundColor: "#1F2937",
+                border: "none",
+              },
+              width: "100%",
+              mb: 1,
+            }}
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Box
         display="flex"
         justifyContent="center"
@@ -93,7 +166,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
           sx={{ width: "100%" }}
         >
           <Grid sx={{ flex: 1 }} size={{ xs: 12, md: 9 }}>
-            {form.fields.map((formField) => {
+            {form?.fields?.map((formField) => {
               return (
                 <TextField
                   key={formField.name}

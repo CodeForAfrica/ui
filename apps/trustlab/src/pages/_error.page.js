@@ -1,17 +1,37 @@
 import * as Sentry from "@sentry/nextjs";
-import Error from "next/error";
+import NextError from "next/error";
 
-function CustomErrorComponent({ statusCode }) {
-  return <Error statusCode={statusCode} />;
+import Error from "@/trustlab/components/ErrorPage";
+import { getPageStaticProps } from "@/trustlab/lib/data";
+
+function CustomErrorComponent(props) {
+  const { blocks, statusCode = 500 } = props;
+  if (!blocks || blocks.length === 0) {
+    return <NextError statusCode={statusCode} />;
+  }
+
+  return blocks?.map((block) => {
+    switch (block?.slug) {
+      case "error":
+        return <Error key={block.slug} {...block} />;
+      default:
+        return <NextError statusCode={statusCode} />;
+    }
+  });
 }
 
-CustomErrorComponent.getInitialProps = async (contextData) => {
-  // In case this is running in a serverless function, await this in order to give Sentry
-  // time to send the error before the lambda exits
-  await Sentry.captureUnderscoreErrorException(contextData);
-
-  // This will contain the status code of the response
-  return Error.getInitialProps(contextData);
-};
+export async function getStaticProps(context) {
+  try {
+    await Sentry.captureUnderscoreErrorException(context);
+    const { props } = await getPageStaticProps({
+      ...context,
+      params: { slugs: ["404"] },
+    });
+    return { props };
+  } catch (error) {
+    Sentry.captureException(error);
+    return { props: { error: "Failed to load error page" } };
+  }
+}
 
 export default CustomErrorComponent;
