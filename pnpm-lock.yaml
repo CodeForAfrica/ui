@@ -657,7 +657,7 @@ catalogs:
       specifier: ^3.39.0
       version: 3.39.1
     '@payloadcms/plugin-form-builder':
-      specifier: ^3.56.0
+      specifier: ^3.39.0
       version: 3.56.0
     '@payloadcms/plugin-nested-docs':
       specifier: ^3.39.0
