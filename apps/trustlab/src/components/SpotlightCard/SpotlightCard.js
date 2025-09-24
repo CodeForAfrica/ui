@@ -2,7 +2,7 @@ import { Link } from "@commons-ui/next";
 import { Button, Card, CardMedia } from "@mui/material";
 
 function SpotlightCard(props) {
-  const { title, image, label: linkLabel, href } = props;
+  const { title, image, buttonLink } = props;
   return (
     <Card
       sx={{
@@ -34,7 +34,7 @@ function SpotlightCard(props) {
         }}
       />
       <Button
-        component={href ? Link : undefined}
+        component={buttonLink?.href ? Link : undefined}
         sx={{
           backgroundColor: "#FFDE59",
           py: 0.75,
@@ -49,9 +49,9 @@ function SpotlightCard(props) {
           textTransform: "none",
           fontWeight: 700,
         }}
-        href={href}
+        href={buttonLink?.href}
       >
-        {linkLabel}
+        {buttonLink?.label}
       </Button>
     </Card>
   );
