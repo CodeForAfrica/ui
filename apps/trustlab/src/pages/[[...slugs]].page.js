@@ -4,10 +4,10 @@ import { SWRConfig } from "swr";
 import ActionBanner from "@/trustlab/components/ActionBanner";
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
+import ComingSoon from "@/trustlab/components/ComingSoon";
 import Content from "@/trustlab/components/Content";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
-import ErrorPage from "@/trustlab/components/ErrorPage";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
@@ -30,7 +30,7 @@ const componentsBySlugs = {
   "course-list": CourseList,
   "donor-overview-list": DonorOverviewList,
   resources: Resources,
-  error: ErrorPage,
+  "coming-soon": ComingSoon,
   gallery: Gallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,

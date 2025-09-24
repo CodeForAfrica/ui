@@ -24,7 +24,7 @@ import {
   ResourcesOverviewList,
   Spotlight,
   WhatWeDo,
-  Error,
+  ComingSoon,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -88,7 +88,7 @@ const Pages = {
         Spotlight,
         WhatWeDo,
         WhereWeWork,
-        Error,
+        ComingSoon,
       ],
       localized: true,
       admin: {

@@ -1,10 +1,11 @@
 import { linkGroup, richText } from "@commons-ui/payload";
 
-const Error = {
-  slug: "error",
+const ComingSoon = {
+  slug: "coming-soon",
+  imageURL: "/images/cms/blocks/coming-soon.png",
   labels: {
-    singular: "Error",
-    plural: "Errors",
+    singular: "Coming Soon",
+    plural: "Coming Soon",
   },
   fields: [
     {
@@ -39,4 +40,4 @@ const Error = {
   ],
 };
 
-export default Error;
+export default ComingSoon;

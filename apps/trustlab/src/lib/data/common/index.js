@@ -47,6 +47,112 @@ function getPageSlug({ params }) {
   return params?.slugs?.[pageSlugIndex] || "index";
 }
 
+function getDefaultErrorPageProps(slug = "404") {
+  if (slug === "500") {
+    return {
+      blocks: [
+        {
+          title: "Server Error.",
+          subtitle: [
+            {
+              children: [
+                {
+                  text: "Don't worry!, you can head back to our ",
+                  children: null,
+                },
+                {
+                  type: "link",
+                  newTab: false,
+                  url: "/",
+                  children: [
+                    {
+                      text: "homepage",
+                      children: null,
+                    },
+                  ],
+                  href: "/",
+                },
+                {
+                  text: "check out our most recent ",
+                  children: null,
+                },
+                {
+                  type: "link",
+                  newTab: false,
+                  url: "/projects",
+                  children: [
+                    {
+                      text: "projects",
+                      children: null,
+                    },
+                  ],
+                  href: "/projects",
+                },
+                {
+                  text: ", or read below some of the contents produced by our amazing team while the technical team is working on fixing the issue.",
+                  children: null,
+                },
+              ],
+            },
+          ],
+          slug: "error",
+        },
+      ],
+    };
+  }
+
+  return {
+    blocks: [
+      {
+        title: "Whoops! This page got lost in conversation! ",
+        subtitle: [
+          {
+            children: [
+              {
+                text: "Don't worry!, you can head back to our ",
+                children: null,
+              },
+              {
+                type: "link",
+                newTab: false,
+                url: "/",
+                children: [
+                  {
+                    text: "homepage",
+                    children: null,
+                  },
+                ],
+                href: "/",
+              },
+              {
+                text: "check out our most recent ",
+                children: null,
+              },
+              {
+                type: "link",
+                newTab: false,
+                url: "/projects",
+                children: [
+                  {
+                    text: "projects",
+                    children: null,
+                  },
+                ],
+                href: "/projects",
+              },
+              {
+                text: ", or read below some of the contents produced by our amazing team.",
+                children: null,
+              },
+            ],
+          },
+        ],
+        slug: "error",
+      },
+    ],
+  };
+}
+
 export async function getPagePaths(api) {
   const { docs: pages } = await api.getCollection("pages", {
     where: { slug: { not_equals: "404" } },
@@ -64,22 +170,6 @@ export async function getPagePaths(api) {
   };
 }
 
-const getErrorPageProps = async (api) => {
-  const siteSettings = await api.findGlobal("site-settings");
-  const {
-    docs: [page],
-  } = await api.findPage("404", {});
-  const navbar = getNavBar(siteSettings);
-  const footer = getFooter(siteSettings);
-  const { analytics } = siteSettings;
-  return {
-    analytics,
-    footer,
-    navbar,
-    blocks: page?.blocks || [],
-  };
-};
-
 export async function getPageProps(api, context) {
   const { draftMode = false, params } = context;
   const slug = getPageSlug(context);
@@ -92,21 +182,21 @@ export async function getPageProps(api, context) {
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
   if (!page) {
-    page = await getErrorPageProps(api);
+    if (["404", "500"].includes(slug)) {
+      return getDefaultErrorPageProps(slug);
+    }
+    return null;
   }
   if (params?.slugs?.length > 1) {
     page = await pagify(page, api, context);
     if (!page) {
-      page = await getErrorPageProps(api);
+      return null;
     }
   }
 
   const blocks = await blockify(page?.blocks, api, context);
   const { analytics } = siteSettings;
-  let seo = null;
-  if (page?.meta) {
-    seo = getPageSeoFromMeta(page, siteSettings);
-  }
+  const seo = getPageSeoFromMeta(page, siteSettings);
   return {
     analytics,
     blocks,

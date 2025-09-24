@@ -18,7 +18,7 @@ import CheckIcon from "@/trustlab/assets/check-circle.svg?url";
 // eslint-disable-next-line import/no-unresolved
 import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 
-const ErrorPage = forwardRef(function ErrorPage(props, ref) {
+const ComingSoon = forwardRef(function ErrorPage(props, ref) {
   const { title, subtitle, form, image, link, ...other } = props;
   const [formValues, setFormValues] = React.useState({});
   const [open, setOpen] = React.useState(false);
@@ -234,4 +234,4 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
   );
 });
 
-export default ErrorPage;
+export default ComingSoon;

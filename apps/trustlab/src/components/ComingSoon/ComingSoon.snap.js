@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Error /> renders unchanged 1`] = `
+exports[`<ComingSoon /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zq4wl7-MuiContainer-root"
@@ -26,7 +26,7 @@ exports[`<Error /> renders unchanged 1`] = `
       <h2
         class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
       >
-        Test Error Page
+        Test Coming soon Page
       </h2>
       <div
         class="MuiBox-root css-0"
