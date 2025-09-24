@@ -22,7 +22,6 @@ const Users = {
   slug: "users",
   access: {
     create: isAdmin,
-    read: () => true,
     update: isAdminOrSelf,
     delete: isAdminOrSelf,
   },

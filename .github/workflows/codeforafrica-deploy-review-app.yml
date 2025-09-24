@@ -22,6 +22,7 @@ env:
   NEXT_PUBLIC_APP_URL: "https://codeforafrica-ui-pr-${{github.event.pull_request.number}}.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   APP_NAME: codeforafrica-ui-pr-${{ github.event.pull_request.number }}
+  SENTRY_ENVIRONMENT: "development"
 
 jobs:
   deploy_review_app:
@@ -30,7 +31,11 @@ jobs:
       matrix:
         node-version: [20.16]
         os: [ubuntu-latest]
-    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+
+    # Temporarily disable the deployment of review apps until we've reviewed all apps
+    # in the repo
+    # if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    if: false
     steps:
       - name: Cloning repo
         uses: actions/checkout@v4
@@ -58,15 +63,20 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            MONGODB_URL=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}
             NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
             NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
-            PAYLOAD_SECRET=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
+            SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
+          secrets: |
+            "mongodb_url=${{ secrets.CODEFORAFRICA_MONGO_URL }}/${{ env.APP_NAME }}"
+            "payload_secret=${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}"
+            "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}"
           target: codeforafrica-runner
           push: true
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
@@ -92,7 +102,8 @@ jobs:
 
   destroy_review_app:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    if: false
+    # if: github.event_name == 'pull_request' && github.event.action == 'closed'
     steps:
       - name: Destroy review app
         uses: dokku/github-action@master

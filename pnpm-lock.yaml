@@ -683,6 +683,9 @@ catalogs:
     payload:
       specifier: ^3.39.0
       version: 3.39.1
+    require-in-the-middle:
+      specifier: ^7.5.2
+      version: 7.5.2
 
 overrides:
   sharp: ^0.33.5
@@ -2161,6 +2164,9 @@ importers:
       react-rotating-text:
         specifier: 'catalog:'
         version: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      require-in-the-middle:
+        specifier: catalog:payload-v3
+        version: 7.5.2
       robots-txt-parse:
         specifier: 'catalog:'
         version: 2.0.1
@@ -2449,7 +2455,7 @@ importers:
         specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
       require-in-the-middle:
-        specifier: ^7.5.2
+        specifier: catalog:payload-v3
         version: 7.5.2
       sharp:
         specifier: ^0.33.5

@@ -245,6 +245,7 @@ catalogs:
     "@payloadcms/ui": ^3.39.0
     graphql: ^16.11.0
     payload: ^3.39.0
+    require-in-the-middle: ^7.5.2
   react-19:
     "react": ^19.1.0
     "react-dom": ^19.1.0

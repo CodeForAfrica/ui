@@ -1,5 +1,25 @@
 # syntax=docker/dockerfile:1.10.0
 
+
+# ============================================================================
+# Security
+# ============================================================================
+#
+# All sensitive variables must be passed via mount secrets at build time. These
+# include:
+#   * SENTRY_AUTH_TOKEN (Sentry)
+#   * SENTRY_ORG (Sentry)
+#   * SENTRY_PROJECT (Sentry)
+#   * MONGODB_URL / MONGO_URL (Payload)
+#   * PAYLOAD_SECRET / PAYLOAD_SECRET_KEY (Payload)
+#   * SMTP_PASS (Payload / Email)
+#   * WORDPRESS_APPLICATION_USERNAME (WordPress)
+#   * WORDPRESS_APPLICATION_PASSWORD (WordPress)
+#   * WORDPRESS_PREVIEW_SECRET (WordPress)
+#   * <Any other>
+# See https://docs.docker.com/build/building/secrets/ for more info.
+
+
 # ============================================================================
 #  Node
 # ============================================================================
@@ -15,9 +35,7 @@ ARG \
   NEXT_PUBLIC_APP_URL=http://localhost:3000 \
   NEXT_PUBLIC_SENTRY_DSN="" \
   NEXT_PUBLIC_SEO_DISABLED="true" \
-  SENTRY_ENVIRONMENT="local" \
-  SENTRY_ORG="code-for-africa" \
-  SENTRY_PROJECT=""
+  SENTRY_ENVIRONMENT="local"
 
 
 FROM node:20.19-alpine AS node
@@ -153,17 +171,8 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
-  # Payload (runtime)
-  MONGO_URL \
-  # TODO(koech): Standadise naming of Payload Secret. Our options:
-  #              - PAYLOAD_SECRET (codeforafrica)
-  #              - PAYLOAD_SECRET_KEY (charterafrica)
-  PAYLOAD_SECRET_KEY \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=charterafrica-deps /workspace/node_modules ./node_modules
@@ -175,7 +184,11 @@ COPY apps/charterafrica ./apps/charterafrica/
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+  --mount=type=secret,id=payload_secret_key,env=PAYLOAD_SECRET_KEY \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/charterafrica/" build-next
 
 # When building Payload app, Payload needs to have final app URL
@@ -201,7 +214,7 @@ ENV PAYLOAD_PUBLIC_APP_URL=${PAYLOAD_PUBLIC_APP_URL} \
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/charterafrica//.next \
+  && mkdir -p ./apps/charterafrica/.next \
   && chown nextjs:nodejs ./apps/charterafrica/.next
 
 # PNPM
@@ -263,17 +276,8 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_NAME="Code for Africa" \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
-  # Payload (runtime)
-  # TODO(koech): Standadise naming of Mongo DB URL. Our options:
-  #              - MONGODB_URL (codeforafrica)
-  #              - MONGO_URL (charterafrica, civicsignalblog, roboshield)
-  MONGO_URL \
-  PAYLOAD_SECRET \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=civicsignalblog-deps /workspace/node_modules ./node_modules
@@ -284,7 +288,11 @@ COPY apps/civicsignalblog ./apps/civicsignalblog/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/civicsignalblog/" build-next
 
 # When building Payload app, Payload needs to have final app URL
@@ -375,11 +383,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SEO_DISABLED \
   NEXT_PUBLIC_IMAGE_DOMAINS="cms.dev.codeforafrica.org,hurumap-v2.s3.amazonaws.com" \
   NEXT_PUBLIC_IMAGE_SCALE_FACTOR=2 \
-  # Payload (runtime)
-  MONGO_URL \
-  PAYLOAD_SECRET \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
   SENTRY_ORG \
   SENTRY_PROJECT
@@ -394,7 +398,9 @@ COPY apps/climatemappedafrica ./apps/climatemappedafrica
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   pnpm --filter "./apps/climatemappedafrica" build-next
 
 # When building Payload app, Payload needs to have final app URL
@@ -484,17 +490,8 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_NAME="Code for Africa" \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
-  # Payload (runtime)
-  # TODO(koech): Standadise naming of Mongo DB URL. Our options:
-  #              - MONGODB_URL (codeforafrica)
-  #              - MONGO_URL (charterafrica, roboshield)
-  MONGODB_URL \
-  PAYLOAD_SECRET \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=codeforafrica-deps /workspace/node_modules ./node_modules
@@ -505,7 +502,15 @@ COPY apps/codeforafrica ./apps/codeforafrica/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+
+# TODO(koech): Standadise naming of Mongo DB URL. Our options:
+#              - MONGODB_URL (codeforafrica)
+#              - MONGO_URL (charterafrica, roboshield)
+RUN --mount=type=secret,id=mongodb_url,env=MONGODB_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/codeforafrica/" build-next
 
 # When building Payload app, Payload needs to have final app URL
@@ -528,7 +533,7 @@ ENV NEXT_PUBLIC_APP_LOGO_URL=${NEXT_PUBLIC_APP_LOGO_URL} \
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/codeforafrica//.next \
+  && mkdir -p ./apps/codeforafrica/.next \
   && chown nextjs:nodejs ./apps/codeforafrica/.next
 
 # PNPM
@@ -595,16 +600,10 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_OPENAFRICA_DOMAINS="open.africa,openafrica.net,africaopendata.org" \
   NEXT_PUBLIC_SOURCEAFRICA_DOMAINS="dc.sourceafrica.net" \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT \
   # Wordpress
   WORDPRESS_URL \
   WORDPRESS_MULTISITE_PREFIX="/pesayetu" \
-  WORDPRESS_PREVIEW_SECRET \
-  WORDPRESS_APPLICATION_USERNAME \
-  WORDPRESS_APPLICATION_PASSWORD \
   JWT_SECRET_KEY \
   # Custom (runtime)
   HURUMAP_API_URL
@@ -616,7 +615,14 @@ COPY --from=pesayetu-deps /workspace/apps/pesayetu/node_modules ./apps/pesayetu/
 
 COPY apps/pesayetu ./apps/pesayetu
 
-RUN pnpm --filter "./apps/pesayetu" build
+RUN --mount=type=secret,id=jwt_secret_key,env=JWT_SECRET_KEY \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
+  --mount=type=secret,id=wordpress_application_username,env=WORDPRESS_APPLICATION_USERNAME \
+  --mount=type=secret,id=wordpress_application_password,env=WORDPRESS_APPLICATION_PASSWORD \
+  --mount=type=secret,id=wordpress_preview_secret,env=WORDPRESS_PREVIEW_SECRET \
+  pnpm --filter "./apps/pesayetu" build
 
 #
 # pesayetu-runner: final deployable image
@@ -690,10 +696,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SEO_DISABLED \
   NEXT_PUBLIC_GOOGLE_ANALYTICS_ID \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=promisetracker-deps /workspace/node_modules ./node_modules
@@ -703,6 +706,8 @@ COPY --from=promisetracker-deps /workspace/apps/promisetracker/node_modules ./ap
 COPY apps/promisetracker ./apps/promisetracker
 
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/promisetracker" build
 
 #
@@ -711,7 +716,6 @@ RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
 
 FROM base-runner AS promisetracker-runner
 
-ARG API_SECRET_KEY
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/promisetracker/.next \
@@ -763,14 +767,8 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_NAME="RoboShield" \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
-  # Payload (runtime)
-  MONGO_URL \
-  PAYLOAD_SECRET \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=roboshield-deps /workspace/node_modules ./node_modules
@@ -781,12 +779,13 @@ COPY apps/roboshield ./apps/roboshield/
 
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/roboshield/" build
 
-# When building Payload app, Payload needs to have final app URL
-ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-# RUN pnpm --filter "./apps/roboshield/" build-payload
 
 #
 # roboshield-runner: final deployable image
@@ -801,7 +800,7 @@ ARG PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH} \
 
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
-  && mkdir -p ./apps/roboshield//.next \
+  && mkdir -p ./apps/roboshield/.next \
   && chown nextjs:nodejs ./apps/roboshield/.next
 
 # PNPM
@@ -813,8 +812,10 @@ COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/
 # Next.js
 # Public assets
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/public ./apps/roboshield/public
-# Copy standalone output
-COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next/standalone ./apps/roboshield
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+# NOTE: standalone output contains full app paths i.e. apps/roboshield
+COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next/standalone ./
 COPY --from=roboshield-builder --chown=nextjs:nodejs /workspace/apps/roboshield/.next/static ./apps/roboshield/.next/static
 
 USER nextjs
@@ -853,10 +854,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=techlabblog-deps /workspace/node_modules ./node_modules
@@ -865,7 +863,10 @@ COPY --from=techlabblog-deps /workspace/apps/techlabblog/node_modules ./apps/tec
 
 COPY apps/techlabblog ./apps/techlabblog
 
-RUN pnpm --filter "./apps/techlabblog" build
+RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
+  pnpm --filter "./apps/techlabblog" build
 
 #
 # techlabblog-runner: final deployable image
@@ -887,8 +888,8 @@ COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/node_modules ./
 COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/public ./apps/techlabblog/public
 
 # Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/standalone ./apps/techlabblog
+# NOTE: standalone output contains full app paths i.e. apps/techlabblog
+COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/standalone ./
 COPY --from=techlabblog-builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/static ./apps/techlabblog/.next/static
 USER nextjs
 
@@ -927,9 +928,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
   # Sentry (build time)
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=trustlab-deps /workspace/node_modules ./node_modules
@@ -944,6 +943,8 @@ COPY apps/trustlab ./apps/trustlab
 RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
   --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   --mount=type=secret,id=smtp_pass,env=SMTP_PASS \
   pnpm --filter trustlab build
 
@@ -962,9 +963,7 @@ COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/node_modules ./nod
 COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/publi[c] ./apps/trustlab/public
 
 # Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-# NOTE(kilemensi) since we're in a monorepo .next/standalone will contain apps/trustlab folder hence
-#                 no need to copy to ./apps/trustlab. Verify this is "always" the case
+# NOTE: standalone output contains full app paths i.e. apps/techlabblog
 COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./
 COPY --from=trustlab-builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
 USER nextjs
@@ -1000,16 +999,16 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_APP_URL \
   NEXT_PUBLIC_SENTRY_DSN \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
   SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT \
   TWOOPSTRACKER_API_URL
+
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=twoopstracker-deps /workspace/node_modules ./node_modules
 COPY --from=twoopstracker-deps /workspace/apps/twoopstracker/node_modules ./apps/twoopstracker/node_modules
 COPY apps/twoopstracker ./apps/twoopstracker
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/twoopstracker" build
 
 #
@@ -1032,8 +1031,8 @@ COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/node_modules 
 # Public assets
 COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/public ./apps/twoopstracker/public
 # Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/standalone ./apps/twoopstracker
+# NOTE: standalone output contains full app paths i.e. apps/twoopstracker
+COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/standalone ./
 COPY --from=twoopstracker-builder --chown=nextjs:nodejs /workspace/apps/twoopstracker/.next/static ./apps/twoopstracker/.next/static
 USER nextjs
 # server.js is created by next build from the standalone output
@@ -1071,10 +1070,7 @@ ARG NEXT_TELEMETRY_DISABLED \
   NEXT_PUBLIC_SENTRY_DSN \
   NEXT_PUBLIC_SEO_DISABLED \
   # Sentry (build time)
-  SENTRY_AUTH_TOKEN \
-  SENTRY_ENVIRONMENT \
-  SENTRY_ORG \
-  SENTRY_PROJECT
+  SENTRY_ENVIRONMENT
 
 # This is in app-builder instead of base-builder just incase app-deps adds deps
 COPY --from=vpnmanager-deps /workspace/node_modules ./node_modules
@@ -1083,7 +1079,10 @@ COPY --from=vpnmanager-deps /workspace/apps/vpnmanager/node_modules ./apps/vpnma
 
 COPY apps/vpnmanager ./apps/vpnmanager
 
-RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+RUN --mount=type=secret,id=api_secret_key,env=API_SECRET_KEY \
+  --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
+  --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
+  --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
   pnpm --filter "./apps/vpnmanager" build
 
 #
@@ -1093,6 +1092,7 @@ RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
 FROM base-runner AS vpnmanager-runner
 
 ARG API_SECRET_KEY
+
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/vpnmanager/.next \
@@ -1107,8 +1107,8 @@ COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/node_modules ./n
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/public ./apps/vpnmanager/public
 
 # Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./apps/vpnmanager
+# NOTE: standalone output contains full app paths i.e. apps/twoopstracker
+COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/standalone ./
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/.next/static ./apps/vpnmanager/.next/static
 COPY --from=vpnmanager-builder --chown=nextjs:nodejs /workspace/apps/vpnmanager/contrib/dokku ./contrib/dokku
 USER nextjs

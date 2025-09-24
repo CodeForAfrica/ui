@@ -15,7 +15,7 @@ export async function getPost(api, slug) {
 
   const [post] = docs;
 
-  const { title, meta, content } = post;
+  const { title, meta, content, isApplication } = post;
 
   const postImageOverviewBlockIndex = content.findIndex(
     (block) => block.blockType === "page-overview",
@@ -44,6 +44,8 @@ export async function getPost(api, slug) {
     blocks,
     meta,
     link: post.link,
+    isApplication,
+    applicationLink: post?.applicationLink ?? null,
   };
 }
 

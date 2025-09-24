@@ -1,6 +1,6 @@
 {
   "name": "twoopstracker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "cms": "netlify-cms-proxy-server",
@@ -9,7 +9,7 @@
     "lint-check": "TIMING=1 eslint './'",
     "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
     "build": "next build",
-    "start": "next start",
+    "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/twoopstracker/server.js",
     "storybook": "storybook dev -p 6006"
   },
   "dependencies": {

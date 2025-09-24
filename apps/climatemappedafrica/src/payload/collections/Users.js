@@ -9,7 +9,6 @@ const User = {
   slug: "users",
   access: {
     create: isAdmin,
-    read: () => true,
     update: isAdminOrSelf,
     delete: isAdminOrSelf,
   },

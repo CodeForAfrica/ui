@@ -19,7 +19,7 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.dev.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  IMAGE_NAME: "codeforafrica/roboshield"
+  IMAGE_NAME: "codeforafrica/roboshield-ui"
   NEXT_PUBLIC_APP_URL: "https://roboshield-ui.dev.codeforafrica.org"
   SENTRY_ENVIRONMENT: "development"
 
@@ -61,20 +61,20 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           build-args: |
-            MONGO_URL=${{ secrets.ROBOSHIELD_MONGO_URL }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.ROBOSHIELD_SENTRY_DSN }}
-            PAYLOAD_SECRET=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
-            SENTRY_ORG=${{ secrets.SENTRY_ORG }}
-            SENTRY_PROJECT=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
           platforms: linux/arm64
           push: true
           secrets: |
+            "mongo_url=${{ secrets.ROBOSHIELD_MONGO_URL }}"
+            "payload_secret=${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
+            "sentry_org=${{ secrets.SENTRY_ORG }}"
+            "sentry_project=${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}"
           tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
           target: roboshield-runner
 

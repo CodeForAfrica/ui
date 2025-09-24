@@ -2,101 +2,77 @@ services:
   charterafrica:
     build:
       secrets:
+        - mongo_url
+        - payload_secret
         - sentry_auth_token
+        - sentry_org
+        - sentry_project
+        - payload_secret_key
       context: .
       target: charterafrica-runner
       args:
-        - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
-        - PAYLOAD_SECRET_KEY
-        - SENTRY_ENVIRONMENT
-        - SENTRY_ORG
-        - SENTRY_PROJECT
-    environment:
-      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
-      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
-      S3_BUCKET: ${S3_BUCKET}
-      S3_REGION: ${S3_REGION}
-      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/charterafrica?authSource=admin&directConnection=true
-      PAYLOAD_SECRET_KEY: ${PAYLOAD_SECRET_KEY}
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/charterafrica/.env
+      - path: ./apps/charterafrica/.env.local
+        required: false
     ports:
       - 3000:3000
 
   civicsignalblog:
     build:
       secrets:
+        - mongo_url
+        - payload_secret
         - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: civicsignalblog-runner
       args:
-        - MONGO_URL=${MONGO_URL}
-        - PAYLOAD_SECRET
-        - SENTRY_ENVIRONMENT
-        - SENTRY_ORG
-        - SENTRY_PROJECT
-    environment:
-      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
-      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
-      S3_BUCKET: ${S3_BUCKET}
-      S3_REGION: ${S3_REGION}
-      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/civicsignalblog?authSource=admin&directConnection=true
-      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
-    ports:
-      - 3000:3000
-
-  codeforafrica:
-    depends_on:
-      mongodb:
-        condition: service_healthy
-    build:
-      secrets:
-        - sentry_auth_token
-      context: .
-      target: codeforafrica-runner
-      args:
-        - MONGODB_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
-        - PAYLOAD_SECRET
-        - SENTRY_ENVIRONMENT
-        - SENTRY_ORG
-        - SENTRY_PROJECT
-    environment:
-      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
-      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
-      S3_BUCKET: ${S3_BUCKET}
-      S3_REGION: ${S3_REGION}
-      MONGODB_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/codeforafrica?authSource=admin&directConnection=true
-      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/civicsignalblog/.env
+      - path: ./apps/civicsignalblog/.env.local
+        required: false
     ports:
       - 3000:3000
 
   climatemappedafrica:
     build:
+      secrets:
+        - mongo_url
+        - payload_secret
+        - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: climatemappedafrica-runner
       args:
-        - MONGO_URL=mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/climatemappedafrica?authSource=admin&directConnection=true
-        - PAYLOAD_SECRET
-        - SENTRY_ENVIRONMENT
-        - SENTRY_ORG
-        - SENTRY_PROJECT
-    environment:
-      MONGO_URL: mongodb://${MONGO_INITDB_ROOT_USERNAME:-root}:${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}@host.docker.internal:${MONGODB_PORT:-27017}/climatemappedafrica?authSource=admin&directConnection=true
-      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
-      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
-      S3_BUCKET: ${S3_BUCKET}
-      S3_REGION: ${S3_REGION}
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/climatemappedafrica/.env
+      - path: ./apps/climatemappedafrica/.env.local
+        required: false
+    ports:
+      - 3000:3000
+
+  codeforafrica:
+    build:
+      secrets:
+        - mongodb_url
+        - payload_secret
+        - sentry_auth_token
+        - sentry_org
+        - sentry_project
+      context: .
+      target: codeforafrica-runner
+      args:
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/codeforafrica/.env
+      - path: ./apps/codeforafrica/.env.local
+        required: false
     ports:
       - 3000:3000
 
@@ -124,66 +100,60 @@ services:
 
   pesayetu:
     build:
+      secrets:
+        - jwt_secret_key
+        - sentry_auth_token
+        - sentry_org
+        - sentry_project
+        - wordpress_application_password
+        - wordpress_application_username
+        - wordpress_preview_secret
       context: .
       target: pesayetu-runner
       args:
-        - WORDPRESS_URL
-        - WORDPRESS_PREVIEW_SECRET
-        - WORDPRESS_APPLICATION_USERNAME
-        - WORDPRESS_APPLICATION_PASSWORD
-        - JWT_SECRET_KEY
-        - HURUMAP_API_URL
-    environment:
-      WORDPRESS_URL: ${WORDPRESS_URL}
-      WORDPRESS_PREVIEW_SECRET: ${WORDPRESS_PREVIEW_SECRET}
-      WORDPRESS_APPLICATION_USERNAME: ${WORDPRESS_APPLICATION_USERNAME}
-      WORDPRESS_APPLICATION_PASSWORD: ${WORDPRESS_APPLICATION_PASSWORD}
-      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-      HURUMAP_API_URL: ${HURUMAP_API_URL}
-      S3_UPLOAD_KEY: ${S3_UPLOAD_KEY}
-      S3_UPLOAD_SECRET: ${S3_UPLOAD_SECRET}
-      S3_UPLOAD_BUCKET: ${S3_UPLOAD_BUCKET}
-      S3_UPLOAD_REGION: ${S3_UPLOAD_REGION}
+        - HURUMAP_API_URL=${HURUMAP_API_URL}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+        - WORDPRESS_URL=${WORDPRESS_URL}
+    env_file:
+      - path: ./apps/pesayetu/.env
+      - path: ./apps/pesayetu/.env.local
+        required: false
     ports:
       - 3000:3000
 
   roboshield:
     build:
       secrets:
+        - mongo_url
+        - payload_secret
         - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: roboshield-runner
       args:
-        - MONGO_URL
-        - PAYLOAD_SECRET
-        - SENTRY_ORG
-        - SENTRY_ENV
-        - SENTRY_PROJECT
-    environment:
-      S3_ACCESS_KEY_ID: ${S3_ACCESS_KEY_ID}
-      S3_SECRET_ACCESS_KEY: ${S3_SECRET_ACCESS_KEY}
-      S3_BUCKET: ${S3_BUCKET}
-      S3_REGION: ${S3_REGION}
-      MONGO_URL: ${MONGO_URL}
-      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/roboshield/.env
+      - path: ./apps/roboshield/.env.local
+        required: false
     ports:
       - 3000:3000
 
   techlabblog:
     build:
+      secrets:
+        - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: techlabblog-runner
       args:
-        - SENTRY_ORG
-        - SENTRY_ENV
-        - SENTRY_PROJECT
-    environment:
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/techlabblog/.env
+      - path: ./apps/techlabblog/.env.local
+        required: false
     ports:
       - 3000:3000
 
@@ -194,7 +164,7 @@ services:
       # specify them here; they come from --env-file command-line argument(s)
       args:
         - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-        - SENTRY_ENVIRONMENT="local"
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
         - SMTP_HOST=${SMTP_HOST}
         - SMTP_USER=${SMTP_USER}
       context: .
@@ -202,6 +172,8 @@ services:
         - mongo_url
         - payload_secret
         - sentry_auth_token
+        - sentry_org
+        - sentry_project
         - smtp_pass
       target: trustlab-runner
     env_file:
@@ -216,36 +188,36 @@ services:
 
   twoopstracker:
     build:
+      secrets:
+        - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: twoopstracker-runner
       args:
-        - SENTRY_ORG
-        - SENTRY_ENV
-        - SENTRY_PROJECT
-        - TWOOPSTRACKER_API_URL
-    environment:
-      SENTRY_ORG: ${SENTRY_ORG}
-      SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT}
-      SENTRY_PROJECT: ${SENTRY_PROJECT}
-      TWOOPSTRACKER_API_URL: ${TWOOPSTRACKER_API_URL}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+        - TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
+    env_file:
+      - path: ./apps/twoopstracker/.env
+      - path: ./apps/twoopstracker/.env.local
     ports:
       - 3000:3000
 
   vpnmanager:
     build:
       secrets:
+        - api_secret_key
         - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: vpnmanager-runner
       args:
-        - SENTRY_ORG
-        - SENTRY_PROJECT
-        - SENTRY_DSN
-        - API_SECRET_KEY
-    environment:
-      NODE_ENV: ${NODE_ENV:-production}
-      NODE_TLS_REJECT_UNAUTHORIZED: 0
-      NEXT_APP_VPN_API_URL: ${NEXT_APP_VPN_API_URL}
+        - SENTRY_DSN=${SENTRY_DSN}
+        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    env_file:
+      - path: ./apps/vpnmanager/.env
+      - path: ./apps/vpnmanager/.env.local
     ports:
       - ${VPN_MANAGER_PORT:-3000}:3000
     volumes:
@@ -255,25 +227,46 @@ services:
     build:
       secrets:
         - sentry_auth_token
+        - sentry_org
+        - sentry_project
       context: .
       target: promisetracker-runner
       args:
-        - SENTRY_ORG
-        - SENTRY_PROJECT
-        - SENTRY_DSN
-        - API_SECRET_KEY
-    environment:
-      NODE_ENV: ${NODE_ENV:-production}
+        - SENTRY_DSN=${SENTRY_DSN}
+    env_file:
+      - path: ./apps/promisetracker/.env
+      - path: ./apps/promisetracker/.env.local
+        required: false
     ports:
       - ${PROMISE_TRACKER_PORT:-3000}:3000
+
 secrets:
+  api_secret_key:
+    environment: API_SECRET_KEY
+  jwt_secret_key:
+    environment: JWT_SECRET_KEY
   mongo_url:
     environment: MONGO_URL
+  mongodb_url:
+    environment: MONGODB_URL
   payload_secret:
     environment: PAYLOAD_SECRET
+  payload_secret_key:
+    environment: PAYLOAD_SECRET_KEY
   sentry_auth_token:
     environment: SENTRY_AUTH_TOKEN
+  sentry_org:
+    environment: SENTRY_ORG
+  sentry_project:
+    environment: SENTRY_PROJECT
   smtp_pass:
     environment: SMTP_PASS
+  wordpress_application_password:
+    environment: WORDPRESS_APPLICATION_PASSWORD
+  wordpress_application_username:
+    environment: WORDPRESS_APPLICATION_USERNAME
+  wordpress_preview_secret:
+    environment: WORDPRESS_PREVIEW_SECRET
+
 volumes:
   db_data:
