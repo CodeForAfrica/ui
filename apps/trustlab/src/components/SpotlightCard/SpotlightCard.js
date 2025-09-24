@@ -2,8 +2,7 @@ import { Link } from "@commons-ui/next";
 import { Button, Card, CardMedia } from "@mui/material";
 
 function SpotlightCard(props) {
-  const { title, image, buttonLink } = props;
-  const { href, label: linkLabel } = buttonLink || {};
+  const { title, image, label: linkLabel, href } = props;
   return (
     <Card
       sx={{

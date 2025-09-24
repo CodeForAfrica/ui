@@ -6,7 +6,7 @@ import ChevronRightDoubleIcon from "@/trustlab/assets/icons/chevron-right-double
 import SpotlightCard from "@/trustlab/components/SpotlightCard";
 
 const Spotlight = React.forwardRef(function Spotlight(
-  { items = [], title },
+  { items = [], title, linkLabel },
   ref,
 ) {
   const scrollRef = useRef(null);
@@ -97,7 +97,11 @@ const Spotlight = React.forwardRef(function Spotlight(
             }}
           >
             {items.map((cardProps) => (
-              <SpotlightCard key={cardProps.title} {...cardProps} />
+              <SpotlightCard
+                key={cardProps.title}
+                {...cardProps}
+                label={linkLabel}
+              />
             ))}
           </Box>
           <IconButton

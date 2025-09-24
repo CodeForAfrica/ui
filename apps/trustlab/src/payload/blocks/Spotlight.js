@@ -6,7 +6,7 @@ const Spotlight = CollectionOverview(
   ["posts"],
   {
     collectionLabel: "Spotlight Items",
-    hasAction: false,
+    hasAction: true,
     minRows: 3,
     maxRows: 12,
   },
