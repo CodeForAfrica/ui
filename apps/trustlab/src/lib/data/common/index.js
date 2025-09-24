@@ -154,9 +154,7 @@ function getDefaultErrorPageProps(slug = "404") {
 }
 
 export async function getPagePaths(api) {
-  const { docs: pages } = await api.getCollection("pages", {
-    where: { slug: { not_equals: "404" } },
-  });
+  const { docs: pages } = await api.getCollection("pages");
 
   const pagesPromises = pages.map(async ({ slug }) => ({
     params: {
