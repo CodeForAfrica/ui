@@ -19,3 +19,4 @@ export { default as Incubator } from "./Incubator";
 export { default as IntelligenceBriefings } from "./IntelligenceBriefings";
 export { default as Resources } from "./Resources";
 export { default as Helplines } from "./Helplines";
+export { default as ComingSoon } from "./ComingSoon";

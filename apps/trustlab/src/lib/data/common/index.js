@@ -152,6 +152,7 @@ function getDefaultErrorPageProps(slug = "404") {
     ],
   };
 }
+
 export async function getPagePaths(api) {
   const { docs: pages } = await api.getCollection("pages");
 
@@ -175,14 +176,15 @@ export async function getPageProps(api, context) {
   } = await api.findPage(slug, {
     draft: draftMode,
   });
-
+  const siteSettings = await api.findGlobal("site-settings");
+  const navbar = getNavBar(siteSettings);
+  const footer = getFooter(siteSettings);
   if (!page) {
     if (["404", "500"].includes(slug)) {
       return getDefaultErrorPageProps(slug);
     }
     return null;
   }
-
   if (params?.slugs?.length > 1) {
     page = await pagify(page, api, context);
     if (!page) {
@@ -190,11 +192,7 @@ export async function getPageProps(api, context) {
     }
   }
 
-  const siteSettings = await api.findGlobal("site-settings");
-
   const blocks = await blockify(page?.blocks, api, context);
-  const navbar = getNavBar(siteSettings);
-  const footer = getFooter(siteSettings);
   const { analytics } = siteSettings;
   const seo = getPageSeoFromMeta(page, siteSettings);
   return {
