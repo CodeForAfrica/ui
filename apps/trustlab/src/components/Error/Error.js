@@ -32,14 +32,14 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
           ImageProps={{
             alt: "Error page background",
             src: image?.url ?? ErrorPageIcon,
-            sx: { objectFit: "cover", opacity: 0.3 },
+            sx: { objectFit: "contain" },
           }}
           sx={{
             alignItems: "center",
             display: "flex",
             justifyContent: "center",
             height: 128,
-            width: 172,
+            width: { xs: 172, md: 380 },
           }}
         />
         <Typography strong variant="display4">

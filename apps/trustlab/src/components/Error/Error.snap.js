@@ -10,11 +10,11 @@ exports[`<Error /> renders unchanged 1`] = `
       class="MuiBox-root css-pxiyk3"
     >
       <figure
-        class="MuiBox-root css-1mnkple"
+        class="MuiBox-root css-upfxs5"
       >
         <img
           alt="Error page background"
-          class="css-cawze6"
+          class="css-mto9c2"
           data-nimg="fill"
           decoding="async"
           loading="lazy"
