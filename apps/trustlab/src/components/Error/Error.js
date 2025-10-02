@@ -65,7 +65,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
             color: "#1020E1",
           }}
         >
-          {link.label}
+          {link?.label}
         </Button>
       </Box>
     </Section>
