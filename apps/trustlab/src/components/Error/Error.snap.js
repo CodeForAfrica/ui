@@ -4,7 +4,6 @@ exports[`<Error /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zq4wl7-MuiContainer-root"
-    form="[object Object]"
   >
     <div
       class="MuiBox-root css-pxiyk3"
@@ -13,7 +12,7 @@ exports[`<Error /> renders unchanged 1`] = `
         class="MuiBox-root css-upfxs5"
       >
         <img
-          alt="Error page background"
+          alt="Error page image"
           class="css-mto9c2"
           data-nimg="fill"
           decoding="async"

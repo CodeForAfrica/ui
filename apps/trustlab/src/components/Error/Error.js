@@ -30,7 +30,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
       >
         <Figure
           ImageProps={{
-            alt: "Error page background",
+            alt: "Error page image",
             src: image?.url ?? ErrorPageIcon,
             sx: { objectFit: "contain" },
           }}

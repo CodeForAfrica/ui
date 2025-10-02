@@ -9,7 +9,6 @@ const render = createRender({ theme });
 
 const defaultProps = {
   title: "Test Error Page",
-  form: { id: "test-form", fields: [] },
   image: { src: "", alt: "Error Icon" },
   link: { href: "/", label: "Go Home" },
 };

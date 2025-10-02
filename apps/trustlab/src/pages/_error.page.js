@@ -10,14 +10,11 @@ function CustomErrorComponent(props) {
     return <NextError statusCode={statusCode} />;
   }
 
-  return blocks?.map((block) => {
-    switch (block?.slug) {
-      case "error":
-        return <ErrorPage key={block.slug} {...block} />;
-      default:
-        return <NextError statusCode={statusCode} />;
-    }
-  });
+  const errorBlock = blocks.find((block) => block?.slug === "error");
+  if (!errorBlock) {
+    return <NextError statusCode={statusCode} />;
+  }
+  return <ErrorPage {...errorBlock} />;
 }
 
 export async function getStaticProps(context) {
