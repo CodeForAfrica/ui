@@ -8,6 +8,7 @@ import ComingSoon from "@/trustlab/components/ComingSoon";
 import Content from "@/trustlab/components/Content";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
+import ErrorPage from "@/trustlab/components/Error";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
@@ -31,6 +32,7 @@ const componentsBySlugs = {
   "donor-overview-list": DonorOverviewList,
   resources: Resources,
   "coming-soon": ComingSoon,
+  error: ErrorPage,
   gallery: Gallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,

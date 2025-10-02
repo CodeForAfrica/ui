@@ -1,11 +1,11 @@
 import { linkGroup, richText } from "@commons-ui/payload";
 
-const ComingSoon = {
-  slug: "coming-soon",
-  imageURL: "/images/cms/blocks/coming-soon.png",
+const ErrorBlock = {
+  slug: "error",
+  imageURL: "/images/cms/blocks/error.png",
   labels: {
-    singular: "Coming Soon",
-    plural: "Coming Soon",
+    singular: "Error",
+    plural: "Errors",
   },
   fields: [
     {
@@ -24,15 +24,9 @@ const ComingSoon = {
       relationTo: "media",
       required: false,
     },
-    {
-      name: "form",
-      type: "relationship",
-      relationTo: "forms",
-      required: false,
-    },
     // button link
     linkGroup({ name: "homeButton" }),
   ],
 };
 
-export default ComingSoon;
+export default ErrorBlock;
