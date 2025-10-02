@@ -17,7 +17,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
           Rapid Response
         </h2>
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-wvj9mg-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 MuiGrid2-spacing-md-20 css-1eexbq2-MuiGrid2-root"
         >
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1d5smkg-MuiGrid2-root"
@@ -62,12 +62,17 @@ exports[`<Helplines /> renders unchanged 1`] = `
                   class="payload-richtext"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-7lvv93-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
                 </div>
               </div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1xmfh2b-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
           <div
@@ -113,12 +118,17 @@ exports[`<Helplines /> renders unchanged 1`] = `
                   class="payload-richtext"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-7lvv93-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
                 </div>
               </div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1xmfh2b-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
           <div
@@ -164,12 +174,17 @@ exports[`<Helplines /> renders unchanged 1`] = `
                   class="payload-richtext"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-7lvv93-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
                 </div>
               </div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1xmfh2b-MuiButtonBase-root-MuiButton-root"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
         </div>

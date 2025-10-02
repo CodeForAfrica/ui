@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Figure, Link } from "@commons-ui/next";
+import { Figure } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import {
   Grid2 as Grid,
@@ -20,12 +20,17 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
       >
         <Stack spacing={4}>
           <Typography variant="display4">{title}</Typography>
-          <Grid container sx={{ ml: -2 }} spacing={2}>
+          <Grid
+            container
+            sx={{ ml: -2 }}
+            spacing={{
+              xs: 2,
+              md: 20,
+            }}
+          >
             {briefs.map((brief) => (
               <Grid size={{ xs: 12, sm: 4 }} key={brief.title}>
                 <Stack
-                  component={brief?.link?.href ? Link : "div"}
-                  href={brief?.link?.href}
                   alignItems={{
                     sm: "center",
                     textDecoration: "none",
@@ -73,6 +78,7 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                       variant: "p2",
                       sx: {
                         mb: 0,
+                        height: 100,
                         textDecoration: "none",
                       },
                     }}
@@ -80,10 +86,25 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                   <Button
                     variant="contained"
                     color="primary"
+                    size="small"
                     href={brief?.link?.href}
-                    sx={{ mt: 2 }}
+                    sx={{
+                      mt: 2,
+                      alignSelf: "start",
+                      backgroundColor: "#FFDE59",
+                      color: "black",
+                      height: 32,
+                      border: "2px solid black",
+                      fontSize: 16,
+                      fontWeight: 600,
+                      textTransform: "none",
+                      "&:hover": {
+                        backgroundColor: "#FFDE59",
+                        border: "2px solid black",
+                      },
+                    }}
                   >
-                    Learn More
+                    {brief?.link?.label}
                   </Button>
                 </Stack>
               </Grid>
