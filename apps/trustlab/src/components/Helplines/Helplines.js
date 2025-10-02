@@ -1,7 +1,14 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Grid2 as Grid, Typography, Stack, Divider, Box } from "@mui/material";
+import {
+  Grid2 as Grid,
+  Typography,
+  Stack,
+  Divider,
+  Box,
+  Button,
+} from "@mui/material";
 import React, { forwardRef } from "react";
 
 const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
@@ -70,6 +77,14 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                       },
                     }}
                   />
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    href={brief?.link?.href}
+                    sx={{ mt: 2 }}
+                  >
+                    Learn More
+                  </Button>
                 </Stack>
               </Grid>
             ))}
