@@ -496,8 +496,8 @@ catalogs:
       specifier: ^0.14.1
       version: 0.14.1
     react-test-renderer:
-      specifier: ^18.3.1
-      version: 18.3.1
+      specifier: ^19.2.0
+      version: 19.2.0
     react-vega:
       specifier: ^7.6.0
       version: 7.6.0
@@ -943,7 +943,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -1142,7 +1142,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -1431,7 +1431,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       svg-url-loader:
         specifier: 'catalog:'
         version: 8.0.0(webpack@5.99.8)
@@ -1618,7 +1618,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -1871,7 +1871,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       storybook:
         specifier: 'catalog:'
         version: 8.6.14(prettier@3.5.3)
@@ -2043,7 +2043,7 @@ importers:
         version: 3.5.3
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -3022,7 +3022,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -3180,7 +3180,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -3253,7 +3253,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       typescript:
         specifier: 'catalog:'
         version: 5.8.3
@@ -3438,7 +3438,7 @@ importers:
         version: 5.2.2(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.2.0(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -10671,6 +10671,7 @@ packages:
   eslint-plugin-markdown@5.1.0:
     resolution: {integrity: sha512-SJeyKko1K6GwI0AN6xeCDToXDkfKZfXcexA6B+O2Wr2btUS9GrC+YgwSyVli5DJnctUHjFXcQ2cqTaAmVoLi2A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: Please use @eslint/markdown instead
     peerDependencies:
       eslint: '>=8'
 
@@ -14539,6 +14540,9 @@ packages:
   react-is@19.1.0:
     resolution: {integrity: sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg==}
 
+  react-is@19.2.0:
+    resolution: {integrity: sha512-x3Ax3kNSMIIkyVYhWPyO09bu0uttcAIoecO/um/rKGQ4EltYWVYtyiGkS/3xMynrbVQdS69Jhlv8FXUEZehlzA==}
+
   react-leaflet@4.2.1:
     resolution: {integrity: sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q==}
     peerDependencies:
@@ -14622,11 +14626,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-shallow-renderer@16.15.0:
-    resolution: {integrity: sha512-oScf2FqQ9LFVQgA73vr86xl2NaOIX73rh+YFqcOp68CWj56tSfgtGKrEbyhCj0rSijyG9M1CYprTh39fBi5hzA==}
-    peerDependencies:
-      react: ^16.0.0 || ^17.0.0 || ^18.0.0
-
   react-share@5.2.2:
     resolution: {integrity: sha512-z0nbOX6X6vHHWAvXduNkYeJUKTKNpKM5Xpmc5a2BxjJhUWl+sE7AsSEMmYEUj2DuDjZr5m7KFIGF0sQPKcUN6w==}
     peerDependencies:
@@ -14655,10 +14654,10 @@ packages:
     peerDependencies:
       react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
-  react-test-renderer@18.3.1:
-    resolution: {integrity: sha512-KkAgygexHUkQqtvvx/otwxtuFu5cVjfzTCtjXLH9boS19/Nbtg84zS7wIQn39G8IlrhThBpQsMKkq5ZHZIYFXA==}
+  react-test-renderer@19.2.0:
+    resolution: {integrity: sha512-zLCFMHFE9vy/w3AxO0zNxy6aAupnCuLSVOJYDe/Tp+ayGI1f2PLQsFVPANSD42gdSbmYx5oN+1VWDhcXtq7hAQ==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^19.2.0
 
   react-toastify@10.0.5:
     resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
@@ -15069,6 +15068,9 @@ packages:
 
   scheduler@0.25.0:
     resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
+
+  scheduler@0.27.0:
+    resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
 
   schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
@@ -24285,33 +24287,33 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))(webpack@5.99.8(@swc/core@1.11.24))':
-    dependencies:
-      webpack: 5.99.8(@swc/core@1.11.24)
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
-
   '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))(webpack@5.99.8)':
     dependencies:
       webpack: 5.99.8(@swc/core@1.11.24)(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
 
-  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))':
+  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0)(webpack@5.99.8(@swc/core@1.11.24))':
+    dependencies:
+      webpack: 5.99.8(@swc/core@1.11.24)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
+
+  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))':
     dependencies:
       envinfo: 7.14.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
 
   '@webpack-cli/info@1.5.0(webpack-cli@4.10.0)':
     dependencies:
       envinfo: 7.14.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
-
-  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))':
-    dependencies:
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
+
+  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))':
+    dependencies:
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
 
   '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0)':
     dependencies:
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24))
 
   '@wry/caches@1.0.1':
     dependencies:
@@ -26440,7 +26442,7 @@ snapshots:
       eslint: 9.27.0(jiti@1.21.7)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.31.0(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7))
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.27.0(jiti@1.21.7))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.27.0(jiti@1.21.7))
       eslint-plugin-react: 7.37.5(eslint@9.27.0(jiti@1.21.7))
       eslint-plugin-react-hooks: 5.2.0(eslint@9.27.0(jiti@1.21.7))
@@ -26618,7 +26620,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7)):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint-import-resolver-webpack@0.13.10)(eslint@9.27.0(jiti@1.21.7)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -26629,7 +26631,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.27.0(jiti@1.21.7)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint-import-resolver-webpack@0.13.10)(eslint@9.27.0(jiti@1.21.7))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -26647,7 +26649,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint-import-resolver-webpack@0.13.10)(eslint@9.27.0(jiti@1.21.7)):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.27.0(jiti@1.21.7)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -26658,7 +26660,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.27.0(jiti@1.21.7)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint-import-resolver-webpack@0.13.10)(eslint@9.27.0(jiti@1.21.7))
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.31.0(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7)))(eslint@9.27.0(jiti@1.21.7))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -31901,6 +31903,8 @@ snapshots:
 
   react-is@19.1.0: {}
 
+  react-is@19.2.0: {}
+
   react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -32022,12 +32026,6 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  react-shallow-renderer@16.15.0(react@18.3.1):
-    dependencies:
-      object-assign: 4.1.1
-      react: 18.3.1
-      react-is: 18.3.1
-
   react-share@5.2.2(react@18.3.1):
     dependencies:
       classnames: 2.5.1
@@ -32065,12 +32063,11 @@ snapshots:
       react-swipeable-views-core-react-18-fix: 0.14.0(react@18.3.1)
       shallow-equal: 1.2.1
 
-  react-test-renderer@18.3.1(react@18.3.1):
+  react-test-renderer@19.2.0(react@18.3.1):
     dependencies:
       react: 18.3.1
-      react-is: 18.3.1
-      react-shallow-renderer: 16.15.0(react@18.3.1)
-      scheduler: 0.23.2
+      react-is: 19.2.0
+      scheduler: 0.27.0
 
   react-toastify@10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -32595,6 +32592,8 @@ snapshots:
       loose-envify: 1.4.0
 
   scheduler@0.25.0: {}
+
+  scheduler@0.27.0: {}
 
   schema-utils@3.3.0:
     dependencies:
@@ -34750,9 +34749,9 @@ snapshots:
   webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))(webpack@5.99.8(@swc/core@1.11.24))
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8(@swc/core@1.11.24)))
+      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0)(webpack@5.99.8(@swc/core@1.11.24))
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
@@ -34769,8 +34768,8 @@ snapshots:
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
       '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))(webpack@5.99.8)
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.99.8))
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
