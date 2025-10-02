@@ -171,7 +171,7 @@ catalog:
   react-rotating-text: ^1.4.1
   react-share: ^5.1.0
   react-swipeable-views-react-18-fix: ^0.14.1
-  react-test-renderer: ^18.3.1
+  react-test-renderer: ^19.2.0
   react-vega: ^7.6.0
   react: ^18.3.1
   reading-time: ^1.5.0
