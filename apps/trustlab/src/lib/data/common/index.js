@@ -47,7 +47,7 @@ function getPageSlug({ params }) {
   return params?.slugs?.[pageSlugIndex] || "index";
 }
 
-const getErrorPageProps = async (api, slug = "404") => {
+export const getErrorPageProps = async (api, slug = "404") => {
   const siteSettings = await api.findGlobal("site-settings");
   const {
     docs: [page],
@@ -65,7 +65,7 @@ const getErrorPageProps = async (api, slug = "404") => {
 
 export async function getPagePaths(api) {
   const { docs: pages } = await api.getCollection("pages", {
-    where: { slug: { not_equals: "404" } },
+    where: { slug: { not_equals: "500" } },
   });
 
   const pagesPromises = pages.map(async ({ slug }) => ({

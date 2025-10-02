@@ -2,7 +2,7 @@ import * as Sentry from "@sentry/nextjs";
 import NextError from "next/error";
 
 import ErrorPage from "@/trustlab/components/Error";
-import { getPageStaticProps } from "@/trustlab/lib/data";
+import { getErrorPageProps } from "@/trustlab/lib/data/rest";
 
 function CustomErrorComponent(props) {
   const { blocks, statusCode = 500 } = props;
@@ -17,18 +17,19 @@ function CustomErrorComponent(props) {
   return <ErrorPage {...errorBlock} />;
 }
 
-export async function getStaticProps(context) {
+CustomErrorComponent.getInitialProps = async (context) => {
   try {
     await Sentry.captureUnderscoreErrorException(context);
-    const { props } = await getPageStaticProps({
+    const { props } = await getErrorPageProps({
       ...context,
-      params: { slugs: ["404"] },
+      params: { slugs: ["500"] },
     });
-    return { props };
+
+    return props;
   } catch (error) {
     Sentry.captureException(error);
-    return { props: { error: "Failed to load error page" } };
+    return { error: "Failed to load error page" };
   }
-}
+};
 
 export default CustomErrorComponent;
