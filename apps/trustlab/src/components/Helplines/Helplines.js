@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import {
   Grid2 as Grid,
@@ -29,84 +29,86 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
             }}
           >
             {briefs.map((brief) => (
-              <Grid size={{ xs: 12, sm: 4 }} key={brief.title}>
-                <Stack
-                  alignItems={{
-                    sm: "center",
-                    textDecoration: "none",
+              <Grid
+                display="flex"
+                alignItems={{
+                  sm: "center",
+                  textDecoration: "none",
+                }}
+                gap={2}
+                size={{ xs: 12, sm: 4 }}
+                key={brief.title}
+                flexDirection="column"
+              >
+                <Figure
+                  ImageProps={{
+                    alt: brief.icon.alt,
+                    src: brief.icon.url,
                   }}
-                  gap={2}
-                >
-                  <Figure
-                    ImageProps={{
-                      alt: brief.icon.alt,
-                      src: brief.icon.url,
-                    }}
+                  sx={{
+                    height: { xs: "108px", md: "180px" },
+                    width: { xs: "108px", md: "180px" },
+                    alignSelf: "center",
+                  }}
+                />
+                <Box sx={{ width: "100%" }}>
+                  <Divider
                     sx={{
-                      height: { xs: "108px", md: "180px" },
-                      width: { xs: "108px", md: "180px" },
-                      alignSelf: "center",
+                      background: "black",
+                      mb: 2,
                     }}
                   />
-                  <Box sx={{ width: "100%" }}>
-                    <Divider
-                      sx={{
-                        background: "black",
-                        mb: 2,
-                      }}
-                    />
-                    <Typography
-                      variant="h3"
-                      sx={{
-                        textDecoration: "none",
-                      }}
-                    >
-                      {brief.title}
-                    </Typography>
-                    <Divider
-                      sx={{
-                        background: "black",
-                        mt: 2,
-                      }}
-                    />
-                  </Box>
-
-                  <LexicalRichText
-                    elements={brief.description}
-                    TypographyProps={{
-                      gutterBottom: true,
-                      variant: "p2",
-                      sx: {
-                        mb: 0,
-                        height: 100,
-                        textDecoration: "none",
-                      },
-                    }}
-                  />
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="small"
-                    href={brief?.link?.href}
+                  <Typography
+                    variant="h3"
                     sx={{
-                      mt: 2,
-                      alignSelf: "start",
-                      backgroundColor: "#FFDE59",
-                      color: "black",
-                      height: 32,
-                      border: "2px solid black",
-                      fontSize: 16,
-                      fontWeight: 600,
-                      textTransform: "none",
-                      "&:hover": {
-                        backgroundColor: "#FFDE59",
-                        border: "2px solid black",
-                      },
+                      textDecoration: "none",
                     }}
                   >
-                    {brief?.link?.label}
-                  </Button>
-                </Stack>
+                    {brief.title}
+                  </Typography>
+                  <Divider
+                    sx={{
+                      background: "black",
+                      mt: 2,
+                    }}
+                  />
+                </Box>
+
+                <LexicalRichText
+                  elements={brief.description}
+                  TypographyProps={{
+                    gutterBottom: true,
+                    variant: "p2",
+                    sx: {
+                      mb: 0,
+                      textDecoration: "none",
+                    },
+                  }}
+                />
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  component={brief?.link?.href ? Link : "button"}
+                  href={brief?.link?.href}
+                  sx={{
+                    mt: 2,
+                    alignSelf: "start",
+                    backgroundColor: "#FFDE59",
+                    color: "black",
+                    height: 32,
+                    border: "2px solid black",
+                    fontSize: 16,
+                    fontWeight: 600,
+                    textTransform: "none",
+                    "&:hover": {
+                      backgroundColor: "#FFDE59",
+                      border: "2px solid black",
+                    },
+                  }}
+                >
+                  {brief?.link?.label}
+                </Button>
               </Grid>
             ))}
           </Grid>
