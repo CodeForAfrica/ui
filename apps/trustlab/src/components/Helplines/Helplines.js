@@ -89,8 +89,8 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
                   variant="contained"
                   color="primary"
                   size="small"
-                  component={brief?.link?.href ? Link : "button"}
-                  href={brief?.link?.href}
+                  component={brief?.link.href ? Link : "button"}
+                  href={brief?.link.href}
                   sx={{
                     mt: 2,
                     alignSelf: "start",
