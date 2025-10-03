@@ -180,8 +180,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           alt: slide.image.alt,
                           src: slide.image.url,
                           sx: {
-                            objectPosition: { xs: "center", md: "right" },
-                            objectFit: { xs: "fill", sm: "contain" },
+                            objectPosition: { xs: "left", md: "right" },
+                            objectFit: "contain",
                           },
                         }}
                         sx={{
