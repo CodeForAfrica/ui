@@ -3,45 +3,47 @@
 exports[`<HelplineCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-17ti5b3-MuiPaper-root-MuiCard-root"
-    style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-19ky9kz-MuiPaper-root-MuiCard-root"
+    gap="2"
+    style="--Paper-shadow: none;"
   >
     <div
-      class="MuiCardMedia-root css-1avv2mj-MuiCardMedia-root"
-      role="img"
-      style="background-image: url(/resources-1.jpg);"
-      title="Anti Trolling"
-    />
-    <div
-      class="MuiCardHeader-root css-ofa8v-MuiCardHeader-root"
+      class="MuiBox-root css-u85suh"
     >
-      <div
-        class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
-      >
-        <h2
-          class="MuiTypography-root MuiTypography-h2 css-s9xaj3-MuiTypography-root"
-        >
-          Anti Trolling
-        </h2>
-      </div>
-    </div>
-    <div
-      class="MuiCardContent-root css-yjf187-MuiCardContent-root"
-    >
-      <div
-        class="MuiBox-root css-7x1cxm"
+      <img
+        class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-9uzd9u-MuiCardMedia-root"
       />
     </div>
     <div
-      class="MuiCardActions-root MuiCardActions-spacing css-t9qhmi-MuiCardActions-root"
+      class="MuiCardContent-root css-127evc8-MuiCardContent-root"
     >
-      <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-15f3whe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-        href="/helplines/anti-trolling"
-        tabindex="0"
+      <div
+        class="MuiBox-root css-8atqhb"
       >
-        Get Support
-      </a>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-5tnkj6-MuiDivider-root"
+        />
+        <h3
+          class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
+        >
+          Anti Trolling
+        </h3>
+        <hr
+          class="MuiDivider-root MuiDivider-fullWidth css-5tnkj6-MuiDivider-root"
+        />
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      />
+    </div>
+    <div
+      class="MuiCardActions-root MuiCardActions-spacing css-jbneu4-MuiCardActions-root"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-1xmfh2b-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      />
     </div>
   </div>
 </div>
