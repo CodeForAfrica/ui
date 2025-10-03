@@ -1,15 +1,8 @@
 import { Section } from "@commons-ui/core";
-import { Figure, Link } from "@commons-ui/next";
-import { LexicalRichText } from "@commons-ui/payload";
-import {
-  Grid2 as Grid,
-  Typography,
-  Stack,
-  Divider,
-  Box,
-  Button,
-} from "@mui/material";
+import { Grid2 as Grid, Typography, Stack, Box } from "@mui/material";
 import React, { forwardRef } from "react";
+
+import HelplineCard from "../HelplineCard";
 
 const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
   return (
@@ -25,90 +18,12 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
             sx={{ ml: -2 }}
             spacing={{
               xs: 2,
-              md: 20,
+              md: 10,
             }}
           >
             {briefs.map((brief) => (
-              <Grid
-                display="flex"
-                alignItems={{
-                  sm: "center",
-                  textDecoration: "none",
-                }}
-                gap={2}
-                size={{ xs: 12, sm: 4 }}
-                key={brief.title}
-                flexDirection="column"
-              >
-                <Figure
-                  ImageProps={{
-                    alt: brief.icon.alt,
-                    src: brief.icon.url,
-                  }}
-                  sx={{
-                    height: { xs: "108px", md: "180px" },
-                    width: { xs: "108px", md: "180px" },
-                    alignSelf: "center",
-                  }}
-                />
-                <Box sx={{ width: "100%" }}>
-                  <Divider
-                    sx={{
-                      background: "black",
-                      mb: 2,
-                    }}
-                  />
-                  <Typography
-                    variant="h3"
-                    sx={{
-                      textDecoration: "none",
-                    }}
-                  >
-                    {brief.title}
-                  </Typography>
-                  <Divider
-                    sx={{
-                      background: "black",
-                      mt: 2,
-                    }}
-                  />
-                </Box>
-
-                <LexicalRichText
-                  elements={brief.description}
-                  TypographyProps={{
-                    gutterBottom: true,
-                    variant: "p2",
-                    sx: {
-                      mb: 0,
-                      textDecoration: "none",
-                    },
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  component={brief?.link.href ? Link : "button"}
-                  href={brief?.link.href}
-                  sx={{
-                    mt: 2,
-                    alignSelf: "start",
-                    backgroundColor: "#FFDE59",
-                    color: "black",
-                    height: 32,
-                    border: "2px solid black",
-                    fontSize: 16,
-                    fontWeight: 600,
-                    textTransform: "none",
-                    "&:hover": {
-                      backgroundColor: "#FFDE59",
-                      border: "2px solid black",
-                    },
-                  }}
-                >
-                  {brief?.link?.label}
-                </Button>
+              <Grid key={brief.id} size={{ xs: 12, sm: 4 }}>
+                <HelplineCard {...brief} />
               </Grid>
             ))}
           </Grid>
