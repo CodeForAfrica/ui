@@ -4,6 +4,7 @@ export { default as Content } from "./Content";
 export { default as CourseList } from "./CourseList";
 export { default as DonorOverviewList } from "./DonorOverviewList";
 export { default as HelplinesOverviewList } from "./HelplinesOverviewList";
+export { default as ErrorBlock } from "./ErrorBlock";
 export { default as Hero } from "./Hero";
 export { default as PageHeader } from "./PageHeader";
 export { default as PageOverview } from "./PageOverview";
