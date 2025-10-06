@@ -22,7 +22,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 css-4udl9f-MuiGrid2-root"
+      class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 MuiGrid2-spacing-sm-5 css-rboycm-MuiGrid2-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 MuiGrid2-grid-md-4 css-nv5v9n-MuiGrid2-root"
