@@ -1,7 +1,7 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Grid, Typography, Button, Box } from "@mui/material";
+import { Grid2 as Grid, Typography, Button, Box } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const PostImageOverview = forwardRef(function PostImageOverview(
@@ -31,7 +31,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
       }}
       ref={ref}
     >
-      <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ pt: 8, px: { xs: 2.5, md: 0 } }}>
         <Grid
           container
           alignItems="flex-start"
@@ -45,7 +45,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
           }}
           justifyContent="space-between"
         >
-          <Grid item>
+          <Grid>
             <LexicalRichText
               elements={content}
               sx={{
@@ -53,6 +53,8 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                   borderBottom: `1px solid`,
                   mb: 3,
                   pb: 1,
+                  fontSize: 20,
+                  fontWeight: 700,
                 },
                 p: {
                   mb: 3,
@@ -60,6 +62,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
               }}
               TypographyProps={{
                 gutterBottom: true,
+                variant: "p2",
                 sx: {
                   mb: 3,
                   color: textColor,
@@ -68,7 +71,6 @@ const PostImageOverview = forwardRef(function PostImageOverview(
             />
           </Grid>
           <Grid
-            item
             sx={{
               width: { xs: "100%", md: "360px" },
               minWidth: "360px",
@@ -83,7 +85,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 src: url,
               }}
               sx={{
-                height: { xs: "374.47px", md: "268px" },
+                height: { xs: "374.47px", md: "366px" },
                 m: 0,
                 position: "relative",
                 width: { xs: "100%", md: "360px" },

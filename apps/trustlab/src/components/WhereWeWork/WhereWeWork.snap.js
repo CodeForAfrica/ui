@@ -6,7 +6,7 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
     class="MuiBox-root css-8gbtbc"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1lc1zvo-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-snjxl5-MuiContainer-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-4 css-195d0lj-MuiGrid2-root"
@@ -39,7 +39,7 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
         </div>
       </div>
       <figure
-        class="MuiBox-root css-zstmm9"
+        class="MuiBox-root css-1cvvbd8"
       >
         <img
           alt="Map of partner locations"

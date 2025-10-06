@@ -3,7 +3,7 @@
 exports[`<SpotlightCard /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-xouoet-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-cgfa9l-MuiPaper-root-MuiCard-root"
     style="--Paper-shadow: none;"
   >
     <img

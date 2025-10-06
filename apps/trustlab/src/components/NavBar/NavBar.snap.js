@@ -7,10 +7,10 @@ exports[`<NavBar /> renders unchanged 1`] = `
     style="--Paper-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);"
   >
     <div
-      class="MuiToolbar-root MuiToolbar-regular css-1twxsqv-MuiToolbar-root"
+      class="MuiToolbar-root MuiToolbar-regular css-13jx4mw-MuiToolbar-root"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-6llykj-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-18madci-MuiContainer-root"
       >
         <div
           class="MuiGrid-root MuiGrid-container css-c114m4-MuiGrid-root"
