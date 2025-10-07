@@ -6,7 +6,7 @@ exports[`<PostList /> renders unchanged 1`] = `
     class="MuiBox-root css-x08bda"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1f31hqp-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1f7ld00-MuiContainer-root"
     >
       <span
         class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-huguxv-MuiLinearProgress-root"

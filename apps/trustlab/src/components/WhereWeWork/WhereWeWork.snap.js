@@ -6,7 +6,7 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
     class="MuiBox-root css-8gbtbc"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-snjxl5-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-rs1hgb-MuiContainer-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-4 css-195d0lj-MuiGrid2-root"

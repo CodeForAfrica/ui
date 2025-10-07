@@ -6,7 +6,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1iqi0ys-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-wgt6s6-MuiContainer-root"
     >
       <div
         class="MuiStack-root css-8mcjw0-MuiStack-root"

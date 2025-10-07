@@ -21,7 +21,7 @@ exports[`<Footer /> renders unchanged 1`] = `
       viewbox="0 0 297 297"
     />
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ni3ei2-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-yy91ry-MuiContainer-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-307100-MuiGrid2-root"
