@@ -97,7 +97,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                 <Box
                   sx={{
                     pt: 6,
-                    px: { xs: 2.5, sm: 0 },
+                    px: { xs: 2.5, md: 0 },
                     margin: "0 auto",
                     maxWidth: theme.contentWidths.values,
                   }}
@@ -187,6 +187,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         sx={{
                           height: { xs: "402px", sm: "600px", md: "416px" },
                           width: { xs: "100%", md: "321.6px" },
+                          maxWidth: { xs: "100%", sm: "465px" },
                         }}
                       />
                     </Grid>
