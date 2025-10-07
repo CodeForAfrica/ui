@@ -3,22 +3,22 @@
 exports[`<PartnersList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-ukqic2-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-disableGutters css-1oa4fqa-MuiContainer-root"
   >
     <div
-      class="MuiBox-root css-aei1ck"
+      class="MuiBox-root css-1ridu4c"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"
+      <h6
+        class="MuiTypography-root MuiTypography-subheading2 css-145khn7-MuiTypography-root"
       />
       <div
         class="MuiGrid-root MuiGrid-container css-evu8pu-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-u57qo0-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1mylpxi-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-ojmbah"
+            class="MuiBox-root css-l1g8ux"
           >
             <img
               alt="Partner Logo"
@@ -34,7 +34,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-znmkeg-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-1361935-MuiGrid-root"
         >
           <h2
             class="MuiTypography-root MuiTypography-h2 css-g5tpob-MuiTypography-root"

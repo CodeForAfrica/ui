@@ -33,7 +33,7 @@ const CourseList = forwardRef(
             }}
           />
         </Box>
-        <Grid spacing={2.5} container>
+        <Grid spacing={{ xs: 2.5, sm: 5 }} container>
           {courses.map((course) => (
             <Grid
               item

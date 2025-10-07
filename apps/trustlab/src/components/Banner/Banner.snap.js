@@ -6,13 +6,13 @@ exports[`<Banner /> renders unchanged 1`] = `
     class="MuiBox-root css-1kxqcqz"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-smj2lv-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1f31hqp-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container css-11lq3yg-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-18qart5-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 css-vowxob-MuiGrid-root"
         >
           <div
             class="MuiTypography-root MuiTypography-display2 css-190onpw-MuiTypography-root"

@@ -14,7 +14,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
     <Section
       sx={(theme) => ({
         background: theme.palette.background.default,
-        py: 8,
+        pb: 8,
       })}
       fixed={false}
       ref={ref}
@@ -26,7 +26,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
           m: "0 auto",
         })}
       >
-        <Typography variant="h2">{title}</Typography>
+        <Typography variant="subheading2">{title}</Typography>
         {partners.map((partner) => (
           <Grid
             container
@@ -54,7 +54,6 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                   src: partner.logo.url,
                 }}
                 sx={{
-                  filter: "grayscale(100%)",
                   height: partner.logo.height || "auto",
                   width: "280px",
                   m: 0,

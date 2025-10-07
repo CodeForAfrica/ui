@@ -3,10 +3,10 @@
 exports[`<OverviewCardList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-zaigo1"
+    class="MuiBox-root css-5a6qg4"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-smj2lv-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1f31hqp-MuiContainer-root"
     >
       <h1
         class="MuiTypography-root MuiTypography-h1 css-12uhedm-MuiTypography-root"
