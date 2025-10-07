@@ -7,7 +7,7 @@ exports[`<Content /> renders unchanged 1`] = `
     content="[object Object]"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1mtht5y-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-hxqkgq-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-1n3ttdb"

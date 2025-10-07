@@ -3,7 +3,7 @@
 exports[`<ComingSoon /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-8ywafk-MuiContainer-root"
+    class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zlknjb-MuiContainer-root"
   >
     <div
       class="MuiBox-root css-pxiyk3"

@@ -82,6 +82,7 @@ function HelplineCard({ title, icon: media, description, link }) {
             fontSize: 16,
             fontWeight: 600,
             textTransform: "none",
+            whiteSpace: "nowrap",
             "&:hover": {
               backgroundColor: "#FFDE59",
               border: "2px solid black",

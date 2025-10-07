@@ -66,7 +66,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
         sx={{
           position: "relative",
           width: "100%",
-          height: { xs: "808px", sm: "1074px", md: "562px" },
+          height: { xs: "808px", sm: "600px" },
           overflow: "hidden",
           display: "flex",
         }}
@@ -96,7 +96,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               >
                 <Box
                   sx={{
-                    pt: 6,
+                    pt: { xs: 6, sm: 0 },
                     px: { xs: 2.5, md: 0 },
                     margin: "0 auto",
                     maxWidth: theme.contentWidths.values,
@@ -108,7 +108,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                     columnSpacing={2}
                     alignItems="center"
                   >
-                    <Grid size={{ xs: 12, md: 6 }} order={isReversed ? 2 : 1}>
+                    <Grid size={{ xs: 12, sm: 6 }} order={isReversed ? 2 : 1}>
                       <LexicalRichText
                         elements={slide.title}
                         TypographyProps={{
@@ -165,7 +165,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                       )}
                     </Grid>
                     <Grid
-                      size={{ xs: 12, md: 6 }}
+                      size={{ xs: 12, sm: 6 }}
                       sx={{
                         display: "flex",
                         justifyContent: {
@@ -187,7 +187,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         sx={{
                           height: { xs: "402px", sm: "600px", md: "416px" },
                           width: { xs: "100%", md: "321.6px" },
-                          maxWidth: { xs: "100%", sm: "465px" },
+                          maxWidth: { xs: "100%", sm: "365px" },
                         }}
                       />
                     </Grid>
