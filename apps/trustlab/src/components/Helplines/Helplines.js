@@ -17,7 +17,7 @@ const Helplines = forwardRef(function Helplines({ title, briefs = [] }, ref) {
             container
             sx={{ ml: -2 }}
             spacing={{
-              xs: 2,
+              xs: 6,
               md: 10,
             }}
           >

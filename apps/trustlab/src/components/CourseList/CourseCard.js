@@ -34,7 +34,7 @@ const CourseCard = React.forwardRef(function CourseCard(props, ref) {
             borderRadius: "10px",
             pb: "0 !important",
             backgroundSize: "contain",
-            backgroundPosition: "center",
+            backgroundPosition: "left",
             backgroundRepeat: "no-repeat",
             ...image?.sx,
           },

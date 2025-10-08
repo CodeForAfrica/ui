@@ -35,7 +35,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
         >
           <div
             alt="Course 1 Image"
-            class="MuiCardMedia-root css-19d6qks-MuiCardMedia-root"
+            class="MuiCardMedia-root css-1qi5ydg-MuiCardMedia-root"
             role="img"
             style="background-image: url(/images/course1.jpg);"
             title="Course 1 Title"
@@ -70,7 +70,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
         >
           <div
             alt="Course 2 Image"
-            class="MuiCardMedia-root css-19d6qks-MuiCardMedia-root"
+            class="MuiCardMedia-root css-1qi5ydg-MuiCardMedia-root"
             role="img"
             style="background-image: url(/images/course2.jpg);"
             title="Course 2 Title"
@@ -105,7 +105,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
         >
           <div
             alt="Course 3 Image"
-            class="MuiCardMedia-root css-19d6qks-MuiCardMedia-root"
+            class="MuiCardMedia-root css-1qi5ydg-MuiCardMedia-root"
             role="img"
             style="background-image: url(/images/course3.jpg);"
             title="Course 3 Title"

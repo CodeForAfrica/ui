@@ -18,7 +18,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1mylpxi-MuiGrid-root"
         >
           <figure
-            class="MuiBox-root css-l1g8ux"
+            class="MuiBox-root css-ojmbah"
           >
             <img
               alt="Partner Logo"

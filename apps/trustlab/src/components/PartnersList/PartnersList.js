@@ -54,6 +54,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                   src: partner.logo.url,
                 }}
                 sx={{
+                  filter: "grayscale(100%)",
                   height: partner.logo.height || "auto",
                   width: "280px",
                   m: 0,
