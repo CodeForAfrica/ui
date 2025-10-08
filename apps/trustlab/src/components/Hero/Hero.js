@@ -96,7 +96,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               >
                 <Box
                   sx={{
-                    pt: { xs: 6, sm: 0 },
+                    pt: { xs: 6, sm: 0, md: 6 },
                     px: { xs: 2.5, md: 0 },
                     margin: "0 auto",
                     maxWidth: theme.contentWidths.values,
@@ -228,7 +228,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
           <Box
             sx={{
               position: "absolute",
-              bottom: { xs: 46, md: 62 },
+              bottom: 32,
               left: "50%",
               transform: "translateX(-50%)",
               px: { xs: 2.5, sm: 0 },
