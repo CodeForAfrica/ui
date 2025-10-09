@@ -46,7 +46,7 @@ const Spotlight = React.forwardRef(function Spotlight(
   return (
     <Box ref={ref} sx={{ background: "#EFEFEF" }}>
       <Section sx={{ py: 7.5, px: { xs: 2.5, md: 0 } }}>
-        <Typography variant="display4" sx={{ mb: 2 }}>
+        <Typography variant="display4" sx={{ mb: 4 }}>
           {title}
         </Typography>
         <Box

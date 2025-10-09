@@ -70,13 +70,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
               </div>
               <div
                 class="MuiCardActions-root MuiCardActions-spacing css-jbneu4-MuiCardActions-root"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-9imgqu-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                />
-              </div>
+              />
             </div>
           </div>
           <div
@@ -130,13 +124,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
               </div>
               <div
                 class="MuiCardActions-root MuiCardActions-spacing css-jbneu4-MuiCardActions-root"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-9imgqu-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                />
-              </div>
+              />
             </div>
           </div>
           <div
@@ -190,13 +178,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
               </div>
               <div
                 class="MuiCardActions-root MuiCardActions-spacing css-jbneu4-MuiCardActions-root"
-              >
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-9imgqu-MuiButtonBase-root-MuiButton-root"
-                  tabindex="0"
-                  type="button"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>

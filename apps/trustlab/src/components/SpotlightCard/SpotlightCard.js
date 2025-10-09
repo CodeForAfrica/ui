@@ -34,26 +34,28 @@ function SpotlightCard(props) {
           display: "block",
         }}
       />
-      <Button
-        component={buttonLink?.href ? Link : undefined}
-        sx={{
-          backgroundColor: "#FFDE59",
-          py: 0.75,
-          px: 2,
-          color: "#000",
-          border: "2px solid #000",
-          position: "absolute",
-          bottom: 16,
-          right: 16,
-          minWidth: "106px",
-          textDecoration: "none",
-          textTransform: "none",
-          fontWeight: 700,
-        }}
-        href={buttonLink?.href}
-      >
-        {buttonLink?.label}
-      </Button>
+      {buttonLink?.label ? (
+        <Button
+          component={buttonLink?.href ? Link : undefined}
+          sx={{
+            backgroundColor: "#FFDE59",
+            py: 0.75,
+            px: 2,
+            color: "#000",
+            border: "2px solid #000",
+            position: "absolute",
+            bottom: 16,
+            right: 16,
+            minWidth: "106px",
+            textDecoration: "none",
+            textTransform: "none",
+            fontWeight: 700,
+          }}
+          href={buttonLink?.href}
+        >
+          {buttonLink?.label}
+        </Button>
+      ) : null}
     </Card>
   );
 }

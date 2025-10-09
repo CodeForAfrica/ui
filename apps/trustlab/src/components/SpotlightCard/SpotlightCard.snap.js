@@ -10,11 +10,6 @@ exports[`<SpotlightCard /> renders unchanged 1`] = `
       alt="TrustLab Incubator Programme"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-7t1f4i-MuiCardMedia-root"
     />
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-s8c4m4-MuiButtonBase-root-MuiButton-root"
-      tabindex="0"
-      type="button"
-    />
   </div>
 </div>
 `;
