@@ -43,7 +43,7 @@ const Resources = forwardRef(function Resources(props, ref) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    mb: 2,
+                    mb: 6,
                   }}
                 >
                   <Figure
@@ -52,8 +52,8 @@ const Resources = forwardRef(function Resources(props, ref) {
                       src: resource.icon.src,
                     }}
                     sx={{
-                      height: { xs: "211px", md: "253px" },
-                      width: { xs: "184px", md: "221px" },
+                      height: `${resource.icon?.height}px`,
+                      width: `${resource.icon?.width}px`,
                     }}
                   />
                 </Box>
