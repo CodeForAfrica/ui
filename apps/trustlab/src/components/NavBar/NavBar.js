@@ -60,12 +60,14 @@ function NavBar({ logo, menus, searchButtonLabel, socialLinks }) {
             slotProps: {
               typography: {
                 sx: {
-                  color: "common.white",
+                  color: "#CCCED9",
+                  fontWeight: 400,
                   "&:hover": {
                     color: "common.white",
                   },
                   "&.active": {
                     color: "common.white",
+                    fontWeight: 600,
                   },
                 },
               },

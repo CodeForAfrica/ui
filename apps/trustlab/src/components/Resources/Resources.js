@@ -11,7 +11,7 @@ const Resources = forwardRef(function Resources(props, ref) {
     <Box ref={ref} sx={{ background: "#CDCDCD" }}>
       <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
         {title && (
-          <Typography variant="display4" sx={{ mb: 2 }}>
+          <Typography variant="display4" sx={{ mb: 4 }}>
             {title}
           </Typography>
         )}
@@ -43,7 +43,7 @@ const Resources = forwardRef(function Resources(props, ref) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    mb: 2,
+                    mb: 6,
                   }}
                 >
                   <Figure
@@ -52,8 +52,8 @@ const Resources = forwardRef(function Resources(props, ref) {
                       src: resource.icon.src,
                     }}
                     sx={{
-                      height: { xs: "211px", md: "253px" },
-                      width: { xs: "184px", md: "221px" },
+                      height: `${resource.icon?.height}px`,
+                      width: `${resource.icon?.width}px`,
                     }}
                   />
                 </Box>

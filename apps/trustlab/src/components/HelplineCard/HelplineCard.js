@@ -66,31 +66,33 @@ function HelplineCard({ title, icon: media, description, link }) {
         />
       </CardContent>
       <CardActions sx={{ p: 0 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          component={link?.href ? Link : "button"}
-          href={link?.href}
-          sx={{
-            mt: 2,
-            alignSelf: "start",
-            backgroundColor: "#FFDE59",
-            color: "black",
-            height: 32,
-            border: "2px solid black",
-            fontSize: 16,
-            fontWeight: 600,
-            textTransform: "none",
-            whiteSpace: "nowrap",
-            "&:hover": {
+        {link?.label ? (
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            component={link?.href ? Link : "button"}
+            href={link?.href}
+            sx={{
+              mt: 2,
+              alignSelf: "start",
               backgroundColor: "#FFDE59",
+              color: "black",
+              height: 32,
               border: "2px solid black",
-            },
-          }}
-        >
-          {link?.label}
-        </Button>
+              fontSize: 16,
+              fontWeight: 600,
+              textTransform: "none",
+              whiteSpace: "nowrap",
+              "&:hover": {
+                backgroundColor: "#FFDE59",
+                border: "2px solid black",
+              },
+            }}
+          >
+            {link?.label}
+          </Button>
+        ) : null}
       </CardActions>
     </Card>
   );

@@ -9,7 +9,7 @@ exports[`<Resources /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-12fal7i-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-y858bl-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-so3kj6-MuiTypography-root"
       >
         Helplines
       </h2>
@@ -23,10 +23,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-15qltjq"
+              class="MuiBox-root css-1a2u13b"
             >
               <figure
-                class="MuiBox-root css-lg2nrx"
+                class="MuiBox-root css-j02abo"
               >
                 <img
                   alt="Resource Image"
@@ -72,10 +72,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-15qltjq"
+              class="MuiBox-root css-1a2u13b"
             >
               <figure
-                class="MuiBox-root css-lg2nrx"
+                class="MuiBox-root css-j02abo"
               >
                 <img
                   alt="Resource Image"
@@ -121,10 +121,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-15qltjq"
+              class="MuiBox-root css-1a2u13b"
             >
               <figure
-                class="MuiBox-root css-lg2nrx"
+                class="MuiBox-root css-j02abo"
               >
                 <img
                   alt="Resource Image"
@@ -170,10 +170,10 @@ exports[`<Resources /> renders unchanged 1`] = `
             class="MuiBox-root css-g6p57z"
           >
             <div
-              class="MuiBox-root css-15qltjq"
+              class="MuiBox-root css-1a2u13b"
             >
               <figure
-                class="MuiBox-root css-lg2nrx"
+                class="MuiBox-root css-j02abo"
               >
                 <img
                   alt="Resource Image"
