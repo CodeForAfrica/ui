@@ -39,9 +39,9 @@ const PostImageOverview = forwardRef(function PostImageOverview(
             flexWrap: "nowrap",
             gap: {
               xs: 6,
-              md: 2,
+              sm: 2,
             },
-            flexDirection: { xs: "column", md: "row" },
+            flexDirection: { xs: "column", sm: "row" },
           }}
           justifyContent="space-between"
         >

@@ -23,8 +23,8 @@ function Banner({
       }}
     >
       <Section>
-        <Grid container>
-          <Grid item xs={12} md={hasImage ? 9 : 12}>
+        <Grid container alignItems="center">
+          <Grid item xs={12} sm={hasImage ? 9 : 12}>
             <RichTypography
               color={textColor}
               variant={isPageHeader ? "display2" : "display3"}
@@ -32,7 +32,7 @@ function Banner({
                 mb: 4,
                 textAlign: {
                   xs: "center",
-                  md: "start",
+                  sm: "start",
                 },
               }}
             >
@@ -46,7 +46,7 @@ function Banner({
                   mb: 4,
                   textAlign: {
                     xs: "center",
-                    md: "start",
+                    sm: "start",
                   },
                 }}
               >
@@ -71,7 +71,7 @@ function Banner({
             )}
           </Grid>
           {hasImage && (
-            <Grid item container xs={12} md={3} lg={3} justifyContent="center">
+            <Grid item container xs={12} sm={3} justifyContent="center">
               <Figure
                 ImageProps={{
                   alt: image.alt,

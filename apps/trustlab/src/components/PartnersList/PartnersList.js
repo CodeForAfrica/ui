@@ -33,19 +33,18 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
             key={partner.id}
             sx={{
               display: "flex",
-              alignItems: { xs: "center", md: "flex-start" },
+              alignItems: { xs: "center", sm: "flex-start" },
               py: 5,
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column", sm: "row" },
               borderTop: "1px solid",
-              px: 12.5,
-              gap: { xs: 2, md: 10 },
+              gap: { xs: 2, sm: 10 },
               flexWrap: "nowrap",
             }}
           >
             <Grid
               item
               xs={12}
-              md={4}
+              sm={4}
               sx={{ textAlign: "center", alignSelf: "center" }}
             >
               <Figure
@@ -71,9 +70,9 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                 sx={{
                   flexGrow: 1,
                   mb: 3.25,
-                  mt: { xs: 3.25, md: 0 },
-                  textAlign: { xs: "center", md: "left" },
-                  order: { xs: 1, md: 0 },
+                  mt: { xs: 3.25, sm: 0 },
+                  textAlign: { xs: "center", sm: "left" },
+                  order: { xs: 1, sm: 0 },
                 }}
               >
                 {partner.name}
@@ -82,7 +81,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                 elements={partner.description}
                 sx={{ order: { xs: 0, md: 1 } }}
                 TypographyProps={{
-                  sx: { textAlign: { xs: "center", md: "left" } },
+                  sx: { textAlign: { xs: "center", sm: "left" } },
                   variant: "p2",
                 }}
               />
@@ -96,7 +95,7 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                     fontWeight: 700,
                   },
                 }}
-                sx={{ mt: { xs: 0, md: 5 }, order: 2 }}
+                sx={{ mt: { xs: 0, sm: 5 }, order: 2 }}
               />
             </Grid>
           </Grid>
