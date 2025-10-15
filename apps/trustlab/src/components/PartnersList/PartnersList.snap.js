@@ -12,10 +12,10 @@ exports[`<PartnersList /> renders unchanged 1`] = `
         class="MuiTypography-root MuiTypography-subheading2 css-145khn7-MuiTypography-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-evu8pu-MuiGrid-root"
+        class="MuiGrid-root MuiGrid-container css-yiiudp-MuiGrid-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 css-1mylpxi-MuiGrid-root"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-qkprrp-MuiGrid-root"
         >
           <figure
             class="MuiBox-root css-ojmbah"
@@ -37,7 +37,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-1361935-MuiGrid-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-h2 css-g5tpob-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-h2 css-17z3c9i-MuiTypography-root"
           >
             Example Partner
           </h2>
