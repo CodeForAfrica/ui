@@ -21,9 +21,6 @@ const AirtableEmbed = {
       type: "array",
       minRows: 3,
       maxRows: 3,
-      admin: {
-        description: "Add Rapid Response Briefs",
-      },
       fields: [
         image({
           overrides: {
