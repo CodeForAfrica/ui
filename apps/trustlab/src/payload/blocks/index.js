@@ -1,4 +1,5 @@
 export { default as ActionBanner } from "./ActionBanner";
+export { default as AirtableEmbed } from "./AirtableEmbed";
 export { default as CallToAction } from "./CallToAction";
 export { default as Content } from "./Content";
 export { default as CourseList } from "./CourseList";
