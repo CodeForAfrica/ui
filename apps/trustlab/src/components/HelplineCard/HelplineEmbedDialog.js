@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function HelplineEmbedDialog({ embedCode, onClose, open, title }) {
+function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
   const dialogTitleId = React.useId();
 
   return (
@@ -71,7 +71,7 @@ function HelplineEmbedDialog({ embedCode, onClose, open, title }) {
             },
           }}
         >
-          Close
+          {closeLabel}
         </Button>
       </DialogActions>
     </Dialog>

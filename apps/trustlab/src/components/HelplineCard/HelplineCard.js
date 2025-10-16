@@ -21,6 +21,7 @@ function HelplineCard({
   link,
   embedCode,
   embedButtonLabel,
+  embedCloseLabel,
 }) {
   const hasEmbed = Boolean(embedCode);
   const [open, setOpen] = useState(false);
@@ -120,6 +121,7 @@ function HelplineCard({
         )}
       </CardActions>
       <HelplineEmbedDialog
+        closeLabel={embedCloseLabel}
         embedCode={embedCode}
         onClose={handleClose}
         open={open}

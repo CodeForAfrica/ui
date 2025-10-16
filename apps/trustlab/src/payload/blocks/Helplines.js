@@ -52,7 +52,6 @@ const Helplines = {
         {
           name: "embedCode",
           type: "code",
-          required: true,
           admin: {
             language: "html",
             condition: (_, siblingData) => siblingData?.useEmbedCode,
@@ -65,6 +64,14 @@ const Helplines = {
             condition: (_, siblingData) => siblingData?.useEmbedCode,
           },
           defaultValue: "View",
+        },
+        {
+          name: "embedCloseLabel",
+          type: "text",
+          admin: {
+            condition: (_, siblingData) => siblingData?.useEmbedCode,
+          },
+          defaultValue: "Close",
         },
         linkGroup({
           overrides: {
