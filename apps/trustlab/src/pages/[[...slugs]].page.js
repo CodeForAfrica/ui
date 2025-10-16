@@ -2,6 +2,7 @@ import React from "react";
 import { SWRConfig } from "swr";
 
 import ActionBanner from "@/trustlab/components/ActionBanner";
+import AirtableEmbed from "@/trustlab/components/AirtableEmbed";
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
 import ComingSoon from "@/trustlab/components/ComingSoon";
@@ -26,6 +27,7 @@ import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   "action-banner": ActionBanner,
+  "airtable-embed": AirtableEmbed,
   "call-to-action": CallToAction,
   content: Content,
   "course-list": CourseList,
