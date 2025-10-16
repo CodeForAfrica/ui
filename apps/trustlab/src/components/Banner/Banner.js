@@ -24,15 +24,23 @@ function Banner({
     >
       <Section>
         <Grid container alignItems="center">
-          <Grid item xs={12} sm={hasImage ? 9 : 12}>
+          <Grid
+            item
+            xs={12}
+            sm={hasImage ? 9 : 12}
+            sx={{
+              px: { xs: 2.5, sm: 0 },
+            }}
+          >
             <RichTypography
               color={textColor}
               variant={isPageHeader ? "display2" : "display3"}
               sx={{
                 mb: 4,
-                textAlign: {
-                  xs: "center",
-                  sm: "start",
+                textAlign: "left",
+                fontSize: {
+                  xs: 40,
+                  sm: 64,
                 },
               }}
             >
@@ -42,13 +50,7 @@ function Banner({
               <RichTypography
                 color={textColor}
                 variant={isPageHeader ? "subheading1" : "p1"}
-                sx={{
-                  mb: 4,
-                  textAlign: {
-                    xs: "center",
-                    sm: "start",
-                  },
-                }}
+                sx={{ mb: 4 }}
               >
                 {description}
               </RichTypography>
@@ -62,9 +64,7 @@ function Banner({
                     textDecoration: "underline",
                     textDecorationColor: textColor,
                   },
-                  sx: {
-                    mb: 4,
-                  },
+                  sx: { mb: 4, textAlign: "left" },
                 }}
                 elements={description}
               />
