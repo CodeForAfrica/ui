@@ -26,7 +26,6 @@ import {
   Spotlight,
   WhatWeDo,
   ComingSoon,
-  AirtableEmbed,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -70,7 +69,6 @@ const Pages = {
       type: "blocks",
       blocks: [
         ActionBanner,
-        AirtableEmbed,
         CallToAction,
         CourseList,
         Content,

@@ -43,10 +43,44 @@ const Helplines = {
           localized: true,
           required: true,
         }),
+        {
+          name: "useEmbedCode",
+          type: "checkbox",
+          label: "Use Embed Code",
+          defaultValue: false,
+        },
+        {
+          name: "embedCode",
+          type: "code",
+          admin: {
+            language: "html",
+            condition: (_, siblingData) => siblingData?.useEmbedCode,
+          },
+        },
+        {
+          name: "embedButtonLabel",
+          type: "text",
+          admin: {
+            condition: (_, siblingData) => siblingData?.useEmbedCode,
+          },
+          defaultValue: "View",
+        },
+        {
+          name: "embedCloseLabel",
+          type: "text",
+          admin: {
+            condition: (_, siblingData) => siblingData?.useEmbedCode,
+          },
+          defaultValue: "Close",
+        },
         linkGroup({
           overrides: {
             name: "link",
             label: "Rapid Response Link",
+            required: false,
+            admin: {
+              condition: (_, siblingData) => !siblingData?.useEmbedCode,
+            },
           },
         }),
       ],
