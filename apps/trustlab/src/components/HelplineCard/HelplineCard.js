@@ -1,17 +1,41 @@
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import {
+  Box,
+  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Box,
   Divider,
   Typography,
-  Button,
 } from "@mui/material";
+import React, { useState } from "react";
 
-function HelplineCard({ title, icon: media, description, link }) {
+import HelplineEmbedDialog from "./HelplineEmbedDialog";
+
+function HelplineCard({
+  title,
+  icon: media,
+  description,
+  link,
+  embedCode,
+  embedButtonLabel,
+}) {
+  const hasEmbed = Boolean(embedCode);
+  const [open, setOpen] = useState(false);
+  const buttonLabel = embedButtonLabel || link?.label || title;
+
+  const handleOpen = () => {
+    if (hasEmbed) {
+      setOpen(true);
+    }
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Card elevation={0} gap={2} key={title}>
       <Box
@@ -66,13 +90,14 @@ function HelplineCard({ title, icon: media, description, link }) {
         />
       </CardContent>
       <CardActions sx={{ p: 0 }}>
-        {link?.label ? (
+        {(hasEmbed || link?.label) && (
           <Button
+            component={!hasEmbed && link?.href ? Link : "button"}
+            href={!hasEmbed ? link?.href : undefined}
+            onClick={hasEmbed ? handleOpen : undefined}
             variant="contained"
             color="primary"
             size="small"
-            component={link?.href ? Link : "button"}
-            href={link?.href}
             sx={{
               mt: 2,
               alignSelf: "start",
@@ -90,10 +115,16 @@ function HelplineCard({ title, icon: media, description, link }) {
               },
             }}
           >
-            {link?.label}
+            {hasEmbed ? buttonLabel : link?.label}
           </Button>
-        ) : null}
+        )}
       </CardActions>
+      <HelplineEmbedDialog
+        embedCode={embedCode}
+        onClose={handleClose}
+        open={open}
+        title={title}
+      />
     </Card>
   );
 }
