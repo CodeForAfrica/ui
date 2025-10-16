@@ -6,6 +6,7 @@ import React, { forwardRef } from "react";
 
 const PostImageOverview = forwardRef(function PostImageOverview(
   {
+    title,
     content,
     image,
     date,
@@ -23,6 +24,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
   }
 
   const { url, alt } = image;
+  const NAVBAR_HEIGHT = 94;
 
   return (
     <Box
@@ -32,6 +34,22 @@ const PostImageOverview = forwardRef(function PostImageOverview(
       ref={ref}
     >
       <Section sx={{ pt: 8, px: { xs: 2.5, md: 0 } }}>
+        {title ? (
+          <Typography
+            component="h1"
+            sx={{
+              borderBottom: "1px solid",
+              mb: 3,
+              pb: 1,
+              fontSize: 20,
+              fontWeight: 700,
+              color: textColor,
+              textAlign: { xs: "left", md: textAlign },
+            }}
+          >
+            {title}
+          </Typography>
+        ) : null}
         <Grid
           container
           alignItems="flex-start"
@@ -45,17 +63,16 @@ const PostImageOverview = forwardRef(function PostImageOverview(
           }}
           justifyContent="space-between"
         >
-          <Grid>
+          <Grid
+            sx={{
+              flexBasis: { sm: "66.666%", md: "50%" },
+              maxWidth: { sm: "66.666%", md: "50%" },
+              width: "100%",
+            }}
+          >
             <LexicalRichText
               elements={content}
               sx={{
-                h1: {
-                  borderBottom: `1px solid`,
-                  mb: 3,
-                  pb: 1,
-                  fontSize: 20,
-                  fontWeight: 700,
-                },
                 p: {
                   mb: 3,
                 },
@@ -66,18 +83,27 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 sx: {
                   mb: 3,
                   color: textColor,
+                  textAlign: { xs: "left", md: textAlign },
                 },
               }}
             />
           </Grid>
           <Grid
-            sx={{
-              width: { xs: "100%", md: "360px" },
-              minWidth: "360px",
-              textAlign: { xs: "center", md: textAlign },
-              alignSelf:
-                caption || date || buttonLink?.href ? "flex-start" : "center",
-            }}
+            sx={(theme) => ({
+              flexBasis: { sm: "33.333%", md: "50%" },
+              maxWidth: { sm: "33.333%", md: "50%" },
+              width: { xs: "fit-content", sm: "100%" },
+              minWidth: { xs: "auto", sm: "33.333%" },
+              textAlign: { xs: "left", sm: "center" },
+              alignSelf: "flex-start",
+              position: { xs: "relative", sm: "sticky" },
+              top: {
+                sm: `calc(${NAVBAR_HEIGHT}px + ${theme.spacing(2)})`,
+              },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "flex-start", sm: "center" },
+            })}
           >
             <Figure
               ImageProps={{
@@ -85,10 +111,15 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 src: url,
               }}
               sx={{
-                height: { xs: "374.47px", md: "366px" },
+                height: { xs: "260px", sm: "300px", md: "366px" },
                 m: 0,
                 position: "relative",
-                width: { xs: "100%", md: "360px" },
+                width: { xs: "220px", sm: "100%" },
+                maxWidth: { sm: "280px", md: "360px" },
+                mx: { xs: 0, sm: "auto" },
+                "& span img": {
+                  objectPosition: { xs: "left top", sm: "center top" },
+                },
               }}
             />
             <Typography sx={{ mt: 2, color: textColor }}>{caption}</Typography>

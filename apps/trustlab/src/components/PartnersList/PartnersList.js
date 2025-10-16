@@ -33,8 +33,11 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
             key={partner.id}
             sx={{
               display: "flex",
-              alignItems: { xs: "center", sm: "flex-start" },
-              py: 5,
+              alignItems: "flex-start",
+              py: {
+                xs: 5,
+                sm: 2.5,
+              },
               flexDirection: { xs: "column", sm: "row" },
               borderTop: "1px solid",
               gap: { xs: 2, sm: 10 },
@@ -45,12 +48,16 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
               item
               xs={12}
               sm={4}
-              sx={{ textAlign: "center", alignSelf: "center" }}
+              sx={{
+                textAlign: "left",
+                alignSelf: "flex-start",
+              }}
             >
               <Figure
                 ImageProps={{
                   alt: partner.logo.alt || partner.name,
                   src: partner.logo.url,
+                  style: { objectPosition: "left top" },
                 }}
                 sx={{
                   filter: "grayscale(100%)",
@@ -71,17 +78,20 @@ const PartnersList = React.forwardRef(function PartnersList(props, ref) {
                   flexGrow: 1,
                   mb: 3.25,
                   mt: { xs: 3.25, sm: 0 },
-                  textAlign: { xs: "center", sm: "left" },
-                  order: { xs: 1, sm: 0 },
+                  textAlign: "left",
+                  order: 0,
                 }}
               >
                 {partner.name}
               </Typography>
               <LexicalRichText
                 elements={partner.description}
-                sx={{ order: { xs: 0, md: 1 } }}
+                sx={{ order: 1 }}
                 TypographyProps={{
-                  sx: { textAlign: { xs: "center", sm: "left" } },
+                  sx: {
+                    textAlign: "left",
+                    color: "#252B37",
+                  },
                   variant: "p2",
                 }}
               />

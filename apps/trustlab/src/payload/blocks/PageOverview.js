@@ -11,6 +11,11 @@ const PageOverview = {
     plural: "Page Overviews",
   },
   fields: [
+    {
+      name: "title",
+      type: "text",
+      localized: true,
+    },
     richText({
       name: "content",
       required: true,
