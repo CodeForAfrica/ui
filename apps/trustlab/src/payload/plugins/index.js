@@ -14,6 +14,9 @@ const bucket = process.env.S3_BUCKET ?? "";
 const region = process.env.S3_REGION ?? "";
 const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY ?? "";
 const s3Enabled = !!accessKeyId && !!region && !!secretAccessKey;
+const s3MaxAttempts = Number(process.env.S3_MAX_ATTEMPTS) || 3;
+const s3MaxSockets = Number(process.env.S3_MAX_SOCKETS) || 1000;
+const s3ConnectionTimeout = Number(process.env.S3_CONNECTION_TIMEOUT) || 5000;
 
 const plugins = [
   nestedDocsPlugin({
@@ -32,10 +35,21 @@ const plugins = [
         secretAccessKey,
       },
       region,
-      maxAttempts: 3,
+      maxAttempts: s3MaxAttempts,
+      requestHandler: {
+        httpAgent: {
+          maxSockets: s3MaxSockets,
+          keepAlive: true,
+        },
+        httpsAgent: {
+          maxSockets: s3MaxSockets,
+          keepAlive: true,
+        },
+        connectionTimeout: s3ConnectionTimeout,
+        requestTimeout: s3ConnectionTimeout,
+      },
     },
     enabled: s3Enabled,
-    signedDownloads: true,
   }),
   sentryPlugin({
     options: {

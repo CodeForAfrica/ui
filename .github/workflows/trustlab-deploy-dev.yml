@@ -2,7 +2,7 @@ name: TrustLab | Deploy | DEV
 
 on:
   push:
-    branches: [main, ft/upgrade-payload] # temporary testing fix for ft/upgrade-payload
+    branches: [main]
     paths:
       - "apps/trustlab/**"
       - "Dockerfile"

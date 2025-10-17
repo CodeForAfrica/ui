@@ -10,6 +10,9 @@
         "S3_BUCKET",
         "S3_REGION",
         "S3_SECRET_ACCESS_KEY",
+        "S3_MAX_ATTEMPTS",
+        "S3_MAX_SOCKETS",
+        "S3_CONNECTION_TIMEOUT",
         "SENTRY_ENVIRONMENT"
       ]
     }
