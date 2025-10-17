@@ -32,8 +32,10 @@ const plugins = [
         secretAccessKey,
       },
       region,
+      maxAttempts: 3,
     },
     enabled: s3Enabled,
+    signedDownloads: true,
   }),
   sentryPlugin({
     options: {
