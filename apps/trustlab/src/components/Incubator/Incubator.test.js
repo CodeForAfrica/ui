@@ -9,6 +9,7 @@ const render = createRender({ theme });
 
 const defaultProps = {
   content: null,
+  title: "Incubator",
   image: {
     url: "https://example.com/image.jpg",
     alt: "Incubator Image",
