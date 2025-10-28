@@ -1,8 +1,5 @@
 name: TrustLab | Deploy | PROD
 
-permissions:
-  contents: read
-
 on:
   push:
     branches: [main, ft/trustlab-prod-workflow]
