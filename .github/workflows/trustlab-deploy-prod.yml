@@ -2,7 +2,7 @@ name: TrustLab | Deploy | PROD
 
 on:
   push:
-    branches: [main, ft/trustlab-prod-workflow]
+    branches: [main]
     paths:
       - "apps/trustlab/**"
       - "Dockerfile"
