@@ -16,7 +16,7 @@ async function spotlightOverview(block, api) {
           alt: image?.alt || "",
         },
         title,
-        cardTitle,
+        cardTitle: cardTitle || "",
         tag: firstTag?.name || null,
         id,
         href,
