@@ -430,8 +430,8 @@ catalogs:
       specifier: ^15.3.3
       version: 15.3.4
     next-auth:
-      specifier: ^4.24.7
-      version: 4.24.11
+      specifier: ^4.24.13
+      version: 4.24.13
     next-images:
       specifier: ^1.8.5
       version: 1.8.5
@@ -1952,7 +1952,7 @@ importers:
         version: 15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-auth:
         specifier: 'catalog:'
-        version: 4.24.11(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.24.13(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-seo:
         specifier: 'catalog:'
         version: 6.7.1(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2568,7 +2568,7 @@ importers:
         version: 15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-auth:
         specifier: 'catalog:'
-        version: 4.24.11(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.24.13(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-seo:
         specifier: 'catalog:'
         version: 6.7.1(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2915,7 +2915,7 @@ importers:
         version: 15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-auth:
         specifier: 'catalog:'
-        version: 4.24.11(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.24.13(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: 'catalog:'
         version: 18.3.1
@@ -13081,12 +13081,12 @@ packages:
     engines: {node: '>=v10.22.1'}
     hasBin: true
 
-  next-auth@4.24.11:
-    resolution: {integrity: sha512-pCFXzIDQX7xmHFs4KVH4luCjaCbuPRtZ9oBUjUhOk84mZ9WVPf94n87TxYI4rSRf9HmfHEF8Yep3JrYDVOo3Cw==}
+  next-auth@4.24.13:
+    resolution: {integrity: sha512-sgObCfcfL7BzIK76SS5TnQtc3yo2Oifp/yIpfv6fMfeBOiBJkDWF3A2y9+yqnmJ4JKc2C+nMjSjmgDeTwgN1rQ==}
     peerDependencies:
-      '@auth/core': 0.34.2
-      next: ^12.2.5 || ^13 || ^14 || ^15
-      nodemailer: ^6.6.5
+      '@auth/core': 0.34.3
+      next: ^12.2.5 || ^13 || ^14 || ^15 || ^16
+      nodemailer: ^7.0.7
       react: ^17.0.2 || ^18 || ^19
       react-dom: ^17.0.2 || ^18 || ^19
     peerDependenciesMeta:
@@ -13205,10 +13205,6 @@ packages:
 
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
-
-  nodemailer@6.9.16:
-    resolution: {integrity: sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ==}
-    engines: {node: '>=6.0.0'}
 
   nodemailer@6.9.8:
     resolution: {integrity: sha512-cfrYUk16e67Ks051i4CntM9kshRYei1/o/Gi8K1d+R34OIs21xdFnW7Pt7EucmVKA0LKtqUGNcjMZ7ehjl49mQ==}
@@ -30019,7 +30015,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  next-auth@4.24.11(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@6.9.16)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-auth@4.24.13(next@15.3.4(@babel/core@7.27.1)(@opentelemetry/api@1.9.0)(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.27.1
       '@panva/hkdf': 1.2.1
@@ -30034,7 +30030,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       uuid: 8.3.2
     optionalDependencies:
-      nodemailer: 6.9.16
+      nodemailer: 7.0.9
 
   next-images@1.8.5(webpack@5.99.8(esbuild@0.25.4)):
     dependencies:
@@ -30211,9 +30207,6 @@ snapshots:
       webpack: 5.99.8(@swc/core@1.11.24)
 
   node-releases@2.0.19: {}
-
-  nodemailer@6.9.16:
-    optional: true
 
   nodemailer@6.9.8: {}
 
