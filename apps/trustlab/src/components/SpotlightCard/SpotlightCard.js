@@ -3,7 +3,6 @@ import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
 
 function SpotlightCard(props) {
   const { title, image, buttonLink, cardTitle } = props;
-  console.log(cardTitle);
   return (
     <Card
       sx={{
