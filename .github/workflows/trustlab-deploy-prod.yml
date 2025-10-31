@@ -14,7 +14,8 @@ env:
   DOKKU_REMOTE_BRANCH: "master"
   DOKKU_REMOTE_URL: "ssh://dokku@ui-2.prod.codeforafrica.org"
   GIT_PUSH_FLAGS: "--force"
-  IMAGE_NAME: "codeforafrica/${{ env.APP_NAME }}"
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  IMAGE_NAME: "codeforafrica/trustlab-ui"
   VERSION_FILE_NAME: "./apps/trustlab/package.json"
   NEXT_PUBLIC_APP_URL: "https://trustlab.africa"
   SENTRY_ENVIRONMENT: "production"
@@ -94,8 +95,7 @@ jobs:
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.TRUSTLAB_SENTRY_PROJECT }}"
-          tags: |
-            ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
+          tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
           target: trustlab-runner
 
       # Temp fix
