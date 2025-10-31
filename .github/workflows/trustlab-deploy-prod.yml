@@ -55,6 +55,18 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
 
+      - name: Check if version is bumped
+        id: version-check
+        uses: EndBug/version-check@v2
+        with:
+          # Whether to search in every commit's diff.
+          # This is useful if you often do change the version without saying it
+          # in the commit message. If you always include the semver of the new
+          # version in your commit message when you bump versions then you can
+          # omit this.
+          diff-search: true
+          file-name: "${{ env.VERSION_FILE_NAME }}"
+
       - name: Build Docker image
         uses: docker/build-push-action@v6
         with:
@@ -75,7 +87,9 @@ jobs:
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.TRUSTLAB_SENTRY_PROJECT }}"
-          tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
           target: trustlab-runner
 
       # Temp fix
