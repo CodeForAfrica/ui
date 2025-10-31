@@ -27,6 +27,11 @@ const Spotlight = {
           required: true,
           localized: true,
         },
+        {
+          name: "title",
+          type: "text",
+          localized: true,
+        },
         linkGroup({
           overrides: {
             name: "buttonLink",

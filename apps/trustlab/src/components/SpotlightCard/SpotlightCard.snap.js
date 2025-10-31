@@ -8,7 +8,7 @@ exports[`<SpotlightCard /> renders unchanged 1`] = `
   >
     <img
       alt="TrustLab Incubator Programme"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-7t1f4i-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1f8snrf-MuiCardMedia-root"
     />
   </div>
 </div>
