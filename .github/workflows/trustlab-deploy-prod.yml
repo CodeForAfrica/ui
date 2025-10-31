@@ -7,6 +7,8 @@ on:
       - ft/trustlab-deploy-fix
     paths:
       - "apps/trustlab/**"
+      - "Dockerfile"
+      - ".github/workflows/trustlab-deploy-prod.yml"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
