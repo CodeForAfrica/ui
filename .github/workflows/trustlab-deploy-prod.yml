@@ -2,11 +2,9 @@ name: TrustLab | Deploy | PROD
 
 on:
   push:
-    branches: [ft/trustlab-deploy-fix]
-    paths:
-      - "apps/trustlab/**"
-      - "Dockerfile"
-      - ".github/workflows/trustlab-deploy-prod.yml"
+    branches:
+      - ft/trustlab-deploy-fix
+  workflow_dispatch:
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
