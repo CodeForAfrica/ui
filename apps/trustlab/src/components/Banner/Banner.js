@@ -32,7 +32,6 @@ function Banner({
               px: { xs: 2.5, sm: 0 },
             }}
           >
-            {/* Banner title */}
             <RichTypography
               color={textColor}
               variant={isPageHeader ? "display2" : "display3"}

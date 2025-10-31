@@ -3,8 +3,7 @@ name: TrustLab | Deploy | PROD
 on:
   push:
     branches:
-      - ft/trustlab-deploy-fix
-  workflow_dispatch:
+      - main
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
