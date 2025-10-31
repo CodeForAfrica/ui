@@ -89,7 +89,6 @@ jobs:
             "sentry_project=${{ secrets.TRUSTLAB_SENTRY_PROJECT }}"
           tags: |
             ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
-            ${{ env.IMAGE_NAME }}:${{ github.sha }}
           target: trustlab-runner
 
       # Temp fix
