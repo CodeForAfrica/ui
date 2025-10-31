@@ -3,6 +3,8 @@ name: TrustLab | Deploy | PROD
 on:
   push:
     branches: [main, ft/trustlab-deploy-fix]
+    paths:
+      - "apps/trustlab/**"
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
