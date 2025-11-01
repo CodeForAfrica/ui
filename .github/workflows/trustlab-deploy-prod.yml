@@ -63,7 +63,7 @@ jobs:
         uses: actions/cache@v4
         with:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
-          path: /tmp/.buildx-cache
+          path: ${{ runner.temp }}/.buildx-cache
           restore-keys: |
             ${{ runner.os }}-buildx-
 
@@ -104,8 +104,14 @@ jobs:
       - name: Move cache
         if: steps.version-check.outputs.changed == 'true'
         run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          CACHE_DIR="${{ runner.temp }}/.buildx-cache"
+          NEW_CACHE_DIR="${{ runner.temp }}/.buildx-cache-new"
+          if [ -d "$NEW_CACHE_DIR" ]; then
+            rm -rf "$CACHE_DIR"
+            mv "$NEW_CACHE_DIR" "$CACHE_DIR"
+          else
+            echo "No new cache directory found at $NEW_CACHE_DIR; skipping move."
+          fi
 
       - name: Push to Dokku
         if: steps.version-check.outputs.changed == 'true'
