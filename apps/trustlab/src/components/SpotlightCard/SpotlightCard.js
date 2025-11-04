@@ -1,8 +1,8 @@
 import { Link } from "@commons-ui/next";
-import { Button, Card, CardMedia } from "@mui/material";
+import { Box, Button, Card, CardMedia, Typography } from "@mui/material";
 
 function SpotlightCard(props) {
-  const { title, image, buttonLink } = props;
+  const { title, image, buttonLink, cardTitle } = props;
   return (
     <Card
       sx={{
@@ -28,12 +28,28 @@ function SpotlightCard(props) {
           width: "100%",
           height: "100%",
           maxHeight: 200,
-          maxWidth: 350,
+          maxWidth: 370,
           objectFit: "cover",
           borderRadius: "10px",
           display: "block",
         }}
       />
+      {cardTitle ? (
+        <Box
+          sx={{
+            position: "absolute",
+            top: 10,
+            left: 10,
+            backgroundColor: "rgba(0,0,0,0.3)",
+            borderRadius: "10px",
+            px: 1,
+          }}
+        >
+          <Typography variant="caption" color="text.secondary">
+            {cardTitle}
+          </Typography>
+        </Box>
+      ) : null}
       {buttonLink?.label ? (
         <Button
           component={buttonLink?.href ? Link : undefined}
