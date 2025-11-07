@@ -65,6 +65,15 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               TypographyProps={{
                 variant: "body2",
                 component: "span",
+                sx: {
+                  display: "-webkit-box",
+                  WebkitLineClamp: 5,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  flex: 1,
+                  height: 100,
+                },
               }}
             />
             <Divider sx={{ my: 2 }} />
@@ -98,6 +107,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   flex: 1,
+                  height: 60,
                 },
               }}
             />
