@@ -51,6 +51,15 @@ const ResearchCategoryCard = forwardRef(
               elements={description}
               TypographyProps={{
                 variant: "body2",
+                sx: {
+                  display: "-webkit-box",
+                  WebkitLineClamp: 5,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  flex: 1,
+                  height: 100,
+                },
               }}
             />
           )}
