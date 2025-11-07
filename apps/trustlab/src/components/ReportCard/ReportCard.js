@@ -77,7 +77,12 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               }}
             />
             <Divider sx={{ my: 2 }} />
-            <Link href="/" sx={{ textDecoration: "none", lineHeight: "16px" }}>
+            {/* TODO: Remove link?.href integration is done */}
+            <Box
+              href={link?.href}
+              component={link?.href ? Link : "div"}
+              sx={{ textDecoration: "none", lineHeight: "16px" }}
+            >
               <Typography
                 sx={{
                   whiteSpace: "nowrap",
@@ -90,7 +95,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               >
                 {actionLabel}
               </Typography>
-            </Link>
+            </Box>
           </>
         )}
         {description && condensed && (
@@ -112,7 +117,11 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               }}
             />
 
-            <Link href="/" sx={{ textDecoration: "none", lineHeight: "16px" }}>
+            <Box
+              href={link?.href}
+              component={link?.href ? Link : "div"}
+              sx={{ textDecoration: "none", lineHeight: "16px" }}
+            >
               <Typography
                 sx={{
                   whiteSpace: "nowrap",
@@ -125,7 +134,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               >
                 {actionLabel}
               </Typography>
-            </Link>
+            </Box>
           </Box>
         )}
       </CardContent>

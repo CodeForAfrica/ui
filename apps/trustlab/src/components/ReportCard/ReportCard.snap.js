@@ -34,16 +34,15 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
           </span>
         </div>
       </div>
-      <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1xm7cad-MuiTypography-root-MuiLink-root"
-        href="/"
+      <div
+        class="MuiBox-root css-s3avb4"
       >
         <span
           class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
         >
           Download Report
         </span>
-      </a>
+      </div>
     </div>
   </div>
 </div>
@@ -89,8 +88,8 @@ exports[`<ReportCard /> renders unchanged 1`] = `
       class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
     />
     <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1xm7cad-MuiTypography-root-MuiLink-root"
-      href="/"
+      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-ey0t1c-MuiTypography-root-MuiLink-root"
+      href="/test-report"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
@@ -136,16 +135,15 @@ exports[`<ReportCard /> renders without image 1`] = `
     <hr
       class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
     />
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1xm7cad-MuiTypography-root-MuiLink-root"
-      href="/"
+    <div
+      class="MuiBox-root css-s3avb4"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
       >
         Download Report
       </span>
-    </a>
+    </div>
   </div>
 </div>
 `;
@@ -189,16 +187,15 @@ exports[`<ReportCard /> renders without link 1`] = `
     <hr
       class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
     />
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways active css-1xm7cad-MuiTypography-root-MuiLink-root"
-      href="/"
+    <div
+      class="MuiBox-root css-s3avb4"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
       >
         Download Report
       </span>
-    </a>
+    </div>
   </div>
 </div>
 `;
