@@ -11,7 +11,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-8o12w-MuiGrid2-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-p3c7pq-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10ccbxm-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
         href="/category-1"
         id="1"
         style="--Paper-shadow: none;"
@@ -50,7 +50,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
               tabindex="0"
               type="button"
             >
-              Read More
+              Learn More
             </button>
           </div>
         </div>
@@ -60,7 +60,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-8o12w-MuiGrid2-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-p3c7pq-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10ccbxm-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
         href="/category-2"
         id="2"
         style="--Paper-shadow: none;"
@@ -99,7 +99,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
               tabindex="0"
               type="button"
             >
-              Read More
+              Learn More
             </button>
           </div>
         </div>
@@ -109,7 +109,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-8o12w-MuiGrid2-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-p3c7pq-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10ccbxm-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
         href="/category-3"
         id="3"
         style="--Paper-shadow: none;"
@@ -148,7 +148,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
               tabindex="0"
               type="button"
             >
-              Read More
+              Learn More
             </button>
           </div>
         </div>

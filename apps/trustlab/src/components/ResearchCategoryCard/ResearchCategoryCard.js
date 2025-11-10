@@ -12,14 +12,7 @@ import { forwardRef } from "react";
 
 const ResearchCategoryCard = forwardRef(
   function ResearchCategoryCard(props, ref) {
-    const {
-      image,
-      title,
-      description,
-      link,
-      readMoreLabel = "Read More",
-      ...other
-    } = props;
+    const { image, title, description, link, ...other } = props;
 
     return (
       <Card
@@ -27,7 +20,7 @@ const ResearchCategoryCard = forwardRef(
         ref={ref}
         elevation={0}
         href={link?.href}
-        sx={{ textDecoration: "none" }}
+        sx={{ textDecoration: "none", backgroundColor: "transparent" }}
         {...other}
       >
         {image?.src && (
@@ -79,7 +72,7 @@ const ResearchCategoryCard = forwardRef(
                   borderRadius: "6px",
                 }}
               >
-                {readMoreLabel}
+                {link.label || "Learn More"}
               </Button>
             </Box>
           )}

@@ -14,6 +14,7 @@ import {
   Partners,
   Tags,
   Users,
+  Reports,
 } from "@/trustlab/payload/collections";
 import plugins from "@/trustlab/payload/plugins";
 import SiteSettings from "@/trustlab/payload/globals";
@@ -73,6 +74,7 @@ export default buildConfig({
     Donors,
     Partners,
     // Group: Settings
+    Reports,
     Users,
   ] as CollectionConfig[],
   cors,

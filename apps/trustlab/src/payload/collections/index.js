@@ -5,3 +5,4 @@ export { default as Pages } from "./Pages";
 export { default as Partners } from "./Partners";
 export { default as Posts } from "./Posts";
 export { default as Tags } from "./Tags";
+export { default as Reports } from "./Reports";
