@@ -14,7 +14,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
   const {
     image,
     title,
-    description,
+    overview,
     link,
     actionLabel = "Download Report",
     condensed = false,
@@ -58,10 +58,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
         >
           {date}
         </Typography>
-        {description && !condensed && (
+        {overview && !condensed && (
           <>
             <LexicalRichText
-              elements={description}
+              elements={overview}
               TypographyProps={{
                 variant: "body2",
                 component: "span",
@@ -74,6 +74,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                   flex: 1,
                   height: 100,
                 },
+              }}
+              sx={{
+                height: 100,
+                overflow: "hidden",
               }}
             />
             <Divider sx={{ my: 2 }} />
@@ -98,10 +102,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             </Box>
           </>
         )}
-        {description && condensed && (
+        {overview && condensed && (
           <Box>
             <LexicalRichText
-              elements={description}
+              elements={overview}
               TypographyProps={{
                 variant: "body2",
                 component: "span",
@@ -114,6 +118,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                   flex: 1,
                   height: 60,
                 },
+              }}
+              sx={{
+                height: 60,
+                overflow: "hidden",
               }}
             />
 
