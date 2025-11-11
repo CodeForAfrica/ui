@@ -22,7 +22,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
       class="MuiBox-root css-0"
     >
       <div
-        class="MuiBox-root css-0"
+        class="MuiBox-root css-w7thh7"
       >
         <div
           class="payload-richtext"
@@ -72,7 +72,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
       Jul 28, 2025
     </div>
     <div
-      class="MuiBox-root css-0"
+      class="MuiBox-root css-bo3k24"
     >
       <div
         class="payload-richtext"
@@ -120,7 +120,7 @@ exports[`<ReportCard /> renders without image 1`] = `
       Jul 28, 2025
     </div>
     <div
-      class="MuiBox-root css-0"
+      class="MuiBox-root css-bo3k24"
     >
       <div
         class="payload-richtext"
@@ -172,7 +172,7 @@ exports[`<ReportCard /> renders without link 1`] = `
       Jul 28, 2025
     </div>
     <div
-      class="MuiBox-root css-0"
+      class="MuiBox-root css-bo3k24"
     >
       <div
         class="payload-richtext"
