@@ -42,6 +42,17 @@ const Reports = {
       relationTo: "media",
       label: "Upload Report File",
     },
+    {
+      name: "date",
+      label: {
+        en: "Published Date",
+      },
+      type: "date",
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
   ],
   timestamps: true,
 };
