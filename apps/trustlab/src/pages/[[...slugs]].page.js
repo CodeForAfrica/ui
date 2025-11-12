@@ -19,6 +19,7 @@ import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PostList from "@/trustlab/components/PostList";
+import ResearchCategoryList from "@/trustlab/components/ResearchCategoryList";
 import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
@@ -48,6 +49,7 @@ const componentsBySlugs = {
   "resources-overview-list": OverviewCardList,
   spotlight: Spotlight,
   "what-we-do": Banner,
+  "research-category": ResearchCategoryList,
 };
 
 function Page({ blocks, fallback }) {

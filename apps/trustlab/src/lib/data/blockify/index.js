@@ -1,5 +1,6 @@
 import collectionOverview from "./collectionOverview";
 import postList from "./postList";
+import researchCategoryList from "./researchCategories";
 import spotlightOverview from "./spotlightOverview";
 
 const propsifyBlockBySlug = {
@@ -7,6 +8,7 @@ const propsifyBlockBySlug = {
   "resources-overview-list": collectionOverview,
   "post-list": postList,
   spotlight: spotlightOverview,
+  "research-category": researchCategoryList,
 };
 
 async function blockify(blocks, api, context) {
