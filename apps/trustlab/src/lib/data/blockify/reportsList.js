@@ -1,10 +1,13 @@
 import { getReports } from "@/trustlab/utils/reports";
 
 async function reportsList(block, api) {
-  const { blockType: slug } = block;
+  const { blockType: slug, reportsType, hasPagination } = block;
   const reports = await getReports(api, {
-    limit: block.reportsPerPage || 9,
+    limit: hasPagination ? block.reportsPerPage || 9 : undefined,
     sort: block.sortBy || "-createdAt",
+    where: {
+      reportType: { equals: reportsType },
+    },
   });
   return {
     ...block,

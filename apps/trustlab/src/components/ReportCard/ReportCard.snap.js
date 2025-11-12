@@ -87,16 +87,15 @@ exports[`<ReportCard /> renders unchanged 1`] = `
     <hr
       class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
     />
-    <a
-      class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-ey0t1c-MuiTypography-root-MuiLink-root"
-      href="/test-report"
+    <div
+      class="MuiBox-root css-53yqju"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
       >
         Download Report
       </span>
-    </a>
+    </div>
   </div>
 </div>
 `;
@@ -136,7 +135,7 @@ exports[`<ReportCard /> renders without image 1`] = `
       class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
     />
     <div
-      class="MuiBox-root css-s3avb4"
+      class="MuiBox-root css-53yqju"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
@@ -188,7 +187,7 @@ exports[`<ReportCard /> renders without link 1`] = `
       class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
     />
     <div
-      class="MuiBox-root css-s3avb4"
+      class="MuiBox-root css-53yqju"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"

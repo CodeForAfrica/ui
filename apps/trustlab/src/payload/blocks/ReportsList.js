@@ -13,8 +13,9 @@ const ReportsList = {
       type: "select",
       label: { en: "Reports Type" },
       options: [
-        { label: { en: "Biweekly Reports" }, value: "biweekly" },
-        { label: { en: "Situational Reports" }, value: "situational" },
+        { label: "Baseline", value: "baseline" },
+        { label: "Situational", value: "situational" },
+        { label: "Bi-weekly", value: "bi-weekly" },
       ],
       localized: true,
     },

@@ -20,6 +20,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
     condensed = false,
     date = "Jul 28, 2025",
     sx,
+    file,
     ...other
   } = props;
 
@@ -83,9 +84,15 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             <Divider sx={{ my: 2 }} />
             {/* TODO: Remove link?.href integration is done */}
             <Box
-              href={link?.href}
-              component={link?.href ? Link : "div"}
-              sx={{ textDecoration: "none", lineHeight: "16px" }}
+              href={file?.url}
+              component={file?.url ? Link : "div"}
+              // download file.url
+              download={file?.url ? file.url : undefined}
+              sx={{
+                textDecoration: "none",
+                lineHeight: "16px",
+                cursor: "pointer",
+              }}
             >
               <Typography
                 sx={{
