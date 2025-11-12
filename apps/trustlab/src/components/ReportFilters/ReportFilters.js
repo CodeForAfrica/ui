@@ -70,17 +70,41 @@ const ReportFilters = React.forwardRef(function ReportFilters(
     [],
   );
 
-  const handleChipDelete = useCallback((type, value) => {
+  const handleChipDelete = (type, value) => {
     if (type === "year") {
-      setSelectedYears((prev) => prev.filter((v) => v !== value));
+      const toUpdate = selectedYears.filter((v) => v !== value);
+      setSelectedYears(toUpdate);
+      if (onApply) {
+        onApply({
+          years: toUpdate,
+          months: selectedMonths,
+          reports: selectedReports,
+        });
+      }
     }
     if (type === "month") {
-      setSelectedMonths((prev) => prev.filter((v) => v !== value));
+      const toUpdate = selectedMonths.filter((v) => v !== value);
+      setSelectedMonths(toUpdate);
+      if (onApply) {
+        onApply({
+          years: selectedYears,
+          months: toUpdate,
+          reports: selectedReports,
+        });
+      }
     }
     if (type === "report") {
-      setSelectedReports((prev) => prev.filter((v) => v !== value));
+      const toUpdate = selectedReports.filter((v) => v !== value);
+      setSelectedReports(toUpdate);
+      if (onApply) {
+        onApply({
+          years: selectedYears,
+          months: selectedMonths,
+          reports: toUpdate,
+        });
+      }
     }
-  }, []);
+  };
 
   const clearAll = useCallback(() => {
     setSelectedYears([]);

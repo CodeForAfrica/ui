@@ -141,9 +141,4 @@ describe("<ReportsList />", () => {
     const { container } = render(<ReportsList categories={mockCategories} />);
     expect(container.firstChild).toMatchSnapshot();
   });
-
-  it("renders empty list when no categories", () => {
-    const { container } = render(<ReportsList categories={[]} />);
-    expect(container.firstChild).toBeNull();
-  });
 });

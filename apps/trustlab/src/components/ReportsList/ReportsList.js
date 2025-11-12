@@ -93,9 +93,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       { shallow: true, scroll: false },
     );
   }
-  if (!reports.length) {
-    return null;
-  }
+
   return (
     <Box>
       {hasFilters ? (

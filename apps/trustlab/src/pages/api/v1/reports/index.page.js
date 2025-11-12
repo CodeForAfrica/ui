@@ -34,7 +34,10 @@ export default async function handler(req, res) {
     };
 
     // Build filters
-    const andConditions = [{ reportType: { equals: reportsType } }];
+    const andConditions = [];
+    if (reportsType) {
+      andConditions.push({ reportType: reportsType });
+    }
 
     // Reports (slug) filter
     if (reports) {
@@ -64,7 +67,7 @@ export default async function handler(req, res) {
 
     const dateOrConditions = [];
     const currentYear = new Date().getFullYear();
-    const defaultStartYear = 2000; // used when only months are provided
+    const defaultStartYear = 2000;
 
     if (yearsArray.length && monthsArray.length) {
       // Specific month(s) within specific year(s)
