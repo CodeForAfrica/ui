@@ -9,7 +9,6 @@ async function researchCategoryList(block) {
       return {
         ...category,
         link: {
-          // TODO: Get this from breadcrumbs
           href: `/research/${category.report.slug}`,
           label: readMoreLabel,
         },
