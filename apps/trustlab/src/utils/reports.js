@@ -16,4 +16,70 @@ export async function getReports(api, options) {
   };
 }
 
-export default getReports;
+export async function getReport(api, slug) {
+  const { docs } = await api.getCollection("reports", {
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
+    limit: 1,
+  });
+
+  const { docs: pages } = await api.getCollection("pages", {
+    where: {
+      slug: {
+        equals: "research",
+      },
+    },
+  });
+  // Get parent page blocks.
+  const parentPageBlocks = pages[0]?.blocks || [];
+  // Get the block of type action-banner
+  const actionBannerBlock = parentPageBlocks.find(
+    (block) => block.blockType === "action-banner",
+  );
+  const researchCategoryBlock = parentPageBlocks.find(
+    (block) => block.blockType === "research-category",
+  );
+  const settings = researchCategoryBlock?.settings ?? {};
+  const extraBlocks = actionBannerBlock ? [actionBannerBlock] : [];
+  const [report] = docs;
+  if (report) {
+    return {
+      ...report,
+      blocks: [
+        {
+          blockType: "page-header",
+          hasBackButton: true,
+          backButton: {
+            label: settings.backButtonText ?? "Back to Reports",
+            href: "/research",
+          },
+          title: report.title,
+          backgroundColor: "#010101",
+          textColor: "#FFFFFF",
+          id: report.id,
+        },
+        {
+          blockType: "page-overview",
+          content: report.overview || null,
+          title: settings.overViewLabel || "Overview",
+          image: report.image || null,
+          textAlign: "left",
+          backgroundColor: "#FFFFFF",
+          textColor: "#000000",
+          id: `${report.id}-overview`,
+          isReport: true,
+          downLoadLink: {
+            href: report?.file?.url || null,
+            label: settings?.downloadLabel ?? "Download Report",
+          },
+        },
+        ...extraBlocks,
+      ],
+      date: new Date(report.date).toISOString().split("T")[0],
+    };
+  }
+  return null;
+}

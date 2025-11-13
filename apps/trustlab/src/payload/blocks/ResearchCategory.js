@@ -54,6 +54,39 @@ const ResearchCategory = {
         },
       ],
     },
+    {
+      name: "settings",
+      type: "group",
+      label: {
+        en: "Single Report Settings",
+      },
+      fields: [
+        {
+          name: "backButtonText",
+          type: "text",
+          label: {
+            en: "Back Button Text",
+          },
+          defaultValue: "Back to Research",
+        },
+        {
+          name: "downloadLabel",
+          type: "text",
+          label: {
+            en: "Download Report Label",
+          },
+          defaultValue: "Download Report",
+        },
+        {
+          name: "overViewLabel",
+          type: "text",
+          label: {
+            en: "Overview Section Label",
+          },
+          defaultValue: "Overview",
+        },
+      ],
+    },
   ],
 };
 

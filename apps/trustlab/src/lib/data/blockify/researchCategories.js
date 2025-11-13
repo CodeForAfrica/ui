@@ -9,7 +9,7 @@ async function researchCategoryList(block) {
       return {
         ...category,
         link: {
-          href: `/research/${category.report.slug}`,
+          href: category.report?.link?.href ?? null,
           label: readMoreLabel,
         },
       };
