@@ -1,10 +1,9 @@
 import { Box, Typography, Button, Stack, Chip, SvgIcon } from "@mui/material";
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo } from "react";
 
 import FilterDropdown from "./FilterDropdown";
 
 import CalendarIcon from "@/trustlab/assets/icons/calendar.svg";
-import CheckIcon from "@/trustlab/assets/icons/check.svg";
 import CloseIcon from "@/trustlab/assets/icons/close.svg";
 import DocumentIcon from "@/trustlab/assets/icons/document.svg";
 
@@ -106,25 +105,34 @@ const ReportFilters = React.forwardRef(function ReportFilters(
     }
   };
 
-  const clearAll = useCallback(() => {
+  const clearAll = () => {
     setSelectedYears([]);
     setSelectedMonths([]);
     setSelectedReports([]);
     if (onClear) {
       onClear();
     }
-  }, [onClear]);
+  };
 
-  const apply = useCallback(() => {
+  function handleChange(action) {
     if (onApply) {
       onApply({
         years: selectedYears,
         months: selectedMonths,
         reports: selectedReports,
+        ...action,
       });
     }
-  }, [onApply, selectedYears, selectedMonths, selectedReports]);
-
+    if (action.years) {
+      setSelectedYears(action.years);
+    }
+    if (action.months) {
+      setSelectedMonths(action.months);
+    }
+    if (action.reports) {
+      setSelectedReports(action.reports);
+    }
+  }
   const anySelected =
     selectedYears.length || selectedMonths.length || selectedReports.length;
 
@@ -144,7 +152,7 @@ const ReportFilters = React.forwardRef(function ReportFilters(
             label={labels.year}
             options={yearOpts}
             selected={selectedYears}
-            onChange={setSelectedYears}
+            onChange={(years) => handleChange({ years })}
             startIcon={
               <SvgIcon
                 component={CalendarIcon}
@@ -162,7 +170,7 @@ const ReportFilters = React.forwardRef(function ReportFilters(
             label={labels.month}
             options={monthOpts.map((m, i) => ({ label: m, value: i + 1 }))}
             selected={selectedMonths}
-            onChange={setSelectedMonths}
+            onChange={(months) => handleChange({ months })}
             startIcon={
               <SvgIcon
                 component={CalendarIcon}
@@ -181,7 +189,7 @@ const ReportFilters = React.forwardRef(function ReportFilters(
             label={labels.report}
             options={reportOptions}
             selected={selectedReports}
-            onChange={setSelectedReports}
+            onChange={(reports) => handleChange({ reports })}
             getOptionValue={(r) => r.id}
             getOptionLabel={(r) => r.title}
             startIcon={
@@ -251,67 +259,35 @@ const ReportFilters = React.forwardRef(function ReportFilters(
             );
           })}
           {!!anySelected && (
-            <>
-              <Button
-                variant="text"
-                size="small"
-                onClick={apply}
-                disabled={!anySelected}
+            <Button
+              variant="text"
+              onClick={clearAll}
+              disabled={!anySelected}
+              size="small"
+              sx={{
+                textTransform: "none",
+                cursor: anySelected ? "pointer" : "default",
+                border: "none",
+                background: "transparent",
+                p: 0,
+                height: "20px",
+                color: "#BE1F23",
+                position: "relative",
+                pl: 3,
+              }}
+            >
+              <SvgIcon
                 sx={{
-                  textTransform: "none",
-                  cursor: anySelected ? "pointer" : "default",
-                  border: "none",
-                  background: "transparent",
-                  p: 0,
-                  height: "20px",
-                  color: "#1020E1",
-                  position: "relative",
+                  fill: "none",
+                  position: "absolute",
+                  top: "50%",
+                  transform: "translateY(-35%)",
+                  left: 0,
                 }}
-                startIcon={
-                  <SvgIcon
-                    sx={{
-                      fill: "none",
-                      position: "absolute",
-                      top: "50%",
-                      transform: "translateY(-25%)",
-                      left: 0,
-                    }}
-                    component={CheckIcon}
-                  />
-                }
-              >
-                {applyFiltersLabel || "Apply Filters"}
-              </Button>
-              <Button
-                variant="text"
-                onClick={clearAll}
-                disabled={!anySelected}
-                size="small"
-                sx={{
-                  textTransform: "none",
-                  cursor: anySelected ? "pointer" : "default",
-                  border: "none",
-                  background: "transparent",
-                  p: 0,
-                  height: "20px",
-                  color: "#BE1F23",
-                  position: "relative",
-                  pl: 3,
-                }}
-              >
-                <SvgIcon
-                  sx={{
-                    fill: "none",
-                    position: "absolute",
-                    top: "50%",
-                    transform: "translateY(-35%)",
-                    left: 0,
-                  }}
-                  component={CloseIcon}
-                />
-                {clearFiltersLabel || "Clear Filters"}
-              </Button>
-            </>
+                component={CloseIcon}
+              />
+              {clearFiltersLabel || "Clear Filters"}
+            </Button>
           )}
         </Box>
       </Stack>
