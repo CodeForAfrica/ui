@@ -14,12 +14,13 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
   const {
     image,
     title,
-    description,
+    overview,
     link,
     actionLabel = "Download Report",
     condensed = false,
     date = "Jul 28, 2025",
     sx,
+    file,
     ...other
   } = props;
 
@@ -58,10 +59,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
         >
           {date}
         </Typography>
-        {description && !condensed && (
+        {overview && !condensed && (
           <>
             <LexicalRichText
-              elements={description}
+              elements={overview}
               TypographyProps={{
                 variant: "body2",
                 component: "span",
@@ -75,13 +76,23 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                   height: 100,
                 },
               }}
+              sx={{
+                height: 100,
+                overflow: "hidden",
+              }}
             />
             <Divider sx={{ my: 2 }} />
             {/* TODO: Remove link?.href integration is done */}
             <Box
-              href={link?.href}
-              component={link?.href ? Link : "div"}
-              sx={{ textDecoration: "none", lineHeight: "16px" }}
+              href={file?.url}
+              component={file?.url ? Link : "div"}
+              // download file.url
+              download={file?.url ? file.url : undefined}
+              sx={{
+                textDecoration: "none",
+                lineHeight: "16px",
+                cursor: "pointer",
+              }}
             >
               <Typography
                 sx={{
@@ -98,10 +109,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             </Box>
           </>
         )}
-        {description && condensed && (
+        {overview && condensed && (
           <Box>
             <LexicalRichText
-              elements={description}
+              elements={overview}
               TypographyProps={{
                 variant: "body2",
                 component: "span",
@@ -114,6 +125,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                   flex: 1,
                   height: 60,
                 },
+              }}
+              sx={{
+                height: 60,
+                overflow: "hidden",
               }}
             />
 

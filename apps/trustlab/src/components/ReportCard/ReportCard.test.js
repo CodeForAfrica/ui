@@ -44,7 +44,7 @@ describe("<ReportCard />", () => {
     const { container } = render(
       <ReportCard
         title="Test Report"
-        description={mockDescription}
+        overview={mockDescription}
         image={{
           src: "/test-image.jpg",
           alt: "Test image",
@@ -62,7 +62,7 @@ describe("<ReportCard />", () => {
     const { container } = render(
       <ReportCard
         title="Test Report"
-        description={mockDescription}
+        overview={mockDescription}
         actionLabel="Download Report"
       />,
     );
@@ -73,7 +73,7 @@ describe("<ReportCard />", () => {
     const { container } = render(
       <ReportCard
         title="Test Report"
-        description={mockDescription}
+        overview={mockDescription}
         condensed
         actionLabel="Download Report"
       />,
@@ -85,7 +85,7 @@ describe("<ReportCard />", () => {
     const { container } = render(
       <ReportCard
         title="Test Report"
-        description={mockDescription}
+        overview={mockDescription}
         image={{
           src: "/test-image.jpg",
           alt: "Test image",
@@ -100,7 +100,7 @@ describe("<ReportCard />", () => {
     const { getByText } = render(
       <ReportCard
         title="Test Report"
-        description={mockDescription}
+        overview={mockDescription}
         actionLabel="View Full Report"
       />,
     );
@@ -109,7 +109,7 @@ describe("<ReportCard />", () => {
 
   it("renders with default action label", () => {
     const { getByText } = render(
-      <ReportCard title="Test Report" description={mockDescription} />,
+      <ReportCard title="Test Report" overview={mockDescription} />,
     );
     expect(getByText("Download Report")).toBeInTheDocument();
   });
