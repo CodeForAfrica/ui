@@ -1,15 +1,19 @@
 import { Section, RichTypography } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
+import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, IconButton, SvgIcon, Typography } from "@mui/material";
+
+import ArrowBackIcon from "@/trustlab/assets/icons/arrow-left.svg";
 
 function Banner({
   backgroundColor,
   textColor,
   title,
+  hasBackButton,
   description = "",
   image,
   blockType,
+  backButton,
 }) {
   const hasImage = image && image.url;
   const isPageHeader = blockType === "page-header";
@@ -23,6 +27,26 @@ function Banner({
       }}
     >
       <Section>
+        {hasBackButton && (
+          <Box
+            href={backButton?.href}
+            display="flex"
+            component={backButton?.href ? Link : "div"}
+            alignItems="center"
+            mb={2}
+          >
+            <IconButton
+              sx={{
+                color: textColor,
+              }}
+            >
+              <SvgIcon component={ArrowBackIcon} inheritViewBox />
+            </IconButton>
+            <Typography variant="body1" sx={{ color: textColor }}>
+              {backButton.label}
+            </Typography>
+          </Box>
+        )}
         <Grid container alignItems="center">
           <Grid
             item
@@ -46,29 +70,30 @@ function Banner({
             >
               {title}
             </RichTypography>
-            {typeof description === "string" ? (
-              <RichTypography
-                color={textColor}
-                variant={isPageHeader ? "subheading1" : "p1"}
-                sx={{ mb: 4 }}
-              >
-                {description}
-              </RichTypography>
-            ) : (
-              <LexicalRichText
-                TypographyProps={{
-                  color: textColor,
-                  variant: isPageHeader ? "subheading1" : "p1",
-                  LinkProps: {
+            {description &&
+              (typeof description === "string" ? (
+                <RichTypography
+                  color={textColor}
+                  variant={isPageHeader ? "subheading1" : "p1"}
+                  sx={{ mb: 4 }}
+                >
+                  {description}
+                </RichTypography>
+              ) : (
+                <LexicalRichText
+                  TypographyProps={{
                     color: textColor,
-                    textDecoration: "underline",
-                    textDecorationColor: textColor,
-                  },
-                  sx: { mb: 4, textAlign: "left" },
-                }}
-                elements={description}
-              />
-            )}
+                    variant: isPageHeader ? "subheading1" : "p1",
+                    LinkProps: {
+                      color: textColor,
+                      textDecoration: "underline",
+                      textDecorationColor: textColor,
+                    },
+                    sx: { mb: 4, textAlign: "left" },
+                  }}
+                  elements={description}
+                />
+              ))}
           </Grid>
           {hasImage && (
             <Grid item container xs={12} sm={3} justifyContent="center">

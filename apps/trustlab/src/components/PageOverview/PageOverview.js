@@ -16,6 +16,8 @@ const PostImageOverview = forwardRef(function PostImageOverview(
     backgroundColor = "common.white",
     textColor = "text.primary",
     textAlign = "left",
+    isReport = false,
+    downLoadLink = { href: null, label: "Download Report" },
   },
   ref,
 ) {
@@ -30,6 +32,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
     <Box
       sx={{
         backgroundColor,
+        pb: 3,
       }}
       ref={ref}
     >
@@ -37,8 +40,8 @@ const PostImageOverview = forwardRef(function PostImageOverview(
         {title ? (
           <Typography
             component="h1"
+            variant="body2"
             sx={{
-              borderBottom: "1px solid",
               mb: 3,
               pb: 1,
               fontSize: 20,
@@ -76,6 +79,10 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 p: {
                   mb: 3,
                 },
+                ...(isReport && {
+                  borderBottom: "1px solid",
+                  mb: 2,
+                }),
               }}
               TypographyProps={{
                 gutterBottom: true,
@@ -87,6 +94,26 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 },
               }}
             />
+            {isReport && (
+              <Box
+                href={downLoadLink?.href}
+                component={downLoadLink?.href ? Link : "div"}
+                sx={{ textDecoration: "none", lineHeight: "16px" }}
+              >
+                <Typography
+                  sx={{
+                    whiteSpace: "nowrap",
+                    fontWeight: "bold",
+                    color: "#1020E1",
+                    textDecoration: "none",
+                    lineHeight: "16px",
+                  }}
+                  variant="caption"
+                >
+                  {downLoadLink.label}
+                </Typography>
+              </Box>
+            )}
           </Grid>
           <Grid
             sx={(theme) => ({
