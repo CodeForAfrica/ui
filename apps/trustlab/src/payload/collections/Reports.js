@@ -55,18 +55,6 @@ const Reports = {
     },
   ],
   timestamps: true,
-  hooks: {
-    afterRead: [
-      ({ doc }) => {
-        return {
-          ...doc,
-          link: {
-            href: `/research/${doc.slug}`,
-          },
-        };
-      },
-    ],
-  },
 };
 
 export default Reports;

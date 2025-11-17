@@ -12,7 +12,6 @@ async function findAndFormatPagePath(payload, slug) {
     limit: 0,
   };
   const { docs } = await payload.find(options);
-
   if (docs?.length) {
     return formatPagePath(collection, docs[0]);
   }
