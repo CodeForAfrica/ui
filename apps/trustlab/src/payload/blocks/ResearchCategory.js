@@ -62,7 +62,7 @@ const ResearchCategory = {
       },
       fields: [
         {
-          name: "backButtonText",
+          name: "backButtonLabel",
           type: "text",
           label: {
             en: "Back Button Text",

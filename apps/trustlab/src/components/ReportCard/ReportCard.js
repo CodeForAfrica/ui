@@ -31,12 +31,12 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
       sx={[{ borderRadius: "5px", p: 0 }, ...(Array.isArray(sx) ? sx : [sx])]}
       {...other}
     >
-      <Box
-        sx={{ textDecoration: "none" }}
-        href={link?.href}
-        component={link?.href ? Link : "div"}
-      >
-        {image?.src && !condensed && (
+      {image?.src && !condensed && (
+        <Box
+          sx={{ textDecoration: "none" }}
+          href={link?.href}
+          component={link?.href ? Link : "div"}
+        >
           <CardMedia
             component="img"
             image={image.src}
@@ -47,8 +47,8 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               height: 200,
             }}
           />
-        )}
-      </Box>
+        </Box>
+      )}
 
       <CardContent
         sx={{ pb: "16px !important", px: image?.src && !condensed ? 0 : 2 }}
@@ -61,17 +61,17 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
           <Typography variant="h3" gutterBottom>
             {title}
           </Typography>
-          <Typography
-            variant="caption"
-            component="div"
-            sx={{
-              color: "#828499",
-              my: 2,
-            }}
-          >
-            {date}
-          </Typography>
         </Box>
+        <Typography
+          variant="caption"
+          component="div"
+          sx={{
+            color: "#828499",
+            my: 2,
+          }}
+        >
+          {date}
+        </Typography>
         {overview && !condensed && (
           <>
             <Box

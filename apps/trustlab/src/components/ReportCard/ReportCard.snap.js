@@ -6,9 +6,6 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
   style="--Paper-shadow: none;"
 >
   <div
-    class="MuiBox-root css-ytumd6"
-  />
-  <div
     class="MuiCardContent-root css-1sipm9j-MuiCardContent-root"
   >
     <div
@@ -19,11 +16,11 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
       >
         Test Report
       </h3>
-      <div
-        class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
-      >
-        Jul 28, 2025
-      </div>
+    </div>
+    <div
+      class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+    >
+      Jul 28, 2025
     </div>
     <div
       class="MuiBox-root css-0"
@@ -86,12 +83,12 @@ exports[`<ReportCard /> renders unchanged 1`] = `
       >
         Test Report
       </h3>
-      <div
-        class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
-      >
-        Jul 28, 2025
-      </div>
     </a>
+    <div
+      class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+    >
+      Jul 28, 2025
+    </div>
     <a
       class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-wiseq-MuiTypography-root-MuiLink-root"
       href="/test-report"
@@ -132,9 +129,6 @@ exports[`<ReportCard /> renders without image 1`] = `
   style="--Paper-shadow: none;"
 >
   <div
-    class="MuiBox-root css-ytumd6"
-  />
-  <div
     class="MuiCardContent-root css-1sipm9j-MuiCardContent-root"
   >
     <div
@@ -145,11 +139,11 @@ exports[`<ReportCard /> renders without image 1`] = `
       >
         Test Report
       </h3>
-      <div
-        class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
-      >
-        Jul 28, 2025
-      </div>
+    </div>
+    <div
+      class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+    >
+      Jul 28, 2025
     </div>
     <div
       class="MuiBox-root css-ytumd6"
@@ -209,11 +203,11 @@ exports[`<ReportCard /> renders without link 1`] = `
       >
         Test Report
       </h3>
-      <div
-        class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
-      >
-        Jul 28, 2025
-      </div>
+    </div>
+    <div
+      class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+    >
+      Jul 28, 2025
     </div>
     <div
       class="MuiBox-root css-ytumd6"

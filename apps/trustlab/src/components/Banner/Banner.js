@@ -9,7 +9,6 @@ function Banner({
   backgroundColor,
   textColor,
   title,
-  hasBackButton,
   description = "",
   image,
   blockType,
@@ -27,7 +26,7 @@ function Banner({
       }}
     >
       <Section>
-        {hasBackButton && (
+        {backButton?.href && (
           <Box
             href={backButton?.href}
             display="flex"

@@ -33,9 +33,7 @@ export async function getReport(api, slug) {
       },
     },
   });
-  // Get parent page blocks.
   const parentPageBlocks = pages[0]?.blocks || [];
-  // Get the block of type action-banner
   const actionBannerBlock = parentPageBlocks.find(
     (block) => block.blockType === "action-banner",
   );
@@ -51,9 +49,8 @@ export async function getReport(api, slug) {
       blocks: [
         {
           blockType: "page-header",
-          hasBackButton: true,
           backButton: {
-            label: settings.backButtonText ?? "Back to Reports",
+            label: settings.backButtonLabel ?? "Back to Reports",
             href: "/research",
           },
           title: report.title,
