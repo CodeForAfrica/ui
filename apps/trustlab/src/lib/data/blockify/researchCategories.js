@@ -1,4 +1,6 @@
-async function researchCategoryList(block) {
+import { formatPagePath } from "@commons-ui/payload";
+
+async function researchCategoryList(block, _, context) {
   const {
     blockType: slug,
     categories: originalCategories,
@@ -6,10 +8,14 @@ async function researchCategoryList(block) {
   } = block;
   const categories = originalCategories.map((category) => {
     if (category.report) {
+      const parentPage = context?.params?.slugs?.[0] || "research";
+      const link = formatPagePath(parentPage, category.report);
       return {
         ...category,
         link: {
-          href: `/research/${category.report.slug}`,
+          href: link
+            ? `${link}/${category.report.slug}`
+            : `/${category.report.slug}`,
           label: readMoreLabel,
         },
       };
