@@ -2,7 +2,7 @@
 
 exports[`<ResearchCategoryCard /> renders unchanged 1`] = `
 <a
-  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10ccbxm-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+  class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-neeamg-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
   href="/test-link"
   style="--Paper-shadow: none;"
 >
@@ -49,7 +49,7 @@ exports[`<ResearchCategoryCard /> renders unchanged 1`] = `
 
 exports[`<ResearchCategoryCard /> renders without image 1`] = `
 <div
-  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-ezhwr5-MuiPaper-root-MuiCard-root"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-167r1gz-MuiPaper-root-MuiCard-root"
   style="--Paper-shadow: none;"
 >
   <div
@@ -79,7 +79,7 @@ exports[`<ResearchCategoryCard /> renders without image 1`] = `
 
 exports[`<ResearchCategoryCard /> renders without link 1`] = `
 <div
-  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-ezhwr5-MuiPaper-root-MuiCard-root"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-167r1gz-MuiPaper-root-MuiCard-root"
   style="--Paper-shadow: none;"
 >
   <img

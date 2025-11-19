@@ -20,7 +20,16 @@ const ResearchCategoryCard = forwardRef(
         ref={ref}
         elevation={0}
         href={link?.href}
-        sx={{ textDecoration: "none", backgroundColor: "transparent" }}
+        sx={{
+          textDecoration: "none",
+          backgroundColor: "transparent",
+          img: {
+            filter: "grayscale(100%)",
+          },
+          "&:hover img": {
+            filter: "grayscale(0%)",
+          },
+        }}
         {...other}
       >
         {image?.src && (

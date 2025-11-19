@@ -7,7 +7,7 @@ import {
   CardMedia,
   Divider,
   Typography,
-  CardActions, // added
+  CardActions,
 } from "@mui/material";
 import { forwardRef } from "react";
 
@@ -30,6 +30,12 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
       sx={[
         {
           borderRadius: "5px",
+          img: {
+            filter: "grayscale(100%)",
+          },
+          "&:hover img": {
+            filter: "grayscale(0%)",
+          },
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

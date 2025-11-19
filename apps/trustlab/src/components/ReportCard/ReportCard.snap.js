@@ -2,7 +2,7 @@
 
 exports[`<ReportCard /> renders in condensed mode 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <div
     class="MuiBox-root css-15ooa9"
@@ -56,7 +56,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
 
 exports[`<ReportCard /> renders unchanged 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <a
     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1fhreme-MuiTypography-root-MuiLink-root"
@@ -119,7 +119,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
 
 exports[`<ReportCard /> renders without image 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <div
     class="MuiBox-root css-15ooa9"
@@ -176,7 +176,7 @@ exports[`<ReportCard /> renders without image 1`] = `
 
 exports[`<ReportCard /> renders without link 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <div
     class="MuiBox-root css-15ooa9"
