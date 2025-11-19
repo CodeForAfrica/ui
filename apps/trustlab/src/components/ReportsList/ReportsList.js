@@ -97,7 +97,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   return (
     <Box>
       {hasFilters ? (
-        <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
           <ReportFilters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}

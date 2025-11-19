@@ -140,7 +140,7 @@ const ReportFilters = React.forwardRef(function ReportFilters(
     <Box ref={ref} display="flex" flexDirection="column" gap={2} {...rest}>
       {/* Row 1: Filter By Label */}
       {filterByLabel && (
-        <Typography variant="subtitle1" fontWeight={500}>
+        <Typography variant="subtitle1" fontWeight={700}>
           {filterByLabel}
         </Typography>
       )}
