@@ -104,35 +104,37 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
           />
         </Section>
       ) : null}
-      <Box sx={{ background: "#fff" }}>
-        <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
-          <Grid container spacing={3} ref={ref} {...other}>
-            {reports.map((report, index) => (
-              <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
-                <ReportCard
-                  condensed={condensed}
-                  actionLabel={cardActionLabel}
-                  {...report}
-                  sx={
-                    condensed && {
-                      background: index % 2 === 0 ? "#E7E9FF" : "#F0F0F5",
+      {reports.length ? (
+        <Box sx={{ background: "#fff" }}>
+          <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+            <Grid container spacing={3} ref={ref} {...other}>
+              {reports.map((report, index) => (
+                <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
+                  <ReportCard
+                    condensed={condensed}
+                    actionLabel={cardActionLabel}
+                    {...report}
+                    sx={
+                      condensed && {
+                        background: index % 2 === 0 ? "#E7E9FF" : "#F0F0F5",
+                      }
                     }
-                  }
+                  />
+                </Grid>
+              ))}
+            </Grid>
+            {hasPagination ? (
+              <Box display="flex" justifyContent="flex-end" mt={4}>
+                <ReportsPagination
+                  page={pagination?.page ?? 1}
+                  count={pagination?.count ?? 1}
+                  onChange={handlePageChange}
                 />
-              </Grid>
-            ))}
-          </Grid>
-          {hasPagination ? (
-            <Box display="flex" justifyContent="flex-end" mt={4}>
-              <ReportsPagination
-                page={pagination?.page ?? 1}
-                count={pagination?.count ?? 1}
-                onChange={handlePageChange}
-              />
-            </Box>
-          ) : null}
-        </Section>
-      </Box>
+              </Box>
+            ) : null}
+          </Section>
+        </Box>
+      ) : null}
     </Box>
   );
 });
