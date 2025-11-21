@@ -136,6 +136,9 @@ const PostImageOverview = forwardRef(function PostImageOverview(
               ImageProps={{
                 alt,
                 src: url,
+                sx: {
+                  objectPosition: { xs: "left top", sm: "center top" },
+                },
               }}
               sx={{
                 height: { xs: "260px", sm: "300px", md: "366px" },
@@ -144,6 +147,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
                 width: { xs: "220px", sm: "100%" },
                 maxWidth: { sm: "280px", md: "360px" },
                 mx: { xs: 0, sm: "auto" },
+
                 "& span img": {
                   objectPosition: { xs: "left top", sm: "center top" },
                 },

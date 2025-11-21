@@ -6,7 +6,7 @@ exports[`ReportFilters renders unchanged 1`] = `
     class="MuiBox-root css-yd8sa2"
   >
     <h6
-      class="MuiTypography-root MuiTypography-subtitle1 css-fupvoa-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-subtitle1 css-1dte1p5-MuiTypography-root"
     >
       Filter By
     </h6>

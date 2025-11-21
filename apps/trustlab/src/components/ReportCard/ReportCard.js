@@ -7,7 +7,7 @@ import {
   CardMedia,
   Divider,
   Typography,
-  CardActions, // added
+  CardActions,
 } from "@mui/material";
 import { forwardRef } from "react";
 
@@ -30,6 +30,12 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
       sx={[
         {
           borderRadius: "5px",
+          img: {
+            filter: "grayscale(100%)",
+          },
+          "&:hover img": {
+            filter: "grayscale(0%)",
+          },
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -61,7 +67,14 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
           <CardContent
             sx={{ pb: "0px !important", px: image?.src && !condensed ? 0 : 2 }}
           >
-            <Typography variant="h3" gutterBottom>
+            <Typography
+              variant="h3"
+              sx={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
               {title}
             </Typography>
 
@@ -70,7 +83,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               component="div"
               sx={{
                 color: "#828499",
-                my: 2,
+                my: 1.25,
               }}
             >
               {date}
@@ -132,11 +145,11 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
         <Box
           href={file?.url}
           component={file?.url ? Link : "div"}
-          download={file?.url ? file.url : undefined}
           sx={{
             textDecoration: "none",
             lineHeight: "16px",
             cursor: file?.url ? "pointer" : "default",
+            mt: condensed ? 1 : 0,
           }}
         >
           <Typography

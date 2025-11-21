@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     // Build filters
     const andConditions = [];
     if (reportsType) {
-      andConditions.push({ reportType: reportsType });
+      andConditions.push({ reportType: { equals: reportsType } });
     }
 
     // Reports (slug) filter

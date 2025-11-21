@@ -35,23 +35,8 @@ const ResearchCategory = {
         linkGroup({
           overrides: {
             name: "link",
-            admin: {
-              condition: (_, siblingData) =>
-                siblingData?.reportType !== "baseline",
-            },
           },
         }),
-        {
-          name: "report",
-          type: "relationship",
-          relationTo: "reports",
-          admin: {
-            condition: (_, siblingData) =>
-              siblingData?.reportType === "baseline",
-            description:
-              "Select the baseline report (only when Baseline is chosen)",
-          },
-        },
       ],
     },
     {

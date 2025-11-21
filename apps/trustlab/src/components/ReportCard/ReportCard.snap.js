@@ -2,7 +2,7 @@
 
 exports[`<ReportCard /> renders in condensed mode 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <div
     class="MuiBox-root css-15ooa9"
@@ -15,12 +15,12 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
         class="MuiCardContent-root css-3p3r5n-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-geacmp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-isx17q-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-w7thh7"
@@ -42,7 +42,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
     class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
   >
     <div
-      class="MuiBox-root css-1u1lzaw"
+      class="MuiBox-root css-ropfi3"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
@@ -56,7 +56,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
 
 exports[`<ReportCard /> renders unchanged 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <a
     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1fhreme-MuiTypography-root-MuiLink-root"
@@ -75,12 +75,12 @@ exports[`<ReportCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-9bakwa-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-geacmp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-isx17q-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-bo3k24"
@@ -105,7 +105,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
     class="MuiCardActions-root MuiCardActions-spacing css-brej4a-MuiCardActions-root"
   >
     <div
-      class="MuiBox-root css-1u1lzaw"
+      class="MuiBox-root css-1rwwe69"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
@@ -119,7 +119,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
 
 exports[`<ReportCard /> renders without image 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <div
     class="MuiBox-root css-15ooa9"
@@ -132,12 +132,12 @@ exports[`<ReportCard /> renders without image 1`] = `
         class="MuiCardContent-root css-3p3r5n-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-geacmp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-isx17q-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-bo3k24"
@@ -162,7 +162,7 @@ exports[`<ReportCard /> renders without image 1`] = `
     class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
   >
     <div
-      class="MuiBox-root css-1u1lzaw"
+      class="MuiBox-root css-1rwwe69"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
@@ -176,7 +176,7 @@ exports[`<ReportCard /> renders without image 1`] = `
 
 exports[`<ReportCard /> renders without link 1`] = `
 <div
-  class="MuiBox-root css-nx089"
+  class="MuiBox-root css-ztm1u"
 >
   <div
     class="MuiBox-root css-15ooa9"
@@ -194,12 +194,12 @@ exports[`<ReportCard /> renders without link 1`] = `
         class="MuiCardContent-root css-9bakwa-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-geacmp-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-isx17q-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-uzvwmk-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-bo3k24"
@@ -224,7 +224,7 @@ exports[`<ReportCard /> renders without link 1`] = `
     class="MuiCardActions-root MuiCardActions-spacing css-brej4a-MuiCardActions-root"
   >
     <div
-      class="MuiBox-root css-1u1lzaw"
+      class="MuiBox-root css-1rwwe69"
     >
       <span
         class="MuiTypography-root MuiTypography-caption css-1p9k16f-MuiTypography-root"
