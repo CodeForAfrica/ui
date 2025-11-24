@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ResearchCategoryList /> renders unchanged 1`] = `
+exports[`<CategoryList /> renders unchanged 1`] = `
 <div
   class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
 >
@@ -30,7 +30,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
             Research Category 1
           </h3>
           <div
-            class="MuiBox-root css-0"
+            class="MuiBox-root css-bo3k24"
           >
             <div
               class="payload-richtext"
@@ -79,7 +79,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
             Research Category 2
           </h3>
           <div
-            class="MuiBox-root css-0"
+            class="MuiBox-root css-bo3k24"
           >
             <div
               class="payload-richtext"
@@ -128,7 +128,7 @@ exports[`<ResearchCategoryList /> renders unchanged 1`] = `
             Research Category 3
           </h3>
           <div
-            class="MuiBox-root css-0"
+            class="MuiBox-root css-bo3k24"
           >
             <div
               class="payload-richtext"

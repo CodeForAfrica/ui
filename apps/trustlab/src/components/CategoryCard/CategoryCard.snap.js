@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ResearchCategoryCard /> renders unchanged 1`] = `
+exports[`<CategoryCard /> renders unchanged 1`] = `
 <a
   class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-neeamg-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
   href="/test-link"
@@ -20,7 +20,7 @@ exports[`<ResearchCategoryCard /> renders unchanged 1`] = `
       Test Research Category
     </h3>
     <div
-      class="MuiBox-root css-0"
+      class="MuiBox-root css-bo3k24"
     >
       <div
         class="payload-richtext"
@@ -47,7 +47,7 @@ exports[`<ResearchCategoryCard /> renders unchanged 1`] = `
 </a>
 `;
 
-exports[`<ResearchCategoryCard /> renders without image 1`] = `
+exports[`<CategoryCard /> renders without image 1`] = `
 <div
   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-167r1gz-MuiPaper-root-MuiCard-root"
   style="--Paper-shadow: none;"
@@ -61,7 +61,7 @@ exports[`<ResearchCategoryCard /> renders without image 1`] = `
       Test Research Category
     </h3>
     <div
-      class="MuiBox-root css-0"
+      class="MuiBox-root css-bo3k24"
     >
       <div
         class="payload-richtext"
@@ -77,7 +77,7 @@ exports[`<ResearchCategoryCard /> renders without image 1`] = `
 </div>
 `;
 
-exports[`<ResearchCategoryCard /> renders without link 1`] = `
+exports[`<CategoryCard /> renders without link 1`] = `
 <div
   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-167r1gz-MuiPaper-root-MuiCard-root"
   style="--Paper-shadow: none;"
@@ -96,7 +96,7 @@ exports[`<ResearchCategoryCard /> renders without link 1`] = `
       Test Research Category
     </h3>
     <div
-      class="MuiBox-root css-0"
+      class="MuiBox-root css-bo3k24"
     >
       <div
         class="payload-richtext"
