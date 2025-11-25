@@ -8,7 +8,7 @@ import ReportFilters from "../ReportFilters/ReportFilters";
 
 import useToolkits from "./useToolkits";
 
-import Pagination from "@/trustlab/components/Pageination";
+import Pagination from "@/trustlab/components/Pagination";
 
 const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   const {
