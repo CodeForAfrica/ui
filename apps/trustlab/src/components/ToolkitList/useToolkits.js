@@ -32,7 +32,7 @@ const useToolkits = (page, params, initialToolkits, initialCount, showAll) => {
   if (!data?.toolkits) {
     return {
       toolkits: initialToolkits || [],
-      pagination: { count: 3, page: 1 },
+      pagination: { count: 1, page: 1 },
       isLoading: true,
     };
   }
