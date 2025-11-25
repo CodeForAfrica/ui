@@ -8,7 +8,7 @@ import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
-describe("Pagination", () => {
+describe("<Pagination />", () => {
   it("renders pages", () => {
     const { container } = render(<Pagination page={2} count={5} />);
     expect(screen.getByRole("button", { name: "2" })).toBeInTheDocument();

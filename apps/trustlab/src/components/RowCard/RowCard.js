@@ -41,7 +41,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
             width: 240,
             position: "relative",
             "& img": {
-              objectFit: "cover",
+              objectFit: "contain",
               height: 220,
               display: "block",
             },

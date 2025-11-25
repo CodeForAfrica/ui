@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination renders pages 1`] = `
+exports[`<Pagination /> renders pages 1`] = `
 <div>
   <div
     class="MuiBox-root css-118tyn9"

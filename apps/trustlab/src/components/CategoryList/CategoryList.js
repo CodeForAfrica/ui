@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import CategoryCard from "@/trustlab/components/CategoryCard";
 
 const CategoryList = forwardRef(function CategoryList(props, ref) {
-  const { categories = [], ...other } = props;
+  const { categories, ...other } = props;
 
   if (!categories.length) {
     return null;

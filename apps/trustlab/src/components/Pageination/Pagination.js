@@ -78,10 +78,6 @@ const Pagination = forwardRef(function Pagination(
     boundaryCount,
   });
 
-  if (count <= 1) {
-    return null;
-  }
-
   const goTo = (p) => {
     if (disabled) {
       return;
@@ -94,6 +90,9 @@ const Pagination = forwardRef(function Pagination(
     }
   };
 
+  if (count <= 1) {
+    return null;
+  }
   return (
     <Box
       ref={ref}
