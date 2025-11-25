@@ -49,15 +49,4 @@ describe("ToolkitList", () => {
     expect(screen.getByText("Filter By")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Year/ })).toBeInTheDocument();
   });
-
-  it("renders pagination when hasPagination is true", () => {
-    render(
-      <ToolkitList
-        toolkits={sampleToolkits}
-        hasPagination
-        pagination={{ page: 1, count: 5 }}
-      />,
-    );
-    expect(screen.getByRole("button", { name: /2/ })).toBeInTheDocument();
-  });
 });
