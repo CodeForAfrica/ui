@@ -15,6 +15,8 @@ import {
   Tags,
   Users,
   Reports,
+  Playbooks,
+  Toolkits,
 } from "@/trustlab/payload/collections";
 import plugins from "@/trustlab/payload/plugins";
 import SiteSettings from "@/trustlab/payload/globals";
@@ -73,6 +75,8 @@ export default buildConfig({
     // Group: Project
     Donors,
     Partners,
+    Playbooks,
+    Toolkits,
     // Group: Settings
     Reports,
     Users,
