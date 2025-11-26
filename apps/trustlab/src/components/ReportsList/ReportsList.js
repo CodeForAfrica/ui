@@ -5,7 +5,7 @@ import { forwardRef, useState, useEffect, useRef } from "react";
 
 import useReports from "./useReports";
 
-import Pagination from "@/trustlab/components/Pageination";
+import Pagination from "@/trustlab/components/Pagination";
 import ReportCard from "@/trustlab/components/ReportCard";
 import ReportFilters from "@/trustlab/components/ReportFilters";
 

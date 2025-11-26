@@ -40,7 +40,7 @@ const richTextMock = {
   },
 };
 
-describe("RowCard", () => {
+describe("<RowCard />", () => {
   it("renders title and image", () => {
     render(
       <RowCard
