@@ -70,9 +70,10 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             <Typography
               variant="h3"
               sx={{
-                whiteSpace: "nowrap",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
+                lineClamp: 2,
+                height: "48px",
               }}
             >
               {title}
@@ -103,11 +104,11 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       flex: 1,
-                      height: 100,
+                      height: 196,
                     },
                   }}
                   sx={{
-                    height: 100,
+                    height: 196,
                     overflow: "hidden",
                   }}
                 />
@@ -123,16 +124,16 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                   component: "span",
                   sx: {
                     display: "-webkit-box",
-                    WebkitLineClamp: 3,
+                    WebkitLineClamp: 7,
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     flex: 1,
-                    height: 60,
+                    height: 140,
                   },
                 }}
                 sx={{
-                  height: 60,
+                  height: 140,
                   overflow: "hidden",
                 }}
               />
