@@ -22,4 +22,5 @@ export { default as Resources } from "./Resources";
 export { default as Helplines } from "./Helplines";
 export { default as ComingSoon } from "./ComingSoon";
 export { default as ResearchCategory } from "./ResearchCategory";
+export { default as ResourceCategory } from "./ResourceCategory";
 export { default as ReportsList } from "./ReportsList";

@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ResearchCategoryList from "./ResearchCategoryList";
+import CategoryList from "./CategoryList";
 
 import theme from "@/trustlab/theme";
 
@@ -136,22 +136,20 @@ const mockCategories = [
   },
 ];
 
-describe("<ResearchCategoryList />", () => {
+describe("<CategoryList />", () => {
   it("renders unchanged", () => {
-    const { container } = render(
-      <ResearchCategoryList categories={mockCategories} />,
-    );
+    const { container } = render(<CategoryList categories={mockCategories} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it("renders empty list when no categories", () => {
-    const { container } = render(<ResearchCategoryList categories={[]} />);
+    const { container } = render(<CategoryList categories={[]} />);
     expect(container.firstChild).toBeNull();
   });
 
   it("renders correct number of cards", () => {
     const { getAllByRole } = render(
-      <ResearchCategoryList categories={mockCategories} />,
+      <CategoryList categories={mockCategories} />,
     );
     const cards = getAllByRole("heading", { level: 3 });
     expect(cards).toHaveLength(mockCategories.length);

@@ -1,16 +1,16 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ResearchCategoryCard from "./ResearchCategoryCard";
+import CategoryCard from "./CategoryCard";
 
 import theme from "@/trustlab/theme";
 
 const render = createRender({ theme });
 
-describe("<ResearchCategoryCard />", () => {
+describe("<CategoryCard />", () => {
   it("renders unchanged", () => {
     const { container } = render(
-      <ResearchCategoryCard
+      <CategoryCard
         title="Test Research Category"
         description={{
           root: {
@@ -57,7 +57,7 @@ describe("<ResearchCategoryCard />", () => {
 
   it("renders without image", () => {
     const { container } = render(
-      <ResearchCategoryCard
+      <CategoryCard
         title="Test Research Category"
         description={{
           root: {
@@ -97,7 +97,7 @@ describe("<ResearchCategoryCard />", () => {
 
   it("renders without link", () => {
     const { container } = render(
-      <ResearchCategoryCard
+      <CategoryCard
         title="Test Research Category"
         description={{
           root: {

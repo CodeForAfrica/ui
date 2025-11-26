@@ -27,6 +27,7 @@ import {
   WhatWeDo,
   ComingSoon,
   ResearchCategory,
+  ResourceCategory,
   ReportsList,
 } from "@/trustlab/payload/blocks";
 import {
@@ -95,6 +96,7 @@ const Pages = {
         ComingSoon,
         ResearchCategory,
         ReportsList,
+        ResourceCategory,
       ],
       localized: true,
       admin: {
