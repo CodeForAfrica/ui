@@ -23,25 +23,32 @@ export const buildQueryString = (params) => {
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const useToolkits = (page, params, initialToolkits, _, showAll) => {
+const usePlaybooks = (
+  page,
+  params,
+  initialPlaybooks,
+  initialCount,
+  showAllPosts,
+) => {
   const queryString = buildQueryString({ ...params, page });
   const { data, isLoading } = useSWR(
-    `/api/v1/toolkits?${queryString}`,
+    `/api/v1/playbooks?${queryString}`,
     fetcher,
   );
-  if (!data?.toolkits) {
+
+  if (!data) {
     return {
-      toolkits: initialToolkits || [],
-      pagination: { count: 1, page: 1 },
+      playbooks: initialPlaybooks || [],
+      pagination: { count: initialCount, page },
       isLoading: true,
     };
   }
 
   return {
-    toolkits: !showAll ? data?.toolkits || [] : initialToolkits || [],
+    playbooks: !showAllPosts ? data?.playbooks || [] : initialPlaybooks || [],
     pagination: data?.pagination,
     isLoading,
   };
 };
 
-export default useToolkits;
+export default usePlaybooks;

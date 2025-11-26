@@ -1,7 +1,9 @@
 import collectionOverview from "./collectionOverview";
+import playbooksList from "./playbooksList";
 import postList from "./postList";
 import reportsList from "./reportsList";
 import spotlightOverview from "./spotlightOverview";
+import toolkitsList from "./toolkitsList";
 
 const propsifyBlockBySlug = {
   "helplines-overview-list": collectionOverview,
@@ -9,6 +11,8 @@ const propsifyBlockBySlug = {
   "post-list": postList,
   spotlight: spotlightOverview,
   "reports-list": reportsList,
+  "playbooks-list": playbooksList,
+  "toolkits-list": toolkitsList,
 };
 
 async function blockify(blocks, api, context) {
