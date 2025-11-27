@@ -71,7 +71,6 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       });
     }
   };
-
   function handleApplyFilters(filterParams) {
     setParams((prev) => ({ ...prev, ...filterParams }));
     setPage(1);
@@ -95,7 +94,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   }
 
   return (
-    <Box>
+    <Box ref={listRef}>
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
           <ReportFilters
