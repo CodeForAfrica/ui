@@ -22,6 +22,7 @@ function FilterDropdown({
       ? selected.filter((v) => v !== val)
       : [...selected, val];
     onChange?.(next);
+    handleClose();
   };
 
   const count = selected.length;
@@ -39,13 +40,36 @@ function FilterDropdown({
           backgroundColor: "#fff",
           borderRadius: "10px",
           border: "1px solid #C9CACB",
+          display: "inline-flex",
+          alignItems: "center",
+          lineHeight: 1,
+          // normalize icon container spacing/alignment
+          "& .MuiButton-startIcon": {
+            m: 0,
+            display: "inline-flex",
+            alignItems: "center",
+          },
+          "& .MuiButton-endIcon": {
+            m: 0,
+            display: "inline-flex",
+            alignItems: "center",
+          },
+          // normalize inner svg sizing and baseline shift
+          "& .MuiButton-startIcon svg, & .MuiButton-endIcon svg": {
+            fontSize: 16,
+            display: "block",
+          },
         }}
         endIcon={
           <SvgIcon
+            component={RightIcon}
+            inheritViewBox
             sx={{
               fill: "none",
+              fontSize: 16,
+              display: "block",
+              mt: "-4px",
             }}
-            component={RightIcon}
           />
         }
       >

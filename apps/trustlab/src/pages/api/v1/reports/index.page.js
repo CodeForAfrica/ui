@@ -5,7 +5,15 @@ export default async function handler(req, res) {
   const { method } = req;
 
   if (method === "GET") {
-    const { page, sort, years, months, reports, reportsType } = req.query;
+    const {
+      page,
+      sort,
+      years,
+      months,
+      reports,
+      reportsType,
+      limit = 12,
+    } = req.query;
 
     const monthRange = (year, monthNumber) => {
       // monthNumber is 1-12
@@ -98,7 +106,7 @@ export default async function handler(req, res) {
 
     try {
       const result = await getReports(api, {
-        limit: 9,
+        limit,
         page: page || 1,
         sort: sort || "-createdAt",
         where,

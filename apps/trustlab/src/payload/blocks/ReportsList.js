@@ -25,6 +25,15 @@ const ReportsList = {
       label: { en: "Enable Filters" },
     },
     {
+      name: "reportsPerPage",
+      type: "number",
+      label: { en: "Reports Per Page" },
+      defaultValue: 12,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasPagination),
+      },
+    },
+    {
       name: "hasPagination",
       type: "checkbox",
       label: { en: "Enable Pagination" },

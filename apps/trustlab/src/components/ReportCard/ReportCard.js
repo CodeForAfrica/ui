@@ -8,8 +8,11 @@ import {
   Divider,
   Typography,
   CardActions,
+  SvgIcon,
 } from "@mui/material";
 import { forwardRef } from "react";
+
+import DownloadIcon from "@/trustlab/assets/icons/download-icon.svg";
 
 const ReportCard = forwardRef(function ReportCard(props, ref) {
   const {
@@ -74,6 +77,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                 textOverflow: "ellipsis",
                 lineClamp: 2,
                 height: "48px",
+                color: "#252B37",
               }}
             >
               {title}
@@ -95,7 +99,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                 <LexicalRichText
                   elements={overview}
                   TypographyProps={{
-                    variant: "body2",
+                    variant: "p2",
                     component: "span",
                     sx: {
                       display: "-webkit-box",
@@ -104,11 +108,11 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       flex: 1,
-                      height: 196,
+                      height: 100,
                     },
                   }}
                   sx={{
-                    height: 196,
+                    height: 100,
                     overflow: "hidden",
                   }}
                 />
@@ -120,20 +124,21 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
               <LexicalRichText
                 elements={overview}
                 TypographyProps={{
-                  variant: "body2",
+                  variant: "p2",
                   component: "span",
                   sx: {
                     display: "-webkit-box",
-                    WebkitLineClamp: 7,
+                    WebkitLineClamp: 5,
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     flex: 1,
-                    height: 140,
+                    height: 100,
+                    color: "#252B37",
                   },
                 }}
                 sx={{
-                  height: 140,
+                  height: 100,
                   overflow: "hidden",
                 }}
               />
@@ -151,17 +156,26 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             lineHeight: "16px",
             cursor: file?.url ? "pointer" : "default",
             mt: condensed ? 1 : 0,
+            color: "#1020E1",
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
           }}
         >
+          <SvgIcon
+            sx={{
+              fill: "none",
+            }}
+            component={DownloadIcon}
+          />
           <Typography
             sx={{
               whiteSpace: "nowrap",
               fontWeight: "bold",
-              color: "#1020E1",
               textDecoration: "none",
-              lineHeight: "16px",
+              lineHeight: "24px",
             }}
-            variant="caption"
+            variant="p2"
           >
             {actionLabel}
           </Typography>
