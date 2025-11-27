@@ -3,7 +3,7 @@
 exports[`ReportFilters renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-yd8sa2"
+    class="MuiBox-root css-1821gv5"
   >
     <h6
       class="MuiTypography-root MuiTypography-subtitle1 css-1dte1p5-MuiTypography-root"
@@ -14,7 +14,7 @@ exports[`ReportFilters renders unchanged 1`] = `
       class="MuiStack-root css-1f89vao-MuiStack-root"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-ex9v1j-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -34,14 +34,13 @@ exports[`ReportFilters renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
             focusable="false"
-            viewbox="0 0 24 24"
           />
         </span>
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-ex9v1j-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -61,14 +60,13 @@ exports[`ReportFilters renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
             focusable="false"
-            viewbox="0 0 24 24"
           />
         </span>
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-ex9v1j-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -88,9 +86,8 @@ exports[`ReportFilters renders unchanged 1`] = `
         >
           <div
             aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-ca8ujh-MuiSvgIcon-root"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
             focusable="false"
-            viewbox="0 0 24 24"
           />
         </span>
       </button>

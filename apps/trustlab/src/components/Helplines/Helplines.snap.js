@@ -61,7 +61,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                     class="payload-richtext"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-kh8ubd-MuiTypography-root"
                     >
                       This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                     </p>
@@ -115,7 +115,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                     class="payload-richtext"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-kh8ubd-MuiTypography-root"
                     >
                       This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                     </p>
@@ -169,7 +169,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                     class="payload-richtext"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1gwq4gx-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-kh8ubd-MuiTypography-root"
                     >
                       This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                     </p>

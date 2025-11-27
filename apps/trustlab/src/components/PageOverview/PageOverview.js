@@ -1,8 +1,10 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Grid2 as Grid, Typography, Button, Box } from "@mui/material";
+import { Grid2 as Grid, Typography, Button, Box, SvgIcon } from "@mui/material";
 import React, { forwardRef } from "react";
+
+import DownloadIcon from "@/trustlab/assets/icons/download-icon.svg";
 
 const PostImageOverview = forwardRef(function PostImageOverview(
   {
@@ -40,7 +42,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
         {title ? (
           <Typography
             component="h1"
-            variant="body2"
+            variant="p2"
             sx={{
               mb: 3,
               pb: 1,
@@ -48,6 +50,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
               fontWeight: 700,
               color: textColor,
               textAlign: { xs: "left", md: textAlign },
+              borderBottom: `1px solid`,
             }}
           >
             {title}
@@ -98,17 +101,30 @@ const PostImageOverview = forwardRef(function PostImageOverview(
               <Box
                 href={downLoadLink?.href}
                 component={downLoadLink?.href ? Link : "div"}
-                sx={{ textDecoration: "none", lineHeight: "16px" }}
+                sx={{
+                  textDecoration: "none",
+                  lineHeight: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#1020E1",
+                  gap: 1,
+                }}
               >
+                <SvgIcon
+                  sx={{
+                    fill: "none",
+                  }}
+                  component={DownloadIcon}
+                />
                 <Typography
                   sx={{
                     whiteSpace: "nowrap",
                     fontWeight: "bold",
-                    color: "#1020E1",
+                    fontSize: "16px",
                     textDecoration: "none",
-                    lineHeight: "16px",
+                    lineHeight: "24px",
                   }}
-                  variant="caption"
+                  variant="p2"
                 >
                   {downLoadLink.label}
                 </Typography>

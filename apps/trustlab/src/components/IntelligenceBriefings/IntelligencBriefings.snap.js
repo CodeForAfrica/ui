@@ -33,7 +33,7 @@ exports[`<IntelligenceBriefings /> renders unchanged 1`] = `
                 class="payload-richtext"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-y94o99-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1p14pyh-MuiTypography-root"
                 >
                   This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders
                 </p>

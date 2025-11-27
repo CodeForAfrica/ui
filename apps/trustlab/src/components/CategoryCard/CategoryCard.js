@@ -55,7 +55,7 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
               overflow: "hidden",
             }}
             TypographyProps={{
-              variant: "body2",
+              variant: "p2",
               sx: {
                 display: "-webkit-box",
                 WebkitLineClamp: 7,
