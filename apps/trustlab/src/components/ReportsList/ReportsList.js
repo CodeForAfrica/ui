@@ -18,12 +18,14 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     hasFilters,
     pagination: p = { page: 1, count: 1 },
     reportsType,
+    reportsPerPage,
     ...other
   } = props;
 
   const [page, setPage] = useState(p?.page);
   const [params, setParams] = useState({
     reportsType,
+    limit: reportsPerPage,
   });
   const listRef = useRef(null);
   const router = useRouter();

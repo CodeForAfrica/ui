@@ -80,9 +80,8 @@ export default async function handler(req, res) {
   const where = andConditions.length ? { and: andConditions } : {};
 
   try {
-    const result = await api.find({
-      collection: "playbooks",
-      limit: Number(limit) || 9,
+    const result = await api.getCollection("playbooks", {
+      limit: Number(limit),
       page: Number(page) || 1,
       sort: sort || "-createdAt",
       where,

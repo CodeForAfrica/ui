@@ -13,6 +13,16 @@ const ToolkitsList = {
       type: "checkbox",
       label: { en: "Enable Pagination" },
     },
+    // toolkitsPerPage
+    {
+      name: "toolkitsPerPage",
+      type: "number",
+      label: { en: "Toolkits Per Page" },
+      defaultValue: 12,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasPagination),
+      },
+    },
     {
       name: "filters",
       type: "array",

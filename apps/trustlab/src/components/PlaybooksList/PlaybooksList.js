@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Grid2 as Grid, Box } from "@mui/material";
+import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
@@ -15,7 +15,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
     hasPagination,
     hasFilters,
     pagination: p = { page: 1, count: 1 },
-    // filters passthrough
+    title,
     filters,
     filterByLabel,
     applyFiltersLabel,
@@ -87,7 +87,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
   };
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "background.paper" }}>
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
           <ReportFilters
@@ -103,7 +103,10 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
       {playbooks.length ? (
         <Box sx={{ background: "#fff" }} ref={listRef}>
           <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
-            <Grid container spacing={3} ref={ref} {...other}>
+            <Typography sx={{ mb: 2 }} variant="subheading2">
+              {title}
+            </Typography>
+            <Grid container ref={ref} {...other}>
               {playbooks.map((pb) => (
                 <Grid key={pb.id} size={{ xs: 12 }}>
                   <RowCard

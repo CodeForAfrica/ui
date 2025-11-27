@@ -21,11 +21,14 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
     filterByLabel,
     applyFiltersLabel,
     clearFiltersLabel,
+    toolkitsPerPage,
     ...other
   } = props;
 
   const [page, setPage] = useState(p?.page);
-  const [params, setParams] = useState({});
+  const [params, setParams] = useState({
+    limit: toolkitsPerPage || 12,
+  });
   const listRef = useRef(null);
   const router = useRouter();
   const { query } = router;

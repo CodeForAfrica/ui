@@ -29,7 +29,7 @@ const useToolkits = (page, params, initialToolkits, _, showAll) => {
     `/api/v1/toolkits?${queryString}`,
     fetcher,
   );
-  if (!data?.toolkits) {
+  if (!data?.toolkits || showAll) {
     return {
       toolkits: initialToolkits || [],
       pagination: { count: 1, page: 1 },

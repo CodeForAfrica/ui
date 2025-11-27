@@ -19,7 +19,9 @@ const Helplines = forwardRef(function Helplines(
         {/* If displayType is list, render  RowCard instead of helplineCard and shouldnt be wrapped in Stack */}
         {displayType === "list" ? (
           <Box sx={{ py: 2 }}>
-            <Typography variant="subheading2">{title}</Typography>
+            <Typography sx={{ mb: 2 }} variant="subheading2">
+              {title}
+            </Typography>
             {briefs.map((brief) => (
               <RowCard
                 key={brief.id}

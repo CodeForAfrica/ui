@@ -3,7 +3,7 @@
 exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
 <div>
   <div
-    class="MuiBox-root css-0"
+    class="MuiBox-root css-1k9ek97"
   >
     <div
       class="MuiBox-root css-c3vlm2"
@@ -11,8 +11,11 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
       >
+        <h6
+          class="MuiTypography-root MuiTypography-subheading2 css-7hdx8h-MuiTypography-root"
+        />
         <div
-          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ipzchf-MuiGrid2-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1jxwjqx-MuiGrid2-root"
         >
           <div
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1j0u08r-MuiGrid2-root"

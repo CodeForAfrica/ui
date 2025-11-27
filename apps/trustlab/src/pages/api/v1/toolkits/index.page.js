@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { page, sort, years, months, limit } = req.query;
+  const { page, sort, years, months, limit = 12 } = req.query;
 
   const monthRange = (year, monthNumber) => {
     const mIdx = monthNumber - 1;
@@ -82,9 +82,8 @@ export default async function handler(req, res) {
   const where = andConditions.length > 0 ? { and: andConditions } : {};
 
   try {
-    const result = await api.find({
-      collection: "toolkits",
-      limit: Number(limit) || 9,
+    const result = await api.getCollection("toolkits", {
+      limit: Number(limit),
       page: Number(page) || 1,
       sort: sort || "-createdAt",
       where,

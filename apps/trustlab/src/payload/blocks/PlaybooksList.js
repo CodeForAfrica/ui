@@ -9,9 +9,26 @@ const PlaybooksList = {
       label: { en: "Enable Filters" },
     },
     {
+      name: "title",
+      type: "text",
+      label: { en: "Title" },
+      localized: true,
+      defaultValue: "Playbooks",
+    },
+    {
       name: "hasPagination",
       type: "checkbox",
       label: { en: "Enable Pagination" },
+    },
+    // playbooksPerPage
+    {
+      name: "playbooksPerPage",
+      type: "number",
+      label: { en: "Playbooks Per Page" },
+      defaultValue: 12,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasPagination),
+      },
     },
     {
       name: "filters",
