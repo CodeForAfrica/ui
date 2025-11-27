@@ -155,7 +155,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             textDecoration: "none",
             lineHeight: "16px",
             cursor: file?.url ? "pointer" : "default",
-            mt: condensed ? 1 : 0,
+            mt: condensed ? 3 : 0,
             color: "#1020E1",
             display: "flex",
             alignItems: "center",

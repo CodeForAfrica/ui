@@ -42,7 +42,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
     class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
   >
     <div
-      class="MuiBox-root css-lu4tw"
+      class="MuiBox-root css-i4p510"
     >
       <div
         aria-hidden="true"
