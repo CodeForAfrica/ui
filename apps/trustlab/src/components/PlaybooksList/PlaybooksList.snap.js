@@ -50,7 +50,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                     class="payload-richtext"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body2 css-182kl67-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-19vk8m7-MuiTypography-root"
                     >
                       Playbook description
                     </p>
@@ -103,7 +103,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                     class="payload-richtext"
                   >
                     <p
-                      class="MuiTypography-root MuiTypography-body2 css-182kl67-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-19vk8m7-MuiTypography-root"
                     >
                       Playbook description
                     </p>
