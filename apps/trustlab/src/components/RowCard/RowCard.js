@@ -71,7 +71,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
           <LexicalRichText
             elements={description}
             TypographyProps={{
-              variant: "body2",
+              variant: "p2",
               sx: {
                 color: "text.primary",
                 display: "-webkit-box",

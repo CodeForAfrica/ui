@@ -51,19 +51,19 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
           <LexicalRichText
             elements={description}
             sx={{
-              height: 100,
+              height: 140,
               overflow: "hidden",
             }}
             TypographyProps={{
-              variant: "body2",
+              variant: "p2",
               sx: {
                 display: "-webkit-box",
-                WebkitLineClamp: 5,
+                WebkitLineClamp: 7,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 flex: 1,
-                height: 100,
+                height: 140,
               },
             }}
           />
