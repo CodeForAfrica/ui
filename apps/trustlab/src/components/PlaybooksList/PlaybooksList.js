@@ -1,34 +1,31 @@
 import { Section } from "@commons-ui/core";
-import { Grid2 as Grid, Box } from "@mui/material";
+import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
-import CategoryCard from "../CategoryCard/CategoryCard";
-import ReportFilters from "../ReportFilters/ReportFilters";
-
-import useToolkits from "./useToolkits";
+import usePlaybooks from "./usePlaybooks";
 
 import Pagination from "@/trustlab/components/Pagination";
+import ReportFilters from "@/trustlab/components/ReportFilters";
+import RowCard from "@/trustlab/components/RowCard";
 
-const ToolkitList = forwardRef(function ToolkitList(props, ref) {
+const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
   const {
-    toolkits: initialToolkits = [],
+    playbooks: initialPlaybooks = [],
     hasPagination,
     hasFilters,
     pagination: p = { page: 1, count: 1 },
-    // filter props passthrough
+    title,
     filters,
     filterByLabel,
     applyFiltersLabel,
     clearFiltersLabel,
-    toolkitsPerPage,
+    cardActionLabel,
     ...other
   } = props;
 
   const [page, setPage] = useState(p?.page);
-  const [params, setParams] = useState({
-    limit: toolkitsPerPage || 12,
-  });
+  const [params, setParams] = useState({});
   const listRef = useRef(null);
   const router = useRouter();
   const { query } = router;
@@ -44,10 +41,10 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPage]);
 
-  const { toolkits = [], pagination = p } = useToolkits(
+  const { playbooks = [], pagination = p } = usePlaybooks(
     page,
     params,
-    initialToolkits,
+    initialPlaybooks,
     p?.count,
     !hasPagination,
   );
@@ -90,8 +87,8 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   };
 
   return (
-    <Box ref={ref}>
-      {hasFilters && (
+    <Box sx={{ backgroundColor: "background.paper" }}>
+      {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
           <ReportFilters
             filters={filters}
@@ -102,18 +99,28 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
             onApply={handleApplyFilters}
           />
         </Section>
-      )}
-      {toolkits.length > 0 && (
+      ) : null}
+      {playbooks.length ? (
         <Box sx={{ background: "#fff" }} ref={listRef}>
           <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
-            <Grid container spacing={3} {...other}>
-              {toolkits.map((tk) => (
-                <Grid key={tk.id} size={{ xs: 12, sm: 4 }}>
-                  <CategoryCard {...tk} />
+            <Typography sx={{ mb: 2 }} variant="subheading2">
+              {title}
+            </Typography>
+            <Grid container ref={ref} {...other}>
+              {playbooks.map((pb) => (
+                <Grid key={pb.id} size={{ xs: 12 }}>
+                  <RowCard
+                    sx={{
+                      borderTop: "1px solid #000",
+                      borderRadius: 0,
+                    }}
+                    actionLabel={cardActionLabel}
+                    {...pb}
+                  />
                 </Grid>
               ))}
             </Grid>
-            {hasPagination && (
+            {hasPagination ? (
               <Box display="flex" justifyContent="flex-end" mt={4}>
                 <Pagination
                   page={pagination?.page ?? 1}
@@ -121,12 +128,12 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
                   onChange={handlePageChange}
                 />
               </Box>
-            )}
+            ) : null}
           </Section>
         </Box>
-      )}
+      ) : null}
     </Box>
   );
 });
 
-export default ToolkitList;
+export default PlaybooksList;

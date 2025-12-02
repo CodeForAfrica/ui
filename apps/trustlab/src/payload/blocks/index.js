@@ -24,3 +24,5 @@ export { default as ComingSoon } from "./ComingSoon";
 export { default as ResearchCategory } from "./ResearchCategory";
 export { default as ResourceCategory } from "./ResourceCategory";
 export { default as ReportsList } from "./ReportsList";
+export { default as ToolkitsList } from "./ToolkitsList";
+export { default as PlaybooksList } from "./PlaybooksList";

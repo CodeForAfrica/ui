@@ -41,10 +41,15 @@ function getFooter(settings) {
   };
 }
 function getPageSlug({ params }) {
-  // We only have 2 slugs for the page, e.g. ["about"] or ["opportunities/opportunities-name"]
-  // The first slug is the page
-  const pageSlugIndex = 0;
-  return params?.slugs?.[pageSlugIndex] || "index";
+  if (!params?.slugs?.length) {
+    return "index";
+  }
+  let pageSlugIndex = params.slugs.length - 1;
+  if (params.slugs.length > 2) {
+    pageSlugIndex = params.slugs.length - 2;
+  }
+  const index = pageSlugIndex >= 0 ? pageSlugIndex : 0;
+  return params.slugs[index] || "index";
 }
 
 export const getErrorPageProps = async (api, slug = "404") => {
@@ -91,11 +96,13 @@ export async function getPageProps(api, context) {
   const siteSettings = await api.findGlobal("site-settings");
   const navbar = getNavBar(siteSettings);
   const footer = getFooter(siteSettings);
+
   if (!page) {
     const errorSlug = ["404", "500"].includes(slug) ? slug : "404";
     page = await getErrorPageProps(api, errorSlug);
   }
-  if (params?.slugs?.length > 1) {
+
+  if (params?.slugs?.length > 2) {
     page = await pagify(page, api, context);
     if (!page) {
       page = await getErrorPageProps(api);

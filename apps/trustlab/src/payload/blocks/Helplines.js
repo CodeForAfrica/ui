@@ -19,6 +19,16 @@ const Helplines = {
       required: true,
     },
     {
+      name: "displayType",
+      type: "select",
+      label: { en: "Display Type" },
+      defaultValue: "row",
+      options: [
+        { label: { en: "1 Row" }, value: "row" },
+        { label: { en: "Listed (line by line)" }, value: "list" },
+      ],
+    },
+    {
       name: "briefs",
       type: "array",
       minRows: 3,

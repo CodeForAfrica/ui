@@ -29,6 +29,8 @@ import {
   ResearchCategory,
   ResourceCategory,
   ReportsList,
+  ToolkitsList,
+  PlaybooksList,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -87,10 +89,12 @@ const Pages = {
         PageOverview,
         PartnerOverviewList,
         PartnersList,
+        PlaybooksList,
         PostList,
         Helplines,
         ResourcesOverviewList,
         Spotlight,
+        ToolkitsList,
         WhatWeDo,
         WhereWeWork,
         ComingSoon,

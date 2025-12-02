@@ -19,6 +19,7 @@ import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
+import PlaybooksList from "@/trustlab/components/PlaybooksList";
 import PostList from "@/trustlab/components/PostList";
 import ReportsList from "@/trustlab/components/ReportsList";
 import Resources from "@/trustlab/components/Resources";
@@ -54,7 +55,8 @@ const componentsBySlugs = {
   "research-category": CategoryList,
   "resource-category": CategoryList,
   "reports-list": ReportsList,
-  "toolkit-list": ToolkitList,
+  "toolkits-list": ToolkitList,
+  "playbooks-list": PlaybooksList,
 };
 
 function Page({ blocks, fallback }) {
