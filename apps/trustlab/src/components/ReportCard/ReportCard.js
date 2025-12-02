@@ -103,16 +103,16 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                     component: "span",
                     sx: {
                       display: "-webkit-box",
-                      WebkitLineClamp: 5,
+                      WebkitLineClamp: 8,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       flex: 1,
-                      height: 100,
+                      height: 160,
                     },
                   }}
                   sx={{
-                    height: 100,
+                    height: 160,
                     overflow: "hidden",
                   }}
                 />
