@@ -29,7 +29,7 @@ function BannerBlock(
       image({
         overrides: {
           name: "image",
-          required: true,
+          required: false,
         },
       }),
       colorSettingsField({

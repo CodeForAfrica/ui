@@ -30,7 +30,7 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
               class="payload-richtext"
             >
               <p
-                class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1p14pyh-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
               >
                 This is a placeholder text that should be updated.
               </p>
