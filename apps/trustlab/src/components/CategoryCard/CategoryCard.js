@@ -51,7 +51,7 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
           <LexicalRichText
             elements={description}
             sx={{
-              height: 140,
+              maxHeight: 168,
               overflow: "hidden",
             }}
             TypographyProps={{
@@ -63,7 +63,7 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 flex: 1,
-                height: 140,
+                maxHeight: 168,
               },
             }}
           />
