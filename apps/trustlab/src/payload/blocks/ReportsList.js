@@ -1,3 +1,5 @@
+import { richText } from "@commons-ui/payload";
+
 const ReportsList = {
   slug: "reports-list",
   labels: { singular: "Reports List", plural: "Reports Lists" },
@@ -96,6 +98,18 @@ const ReportsList = {
         condition: (_, siblingData) => Boolean(siblingData?.hasFilters),
       },
     },
+    {
+      name: "notFoundTitleLabel",
+      type: "text",
+      label: {
+        en: "Not Found Title Label",
+      },
+      defaultValue: "No results found",
+    },
+    richText({
+      name: "notFoundSubtitleLabel",
+      localized: true,
+    }),
   ],
 };
 

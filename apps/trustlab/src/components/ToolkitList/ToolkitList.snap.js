@@ -37,7 +37,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                   Toolkit A
                 </h3>
                 <div
-                  class="MuiBox-root css-41bgeu"
+                  class="MuiBox-root css-0"
                 >
                   <div
                     class="payload-richtext"
@@ -80,7 +80,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                   Toolkit B
                 </h3>
                 <div
-                  class="MuiBox-root css-41bgeu"
+                  class="MuiBox-root css-0"
                 >
                   <div
                     class="payload-richtext"
