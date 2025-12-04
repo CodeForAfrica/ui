@@ -18,7 +18,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1nwtms1-MuiGrid2-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-87ondj-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-161p3f9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
               href="/toolkits/a"
               id="t1"
               style="--Paper-shadow: none;"
@@ -36,7 +36,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 />
               </div>
               <div
-                class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
+                class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1of270-MuiTypography-root"
@@ -44,7 +44,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                   Toolkit A
                 </h3>
                 <div
-                  class="MuiBox-root css-0"
+                  class="MuiBox-root css-1rr4qq7"
                 >
                   <div
                     class="payload-richtext"
@@ -68,7 +68,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1nwtms1-MuiGrid2-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-87ondj-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-161p3f9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
               href="/toolkits/b"
               id="t2"
               style="--Paper-shadow: none;"
@@ -86,7 +86,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 />
               </div>
               <div
-                class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
+                class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1of270-MuiTypography-root"
@@ -94,7 +94,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                   Toolkit B
                 </h3>
                 <div
-                  class="MuiBox-root css-0"
+                  class="MuiBox-root css-1rr4qq7"
                 >
                   <div
                     class="payload-richtext"

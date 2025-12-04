@@ -24,6 +24,9 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
         backgroundColor: "transparent",
         img: { filter: "grayscale(100%)" },
         "&:hover img": { filter: "grayscale(0%)" },
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
       {...other}
     >
@@ -55,22 +58,26 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
           />
         </Box>
       )}
-      <CardContent sx={{ p: 0, mt: 2, textDecoration: "none" }}>
+      <CardContent
+        sx={{
+          p: 0,
+          mt: 2,
+          textDecoration: "none",
+          flex: 1,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Typography sx={{ mt: 1.25, mb: 2 }} variant="h3" gutterBottom>
           {title}
         </Typography>
         {description && (
           <LexicalRichText
             elements={description}
+            sx={{ flex: 1 }}
             TypographyProps={{
               variant: "p2",
-              sx: {
-                display: "-webkit-box",
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                flex: 1,
-              },
             }}
           />
         )}
