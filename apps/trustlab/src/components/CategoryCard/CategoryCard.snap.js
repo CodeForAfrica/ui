@@ -6,11 +6,18 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
   href="/test-link"
   style="--Paper-shadow: none;"
 >
-  <img
-    alt="Test image"
-    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-    src="/test-image.jpg"
-  />
+  <div
+    class="MuiBox-root css-1x8gdkv"
+  >
+    <img
+      alt="Test image"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+      src="/test-image.jpg"
+    />
+    <div
+      class="overlay MuiBox-root css-b5sikr"
+    />
+  </div>
   <div
     class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
   >
@@ -82,11 +89,18 @@ exports[`<CategoryCard /> renders without link 1`] = `
   class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-167r1gz-MuiPaper-root-MuiCard-root"
   style="--Paper-shadow: none;"
 >
-  <img
-    alt="Test image"
-    class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-    src="/test-image.jpg"
-  />
+  <div
+    class="MuiBox-root css-1x8gdkv"
+  >
+    <img
+      alt="Test image"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+      src="/test-image.jpg"
+    />
+    <div
+      class="overlay MuiBox-root css-b5sikr"
+    />
+  </div>
   <div
     class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
   >

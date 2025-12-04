@@ -16,11 +16,18 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         id="1"
         style="--Paper-shadow: none;"
       >
-        <img
-          alt="Test image 1"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-          src="/test-image-1.jpg"
-        />
+        <div
+          class="MuiBox-root css-1x8gdkv"
+        >
+          <img
+            alt="Test image 1"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+            src="/test-image-1.jpg"
+          />
+          <div
+            class="overlay MuiBox-root css-b5sikr"
+          />
+        </div>
         <div
           class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
         >
@@ -65,11 +72,18 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         id="2"
         style="--Paper-shadow: none;"
       >
-        <img
-          alt="Test image 2"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-          src="/test-image-2.jpg"
-        />
+        <div
+          class="MuiBox-root css-1x8gdkv"
+        >
+          <img
+            alt="Test image 2"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+            src="/test-image-2.jpg"
+          />
+          <div
+            class="overlay MuiBox-root css-b5sikr"
+          />
+        </div>
         <div
           class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
         >
@@ -114,11 +128,18 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         id="3"
         style="--Paper-shadow: none;"
       >
-        <img
-          alt="Test image 3"
-          class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-          src="/test-image-3.jpg"
-        />
+        <div
+          class="MuiBox-root css-1x8gdkv"
+        >
+          <img
+            alt="Test image 3"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+            src="/test-image-3.jpg"
+          />
+          <div
+            class="overlay MuiBox-root css-b5sikr"
+          />
+        </div>
         <div
           class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
         >
