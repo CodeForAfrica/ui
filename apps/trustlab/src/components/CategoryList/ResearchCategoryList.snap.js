@@ -21,7 +21,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         >
           <img
             alt="Test image 1"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
             src="/test-image-1.jpg"
           />
           <div
@@ -77,7 +77,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         >
           <img
             alt="Test image 2"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
             src="/test-image-2.jpg"
           />
           <div
@@ -133,7 +133,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         >
           <img
             alt="Test image 3"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
             src="/test-image-3.jpg"
           />
           <div

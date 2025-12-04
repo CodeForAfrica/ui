@@ -11,7 +11,7 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
   >
     <img
       alt="Test image"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
       src="/test-image.jpg"
     />
     <div
@@ -94,7 +94,7 @@ exports[`<CategoryCard /> renders without link 1`] = `
   >
     <img
       alt="Test image"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
       src="/test-image.jpg"
     />
     <div

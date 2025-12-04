@@ -43,7 +43,11 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
             component="img"
             image={image.src}
             alt={image.alt ?? title}
-            sx={{ borderRadius: "10px", objectFit: "cover", height: 200 }}
+            sx={{
+              borderRadius: "10px",
+              objectFit: "cover",
+              height: { xs: 380, sm: 220 },
+            }}
           />
           <Box
             className="overlay"
