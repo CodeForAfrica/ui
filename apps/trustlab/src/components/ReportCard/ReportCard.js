@@ -113,20 +113,6 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                 TypographyProps={{
                   variant: "p2",
                   component: "span",
-                  sx: {
-                    display: "-webkit-box",
-                    WebkitLineClamp: 5,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    flex: 1,
-                    height: 100,
-                    color: "#252B37",
-                  },
-                }}
-                sx={{
-                  height: 100,
-                  overflow: "hidden",
                 }}
               />
             )}
@@ -143,7 +129,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             textDecoration: "none",
             lineHeight: "16px",
             cursor: file?.url ? "pointer" : "default",
-            mt: condensed ? 3 : 0,
+            mt: condensed ? 1 : 0,
             color: "#1020E1",
             display: "flex",
             alignItems: "center",
