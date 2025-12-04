@@ -138,6 +138,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
         <Box
           href={file?.url}
           component={file?.url ? Link : "div"}
+          target="_blank"
           sx={{
             textDecoration: "none",
             lineHeight: "16px",

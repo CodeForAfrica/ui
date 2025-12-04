@@ -43,6 +43,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
   >
     <div
       class="MuiBox-root css-i4p510"
+      target="_blank"
     >
       <div
         aria-hidden="true"
@@ -112,6 +113,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
   >
     <div
       class="MuiBox-root css-1d8nr69"
+      target="_blank"
     >
       <div
         aria-hidden="true"
@@ -175,6 +177,7 @@ exports[`<ReportCard /> renders without image 1`] = `
   >
     <div
       class="MuiBox-root css-1d8nr69"
+      target="_blank"
     >
       <div
         aria-hidden="true"
@@ -243,6 +246,7 @@ exports[`<ReportCard /> renders without link 1`] = `
   >
     <div
       class="MuiBox-root css-1d8nr69"
+      target="_blank"
     >
       <div
         aria-hidden="true"
