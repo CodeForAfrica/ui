@@ -36,6 +36,9 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
           img: {
             filter: "grayscale(100%)",
           },
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
           "&:hover img": {
             filter: "grayscale(0%)",
           },
@@ -47,7 +50,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
       <Box
         component={link?.href ? Link : "div"}
         href={link?.href}
-        sx={{ textDecoration: "none", display: "block" }}
+        sx={{ textDecoration: "none", display: "block", flex: 1 }}
       >
         <Card
           elevation={0}
@@ -95,29 +98,13 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
             </Typography>
 
             {overview && !condensed && (
-              <>
-                <LexicalRichText
-                  elements={overview}
-                  TypographyProps={{
-                    variant: "p2",
-                    component: "span",
-                    sx: {
-                      display: "-webkit-box",
-                      WebkitLineClamp: 8,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      flex: 1,
-                      height: 160,
-                    },
-                  }}
-                  sx={{
-                    height: 160,
-                    overflow: "hidden",
-                  }}
-                />
-                <Divider sx={{ my: 2 }} />
-              </>
+              <LexicalRichText
+                elements={overview}
+                TypographyProps={{
+                  variant: "p2",
+                  component: "span",
+                }}
+              />
             )}
 
             {overview && condensed && (
@@ -126,36 +113,23 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
                 TypographyProps={{
                   variant: "p2",
                   component: "span",
-                  sx: {
-                    display: "-webkit-box",
-                    WebkitLineClamp: 5,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    flex: 1,
-                    height: 100,
-                    color: "#252B37",
-                  },
-                }}
-                sx={{
-                  height: 100,
-                  overflow: "hidden",
                 }}
               />
             )}
           </CardContent>
         </Card>
       </Box>
-
+      {!condensed && <Divider sx={{ my: 1 }} />}
       <CardActions sx={{ px: image?.src && !condensed ? 0 : 2, pt: 0 }}>
         <Box
           href={file?.url}
           component={file?.url ? Link : "div"}
+          target="_blank"
           sx={{
             textDecoration: "none",
             lineHeight: "16px",
             cursor: file?.url ? "pointer" : "default",
-            mt: condensed ? 3 : 0,
+            mt: condensed ? 1 : 0,
             color: "#1020E1",
             display: "flex",
             alignItems: "center",

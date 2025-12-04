@@ -1,10 +1,14 @@
 import { Section } from "@commons-ui/core";
-import { Grid2 as Grid, Box } from "@mui/material";
+import { Figure } from "@commons-ui/next";
+import { LexicalRichText } from "@commons-ui/payload";
+import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
 import useReports from "./useReports";
 
+// eslint-disable-next-line import/no-unresolved
+import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 import Pagination from "@/trustlab/components/Pagination";
 import ReportCard from "@/trustlab/components/ReportCard";
 import ReportFilters from "@/trustlab/components/ReportFilters";
@@ -19,6 +23,8 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     pagination: p = { page: 1, count: 1 },
     reportsType,
     reportsPerPage,
+    notFoundTitleLabel,
+    notFoundSubtitleLabel,
     ...other
   } = props;
 
@@ -95,6 +101,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     );
   }
 
+  console.log(notFoundSubtitleLabel);
   return (
     <Box ref={listRef}>
       {hasFilters ? (
@@ -105,37 +112,88 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
           />
         </Section>
       ) : null}
-      {reports.length ? (
-        <Box sx={{ background: "#fff" }}>
-          <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
-            <Grid container spacing={3} ref={ref} {...other}>
-              {reports.map((report, index) => (
-                <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
-                  <ReportCard
-                    condensed={condensed}
-                    actionLabel={cardActionLabel}
-                    {...report}
-                    sx={
-                      condensed && {
-                        background: index % 2 === 0 ? "#E7E9FF" : "#F0F0F5",
+      <Box sx={{ background: "#fff" }}>
+        {reports.length ? (
+          <Box sx={{ background: "#fff" }}>
+            <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+              <Grid
+                container
+                spacing={3}
+                rowSpacing={3.75}
+                ref={ref}
+                {...other}
+              >
+                {reports.map((report, index) => (
+                  <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
+                    <ReportCard
+                      condensed={condensed}
+                      actionLabel={cardActionLabel}
+                      {...report}
+                      sx={
+                        condensed && {
+                          background: index % 2 === 0 ? "#E7E9FF" : "#F0F0F5",
+                        }
                       }
-                    }
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+              {hasPagination ? (
+                <Box display="flex" justifyContent="flex-end" mt={4}>
+                  <Pagination
+                    page={pagination?.page ?? 1}
+                    count={pagination?.count ?? 1}
+                    onChange={handlePageChange}
                   />
-                </Grid>
-              ))}
-            </Grid>
-            {hasPagination ? (
-              <Box display="flex" justifyContent="flex-end" mt={4}>
-                <Pagination
-                  page={pagination?.page ?? 1}
-                  count={pagination?.count ?? 1}
-                  onChange={handlePageChange}
-                />
-              </Box>
-            ) : null}
-          </Section>
-        </Box>
-      ) : null}
+                </Box>
+              ) : null}
+            </Section>
+          </Box>
+        ) : (
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+            sx={{
+              maxWidth: 400,
+              margin: "0 auto",
+              pt: 5,
+              pb: 10,
+            }}
+            gap={2.5}
+          >
+            <Figure
+              ImageProps={{
+                alt: "Error page background",
+                src: ErrorPageIcon,
+                sx: { objectFit: "cover", opacity: 0.3 },
+              }}
+              sx={{
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+                height: 150,
+                width: 220,
+              }}
+            />
+            <Typography strong variant="display4">
+              {notFoundTitleLabel || "No Reports Found"}
+            </Typography>
+            <LexicalRichText
+              elements={notFoundSubtitleLabel}
+              TypographyProps={{
+                gutterBottom: true,
+                variant: "p2",
+                sx: {
+                  textAlign: "center",
+                  mb: 0,
+                },
+              }}
+            />
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 });

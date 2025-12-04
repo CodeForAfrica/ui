@@ -23,11 +23,18 @@ exports[`ToolkitList renders initial toolkits 1`] = `
               id="t1"
               style="--Paper-shadow: none;"
             >
-              <img
-                alt="A"
-                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-                src="/img/a.jpg"
-              />
+              <div
+                class="MuiBox-root css-1x8gdkv"
+              >
+                <img
+                  alt="A"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+                  src="/img/a.jpg"
+                />
+                <div
+                  class="overlay MuiBox-root css-b5sikr"
+                />
+              </div>
               <div
                 class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
               >
@@ -37,7 +44,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                   Toolkit A
                 </h3>
                 <div
-                  class="MuiBox-root css-41bgeu"
+                  class="MuiBox-root css-0"
                 >
                   <div
                     class="payload-richtext"
@@ -66,11 +73,18 @@ exports[`ToolkitList renders initial toolkits 1`] = `
               id="t2"
               style="--Paper-shadow: none;"
             >
-              <img
-                alt="B"
-                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
-                src="/img/b.jpg"
-              />
+              <div
+                class="MuiBox-root css-1x8gdkv"
+              >
+                <img
+                  alt="B"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+                  src="/img/b.jpg"
+                />
+                <div
+                  class="overlay MuiBox-root css-b5sikr"
+                />
+              </div>
               <div
                 class="MuiCardContent-root css-wwjmps-MuiCardContent-root"
               >
@@ -80,7 +94,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                   Toolkit B
                 </h3>
                 <div
-                  class="MuiBox-root css-41bgeu"
+                  class="MuiBox-root css-0"
                 >
                   <div
                     class="payload-richtext"

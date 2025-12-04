@@ -22,26 +22,38 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
       sx={{
         textDecoration: "none",
         backgroundColor: "transparent",
-        img: {
-          filter: "grayscale(100%)",
-        },
-        "&:hover img": {
-          filter: "grayscale(0%)",
-        },
+        img: { filter: "grayscale(100%)" },
+        "&:hover img": { filter: "grayscale(0%)" },
       }}
       {...other}
     >
       {image?.src && (
-        <CardMedia
-          component="img"
-          image={image.src}
-          alt={image.alt ?? title}
+        <Box
           sx={{
+            position: "relative",
             borderRadius: "10px",
-            objectFit: "cover",
-            height: 200,
+            overflow: "hidden",
+            "&:hover .overlay": { opacity: 1 },
           }}
-        />
+        >
+          <CardMedia
+            component="img"
+            image={image.src}
+            alt={image.alt ?? title}
+            sx={{ borderRadius: "10px", objectFit: "cover", height: 200 }}
+          />
+          <Box
+            className="overlay"
+            sx={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "rgba(0,0,0,0.2)",
+              opacity: 0,
+              transition: "opacity 200ms ease",
+              pointerEvents: "none",
+            }}
+          />
+        </Box>
       )}
       <CardContent sx={{ p: 0, mt: 2, textDecoration: "none" }}>
         <Typography sx={{ mt: 1.25, mb: 2 }} variant="h3" gutterBottom>
@@ -50,20 +62,14 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
         {description && (
           <LexicalRichText
             elements={description}
-            sx={{
-              maxHeight: 168,
-              overflow: "hidden",
-            }}
             TypographyProps={{
               variant: "p2",
               sx: {
                 display: "-webkit-box",
-                WebkitLineClamp: 7,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 flex: 1,
-                maxHeight: 168,
               },
             }}
           />

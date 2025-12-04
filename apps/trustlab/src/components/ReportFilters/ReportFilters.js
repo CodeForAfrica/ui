@@ -13,12 +13,11 @@ const ReportFilters = React.forwardRef(function ReportFilters(
     filters = [],
     // removed yearOptions, monthOptions props; reportOptions still comes from props
     reportOptions = [],
-    applyFiltersLabel,
     clearFiltersLabel,
     onApply,
     onClear,
     // ...any other props to forward to the root container
-    ...rest
+    sx,
   },
   ref,
 ) {
@@ -112,6 +111,13 @@ const ReportFilters = React.forwardRef(function ReportFilters(
     if (onClear) {
       onClear();
     }
+    if (onApply) {
+      onApply({
+        years: [],
+        months: [],
+        reports: [],
+      });
+    }
   };
 
   function handleChange(action) {
@@ -137,7 +143,7 @@ const ReportFilters = React.forwardRef(function ReportFilters(
     selectedYears.length || selectedMonths.length || selectedReports.length;
 
   return (
-    <Box ref={ref} display="flex" flexDirection="column" gap={1} {...rest}>
+    <Box ref={ref} display="flex" flexDirection="column" gap={1} sx={sx}>
       {/* Row 1: Filter By Label */}
       {filterByLabel && (
         <Typography variant="subtitle1" fontWeight={700}>

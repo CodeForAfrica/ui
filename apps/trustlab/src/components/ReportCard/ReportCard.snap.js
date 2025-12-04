@@ -2,10 +2,10 @@
 
 exports[`<ReportCard /> renders in condensed mode 1`] = `
 <div
-  class="MuiBox-root css-ztm1u"
+  class="MuiBox-root css-xy8mpc"
 >
   <div
-    class="MuiBox-root css-15ooa9"
+    class="MuiBox-root css-qb1hku"
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-148pw3f-MuiPaper-root-MuiCard-root"
@@ -23,13 +23,13 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
           class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
-          class="MuiBox-root css-bo3k24"
+          class="MuiBox-root css-0"
         >
           <div
             class="payload-richtext"
           >
             <span
-              class="MuiTypography-root MuiTypography-p2 css-1hwr0fm-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
             >
               This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
             </span>
@@ -42,7 +42,8 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
     class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
   >
     <div
-      class="MuiBox-root css-i4p510"
+      class="MuiBox-root css-lu4tw"
+      target="_blank"
     >
       <div
         aria-hidden="true"
@@ -62,10 +63,10 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
 
 exports[`<ReportCard /> renders unchanged 1`] = `
 <div
-  class="MuiBox-root css-ztm1u"
+  class="MuiBox-root css-xy8mpc"
 >
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-1fhreme-MuiTypography-root-MuiLink-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiBox-root css-16vkg17-MuiTypography-root-MuiLink-root"
     href="/test-report"
   >
     <div
@@ -89,29 +90,30 @@ exports[`<ReportCard /> renders unchanged 1`] = `
           class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
-          class="MuiBox-root css-6bi6dn"
+          class="MuiBox-root css-0"
         >
           <div
             class="payload-richtext"
           >
             <span
-              class="MuiTypography-root MuiTypography-p2 css-u6i8h-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
             >
               This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
             </span>
           </div>
         </div>
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
-        />
       </div>
     </div>
   </a>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-hv6zls-MuiDivider-root"
+  />
   <div
     class="MuiCardActions-root MuiCardActions-spacing css-brej4a-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-1d8nr69"
+      target="_blank"
     >
       <div
         aria-hidden="true"
@@ -131,10 +133,10 @@ exports[`<ReportCard /> renders unchanged 1`] = `
 
 exports[`<ReportCard /> renders without image 1`] = `
 <div
-  class="MuiBox-root css-ztm1u"
+  class="MuiBox-root css-xy8mpc"
 >
   <div
-    class="MuiBox-root css-15ooa9"
+    class="MuiBox-root css-qb1hku"
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-148pw3f-MuiPaper-root-MuiCard-root"
@@ -152,29 +154,30 @@ exports[`<ReportCard /> renders without image 1`] = `
           class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
-          class="MuiBox-root css-6bi6dn"
+          class="MuiBox-root css-0"
         >
           <div
             class="payload-richtext"
           >
             <span
-              class="MuiTypography-root MuiTypography-p2 css-u6i8h-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
             >
               This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
             </span>
           </div>
         </div>
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
-        />
       </div>
     </div>
   </div>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-hv6zls-MuiDivider-root"
+  />
   <div
     class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-1d8nr69"
+      target="_blank"
     >
       <div
         aria-hidden="true"
@@ -194,10 +197,10 @@ exports[`<ReportCard /> renders without image 1`] = `
 
 exports[`<ReportCard /> renders without link 1`] = `
 <div
-  class="MuiBox-root css-ztm1u"
+  class="MuiBox-root css-xy8mpc"
 >
   <div
-    class="MuiBox-root css-15ooa9"
+    class="MuiBox-root css-qb1hku"
   >
     <div
       class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-148pw3f-MuiPaper-root-MuiCard-root"
@@ -220,29 +223,30 @@ exports[`<ReportCard /> renders without link 1`] = `
           class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
         />
         <div
-          class="MuiBox-root css-6bi6dn"
+          class="MuiBox-root css-0"
         >
           <div
             class="payload-richtext"
           >
             <span
-              class="MuiTypography-root MuiTypography-p2 css-u6i8h-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
             >
               This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
             </span>
           </div>
         </div>
-        <hr
-          class="MuiDivider-root MuiDivider-fullWidth css-zzw4lh-MuiDivider-root"
-        />
       </div>
     </div>
   </div>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-hv6zls-MuiDivider-root"
+  />
   <div
     class="MuiCardActions-root MuiCardActions-spacing css-brej4a-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-1d8nr69"
+      target="_blank"
     >
       <div
         aria-hidden="true"
