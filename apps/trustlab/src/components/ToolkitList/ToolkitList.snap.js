@@ -24,11 +24,11 @@ exports[`ToolkitList renders initial toolkits 1`] = `
               style="--Paper-shadow: none;"
             >
               <div
-                class="MuiBox-root css-1x8gdkv"
+                class="MuiBox-root css-1g8ogoo"
               >
                 <img
                   alt="A"
-                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-17gpfwt-MuiCardMedia-root"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-q9n3uj-MuiCardMedia-root"
                   src="/img/a.jpg"
                 />
                 <div
@@ -74,11 +74,11 @@ exports[`ToolkitList renders initial toolkits 1`] = `
               style="--Paper-shadow: none;"
             >
               <div
-                class="MuiBox-root css-1x8gdkv"
+                class="MuiBox-root css-1g8ogoo"
               >
                 <img
                   alt="B"
-                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-17gpfwt-MuiCardMedia-root"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-q9n3uj-MuiCardMedia-root"
                   src="/img/b.jpg"
                 />
                 <div
