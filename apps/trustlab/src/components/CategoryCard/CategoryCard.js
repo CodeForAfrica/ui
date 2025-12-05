@@ -36,7 +36,7 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
             position: "relative",
             borderRadius: "10px",
             overflow: "hidden",
-            "&:hover .overlay": { opacity: 1 },
+            "&:hover .overlay": { opacity: { xs: 0, sm: 1 } },
           }}
         >
           <CardMedia
@@ -45,8 +45,8 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
             alt={image.alt ?? title}
             sx={{
               borderRadius: "10px",
-              objectFit: "cover",
-              height: { xs: 380, sm: 220 },
+              objectFit: { xs: "cover", sm: "contain", md: "cover" },
+              height: { xs: 190, sm: 160, md: 220 },
             }}
           />
           <Box
