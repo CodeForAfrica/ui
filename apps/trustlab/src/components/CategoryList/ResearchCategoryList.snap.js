@@ -17,11 +17,11 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         style="--Paper-shadow: none;"
       >
         <div
-          class="MuiBox-root css-1x8gdkv"
+          class="MuiBox-root css-1xvjh2y"
         >
           <img
             alt="Test image 1"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
             src="/test-image-1.jpg"
           />
           <div
@@ -73,11 +73,11 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         style="--Paper-shadow: none;"
       >
         <div
-          class="MuiBox-root css-1x8gdkv"
+          class="MuiBox-root css-1xvjh2y"
         >
           <img
             alt="Test image 2"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
             src="/test-image-2.jpg"
           />
           <div
@@ -129,11 +129,11 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         style="--Paper-shadow: none;"
       >
         <div
-          class="MuiBox-root css-1x8gdkv"
+          class="MuiBox-root css-1xvjh2y"
         >
           <img
             alt="Test image 3"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
             src="/test-image-3.jpg"
           />
           <div

@@ -7,11 +7,11 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
   style="--Paper-shadow: none;"
 >
   <div
-    class="MuiBox-root css-1x8gdkv"
+    class="MuiBox-root css-1xvjh2y"
   >
     <img
       alt="Test image"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
       src="/test-image.jpg"
     />
     <div
@@ -90,11 +90,11 @@ exports[`<CategoryCard /> renders without link 1`] = `
   style="--Paper-shadow: none;"
 >
   <div
-    class="MuiBox-root css-1x8gdkv"
+    class="MuiBox-root css-1xvjh2y"
   >
     <img
       alt="Test image"
-      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1tsuscl-MuiCardMedia-root"
+      class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
       src="/test-image.jpg"
     />
     <div
