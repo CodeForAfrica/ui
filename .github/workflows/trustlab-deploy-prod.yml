@@ -3,7 +3,7 @@ name: TrustLab | Deploy | PROD
 on:
   push:
     branches:
-      - main
+      - release/trustlab-0.0.6
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"

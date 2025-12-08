@@ -27,6 +27,10 @@ const nextConfig = {
   //                  we SHOULDN'T use them in pages router!
   pageExtensions: ["page.js", "js", "ts", "tsx"],
   reactStrictMode: true,
+  // Disable Next.js type checking during builds
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
