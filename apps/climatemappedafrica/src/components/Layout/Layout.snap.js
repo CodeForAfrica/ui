@@ -223,7 +223,7 @@ exports[`<Layout /> renders unchanged 1`] = `
             <div
               class="MuiTypography-root MuiTypography-body1 css-1heosjj-MuiTypography-root"
             >
-              © 2025 ClimateMappedAfrica
+              © 2026 ClimateMappedAfrica
             </div>
           </div>
         </div>
