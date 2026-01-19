@@ -2,7 +2,7 @@
  * .
  * see: https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1
  */
-export default function slugify(string) {
+export default function slugify(string = "") {
   const a =
     "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·_/,:;";
   const b =

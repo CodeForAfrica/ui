@@ -95,7 +95,7 @@
     "defaults"
   ],
   "engines": {
-    "node": "20.x",
+    "node": ">=24.13.0",
     "pnpm": "10"
   },
   "packageManager": "pnpm@10.12.1"
