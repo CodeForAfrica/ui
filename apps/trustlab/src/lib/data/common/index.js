@@ -73,11 +73,15 @@ export async function getPagePaths(api) {
     where: { slug: { not_equals: "500" } },
   });
 
-  const pagesPromises = pages.map(async ({ slug }) => ({
-    params: {
-      slugs: [slug === "index" ? "" : slug],
-    },
-  }));
+  const pagesPromises = pages.map(async ({ slug }) => {
+    // Ensure slug is always a valid string
+    const validSlug = slug || "index";
+    return {
+      params: {
+        slugs: validSlug === "index" ? [] : [validSlug],
+      },
+    };
+  });
   const paths = await Promise.all(pagesPromises);
   return {
     paths,

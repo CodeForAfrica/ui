@@ -38,7 +38,7 @@ ARG \
   SENTRY_ENVIRONMENT="local"
 
 
-FROM node:20.19-alpine AS node
+FROM node:24.13.0-alpine AS node
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
