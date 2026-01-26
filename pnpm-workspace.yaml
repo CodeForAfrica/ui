@@ -142,7 +142,7 @@ catalog:
   jwt-decode: ^4.0.0
   leaflet: ^1.9.4
   lint-staged: ^15.2.10
-  lodash: ^4.17.21
+  lodash: ^4.17.23
   markdown-it-link-attributes: ^4.0.0
   markdown-it: ^12.3.2
   migrate-mongo: ^11.0.0
