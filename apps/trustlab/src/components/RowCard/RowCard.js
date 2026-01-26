@@ -1,7 +1,11 @@
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Card, CardMedia, Typography, Button, Stack } from "@mui/material";
-import { forwardRef } from "react";
+import { Box, Card, CardMedia, Typography, Stack } from "@mui/material";
+import { useState, forwardRef } from "react";
+
+import RowCardActionButton from "./RowCardActionButton";
+
+import HelplineEmbedDialog from "@/trustlab/components/HelplineCard/HelplineEmbedDialog";
 
 const RowCard = forwardRef(function RowCard(props, ref) {
   const {
@@ -11,8 +15,24 @@ const RowCard = forwardRef(function RowCard(props, ref) {
     link,
     actionLabel = link?.label || "Learn More",
     sx,
+    embedCode,
+    embedButtonLabel,
+    embedCloseLabel,
     ...other
   } = props;
+  const hasEmbed = Boolean(embedCode);
+  const [open, setOpen] = useState(false);
+  const buttonLabel = embedButtonLabel || actionLabel;
+
+  const handleOpen = () => {
+    if (hasEmbed) {
+      setOpen(true);
+    }
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Card
@@ -83,26 +103,21 @@ const RowCard = forwardRef(function RowCard(props, ref) {
             }}
           />
         )}
-        {link?.href && (
-          <Box>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              sx={{
-                backgroundColor: "#FFDE59",
-                color: "#000",
-                border: "2px solid #000",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": { backgroundColor: "#ffe989" },
-              }}
-            >
-              {actionLabel}
-            </Button>
-          </Box>
-        )}
+        <RowCardActionButton
+          link={link}
+          hasEmbed={hasEmbed}
+          actionLabel={actionLabel}
+          buttonLabel={buttonLabel}
+          onOpen={handleOpen}
+        />
       </Stack>
+      <HelplineEmbedDialog
+        closeLabel={embedCloseLabel}
+        embedCode={embedCode}
+        onClose={handleClose}
+        open={open}
+        title={title}
+      />
     </Card>
   );
 });

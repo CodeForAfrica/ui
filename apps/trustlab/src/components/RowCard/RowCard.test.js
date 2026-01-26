@@ -68,9 +68,9 @@ describe("<RowCard />", () => {
         description={richTextMock}
       />,
     );
-    expect(
-      screen.getByRole("button", { name: /Request Support/i }),
-    ).toBeInTheDocument();
+    const links = screen.getAllByRole("link", { name: /Request Support/i });
+    // The action button/link should be the last one (not the card wrapper)
+    expect(links[links.length - 1]).toBeInTheDocument();
   });
 
   it("button text defaults to link label when actionLabel not set", () => {
@@ -81,9 +81,8 @@ describe("<RowCard />", () => {
         description={richTextMock}
       />,
     );
-    expect(
-      screen.getByRole("button", { name: /Learn More/i }),
-    ).toBeInTheDocument();
+    const links = screen.getAllByRole("link", { name: /Learn More/i });
+    expect(links[links.length - 1]).toBeInTheDocument();
   });
 
   it("respects custom actionLabel override", () => {
@@ -95,9 +94,8 @@ describe("<RowCard />", () => {
         description={richTextMock}
       />,
     );
-    expect(
-      screen.getByRole("button", { name: /Custom Label/i }),
-    ).toBeInTheDocument();
+    const links = screen.getAllByRole("link", { name: /Custom Label/i });
+    expect(links[links.length - 1]).toBeInTheDocument();
   });
 
   it("omits button when no link", () => {

@@ -25,7 +25,7 @@ const Helplines = forwardRef(function Helplines(
             {briefs.map((brief) => (
               <RowCard
                 key={brief.id}
-                sx={{ mb: 3, borderTop: "1px solid", borderRadius: 0 }}
+                sx={{ pt: 1, mb: 3, borderTop: "1px solid", borderRadius: 0 }}
                 {...brief}
                 image={brief.icon}
               />
