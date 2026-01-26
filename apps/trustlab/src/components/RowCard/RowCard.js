@@ -1,7 +1,9 @@
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Card, CardMedia, Typography, Button, Stack } from "@mui/material";
+import { Box, Card, CardMedia, Typography, Stack } from "@mui/material";
 import { useState, forwardRef } from "react";
+
+import RowCardActionButton from "./RowCardActionButton";
 
 import HelplineEmbedDialog from "@/trustlab/components/HelplineCard/HelplineEmbedDialog";
 
@@ -20,7 +22,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
   } = props;
   const hasEmbed = Boolean(embedCode);
   const [open, setOpen] = useState(false);
-  const buttonLabel = embedButtonLabel || link?.label || title;
+  const buttonLabel = embedButtonLabel || actionLabel;
 
   const handleOpen = () => {
     if (hasEmbed) {
@@ -31,6 +33,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <Card
       ref={ref}
@@ -100,29 +103,13 @@ const RowCard = forwardRef(function RowCard(props, ref) {
             }}
           />
         )}
-        {(link?.href || hasEmbed) && (
-          <Box>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              name={actionLabel}
-              component={!hasEmbed && link?.href ? Link : "button"}
-              href={!hasEmbed ? link?.href : undefined}
-              onClick={hasEmbed ? handleOpen : undefined}
-              sx={{
-                backgroundColor: "#FFDE59",
-                color: "#000",
-                border: "2px solid #000",
-                textTransform: "none",
-                fontWeight: 700,
-                "&:hover": { backgroundColor: "#ffe989" },
-              }}
-            >
-              {hasEmbed ? buttonLabel : actionLabel}
-            </Button>
-          </Box>
-        )}
+        <RowCardActionButton
+          link={link}
+          hasEmbed={hasEmbed}
+          actionLabel={actionLabel}
+          buttonLabel={buttonLabel}
+          onOpen={handleOpen}
+        />
       </Stack>
       <HelplineEmbedDialog
         closeLabel={embedCloseLabel}
