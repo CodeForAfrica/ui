@@ -113,6 +113,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
                     sx={{
                       borderTop: "1px solid #000",
                       borderRadius: 0,
+                      py: 2,
                     }}
                     actionLabel={cardActionLabel}
                     {...pb}

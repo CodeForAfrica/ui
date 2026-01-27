@@ -44,7 +44,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
         {
           textDecoration: "none",
           display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
+          flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
           bgcolor: "background.paper",
           borderRadius: "8px",
