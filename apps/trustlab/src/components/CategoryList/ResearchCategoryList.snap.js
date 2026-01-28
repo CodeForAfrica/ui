@@ -21,7 +21,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         >
           <img
             alt="Test image 1"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1v4c65z-MuiCardMedia-root"
             src="/test-image-1.jpg"
           />
           <div
@@ -29,7 +29,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
           />
         </div>
         <div
-          class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
+          class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
@@ -77,7 +77,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         >
           <img
             alt="Test image 2"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1v4c65z-MuiCardMedia-root"
             src="/test-image-2.jpg"
           />
           <div
@@ -85,7 +85,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
           />
         </div>
         <div
-          class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
+          class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
@@ -133,7 +133,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
         >
           <img
             alt="Test image 3"
-            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q7ehxc-MuiCardMedia-root"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1v4c65z-MuiCardMedia-root"
             src="/test-image-3.jpg"
           />
           <div
@@ -141,7 +141,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
           />
         </div>
         <div
-          class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
+          class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"

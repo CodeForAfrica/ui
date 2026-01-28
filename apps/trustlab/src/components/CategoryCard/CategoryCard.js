@@ -45,7 +45,7 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
             alt={image.alt ?? title}
             sx={{
               borderRadius: "10px",
-              objectFit: { xs: "cover", sm: "contain", md: "cover" },
+              objectFit: "cover",
               height: { xs: 190, sm: 160, md: 220 },
             }}
           />
@@ -71,6 +71,7 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
           height: "100%",
           display: "flex",
           flexDirection: "column",
+          "&:last-child": { pb: 0 },
         }}
       >
         <Typography sx={{ mt: 1.25, mb: 2 }} variant="h3" gutterBottom>

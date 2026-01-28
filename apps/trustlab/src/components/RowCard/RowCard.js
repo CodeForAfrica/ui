@@ -44,7 +44,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
         {
           textDecoration: "none",
           display: "flex",
-          flexDirection: { xs: "column", sm: "column", md: "row" },
+          flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
           bgcolor: "background.paper",
           borderRadius: "8px",
@@ -58,11 +58,11 @@ const RowCard = forwardRef(function RowCard(props, ref) {
         <Box
           sx={{
             flexShrink: 0,
-            width: 240,
+            width: { xs: "100%", sm: 280 },
             position: "relative",
             "& img": {
-              objectFit: "contain",
-              height: 220,
+              objectFit: "cover",
+              height: { xs: 280, md: 220 },
               display: "block",
             },
           }}

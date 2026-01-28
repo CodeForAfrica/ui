@@ -28,7 +28,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
               >
                 <img
                   alt="A"
-                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-q9n3uj-MuiCardMedia-root"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-157ywbk-MuiCardMedia-root"
                   src="/img/a.jpg"
                 />
                 <div
@@ -36,7 +36,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 />
               </div>
               <div
-                class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
+                class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1of270-MuiTypography-root"
@@ -78,7 +78,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
               >
                 <img
                   alt="B"
-                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-q9n3uj-MuiCardMedia-root"
+                  class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-157ywbk-MuiCardMedia-root"
                   src="/img/b.jpg"
                 />
                 <div
@@ -86,7 +86,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 />
               </div>
               <div
-                class="MuiCardContent-root css-76n4sy-MuiCardContent-root"
+                class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1of270-MuiTypography-root"
