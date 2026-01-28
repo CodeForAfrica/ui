@@ -27,7 +27,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
               style="--Paper-shadow: none;"
             >
               <div
-                class="MuiBox-root css-ctq3uy"
+                class="MuiBox-root css-1htvg76"
               >
                 <img
                   alt="A"
@@ -81,7 +81,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
               style="--Paper-shadow: none;"
             >
               <div
-                class="MuiBox-root css-ctq3uy"
+                class="MuiBox-root css-1htvg76"
               >
                 <img
                   alt="B"
