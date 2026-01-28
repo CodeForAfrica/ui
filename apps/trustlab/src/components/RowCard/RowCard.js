@@ -58,11 +58,11 @@ const RowCard = forwardRef(function RowCard(props, ref) {
         <Box
           sx={{
             flexShrink: 0,
-            width: 240,
+            width: { xs: "100%", sm: 240 },
             position: "relative",
             "& img": {
-              objectFit: "contain",
-              height: 220,
+              objectFit: "cover",
+              height: { xs: 330, sm: 220 },
               display: "block",
             },
           }}
