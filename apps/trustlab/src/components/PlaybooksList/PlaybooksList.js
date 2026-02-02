@@ -114,6 +114,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
                       borderTop: "1px solid #000",
                       borderRadius: 0,
                       py: 2,
+                      img: { objectFit: "cover" },
                     }}
                     actionLabel={cardActionLabel}
                     {...pb}

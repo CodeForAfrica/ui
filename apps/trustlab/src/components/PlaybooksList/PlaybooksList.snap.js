@@ -21,13 +21,13 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1j0u08r-MuiGrid2-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-1k85j6c-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-w7o9cy-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
               href="/playbooks/a"
               id="p1"
               style="--Paper-shadow: none;"
             >
               <div
-                class="MuiBox-root css-1htvg76"
+                class="MuiBox-root css-v98hkk"
               >
                 <img
                   alt="A"
@@ -75,13 +75,13 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 css-1j0u08r-MuiGrid2-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-1k85j6c-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-w7o9cy-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
               href="/playbooks/b"
               id="p2"
               style="--Paper-shadow: none;"
             >
               <div
-                class="MuiBox-root css-1htvg76"
+                class="MuiBox-root css-v98hkk"
               >
                 <img
                   alt="B"
