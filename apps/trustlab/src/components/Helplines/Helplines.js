@@ -30,6 +30,7 @@ const Helplines = forwardRef(function Helplines(
                   mb: 3,
                   borderTop: "1px solid",
                   borderRadius: 0,
+                  img: { objectFit: "contain" },
                 }}
                 {...brief}
                 image={brief.icon}
