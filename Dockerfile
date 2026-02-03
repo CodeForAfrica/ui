@@ -937,6 +937,11 @@ COPY --from=trustlab-deps /workspace/apps/trustlab/node_modules ./apps/trustlab/
 
 COPY apps/trustlab ./apps/trustlab
 
+# Copy production robots.txt if SENTRY_ENVIRONMENT is production
+RUN if [ "$SENTRY_ENVIRONMENT" = "production" ]; then \
+  cp ./apps/trustlab/public/robots.prod.txt ./apps/trustlab/public/robots.txt; \
+  fi
+
 # TODO(kilemensi): Investigate why `pnpm build --filter trustlab` causes env vars
 #                  not to be accessible and hence build to fail.
 #                  Note: `pnpm build` goes throw `turbo` first.
