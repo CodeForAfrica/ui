@@ -125,6 +125,7 @@ export async function getPageProps(api, context) {
     footer,
     navbar,
     seo,
+    robotsTxt: siteSettings?.robotsTxt || "",
   };
 }
 
