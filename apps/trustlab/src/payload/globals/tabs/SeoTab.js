@@ -46,6 +46,14 @@ const SeoTab = {
         }),
       ],
     },
+    {
+      name: "robotsTxt",
+      label: "robots.txt content",
+      type: "code",
+      required: true,
+      admin: { language: "plaintext", rows: 12 },
+      defaultValue: "User-agent: *\nDisallow: /",
+    },
   ],
 };
 

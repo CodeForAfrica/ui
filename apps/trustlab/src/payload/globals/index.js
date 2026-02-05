@@ -1,10 +1,4 @@
-import {
-  EngagementTab,
-  GeneralTab,
-  NavigationTab,
-  Robots,
-  SeoTab,
-} from "./tabs";
+import { EngagementTab, GeneralTab, NavigationTab, SeoTab } from "./tabs";
 
 import { loggedIn } from "@/trustlab/payload/access";
 import { canManageSiteSettings } from "@/trustlab/payload/access/abilities";
@@ -26,7 +20,7 @@ const SiteSettings = {
   fields: [
     {
       type: "tabs",
-      tabs: [GeneralTab, NavigationTab, EngagementTab, SeoTab, Robots],
+      tabs: [GeneralTab, NavigationTab, EngagementTab, SeoTab],
     },
   ],
 };

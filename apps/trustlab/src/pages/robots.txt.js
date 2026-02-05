@@ -1,9 +1,5 @@
 import { getServerSideProps as getPageServerSideProps } from "@/trustlab/lib/data";
 
-function Robots() {
-  return null;
-}
-
 export const getServerSideProps = async (context) => {
   return getPageServerSideProps({
     ...context,
@@ -11,4 +7,4 @@ export const getServerSideProps = async (context) => {
   });
 };
 
-export default Robots;
+export default () => null;
