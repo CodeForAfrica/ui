@@ -7,6 +7,8 @@ import {
   /* eslint-disable-next-line import/no-unresolved */
 } from "@payloadcms/plugin-seo/fields";
 
+import robotsTxtField from "../../fields/robotsTxt";
+
 const SeoTab = {
   label: "SEO",
   fields: [
@@ -46,6 +48,7 @@ const SeoTab = {
         }),
       ],
     },
+    robotsTxtField(),
   ],
 };
 
