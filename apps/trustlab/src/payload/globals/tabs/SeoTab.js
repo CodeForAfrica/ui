@@ -7,6 +7,8 @@ import {
   /* eslint-disable-next-line import/no-unresolved */
 } from "@payloadcms/plugin-seo/fields";
 
+import robotsTxtField from "../../fields/robotsTxt";
+
 const SeoTab = {
   label: "SEO",
   fields: [
@@ -46,14 +48,7 @@ const SeoTab = {
         }),
       ],
     },
-    {
-      name: "robotsTxt",
-      label: "robots.txt content",
-      type: "code",
-      required: true,
-      admin: { language: "plaintext", rows: 12 },
-      defaultValue: "User-agent: *\nDisallow: /",
-    },
+    robotsTxtField(),
   ],
 };
 

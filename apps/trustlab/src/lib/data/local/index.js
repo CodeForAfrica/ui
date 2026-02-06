@@ -1,4 +1,5 @@
 import { getPageProps, getPagePaths } from "@/trustlab/lib/data/common";
+import { processRobotsTxtContent } from "@/trustlab/lib/data/common/seo";
 import api from "@/trustlab/lib/payload";
 
 export async function getPageStaticPaths() {
@@ -21,20 +22,14 @@ export async function getServerSideProps(context) {
   if (!props) {
     return { notFound: true };
   }
-  const { res } = context;
-  const slug = context.params?.slugs?.join("/") || "index";
-
-  if (slug === "robots.txt" && props.robotsTxt) {
-    const content = props.robotsTxt;
-    res.setHeader("Content-Type", "text/plain; charset=utf-8");
-    res.write(content.endsWith("\n") ? content : `${content}\n`);
-    res.end();
-
-    return { props: {} };
-  }
   return {
     props,
   };
+}
+
+export async function getRobotsTxtContent() {
+  const siteSettings = await api.findGlobal("site-settings");
+  return processRobotsTxtContent(siteSettings?.robotsTxt);
 }
 
 export default undefined;
