@@ -61,15 +61,30 @@ export function getPageSeoFromMeta(page, settings) {
 }
 
 const formatRuleSet = (ruleSet) => {
+  if (!ruleSet) {
+    return null;
+  }
+
+  const {
+    userAgent = "*",
+    allow = "",
+    disallow = "",
+    crawlDelay = null,
+  } = ruleSet;
   return {
-    userAgent: (ruleSet?.userAgent || "*")
+    userAgent: userAgent
       .split(",")
-      .map((agent) => `${agent}`.trim()),
-    allow: (ruleSet.allow || "").split(",").map((path) => `${path}`.trim()),
-    disallow: (ruleSet.disallow || "")
+      .map((agent) => `${agent}`.trim())
+      .filter(Boolean),
+    allow: allow
       .split(",")
-      .map((path) => `${path}`.trim()),
-    crawlDelay: ruleSet.crawlDelay ?? null,
+      .map((path) => `${path}`.trim())
+      .filter(Boolean),
+    disallow: disallow
+      .split(",")
+      .map((path) => `${path}`.trim())
+      .filter(Boolean),
+    crawlDelay,
   };
 };
 
@@ -98,13 +113,29 @@ const startRule = (rules, userAgent, meta = {}) => {
 
 const updateRule = (rule, next) => Object.assign(rule, next);
 
+const appendUserAgent = (previous, value) => {
+  const normalized = value || "*";
+  if (!previous || previous === "") {
+    return normalized;
+  }
+  if (Array.isArray(previous)) {
+    return [...previous, normalized];
+  }
+  if (previous === normalized) {
+    return previous;
+  }
+  return [previous, normalized];
+};
+
 function parseRobotsToMetadata(content = "") {
   const rules = [];
   let current = null;
+  let currentHasDirectives = false;
 
   const ensureRule = () => {
     if (!current) {
       current = startRule(rules, "*", { autoUserAgent: true });
+      currentHasDirectives = false;
     }
     return current;
   };
@@ -123,9 +154,14 @@ function parseRobotsToMetadata(content = "") {
       if (current && current.autoUserAgent) {
         updateRule(current, { userAgent: value || "*" });
         delete current.autoUserAgent;
-      } else {
+      } else if (!current || currentHasDirectives) {
         current = startRule(rules, value || "*");
+      } else {
+        updateRule(current, {
+          userAgent: appendUserAgent(current.userAgent, value || "*"),
+        });
       }
+      currentHasDirectives = false;
       return;
     }
 
@@ -133,6 +169,7 @@ function parseRobotsToMetadata(content = "") {
 
     if (ALLOW_REGEX.test(key)) {
       updateRule(rule, { allow: appendDirectiveValue(rule.allow, value) });
+      currentHasDirectives = true;
       return;
     }
 
@@ -140,6 +177,7 @@ function parseRobotsToMetadata(content = "") {
       updateRule(rule, {
         disallow: appendDirectiveValue(rule.disallow, value),
       });
+      currentHasDirectives = true;
       return;
     }
 
@@ -148,6 +186,7 @@ function parseRobotsToMetadata(content = "") {
       updateRule(rule, {
         crawlDelay: Number.isFinite(numeric) ? numeric : value,
       });
+      currentHasDirectives = true;
       return;
     }
 
@@ -156,6 +195,7 @@ function parseRobotsToMetadata(content = "") {
       updateRule(rule, {
         cacheDelay: Number.isFinite(numeric) ? numeric : value,
       });
+      currentHasDirectives = true;
       return;
     }
 
@@ -163,6 +203,7 @@ function parseRobotsToMetadata(content = "") {
       updateRule(rule, {
         visitTime: appendDirectiveValue(rule.visitTime, value),
       });
+      currentHasDirectives = true;
     }
   });
 
@@ -171,21 +212,20 @@ function parseRobotsToMetadata(content = "") {
     return cleanRule;
   });
 
-  console.log(JSON.stringify(sanitizedRules, null, 2));
   return { rules: sanitizedRules };
 }
 
 export function processRobotsTxtContent(robotsTxt) {
   if (robotsTxt?.format === "object") {
-    return (
-      {
-        rules: robotsTxt.objectContent.ruleSet?.map((entry) =>
-          formatRuleSet(entry.rule),
-        ),
-        sitemap: robotsTxt.objectContent.sitemap ?? null,
-        host: robotsTxt.objectContent.host ?? null,
-      } || []
-    );
+    return {
+      rules: robotsTxt.objectContent.ruleSet?.map((entry) =>
+        formatRuleSet(entry.rule),
+      ),
+      sitemap: (robotsTxt.objectContent.sitemap || [])
+        .split(",")
+        .map((s) => s.trim()),
+      host: robotsTxt.objectContent.host ?? null,
+    };
   }
   return parseRobotsToMetadata(robotsTxt?.textContent || "");
 }
