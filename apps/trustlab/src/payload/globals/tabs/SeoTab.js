@@ -7,7 +7,25 @@ import {
   /* eslint-disable-next-line import/no-unresolved */
 } from "@payloadcms/plugin-seo/fields";
 
-import robotsTxtField from "../../fields/robotsTxt";
+import parseRobotsToMetadata from "@/trustlab/utils/parseRobotsTxt";
+
+const validateRobotsTxt = (value) => {
+  if (!value?.trim()) {
+    return true;
+  }
+  const result = parseRobotsToMetadata(value, { collectDiagnostics: true });
+  if (!result.errors?.length) {
+    return true;
+  }
+  const message = result.errors
+    .map(({ line, directive, reason }) =>
+      [`line ${line}`, directive ? `directive "${directive}"` : null, reason]
+        .filter(Boolean)
+        .join(" "),
+    )
+    .join("; ");
+  return `Invalid robots.txt: ${message}`;
+};
 
 const SeoTab = {
   label: "SEO",
@@ -48,7 +66,18 @@ const SeoTab = {
         }),
       ],
     },
-    robotsTxtField(),
+    {
+      name: "robotsTxt",
+      label: "robots.txt content",
+      type: "code",
+      defaultValue: "User-agent: *\nDisallow: /",
+      admin: {
+        language: "plaintext",
+        rows: 14,
+        description: "Paste the exact robots.txt text to serve.",
+      },
+      validate: validateRobotsTxt,
+    },
   ],
 };
 

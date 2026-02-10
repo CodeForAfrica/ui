@@ -1,5 +1,5 @@
 import { getPageProps, getPagePaths } from "@/trustlab/lib/data/common";
-import { processRobotsTxtContent } from "@/trustlab/lib/data/common/seo";
+import { parseRobotsTxt } from "@/trustlab/lib/data/common/seo";
 import api from "@/trustlab/lib/payload";
 
 export async function getPageStaticPaths() {
@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 
 export async function getRobotsTxtContent() {
   const siteSettings = await api.findGlobal("site-settings");
-  return processRobotsTxtContent(siteSettings?.robotsTxt);
+  return parseRobotsTxt(siteSettings?.robotsTxt);
 }
 
 export default undefined;
