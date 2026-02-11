@@ -1,4 +1,5 @@
 import { site } from "@/trustlab/utils";
+import parseRobotsToMetadata from "@/trustlab/utils/parseRobotsTxt";
 
 const HOMEPAGE_TITLES = ["home", "homepage", "index"];
 
@@ -58,6 +59,10 @@ export function getPageSeoFromMeta(page, settings) {
     canonical,
     openGraph,
   };
+}
+
+export function parseRobotsTxt(content = "") {
+  return parseRobotsToMetadata(content);
 }
 
 export default undefined;
