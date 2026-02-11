@@ -17,17 +17,7 @@ export async function getPageStaticProps(context) {
   };
 }
 
-export async function getServerSideProps(context) {
-  const props = await getPageProps(api, context);
-  if (!props) {
-    return { notFound: true };
-  }
-  return {
-    props,
-  };
-}
-
-export async function getRobotsTxtContent() {
+export async function getRobotsTxt() {
   const siteSettings = await api.findGlobal("site-settings");
   return parseRobotsTxt(siteSettings?.robotsTxt);
 }

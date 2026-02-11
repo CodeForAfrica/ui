@@ -1,8 +1,3 @@
-export {
-  getPageStaticPaths,
-  getPageStaticProps,
-  getServerSideProps,
-  getRobotsTxtContent,
-} from "./local";
+export { getPageStaticPaths, getPageStaticProps, getRobotsTxt } from "./local";
 
 export default undefined;

@@ -1,203 +1,191 @@
-const USER_AGENT_REGEX = /^user-agent$/i;
-const ALLOW_REGEX = /^allow$/i;
-const DISALLOW_REGEX = /^disallow$/i;
-const CRAWL_DELAY_REGEX = /^crawl-delay$/i;
-const CACHE_DELAY_REGEX = /^cache-delay$/i;
-const VISIT_TIME_REGEX = /^visit-time$/i;
-const SITEMAP_REGEX = /^sitemap$/i;
-const HOST_REGEX = /^host$/i;
-const CLEAN_PARAM_REGEX = /^clean-param$/i;
-
 const KNOWN_DIRECTIVES = new Set([
   "user-agent",
   "allow",
   "disallow",
   "crawl-delay",
-  "cache-delay",
-  "visit-time",
   "sitemap",
   "host",
-  "clean-param",
+  "cache-delay",
 ]);
 
-const normalizeString = (value) =>
+const normalize = (value) =>
   typeof value === "string" ? value : `${value ?? ""}`;
 
-const appendDirectiveValue = (previous, value) => {
-  if (previous === undefined || previous === null || previous === "") {
-    return value;
+const unwrap = (list) => {
+  if (!Array.isArray(list)) {
+    return list;
   }
-  if (Array.isArray(previous)) {
-    return [...previous, value];
+  if (list.length === 0) {
+    return undefined;
   }
-  return [previous, value];
+  return list.length === 1 ? list[0] : list;
 };
 
-const appendUserAgent = (previous, value) => {
-  const normalized = value || "*";
-  if (!previous || previous === "") {
-    return normalized;
+const pushError = (errors, line, directive, reason) => {
+  if (!errors) {
+    return;
   }
-  if (Array.isArray(previous)) {
-    return [...previous, normalized];
-  }
-  if (previous === normalized) {
-    return previous;
-  }
-  return [previous, normalized];
+  errors.push({ line, directive, reason });
 };
 
-const startRule = (rules, userAgent, meta = {}) => {
-  const rule = { userAgent: userAgent || "*", ...meta };
-  rules.push(rule);
-  return rule;
-};
-
-const updateRule = (rule, next) => Object.assign(rule, next);
-
-export default function parseRobotsToMetadata(rawContent = "", options = {}) {
+/**
+ * Parses a robots.txt string into a Next.js-compatible robots metadata object.
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots#robots-object
+ *
+ * @param {string} raw - robots.txt content
+ * @param {{ collectDiagnostics?: boolean }} options
+ * @returns {{ rules: import("next").Metadata["robots"]["rules"], sitemap?: string | string[], host?: string, errors?: Array<{ line: number, directive?: string, reason: string }> }}
+ */
+export default function parseRobotsToNextJs(raw = "", options = {}) {
   const { collectDiagnostics = false } = options;
   const diagnostics = collectDiagnostics ? [] : undefined;
-  const content = normalizeString(rawContent);
-  const rules = [];
-  const sitemap = [];
-  const cleanParams = [];
-  let host = null;
-  let current = null;
-  let currentHasDirectives = false;
+  const lines = normalize(raw).replace(/\r\n?/g, "\n").split("\n");
 
-  const ensureRule = () => {
-    if (!current) {
-      current = startRule(rules, "*", { autoUserAgent: true });
-      currentHasDirectives = false;
+  const groups = []; // { userAgent: string[], allow: string[], disallow: string[], crawlDelay?: number }
+  const sitemaps = [];
+  let host = null;
+  let cur = null;
+  let curHasDirectives = false;
+
+  const ensureGroup = (lineNumber, directive) => {
+    if (!cur) {
+      cur = { userAgent: ["*"], allow: [], disallow: [] };
+      groups.push(cur);
+      curHasDirectives = false;
+      pushError(
+        diagnostics,
+        lineNumber,
+        directive,
+        "Directive applied before any User-agent; defaulting to *",
+      );
     }
-    return current;
+    return cur;
   };
 
-  content
-    .replace(/\r\n?/g, "\n")
-    .split("\n")
-    .forEach((rawLine, index) => {
-      const line = rawLine.trim();
-      if (!line || line.startsWith("#")) {
-        return;
-      }
+  lines.forEach((rawLine, index) => {
+    const lineNumber = index + 1;
+    const line = rawLine.replace(/#.*$/, "").trim();
+    if (!line) {
+      return;
+    }
 
-      const separatorIndex = line.indexOf(":");
-      if (separatorIndex === -1) {
-        if (diagnostics) {
-          diagnostics.push({
-            line: index + 1,
-            directive: line,
-            reason: 'Missing ":" separator',
-          });
-        }
-        return;
-      }
+    const sep = line.indexOf(":");
+    if (sep === -1) {
+      pushError(diagnostics, lineNumber, line, 'Missing ":" separator');
+      return;
+    }
 
-      const key = line.slice(0, separatorIndex).trim();
-      const keyLower = key.toLowerCase();
-      const value = line.slice(separatorIndex + 1).trim();
+    const key = line.slice(0, sep).trim().toLowerCase();
+    const val = line.slice(sep + 1).trim();
 
-      if (!KNOWN_DIRECTIVES.has(keyLower)) {
-        if (diagnostics) {
-          diagnostics.push({
-            line: index + 1,
-            directive: key,
-            reason: "Unknown directive",
-          });
-        }
-        return;
-      }
+    if (!KNOWN_DIRECTIVES.has(key)) {
+      pushError(diagnostics, lineNumber, key || line, "Unknown directive");
+      return;
+    }
 
-      if (SITEMAP_REGEX.test(key)) {
-        if (value) {
-          sitemap.push(value);
-        }
-        return;
-      }
+    if (!val && key !== "disallow") {
+      pushError(diagnostics, lineNumber, key, "Empty directive value");
+      return;
+    }
 
-      if (HOST_REGEX.test(key)) {
-        if (value) {
-          host = value;
-        }
-        return;
-      }
+    switch (key) {
+      case "sitemap":
+        sitemaps.push(val);
+        break;
 
-      if (CLEAN_PARAM_REGEX.test(key)) {
-        if (value) {
-          cleanParams.push(value);
-        }
-        return;
-      }
-
-      if (USER_AGENT_REGEX.test(key)) {
-        if (current && current.autoUserAgent) {
-          updateRule(current, { userAgent: value || "*" });
-          delete current.autoUserAgent;
-        } else if (!current || currentHasDirectives) {
-          current = startRule(rules, value || "*");
+      case "host":
+        if (host && host !== val) {
+          pushError(
+            diagnostics,
+            lineNumber,
+            key,
+            `Host already set to "${host}"`,
+          );
         } else {
-          updateRule(current, {
-            userAgent: appendUserAgent(current.userAgent, value || "*"),
-          });
+          host = val;
         }
-        currentHasDirectives = false;
-        return;
+        break;
+
+      case "user-agent":
+        if (!val) {
+          pushError(diagnostics, lineNumber, key, "User-agent cannot be empty");
+          break;
+        }
+        if (!cur || curHasDirectives) {
+          cur = { userAgent: [val], allow: [], disallow: [] };
+          groups.push(cur);
+          curHasDirectives = false;
+        } else {
+          cur.userAgent.push(val);
+        }
+        break;
+      case "allow":
+        ensureGroup(lineNumber, key).allow.push(val);
+        curHasDirectives = true;
+        break;
+
+      case "disallow":
+        ensureGroup(lineNumber, key).disallow.push(val);
+        curHasDirectives = true;
+        break;
+      case "crawl-delay": {
+        const n = Number(val);
+        if (Number.isFinite(n)) {
+          ensureGroup(lineNumber, key).crawlDelay = n;
+        } else {
+          pushError(
+            diagnostics,
+            lineNumber,
+            key,
+            "Crawl-delay must be numeric",
+          );
+        }
+        curHasDirectives = true;
+        break;
       }
 
-      const rule = ensureRule();
+      case "cache-delay":
+        pushError(
+          diagnostics,
+          lineNumber,
+          key,
+          "Directive not supported in Next.js robots metadata",
+        );
+        break;
 
-      if (ALLOW_REGEX.test(key)) {
-        updateRule(rule, { allow: appendDirectiveValue(rule.allow, value) });
-        currentHasDirectives = true;
-        return;
-      }
-
-      if (DISALLOW_REGEX.test(key)) {
-        updateRule(rule, {
-          disallow: appendDirectiveValue(rule.disallow, value),
-        });
-        currentHasDirectives = true;
-        return;
-      }
-
-      if (CRAWL_DELAY_REGEX.test(key)) {
-        const numeric = Number(value);
-        updateRule(rule, {
-          crawlDelay: Number.isFinite(numeric) ? numeric : value,
-        });
-        currentHasDirectives = true;
-        return;
-      }
-
-      if (CACHE_DELAY_REGEX.test(key)) {
-        const numeric = Number(value);
-        updateRule(rule, {
-          cacheDelay: Number.isFinite(numeric) ? numeric : value,
-        });
-        currentHasDirectives = true;
-        return;
-      }
-
-      if (VISIT_TIME_REGEX.test(key)) {
-        updateRule(rule, {
-          visitTime: appendDirectiveValue(rule.visitTime, value),
-        });
-        currentHasDirectives = true;
-      }
-    });
-
-  const sanitizedRules = rules.map((ruleEntry) => {
-    const { autoUserAgent, ...cleanRule } = ruleEntry;
-    return cleanRule;
+      default:
+        break;
+    }
   });
 
-  return {
-    rules: sanitizedRules,
-    sitemap,
-    host,
-    cleanParams,
-    errors: diagnostics,
+  const rules = groups.map((g) => {
+    const rule = { userAgent: unwrap(g.userAgent) };
+    const allow = unwrap(g.allow);
+    const disallow = unwrap(g.disallow);
+    if (allow !== undefined && allow !== "") {
+      rule.allow = allow;
+    }
+    if (disallow !== undefined && disallow !== "") {
+      rule.disallow = disallow;
+    }
+    if (g.crawlDelay !== undefined) {
+      rule.crawlDelay = g.crawlDelay;
+    }
+    return rule;
+  });
+
+  const result = {
+    rules: rules.length === 1 ? rules[0] : rules,
   };
+  const sitemap = unwrap(sitemaps);
+  if (sitemap !== undefined) {
+    result.sitemap = sitemap;
+  }
+  if (host) {
+    result.host = host;
+  }
+  if (diagnostics) {
+    result.errors = diagnostics;
+  }
+  return result;
 }

@@ -1,3 +1,3 @@
-import { getRobotsTxtContent } from "@/trustlab/lib/data";
+import { getRobotsTxt } from "@/trustlab/lib/data";
 
-export default getRobotsTxtContent;
+export default getRobotsTxt;

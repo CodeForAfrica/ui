@@ -68,13 +68,13 @@ const SeoTab = {
     },
     {
       name: "robotsTxt",
-      label: "robots.txt content",
+      label: "robots.txt",
       type: "code",
       defaultValue: "User-agent: *\nDisallow: /",
       admin: {
         language: "plaintext",
         rows: 14,
-        description: "Paste the exact robots.txt text to serve.",
+        description: "Enter the exact robots.txt text to serve.",
       },
       validate: validateRobotsTxt,
     },
