@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - chore/bump_version_to_0.0.7
 
 concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref }}"
