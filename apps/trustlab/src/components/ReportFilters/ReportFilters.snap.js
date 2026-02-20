@@ -96,7 +96,7 @@ exports[`ReportFilters renders unchanged 1`] = `
       class="MuiStack-root css-1x34icn-MuiStack-root"
     >
       <div
-        class="MuiBox-root css-3772j1"
+        class="MuiBox-root css-1sl536g"
       />
     </div>
   </div>

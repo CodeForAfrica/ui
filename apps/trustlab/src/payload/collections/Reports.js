@@ -53,6 +53,25 @@ const Reports = {
         position: "sidebar",
       },
     },
+    image({
+      overrides: {
+        name: "pageHeaderImage",
+        label: "Page Header Image",
+        description: "Image displayed at the top of the report page",
+        admin: {
+          position: "sidebar",
+        },
+      },
+    }),
+    richText({
+      name: "pageHeaderDescription",
+      label: "Page Header Description",
+      description: "Rich text content displayed below the page header image",
+      localized: true,
+      admin: {
+        position: "sidebar",
+      },
+    }),
   ],
   timestamps: true,
 };
