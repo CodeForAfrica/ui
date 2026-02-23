@@ -219,7 +219,13 @@ const ReportFilters = React.forwardRef(function ReportFilters(
         alignItems="center"
         justifyContent="space-between"
       >
-        <Box display="flex" flexWrap="wrap" gap={2} flex={1}>
+        <Box
+          display="flex"
+          alignItems="center"
+          flexWrap="wrap"
+          gap={2}
+          flex={1}
+        >
           {selectedYears.map((y) => (
             <Chip
               key={`year-${y}`}
@@ -292,7 +298,7 @@ const ReportFilters = React.forwardRef(function ReportFilters(
                 }}
                 component={CloseIcon}
               />
-              {clearFiltersLabel || "Clear Filters"}
+              {clearFiltersLabel || "Clear Filter(s)"}
             </Button>
           )}
         </Box>

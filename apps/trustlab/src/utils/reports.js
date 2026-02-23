@@ -60,6 +60,8 @@ export async function getReport(api, slug) {
           backgroundColor: "#010101",
           textColor: "#FFFFFF",
           id: report.id,
+          description: report.pageHeaderDescription || "",
+          image: report.pageHeaderImage || null,
         },
         {
           blockType: "page-overview",
