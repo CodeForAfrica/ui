@@ -58,6 +58,14 @@ const nextConfig = {
     "@commons-ui/next",
     "@commons-ui/payload",
   ],
+  async rewrites() {
+    return [
+      {
+        source: "/robots.txt",
+        destination: "/api/v1/robots",
+      },
+    ];
+  },
 };
 
 export default withPayload(
