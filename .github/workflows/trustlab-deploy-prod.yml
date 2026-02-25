@@ -18,6 +18,7 @@ env:
   IMAGE_NAME: "codeforafrica/trustlab-ui"
   VERSION_FILE_NAME: "./apps/trustlab/package.json"
   NEXT_PUBLIC_APP_URL: "https://trustlab.africa"
+  NEXT_PUBLIC_SEO_DISABLED: "false"
   SENTRY_ENVIRONMENT: "production"
 
 jobs:
@@ -83,6 +84,7 @@ jobs:
             PAYLOAD_CSRF=${{ vars.TRUSTLAB_PAYLOAD_CSRF }}
             NEXT_PUBLIC_APP_URL=${{ env.NEXT_PUBLIC_APP_URL }}
             NEXT_PUBLIC_SENTRY_DSN=${{ secrets.TRUSTLAB_SENTRY_DSN }}
+            NEXT_PUBLIC_SEO_DISABLED=${{ env.NEXT_PUBLIC_SEO_DISABLED }}
             SENTRY_ENVIRONMENT=${{ env.SENTRY_ENVIRONMENT }}
           cache-from: type=local,src=${{ runner.temp }}/.buildx-cache
           cache-to: type=local,dest=${{ runner.temp }}/.buildx-cache-new,mode=max
