@@ -12,7 +12,7 @@ on:
 
 jobs:
   claude-review:
-    if: github.event.pull_request.head.repo.fork == false
+    if: github.event.pull_request.head.repo.fork == false && github.event.pull_request.user.type != 'Bot'
     runs-on: ubuntu-latest
     permissions:
       contents: read
