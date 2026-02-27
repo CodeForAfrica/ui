@@ -98,7 +98,6 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     );
   }
 
-  console.log(notFoundSubtitleLabel);
   return (
     <Box ref={listRef}>
       {hasFilters ? (
