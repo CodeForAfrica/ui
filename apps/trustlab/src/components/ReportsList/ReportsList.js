@@ -57,21 +57,18 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
 
   const handlePageChange = (value) => {
     setPage(value);
-
-    const urlParams = new URLSearchParams(router.query);
+    const searchParams = new URLSearchParams(window.location.search);
     if (value === 1) {
-      urlParams.delete("page");
+      searchParams.delete("page");
     } else {
-      urlParams.set("page", value);
+      searchParams.set("page", value);
     }
-    router.push(
-      {
-        pathname: router.pathname,
-        query: urlParams.toString(),
-      },
-      undefined,
-      { shallow: true, scroll: false },
-    );
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
     if (listRef.current) {
       listRef.current.scrollIntoView({
         behavior: "smooth",
