@@ -20,7 +20,7 @@ BUILDKIT_PROGRESS="${BUILDKIT_PROGRESS:-plain}"
 GIT_REVISION="$(git rev-parse --short HEAD)" \
 BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
 BUILDKIT_PROGRESS="${BUILDKIT_PROGRESS}" \
-  docker buildx bake --file docker-bake.hcl "$APP"
+  docker buildx bake --file docker-bake.hcl --load "$APP"
 
 COMPOSE_OPTS=(--env-file "$APP_ENV")
 # $APP_ENV_LOCAL is optional, only include if it exists.
