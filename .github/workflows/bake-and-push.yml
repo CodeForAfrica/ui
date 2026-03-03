@@ -1,5 +1,9 @@
 name: Bake and Push
 
+permissions:
+  contents: read
+  actions: read
+
 # Reusable workflow for building and pushing a bake target.
 # Replaces build-docker-image.yml for apps migrated to docker-bake.hcl.
 #
