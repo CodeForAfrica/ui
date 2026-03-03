@@ -141,7 +141,7 @@ services:
       - 3000:3000
 
   techlabblog:
-    image: codeforafrica/techlabblog:local
+    image: codeforafrica/techlabblog:${TAG:-local}
     env_file:
       - path: ./apps/techlabblog/.env
       - path: ./apps/techlabblog/.env.local
