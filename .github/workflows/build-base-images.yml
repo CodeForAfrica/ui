@@ -1,5 +1,8 @@
 name: Build Base Images
 
+permissions:
+  contents: read
+
 # Builds and pushes ui-builder-base and ui-runner-base to DockerHub.
 #
 # Base images have an independent version lifecycle from apps — they only change
