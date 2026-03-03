@@ -27,6 +27,8 @@ jobs:
   # a version bump triggers a prod deploy.
   version-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       changed: ${{ steps.check.outputs.changed }}
       version: ${{ steps.check.outputs.version }}
@@ -75,6 +77,8 @@ jobs:
   # base images are built inline (slower but correct).
   build:
     needs: version-check
+    permissions:
+      contents: read
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: techlabblog
@@ -97,6 +101,7 @@ jobs:
   deploy-dev:
     if: false
     needs: build
+    permissions: {}
     uses: ./.github/workflows/push-to-dokku.yml
     with:
       git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog-ui"
@@ -108,6 +113,7 @@ jobs:
   deploy-prod:
     needs: [version-check, build]
     if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
     uses: ./.github/workflows/push-to-dokku.yml
     with:
       git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/techlabblog-ui"
