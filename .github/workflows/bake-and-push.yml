@@ -1,0 +1,104 @@
+name: Bake and Push
+
+# Reusable workflow for building and pushing a bake target.
+# Replaces build-docker-image.yml for apps migrated to docker-bake.hcl.
+#
+# Callers pass app-specific build args via the `set` input using GitHub Variables
+# (vars.*) for NEXT_PUBLIC_* values — these are public by design and belong in
+# vars, not secrets. Sentry secrets are declared explicitly below.
+
+on:
+  workflow_call:
+    inputs:
+      target:
+        required: true
+        type: string
+        description: "Bake target name (e.g. techlabblog)"
+      tag:
+        required: true
+        type: string
+        description: "Image tag to push (e.g. git SHA or semver)"
+      base_tag:
+        required: false
+        type: string
+        default: ""
+        description: >
+          Pre-built base image tag (BASE_TAG). When set, pulls ui-builder-base
+          and ui-runner-base from the registry instead of building them inline.
+          Use this in CI to avoid rebuilding base images on every app push.
+          Omit (or leave empty) to build base images inline — useful when
+          testing base image changes locally via act or in build-base-images.yml.
+      platforms:
+        required: false
+        type: string
+        default: "linux/amd64,linux/arm64"
+        description: "Target platforms (comma-separated). Override to build for a single platform."
+      set:
+        required: false
+        type: string
+        default: ""
+        description: >
+          Extra bake --set overrides (newline-separated target.field=value pairs).
+          Use this to inject app-specific build args, e.g.:
+            techlabblog.args.NEXT_PUBLIC_APP_URL=${{ vars.TECHLABBLOG_APP_URL }}
+          Note: GitHub Variables (vars.*) are available here; secrets are not —
+          pass truly secret build args via the declared secrets inputs below.
+    secrets:
+      DOCKER_HUB_USERNAME:
+        required: true
+      DOCKER_HUB_ACCESS_TOKEN:
+        required: true
+      # Sentry secrets: sourced from env by BuildKit secret mounts in Dockerfiles
+      # (--mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN).
+      # Mark required: false so apps without Sentry can use this workflow too.
+      SENTRY_AUTH_TOKEN:
+        required: false
+      SENTRY_ORG:
+        required: false
+      SENTRY_PROJECT:
+        required: false
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Build metadata
+        id: meta
+        run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-qemu-action@v3
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build and push
+        uses: docker/bake-action@v6
+        env:
+          TAG: ${{ inputs.tag }}
+          BASE_TAG: ${{ inputs.base_tag }}
+          GIT_REVISION: ${{ github.sha }}
+          BUILD_DATE: ${{ steps.meta.outputs.date }}
+          # Sentry secrets: exposed to BuildKit as secret mounts (not build args).
+          # See --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN
+          # in app Dockerfiles.
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        with:
+          files: docker-bake.hcl
+          targets: ${{ inputs.target }}
+          push: true
+          set: |
+            *.cache-from=type=gha,scope=${{ inputs.target }}
+            *.cache-to=type=gha,mode=max,scope=${{ inputs.target }}
+            *.platforms=${{ inputs.platforms }}
+            ${{ inputs.set }}

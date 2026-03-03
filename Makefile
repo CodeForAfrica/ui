@@ -37,7 +37,7 @@ roboshield:
 	./scripts/dc.sh roboshield
 
 techlabblog:
-	./scripts/dc.sh techlabblog
+	./scripts/bake-up.sh techlabblog
 
 trustlab:
 	./scripts/dc.sh trustlab

@@ -1,13 +1,67 @@
-# Include application-specific Dockerfiles e.g. charterafrica.Dockerfile
+
+# -----------------------------------------------------------------------------
+# Docker build context filtering for monorepo builds
+# Goal: keep context small while preserving files needed by turbo prune/build.
+# -----------------------------------------------------------------------------
+
+# Exclude Dockerfiles by default, then explicitly keep the ones bake uses.
 *Dockerfile
+!Dockerfile
+!docker/base.Dockerfile
+!docker/apps/*.Dockerfile
+
+# Docker metadata
 .dockerignore
+
+# VCS / CI / editor metadata (not needed in image builds)
+.git
+.github
+.DS_Store
+**/.vscode
+**/.idea
+
+# Dependency directories
 **/node_modules
+**/.pnpm-store
+
+# Package manager / tooling logs
 npm-debug.log
 .pnpm-debug.log
+**/*.log
+
+# Local docs / notes not used for builds
 README.md
-**/.env.local
+docker/README.md
+
+# Local env overrides (sensitive / machine-specific)
+# Keep checked-in .env files included; only ignore .env.local
+**/.env*.local
+
+# Framework/build caches and outputs
 **/.next
 **/.turbo
-**/.vscode
+**/.cache
+**/.swc
+**/.eslintcache
+**/.nyc_output
 **/build
+**/coverage
+**/dist
+**/storybook-static
+**/*.tsbuildinfo
+
+# App/static media export folders (if generated)
 **/media
+
+# Databases / sqlite artifacts
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# Temp folders
+**/tmp
+**/temp
+
+# Local-only repo artifacts
+mongo-keyfile
+

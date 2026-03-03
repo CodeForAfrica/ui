@@ -1,0 +1,58 @@
+name: Build Base Images
+
+# Builds and pushes ui-builder-base and ui-runner-base to DockerHub.
+#
+# Base images have an independent version lifecycle from apps — they only change
+# when Node.js, pnpm, Alpine, or turbo tooling changes. They are NOT rebuilt on
+# every app push. See docker/README.md for the full rationale.
+#
+# Workflow:
+#   1. Update NODE_VERSION / PNPM_VERSION / TURBO_VERSION in docker-bake.hcl.
+#   2. Run this workflow with the next version tag (e.g. v4).
+#   3. Update BASE_TAG in app CI workflows (e.g. techlabblog.yml) to the new tag.
+#
+# The tag (e.g. v3) is separate from app image tags and from the Node version
+# string. It tracks the iteration of the base image configuration.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Base image tag to publish (e.g. v3)"
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build metadata
+        id: meta
+        run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-qemu-action@v3
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build and push base images
+        uses: docker/bake-action@v6
+        env:
+          TAG: ${{ inputs.tag }}
+          GIT_REVISION: ${{ github.sha }}
+          BUILD_DATE: ${{ steps.meta.outputs.date }}
+        with:
+          files: docker-bake.hcl
+          targets: base
+          push: true
+          set: |
+            *.cache-from=type=gha,scope=ui-base
+            *.cache-to=type=gha,mode=max,scope=ui-base
+            *.platforms=linux/amd64,linux/arm64
