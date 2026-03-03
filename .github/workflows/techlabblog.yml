@@ -12,6 +12,9 @@ on:
       - ".github/workflows/techlabblog.yml"
       - ".github/workflows/bake-and-push.yml"
 
+permissions:
+  contents: read
+
 # Cancel in-progress runs for the same branch so a fast-follow push doesn't
 # queue behind a slow build.
 concurrency:
