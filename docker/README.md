@@ -115,7 +115,7 @@ target "<app>" {
 
 ```yaml
 <app>:
-  image: codeforafrica/<app>:local
+  image: codeforafrica/<app>:${TAG:-local}
   env_file:
     - path: ./apps/<app>/.env
     - path: ./apps/<app>/.env.local
