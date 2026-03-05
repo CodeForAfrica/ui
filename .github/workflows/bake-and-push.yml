@@ -106,5 +106,5 @@ jobs:
           set: |
             *.cache-from=type=gha,scope=${{ inputs.target }}
             *.cache-to=type=gha,mode=max,scope=${{ inputs.target }}
-            *.platforms=${{ inputs.platforms }}
+            *.platform=${{ inputs.platforms }}
             ${{ inputs.set }}
