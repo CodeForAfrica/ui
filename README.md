@@ -2,14 +2,15 @@
 
 ## Applications
 
-| Name                                                    | Description                                               |
-| ------------------------------------------------------- | --------------------------------------------------------- |
-| [**charterAFRICA**](./apps/charterafrica/)              | The largest digital database for communities              |
-| [**Code for Africa**](./apps/codeforafrica/)            | Africa's largest network of civic tech and open data labs |
-| [**ClimateMapped.AFRICA**](./apps/climatemappedafrica/) | Empowering action through climate data                    |
-| [**PesaYetu**](./apps/pesayetu/)                        | Data to hold your government accountable                  |
-| [**RoboShield**](./apps/roboshield/)                    | Guard your website against AI Bots                        |
-| [**TwoopsTracker**](./apps/twooptracker/)               | Track the trolls & sock-puppets poisoning our democracies |
+| Name                                                    | Description                                                                  |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [**charterAFRICA**](./apps/charterafrica/)              | The largest digital database for communities                                 |
+| [**ClimateMapped.AFRICA**](./apps/climatemappedafrica/) | Empowering action through climate data                                       |
+| [**Code for Africa**](./apps/codeforafrica/)            | Africa's largest network of civic tech and open data labs                    |
+| [**PesaYetu**](./apps/pesayetu/)                        | Data to hold your government accountable                                     |
+| [**RoboShield**](./apps/roboshield/)                    | Guard your website against AI Bots                                           |
+| [**TrustLab**](./apps/trustlab/)                        | Empowering CSOs and CBOs to tackle digital threats facing their communities. |
+| [**TwoopsTracker**](./apps/twoopstracker/)              | Track the trolls & sock-puppets poisoning our democracies                    |
 
 ## Blogs
 
@@ -59,6 +60,24 @@ To test all apps and packages, run the following command:
 pnpm test
 ```
 
+### Docker
+
+Use `pnpm dev` for day-to-day development. Docker is for deployment image builds only.
+
+Using `techlabblog` app as an example, to build and test the image locally, run:
+
+```bash
+make techlabblog
+```
+
+This command uses [`bake-up.sh`](./scripts/bake-up.sh) script to:
+
+1. build and tag `codeforafrica/techlabblog:local` image using `docker buildx bake techlabblog`, and then
+2. uses the built image to run `docker compose up techlabblog`.
+
+See [docker/README.md](./docker/README.md) for full details including CI commands and
+the pattern for migrating additional apps.
+
 ### Adding changesets
 
 To add changeset, run the following command. This will let you choose what package you want to publish
@@ -67,7 +86,7 @@ To add changeset, run the following command. This will let you choose what packa
 pnpm changeset
 ```
 
-### Releasing and publishng to npm
+### Releasing and publishing to npm
 
 To publish you packages, run
 

@@ -1,0 +1,121 @@
+name: TechLab Blog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/techlabblog/**"
+      - "docker/apps/techlabblog.Dockerfile"
+      - "docker/base.Dockerfile"
+      - "docker-bake.hcl"
+      - ".github/workflows/techlabblog.yml"
+      - ".github/workflows/bake-and-push.yml"
+
+permissions:
+  contents: read
+
+# Cancel in-progress runs for the same branch so a fast-follow push doesn't
+# queue behind a slow build.
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # Checks whether apps/techlabblog/package.json has a version bump.
+  # The prod deploy is gated on this: every push triggers a build, but only
+  # a version bump triggers a prod deploy.
+  version-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # EndBug/version-check requires Node.js — it ships as a JS action.
+      # https://github.com/EndBug/version-check#github-workflow
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v2
+        with:
+          # Search every commit's diff, not just the commit message. This catches
+          # version bumps that aren't mentioned in the commit message.
+          diff-search: true
+          file-name: apps/techlabblog/package.json
+
+  # Builds the techlabblog image and pushes it to DockerHub. Always tagged with
+  # the git SHA. When the version is bumped, also tagged with the semver and
+  # `latest` — all three pushed in a single bake invocation.
+  #
+  # Tag strategy:
+  #   codeforafrica/techlabblog:<sha>      — every push (immutable, for tracing)
+  #   codeforafrica/techlabblog:<version>  — version bump only (immutable, for releases)
+  #   codeforafrica/techlabblog:latest     — version bump only (mutable, for convenience)
+  #
+  # NEXT_PUBLIC_* vars are baked into the JS bundle at build time and cannot
+  # be changed by restarting the container. Configure them as GitHub Variables
+  # (Settings > Variables > Actions) rather than secrets since they are public
+  # by definition (they ship to the browser).
+  #
+  # Required GitHub Variables:
+  #   TECHLABBLOG_SENTRY_DSN    — public Sentry DSN (safe to use vars, not secrets)
+  #
+  # Required GitHub Secrets (for Sentry source map upload during build):
+  #   SENTRY_AUTH_TOKEN, SENTRY_ORG, TECHLABBLOG_SENTRY_PROJECT
+  #
+  # TODO: Set BASE_TAG below to a published base image version (e.g. v3) once
+  # base images are built and pushed via build-base-images.yml. Until then,
+  # base images are built inline (slower but correct).
+  build:
+    needs: version-check
+    permissions:
+      contents: read
+    uses: ./.github/workflows/bake-and-push.yml
+    with:
+      target: techlabblog
+      tag: ${{ github.sha }}
+      # base_tag: v3
+      set: |
+        techlabblog.args.NEXT_PUBLIC_SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags[]=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags[]=codeforafrica/techlabblog:latest' || '' }}
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.TECHLABBLOG_SENTRY_PROJECT }}
+
+  # TODO: No DEV Dokku app exists for techlabblog yet.
+  # Enable this job (remove `if: false`) when the app is created on ui-1.dev
+  # and update the git_remote_url below.
+  deploy-dev:
+    if: false
+    needs: build
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog-ui"
+      deploy_docker_image: "codeforafrica/techlabblog:${{ github.sha }}"
+    secrets: inherit
+
+  # Deploys to production when the package.json version is bumped.
+  # Both version-check and build must pass before this job runs.
+  deploy-prod:
+    needs: [version-check, build]
+    if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/techlabblog-ui"
+      deploy_docker_image: "codeforafrica/techlabblog:${{ needs.version-check.outputs.version }}"
+    secrets: inherit

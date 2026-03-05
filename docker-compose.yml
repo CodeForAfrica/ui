@@ -141,15 +141,7 @@ services:
       - 3000:3000
 
   techlabblog:
-    build:
-      secrets:
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-      context: .
-      target: techlabblog-runner
-      args:
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    image: codeforafrica/techlabblog:${TAG:-local}
     env_file:
       - path: ./apps/techlabblog/.env
       - path: ./apps/techlabblog/.env.local

@@ -1,10 +1,22 @@
+import { fileURLToPath } from "url";
+import path from "path";
+
 import createMDX from "@next/mdx";
 
 import { rehypePlugins, remarkPlugins } from "./mdx.config.mjs";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const TRACING_ROOT = process.env.TRACING_ROOT?.trim();
+const outputFileTracingRoot = TRACING_ROOT
+  ? path.join(__dirname, TRACING_ROOT)
+  : undefined;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  outputFileTracingRoot,
   pageExtensions: ["mdx", "tsx"],
   reactStrictMode: true,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
