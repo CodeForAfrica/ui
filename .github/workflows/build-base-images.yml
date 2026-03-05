@@ -60,4 +60,4 @@ jobs:
           set: |
             *.cache-from=type=gha,scope=ui-base
             *.cache-to=type=gha,mode=max,scope=ui-base
-            *.platforms=linux/amd64,linux/arm64
+            *.platform=linux/amd64,linux/arm64
