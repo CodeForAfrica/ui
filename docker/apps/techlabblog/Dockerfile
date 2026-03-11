@@ -49,13 +49,12 @@ ENV SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
 
 RUN set -ex \
   && mkdir -p ./apps/techlabblog/.next ./scripts \
-  && chown nextjs:nodejs ./apps/techlabblog/.next ./scripts
+  && chown nextjs:nodejs ./apps/techlabblog/.next
 
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/public ./apps/techlabblog/public
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/static ./apps/techlabblog/.next/static
 COPY --chown=nextjs:nodejs docker/apps/techlabblog/app.json ./app.json
-COPY --chown=nextjs:nodejs scripts/revalidate.mjs ./scripts/revalidate.mjs
 
 USER nextjs
 

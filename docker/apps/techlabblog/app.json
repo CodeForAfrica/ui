@@ -1,9 +1,4 @@
 {
-  "scripts": {
-    "dokku": {
-      "postdeploy": "node scripts/revalidate.mjs /"
-    }
-  },
   "healthchecks": {
     "web": [
       {
