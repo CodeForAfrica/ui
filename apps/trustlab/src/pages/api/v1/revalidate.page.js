@@ -15,10 +15,11 @@ function getAuthToken(authorizationHeader) {
   // ^      : Start of string
   // Bearer : The literal scheme name
   // \s+    : One or more whitespace characters
-  // (.+)   : Capture the rest of the string as the token
+  // (\S.+) : Capture the rest of the string as the token
+  //          ensuring at least one non-whitespace character
   // $      : End of string
   // /i     : Case-insensitive flag
-  const match = authorizationHeader.match(/^Bearer\s+(.+)$/i);
+  const match = authorizationHeader.match(/^Bearer\s+(\S.*)$/i);
 
   return match ? match[1] : null;
 }
