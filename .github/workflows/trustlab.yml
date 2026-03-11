@@ -9,6 +9,7 @@ on:
       - "docker/apps/trustlab/**"
       - "docker/base.Dockerfile"
       - "docker-bake.hcl"
+      - "scripts/revalidate.mjs"
       - ".github/workflows/trustlab.yml"
       - ".github/workflows/bake-and-push.yml"
 
