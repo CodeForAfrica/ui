@@ -10,7 +10,7 @@ ARG NODE_IMAGE_REF
 FROM ${NODE_IMAGE_REF} AS node
 
 RUN apk update \
-  && apk upgrade
+  && apk upgrade --no-cache
 
 FROM node AS ui-builder-base
 

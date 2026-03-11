@@ -1,0 +1,87 @@
+name: TrustLab
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/trustlab/**"
+      - "docker/apps/trustlab/**"
+      - "docker/base.Dockerfile"
+      - "docker-bake.hcl"
+      - ".github/workflows/trustlab.yml"
+      - ".github/workflows/bake-and-push.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v2
+        with:
+          diff-search: true
+          file-name: apps/trustlab/package.json
+
+  # Build and push image on every push.
+  build:
+    needs: version-check
+    permissions:
+      contents: read
+    uses: ./.github/workflows/bake-and-push.yml
+    with:
+      target: trustlab
+      tag: ${{ github.sha }}
+      set: |
+        ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags[]=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'trustlab.tags[]=codeforafrica/trustlab:latest' || '' }}
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      DATABASE_URL: ${{ secrets.TRUSTLAB_MONGO_URL }}
+      PAYLOAD_SECRET: ${{ secrets.TRUSTLAB_PAYLOAD_SECRET }}
+      # We need these sentry vars at build time to send source maps.
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.TRUSTLAB_SENTRY_PROJECT }}
+
+  deploy-dev:
+    needs: build
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/trustlab-ui"
+      deploy_docker_image: "codeforafrica/trustlab:${{ github.sha }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  deploy-prod:
+    needs: [version-check, build]
+    if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/trustlab-ui"
+      deploy_docker_image: "codeforafrica/trustlab:${{ needs.version-check.outputs.version }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

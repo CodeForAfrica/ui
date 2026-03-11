@@ -5,12 +5,17 @@ The root `Dockerfile` remains the reference implementation for apps not yet migr
 This folder contains the new structure:
 
 - Shared base image: `docker/base.Dockerfile`
-- Per-app Dockerfiles: `docker/apps/*.Dockerfile`
+- Per-app platform artifacts: `docker/apps/<app>/`
 - Build orchestration: `docker-bake.hcl`
+
+Docker-related platform artifacts live under `docker/`, not inside the app
+source trees. That includes Dockerfiles, Dokku `app.json`, and any future
+container/deploy metadata tied to the image rather than the application code.
 
 ## Current migrated app
 
 - `techlabblog`
+- `trustlab`
 
 ## Workflow
 
@@ -37,7 +42,7 @@ variable pins the base image version used by app builds, keeping it decoupled fr
 
 ### Testing a production image locally
 
-The shortest path, the `Makefile` wraps both steps:
+The shortest path, the `Makefile` wraps both steps. Using `techlabblog` as an example:
 
 ```bash
 make techlabblog
@@ -92,8 +97,7 @@ BASE_TAG=v3 TAG=abc123 REGISTRY=docker.io/codeforafrica/ \
 
 ## Pattern for new apps
 
-1. Add `docker/apps/<app>.Dockerfile` with stages:
-
+1. Add `docker/apps/<app>/Dockerfile` with stages:
    - `pruned` (turbo prune: isolates the app's files from the monorepo)
    - `deps` (pnpm install with cache mount: separated so install layer is cached independently of source changes)
    - `builder` (next build)
@@ -104,7 +108,7 @@ BASE_TAG=v3 TAG=abc123 REGISTRY=docker.io/codeforafrica/ \
 ```hcl
 target "<app>" {
   inherits   = ["_app-runner"]
-  dockerfile = "docker/apps/<app>.Dockerfile"
+  dockerfile = "docker/apps/<app>/Dockerfile"
   tags       = ["${REGISTRY}<app>:${TAG}"]
 }
 ```
@@ -133,3 +137,6 @@ target "<app>" {
 
 6. Copy `.github/workflows/techlabblog.yml` to `.github/workflows/<app>.yml` and update
    the `paths` filter, `target`, `file-name`, image references, and Dokku remote URL.
+
+7. If the app deploys via Dokku, add `docker/apps/<app>/app.json` and copy it into the
+   runtime image `WORKDIR`.

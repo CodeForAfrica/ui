@@ -71,7 +71,7 @@ group "base" {
 }
 
 group "apps" {
-  targets = ["techlabblog"]
+  targets = ["techlabblog", "trustlab"]
 }
 
 # Prefer explicit targets/groups for predictability.
@@ -130,6 +130,12 @@ target "_app" {
   args = {
     TRACING_ROOT = "${TRACING_ROOT}"
   }
+  # SECURE: Use secrets for sensitive data!
+  secret = [
+    "type=env,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN",
+    "type=env,id=sentry_org,env=SENTRY_ORG",
+    "type=env,id=sentry_project,env=SENTRY_PROJECT",
+  ]
   labels = {
     "org.codeforafrica.base.version" = BASE_TAG != "" ? "${BASE_TAG}" : "${TAG}"
   }
@@ -145,8 +151,23 @@ target "_app-runner" {
   }
 }
 
+# Shared config for payload apps.
+target "_payload-app-runner" {
+  inherits   = ["_app-runner"]
+  secret = [
+    "type=env,id=database_url,env=DATABASE_URL",
+    "type=env,id=payload_secret,env=PAYLOAD_SECRET",
+  ]
+}
+
 target "techlabblog" {
   inherits   = ["_app-runner"]
-  dockerfile = "docker/apps/techlabblog.Dockerfile"
+  dockerfile = "docker/apps/techlabblog/Dockerfile"
   tags       = ["${REGISTRY}techlabblog:${TAG}"]
+}
+
+target "trustlab" {
+  inherits   = ["_payload-app-runner"]
+  dockerfile = "docker/apps/trustlab/Dockerfile"
+  tags       = ["${REGISTRY}trustlab:${TAG}"]
 }

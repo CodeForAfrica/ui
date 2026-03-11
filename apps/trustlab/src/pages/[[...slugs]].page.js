@@ -26,7 +26,7 @@ import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
 import ToolkitList from "@/trustlab/components/ToolkitList";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
-import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
+import { getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   "action-banner": ActionBanner,
@@ -84,7 +84,8 @@ function Page({ blocks, fallback }) {
 }
 
 export async function getStaticPaths() {
-  return getPageStaticPaths();
+  // Different environments will have different pages
+  return { paths: [], fallback: "blocking" };
 }
 
 export async function getStaticProps(context) {
