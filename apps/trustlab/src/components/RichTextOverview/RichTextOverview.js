@@ -22,7 +22,7 @@ const RichTextOverview = forwardRef((props, ref) => {
   return (
     <Box sx={{ backgroundColor }} ref={ref}>
       <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
-        <Grid container spacing={2} alignItems="center">
+        <Grid container spacing={2} alignItems="flex-start">
           <Grid item xs={12} sm={6}>
             <LexicalRichText
               elements={content}
