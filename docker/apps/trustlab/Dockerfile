@@ -50,7 +50,7 @@ COPY --from=builder --chown=nextjs:nodejs /workspace/apps/trustlab/public ./apps
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
 COPY --from=pruned --chown=nextjs:nodejs /workspace/docker/apps/trustlab/app.json ./app.json
-COPY --from=pruned --chown=nextjs:nodejs /workspace/docker/apps/trustlab/scripts/revalidate.mjs ./scripts/revalidate.mjs
+COPY --from=pruned --chown=nextjs:nodejs /workspace/scripts/revalidate.mjs ./scripts/revalidate.mjs
 
 USER nextjs
 
