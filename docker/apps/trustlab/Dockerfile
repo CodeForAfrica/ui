@@ -49,8 +49,8 @@ RUN set -ex \
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/trustlab/public ./apps/trustlab/public
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/trustlab/.next/static ./apps/trustlab/.next/static
-COPY --chown=nextjs:nodejs docker/apps/trustlab/app.json ./app.json
-COPY --chown=nextjs:nodejs scripts/revalidate.mjs ./scripts/revalidate.mjs
+COPY --from=pruned --chown=nextjs:nodejs /workspace/docker/apps/trustlab/app.json ./app.json
+COPY --from=pruned --chown=nextjs:nodejs /workspace/docker/apps/trustlab/scripts/revalidate.mjs ./scripts/revalidate.mjs
 
 USER nextjs
 

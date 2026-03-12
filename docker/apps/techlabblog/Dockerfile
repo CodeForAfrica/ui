@@ -39,7 +39,7 @@ COPY --from=pruned /workspace/out/full/ ./
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm build --filter "./apps/techlabblog"
+  pnpm --filter './apps/techlabblog' build
 
 FROM ui_runner_base AS runner
 
@@ -48,13 +48,13 @@ ARG SENTRY_ENVIRONMENT
 ENV SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
 
 RUN set -ex \
-  && mkdir -p ./apps/techlabblog/.next ./scripts \
+  && mkdir -p ./apps/techlabblog/.next \
   && chown nextjs:nodejs ./apps/techlabblog/.next
 
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/public ./apps/techlabblog/public
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/static ./apps/techlabblog/.next/static
-COPY --chown=nextjs:nodejs docker/apps/techlabblog/app.json ./app.json
+COPY --from=pruned --chown=nextjs:nodejs /workspace/docker/apps/techlabblog/app.json ./app.json
 
 USER nextjs
 
