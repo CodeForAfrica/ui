@@ -26,7 +26,11 @@ jobs:
   # The prod deploy is gated on this: every push triggers a build, but only
   # a version bump triggers a prod deploy.
   version-check:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [24]
+        os: [ubuntu-latest]
     permissions:
       contents: read
     outputs:
@@ -41,7 +45,7 @@ jobs:
       # https://github.com/EndBug/version-check#github-workflow
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: check

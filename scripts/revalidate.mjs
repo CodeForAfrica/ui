@@ -29,7 +29,7 @@ try {
   stderr.write(`APP_URL: ${APP_URL} is not a valid URL.\n`);
   exit(1);
 }
-const REVALIDATE_ENDPOINT = `${BASE_URL}/api/v1/revalidate/`;
+const REVALIDATE_ENDPOINT = `${BASE_URL}/api/v1/revalidate`;
 
 /**
  * Triggers revalidation via a secure POST request.

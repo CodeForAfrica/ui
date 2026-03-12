@@ -22,7 +22,11 @@ concurrency:
 
 jobs:
   version-check:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [24]
+        os: [ubuntu-latest]
     permissions:
       contents: read
     outputs:
@@ -35,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: check
