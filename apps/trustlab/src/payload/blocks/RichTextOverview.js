@@ -15,8 +15,6 @@ const RichTextOverview = {
       type: "array",
       label: "Metrics",
       localized: true,
-      min: 3,
-      max: 3,
       admin: {
         description: "Optional key stats displayed below the richtext.",
       },

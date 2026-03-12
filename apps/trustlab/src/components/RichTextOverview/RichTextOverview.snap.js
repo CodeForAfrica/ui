@@ -9,10 +9,10 @@ exports[`<RichTextOverview /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-sv9ans-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1yhiug-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1ptejpm-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-3kw7d9"
@@ -23,7 +23,7 @@ exports[`<RichTextOverview /> renders unchanged 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1ptejpm-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <figure
             class="MuiBox-root css-14f9f22"
@@ -56,10 +56,10 @@ exports[`<RichTextOverview /> renders with metrics 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-sv9ans-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1yhiug-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1ptejpm-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-3kw7d9"
@@ -72,51 +72,69 @@ exports[`<RichTextOverview /> renders with metrics 1`] = `
             class="MuiBox-root css-1mz0d08"
           >
             <div
-              class="MuiBox-root css-0"
+              class="MuiBox-root css-1pk539k"
             >
-              <h3
-                class="MuiTypography-root MuiTypography-h3 css-ffwcw4-MuiTypography-root"
+              <div
+                class="MuiBox-root css-0"
               >
-                3
-              </h3>
-              <p
-                class="MuiTypography-root MuiTypography-body2 css-1d4jpf9-MuiTypography-root"
-              >
-                Completed
-              </p>
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-1tvkar0-MuiTypography-root"
+                >
+                  3
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-139w38v-MuiTypography-root"
+                >
+                  Completed
+                </p>
+              </div>
             </div>
             <div
-              class="MuiBox-root css-0"
+              class="MuiBox-root css-1pk539k"
             >
-              <h3
-                class="MuiTypography-root MuiTypography-h3 css-ffwcw4-MuiTypography-root"
+              <div
+                class="MuiBox-root css-tuvnt0"
+              />
+              <div
+                class="MuiBox-root css-0"
               >
-                13
-              </h3>
-              <p
-                class="MuiTypography-root MuiTypography-body2 css-1d4jpf9-MuiTypography-root"
-              >
-                Organisations
-              </p>
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-1tvkar0-MuiTypography-root"
+                >
+                  13
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-139w38v-MuiTypography-root"
+                >
+                  Organisations
+                </p>
+              </div>
             </div>
             <div
-              class="MuiBox-root css-0"
+              class="MuiBox-root css-1pk539k"
             >
-              <h3
-                class="MuiTypography-root MuiTypography-h3 css-ffwcw4-MuiTypography-root"
+              <div
+                class="MuiBox-root css-tuvnt0"
+              />
+              <div
+                class="MuiBox-root css-0"
               >
-                6
-              </h3>
-              <p
-                class="MuiTypography-root MuiTypography-body2 css-1d4jpf9-MuiTypography-root"
-              >
-                Counties
-              </p>
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-1tvkar0-MuiTypography-root"
+                >
+                  6
+                </p>
+                <p
+                  class="MuiTypography-root MuiTypography-p1 css-139w38v-MuiTypography-root"
+                >
+                  Counties
+                </p>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 css-1ptejpm-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <figure
             class="MuiBox-root css-14f9f22"

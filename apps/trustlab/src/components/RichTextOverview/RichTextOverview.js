@@ -1,10 +1,10 @@
 import { Section } from "@commons-ui/core";
 import { Figure } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 
-const RichTextOverview = forwardRef((props, ref) => {
+const RichTextOverview = forwardRef(function RichTextOverview(props, ref) {
   const {
     backgroundColor = "common.white",
     textColor = "text.primary",
@@ -13,7 +13,7 @@ const RichTextOverview = forwardRef((props, ref) => {
     metrics,
   } = props;
 
-  if (!content && !image) {
+  if (!content || !image) {
     return null;
   }
 
@@ -23,7 +23,7 @@ const RichTextOverview = forwardRef((props, ref) => {
     <Box sx={{ backgroundColor }} ref={ref}>
       <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
         <Grid container spacing={2} alignItems="flex-start">
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <LexicalRichText
               elements={content}
               sx={{
@@ -52,27 +52,53 @@ const RichTextOverview = forwardRef((props, ref) => {
                   py: 1.5,
                 }}
               >
-                {metrics.map((metric) => (
-                  <Box key={metric.id ?? metric.value}>
-                    <Typography
-                      variant="h3"
-                      sx={{
-                        fontWeight: 700,
-                        color: textColor,
-                        lineHeight: 1.2,
-                      }}
-                    >
-                      {metric.value}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: textColor }}>
-                      {metric.label}
-                    </Typography>
+                {metrics.map((metric, index) => (
+                  <Box
+                    key={metric.id ?? metric.value}
+                    sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}
+                  >
+                    {index > 0 && (
+                      <Box
+                        sx={{
+                          width: "1px",
+                          height: "1em",
+                          borderRadius: "10px",
+                          border: "1px solid #B2B8FF",
+                          backgroundColor: "#F0F0F5",
+                          mt: "4px",
+                        }}
+                      />
+                    )}
+                    <Box>
+                      <Typography
+                        sx={{
+                          color: "#252B37",
+                          fontFamily: "Inter",
+                          fontSize: "26px",
+                          fontWeight: 800,
+                          lineHeight: "29px",
+                        }}
+                      >
+                        {metric.value}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#252B37",
+                          fontFamily: "Inter",
+                          fontSize: "16px",
+                          fontWeight: 500,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        {metric.label}
+                      </Typography>
+                    </Box>
                   </Box>
                 ))}
               </Box>
             ) : null}
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Figure
               ImageProps={{
                 alt,
