@@ -35,10 +35,10 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
           </button>
           <fieldset
             aria-hidden="true"
-            class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+            class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="css-81qg8w"
+              class="css-1n64csd-MuiNotchedOutlined-root"
             >
               <span>
                 Search
@@ -66,7 +66,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 autocapitalize="none"
                 autocomplete="off"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-afq685-MuiInputBase-input-MuiOutlinedInput-input"
-                id=":r1:"
+                id=":r2:"
                 role="combobox"
                 spellcheck="false"
                 type="text"
@@ -110,10 +110,10 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-w4cd9x"
+                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                 >
                   <span
                     aria-hidden="true"
@@ -151,7 +151,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 autocapitalize="none"
                 autocomplete="off"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-splk4z-MuiInputBase-input-MuiOutlinedInput-input"
-                id=":r5:"
+                id=":r6:"
                 role="combobox"
                 spellcheck="false"
                 type="text"
@@ -195,10 +195,10 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-w4cd9x"
+                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                 >
                   <span
                     aria-hidden="true"
@@ -236,7 +236,7 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
                 autocapitalize="none"
                 autocomplete="off"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-splk4z-MuiInputBase-input-MuiOutlinedInput-input"
-                id=":r9:"
+                id=":ra:"
                 role="combobox"
                 spellcheck="false"
                 type="text"
@@ -280,10 +280,10 @@ exports[`<DatasetFilterBar /> renders unchanged 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-w4cd9x"
+                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                 >
                   <span
                     aria-hidden="true"

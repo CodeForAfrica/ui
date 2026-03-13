@@ -6,6 +6,8 @@ import { PayloadAdminBar } from "@payloadcms/admin-bar";
 import { useSelectedLayoutSegments, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
+import { site } from "@/trustlab/utils";
+
 const collectionLabels = {
   pages: {
     plural: "Pages",
@@ -56,7 +58,7 @@ function AdminBar(props) {
       <Container>
         <StyledPayloadAdminBar
           {...adminBarProps}
-          cmsURL={process.env.NEXT_PUBLIC_APP_URL}
+          cmsURL={site.url}
           collectionSlug={collection}
           collectionLabels={{
             plural: collectionLabels[collection]?.plural || "Pages",

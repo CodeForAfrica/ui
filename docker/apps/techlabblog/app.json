@@ -1,0 +1,10 @@
+{
+  "healthchecks": {
+    "web": [
+      {
+        "name": "homepage",
+        "path": "/"
+      }
+    ]
+  }
+}

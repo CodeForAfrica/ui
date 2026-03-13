@@ -150,33 +150,13 @@ services:
       - 3000:3000
 
   trustlab:
-    build:
-      # env_file attribute is for runtime
-      # We need args to be available at build time & hence we need to
-      # specify them here; they come from --env-file command-line argument(s)
-      args:
-        - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
-        - SMTP_HOST=${SMTP_HOST}
-        - SMTP_USER=${SMTP_USER}
-      context: .
-      secrets:
-        - mongo_url
-        - payload_secret
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-        - smtp_pass
-      target: trustlab-runner
+    image: codeforafrica/trustlab:${TAG:-local}
     env_file:
       - path: ./apps/trustlab/.env
       - path: ./apps/trustlab/.env.local
         required: false
-    image: codeforafrica/trustlab-ui:${IMAGE_TAG}
     ports:
       - 3000:3000
-    # Force to always build just in case there is a matching tag in the registry
-    pull_policy: build
 
   twoopstracker:
     build:
@@ -235,10 +215,14 @@ services:
 secrets:
   api_secret_key:
     environment: API_SECRET_KEY
+  database_url:
+    environment: DATABASE_URL
   jwt_secret_key:
     environment: JWT_SECRET_KEY
+  # TODO(kilemensi): remove mongo_url in preference of DATABASE_URL
   mongo_url:
     environment: MONGO_URL
+  # TODO(kilemensi): remove mongodb_url in preference of DATABASE_URL
   mongodb_url:
     environment: MONGODB_URL
   payload_secret:

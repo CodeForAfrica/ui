@@ -22,11 +22,11 @@ RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store,sharing=shared \
 
 FROM ui_builder_base AS builder
 
-ARG NEXT_PUBLIC_SENTRY_DSN \
+ARG SENTRY_DSN \
   SENTRY_ENVIRONMENT \
   TRACING_ROOT
 
-ENV NEXT_PUBLIC_SENTRY_DSN=${NEXT_PUBLIC_SENTRY_DSN} \
+ENV SENTRY_DSN=${SENTRY_DSN} \
   SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT} \
   TRACING_ROOT=${TRACING_ROOT}
 
@@ -39,14 +39,10 @@ COPY --from=pruned /workspace/out/full/ ./
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm build --filter "./apps/techlabblog"
+  pnpm --filter './apps/techlabblog' build
 
 FROM ui_runner_base AS runner
 
-# NEXT_PUBLIC_* vars are already inlined into the JS bundle by the builder stage.
-# Re-declaring them here has no effect and misleads operators into thinking they
-# can be changed by restarting the container — they cannot.
-# Only server-side runtime vars belong here.
 ARG SENTRY_ENVIRONMENT
 
 ENV SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
@@ -58,6 +54,7 @@ RUN set -ex \
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/public ./apps/techlabblog/public
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /workspace/apps/techlabblog/.next/static ./apps/techlabblog/.next/static
+COPY --from=pruned --chown=nextjs:nodejs /workspace/docker/apps/techlabblog/app.json ./app.json
 
 USER nextjs
 

@@ -35,6 +35,11 @@ class MyDocument extends Document {
   }
 
   render() {
+    const runtimeConfig = JSON.stringify({
+      SENTRY_DSN: process.env.SENTRY_DSN,
+      SEO_DISABLED: process.env.SEO_DISABLED,
+    });
+
     return (
       <Html lang="en">
         <Head>
@@ -61,6 +66,11 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `Object.assign(window, ${runtimeConfig});`,
+            }}
+          />
         </Head>
         <body>
           <Main />
