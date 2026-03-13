@@ -17,6 +17,8 @@
     "release": "changeset version && pnpm install",
     "publish": "-r publish",
     "jest": "turbo run jest",
+    "jest:ci": "turbo run jest --concurrency=2 -- --maxWorkers=50%",
+    "jest:debug": "turbo run jest --concurrency=1 -- --runInBand --detectOpenHandles",
     "playwright": "turbo run playwright",
     "test": "turbo run jest playwright --parallel",
     "clean": "turbo run clean && rm -rf node_modules",
