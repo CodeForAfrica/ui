@@ -33,7 +33,6 @@ jobs:
         node-version: [24]
         os: [ubuntu-latest]
     permissions:
-      actions: read
       contents: read
     outputs:
       changed: ${{ steps.check.outputs.changed }}
@@ -79,6 +78,7 @@ jobs:
   build:
     needs: version-check
     permissions:
+      actions: read
       contents: read
     uses: ./.github/workflows/bake-and-push.yml
     with:
@@ -88,8 +88,9 @@ jobs:
       set: |
         techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
         techlabblog.args.SENTRY_ENVIRONMENT=production
-        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags[]=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags[]=codeforafrica/techlabblog:latest' || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', github.sha) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags=codeforafrica/techlabblog:latest' || '' }}
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
