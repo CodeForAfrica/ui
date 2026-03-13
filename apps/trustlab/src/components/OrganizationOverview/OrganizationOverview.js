@@ -89,7 +89,7 @@ const OrganizationOverview = forwardRef(
                   }
                   {...chipProps}
                   sx={{
-                    backgroundColor: "#E7E9FF !important",
+                    backgroundColor: "#E7E9FF",
                     border: "1px solid #E0E0E0",
                     borderRadius: "20px",
                     height: 36,

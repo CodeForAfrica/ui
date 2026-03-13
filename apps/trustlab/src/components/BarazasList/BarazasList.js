@@ -18,8 +18,6 @@ const BarazasList = forwardRef(function BarazasList(props, ref) {
     pagination: p = { page: 1, count: 1 },
     barazasType,
     barazasPerPage,
-    notFoundTitleLabel,
-    notFoundSubtitleLabel,
     ...other
   } = props;
 

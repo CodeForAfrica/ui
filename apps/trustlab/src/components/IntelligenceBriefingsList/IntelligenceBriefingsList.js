@@ -19,8 +19,6 @@ const IntelligenceBriefingsList = forwardRef(
       pagination: p = { page: 1, count: 1 },
       briefingsType,
       briefingsPerPage,
-      notFoundTitleLabel,
-      notFoundSubtitleLabel,
       ...other
     } = props;
 

@@ -1,56 +1,40 @@
-import { useEffect, useState } from "react";
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useBarazas(page, params, initialBarazas, initialCount, skip) {
-  const [barazas, setBarazas] = useState(initialBarazas);
-  const [pagination, setPagination] = useState({
-    page,
-    count: initialCount,
-  });
+  const searchParams = new URLSearchParams();
+  searchParams.set("page", page);
 
-  useEffect(() => {
-    if (skip) {
-      return;
-    }
+  if (params?.limit) {
+    searchParams.set("limit", params.limit);
+  }
+  if (params?.barazasType) {
+    searchParams.set("type", params.barazasType);
+  }
+  if (params?.location) {
+    searchParams.set("location", params.location);
+  }
+  if (params?.date) {
+    searchParams.set("date", params.date);
+  }
+  if (params?.search) {
+    searchParams.set("search", params.search);
+  }
 
-    async function fetchBarazas() {
-      try {
-        const searchParams = new URLSearchParams();
-        searchParams.set("page", page);
+  const { data } = useSWR(
+    skip ? null : `/api/barazas?${searchParams.toString()}`,
+    fetcher,
+    { fallbackData: { docs: initialBarazas, page, totalPages: initialCount } },
+  );
 
-        if (params?.limit) {
-          searchParams.set("limit", params.limit);
-        }
-        if (params?.barazasType) {
-          searchParams.set("type", params.barazasType);
-        }
-        if (params?.location) {
-          searchParams.set("location", params.location);
-        }
-        if (params?.date) {
-          searchParams.set("date", params.date);
-        }
-        if (params?.search) {
-          searchParams.set("search", params.search);
-        }
-
-        const response = await fetch(`/api/barazas?${searchParams.toString()}`);
-        const data = await response.json();
-
-        setBarazas(data.docs || []);
-        setPagination({
-          page: data.page || page,
-          count: data.totalPages || 1,
-        });
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error("Failed to fetch barazas:", error);
-      }
-    }
-
-    fetchBarazas();
-  }, [page, params, skip]);
-
-  return { barazas: skip ? initialBarazas : barazas, pagination };
+  return {
+    barazas: skip ? initialBarazas : (data?.docs ?? initialBarazas),
+    pagination: {
+      page: data?.page ?? page,
+      count: data?.totalPages ?? initialCount,
+    },
+  };
 }
 
 export default useBarazas;

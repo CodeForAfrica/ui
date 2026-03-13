@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function useIntelligenceBriefings(
   page,
@@ -7,52 +9,34 @@ function useIntelligenceBriefings(
   initialCount,
   skip,
 ) {
-  const [briefings, setBriefings] = useState(initialBriefings);
-  const [pagination, setPagination] = useState({
-    page,
-    count: initialCount,
-  });
+  const searchParams = new URLSearchParams();
+  searchParams.set("page", page);
 
-  useEffect(() => {
-    if (skip) {
-      return;
-    }
+  if (params?.limit) {
+    searchParams.set("limit", params.limit);
+  }
+  if (params?.briefingsType) {
+    searchParams.set("type", params.briefingsType);
+  }
+  if (params?.search) {
+    searchParams.set("search", params.search);
+  }
 
-    async function fetchBriefings() {
-      try {
-        const searchParams = new URLSearchParams();
-        searchParams.set("page", page);
+  const { data } = useSWR(
+    skip ? null : `/api/intelligence-briefings?${searchParams.toString()}`,
+    fetcher,
+    {
+      fallbackData: { docs: initialBriefings, page, totalPages: initialCount },
+    },
+  );
 
-        if (params?.limit) {
-          searchParams.set("limit", params.limit);
-        }
-        if (params?.briefingsType) {
-          searchParams.set("type", params.briefingsType);
-        }
-        if (params?.search) {
-          searchParams.set("search", params.search);
-        }
-
-        const response = await fetch(
-          `/api/intelligence-briefings?${searchParams.toString()}`,
-        );
-        const data = await response.json();
-
-        setBriefings(data.docs || []);
-        setPagination({
-          page: data.page || page,
-          count: data.totalPages || 1,
-        });
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error("Failed to fetch intelligence briefings:", error);
-      }
-    }
-
-    fetchBriefings();
-  }, [page, params, skip]);
-
-  return { briefings: skip ? initialBriefings : briefings, pagination };
+  return {
+    briefings: skip ? initialBriefings : (data?.docs ?? initialBriefings),
+    pagination: {
+      page: data?.page ?? page,
+      count: data?.totalPages ?? initialCount,
+    },
+  };
 }
 
 export default useIntelligenceBriefings;
