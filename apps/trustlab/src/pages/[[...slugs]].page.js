@@ -3,6 +3,7 @@ import { SWRConfig } from "swr";
 
 import ActionBanner from "@/trustlab/components/ActionBanner";
 import Banner from "@/trustlab/components/Banner";
+import BarazasList from "@/trustlab/components/BarazasList";
 import CallToAction from "@/trustlab/components/CallToAction";
 import CategoryList from "@/trustlab/components/CategoryList";
 import ComingSoon from "@/trustlab/components/ComingSoon";
@@ -15,6 +16,7 @@ import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
+import OrganizationOverview from "@/trustlab/components/OrganizationOverview";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
@@ -30,6 +32,7 @@ import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   "action-banner": ActionBanner,
+  "barazas-list": BarazasList,
   "call-to-action": CallToAction,
   content: Content,
   "course-list": CourseList,
@@ -57,6 +60,7 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
+  "organization-overview": OrganizationOverview,
 };
 
 function Page({ blocks, fallback }) {
