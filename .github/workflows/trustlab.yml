@@ -56,6 +56,7 @@ jobs:
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: trustlab
+      base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       set: |
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags[]=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}

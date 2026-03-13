@@ -81,8 +81,8 @@ jobs:
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: techlabblog
+      base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
-      # base_tag: v3
       set: |
         techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
         techlabblog.args.SENTRY_ENVIRONMENT=production
