@@ -46,8 +46,8 @@ on:
         default: ""
         description: >
           Extra bake --set overrides (newline-separated target.field=value pairs).
-          Use this to inject app-specific build args, e.g.:
-            techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
+          Use this to inject app-specific build args. See
+          https://docs.docker.com/reference/cli/docker/buildx/bake/#set
           Note: GitHub Variables are available here; secrets are not. Pass
                 truly secret build args via the declared secrets inputs below.
     # Mark required: false so apps without optional secrets can use this workflow.
