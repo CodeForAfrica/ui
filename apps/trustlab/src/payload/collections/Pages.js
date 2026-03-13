@@ -37,6 +37,7 @@ import {
   revalidatePage,
   revalidateDelete,
 } from "@/trustlab/payload/utils";
+import { site } from "@/trustlab/utils";
 
 const Pages = {
   slug: "pages",
@@ -57,7 +58,7 @@ const Pages = {
         path: `/${pageSlug}`,
       });
 
-      return `${process.env.NEXT_PUBLIC_APP_URL}/preview?${encodedParams.toString()}`;
+      return `${site.url}preview?${encodedParams.toString()}`;
     },
   },
   fields: [

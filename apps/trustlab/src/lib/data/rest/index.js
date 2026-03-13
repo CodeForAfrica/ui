@@ -1,6 +1,6 @@
 import { getErrorPageProps as getProps } from "@/trustlab/lib/data/common";
+import { site } from "@/trustlab/utils";
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL;
 export const fetchJson = {
   get: async (url, { params } = {}) => {
     // Build query string from params object
@@ -24,21 +24,16 @@ export const fetchJson = {
         `Fetch failed: ${response.status} ${response.statusText}`,
       );
     }
-
     return response.json();
   },
 };
 
 const findGlobal = async (slug, params) => {
-  return fetchJson.get(`${BASE_URL}/api/globals/${slug}`, {
-    params,
-  });
+  return fetchJson.get(`${site.url}api/globals/${slug}`, { params });
 };
 
 const findCollection = async (slug, params) => {
-  return fetchJson.get(`${BASE_URL}/api/${slug}`, {
-    params,
-  });
+  return fetchJson.get(`${site.url}api/${slug}`, { params });
 };
 
 const findPage = async (slug, options) => {
@@ -53,6 +48,7 @@ const findPage = async (slug, options) => {
   };
   return findCollection("pages", pageOptions);
 };
+
 export const api = {
   findCollection,
   findGlobal,

@@ -5,20 +5,20 @@ import path from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
-const outputFileTracingRoot = PROJECT_ROOT
-  ? path.resolve(__dirname, PROJECT_ROOT)
+
+const TRACING_ROOT = process.env.TRACING_ROOT?.trim();
+const outputFileTracingRoot = TRACING_ROOT
+  ? path.join(__dirname, TRACING_ROOT)
   : undefined;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+    domains: process.env.IMAGE_DOMAINS?.split(",")
       .map((d) => d.trim())
       .filter(Boolean),
     unoptimized:
-      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
-      "true",
+      process.env.IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() === "true",
   },
   output: "standalone",
   outputFileTracingRoot,

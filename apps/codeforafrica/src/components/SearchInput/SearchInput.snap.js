@@ -11,7 +11,7 @@ exports[`<SearchInput /> renders unchanged 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputTypeSearch MuiInputBase-inputAdornedEnd css-ucicrb-MuiInputBase-input-MuiOutlinedInput-input"
-        id=":r0:"
+        id=":r1:"
         type="search"
         value=""
       />
@@ -30,10 +30,10 @@ exports[`<SearchInput /> renders unchanged 1`] = `
       </button>
       <fieldset
         aria-hidden="true"
-        class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="css-w4cd9x"
+          class="css-1nf2c5d-MuiNotchedOutlined-root"
         >
           <span
             aria-hidden="true"

@@ -40,7 +40,7 @@ techlabblog:
 	./scripts/bake-up.sh techlabblog
 
 trustlab:
-	./scripts/dc.sh trustlab
+	./scripts/bake-up.sh trustlab
 
 twoopstracker:
 	./scripts/dc.sh twoopstracker
