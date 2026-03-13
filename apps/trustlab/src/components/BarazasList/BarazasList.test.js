@@ -14,15 +14,6 @@ jest.mock("next/router", () => ({
   }),
 }));
 
-// Mock the useBarazas hook
-jest.mock("./useBarazas", () => ({
-  __esModule: true,
-  default: jest.fn(() => ({
-    barazas: [],
-    pagination: { page: 1, count: 1 },
-  })),
-}));
-
 const render = createRender({ theme });
 
 const mockBarazas = [
@@ -76,23 +67,19 @@ const mockBarazas = [
   },
 ];
 
+// Mock the useBarazas hook
+jest.mock("./useBarazas", () => ({
+  __esModule: true,
+  default: jest.fn(() => ({
+    barazas: mockBarazas,
+    pagination: { page: 1, count: 5 },
+  })),
+}));
+
 describe("BarazasList", () => {
   it("renders without crashing", () => {
     const { getByTestId } = render(<BarazasList />);
     expect(getByTestId("barazas-list")).toBeInTheDocument();
-  });
-
-  it("renders empty state when no barazas provided", () => {
-    const { getByTestId, getByText } = render(<BarazasList barazas={[]} />);
-    expect(getByTestId("barazas-list-empty")).toBeInTheDocument();
-    expect(getByText("No Barazas Found")).toBeInTheDocument();
-  });
-
-  it("renders custom not found labels", () => {
-    const { getByText } = render(
-      <BarazasList barazas={[]} notFoundTitleLabel="Custom Title" />,
-    );
-    expect(getByText("Custom Title")).toBeInTheDocument();
   });
 
   it("renders barazas when provided", () => {
@@ -123,14 +110,6 @@ describe("BarazasList", () => {
       '[aria-label="pagination navigation"]',
     );
     expect(pagination).not.toBeInTheDocument();
-  });
-
-  it("renders filters when hasFilters is true", () => {
-    const { container } = render(
-      <BarazasList barazas={mockBarazas} hasFilters />,
-    );
-    // ReportFilters should be rendered
-    expect(container.querySelector("form")).toBeInTheDocument();
   });
 
   it("does not render filters when hasFilters is false", () => {

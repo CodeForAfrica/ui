@@ -16,6 +16,7 @@ import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
+import IntelligenceBriefingsList from "@/trustlab/components/IntelligenceBriefingsList";
 import OrganizationOverview from "@/trustlab/components/OrganizationOverview";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
@@ -26,6 +27,7 @@ import PostList from "@/trustlab/components/PostList";
 import ReportsList from "@/trustlab/components/ReportsList";
 import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
+import Testimonial from "@/trustlab/components/Testimonial";
 import ToolkitList from "@/trustlab/components/ToolkitList";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
 import { getPageStaticPaths, getPageStaticProps } from "@/trustlab/lib/data";
@@ -45,6 +47,7 @@ const componentsBySlugs = {
   hero: Hero,
   incubator: Incubator,
   "intelligence-briefings": IntelligenceBriefings,
+  "intelligence-briefings-list": IntelligenceBriefingsList,
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
@@ -61,6 +64,7 @@ const componentsBySlugs = {
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
   "organization-overview": OrganizationOverview,
+  testimonial: Testimonial,
 };
 
 function Page({ blocks, fallback }) {

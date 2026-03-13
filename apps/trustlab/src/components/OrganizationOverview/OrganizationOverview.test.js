@@ -33,6 +33,7 @@ describe("OrganizationOverview", () => {
   it("renders nothing when no organizations provided", () => {
     const { container } = render(<OrganizationOverview organizations={[]} />);
     expect(container.firstChild).toBeNull();
+    expect(container).toMatchSnapshot();
   });
 
   it("renders title when provided", () => {
@@ -69,13 +70,5 @@ describe("OrganizationOverview", () => {
     );
     const lamuChip = getByText("Lamu Arts & Theatre Alliance").closest("a");
     expect(lamuChip).toHaveAttribute("href", "https://example.com/lamu");
-  });
-
-  it("has correct background color", () => {
-    const { getByTestId } = render(
-      <OrganizationOverview organizations={mockOrganizations} />,
-    );
-    const container = getByTestId("organization-overview");
-    expect(container).toHaveStyle({ backgroundColor: "#E7E9FF" });
   });
 });

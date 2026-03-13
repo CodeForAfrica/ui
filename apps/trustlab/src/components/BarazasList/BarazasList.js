@@ -1,14 +1,10 @@
 import { Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
-import { LexicalRichText } from "@commons-ui/payload";
-import { Grid2 as Grid, Box, Typography } from "@mui/material";
+import { Grid2 as Grid, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
 import useBarazas from "./useBarazas";
 
-// eslint-disable-next-line import/no-unresolved
-import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 import OpportunityCard from "@/trustlab/components/OpportunityCard";
 import Pagination from "@/trustlab/components/Pagination";
 import ReportFilters from "@/trustlab/components/ReportFilters";
@@ -149,51 +145,7 @@ const BarazasList = forwardRef(function BarazasList(props, ref) {
               ) : null}
             </Section>
           </Box>
-        ) : (
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            sx={{
-              maxWidth: 400,
-              margin: "0 auto",
-              pt: 5,
-              pb: 10,
-            }}
-            gap={2.5}
-            data-testid="barazas-list-empty"
-          >
-            <Figure
-              ImageProps={{
-                alt: "Error page background",
-                src: ErrorPageIcon,
-                sx: { objectFit: "cover", opacity: 0.3 },
-              }}
-              sx={{
-                alignItems: "center",
-                display: "flex",
-                justifyContent: "center",
-                height: 150,
-                width: 220,
-              }}
-            />
-            <Typography strong variant="display4">
-              {notFoundTitleLabel || "No Barazas Found"}
-            </Typography>
-            <LexicalRichText
-              elements={notFoundSubtitleLabel}
-              TypographyProps={{
-                gutterBottom: true,
-                variant: "p2",
-                sx: {
-                  textAlign: "center",
-                  mb: 0,
-                },
-              }}
-            />
-          </Box>
-        )}
+        ) : null}
       </Box>
     </Box>
   );

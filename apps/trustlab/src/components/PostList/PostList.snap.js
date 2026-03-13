@@ -68,6 +68,7 @@ exports[`<PostList /> renders unchanged 1`] = `
         </div>
       </div>
       <div
+        aria-label="pagination navigation"
         class="MuiBox-root css-118tyn9"
       >
         <button

@@ -87,27 +87,34 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
           "&:last-child": { pb: 0 },
         }}
       >
+        <Typography sx={{ my: 1 }} variant="h3" gutterBottom>
+          {title}
+        </Typography>
+
         {caption && (
-          <Typography sx={{ color: "#828499" }}>{caption}</Typography>
+          <Typography variant="p2" sx={{ color: "#828499", mb: 1.5 }}>
+            {caption}
+          </Typography>
         )}
 
         {locationDateText && (
-          <Box display="flex" alignItems="center" gap="4px">
+          <Box display="flex" sx={{ mb: 1.5 }} alignItems="center" gap="4px">
             <Typography
               strong
+              variant="p2"
               sx={{ mt: caption ? 0.5 : 0, color: "common.black" }}
             >
               {location}
             </Typography>
             |
-            <Typography sx={{ mt: caption ? 0.5 : 0, color: "#828499" }}>
+            <Typography
+              variant="p2"
+              sx={{ mt: caption ? 0.5 : 0, color: "#828499" }}
+            >
               {date}
             </Typography>
           </Box>
         )}
-        <Typography sx={{ my: 1 }} variant="h3" gutterBottom>
-          {title}
-        </Typography>
         {description && (
           <Box>
             <Box

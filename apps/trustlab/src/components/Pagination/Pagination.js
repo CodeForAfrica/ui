@@ -102,6 +102,7 @@ const Pagination = forwardRef(function Pagination(
         bgcolor: "background.paper",
         overflow: "hidden",
       }}
+      aria-label="pagination navigation"
       {...rest}
     >
       {items.map((item) => {
