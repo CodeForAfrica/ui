@@ -10,6 +10,7 @@ import {
   DonorOverviewList,
   Resources,
   ErrorBlock,
+  Facilitators,
   Gallery,
   HelplinesOverviewList,
   Hero,
@@ -102,6 +103,7 @@ const Pages = {
         ResearchCategory,
         ReportsList,
         ResourceCategory,
+        Facilitators,
       ],
       localized: true,
       admin: {
