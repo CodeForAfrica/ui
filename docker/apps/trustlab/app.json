@@ -8,7 +8,8 @@
     "web": [
       {
         "name": "homepage",
-        "path": "/"
+        "path": "/",
+        "type": "startup"
       }
     ]
   }
