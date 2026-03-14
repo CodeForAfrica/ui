@@ -5,8 +5,8 @@ import { forwardRef } from "react";
 
 import ExternalLinkIcon from "@/trustlab/assets/icons/Type=external-link, Size=24, Color=CurrentColor.svg";
 
-const OrganizationOverview = forwardRef(
-  function OrganizationOverview(props, ref) {
+const ParticipatingOrganizationList = forwardRef(
+  function ParticipatingOrganizationList(props, ref) {
     const { title, organizations = [], sx, ...other } = props;
 
     if (!organizations.length) {
@@ -109,4 +109,4 @@ const OrganizationOverview = forwardRef(
   },
 );
 
-export default OrganizationOverview;
+export default ParticipatingOrganizationList;

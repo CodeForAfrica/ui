@@ -16,9 +16,9 @@ import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OpportunityList from "@/trustlab/components/OpportunityList";
-import OrganizationOverview from "@/trustlab/components/OrganizationOverview";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
+import ParticipatingOrganizationList from "@/trustlab/components/ParticipatingOrganizationList";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PlaybooksList from "@/trustlab/components/PlaybooksList";
@@ -46,6 +46,7 @@ const componentsBySlugs = {
   incubator: Incubator,
   "intelligence-briefings": IntelligenceBriefings,
   "opportunity-list": OpportunityList,
+  "participating-organization-list": ParticipatingOrganizationList,
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
@@ -61,7 +62,6 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
-  "organization-overview": OrganizationOverview,
   testimonial: Testimonial,
 };
 

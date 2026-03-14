@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OrganizationOverview from "./OrganizationOverview";
+import ParticipatingOrganizationList from "./ParticipatingOrganizationList";
 
 import theme from "@/trustlab/theme";
 
@@ -29,16 +29,18 @@ const mockOrganizations = [
   { id: "4", name: "Lamu Youth Alliance" },
 ];
 
-describe("OrganizationOverview", () => {
+describe("ParticipatingOrganizationList", () => {
   it("renders nothing when no organizations provided", () => {
-    const { container } = render(<OrganizationOverview organizations={[]} />);
+    const { container } = render(
+      <ParticipatingOrganizationList organizations={[]} />,
+    );
     expect(container.firstChild).toBeNull();
     expect(container).toMatchSnapshot();
   });
 
   it("renders title when provided", () => {
     const { getByText } = render(
-      <OrganizationOverview
+      <ParticipatingOrganizationList
         title="Participating Organizations"
         organizations={mockOrganizations}
       />,
@@ -48,7 +50,7 @@ describe("OrganizationOverview", () => {
 
   it("renders all organization names", () => {
     const { getByText } = render(
-      <OrganizationOverview organizations={mockOrganizations} />,
+      <ParticipatingOrganizationList organizations={mockOrganizations} />,
     );
     expect(getByText("Lamu Arts & Theatre Alliance")).toBeInTheDocument();
     expect(getByText("Turathi ya Lamu Women Group")).toBeInTheDocument();
@@ -58,7 +60,7 @@ describe("OrganizationOverview", () => {
 
   it("renders external link icon only for organizations with link.href", () => {
     const { getAllByTestId } = render(
-      <OrganizationOverview organizations={mockOrganizations} />,
+      <ParticipatingOrganizationList organizations={mockOrganizations} />,
     );
     const icons = getAllByTestId("external-link-icon");
     expect(icons).toHaveLength(2);
@@ -66,7 +68,7 @@ describe("OrganizationOverview", () => {
 
   it("renders chips as links for organizations with href", () => {
     const { getByText } = render(
-      <OrganizationOverview organizations={mockOrganizations} />,
+      <ParticipatingOrganizationList organizations={mockOrganizations} />,
     );
     const lamuChip = getByText("Lamu Arts & Theatre Alliance").closest("a");
     expect(lamuChip).toHaveAttribute("href", "https://example.com/lamu");
