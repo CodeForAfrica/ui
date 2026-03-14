@@ -68,67 +68,106 @@ exports[`<PostList /> renders unchanged 1`] = `
         </div>
       </div>
       <div
-        aria-label="pagination navigation"
-        class="MuiBox-root css-118tyn9"
+        class="MuiBox-root css-1embff6"
       >
-        <button
-          class="MuiButtonBase-root Mui-disabled css-bnf30g-MuiButtonBase-root"
-          disabled=""
-          tabindex="-1"
-          type="button"
+        <div
+          class="MuiBox-root css-axw7ok"
         >
           <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19pfla-MuiSvgIcon-root"
-            focusable="false"
-          />
-        </button>
-        <button
-          class="MuiButtonBase-root css-jmtfmm-MuiButtonBase-root"
-          tabindex="0"
-          type="button"
+            class="MuiFormControl-root MuiTextField-root css-ywkqil-MuiFormControl-root-MuiTextField-root"
+          >
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-153bfbn-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"
+                id=":r2:"
+                placeholder="5"
+                type="text"
+                value="1"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-1nf2c5d-MuiNotchedOutlined-root"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-label="pagination navigation"
+          class="MuiBox-root css-118tyn9"
         >
-          1
-        </button>
-        <button
-          class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
-          tabindex="0"
-          type="button"
-        >
-          2
-        </button>
-        <button
-          class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
-          tabindex="0"
-          type="button"
-        >
-          3
-        </button>
-        <button
-          class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
-          tabindex="0"
-          type="button"
-        >
-          4
-        </button>
-        <button
-          class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
-          tabindex="0"
-          type="button"
-        >
-          5
-        </button>
-        <button
-          class="MuiButtonBase-root css-1hy9gnv-MuiButtonBase-root"
-          tabindex="0"
-          type="button"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19pfla-MuiSvgIcon-root"
-            focusable="false"
-          />
-        </button>
+          <button
+            class="MuiButtonBase-root Mui-disabled css-bnf30g-MuiButtonBase-root"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19pfla-MuiSvgIcon-root"
+              focusable="false"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root css-jmtfmm-MuiButtonBase-root"
+            tabindex="0"
+            type="button"
+          >
+            1
+          </button>
+          <button
+            class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
+            tabindex="0"
+            type="button"
+          >
+            2
+          </button>
+          <button
+            class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
+            tabindex="0"
+            type="button"
+          >
+            3
+          </button>
+          <button
+            class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
+            tabindex="0"
+            type="button"
+          >
+            4
+          </button>
+          <button
+            class="MuiButtonBase-root css-1jtpw9a-MuiButtonBase-root"
+            tabindex="0"
+            type="button"
+          >
+            5
+          </button>
+          <button
+            class="MuiButtonBase-root css-1hy9gnv-MuiButtonBase-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-19pfla-MuiSvgIcon-root"
+              focusable="false"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>

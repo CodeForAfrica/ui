@@ -5,9 +5,9 @@ import { forwardRef, useState, useEffect, useRef } from "react";
 
 import useOpportunities from "./useOpportunities";
 
+import Filters from "@/trustlab/components/Filters";
 import OpportunityCard from "@/trustlab/components/OpportunityCard";
 import Pagination from "@/trustlab/components/Pagination";
-import ReportFilters from "@/trustlab/components/ReportFilters";
 
 const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   const {
@@ -20,6 +20,10 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     itemsPerPage,
     apiEndpoint,
     testId = "opportunity-list",
+    filters,
+    filterByLabel,
+    applyFiltersLabel,
+    clearFiltersLabel,
     ...other
   } = props;
 
@@ -100,9 +104,14 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     <Box ref={listRef} data-testid={testId}>
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
-          <ReportFilters
+          <Filters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}
+            filters={filters}
+            filterByLabel={filterByLabel}
+            hasFilters={hasFilters}
+            applyFiltersLabel={applyFiltersLabel}
+            clearFiltersLabel={clearFiltersLabel}
           />
         </Section>
       ) : null}

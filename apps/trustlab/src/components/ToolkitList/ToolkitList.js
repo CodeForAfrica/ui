@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
 import CategoryCard from "../CategoryCard/CategoryCard";
-import ReportFilters from "../ReportFilters/ReportFilters";
 
 import useToolkits from "./useToolkits";
 
+import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
 
 const ToolkitList = forwardRef(function ToolkitList(props, ref) {
@@ -93,7 +93,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
     <Box ref={ref}>
       {hasFilters && (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
-          <ReportFilters
+          <Filters
             filters={filters}
             filterByLabel={filterByLabel}
             hasFilters={hasFilters}

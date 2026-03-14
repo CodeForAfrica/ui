@@ -9,9 +9,9 @@ import useReports from "./useReports";
 
 // eslint-disable-next-line import/no-unresolved
 import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
+import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
 import ReportCard from "@/trustlab/components/ReportCard";
-import ReportFilters from "@/trustlab/components/ReportFilters";
 
 const ReportsList = forwardRef(function ReportsList(props, ref) {
   const {
@@ -102,7 +102,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     <Box ref={listRef}>
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
-          <ReportFilters
+          <Filters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}
           />
