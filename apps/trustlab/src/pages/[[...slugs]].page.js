@@ -23,6 +23,7 @@ import PlaybooksList from "@/trustlab/components/PlaybooksList";
 import PostList from "@/trustlab/components/PostList";
 import ReportsList from "@/trustlab/components/ReportsList";
 import Resources from "@/trustlab/components/Resources";
+import RichTextOverview from "@/trustlab/components/RichTextOverview";
 import Spotlight from "@/trustlab/components/Spotlight";
 import ToolkitList from "@/trustlab/components/ToolkitList";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
@@ -57,6 +58,7 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
+  "richtext-overview": RichTextOverview,
 };
 
 function Page({ blocks, fallback }) {
