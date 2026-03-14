@@ -2,15 +2,22 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-function useBarazas(page, params, initialBarazas, initialCount, skip) {
+function useOpportunities(
+  page,
+  params,
+  initialItems,
+  initialCount,
+  skip,
+  apiEndpoint = "/api/opportunities",
+) {
   const searchParams = new URLSearchParams();
   searchParams.set("page", page);
 
   if (params?.limit) {
     searchParams.set("limit", params.limit);
   }
-  if (params?.barazasType) {
-    searchParams.set("type", params.barazasType);
+  if (params?.type) {
+    searchParams.set("type", params.type);
   }
   if (params?.location) {
     searchParams.set("location", params.location);
@@ -23,13 +30,13 @@ function useBarazas(page, params, initialBarazas, initialCount, skip) {
   }
 
   const { data } = useSWR(
-    skip ? null : `/api/barazas?${searchParams.toString()}`,
+    skip ? null : `${apiEndpoint}?${searchParams.toString()}`,
     fetcher,
-    { fallbackData: { docs: initialBarazas, page, totalPages: initialCount } },
+    { fallbackData: { docs: initialItems, page, totalPages: initialCount } },
   );
 
   return {
-    barazas: skip ? initialBarazas : (data?.docs ?? initialBarazas),
+    items: skip ? initialItems : (data?.docs ?? initialItems),
     pagination: {
       page: data?.page ?? page,
       count: data?.totalPages ?? initialCount,
@@ -37,4 +44,4 @@ function useBarazas(page, params, initialBarazas, initialCount, skip) {
   };
 }
 
-export default useBarazas;
+export default useOpportunities;

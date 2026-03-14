@@ -3,7 +3,6 @@ import { SWRConfig } from "swr";
 
 import ActionBanner from "@/trustlab/components/ActionBanner";
 import Banner from "@/trustlab/components/Banner";
-import BarazasList from "@/trustlab/components/BarazasList";
 import CallToAction from "@/trustlab/components/CallToAction";
 import CategoryList from "@/trustlab/components/CategoryList";
 import ComingSoon from "@/trustlab/components/ComingSoon";
@@ -16,7 +15,7 @@ import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
-import IntelligenceBriefingsList from "@/trustlab/components/IntelligenceBriefingsList";
+import OpportunityList from "@/trustlab/components/OpportunityList";
 import OrganizationOverview from "@/trustlab/components/OrganizationOverview";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
@@ -34,7 +33,6 @@ import { getPageStaticProps } from "@/trustlab/lib/data";
 
 const componentsBySlugs = {
   "action-banner": ActionBanner,
-  "barazas-list": BarazasList,
   "call-to-action": CallToAction,
   content: Content,
   "course-list": CourseList,
@@ -47,7 +45,7 @@ const componentsBySlugs = {
   hero: Hero,
   incubator: Incubator,
   "intelligence-briefings": IntelligenceBriefings,
-  "intelligence-briefings-list": IntelligenceBriefingsList,
+  "opportunity-list": OpportunityList,
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
