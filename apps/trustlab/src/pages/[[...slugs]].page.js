@@ -13,6 +13,7 @@ import ErrorPage from "@/trustlab/components/Error";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
+import HorizontalGallery from "@/trustlab/components/HorizontalGallery";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
@@ -38,6 +39,7 @@ const componentsBySlugs = {
   "coming-soon": ComingSoon,
   error: ErrorPage,
   gallery: Gallery,
+  "horizontal-gallery": HorizontalGallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
   incubator: Incubator,
