@@ -15,6 +15,7 @@ import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import HighlightList from "@/trustlab/components/HighlightList";
+import HorizontalGallery from "@/trustlab/components/HorizontalGallery";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OpportunityList from "@/trustlab/components/OpportunityList";
@@ -45,6 +46,7 @@ const componentsBySlugs = {
   error: ErrorPage,
   facilitators: Facilitators,
   gallery: Gallery,
+  "horizontal-gallery": HorizontalGallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
   incubator: Incubator,

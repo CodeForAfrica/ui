@@ -16,6 +16,7 @@ export { default as ResourcesOverviewList } from "./ResourcesOverviewList";
 export { default as Spotlight } from "./Spotlight";
 export { default as WhatWeDo } from "./WhatWeDo";
 export { default as Gallery } from "./Gallery";
+export { default as HorizontalGallery } from "./HorizontalGallery";
 export { default as Incubator } from "./Incubator";
 export { default as IntelligenceBriefings } from "./IntelligenceBriefings";
 export { default as Resources } from "./Resources";
