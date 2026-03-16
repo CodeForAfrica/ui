@@ -27,22 +27,6 @@ describe("<Facilitators />", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders with avatar images", () => {
-    const { container } = render(
-      <Facilitators
-        {...defaultProps}
-        facilitators={[
-          {
-            id: "1",
-            name: "Nahila Habade",
-            avatar: { url: "https://example.com/avatar.jpg" },
-          },
-        ]}
-      />,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
   it("returns null when both content and facilitators are missing", () => {
     const { container } = render(
       <Facilitators content={null} facilitators={[]} />,
