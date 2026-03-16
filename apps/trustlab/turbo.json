@@ -3,6 +3,10 @@
   "tasks": {
     "build": {
       "env": [
+        "APP_NAME",
+        "APP_URL",
+        "DEFAULT_LOCALE",
+        "LOCALES",
         "NEXT_RUNTIME",
         "PREVIEW_SECRET",
         "REVALIDATE_SECRET",
@@ -13,6 +17,8 @@
         "S3_MAX_SOCKETS",
         "S3_REGION",
         "S3_SECRET_ACCESS_KEY",
+        "SENTRY_DSN",
+        "SEO_DISABLED",
         "SENTRY_ENVIRONMENT"
       ]
     }

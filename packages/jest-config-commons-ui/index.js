@@ -1,5 +1,5 @@
 module.exports = {
-  collectCoverage: true,
+  collectCoverage: false,
   // on node 14.x coverage provider v8 offers good speed and more or less good report
   coverageProvider: "v8",
   collectCoverageFrom: ["**/*.{js,jsx}", "!**/node_modules/**"],
@@ -28,6 +28,7 @@ module.exports = {
   testEnvironmentOptions: {
     url: "http://localhost/",
   },
+  workerIdleMemoryLimit: "512MB",
   testMatch: ["**/?(*.)+(test).js?(x)"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/"],
   transform: {

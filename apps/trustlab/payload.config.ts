@@ -20,17 +20,19 @@ import {
 } from "@/trustlab/payload/collections";
 import plugins from "@/trustlab/payload/plugins";
 import SiteSettings from "@/trustlab/payload/globals";
+import { site } from "@/trustlab/utils";
 import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const cors =
-  process?.env?.PAYLOAD_CORS?.split(",")
+  process.env.PAYLOAD_CORS?.split(",")
     .map((d) => d.trim())
     .filter(Boolean) ?? [];
 
 const csrf =
-  process?.env?.PAYLOAD_CSRF?.split(",")
+  process.env.PAYLOAD_CSRF?.split(",")
     .map((d) => d.trim())
     .filter(Boolean) ?? [];
 
@@ -40,7 +42,7 @@ if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
   nodemailerAdapterArgs = {
     defaultFromAddress:
       process.env.SMTP_FROM_ADDRESS || "noreply@trustlab.africa",
-    defaultFromName: process.env.SENDGRID_FROM_NAME || "TrustLab CMS",
+    defaultFromName: process.env.SENDGRID_FROM_NAME || site.name,
     // Any Nodemailer transport can be used
     transportOptions: {
       host: process.env.SMTP_HOST,
@@ -58,10 +60,10 @@ const email = nodemailerAdapter(nodemailerAdapterArgs);
 export default buildConfig({
   admin: {
     importMap: {
-      baseDir: path.resolve(dirname),
+      baseDir: path.resolve(__dirname),
     },
     livePreview: {
-      url: process.env.NEXT_PUBLIC_APP_URL,
+      url: site.url,
       collections: ["pages"],
       globals: ["site-settings"],
     },
@@ -84,7 +86,7 @@ export default buildConfig({
   cors,
   csrf,
   db: mongooseAdapter({
-    url: process.env.MONGO_URL || "",
+    url: process.env.DATABASE_URL ?? false,
   }),
   email,
   editor: lexicalEditor(),
@@ -100,10 +102,11 @@ export default buildConfig({
     : undefined),
   plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET || "",
-  serverURL: process.env.NEXT_PUBLIC_APP_URL,
+  // Just the origin, without trailing slash.
+  serverURL: site.url.slice(0, -1),
   sharp,
   telemetry: process.env.NEXT_TELEMETRY_DISABLED === "0",
   typescript: {
-    outputFile: path.resolve(dirname, "payload-types.ts"),
+    outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
 });

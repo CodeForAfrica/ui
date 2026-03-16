@@ -8,8 +8,11 @@ permissions:
 # Replaces build-docker-image.yml for apps migrated to docker-bake.hcl.
 #
 # Callers pass app-specific build args via the `set` input using GitHub Variables
-# (vars.*) for NEXT_PUBLIC_* values — these are public by design and belong in
-# vars, not secrets. Sentry secrets are declared explicitly below.
+# i.e. public config that is safe to expose in workflow logs. Secrets that
+# are genuinely needed at build time (e.g. Sentry source map upload credentials,
+# DB access if the framework initialises at build) are declared explicitly below.
+# Everything else (APP_URL, SMTP_PASS, PAYLOAD_CORS, etc.) belongs in runtime
+# config (e.g. Dokku config:set) and should never be passed here.
 
 on:
   workflow_call:
@@ -43,18 +46,20 @@ on:
         default: ""
         description: >
           Extra bake --set overrides (newline-separated target.field=value pairs).
-          Use this to inject app-specific build args, e.g.:
-            techlabblog.args.NEXT_PUBLIC_APP_URL=${{ vars.TECHLABBLOG_APP_URL }}
-          Note: GitHub Variables (vars.*) are available here; secrets are not —
-          pass truly secret build args via the declared secrets inputs below.
+          Use this to inject app-specific build args. See
+          https://docs.docker.com/reference/cli/docker/buildx/bake/#set
+          Note: GitHub Variables are available here; secrets are not. Pass
+                truly secret build args via the declared secrets inputs below.
+    # Mark required: false so apps without optional secrets can use this workflow.
     secrets:
+      DATABASE_URL:
+        required: false
       DOCKER_HUB_USERNAME:
         required: true
       DOCKER_HUB_ACCESS_TOKEN:
         required: true
-      # Sentry secrets: sourced from env by BuildKit secret mounts in Dockerfiles
-      # (--mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN).
-      # Mark required: false so apps without Sentry can use this workflow too.
+      PAYLOAD_SECRET:
+        required: false
       SENTRY_AUTH_TOKEN:
         required: false
       SENTRY_ORG:
@@ -93,9 +98,8 @@ jobs:
           BASE_TAG: ${{ inputs.base_tag }}
           GIT_REVISION: ${{ github.sha }}
           BUILD_DATE: ${{ steps.meta.outputs.date }}
-          # Sentry secrets: exposed to BuildKit as secret mounts (not build args).
-          # See --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN
-          # in app Dockerfiles.
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}

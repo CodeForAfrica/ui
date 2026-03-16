@@ -4,14 +4,13 @@ import { RefreshRouteOnSave as PayloadLivePreview } from "@payloadcms/live-previ
 import { useRouter } from "next/navigation";
 import React from "react";
 
+import { site } from "@/trustlab/utils";
+
 function RefreshRouteOnSave() {
   const router = useRouter();
 
   return (
-    <PayloadLivePreview
-      refresh={() => router.refresh()}
-      serverURL={process.env.NEXT_PUBLIC_APP_URL}
-    />
+    <PayloadLivePreview refresh={() => router.refresh()} serverURL={site.url} />
   );
 }
 export default RefreshRouteOnSave;

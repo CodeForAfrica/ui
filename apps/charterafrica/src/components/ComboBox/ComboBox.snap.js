@@ -18,7 +18,7 @@ exports[`<ComboBox /> renders unchanged 1`] = `
           autocapitalize="none"
           autocomplete="off"
           class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-afq685-MuiInputBase-input-MuiOutlinedInput-input"
-          id=":r0:"
+          id=":r1:"
           role="combobox"
           spellcheck="false"
           type="text"
@@ -62,10 +62,10 @@ exports[`<ComboBox /> renders unchanged 1`] = `
         </div>
         <fieldset
           aria-hidden="true"
-          class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+          class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="css-w4cd9x"
+            class="css-1nf2c5d-MuiNotchedOutlined-root"
           >
             <span
               aria-hidden="true"

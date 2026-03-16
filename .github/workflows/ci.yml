@@ -24,7 +24,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     strategy:
       matrix:
-        node-version: [20.16]
+        node-version: [24]
         os: [ubuntu-latest]
     steps:
       - name: Checkout
@@ -76,8 +76,10 @@ jobs:
       - name: Lint
         run: pnpm lint-check
 
+      # Standard linux runners for public repositories have 4 vCPUs and 16GB of RAM
+      # see: https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
       - name: Jest
-        run: pnpm jest
+        run: pnpm jest:ci
 
       # PromiseTracker seems to build success but then "hang".
       # TODO(kilemensi): Investigate promisetrakcer

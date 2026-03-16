@@ -6,13 +6,14 @@ on:
       - main
     paths:
       - "apps/techlabblog/**"
-      - "docker/apps/techlabblog.Dockerfile"
+      - "docker/apps/techlabblog/**"
       - "docker/base.Dockerfile"
       - "docker-bake.hcl"
       - ".github/workflows/techlabblog.yml"
       - ".github/workflows/bake-and-push.yml"
 
 permissions:
+  actions: read
   contents: read
 
 # Cancel in-progress runs for the same branch so a fast-follow push doesn't
@@ -26,7 +27,11 @@ jobs:
   # The prod deploy is gated on this: every push triggers a build, but only
   # a version bump triggers a prod deploy.
   version-check:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [24]
+        os: [ubuntu-latest]
     permissions:
       contents: read
     outputs:
@@ -41,7 +46,7 @@ jobs:
       # https://github.com/EndBug/version-check#github-workflow
       - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: check
@@ -61,13 +66,8 @@ jobs:
   #   codeforafrica/techlabblog:<version>  — version bump only (immutable, for releases)
   #   codeforafrica/techlabblog:latest     — version bump only (mutable, for convenience)
   #
-  # NEXT_PUBLIC_* vars are baked into the JS bundle at build time and cannot
-  # be changed by restarting the container. Configure them as GitHub Variables
-  # (Settings > Variables > Actions) rather than secrets since they are public
-  # by definition (they ship to the browser).
-  #
   # Required GitHub Variables:
-  #   TECHLABBLOG_SENTRY_DSN    — public Sentry DSN (safe to use vars, not secrets)
+  #   TECHLABBLOG_SENTRY_DSN
   #
   # Required GitHub Secrets (for Sentry source map upload during build):
   #   SENTRY_AUTH_TOKEN, SENTRY_ORG, TECHLABBLOG_SENTRY_PROJECT
@@ -78,16 +78,19 @@ jobs:
   build:
     needs: version-check
     permissions:
+      actions: read
       contents: read
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: techlabblog
+      base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
-      # base_tag: v3
       set: |
-        techlabblog.args.NEXT_PUBLIC_SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
-        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags[]=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags[]=codeforafrica/techlabblog:latest' || '' }}
+        techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
+        techlabblog.args.SENTRY_ENVIRONMENT=production
+        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', github.sha) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags=codeforafrica/techlabblog:latest' || '' }}
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
@@ -106,7 +109,8 @@ jobs:
     with:
       git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/techlabblog-ui"
       deploy_docker_image: "codeforafrica/techlabblog:${{ github.sha }}"
-    secrets: inherit
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
   # Deploys to production when the package.json version is bumped.
   # Both version-check and build must pass before this job runs.
@@ -118,4 +122,5 @@ jobs:
     with:
       git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/techlabblog-ui"
       deploy_docker_image: "codeforafrica/techlabblog:${{ needs.version-check.outputs.version }}"
-    secrets: inherit
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
