@@ -64,7 +64,7 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
-  "richtext-overview": OpportunityOverview,
+  "opportunity-overview": OpportunityOverview,
   testimonial: Testimonial,
   "highlight-list": HighlightList,
 };

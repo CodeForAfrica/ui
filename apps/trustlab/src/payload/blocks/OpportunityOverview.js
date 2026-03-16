@@ -3,7 +3,7 @@ import { richText, image } from "@commons-ui/payload";
 import colorSettingsField from "../fields/colorSettingsField";
 
 const OpportunityOverview = {
-  slug: "richtext-overview",
+  slug: "opportunity-overview",
   imageURL: "/images/cms/blocks/opportunity-overview.png",
   imageAltText: "Opportunity Overview block.",
   labels: { singular: "Opportunity Overview", plural: "Opportunity Overviews" },
