@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RichTextOverview /> renders unchanged 1`] = `
+exports[`<OpportunityOverview /> renders unchanged 1`] = `
 <div>
   <div
     class="MuiBox-root css-14r34si"
@@ -47,7 +47,7 @@ exports[`<RichTextOverview /> renders unchanged 1`] = `
 </div>
 `;
 
-exports[`<RichTextOverview /> renders with metrics 1`] = `
+exports[`<OpportunityOverview /> renders with metrics 1`] = `
 <div>
   <div
     class="MuiBox-root css-14r34si"

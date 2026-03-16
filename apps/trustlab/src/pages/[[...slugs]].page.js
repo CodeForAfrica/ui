@@ -15,6 +15,7 @@ import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
+import OpportunityOverview from "@/trustlab/components/OpportunityOverview";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
@@ -23,7 +24,6 @@ import PlaybooksList from "@/trustlab/components/PlaybooksList";
 import PostList from "@/trustlab/components/PostList";
 import ReportsList from "@/trustlab/components/ReportsList";
 import Resources from "@/trustlab/components/Resources";
-import RichTextOverview from "@/trustlab/components/RichTextOverview";
 import Spotlight from "@/trustlab/components/Spotlight";
 import ToolkitList from "@/trustlab/components/ToolkitList";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
@@ -58,7 +58,7 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
-  "richtext-overview": RichTextOverview,
+  "richtext-overview": OpportunityOverview,
 };
 
 function Page({ blocks, fallback }) {

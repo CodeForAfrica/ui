@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import RichTextOverview from "./RichTextOverview";
+import OpportunityOverview from "./OpportunityOverview";
 
 import theme from "@/trustlab/theme";
 
@@ -22,15 +22,15 @@ const defaultProps = {
   textColor: "#000000",
 };
 
-describe("<RichTextOverview />", () => {
+describe("<OpportunityOverview />", () => {
   it("renders unchanged", () => {
-    const { container } = render(<RichTextOverview {...defaultProps} />);
+    const { container } = render(<OpportunityOverview {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 
   it("renders with metrics", () => {
     const { container } = render(
-      <RichTextOverview
+      <OpportunityOverview
         {...defaultProps}
         metrics={[
           { id: "1", value: "3", label: "Completed" },
@@ -44,7 +44,7 @@ describe("<RichTextOverview />", () => {
 
   it("returns null when both content and image are missing", () => {
     const { container } = render(
-      <RichTextOverview content={null} image={null} />,
+      <OpportunityOverview content={null} image={null} />,
     );
     expect(container.firstChild).toBeNull();
   });

@@ -2,11 +2,11 @@ import { richText, image } from "@commons-ui/payload";
 
 import colorSettingsField from "../fields/colorSettingsField";
 
-const RichTextOverview = {
+const OpportunityOverview = {
   slug: "richtext-overview",
-  imageURL: "/images/cms/blocks/richtext-overview.png",
-  imageAltText: "RichText Overview block.",
-  labels: { singular: "RichText Overview", plural: "RichText Overviews" },
+  imageURL: "/images/cms/blocks/opportunity-overview.png",
+  imageAltText: "Opportunity Overview block.",
+  labels: { singular: "Opportunity Overview", plural: "Opportunity Overviews" },
   fields: [
     richText({ name: "content", required: true, localized: true }),
     image({ overrides: { name: "image", required: true } }),
@@ -40,4 +40,4 @@ const RichTextOverview = {
   ],
 };
 
-export default RichTextOverview;
+export default OpportunityOverview;
