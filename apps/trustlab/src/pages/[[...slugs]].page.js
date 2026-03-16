@@ -25,6 +25,7 @@ import PostList from "@/trustlab/components/PostList";
 import ReportsList from "@/trustlab/components/ReportsList";
 import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
+import Testimonial from "@/trustlab/components/Testimonial";
 import ToolkitList from "@/trustlab/components/ToolkitList";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
 import { getPageStaticProps } from "@/trustlab/lib/data";
@@ -59,6 +60,7 @@ const componentsBySlugs = {
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
   "highlight-list": HighlightList,
+  testimonial: Testimonial,
 };
 
 function Page({ blocks, fallback }) {
