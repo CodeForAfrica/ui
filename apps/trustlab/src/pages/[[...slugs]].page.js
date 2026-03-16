@@ -13,6 +13,7 @@ import ErrorPage from "@/trustlab/components/Error";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
+import HighlightList from "@/trustlab/components/HighlightList";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OpportunityList from "@/trustlab/components/OpportunityList";
@@ -63,6 +64,7 @@ const componentsBySlugs = {
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
   testimonial: Testimonial,
+  "highlight-list": HighlightList,
 };
 
 function Page({ blocks, fallback }) {
