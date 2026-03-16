@@ -6,10 +6,10 @@ exports[`<Switch /> renders unchanged 1`] = `
     class="MuiSwitch-root MuiSwitch-sizeMedium css-5x1qlg-MuiSwitch-root"
   >
     <span
-      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1cw5p8z-MuiButtonBase-root-MuiSwitch-switchBase"
+      class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-1tj7enb-MuiButtonBase-root-MuiSwitchBase-root-MuiSwitch-switchBase"
     >
       <input
-        class="PrivateSwitchBase-input MuiSwitch-input css-j8yymo"
+        class="PrivateSwitchBase-input MuiSwitch-input css-12xagqm-MuiSwitchBase-root"
         type="checkbox"
       />
       <span

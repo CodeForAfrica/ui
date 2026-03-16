@@ -48,10 +48,10 @@ exports[`<Articles /> renders unchanged 1`] = `
               </button>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-81qg8w"
+                  class="css-1n64csd-MuiNotchedOutlined-root"
                 >
                   <span>
                     Search
@@ -70,7 +70,7 @@ exports[`<Articles /> renders unchanged 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Without label"
-                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-1mfuego-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-1owuspi-MuiNativeSelect-root-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
                 role="combobox"
                 tabindex="0"
               >
@@ -85,7 +85,7 @@ exports[`<Articles /> renders unchanged 1`] = `
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-lohd6h-MuiSvgIcon-root-MuiSelect-icon"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-1rfqz7c-MuiSvgIcon-root-MuiNativeSelect-root-MuiSelect-icon"
                 data-testid="ArrowDropDownIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
@@ -96,10 +96,10 @@ exports[`<Articles /> renders unchanged 1`] = `
               </svg>
               <fieldset
                 aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+                class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="css-w4cd9x"
+                  class="css-1nf2c5d-MuiNotchedOutlined-root"
                 >
                   <span
                     aria-hidden="true"

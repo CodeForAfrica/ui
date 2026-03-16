@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dokku": {
+      "postdeploy": "node scripts/revalidate.mjs /"
+    }
+  },
+  "healthchecks": {
+    "web": [
+      {
+        "name": "homepage",
+        "path": "/",
+        "type": "startup"
+      }
+    ]
+  }
+}

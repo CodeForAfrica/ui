@@ -1,17 +1,17 @@
 /* eslint-disable no-underscore-dangle */
 import { findAndFormatPagePath } from "@commons-ui/payload";
 
+import { site } from "@/trustlab/utils";
+
 function revalidatePath(path) {
-  return fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/v1/revalidate?secret=${process.env.REVALIDATE_SECRET}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ path }),
+  return fetch(`${site.url}api/v1/revalidate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.REVALIDATE_SECRET}`,
     },
-  );
+    body: JSON.stringify({ path }),
+  });
 }
 
 export const revalidatePage = async ({
@@ -101,7 +101,7 @@ export const revalidatePost = async ({
 export const revalidateDelete = async ({ doc, req: { context, payload } }) => {
   if (!context.disableRevalidate) {
     const path = await findAndFormatPagePath(payload, doc?.slug);
-    if (!path) {
+    if (path) {
       await revalidatePath(path);
     }
   }

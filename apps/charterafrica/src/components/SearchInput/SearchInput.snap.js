@@ -25,10 +25,10 @@ exports[`<SearchInput /> renders unchanged 1`] = `
     </button>
     <fieldset
       aria-hidden="true"
-      class="MuiOutlinedInput-notchedOutline css-1bxtb2s-MuiOutlinedInput-notchedOutline"
+      class="MuiOutlinedInput-notchedOutline css-1h6w84j-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
     >
       <legend
-        class="css-w4cd9x"
+        class="css-1nf2c5d-MuiNotchedOutlined-root"
       >
         <span
           aria-hidden="true"
