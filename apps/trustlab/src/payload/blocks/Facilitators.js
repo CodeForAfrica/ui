@@ -1,4 +1,4 @@
-import { richText, image } from "@commons-ui/payload";
+import { richText } from "@commons-ui/payload";
 
 const Facilitators = {
   slug: "facilitators",
@@ -12,10 +12,7 @@ const Facilitators = {
       type: "array",
       label: "Facilitators",
       localized: true,
-      fields: [
-        { name: "name", type: "text", required: true, label: "Name" },
-        image({ overrides: { name: "avatar", required: false } }),
-      ],
+      fields: [{ name: "name", type: "text", required: true, label: "Name" }],
     },
   ],
 };
