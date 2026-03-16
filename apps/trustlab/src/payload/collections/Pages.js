@@ -32,6 +32,7 @@ import {
   ToolkitsList,
   PlaybooksList,
   OpportunityOverview,
+  HighlightList,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -104,6 +105,7 @@ const Pages = {
         ReportsList,
         ResourceCategory,
         OpportunityOverview,
+        HighlightList,
       ],
       localized: true,
       admin: {

@@ -27,3 +27,4 @@ export { default as ReportsList } from "./ReportsList";
 export { default as ToolkitsList } from "./ToolkitsList";
 export { default as PlaybooksList } from "./PlaybooksList";
 export { default as OpportunityOverview } from "./OpportunityOverview";
+export { default as HighlightList } from "./HighlightList";
