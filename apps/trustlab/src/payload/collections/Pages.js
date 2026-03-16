@@ -31,6 +31,7 @@ import {
   ReportsList,
   ToolkitsList,
   PlaybooksList,
+  OpportunityOverview,
   HighlightList,
 } from "@/trustlab/payload/blocks";
 import {
@@ -103,6 +104,7 @@ const Pages = {
         ResearchCategory,
         ReportsList,
         ResourceCategory,
+        OpportunityOverview,
         HighlightList,
       ],
       localized: true,
