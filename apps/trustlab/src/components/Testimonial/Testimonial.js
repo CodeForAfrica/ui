@@ -13,7 +13,7 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
 
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
-      <Section sx={{ py: { xs: 0, sm: 8 }, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: { xs: 2.5, sm: 8 }, px: { xs: 2.5, md: 0 } }}>
         <Grid container spacing={4} alignItems="center">
           <Grid size={{ xs: 12, sm: 7 }}>
             <Typography
