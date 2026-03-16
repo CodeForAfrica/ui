@@ -26,5 +26,6 @@ export { default as ResourceCategory } from "./ResourceCategory";
 export { default as ReportsList } from "./ReportsList";
 export { default as ToolkitsList } from "./ToolkitsList";
 export { default as PlaybooksList } from "./PlaybooksList";
+export { default as Facilitators } from "./Facilitators";
 export { default as OpportunityOverview } from "./OpportunityOverview";
 export { default as HighlightList } from "./HighlightList";
