@@ -35,6 +35,11 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
     setActivePage(page);
   }, []);
 
+  const chunks = [];
+  for (let i = 0; i < (images?.length ?? 0); i += ITEMS_PER_PAGE) {
+    chunks.push(images.slice(i, i + ITEMS_PER_PAGE));
+  }
+
   if (!images?.length) {
     return null;
   }
@@ -64,39 +69,54 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
         onScroll={handleScroll}
         sx={{
           display: "flex",
-          gap: 2,
           overflowX: "auto",
           scrollSnapType: "x mandatory",
           scrollbarWidth: "none",
           "&::-webkit-scrollbar": { display: "none" },
         }}
       >
-        {images.map(({ image }) => (
+        {chunks.map((chunk) => (
           <Box
-            key={image.id}
+            key={chunk[0].image.id}
             sx={{
-              flex: `0 0 calc(25% - 12px)`,
+              flex: "0 0 100%",
               scrollSnapAlign: "start",
-              minWidth: 0,
+              display: "flex",
+              flexWrap: { xs: "wrap", sm: "nowrap" },
+              alignContent: "flex-start",
+              gap: 2,
             }}
           >
-            <Figure
-              ImageProps={{
-                alt: image.alt || "",
-                src: image.url,
-              }}
-              sx={{
-                m: 0,
-                height: 264,
-                borderRadius: 2,
-                overflow: "hidden",
-                position: "relative",
-                width: "100%",
-                "&:hover": {
-                  filter: "none",
-                },
-              }}
-            />
+            {chunk.map(({ image }) => (
+              <Box
+                key={image.id}
+                sx={{
+                  flex: {
+                    xs: "0 0 calc(50% - 8px)",
+                    sm: "0 0 calc(25% - 12px)",
+                  },
+                  minWidth: 0,
+                }}
+              >
+                <Figure
+                  ImageProps={{
+                    alt: image.alt || "",
+                    src: image.url,
+                  }}
+                  sx={{
+                    m: 0,
+                    height: { xs: 120, sm: 264 },
+                    borderRadius: 2,
+                    overflow: "hidden",
+                    position: "relative",
+                    width: "100%",
+                    "&:hover": {
+                      filter: "none",
+                    },
+                  }}
+                />
+              </Box>
+            ))}
           </Box>
         ))}
       </Box>
