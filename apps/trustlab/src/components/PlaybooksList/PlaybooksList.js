@@ -5,8 +5,8 @@ import { forwardRef, useState, useEffect, useRef } from "react";
 
 import usePlaybooks from "./usePlaybooks";
 
+import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
-import ReportFilters from "@/trustlab/components/ReportFilters";
 import RowCard from "@/trustlab/components/RowCard";
 
 const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
@@ -90,7 +90,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
     <Box sx={{ backgroundColor: "background.paper" }}>
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
-          <ReportFilters
+          <Filters
             filters={filters}
             filterByLabel={filterByLabel}
             hasFilters={hasFilters}

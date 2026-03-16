@@ -16,8 +16,10 @@ import Hero from "@/trustlab/components/Hero";
 import HighlightList from "@/trustlab/components/HighlightList";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
+import OpportunityList from "@/trustlab/components/OpportunityList";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
+import ParticipatingOrganizationList from "@/trustlab/components/ParticipatingOrganizationList";
 import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
 import PartnersList from "@/trustlab/components/PartnersList";
 import PlaybooksList from "@/trustlab/components/PlaybooksList";
@@ -25,6 +27,7 @@ import PostList from "@/trustlab/components/PostList";
 import ReportsList from "@/trustlab/components/ReportsList";
 import Resources from "@/trustlab/components/Resources";
 import Spotlight from "@/trustlab/components/Spotlight";
+import Testimonial from "@/trustlab/components/Testimonial";
 import ToolkitList from "@/trustlab/components/ToolkitList";
 import WhereWeWork from "@/trustlab/components/WhereWeWork";
 import { getPageStaticProps } from "@/trustlab/lib/data";
@@ -43,6 +46,8 @@ const componentsBySlugs = {
   hero: Hero,
   incubator: Incubator,
   "intelligence-briefings": IntelligenceBriefings,
+  "opportunity-list": OpportunityList,
+  "participating-organization-list": ParticipatingOrganizationList,
   "page-header": Banner,
   "page-overview": PageOverview,
   "partner-overview-list": PartnerOverviewList,
@@ -58,6 +63,7 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
+  testimonial: Testimonial,
   "highlight-list": HighlightList,
 };
 

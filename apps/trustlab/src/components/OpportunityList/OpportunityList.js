@@ -1,42 +1,42 @@
 import { Section } from "@commons-ui/core";
-import { Figure } from "@commons-ui/next";
-import { LexicalRichText } from "@commons-ui/payload";
-import { Grid2 as Grid, Box, Typography } from "@mui/material";
+import { Grid2 as Grid, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
-import useReports from "./useReports";
+import useOpportunities from "./useOpportunities";
 
-// eslint-disable-next-line import/no-unresolved
-import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 import Filters from "@/trustlab/components/Filters";
+import OpportunityCard from "@/trustlab/components/OpportunityCard";
 import Pagination from "@/trustlab/components/Pagination";
-import ReportCard from "@/trustlab/components/ReportCard";
 
-const ReportsList = forwardRef(function ReportsList(props, ref) {
+const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   const {
-    reports: initialReports = [],
-    condensed,
+    items: initialItems = [],
     cardActionLabel,
     hasPagination,
     hasFilters,
     pagination: p = { page: 1, count: 1 },
-    reportsType,
-    reportsPerPage,
-    notFoundTitleLabel,
-    notFoundSubtitleLabel,
+    itemsType,
+    itemsPerPage,
+    apiEndpoint,
+    testId = "opportunity-list",
+    filters,
+    filterByLabel,
+    applyFiltersLabel,
+    clearFiltersLabel,
     ...other
   } = props;
 
   const [page, setPage] = useState(p?.page);
   const [params, setParams] = useState({
-    reportsType,
-    limit: reportsPerPage,
+    type: itemsType,
+    limit: itemsPerPage,
   });
   const listRef = useRef(null);
   const router = useRouter();
   const { query } = router;
   const { page: initialPage } = query;
+
   useEffect(() => {
     if (initialPage) {
       const parsed = parseInt(initialPage, 10);
@@ -47,12 +47,13 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPage]);
 
-  const { reports = [], pagination = p } = useReports(
+  const { items = [], pagination = p } = useOpportunities(
     page,
     params,
-    initialReports,
+    initialItems,
     p?.count,
-    !hasPagination,
+    true,
+    apiEndpoint,
   );
 
   const handlePageChange = (value) => {
@@ -76,6 +77,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       });
     }
   };
+
   function handleApplyFilters(filterParams) {
     setParams((prev) => ({ ...prev, ...filterParams }));
     setPage(1);
@@ -99,17 +101,22 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   }
 
   return (
-    <Box ref={listRef}>
+    <Box ref={listRef} data-testid={testId}>
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
           <Filters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}
+            filters={filters}
+            filterByLabel={filterByLabel}
+            hasFilters={hasFilters}
+            applyFiltersLabel={applyFiltersLabel}
+            clearFiltersLabel={clearFiltersLabel}
           />
         </Section>
       ) : null}
       <Box sx={{ background: "#fff" }}>
-        {reports.length ? (
+        {items.length ? (
           <Box sx={{ background: "#fff" }}>
             <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
               <Grid
@@ -119,17 +126,17 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
                 ref={ref}
                 {...other}
               >
-                {reports.map((report, index) => (
-                  <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
-                    <ReportCard
-                      condensed={condensed}
-                      actionLabel={cardActionLabel}
-                      {...report}
-                      sx={
-                        condensed && {
-                          background: index % 2 === 0 ? "#E7E9FF" : "#F0F0F5",
-                        }
-                      }
+                {items.map((item, index) => (
+                  <Grid key={item.id ?? index} size={{ xs: 12, sm: 6, md: 4 }}>
+                    <OpportunityCard
+                      image={item.image}
+                      title={item.title}
+                      description={item.description}
+                      link={item.link}
+                      caption={item.caption}
+                      location={item.location}
+                      date={item.date}
+                      viewMoreLabel={cardActionLabel}
                     />
                   </Grid>
                 ))}
@@ -145,53 +152,10 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
               ) : null}
             </Section>
           </Box>
-        ) : (
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            sx={{
-              maxWidth: 400,
-              margin: "0 auto",
-              pt: 5,
-              pb: 10,
-            }}
-            gap={2.5}
-          >
-            <Figure
-              ImageProps={{
-                alt: "Error page background",
-                src: ErrorPageIcon,
-                sx: { objectFit: "cover", opacity: 0.3 },
-              }}
-              sx={{
-                alignItems: "center",
-                display: "flex",
-                justifyContent: "center",
-                height: 150,
-                width: 220,
-              }}
-            />
-            <Typography strong variant="display4">
-              {notFoundTitleLabel || "No Reports Found"}
-            </Typography>
-            <LexicalRichText
-              elements={notFoundSubtitleLabel}
-              TypographyProps={{
-                gutterBottom: true,
-                variant: "p2",
-                sx: {
-                  textAlign: "center",
-                  mb: 0,
-                },
-              }}
-            />
-          </Box>
-        )}
+        ) : null}
       </Box>
     </Box>
   );
 });
 
-export default ReportsList;
+export default OpportunityList;

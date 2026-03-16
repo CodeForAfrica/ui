@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import ReportFilters from "./ReportFilters";
+import Filters from "./Filters";
 
 import theme from "@/trustlab/theme";
 
@@ -27,7 +27,7 @@ const defaultProps = {
 
 describe("ReportFilters", () => {
   it("renders unchanged", () => {
-    const { container } = render(<ReportFilters {...defaultProps} />);
+    const { container } = render(<Filters {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 });
