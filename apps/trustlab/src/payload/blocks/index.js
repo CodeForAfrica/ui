@@ -31,3 +31,4 @@ export { default as Facilitators } from "./Facilitators";
 export { default as OpportunityOverview } from "./OpportunityOverview";
 export { default as HighlightList } from "./HighlightList";
 export { default as FeatureList } from "./FeatureList";
+export { default as ContentOverview } from "./ContentOverview";
