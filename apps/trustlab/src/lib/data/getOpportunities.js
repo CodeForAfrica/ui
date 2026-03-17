@@ -6,7 +6,7 @@ async function getOpportunities(api, options = {}) {
     limit = 12,
     type,
     locale,
-    sort = "-publishedAt",
+    sort = "-createdAt",
     location,
     year,
     opportunity: id,
@@ -14,7 +14,6 @@ async function getOpportunities(api, options = {}) {
   } = options;
 
   const where = {};
-  console.log(options);
 
   if (type && type !== "all") {
     where.type = { equals: type };
@@ -36,12 +35,12 @@ async function getOpportunities(api, options = {}) {
       const startOfYear = new Date(year, 0, 1).toISOString();
       const endOfYear = new Date(year, 11, 31, 23, 59, 59, 999).toISOString();
       andConditions.push({
-        publishedAt: {
+        createdAt: {
           greater_than_equal: startOfYear,
         },
       });
       andConditions.push({
-        publishedAt: {
+        createdAt: {
           less_than_equal: endOfYear,
         },
       });
@@ -91,7 +90,6 @@ async function getOpportunities(api, options = {}) {
   const opportunities = await Promise.all(
     result.docs.map(async (doc) => {
       const image = doc.image ?? null;
-
       return {
         id: doc.id,
         title: doc.title,
@@ -99,9 +97,7 @@ async function getOpportunities(api, options = {}) {
         image,
         caption: doc.caption,
         location: doc.location,
-        date: doc.publishedAt
-          ? formatDate(doc.publishedAt, "dd-MM-yyyy")
-          : null,
+        date: doc.createdAt ? formatDate(doc.createdAt, "dd-MM-yyyy") : null,
         slug: doc.slug,
         link: {
           href: `/opportunities/${doc.slug}`,
