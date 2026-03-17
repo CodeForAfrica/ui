@@ -10,13 +10,16 @@ import Content from "@/trustlab/components/Content";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import ErrorPage from "@/trustlab/components/Error";
+import Facilitators from "@/trustlab/components/Facilitators";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
 import HighlightList from "@/trustlab/components/HighlightList";
+import HorizontalGallery from "@/trustlab/components/HorizontalGallery";
 import Incubator from "@/trustlab/components/Incubator";
 import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
 import OpportunityList from "@/trustlab/components/OpportunityList";
+import OpportunityOverview from "@/trustlab/components/OpportunityOverview";
 import OverviewCardList from "@/trustlab/components/OverviewCardList";
 import PageOverview from "@/trustlab/components/PageOverview";
 import ParticipatingOrganizationList from "@/trustlab/components/ParticipatingOrganizationList";
@@ -41,7 +44,9 @@ const componentsBySlugs = {
   resources: Resources,
   "coming-soon": ComingSoon,
   error: ErrorPage,
+  facilitators: Facilitators,
   gallery: Gallery,
+  "horizontal-gallery": HorizontalGallery,
   "helplines-overview-list": OverviewCardList,
   hero: Hero,
   incubator: Incubator,
@@ -64,6 +69,7 @@ const componentsBySlugs = {
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
+  "opportunity-overview": OpportunityOverview,
   testimonial: Testimonial,
   "highlight-list": HighlightList,
 };
