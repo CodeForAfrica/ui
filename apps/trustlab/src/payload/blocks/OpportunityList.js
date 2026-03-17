@@ -16,7 +16,6 @@ const OpportunityList = {
       type: "select",
       label: { en: "Opportunity Type" },
       options: [
-        { label: "All", value: "all" },
         { label: "Incubator", value: "incubator" },
         { label: "Intelligence Briefing", value: "intelligence-briefing" },
         { label: "Baraza", value: "baraza" },
@@ -53,8 +52,8 @@ const OpportunityList = {
           options: [
             { label: "Year", value: "year" },
             { label: "Month", value: "month" },
-            { label: "Type", value: "type" },
             { label: "Location", value: "location" },
+            { label: "Opportunity", value: "opportunity" },
           ],
         },
         {

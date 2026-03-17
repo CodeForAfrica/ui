@@ -15,6 +15,7 @@ export default async function handler(req, res) {
       year,
       month,
       location,
+      opportunity,
     } = req.query;
 
     const options = {
@@ -25,6 +26,7 @@ export default async function handler(req, res) {
       year,
       month,
       location,
+      opportunity,
     };
 
     const result = await getOpportunities(api, options);

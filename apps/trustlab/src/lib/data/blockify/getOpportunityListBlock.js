@@ -18,18 +18,18 @@ async function getOpportunityListBlock(block, api, options = {}) {
     locale,
   });
 
+  const allOpportunities = await getOpportunities(api, {
+    page: 1,
+    limit: 1000,
+    type: opportunityType,
+    locale,
+  });
+
   // Process filters to populate dynamic options
   const processedFilters = await Promise.all(
     (filters || []).map(async (filter) => {
       if (filter.type === "location") {
         // Fetch all opportunities to extract unique locations
-        const allOpportunities = await getOpportunities(api, {
-          page: 1,
-          limit: 1000,
-          type: opportunityType,
-          locale,
-        });
-
         const uniqueLocations = [
           ...new Set(
             allOpportunities.docs.map((doc) => doc.location).filter(Boolean),
@@ -41,6 +41,16 @@ async function getOpportunityListBlock(block, api, options = {}) {
           options: uniqueLocations.map((loc) => ({
             label: loc,
             value: loc,
+          })),
+        };
+      }
+
+      if (filter.type === "opportunity") {
+        return {
+          ...filter,
+          options: allOpportunities.docs.map((opp) => ({
+            label: opp.title,
+            value: opp.id,
           })),
         };
       }

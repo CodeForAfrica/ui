@@ -9,13 +9,19 @@ async function getOpportunities(api, options = {}) {
     sort = "-publishedAt",
     location,
     year,
+    opportunity: id,
     month,
   } = options;
 
   const where = {};
+  console.log(options);
 
   if (type && type !== "all") {
     where.type = { equals: type };
+  }
+
+  if (id) {
+    where.id = { equals: id };
   }
 
   if (location) {
