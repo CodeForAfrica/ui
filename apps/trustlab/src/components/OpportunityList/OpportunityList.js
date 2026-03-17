@@ -52,7 +52,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     params,
     initialItems,
     p?.count,
-    true,
+    !hasFilters && !hasPagination,
     apiEndpoint,
   );
 

@@ -1,4 +1,5 @@
 import collectionOverview from "./collectionOverview";
+import getOpportunityListBlock from "./getOpportunityListBlock";
 import playbooksList from "./playbooksList";
 import postList from "./postList";
 import reportsList from "./reportsList";
@@ -8,6 +9,7 @@ import toolkitsList from "./toolkitsList";
 const propsifyBlockBySlug = {
   "helplines-overview-list": collectionOverview,
   "resources-overview-list": collectionOverview,
+  "opportunity-list": getOpportunityListBlock,
   "post-list": postList,
   spotlight: spotlightOverview,
   "reports-list": reportsList,
@@ -19,7 +21,6 @@ async function blockify(blocks, api, context) {
   const promises = blocks?.map(async (block) => {
     const slug = block.blockType;
     const propsifyBlock = propsifyBlockBySlug[slug];
-
     if (propsifyBlock) {
       return propsifyBlock(block, api, context);
     }

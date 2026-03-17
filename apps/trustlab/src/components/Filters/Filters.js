@@ -67,7 +67,7 @@ const Filters = React.forwardRef(function Filters(
 
       // Auto-generate options for known types if not provided
       let resolvedOptions = options;
-      if (!resolvedOptions) {
+      if (!resolvedOptions?.length) {
         if (type === "year") {
           resolvedOptions = generateYearOptions();
         } else if (type === "month") {
@@ -175,7 +175,6 @@ const Filters = React.forwardRef(function Filters(
     return chips;
   }, [selectedValues, getChipLabel]);
 
-  console.log("Processed Filters:", processedFilters);
   return (
     <Box ref={ref} display="flex" flexDirection="column" gap={1} sx={sx}>
       {/* Row 1: Filter By Label */}

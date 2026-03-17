@@ -32,6 +32,8 @@ import {
   ToolkitsList,
   PlaybooksList,
   HighlightList,
+  OpportunityList,
+  OpportunityCategory,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -87,6 +89,8 @@ const Pages = {
         Hero,
         Incubator,
         IntelligenceBriefings,
+        OpportunityCategory,
+        OpportunityList,
         PageHeader,
         PageOverview,
         PartnerOverviewList,

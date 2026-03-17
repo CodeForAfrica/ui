@@ -1,0 +1,119 @@
+import formatDate from "@/trustlab/payload/utils/formatDate";
+
+async function getOpportunities(api, options = {}) {
+  const {
+    page = 1,
+    limit = 12,
+    type,
+    locale,
+    sort = "-publishedAt",
+    location,
+    year,
+    month,
+  } = options;
+
+  const where = {};
+
+  if (type && type !== "all") {
+    where.type = { equals: type };
+  }
+
+  if (location) {
+    where.location = { contains: location };
+  }
+
+  // Filter by year and month on publishedAt
+  if (year || month) {
+    const andConditions = [];
+
+    if (year) {
+      const startOfYear = new Date(year, 0, 1).toISOString();
+      const endOfYear = new Date(year, 11, 31, 23, 59, 59, 999).toISOString();
+      andConditions.push({
+        publishedAt: {
+          greater_than_equal: startOfYear,
+        },
+      });
+      andConditions.push({
+        publishedAt: {
+          less_than_equal: endOfYear,
+        },
+      });
+    }
+
+    if (month) {
+      // month is 1-based (1 = January)
+      const monthIndex = parseInt(month, 10) - 1;
+      const targetYear = year || new Date().getFullYear();
+      const startOfMonth = new Date(targetYear, monthIndex, 1).toISOString();
+      const endOfMonth = new Date(
+        targetYear,
+        monthIndex + 1,
+        0,
+        23,
+        59,
+        59,
+        999,
+      ).toISOString();
+
+      andConditions.push({
+        publishedAt: {
+          greater_than_equal: startOfMonth,
+        },
+      });
+      andConditions.push({
+        publishedAt: {
+          less_than_equal: endOfMonth,
+        },
+      });
+    }
+
+    if (andConditions.length > 0) {
+      where.and = andConditions;
+    }
+  }
+
+  const result = await api.getCollection("opportunities", {
+    where,
+    page,
+    limit,
+    sort,
+    locale,
+    depth: 2,
+  });
+
+  const opportunities = await Promise.all(
+    result.docs.map(async (doc) => {
+      const image = doc.image ?? null;
+
+      return {
+        id: doc.id,
+        title: doc.title,
+        type: doc.type,
+        image,
+        caption: doc.caption,
+        location: doc.location,
+        date: doc.publishedAt
+          ? formatDate(doc.publishedAt, "dd-MM-yyyy")
+          : null,
+        slug: doc.slug,
+        link: {
+          href: `/opportunities/${doc.slug}`,
+        },
+        participatingOrganizations: doc.participatingOrganizations ?? [],
+        tags: doc.tags ?? [],
+      };
+    }),
+  );
+
+  return {
+    docs: opportunities,
+    page: result.page,
+    totalPages: result.totalPages,
+    totalDocs: result.totalDocs,
+    hasNextPage: result.hasNextPage,
+    hasPrevPage: result.hasPrevPage,
+  };
+}
+
+export default getOpportunities;
