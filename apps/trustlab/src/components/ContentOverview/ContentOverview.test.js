@@ -26,12 +26,12 @@ const defaultProps = {
   card: {
     title: "Cohort at a Glance",
     items: [
-      { id: "1", label: "Programme", value: "TrustLab Incubator" },
-      { id: "2", label: "Cohort Number", value: "Cohort 2" },
-      { id: "3", label: "Cohort Location", value: "Mombasa" },
-      { id: "4", label: "Date", value: "1-10-2025 to 23-10-2025" },
-      { id: "5", label: "Organisations", value: "5 participants" },
-      { id: "6", label: "Status", value: "Completed" },
+      { id: "1", fieldLabel: "Programme", value: "TrustLab Incubator" },
+      { id: "2", fieldLabel: "Cohort Number", value: "Cohort 2" },
+      { id: "3", fieldLabel: "Cohort Location", value: "Mombasa" },
+      { id: "4", fieldLabel: "Date", value: "1-10-2025 to 23-10-2025" },
+      { id: "5", fieldLabel: "Organisations", value: "5 participants" },
+      { id: "6", fieldLabel: "Status", value: "Completed" },
     ],
   },
 };
@@ -49,17 +49,26 @@ describe("<ContentOverview />", () => {
         card={{
           title: "Organisation Details",
           items: [
-            { id: "1", label: "Organisation", value: "Organisation Name" },
+            {
+              id: "1",
+              fieldLabel: "Organisation",
+              value: "Organisation Name",
+            },
             {
               id: "2",
-              label: "Theme",
+              fieldLabel: "Theme",
               value: "Fact-checking & digital literacy",
             },
-            { id: "3", label: "Organisation Location", value: "Lamu" },
+            {
+              id: "3",
+              fieldLabel: "Organisation Location",
+              value: "Lamu",
+            },
             {
               id: "4",
-              label: "Cohort",
-              value: "TrustLab Incubator Cohort 2",
+              fieldLabel: "Cohort",
+              isLink: true,
+              label: "TrustLab Incubator Cohort 2",
               href: "/cohorts/2",
             },
           ],
@@ -87,6 +96,29 @@ describe("<ContentOverview />", () => {
             {
               id: "3",
               value: "Developed community-level counter-speech playbooks",
+            },
+          ],
+        }}
+      />,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders richtext card type", () => {
+    const { container } = render(
+      <ContentOverview
+        {...defaultProps}
+        card={{
+          title: "About the Programme",
+          cardType: "richtext",
+          richContent: [
+            {
+              type: "paragraph",
+              children: [
+                {
+                  text: "TrustLab is a digital safety incubator for civil society organisations.",
+                },
+              ],
             },
           ],
         }}
