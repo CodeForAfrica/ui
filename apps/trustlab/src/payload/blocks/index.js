@@ -34,3 +34,4 @@ export { default as OpportunityCategory } from "./OpportunityCategory";
 export { default as OpportunityList } from "./OpportunityList";
 export { default as Testimonial } from "./Testimonial";
 export { default as FeatureList } from "./FeatureList";
+export { default as ContentOverview } from "./ContentOverview";
