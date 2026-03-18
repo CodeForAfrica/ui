@@ -27,7 +27,6 @@ async function getOpportunities(api, options = {}) {
     where.location = { contains: location };
   }
 
-  // Filter by year and month on publishedAt
   if (year || month) {
     const andConditions = [];
 
@@ -62,12 +61,12 @@ async function getOpportunities(api, options = {}) {
       ).toISOString();
 
       andConditions.push({
-        publishedAt: {
+        createdAt: {
           greater_than_equal: startOfMonth,
         },
       });
       andConditions.push({
-        publishedAt: {
+        createdAt: {
           less_than_equal: endOfMonth,
         },
       });
@@ -103,7 +102,6 @@ async function getOpportunities(api, options = {}) {
           href: `/opportunities/${doc.slug}`,
         },
         participatingOrganizations: doc.participatingOrganizations ?? [],
-        tags: doc.tags ?? [],
       };
     }),
   );

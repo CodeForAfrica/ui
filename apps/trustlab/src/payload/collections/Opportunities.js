@@ -13,6 +13,7 @@ const Opportunities = {
   slug: "opportunities",
   labels: { singular: "Opportunity", plural: "Opportunities" },
   admin: {
+    group: "Publication",
     useAsTitle: "title",
     defaultColumns: ["title", "type"],
   },

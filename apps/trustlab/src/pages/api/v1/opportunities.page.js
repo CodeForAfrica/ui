@@ -9,7 +9,6 @@ export default async function handler(req, res) {
   try {
     const {
       page = 1,
-      limit = 12,
       type,
       locale,
       year,
@@ -18,9 +17,10 @@ export default async function handler(req, res) {
       opportunity,
     } = req.query;
 
+    const limit = parseInt(req.query?.limit, 10) || 12;
     const options = {
       page: parseInt(page, 10),
-      limit: parseInt(limit, 10),
+      limit,
       type,
       locale,
       year,

@@ -20,7 +20,6 @@ const OpportunityList = {
         { label: "Intelligence Briefing", value: "intelligence-briefing" },
         { label: "Baraza", value: "baraza" },
       ],
-      defaultValue: "all",
       localized: true,
     },
     {

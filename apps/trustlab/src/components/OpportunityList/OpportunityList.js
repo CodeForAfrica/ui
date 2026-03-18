@@ -57,19 +57,19 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
 
   const listRef = useRef(null);
 
+  // Sync page and params with URL query changes
   useEffect(() => {
-    if (initialPage) {
-      const parsed = parseInt(initialPage, 10);
+    const { page: queryPage, ...currentQueryParams } = query;
+
+    // Sync page from URL
+    if (queryPage) {
+      const parsed = parseInt(queryPage, 10);
       if (!Number.isNaN(parsed) && parsed !== page) {
         setPage(parsed);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialPage]);
 
-  // Sync params with URL query changes
-  useEffect(() => {
-    const { page: _, ...currentQueryParams } = query;
+    // Sync params from URL
     const newParams = {
       type: itemsType,
       limit: itemsPerPage,
