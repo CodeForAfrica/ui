@@ -5,10 +5,11 @@ import report from "./report";
 const COLLECTION_BY_SLUG = {
   events: post,
   helplines: post,
-  incubator: post,
+  incubator: opportunity,
   opportunities: opportunity,
   barazas: opportunity,
   "intelligence-briefings": opportunity,
+  organisations: opportunity,
   research: report,
   resources: post,
 };

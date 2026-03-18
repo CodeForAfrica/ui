@@ -1,5 +1,6 @@
 import collectionOverview from "./collectionOverview";
 import getOpportunityListBlock from "./getOpportunityListBlock";
+import getParticipatingOrganizationListBlock from "./getParticipatingOrganizationListBlock";
 import playbooksList from "./playbooksList";
 import postList from "./postList";
 import reportsList from "./reportsList";
@@ -15,6 +16,7 @@ const propsifyBlockBySlug = {
   "reports-list": reportsList,
   "playbooks-list": playbooksList,
   "toolkits-list": toolkitsList,
+  "participating-organization-list": getParticipatingOrganizationListBlock,
 };
 
 async function blockify(blocks, api, context) {
