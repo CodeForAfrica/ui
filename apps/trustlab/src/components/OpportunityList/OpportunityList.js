@@ -84,7 +84,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     };
     setParams(newParams);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }, []);
 
   const { items = [], pagination = p } = useOpportunities(
     page,
