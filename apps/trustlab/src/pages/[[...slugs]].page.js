@@ -11,6 +11,7 @@ import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
 import ErrorPage from "@/trustlab/components/Error";
 import Facilitators from "@/trustlab/components/Facilitators";
+import FeatureList from "@/trustlab/components/FeatureList";
 import Gallery from "@/trustlab/components/Gallery/Gallery";
 import Helplines from "@/trustlab/components/Helplines";
 import Hero from "@/trustlab/components/Hero";
@@ -72,6 +73,7 @@ const componentsBySlugs = {
   "opportunity-overview": OpportunityOverview,
   testimonial: Testimonial,
   "highlight-list": HighlightList,
+  "feature-list": FeatureList,
 };
 
 function Page({ blocks, fallback }) {
