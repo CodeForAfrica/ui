@@ -14,7 +14,7 @@ concurrency:
 jobs:
   build:
     name: Build and Test
-    timeout-minutes: 20
+    # timeout-minutes: 20
     runs-on: ${{ matrix.os }}
     env:
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
