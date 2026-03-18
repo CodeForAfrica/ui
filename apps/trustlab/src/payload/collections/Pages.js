@@ -36,6 +36,7 @@ import {
   OpportunityOverview,
   HighlightList,
   FeatureList,
+  ContentOverview,
 } from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -112,6 +113,7 @@ const Pages = {
         OpportunityOverview,
         HighlightList,
         FeatureList,
+        ContentOverview,
       ],
       localized: true,
       admin: {
