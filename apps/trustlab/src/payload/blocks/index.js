@@ -35,3 +35,4 @@ export { default as OpportunityList } from "./OpportunityList";
 export { default as ParticipatingOrganizationList } from "./ParticipatingOrganizationList";
 export { default as Testimonial } from "./Testimonial";
 export { default as FeatureList } from "./FeatureList";
+export { default as ContentOverview } from "./ContentOverview";

@@ -5,15 +5,6 @@ import OpportunityList from "./OpportunityList";
 
 import theme from "@/trustlab/theme";
 
-// Mock next/router
-jest.mock("next/router", () => ({
-  useRouter: () => ({
-    push: jest.fn(),
-    query: {},
-    pathname: "/opportunities",
-  }),
-}));
-
 const render = createRender({ theme });
 
 const mockItems = [
@@ -24,8 +15,8 @@ const mockItems = [
       root: {
         children: [
           {
-            children: [{ text: "Description for item 1" }],
-            type: "paragraph",
+            text: "Description for item 1",
+            type: "text",
           },
         ],
       },
@@ -48,8 +39,8 @@ const mockItems = [
       root: {
         children: [
           {
-            children: [{ text: "Description for item 2" }],
-            type: "paragraph",
+            text: "Description for item 2",
+            type: "text",
           },
         ],
       },
