@@ -17,8 +17,8 @@ import {
 const Organisations = {
   slug: "organisations",
   labels: {
-    singular: "Participating Organization",
-    plural: "Participating Organizations",
+    singular: "Organization",
+    plural: "Organizations",
   },
   admin: {
     group: "Publication",
