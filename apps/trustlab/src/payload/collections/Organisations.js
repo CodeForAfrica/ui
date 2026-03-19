@@ -1,15 +1,21 @@
 import { slug, image, richText, linkGroup } from "@commons-ui/payload";
 
 import {
+  OpportunityList,
   ActionBanner,
   PageHeader,
   PageOverview,
   HighlightList,
   Testimonial,
+  ParticipatingOrganizationList,
+  Gallery,
+  HorizontalGallery,
+  FeatureList,
+  ContentOverview,
 } from "@/trustlab/payload/blocks";
 
-const ParticipatingOrganizations = {
-  slug: "participating-organizations",
+const Organisations = {
+  slug: "organisations",
   labels: {
     singular: "Participating Organization",
     plural: "Participating Organizations",
@@ -49,10 +55,16 @@ const ParticipatingOrganizations = {
       type: "blocks",
       blocks: [
         ActionBanner,
+        OpportunityList,
         PageHeader,
         PageOverview,
         HighlightList,
         Testimonial,
+        ParticipatingOrganizationList,
+        Gallery,
+        HorizontalGallery,
+        FeatureList,
+        ContentOverview,
       ],
     },
     slug({
@@ -61,4 +73,4 @@ const ParticipatingOrganizations = {
   ],
 };
 
-export default ParticipatingOrganizations;
+export default Organisations;

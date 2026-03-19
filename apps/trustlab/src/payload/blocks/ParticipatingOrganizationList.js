@@ -32,7 +32,7 @@ const ParticipatingOrganizationList = {
     {
       name: "organizations",
       type: "relationship",
-      relationTo: "participating-organizations",
+      relationTo: "organisations",
       hasMany: true,
       label: { en: "Organizations" },
       admin: {

@@ -1,7 +1,8 @@
-import opportunity from "./opportunity";
+import opportunities from "./opportunities";
 import post from "./post";
 import report from "./report";
 
+const { opportunity, organisations } = opportunities;
 const COLLECTION_BY_SLUG = {
   events: post,
   helplines: post,
@@ -9,7 +10,7 @@ const COLLECTION_BY_SLUG = {
   opportunities: opportunity,
   barazas: opportunity,
   "intelligence-briefings": opportunity,
-  organisations: opportunity,
+  organisations,
   research: report,
   resources: post,
 };

@@ -18,7 +18,7 @@ import {
   Playbooks,
   Toolkits,
   Opportunities,
-  ParticipatingOrganizations,
+  Organisations,
 } from "@/trustlab/payload/collections";
 import plugins from "@/trustlab/payload/plugins";
 import SiteSettings from "@/trustlab/payload/globals";
@@ -78,7 +78,7 @@ export default buildConfig({
     Tags,
     // Group: Project
     Donors,
-    ParticipatingOrganizations,
+    Organisations,
     Partners,
     Playbooks,
     Toolkits,

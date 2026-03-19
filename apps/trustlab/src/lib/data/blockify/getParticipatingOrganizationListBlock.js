@@ -1,4 +1,15 @@
-async function getParticipatingOrganizationListBlock(block) {
+function fullSlugFromParents(doc) {
+  if (!doc) {
+    return "";
+  }
+  const { slug, parent } = doc;
+  if (!parent) {
+    return slug;
+  }
+  return `${fullSlugFromParents(parent)}/${slug}`;
+}
+
+async function getParticipatingOrganizationListBlock(block, api) {
   const {
     title,
     subtitle = null,
@@ -8,8 +19,10 @@ async function getParticipatingOrganizationListBlock(block) {
     ...rest
   } = block;
 
-  //   const parentSlug = "participating-organization-lists";
-
+  const parentSlug = "organisations";
+  const { docs } = await api.findPage(parentSlug, {});
+  const doc = docs[0];
+  const pagePath = fullSlugFromParents(doc);
   const resolvedOrganizations = await Promise.all(
     (organizations || []).map(async (org) => {
       // Handle both populated and unpopulated relationships
@@ -23,7 +36,11 @@ async function getParticipatingOrganizationListBlock(block) {
 
       // For card variant, generate link from breadcrumbs/slug
       const link =
-        (variant === "card" ? orgData?.link : orgData.website) ?? null;
+        (variant === "card"
+          ? {
+              href: orgData?.link?.href || `/${pagePath}/${orgData.slug}`,
+            }
+          : orgData.website) ?? null;
 
       return {
         id: orgData.id,
