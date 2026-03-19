@@ -41,7 +41,6 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
               TypographyProps={{
                 variant: "p2",
                 sx: {
-                  color: "text.secondary",
                   lineHeight: 1.8,
                 },
               }}
@@ -57,13 +56,13 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
                       objectPosition: "left",
                       maxHeight: 60,
                       height: "30px",
-                      width: "100%",
+                      width: "95px",
                     },
                   }}
                   sx={{
                     display: "inline-flex",
                     height: 60,
-                    width: "100%",
+                    width: "95px",
                   }}
                 />
               </Box>

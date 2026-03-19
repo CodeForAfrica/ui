@@ -17,6 +17,7 @@ import {
   Reports,
   Playbooks,
   Toolkits,
+  Opportunities,
 } from "@/trustlab/payload/collections";
 import plugins from "@/trustlab/payload/plugins";
 import SiteSettings from "@/trustlab/payload/globals";
@@ -82,6 +83,7 @@ export default buildConfig({
     // Group: Settings
     Reports,
     Users,
+    Opportunities,
   ] as CollectionConfig[],
   cors,
   csrf,

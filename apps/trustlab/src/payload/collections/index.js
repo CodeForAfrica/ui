@@ -8,3 +8,4 @@ export { default as Tags } from "./Tags";
 export { default as Reports } from "./Reports";
 export { default as Playbooks } from "./Playbooks";
 export { default as Toolkits } from "./Toolkits";
+export { default as Opportunities } from "./Opportunities";

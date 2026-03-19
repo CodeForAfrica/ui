@@ -30,5 +30,8 @@ export { default as PlaybooksList } from "./PlaybooksList";
 export { default as Facilitators } from "./Facilitators";
 export { default as OpportunityOverview } from "./OpportunityOverview";
 export { default as HighlightList } from "./HighlightList";
+export { default as OpportunityCategory } from "./OpportunityCategory";
+export { default as OpportunityList } from "./OpportunityList";
+export { default as Testimonial } from "./Testimonial";
 export { default as FeatureList } from "./FeatureList";
 export { default as ContentOverview } from "./ContentOverview";

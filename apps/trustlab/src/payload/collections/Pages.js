@@ -35,6 +35,8 @@ import {
   PlaybooksList,
   OpportunityOverview,
   HighlightList,
+  OpportunityList,
+  OpportunityCategory,
   FeatureList,
   ContentOverview,
 } from "@/trustlab/payload/blocks";
@@ -93,6 +95,8 @@ const Pages = {
         Hero,
         Incubator,
         IntelligenceBriefings,
+        OpportunityCategory,
+        OpportunityList,
         PageHeader,
         PageOverview,
         PartnerOverviewList,

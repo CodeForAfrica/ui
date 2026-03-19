@@ -8,7 +8,7 @@ function useOpportunities(
   initialItems,
   initialCount,
   skip,
-  apiEndpoint = "/api/opportunities",
+  apiEndpoint = "/api/v1/opportunities",
 ) {
   const searchParams = new URLSearchParams();
   searchParams.set("page", page);
@@ -27,6 +27,9 @@ function useOpportunities(
   }
   if (params?.search) {
     searchParams.set("search", params.search);
+  }
+  if (params?.opportunity) {
+    searchParams.set("opportunity", params.opportunity);
   }
 
   const { data } = useSWR(

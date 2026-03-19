@@ -27,32 +27,71 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     ...other
   } = props;
 
-  const [page, setPage] = useState(p?.page);
-  const [params, setParams] = useState({
-    type: itemsType,
-    limit: itemsPerPage,
-  });
-  const listRef = useRef(null);
   const router = useRouter();
   const { query } = router;
-  const { page: initialPage } = query;
+  const { page: initialPage, ...queryParams } = query;
 
-  useEffect(() => {
+  const [page, setPage] = useState(() => {
     if (initialPage) {
       const parsed = parseInt(initialPage, 10);
-      if (parsed !== page) {
+      if (!Number.isNaN(parsed)) {
+        return parsed;
+      }
+    }
+    return p?.page ?? 1;
+  });
+
+  const [params, setParams] = useState(() => ({
+    type: itemsType,
+    limit: itemsPerPage,
+    // Parse query params to restore filter state
+    ...Object.entries(queryParams).reduce((acc, [key, value]) => {
+      if (typeof value === "string" && value.includes(",")) {
+        acc[key] = value.split(",");
+      } else if (value) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {}),
+  }));
+
+  const listRef = useRef(null);
+
+  // Sync page and params with URL query changes
+  useEffect(() => {
+    const { page: queryPage, ...currentQueryParams } = query;
+
+    // Sync page from URL
+    if (queryPage) {
+      const parsed = parseInt(queryPage, 10);
+      if (!Number.isNaN(parsed) && parsed !== page) {
         setPage(parsed);
       }
     }
+
+    // Sync params from URL
+    const newParams = {
+      type: itemsType,
+      limit: itemsPerPage,
+      ...Object.entries(currentQueryParams).reduce((acc, [key, value]) => {
+        if (typeof value === "string" && value.includes(",")) {
+          acc[key] = value.split(",");
+        } else if (value) {
+          acc[key] = value;
+        }
+        return acc;
+      }, {}),
+    };
+    setParams(newParams);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialPage]);
+  }, []);
 
   const { items = [], pagination = p } = useOpportunities(
     page,
     params,
     initialItems,
     p?.count,
-    true,
+    !hasFilters && !hasPagination,
     apiEndpoint,
   );
 
@@ -81,23 +120,23 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   function handleApplyFilters(filterParams) {
     setParams((prev) => ({ ...prev, ...filterParams }));
     setPage(1);
-    const urlParams = new URLSearchParams(router.query);
+    const searchParams = new URLSearchParams(window.location.search);
     Object.entries(filterParams).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        urlParams.set(key, value.join(","));
+      if (Array.isArray(value) && value.length > 0) {
+        searchParams.set(key, value.join(","));
+      } else if (value) {
+        searchParams.set(key, value);
       } else {
-        urlParams.set(key, value);
+        searchParams.delete(key);
       }
     });
-    urlParams.delete("page");
-    router.push(
-      {
-        pathname: router.pathname,
-        query: urlParams.toString(),
-      },
-      undefined,
-      { shallow: true, scroll: false },
-    );
+    searchParams.delete("page");
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
   }
 
   return (

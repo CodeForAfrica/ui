@@ -67,6 +67,7 @@ const componentsBySlugs = {
   "what-we-do": Banner,
   "research-category": CategoryList,
   "resource-category": CategoryList,
+  "opportunity-category": CategoryList,
   "reports-list": ReportsList,
   "toolkits-list": ToolkitList,
   "playbooks-list": PlaybooksList,
