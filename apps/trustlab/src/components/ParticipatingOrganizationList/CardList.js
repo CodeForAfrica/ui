@@ -96,9 +96,7 @@ const CardList = forwardRef(function CardList(props, ref) {
                           fontSize: "0.75rem",
                           fontWeight: 700,
                         }}
-                      >
-                        {}
-                      </Box>
+                      />
                     )}
                     <Typography
                       variant="p2"

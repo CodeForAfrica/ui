@@ -80,7 +80,6 @@ const ChipList = forwardRef(function ChipList(props, ref) {
                           color: "#1020E1",
                           fill: "none",
                           fontSize: 24,
-                          viewBox: "0 0 24 24",
                         }}
                       />
                     )}
