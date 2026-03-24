@@ -1,3 +1,3 @@
-import { Gallery } from "@/trustlab/payload/blocks";
+import Gallery from "./Gallery";
 
 export default Gallery;
