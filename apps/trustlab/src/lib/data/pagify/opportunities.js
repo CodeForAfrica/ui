@@ -1,6 +1,6 @@
 import blockify from "@/trustlab/lib/data/blockify";
 
-async function opportunity(api, context) {
+const opportunity = (collection) => async (api, context) => {
   const { params, locale } = context;
   const { slugs } = params;
 
@@ -9,7 +9,7 @@ async function opportunity(api, context) {
   }
 
   const opportunitySlug = slugs[slugs.length - 1];
-  const result = await api.getCollection("opportunities", {
+  const result = await api.getCollection(collection, {
     where: {
       slug: { equals: opportunitySlug },
     },
@@ -35,6 +35,9 @@ async function opportunity(api, context) {
     type: doc.type,
     blocks,
   };
-}
+};
 
-export default opportunity;
+export default {
+  opportunity: opportunity("opportunities"),
+  organisations: opportunity("organisations"),
+};

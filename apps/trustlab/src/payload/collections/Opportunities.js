@@ -7,6 +7,11 @@ import {
   PageOverview,
   HighlightList,
   Testimonial,
+  ParticipatingOrganizationList,
+  Gallery,
+  HorizontalGallery,
+  FeatureList,
+  ContentOverview,
 } from "@/trustlab/payload/blocks";
 
 const Opportunities = {
@@ -70,6 +75,11 @@ const Opportunities = {
         PageOverview,
         HighlightList,
         Testimonial,
+        ParticipatingOrganizationList,
+        Gallery,
+        HorizontalGallery,
+        FeatureList,
+        ContentOverview,
       ],
     },
     slug({

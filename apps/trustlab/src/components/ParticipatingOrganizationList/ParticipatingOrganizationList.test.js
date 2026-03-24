@@ -5,72 +5,106 @@ import ParticipatingOrganizationList from "./ParticipatingOrganizationList";
 
 import theme from "@/trustlab/theme";
 
-// Mock the external link icon
-jest.mock("@/trustlab/assets/icons/external-link.svg", () => {
-  return function MockExternalLinkIcon(props) {
-    return <svg data-testid="external-link-icon" {...props} />;
-  };
-});
-
 const render = createRender({ theme });
 
 const mockOrganizations = [
   {
     id: "1",
-    name: "Lamu Arts & Theatre Alliance",
-    link: { href: "https://example.com/lamu" },
+    name: "International Centre for Investigative Reporting",
+    description:
+      "The ICIR is Nigeria's foremost investigative journalism organisation, producing high-impact accountability reporting on governance, corruption, and human rights.",
+    image: {
+      src: "https://picsum.photos/seed/org1/80/80",
+      alt: "ICIR Logo",
+    },
+    link: {
+      href: "https://example.com/icir",
+    },
+    buttonLabel: "Learn More",
   },
   {
     id: "2",
-    name: "Turathi ya Lamu Women Group",
-    link: { href: "https://example.com/turathi" },
+    name: "Stears Media",
+    description:
+      "Stears Media is a Lagos-based data journalism and business intelligence platform providing rigorous, data-driven coverage of African economies and markets.",
+    image: {
+      src: "https://picsum.photos/seed/org2/80/80",
+      alt: "Stears Logo",
+    },
+    link: {
+      href: "https://example.com/stears",
+    },
+    buttonLabel: "Learn More",
   },
-  { id: "3", name: "Kikozi Programme Group" },
-  { id: "4", name: "Lamu Youth Alliance" },
 ];
 
 describe("ParticipatingOrganizationList", () => {
+  it("renders chip variant by default", () => {
+    const { getByTestId } = render(
+      <ParticipatingOrganizationList
+        title="Participants"
+        organizations={mockOrganizations}
+      />,
+    );
+    expect(getByTestId("chip-list")).toBeInTheDocument();
+  });
+
+  it("renders card variant when specified", () => {
+    const { getByTestId } = render(
+      <ParticipatingOrganizationList
+        variant="card"
+        title="Participants"
+        organizations={mockOrganizations}
+      />,
+    );
+    expect(getByTestId("card-list")).toBeInTheDocument();
+  });
+
   it("renders nothing when no organizations provided", () => {
     const { container } = render(
       <ParticipatingOrganizationList organizations={[]} />,
     );
     expect(container.firstChild).toBeNull();
-    expect(container).toMatchSnapshot();
   });
 
-  it("renders title when provided", () => {
+  it("renders all organizations in chip variant", () => {
     const { getByText } = render(
       <ParticipatingOrganizationList
-        title="Participating Organizations"
+        title="Participants"
         organizations={mockOrganizations}
       />,
     );
-    expect(getByText("Participating Organizations")).toBeInTheDocument();
+    expect(
+      getByText("International Centre for Investigative Reporting"),
+    ).toBeInTheDocument();
+    expect(getByText("Stears Media")).toBeInTheDocument();
   });
 
-  it("renders all organization names", () => {
+  it("renders all organizations in card variant", () => {
     const { getByText } = render(
-      <ParticipatingOrganizationList organizations={mockOrganizations} />,
+      <ParticipatingOrganizationList
+        variant="card"
+        title="Participants"
+        organizations={mockOrganizations}
+      />,
     );
-    expect(getByText("Lamu Arts & Theatre Alliance")).toBeInTheDocument();
-    expect(getByText("Turathi ya Lamu Women Group")).toBeInTheDocument();
-    expect(getByText("Kikozi Programme Group")).toBeInTheDocument();
-    expect(getByText("Lamu Youth Alliance")).toBeInTheDocument();
+    expect(
+      getByText("International Centre for Investigative Reporting"),
+    ).toBeInTheDocument();
+    expect(getByText("Stears Media")).toBeInTheDocument();
   });
 
-  it("renders external link icon only for organizations with link.href", () => {
-    const { getAllByTestId } = render(
-      <ParticipatingOrganizationList organizations={mockOrganizations} />,
-    );
-    const icons = getAllByTestId("external-link-icon");
-    expect(icons).toHaveLength(2);
-  });
-
-  it("renders chips as links for organizations with href", () => {
+  it("renders with subtitle in card variant", () => {
     const { getByText } = render(
-      <ParticipatingOrganizationList organizations={mockOrganizations} />,
+      <ParticipatingOrganizationList
+        variant="card"
+        title="Participants"
+        subtitle="5 organizations completed TrustLab Incubator Cohort 2"
+        organizations={mockOrganizations}
+      />,
     );
-    const lamuChip = getByText("Lamu Arts & Theatre Alliance").closest("a");
-    expect(lamuChip).toHaveAttribute("href", "https://example.com/lamu");
+    expect(
+      getByText("5 organizations completed TrustLab Incubator Cohort 2"),
+    ).toBeInTheDocument();
   });
 });

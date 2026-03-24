@@ -33,6 +33,7 @@ const OpportunityOverview = forwardRef(
                 }}
                 TypographyProps={{
                   gutterBottom: true,
+                  variant: "p2",
                   sx: {
                     mb: 2,
                     color: textColor,
