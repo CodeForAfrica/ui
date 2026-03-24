@@ -1,18 +1,6 @@
 import { slug, image } from "@commons-ui/payload";
 
-import {
-  OpportunityList,
-  ActionBanner,
-  PageHeader,
-  PageOverview,
-  HighlightList,
-  Testimonial,
-  ParticipatingOrganizationList,
-  Gallery,
-  HorizontalGallery,
-  FeatureList,
-  ContentOverview,
-} from "@/trustlab/payload/blocks";
+import blocks from "@/trustlab/payload/blocks";
 
 const Opportunities = {
   slug: "opportunities",
@@ -68,19 +56,7 @@ const Opportunities = {
     {
       name: "blocks",
       type: "blocks",
-      blocks: [
-        ActionBanner,
-        OpportunityList,
-        PageHeader,
-        PageOverview,
-        HighlightList,
-        Testimonial,
-        ParticipatingOrganizationList,
-        Gallery,
-        HorizontalGallery,
-        FeatureList,
-        ContentOverview,
-      ],
+      blocks,
     },
     slug({
       fieldToUse: "title",

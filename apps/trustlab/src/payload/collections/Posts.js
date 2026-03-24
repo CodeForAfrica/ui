@@ -8,17 +8,9 @@ import {
 } from "@commons-ui/payload";
 import { createParentField } from "@payloadcms/plugin-nested-docs";
 
-import {
-  Content,
-  DonorOverviewList,
-  Gallery,
-  PartnerOverviewList,
-  PageOverview,
-  PostList,
-} from "../blocks";
-
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
+import blocks from "@/trustlab/payload/blocks";
 import { hideAPIURL, revalidatePost } from "@/trustlab/payload/utils";
 
 const Posts = {
@@ -61,14 +53,7 @@ const Posts = {
     {
       name: "content",
       type: "blocks",
-      blocks: [
-        Content,
-        DonorOverviewList,
-        Gallery,
-        PartnerOverviewList,
-        PostList,
-        PageOverview,
-      ],
+      blocks,
       localized: true,
       required: true,
     },
