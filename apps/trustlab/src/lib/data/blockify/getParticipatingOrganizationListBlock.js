@@ -41,14 +41,14 @@ async function getParticipatingOrganizationListBlock(block, api) {
               href: orgData?.link?.href || `/${pagePath}/${orgData.slug}`,
             }
           : {
-              href: orgData.website?.url,
+              href: orgData.website?.url ?? null,
               ...orgData.website,
             }) ?? null;
 
       return {
         id: orgData.id,
         name: orgData.name,
-        description: orgData.description,
+        description: orgData.description ?? null,
         image,
         link,
         buttonLabel: buttonLabel || "Learn More",

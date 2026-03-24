@@ -1,5 +1,16 @@
 import formatDate from "@/trustlab/payload/utils/formatDate";
 
+function fullSlugFromParents(doc) {
+  if (!doc) {
+    return "";
+  }
+  const { slug, parent } = doc;
+  if (!parent) {
+    return slug;
+  }
+  return `${fullSlugFromParents(parent)}/${slug}`;
+}
+
 async function getOpportunities(api, options = {}) {
   const {
     page = 1,
@@ -86,6 +97,31 @@ async function getOpportunities(api, options = {}) {
     depth: 2,
   });
 
+  const typeSlugMap = {
+    incubator: "incubators",
+    "intelligence-briefing": "intelligence-briefings",
+    baraza: "barazas",
+  };
+
+  const parentSlug = typeSlugMap[type] || "opportunities";
+
+  console.log({
+    parentSlug,
+    type,
+  });
+  // Fetch parent page once for all opportunities
+  let basePath = "";
+  try {
+    const { docs } = await api.findPage(parentSlug, {});
+    const parentDoc = docs?.[0];
+    if (parentDoc) {
+      basePath = `/${fullSlugFromParents(parentDoc)}`;
+    }
+  } catch (error) {
+    // Fallback to default path if parent page not found
+    basePath = `/${parentSlug}`;
+  }
+
   const opportunities = await Promise.all(
     result.docs.map(async (doc) => {
       const image = doc.image ?? null;
@@ -99,7 +135,7 @@ async function getOpportunities(api, options = {}) {
         date: doc.createdAt ? formatDate(doc.createdAt, "dd-MM-yyyy") : null,
         slug: doc.slug,
         link: {
-          href: `/opportunities/${doc.slug}`,
+          href: `${basePath}/${doc.slug}`,
         },
         participatingOrganizations: doc.participatingOrganizations ?? [],
       };

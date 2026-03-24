@@ -15,7 +15,7 @@ exports[`<OpportunityOverview /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-3kw7d9"
+            class="MuiBox-root css-14nhcfs"
           >
             <div
               class="payload-richtext"
@@ -30,7 +30,7 @@ exports[`<OpportunityOverview /> renders unchanged 1`] = `
           >
             <img
               alt="Overview Image"
-              class="css-qv2885"
+              class="css-dqrju9"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -62,7 +62,7 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-3kw7d9"
+            class="MuiBox-root css-14nhcfs"
           >
             <div
               class="payload-richtext"
@@ -141,7 +141,7 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
           >
             <img
               alt="Overview Image"
-              class="css-qv2885"
+              class="css-dqrju9"
               data-nimg="fill"
               decoding="async"
               loading="lazy"

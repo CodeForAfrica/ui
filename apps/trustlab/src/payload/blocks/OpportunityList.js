@@ -21,6 +21,7 @@ const OpportunityList = {
         { label: "Baraza", value: "baraza" },
       ],
       localized: true,
+      required: true,
     },
     {
       name: "hasFilters",

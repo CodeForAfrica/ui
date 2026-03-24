@@ -3,7 +3,7 @@ import getOpportunities from "@/trustlab/lib/data/getOpportunities";
 async function getOpportunityListBlock(block, api, options = {}) {
   const { locale } = options;
   const {
-    opportunityType,
+    opportunityType = null,
     itemsPerPage = 12,
     hasPagination = false,
     hasFilters = false,
