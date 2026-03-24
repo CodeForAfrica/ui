@@ -1,38 +1,79 @@
-export { default as ActionBanner } from "./ActionBanner";
-export { default as CallToAction } from "./CallToAction";
-export { default as ComingSoon } from "./ComingSoon";
-export { default as Content } from "./Content";
-export { default as ContentOverview } from "./ContentOverview";
-export { default as CourseList } from "./CourseList";
-export { default as DonorOverviewList } from "./DonorOverviewList";
-export { default as ErrorBlock } from "./ErrorBlock";
-export { default as Facilitators } from "./Facilitators";
-export { default as FeatureList } from "./FeatureList";
-export { default as Gallery } from "./Gallery";
-export { default as Helplines } from "./Helplines";
-export { default as HelplinesOverviewList } from "./HelplinesOverviewList";
-export { default as Hero } from "./Hero";
-export { default as HighlightList } from "./HighlightList";
-export { default as HorizontalGallery } from "./HorizontalGallery";
-export { default as Incubator } from "./Incubator";
-export { default as IntelligenceBriefings } from "./IntelligenceBriefings";
-export { default as OpportunityCategory } from "./OpportunityCategory";
-export { default as OpportunityList } from "./OpportunityList";
-export { default as OpportunityOverview } from "./OpportunityOverview";
-export { default as PageHeader } from "./PageHeader";
-export { default as PageOverview } from "./PageOverview";
-export { default as ParticipatingOrganizationList } from "./ParticipatingOrganizationList";
-export { default as PartnerOverviewList } from "./PartnerOverviewList";
-export { default as PartnersList } from "./PartnersList";
-export { default as PlaybooksList } from "./PlaybooksList";
-export { default as PostList } from "./PostList";
-export { default as ReportsList } from "./ReportsList";
-export { default as ResearchCategory } from "./ResearchCategory";
-export { default as ResourceCategory } from "./ResourceCategory";
-export { default as Resources } from "./Resources";
-export { default as ResourcesOverviewList } from "./ResourcesOverviewList";
-export { default as Spotlight } from "./Spotlight";
-export { default as Testimonial } from "./Testimonial";
-export { default as ToolkitsList } from "./ToolkitsList";
-export { default as WhatWeDo } from "./WhatWeDo";
-export { default as WhereWeWork } from "./WhereWeWork";
+import ActionBanner from "./ActionBanner";
+import CallToAction from "./CallToAction";
+import ComingSoon from "./ComingSoon";
+import Content from "./Content";
+import ContentOverview from "./ContentOverview";
+import CourseList from "./CourseList";
+import DonorOverviewList from "./DonorOverviewList";
+import ErrorBlock from "./ErrorBlock";
+import Facilitators from "./Facilitators";
+import FeatureList from "./FeatureList";
+import Gallery from "./Gallery";
+import Helplines from "./Helplines";
+import HelplinesOverviewList from "./HelplinesOverviewList";
+import Hero from "./Hero";
+import HighlightList from "./HighlightList";
+import HorizontalGallery from "./HorizontalGallery";
+import Incubator from "./Incubator";
+import IntelligenceBriefings from "./IntelligenceBriefings";
+import OpportunityCategory from "./OpportunityCategory";
+import OpportunityList from "./OpportunityList";
+import OpportunityOverview from "./OpportunityOverview";
+import PageHeader from "./PageHeader";
+import PageOverview from "./PageOverview";
+import ParticipatingOrganizationList from "./ParticipatingOrganizationList";
+import PartnerOverviewList from "./PartnerOverviewList";
+import PartnersList from "./PartnersList";
+import PlaybooksList from "./PlaybooksList";
+import PostList from "./PostList";
+import ReportsList from "./ReportsList";
+import ResearchCategory from "./ResearchCategory";
+import ResourceCategory from "./ResourceCategory";
+import Resources from "./Resources";
+import ResourcesOverviewList from "./ResourcesOverviewList";
+import Spotlight from "./Spotlight";
+import Testimonial from "./Testimonial";
+import ToolkitsList from "./ToolkitsList";
+import WhatWeDo from "./WhatWeDo";
+import WhereWeWork from "./WhereWeWork";
+
+export default [
+  ActionBanner,
+  CallToAction,
+  ComingSoon,
+  Content,
+  ContentOverview,
+  CourseList,
+  DonorOverviewList,
+  ErrorBlock,
+  Facilitators,
+  FeatureList,
+  Gallery,
+  Helplines,
+  HelplinesOverviewList,
+  Hero,
+  HighlightList,
+  HorizontalGallery,
+  Incubator,
+  IntelligenceBriefings,
+  OpportunityCategory,
+  OpportunityList,
+  OpportunityOverview,
+  PageHeader,
+  PageOverview,
+  ParticipatingOrganizationList,
+  PartnerOverviewList,
+  PartnersList,
+  PlaybooksList,
+  PostList,
+  ReportsList,
+  ResearchCategory,
+  ResourceCategory,
+  Resources,
+  ResourcesOverviewList,
+  Spotlight,
+  Testimonial,
+  ToolkitsList,
+  WhatWeDo,
+  WhereWeWork,
+];
