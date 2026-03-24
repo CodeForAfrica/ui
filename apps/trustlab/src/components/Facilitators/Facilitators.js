@@ -24,6 +24,7 @@ const Facilitators = forwardRef((props, ref) => {
                 p: { mb: 2 },
               }}
               TypographyProps={{
+                variant: "p2",
                 gutterBottom: true,
                 sx: { mb: 1 },
               }}
@@ -56,7 +57,7 @@ const Facilitators = forwardRef((props, ref) => {
                         flexShrink: 0,
                       }}
                     />
-                    <Typography variant="body2">{facilitator.name}</Typography>
+                    <Typography variant="p2">{facilitator.name}</Typography>
                   </Box>
                 ))}
               </Box>

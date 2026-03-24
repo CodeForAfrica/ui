@@ -28,12 +28,15 @@ const OpportunityOverview = forwardRef(
               <LexicalRichText
                 elements={content}
                 sx={{
-                  p: { mb: 2 },
-                  h3: { mb: 1 },
+                  h1: { mb: 1, fontWeight: 700, variant: "h1" },
+                  h2: { mb: 1, fontWeight: 700, variant: "h2" },
+                  h3: { mb: 1, fontWeight: 700, variant: "h3" },
                 }}
                 TypographyProps={{
                   gutterBottom: true,
-                  variant: "p2",
+                  variant: {
+                    p: "p2",
+                  },
                   sx: {
                     mb: 2,
                     color: textColor,
@@ -109,6 +112,9 @@ const OpportunityOverview = forwardRef(
                 ImageProps={{
                   alt,
                   src: url,
+                  sx: {
+                    objectFit: "cover",
+                  },
                 }}
                 sx={{
                   height: { xs: "374px", md: "420px" },
