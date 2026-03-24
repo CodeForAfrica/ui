@@ -35,7 +35,7 @@ exports[`<Facilitators /> renders unchanged 1`] = `
                 class="MuiBox-root css-bdsul1"
               />
               <p
-                class="MuiTypography-root MuiTypography-body2 css-c6vl00-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 css-1gf81em-MuiTypography-root"
               >
                 Nahila Habade
               </p>
@@ -47,7 +47,7 @@ exports[`<Facilitators /> renders unchanged 1`] = `
                 class="MuiBox-root css-bdsul1"
               />
               <p
-                class="MuiTypography-root MuiTypography-body2 css-c6vl00-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 css-1gf81em-MuiTypography-root"
               >
                 Monica Atieno
               </p>
@@ -59,7 +59,7 @@ exports[`<Facilitators /> renders unchanged 1`] = `
                 class="MuiBox-root css-bdsul1"
               />
               <p
-                class="MuiTypography-root MuiTypography-body2 css-c6vl00-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 css-1gf81em-MuiTypography-root"
               >
                 Kimberly Michaels
               </p>
