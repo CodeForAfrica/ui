@@ -1,12 +1,5 @@
 import { Figure } from "@commons-ui/next";
-import {
-  Box,
-  IconButton,
-  Modal,
-  SvgIcon,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, Modal, SvgIcon } from "@mui/material";
 import { forwardRef, useCallback, useEffect } from "react";
 
 import ChevronRightDouble from "@/trustlab/assets/icons/Type=chevronRightDouble, Size=20, Color=currentColor.svg";
@@ -20,9 +13,6 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
     onPrevious,
     onNext,
   } = props;
-
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const currentImage = images[currentIndex];
   const hasPrevious = currentIndex > 0;
@@ -170,8 +160,8 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
             }}
             sx={{
               m: 0,
-              width: isMobile ? "95vw" : "85vw",
-              height: "85vh",
+              width: "75vw",
+              height: "75vh",
               position: "relative",
             }}
           />
