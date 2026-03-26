@@ -11,6 +11,10 @@ const OpportunityList = {
       label: { en: "Section Title" },
       localized: true,
     },
+    richText({
+      name: "description",
+      localized: true,
+    }),
     {
       name: "opportunityType",
       type: "select",

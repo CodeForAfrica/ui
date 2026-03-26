@@ -54,6 +54,18 @@ const Opportunities = {
       localized: true,
     },
     {
+      name: "date",
+      type: "date",
+      admin: {
+        position: "sidebar",
+        date: {
+          pickerAppearance: "dayOnly",
+          displayFormat: "dd-MM-yyyy",
+        },
+        description: "Date of the opportunity event",
+      },
+    },
+    {
       name: "blocks",
       type: "blocks",
       blocks,

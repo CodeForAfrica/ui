@@ -1,5 +1,6 @@
 import { Section } from "@commons-ui/core";
-import { Grid2 as Grid, Box } from "@mui/material";
+import { LexicalRichText } from "@commons-ui/payload";
+import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { forwardRef, useState, useEffect, useRef } from "react";
 
@@ -24,6 +25,8 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     filterByLabel,
     applyFiltersLabel,
     clearFiltersLabel,
+    title,
+    description,
     ...other
   } = props;
 
@@ -141,6 +144,33 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
 
   return (
     <Box ref={listRef} data-testid={testId}>
+      <Box sx={{ background: "#fff" }}>
+        {title || description ? (
+          <Section sx={{ background: "common.white", px: { xs: 2.5, md: 0 } }}>
+            <Typography variant="h2">{title}</Typography>
+            {description && (
+              <LexicalRichText
+                elements={description}
+                sx={{
+                  h1: { mb: 1, fontWeight: 700, variant: "h1" },
+                  h2: { mb: 1, fontWeight: 700, variant: "h2" },
+                  h3: { mb: 1, fontWeight: 700, variant: "h3" },
+                }}
+                TypographyProps={{
+                  gutterBottom: true,
+                  variant: {
+                    p: "p2",
+                  },
+                  sx: {
+                    mb: 2,
+                  },
+                }}
+              />
+            )}
+          </Section>
+        ) : null}
+      </Box>
+
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
           <Filters
@@ -157,7 +187,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
       <Box sx={{ background: "#fff" }}>
         {items.length ? (
           <Box sx={{ background: "#fff" }}>
-            <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+            <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
               <Grid
                 container
                 spacing={3}

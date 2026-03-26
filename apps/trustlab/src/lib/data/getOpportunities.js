@@ -105,10 +105,6 @@ async function getOpportunities(api, options = {}) {
 
   const parentSlug = typeSlugMap[type] || "opportunities";
 
-  console.log({
-    parentSlug,
-    type,
-  });
   // Fetch parent page once for all opportunities
   let basePath = "";
   try {
@@ -132,7 +128,7 @@ async function getOpportunities(api, options = {}) {
         image,
         caption: doc.caption,
         location: doc.location,
-        date: doc.createdAt ? formatDate(doc.createdAt, "dd-MM-yyyy") : null,
+        date: doc.date ? formatDate(doc.date, "dd-MM-yyyy") : null,
         slug: doc.slug,
         link: {
           href: `${basePath}/${doc.slug}`,
