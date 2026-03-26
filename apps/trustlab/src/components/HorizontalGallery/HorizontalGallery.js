@@ -3,6 +3,8 @@ import { Figure, RichTypography } from "@commons-ui/next";
 import { Box, Stack } from "@mui/material";
 import React, { forwardRef, useCallback, useRef, useState } from "react";
 
+import ImageLightbox from "@/trustlab/components/ImageLightbox";
+
 const ITEMS_PER_PAGE = 4;
 
 const HorizontalGallery = forwardRef(function HorizontalGallery(
@@ -11,6 +13,8 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
 ) {
   const scrollRef = useRef(null);
   const [activePage, setActivePage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const pageCount = Math.ceil((images?.length ?? 0) / ITEMS_PER_PAGE);
 
@@ -39,6 +43,25 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
   for (let i = 0; i < (images?.length ?? 0); i += ITEMS_PER_PAGE) {
     chunks.push(images.slice(i, i + ITEMS_PER_PAGE));
   }
+
+  const handleImageClick = useCallback((imageIndex) => {
+    setLightboxIndex(imageIndex);
+    setLightboxOpen(true);
+  }, []);
+
+  const handleLightboxClose = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  const handleLightboxPrevious = useCallback(() => {
+    setLightboxIndex((prev) => Math.max(0, prev - 1));
+  }, []);
+
+  const handleLightboxNext = useCallback(() => {
+    setLightboxIndex((prev) => Math.min(images.length - 1, prev + 1));
+  }, [images?.length]);
+
+  const flatImages = images?.map(({ image }) => image) || [];
 
   if (!images?.length) {
     return null;
@@ -75,7 +98,7 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
             "&::-webkit-scrollbar": { display: "none" },
           }}
         >
-          {chunks.map((chunk) => (
+          {chunks.map((chunk, chunkIndex) => (
             <Box
               key={chunk[0].image.id}
               sx={{
@@ -87,39 +110,47 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
                 gap: 2,
               }}
             >
-              {chunk.map(({ image }) => (
-                <Box
-                  key={image.id}
-                  sx={{
-                    flex: {
-                      xs: "0 0 calc(50% - 8px)",
-                      sm: "0 0 calc(25% - 12px)",
-                    },
-                    minWidth: 0,
-                  }}
-                >
-                  <Figure
-                    ImageProps={{
-                      alt: image.alt || "",
-                      src: image.url,
-                      sx: {
-                        objectFit: "cover",
-                      },
-                    }}
+              {chunk.map(({ image }, itemIndex) => {
+                const flatIndex = chunkIndex * ITEMS_PER_PAGE + itemIndex;
+                return (
+                  <Box
+                    key={image.id}
+                    onClick={() => handleImageClick(flatIndex)}
                     sx={{
-                      m: 0,
-                      height: { xs: 120, sm: 264 },
-                      borderRadius: 2,
-                      overflow: "hidden",
-                      position: "relative",
-                      width: "100%",
-                      "&:hover": {
-                        filter: "none",
+                      flex: {
+                        xs: "0 0 calc(50% - 8px)",
+                        sm: "0 0 calc(25% - 12px)",
                       },
+                      minWidth: 0,
+                      cursor: "pointer",
                     }}
-                  />
-                </Box>
-              ))}
+                  >
+                    <Figure
+                      ImageProps={{
+                        alt: image.alt || "",
+                        src: image.url,
+                        sx: {
+                          objectFit: "cover",
+                        },
+                      }}
+                      sx={{
+                        m: 0,
+                        height: { xs: 120, sm: 264 },
+                        borderRadius: 2,
+                        overflow: "hidden",
+                        position: "relative",
+                        width: "100%",
+                        transition: "transform 0.2s, box-shadow 0.2s",
+                        "&:hover": {
+                          filter: "none",
+                          transform: "scale(1.02)",
+                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                        },
+                      }}
+                    />
+                  </Box>
+                );
+              })}
             </Box>
           ))}
         </Box>
@@ -151,6 +182,15 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
           </Stack>
         )}
       </Section>
+
+      <ImageLightbox
+        open={lightboxOpen}
+        onClose={handleLightboxClose}
+        images={flatImages}
+        currentIndex={lightboxIndex}
+        onPrevious={handleLightboxPrevious}
+        onNext={handleLightboxNext}
+      />
     </Box>
   );
 });
