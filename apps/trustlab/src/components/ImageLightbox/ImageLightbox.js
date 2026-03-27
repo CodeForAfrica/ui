@@ -144,6 +144,8 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            maxWidth: "75vw",
+            maxHeight: "75vh",
           }}
         >
           <Figure
