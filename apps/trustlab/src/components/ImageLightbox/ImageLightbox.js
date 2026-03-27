@@ -150,16 +150,19 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
             ImageProps={{
               alt: currentImage.alt || "",
               src: currentImage.url || currentImage.src,
+              width: currentImage.width,
+              height: currentImage.height,
+              fill: !(currentImage.height && currentImage.width),
               sx: {
-                objectFit: "cover",
+                objectFit: "contain",
                 maxWidth: "100%",
-                maxHeight: "90vh",
+                maxHeight: "75vh",
               },
             }}
             sx={{
               m: 0,
-              width: "75vw",
-              height: "75vh",
+              maxWidth: "75vw",
+              maxHeight: "75vh",
               position: "relative",
             }}
           />

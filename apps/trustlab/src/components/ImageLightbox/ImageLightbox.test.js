@@ -13,16 +13,22 @@ const mockImages = [
     id: "1",
     url: "https://example.com/image1.jpg",
     alt: "Image 1",
+    height: 600,
+    width: 800,
   },
   {
     id: "2",
     url: "https://example.com/image2.jpg",
     alt: "Image 2",
+    height: 600,
+    width: 800,
   },
   {
     id: "3",
     url: "https://example.com/image3.jpg",
     alt: "Image 3",
+    height: 600,
+    width: 800,
   },
 ];
 
