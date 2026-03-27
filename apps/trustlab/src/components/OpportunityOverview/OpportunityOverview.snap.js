@@ -6,7 +6,7 @@ exports[`<OpportunityOverview /> renders unchanged 1`] = `
     class="MuiBox-root css-14r34si"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fem14s-MuiContainer-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1yhiug-MuiGrid2-root"
@@ -15,7 +15,7 @@ exports[`<OpportunityOverview /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-14nhcfs"
+            class="MuiBox-root css-18z4jxm"
           >
             <div
               class="payload-richtext"
@@ -53,7 +53,7 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
     class="MuiBox-root css-14r34si"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fem14s-MuiContainer-root"
     >
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2 css-1yhiug-MuiGrid2-root"
@@ -62,7 +62,7 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <div
-            class="MuiBox-root css-14nhcfs"
+            class="MuiBox-root css-18z4jxm"
           >
             <div
               class="payload-richtext"

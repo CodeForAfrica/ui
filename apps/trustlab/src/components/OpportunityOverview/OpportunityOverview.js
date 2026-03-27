@@ -22,21 +22,20 @@ const OpportunityOverview = forwardRef(
 
     return (
       <Box sx={{ backgroundColor }} ref={ref}>
-        <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 2, px: { xs: 2.5, md: 0 } }}>
           <Grid container spacing={2} alignItems="flex-start">
             <Grid size={{ xs: 12, sm: 6 }}>
               <LexicalRichText
                 elements={content}
                 sx={{
-                  h1: { mb: 1, fontWeight: 700, variant: "h1" },
-                  h2: { mb: 1, fontWeight: 700, variant: "h2" },
-                  h3: { mb: 1, fontWeight: 700, variant: "h3" },
+                  h1: { mb: 1, fontWeight: 700, fontSize: "24px" },
+                  h2: { mb: 1, fontWeight: 700, fontSize: "20px" },
+                  h3: { mb: 1, fontWeight: 700, fontSize: "18px" },
+                  p: { mb: 1 },
                 }}
                 TypographyProps={{
                   gutterBottom: true,
-                  variant: {
-                    p: "p2",
-                  },
+                  variant: "p2",
                   sx: {
                     mb: 2,
                     color: textColor,

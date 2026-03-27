@@ -71,7 +71,7 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
       <Section
         sx={{
-          py: 8,
+          py: 2,
           px: {
             xs: 2.5,
             sm: 0,

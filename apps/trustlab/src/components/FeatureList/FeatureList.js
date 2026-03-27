@@ -11,7 +11,7 @@ const FeatureList = forwardRef(function FeatureList(props, ref) {
 
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
-      <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: 2, px: { xs: 2.5, md: 0 } }}>
         {title ? (
           <Typography
             sx={{
