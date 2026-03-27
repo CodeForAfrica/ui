@@ -146,7 +146,9 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     <Box ref={listRef} data-testid={testId}>
       <Box sx={{ background: "#fff" }}>
         {title || description ? (
-          <Section sx={{ background: "common.white", px: { xs: 2.5, md: 0 } }}>
+          <Section
+            sx={{ backgroundColor: "common.white", px: { xs: 2.5, md: 0 } }}
+          >
             <Typography variant="h2">{title}</Typography>
             {description && (
               <LexicalRichText

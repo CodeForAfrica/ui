@@ -56,7 +56,6 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
       ref={ref}
       open={open}
       onClose={onClose}
-      aria-labelledby="image-lightbox"
       sx={{
         display: "flex",
         alignItems: "center",
@@ -71,7 +70,7 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
           outline: "none",
         }}
       >
@@ -138,11 +137,10 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
           </IconButton>
         )}
 
-        {/* Image container */}
+        {/* Image container - stop propagation to prevent closing when clicking on image */}
         <Box
+          onClick={(e) => e.stopPropagation()}
           sx={{
-            maxWidth: "90vw",
-            maxHeight: "90vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -153,7 +151,7 @@ const ImageLightbox = forwardRef(function ImageLightbox(props, ref) {
               alt: currentImage.alt || "",
               src: currentImage.url || currentImage.src,
               sx: {
-                objectFit: "contain",
+                objectFit: "cover",
                 maxWidth: "100%",
                 maxHeight: "90vh",
               },
