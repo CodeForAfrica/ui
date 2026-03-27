@@ -15,7 +15,7 @@ const Content = forwardRef((props, ref) => {
   return (
     <Box
       sx={{
-        py: 8,
+        py: 4,
         px: { xs: 2.5 },
         backgroundColor,
       }}
@@ -38,6 +38,7 @@ const Content = forwardRef((props, ref) => {
             color: textColor,
           }}
           TypographyProps={{
+            variant: "p2",
             gutterBottom: true,
             sx: {
               mb: 3,
