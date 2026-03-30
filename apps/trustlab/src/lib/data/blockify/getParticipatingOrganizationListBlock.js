@@ -38,11 +38,10 @@ async function getParticipatingOrganizationListBlock(block, api) {
       const link =
         (variant === "card"
           ? {
-              href: orgData?.link?.href || `/${pagePath}/${orgData.slug}`,
+              href: `/${pagePath}/${orgData.slug}`,
             }
           : {
-              href: orgData.website?.url ?? null,
-              ...orgData.website,
+              href: orgData?.link?.href ?? null,
             }) ?? null;
 
       return {

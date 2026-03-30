@@ -11,6 +11,10 @@ const OpportunityList = {
       label: { en: "Section Title" },
       localized: true,
     },
+    richText({
+      name: "description",
+      localized: true,
+    }),
     {
       name: "opportunityType",
       type: "select",
@@ -67,10 +71,6 @@ const OpportunityList = {
           name: "options",
           type: "array",
           label: "Custom Options",
-          admin: {
-            condition: (_, siblingData) =>
-              siblingData?.type === "location" || siblingData?.type === "type",
-          },
           fields: [
             {
               name: "label",

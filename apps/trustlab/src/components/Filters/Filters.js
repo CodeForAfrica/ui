@@ -18,7 +18,7 @@ const defaultIcons = {
 const generateYearOptions = () => {
   const currentYear = new Date().getFullYear();
   const len = currentYear - 2020 + 1;
-  return Array.from({ length: len }, (_, i) => 2020 + i);
+  return Array.from({ length: len }, (_, i) => currentYear - i);
 };
 
 // Generate month options

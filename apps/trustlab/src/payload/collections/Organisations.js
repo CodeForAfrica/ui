@@ -34,7 +34,6 @@ const Organisations = {
     }),
     linkGroup({
       overrides: {
-        name: "website",
         label: "Organization Link",
       },
     }),

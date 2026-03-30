@@ -16,7 +16,7 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
       ref={ref}
       sx={{
         backgroundColor: "#fff",
-        py: { xs: 5, md: 8 },
+        py: 2,
         ...sx,
       }}
       data-testid="testimonial"

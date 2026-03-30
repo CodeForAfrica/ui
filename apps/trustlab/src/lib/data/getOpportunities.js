@@ -45,12 +45,12 @@ async function getOpportunities(api, options = {}) {
       const startOfYear = new Date(year, 0, 1).toISOString();
       const endOfYear = new Date(year, 11, 31, 23, 59, 59, 999).toISOString();
       andConditions.push({
-        createdAt: {
+        date: {
           greater_than_equal: startOfYear,
         },
       });
       andConditions.push({
-        createdAt: {
+        date: {
           less_than_equal: endOfYear,
         },
       });
@@ -72,12 +72,12 @@ async function getOpportunities(api, options = {}) {
       ).toISOString();
 
       andConditions.push({
-        createdAt: {
+        date: {
           greater_than_equal: startOfMonth,
         },
       });
       andConditions.push({
-        createdAt: {
+        date: {
           less_than_equal: endOfMonth,
         },
       });
@@ -105,10 +105,6 @@ async function getOpportunities(api, options = {}) {
 
   const parentSlug = typeSlugMap[type] || "opportunities";
 
-  console.log({
-    parentSlug,
-    type,
-  });
   // Fetch parent page once for all opportunities
   let basePath = "";
   try {
@@ -132,7 +128,10 @@ async function getOpportunities(api, options = {}) {
         image,
         caption: doc.caption,
         location: doc.location,
-        date: doc.createdAt ? formatDate(doc.createdAt, "dd-MM-yyyy") : null,
+        date:
+          (doc.date ?? doc.createdAt)
+            ? formatDate(doc.date ?? doc.createdAt, "dd-MM-yyyy")
+            : null,
         slug: doc.slug,
         link: {
           href: `${basePath}/${doc.slug}`,
