@@ -6,7 +6,7 @@ const { opportunity, organisations } = opportunities;
 const COLLECTION_BY_SLUG = {
   events: post,
   helplines: post,
-  incubator: opportunity,
+  incubators: opportunity,
   opportunities: opportunity,
   barazas: opportunity,
   "intelligence-briefings": opportunity,

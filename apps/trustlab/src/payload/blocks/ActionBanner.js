@@ -21,7 +21,6 @@ const ActionBanner = {
       overrides: {
         name: "buttonLink",
         label: "Button Link",
-        required: true,
       },
       linkConfig: {
         required: false,
@@ -42,6 +41,34 @@ const ActionBanner = {
           defaultValue: "#FFFFFF",
         }),
       ],
+    },
+    {
+      name: "embedCode",
+      type: "code",
+      label: { en: "Embed Code" },
+      admin: {
+        description:
+          "Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.",
+      },
+    },
+    {
+      name: "embedDialogTitle",
+      type: "text",
+      label: { en: "Embed Dialog Title" },
+      localized: true,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.embedCode),
+      },
+    },
+    {
+      name: "embedCloseLabel",
+      type: "text",
+      label: { en: "Embed Close Button Label" },
+      defaultValue: "Close",
+      localized: true,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.embedCode),
+      },
     },
     colorSettingsField({
       backgroundOverrides: {

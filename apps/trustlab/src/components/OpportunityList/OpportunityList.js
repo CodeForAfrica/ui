@@ -147,7 +147,11 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
       <Box sx={{ background: "#fff" }}>
         {title || description ? (
           <Section
-            sx={{ backgroundColor: "common.white", px: { xs: 2.5, md: 0 } }}
+            sx={{
+              backgroundColor: "common.white",
+              py: 2,
+              px: { xs: 2.5, md: 0 },
+            }}
           >
             <Typography variant="h2">{title}</Typography>
             {description && (
