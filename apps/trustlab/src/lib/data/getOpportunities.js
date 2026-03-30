@@ -126,8 +126,8 @@ async function getOpportunities(api, options = {}) {
         title: doc.title,
         type: doc.type,
         image,
-        caption: doc.caption,
-        location: doc.location,
+        caption: doc.caption ?? null,
+        location: doc.location ?? null,
         date:
           (doc.date ?? doc.createdAt)
             ? formatDate(doc.date ?? doc.createdAt, "dd-MM-yyyy")

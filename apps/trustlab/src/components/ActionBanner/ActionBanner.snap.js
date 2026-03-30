@@ -9,7 +9,7 @@ exports[`<Page /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-15auk95-MuiContainer-root"
     >
       <div
-        class="MuiBox-root css-iu4fws"
+        class="MuiBox-root css-weat77"
       >
         <div
           class="MuiBox-root css-0"
@@ -21,7 +21,7 @@ exports[`<Page /> renders unchanged 1`] = `
             class="MuiBox-root css-18pkikv"
           />
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-187vbwa-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-1okbjwo-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >
