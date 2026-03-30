@@ -49,7 +49,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         hideBackdrop
         slotProps={{
           paper: {
-            onClick: handleClick,
+            onClick: handleClose,
             square: true,
             sx: {
               overflowY: { xs: "scroll", sm: "visible" },
