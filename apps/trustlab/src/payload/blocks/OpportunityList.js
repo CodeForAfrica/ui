@@ -71,10 +71,6 @@ const OpportunityList = {
           name: "options",
           type: "array",
           label: "Custom Options",
-          admin: {
-            condition: (_, siblingData) =>
-              siblingData?.type === "location" || siblingData?.type === "type",
-          },
           fields: [
             {
               name: "label",
