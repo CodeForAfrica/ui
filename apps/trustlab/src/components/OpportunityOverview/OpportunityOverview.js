@@ -116,7 +116,7 @@ const OpportunityOverview = forwardRef(
                   },
                 }}
                 sx={{
-                  height: { xs: "374px", md: image?.height || "420px" },
+                  height: { xs: "374px", md: image?.height },
                   minHeight: "270px",
                   maxHeight: "420px",
                   m: 0,

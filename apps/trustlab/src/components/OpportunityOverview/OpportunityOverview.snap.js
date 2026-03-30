@@ -26,7 +26,7 @@ exports[`<OpportunityOverview /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <figure
-            class="MuiBox-root css-1stvr3l"
+            class="MuiBox-root css-10ameoj"
           >
             <img
               alt="Overview Image"
@@ -137,7 +137,7 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-6 css-hns2ug-MuiGrid2-root"
         >
           <figure
-            class="MuiBox-root css-1stvr3l"
+            class="MuiBox-root css-10ameoj"
           >
             <img
               alt="Overview Image"

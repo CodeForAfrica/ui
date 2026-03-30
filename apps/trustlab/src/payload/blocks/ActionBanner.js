@@ -21,7 +21,6 @@ const ActionBanner = {
       overrides: {
         name: "buttonLink",
         label: "Button Link",
-        required: true,
       },
       linkConfig: {
         required: false,
