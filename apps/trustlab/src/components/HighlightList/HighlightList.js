@@ -12,7 +12,7 @@ const HighlightList = forwardRef(function HighlightList(props, ref) {
 
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
-      <Section sx={{ py: 2, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: 5, px: { xs: 2.5, md: 0 } }}>
         <Typography
           sx={{
             mb: 3,
@@ -30,7 +30,7 @@ const HighlightList = forwardRef(function HighlightList(props, ref) {
         <Box
           sx={{
             display: "flex",
-            flexWrap: "wrap",
+            flexWrap: { xs: "wrap", md: "nowrap" },
             gap: 1,
           }}
         >
