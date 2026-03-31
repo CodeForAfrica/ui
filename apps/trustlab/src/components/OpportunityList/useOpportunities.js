@@ -31,6 +31,12 @@ function useOpportunities(
   if (params?.opportunity) {
     searchParams.set("opportunity", params.opportunity);
   }
+  if (params?.year) {
+    searchParams.set("year", params.year);
+  }
+  if (params?.month) {
+    searchParams.set("month", params.month);
+  }
 
   const { data } = useSWR(
     skip ? null : `${apiEndpoint}?${searchParams.toString()}`,

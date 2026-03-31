@@ -7,6 +7,7 @@ import CallToAction from "@/trustlab/components/CallToAction";
 import CategoryList from "@/trustlab/components/CategoryList";
 import ComingSoon from "@/trustlab/components/ComingSoon";
 import Content from "@/trustlab/components/Content";
+import ContentActionBanner from "@/trustlab/components/ContentActionBanner";
 import ContentOverview from "@/trustlab/components/ContentOverview";
 import CourseList from "@/trustlab/components/CourseList/CourseList";
 import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
@@ -76,6 +77,7 @@ const componentsBySlugs = {
   "highlight-list": HighlightList,
   "feature-list": FeatureList,
   "content-overview": ContentOverview,
+  "content-action-banner": ContentActionBanner,
 };
 
 function Page({ blocks, fallback }) {
