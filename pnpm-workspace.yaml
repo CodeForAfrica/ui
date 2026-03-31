@@ -3,6 +3,14 @@ packages:
   - apps/*
   - packages/*
 
+blockExoticSubdeps: true
+minimumReleaseAge: 1440
+trustPolicy: no-downgrade
+onlyBuiltDependencies:
+  - better-sqlite3
+  - sharp
+  - sqlite3
+
 # Catalogs
 catalog:
   "@actions/exec": ^1.1.1
