@@ -6,7 +6,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fem14s-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
     >
       <p
         class="MuiTypography-root MuiTypography-p1 css-vdhse4-MuiTypography-root"
@@ -14,7 +14,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
         Highlights / Key Outcomes
       </p>
       <div
-        class="MuiBox-root css-zefc5s"
+        class="MuiBox-root css-1hn89yk"
       >
         <div
           class="MuiBox-root css-felp9u"
@@ -82,7 +82,7 @@ exports[`<HighlightList /> renders with a single item 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1fem14s-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
     >
       <p
         class="MuiTypography-root MuiTypography-p1 css-vdhse4-MuiTypography-root"
@@ -90,7 +90,7 @@ exports[`<HighlightList /> renders with a single item 1`] = `
         Highlights
       </p>
       <div
-        class="MuiBox-root css-zefc5s"
+        class="MuiBox-root css-1hn89yk"
       >
         <div
           class="MuiBox-root css-felp9u"

@@ -22,7 +22,7 @@ const OpportunityOverview = forwardRef(
 
     return (
       <Box sx={{ backgroundColor }} ref={ref}>
-        <Section sx={{ py: 2, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 5, px: { xs: 2.5, md: 0 } }}>
           <Grid container spacing={2} alignItems="flex-start">
             <Grid size={{ xs: 12, sm: 6 }}>
               <LexicalRichText

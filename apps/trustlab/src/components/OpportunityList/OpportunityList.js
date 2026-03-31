@@ -197,7 +197,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
       <Box sx={{ background: "#fff" }}>
         {items.length ? (
           <Box sx={{ background: "#fff" }}>
-            <Section sx={{ py: 4, px: { xs: 2.5, md: 0 } }}>
+            <Section sx={{ py: 5, px: { xs: 2.5, md: 0 } }}>
               <Grid
                 container
                 spacing={3}
