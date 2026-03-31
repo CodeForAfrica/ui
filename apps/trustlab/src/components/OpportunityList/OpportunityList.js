@@ -121,19 +121,23 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   };
 
   function handleApplyFilters(filterParams) {
-    setParams((prev) => ({ ...prev, ...filterParams }));
+    const newParams = {
+      type: itemsType,
+      limit: itemsPerPage,
+      ...filterParams,
+    };
+    setParams(newParams);
     setPage(1);
-    const searchParams = new URLSearchParams(window.location.search);
+
+    const searchParams = new URLSearchParams();
     Object.entries(filterParams).forEach(([key, value]) => {
       if (Array.isArray(value) && value.length > 0) {
         searchParams.set(key, value.join(","));
-      } else if (value) {
+      } else if (value && typeof value === "string") {
         searchParams.set(key, value);
-      } else {
-        searchParams.delete(key);
       }
     });
-    searchParams.delete("page");
+
     const queryString = searchParams.toString();
     let urlPath = window.location.pathname;
     if (queryString) {
