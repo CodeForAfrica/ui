@@ -58,8 +58,6 @@
     "@commons-ui/testing-library": "workspace:*",
     "@svgr/webpack": "catalog:",
     "@testing-library/react": "catalog:",
-    "@types/node": "catalog:",
-    "@types/react": "catalog:",
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
@@ -67,8 +65,7 @@
     "eslint-plugin-import": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "playwright-config-commons-ui": "workspace:*",
-    "typescript": "catalog:"
+    "playwright-config-commons-ui": "workspace:*"
   },
   "engines": {
     "node": "24.x",
