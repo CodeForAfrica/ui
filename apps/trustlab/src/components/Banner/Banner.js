@@ -48,7 +48,7 @@ function Banner({
           justifyItems={{ xs: "flex-start", sm: "space-between" }}
           spacing={{ xs: 2.5, md: 2 }}
         >
-          <Grid size={{ xs: 12, sm: hasImage ? 8 : 12 }}>
+          <Grid size={{ xs: 12, sm: hasImage ? 9 : 12 }}>
             <RichTypography
               color={textColor}
               variant={isPageHeader ? "display2" : "display3"}
@@ -98,6 +98,9 @@ function Banner({
                 ImageProps={{
                   alt: image.alt,
                   src: image.url,
+                  sx: {
+                    objectPosition: { xs: "left", sm: "right" },
+                  },
                 }}
                 sx={{
                   height: "200px",
