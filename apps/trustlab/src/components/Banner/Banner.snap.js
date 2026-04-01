@@ -3,16 +3,16 @@
 exports[`<Banner /> renders unchanged 1`] = `
 <div>
   <section
-    class="MuiBox-root css-1kxqcqz"
+    class="MuiBox-root css-1vnjix6"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1f31hqp-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-18madci-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container css-1vam7s3-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 MuiGrid2-spacing-md-2 css-rqb3na-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 css-15j8szy-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 css-a0kt09-MuiGrid2-root"
         >
           <div
             class="MuiTypography-root MuiTypography-display2 css-aagxxh-MuiTypography-root"

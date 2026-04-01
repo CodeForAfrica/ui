@@ -1,12 +1,13 @@
 import { Section, RichTypography } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Grid, IconButton, SvgIcon, Typography } from "@mui/material";
+import { Box, Grid2 as Grid, SvgIcon, Typography } from "@mui/material";
 
-import ArrowBackIcon from "@/trustlab/assets/icons/arrow-left.svg";
+import ArrowBackIcon from "@/trustlab/assets/icons/Type=arrow-back, Size=24, Color=CurrentColor.svg";
 
 function Banner({
   backgroundColor,
+  component = "section",
   textColor,
   title,
   description = "",
@@ -19,42 +20,35 @@ function Banner({
 
   return (
     <Box
-      component="section"
+      component={component}
       sx={{
         backgroundColor,
-        py: 8,
+        py: { xs: 4, sm: 6, md: 8 },
       }}
     >
-      <Section>
+      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {backButton?.href && (
-          <Box
-            href={backButton?.href}
+          <Typography
+            href={backButton.href}
+            color={textColor}
+            component={Link}
             display="flex"
-            component={backButton?.href ? Link : "div"}
             alignItems="center"
+            columnGap={1}
+            variant="body1"
             mb={2}
           >
-            <IconButton
-              sx={{
-                color: textColor,
-              }}
-            >
-              <SvgIcon component={ArrowBackIcon} inheritViewBox />
-            </IconButton>
-            <Typography variant="body1" sx={{ color: textColor }}>
-              {backButton.label}
-            </Typography>
-          </Box>
+            <SvgIcon component={ArrowBackIcon} inheritViewBox />
+            {backButton.label}
+          </Typography>
         )}
-        <Grid container alignItems="center">
-          <Grid
-            item
-            xs={12}
-            sm={hasImage ? 9 : 12}
-            sx={{
-              px: { xs: 2.5, sm: 0 },
-            }}
-          >
+        <Grid
+          container
+          alignItems="center"
+          justifyItems={{ xs: "flex-start", sm: "space-between" }}
+          spacing={{ xs: 2.5, md: 2 }}
+        >
+          <Grid size={{ xs: 12, sm: hasImage ? 8 : 12 }}>
             <RichTypography
               color={textColor}
               variant={isPageHeader ? "display2" : "display3"}
@@ -95,15 +89,19 @@ function Banner({
               ))}
           </Grid>
           {hasImage && (
-            <Grid item container xs={12} sm={3} justifyContent="center">
+            <Grid
+              container
+              size={{ xs: 12, sm: "grow" }}
+              justifyContent={{ sm: "flex-end" }}
+            >
               <Figure
                 ImageProps={{
                   alt: image.alt,
                   src: image.url,
                 }}
                 sx={{
-                  height: isPageHeader ? "300px" : "200px",
-                  width: isPageHeader ? "300px" : "200px",
+                  height: "200px",
+                  width: "200px",
                 }}
               />
             </Grid>
