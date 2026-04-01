@@ -10,7 +10,7 @@ const IntelligenceBriefings = React.forwardRef(
 
     return (
       <Box ref={ref} bgcolor="common.white">
-        <Section sx={{ py: 5, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
           <Grid container spacing={4}>
             <Grid item size={{ xs: 12, md: 4 }}>
               <Typography variant="display4" gutterBottom>

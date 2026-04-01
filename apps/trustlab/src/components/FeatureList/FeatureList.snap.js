@@ -6,7 +6,7 @@ exports[`<FeatureList /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-1dqpc7h"
@@ -65,7 +65,7 @@ exports[`<FeatureList /> renders with 4 items 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-1dqpc7h"
@@ -138,7 +138,7 @@ exports[`<FeatureList /> renders with title and description 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <p
         class="MuiTypography-root MuiTypography-p1 css-ep2mw7-MuiTypography-root"

@@ -12,7 +12,7 @@ const CategoryList = forwardRef(function CategoryList(props, ref) {
   }
 
   return (
-    <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+    <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
       <Grid container spacing={3} ref={ref} {...other}>
         {categories.map((category, index) => (
           <Grid key={category.id ?? index} size={{ xs: 12, sm: 4 }}>

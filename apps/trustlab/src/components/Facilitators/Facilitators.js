@@ -12,7 +12,7 @@ const Facilitators = forwardRef((props, ref) => {
 
   return (
     <Box sx={{ backgroundColor: "#F0F0F5" }} ref={ref}>
-      <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
         <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} sm={5}>
             <LexicalRichText

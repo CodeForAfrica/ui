@@ -17,7 +17,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
         py: 8,
         textAlign: "center",
         margin: "0 auto",
-        px: { xs: 2.5, md: 0 },
+        px: { xs: 2.5, sm: 0 },
       }}
     >
       <Box

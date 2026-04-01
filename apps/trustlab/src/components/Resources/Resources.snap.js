@@ -6,7 +6,7 @@ exports[`<Resources /> renders unchanged 1`] = `
     class="MuiBox-root css-49ynfi"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <h2
         class="MuiTypography-root MuiTypography-display4 css-so3kj6-MuiTypography-root"

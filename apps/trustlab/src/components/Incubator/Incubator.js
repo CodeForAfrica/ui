@@ -28,7 +28,7 @@ const Incubator = forwardRef((props, ref) => {
       }}
       ref={ref}
     >
-      <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
         <Typography sx={{ whiteSpace: "nowrap", mb: 2 }} variant="display4">
           {title}
         </Typography>

@@ -95,7 +95,7 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
 
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
-      <Section sx={{ py: 5, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
         <Grid container spacing={4} alignItems="flex-start">
           <Grid size={{ xs: 12, sm: 6 }}>
             <LexicalRichText

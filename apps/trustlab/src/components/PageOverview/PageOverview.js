@@ -38,7 +38,7 @@ const PostImageOverview = forwardRef(function PostImageOverview(
       }}
       ref={ref}
     >
-      <Section sx={{ pt: 8, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ pt: 8, px: { xs: 2.5, sm: 0 } }}>
         {title ? (
           <Typography
             component="h1"

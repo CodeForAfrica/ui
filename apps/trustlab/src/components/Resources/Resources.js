@@ -9,7 +9,7 @@ const Resources = forwardRef(function Resources(props, ref) {
 
   return (
     <Box ref={ref} sx={{ background: "#CDCDCD" }}>
-      <Section sx={{ py: 5, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
         {title && (
           <Typography variant="display4" sx={{ mb: 4 }}>
             {title}

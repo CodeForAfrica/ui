@@ -9,7 +9,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
       class="MuiBox-root css-c3vlm2"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
       >
         <h6
           class="MuiTypography-root MuiTypography-subheading2 css-7hdx8h-MuiTypography-root"
@@ -59,14 +59,11 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 <div
                   class="MuiBox-root css-0"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-19qyozm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-                    href="/playbooks/a"
-                    name="Download"
-                    tabindex="0"
+                  <span
+                    class="MuiBox-root css-aepje9"
                   >
                     Download
-                  </a>
+                  </span>
                 </div>
               </div>
             </a>
@@ -113,14 +110,11 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 <div
                   class="MuiBox-root css-0"
                 >
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-19qyozm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
-                    href="/playbooks/b"
-                    name="Download"
-                    tabindex="0"
+                  <span
+                    class="MuiBox-root css-aepje9"
                   >
                     Download
-                  </a>
+                  </span>
                 </div>
               </div>
             </a>

@@ -89,7 +89,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
   return (
     <Box sx={{ backgroundColor: "background.paper" }}>
       {hasFilters ? (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             filters={filters}
             filterByLabel={filterByLabel}
@@ -102,7 +102,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
       ) : null}
       {playbooks.length ? (
         <Box sx={{ background: "#fff" }} ref={listRef}>
-          <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+          <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
             <Typography sx={{ mb: 2 }} variant="subheading2">
               {title}
             </Typography>
