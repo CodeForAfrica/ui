@@ -1,55 +1,40 @@
 import useSWR from "swr";
 
-// function to return only existing params as query string takes in params object
-export const buildQueryString = (params) => {
-  const query = new URLSearchParams();
-  Object.entries(params || {}).forEach(([key, value]) => {
-    if (value === undefined || value === null) {
-      return;
-    }
-    if (Array.isArray(value)) {
-      if (value.length === 0) {
-        return;
-      }
-      const joined = value.join(",");
-      if (joined) {
-        query.set(key, joined);
-      }
-      return;
-    }
-    const str = String(value).trim();
-    if (str) {
-      query.set(key, str);
-    }
-  });
-  return query.toString();
-};
-
 const fetcher = (url) => fetch(url).then((res) => res.json());
-const useReports = (
-  page,
-  params,
-  initialReports,
-  initialCount,
-  showAllPosts,
-) => {
-  // convert params object to query string
-  const queryString = buildQueryString({ ...params, page });
-  const { data, isLoading } = useSWR(`/api/v1/reports?${queryString}`, fetcher);
 
-  if (!data) {
-    return {
-      reports: initialReports || [],
-      pagination: { count: initialCount, page },
-      isLoading: true,
-    };
+function useReports(page, params, initialReports, initialCount, skip) {
+  const searchParams = new URLSearchParams();
+  searchParams.set("page", page);
+
+  if (params?.limit) {
+    searchParams.set("limit", params.limit);
+  }
+  if (params?.reportsType) {
+    searchParams.set("reportsType", params.reportsType);
   }
 
+  ["years", "months", "reports"].forEach((key) => {
+    if (params?.[key]) {
+      const v = params[key];
+      searchParams.set(key, Array.isArray(v) ? v.join(",") : v);
+    }
+  });
+
+  const { data } = useSWR(
+    skip ? null : `/api/v1/reports?${searchParams.toString()}`,
+    fetcher,
+    {
+      fallbackData: { reports: initialReports, page, totalPages: initialCount },
+    },
+  );
+
   return {
-    reports: !showAllPosts ? data?.reports || [] : initialReports || [],
-    pagination: data?.pagination,
-    isLoading,
+    reports: skip ? initialReports : (data?.reports ?? initialReports),
+    pagination: {
+      page: data?.page ?? page,
+      count: data?.totalPages ?? initialCount,
+    },
   };
-};
+}
 
 export default useReports;

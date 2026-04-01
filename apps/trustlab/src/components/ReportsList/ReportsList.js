@@ -77,26 +77,56 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     }
   };
   function handleApplyFilters(filterParams) {
-    setParams((prev) => ({ ...prev, ...filterParams }));
+    // filter keys are singular (year/month/report); API expects plural
+    const keyMap = { year: "years", month: "months", report: "reports" };
+    const mappedParams = Object.fromEntries(
+      Object.entries(filterParams).map(([k, v]) => [keyMap[k] ?? k, v]),
+    );
+
+    setParams({ reportsType, limit: reportsPerPage, ...mappedParams });
     setPage(1);
-    const urlParams = new URLSearchParams(router.query);
-    Object.entries(filterParams).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        urlParams.set(key, value.join(","));
-      } else {
-        urlParams.set(key, value);
+
+    const searchParams = new URLSearchParams();
+    Object.entries(mappedParams).forEach(([key, value]) => {
+      if (Array.isArray(value) && value.length > 0) {
+        searchParams.set(key, value.join(","));
+      } else if (value && typeof value === "string") {
+        searchParams.set(key, value);
       }
     });
-    urlParams.delete("page");
-    router.push(
-      {
-        pathname: router.pathname,
-        query: urlParams.toString(),
-      },
-      undefined,
-      { shallow: true, scroll: false },
-    );
+
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
   }
+
+  // Initialize params from URL on mount (e.g. bookmarked filtered URL)
+  useEffect(() => {
+    const { years, months, reports: reportsFilter } = query;
+    if (!years && !months && !reportsFilter) {
+      return;
+    }
+
+    const parseParam = (v) =>
+      typeof v === "string" && v.includes(",") ? v.split(",") : v;
+
+    const newParams = { reportsType, limit: reportsPerPage };
+    if (years) {
+      newParams.years = parseParam(years);
+    }
+    if (months) {
+      newParams.months = parseParam(months);
+    }
+    if (reportsFilter) {
+      newParams.reports = parseParam(reportsFilter);
+    }
+
+    setParams(newParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Box ref={listRef}>
