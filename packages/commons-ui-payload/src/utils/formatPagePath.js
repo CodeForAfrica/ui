@@ -12,7 +12,15 @@ function fullSlugFromBreadcrumbs({ breadcrumbs } = {}) {
 }
 
 function formatPagePath(collection, doc) {
-  let pageSlug = fullSlugFromBreadcrumbs(doc) || fullSlugFromParents(doc) || "";
+  // If parent is populated as an object, traverse it directly — breadcrumbs may be stale
+  // (e.g. saved before the parent relationship was set). An ID string or null means we
+  // have no live parent data, so fall back to stored breadcrumbs.
+  let pageSlug;
+  if (doc.parent && typeof doc.parent === "object") {
+    pageSlug = fullSlugFromParents(doc);
+  } else {
+    pageSlug = fullSlugFromBreadcrumbs(doc) || fullSlugFromParents(doc) || "";
+  }
   if (pageSlug === "index") {
     pageSlug = "";
   }

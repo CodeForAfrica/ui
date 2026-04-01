@@ -1,4 +1,5 @@
 import collectionOverview from "./collectionOverview";
+import getOpportunityCategoryBlock from "./getOpportunityCategoryBlock";
 import getOpportunityListBlock from "./getOpportunityListBlock";
 import getParticipatingOrganizationListBlock from "./getParticipatingOrganizationListBlock";
 import playbooksList from "./playbooksList";
@@ -10,6 +11,7 @@ import toolkitsList from "./toolkitsList";
 const propsifyBlockBySlug = {
   "helplines-overview-list": collectionOverview,
   "resources-overview-list": collectionOverview,
+  "opportunity-category": getOpportunityCategoryBlock,
   "opportunity-list": getOpportunityListBlock,
   "post-list": postList,
   spotlight: spotlightOverview,

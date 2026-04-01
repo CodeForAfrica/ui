@@ -13,10 +13,16 @@ export async function mapLinkToHrefBeforeValidate({
     doc.value = await payload.findByID({
       collection,
       id,
-      // We only need slug from the collection don't expand the whole
-      // relationship. We may end up getting stuck on infinite recursion if
-      // collection contain other links.
-      depth: 0,
+      // depth: 3 populates the parent chain so fullSlugFromParents can build
+      // the correct path even when stored breadcrumbs are stale (e.g. a page
+      // whose parent was set after the link was saved). This is a read-only
+      // find, so no hooks fire and there is no recursion risk.
+      depth: 3,
+      select: {
+        slug: true,
+        breadcrumbs: true,
+        parent: true,
+      },
     });
   }
   const href = mapLinkTypeToHref({ ...siblingData, doc });
