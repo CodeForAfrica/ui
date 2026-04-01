@@ -45,7 +45,7 @@ function Banner({
         <Grid
           container
           alignItems="center"
-          justifyItems={{ xs: "flex-start", sm: "space-between" }}
+          justifyContent={{ sm: "space-between" }}
           spacing={{ xs: 2.5, md: 2 }}
         >
           <Grid size={{ xs: 12, sm: hasImage ? 9 : 12 }}>
