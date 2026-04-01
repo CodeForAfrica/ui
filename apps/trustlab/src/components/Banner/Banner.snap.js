@@ -9,7 +9,7 @@ exports[`<Banner /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-18madci-MuiContainer-root"
     >
       <div
-        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 MuiGrid2-spacing-md-2 css-rqb3na-MuiGrid2-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 MuiGrid2-spacing-md-2 css-k992eg-MuiGrid2-root"
       >
         <div
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 css-a0kt09-MuiGrid2-root"

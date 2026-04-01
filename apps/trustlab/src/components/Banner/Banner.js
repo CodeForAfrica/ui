@@ -37,6 +37,10 @@ function Banner({
             columnGap={1}
             variant="body1"
             mb={2}
+            width="max-content"
+            sx={{
+              textDecoration: "none",
+            }}
           >
             <SvgIcon component={ArrowBackIcon} inheritViewBox />
             {backButton.label}
