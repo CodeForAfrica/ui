@@ -105,6 +105,9 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
 
   // Initialize params from URL on mount (e.g. bookmarked filtered URL)
   useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
     const { years, months, reports: reportsFilter } = query;
     if (!years && !months && !reportsFilter) {
       return;
@@ -126,7 +129,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
 
     setParams(newParams);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.isReady]);
 
   return (
     <Box ref={listRef}>

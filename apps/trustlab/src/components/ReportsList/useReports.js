@@ -31,8 +31,8 @@ function useReports(page, params, initialReports, initialCount, skip) {
   return {
     reports: skip ? initialReports : (data?.reports ?? initialReports),
     pagination: {
-      page: data?.page ?? page,
-      count: data?.totalPages ?? initialCount,
+      page: data?.pagination?.page ?? page,
+      count: data?.pagination?.count ?? initialCount,
     },
   };
 }
