@@ -173,7 +173,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
                 width: 220,
               }}
             />
-            <Typography strong variant="display4">
+            <Typography variant="display4">
               {notFoundTitleLabel || "No Reports Found"}
             </Typography>
             <LexicalRichText

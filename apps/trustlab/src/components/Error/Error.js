@@ -42,9 +42,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
             width: { xs: 172, md: 380 },
           }}
         />
-        <Typography strong variant="display4">
-          {title}
-        </Typography>
+        <Typography variant="display4">{title}</Typography>
         <LexicalRichText
           elements={subtitle}
           TypographyProps={{

@@ -59,11 +59,14 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 <div
                   class="MuiBox-root css-0"
                 >
-                  <span
-                    class="MuiBox-root css-aepje9"
+                  <a
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-19qyozm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                    href="/playbooks/a"
+                    name="Download"
+                    tabindex="0"
                   >
                     Download
-                  </span>
+                  </a>
                 </div>
               </div>
             </a>
@@ -110,11 +113,14 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 <div
                   class="MuiBox-root css-0"
                 >
-                  <span
-                    class="MuiBox-root css-aepje9"
+                  <a
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-19qyozm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                    href="/playbooks/b"
+                    name="Download"
+                    tabindex="0"
                   >
                     Download
-                  </span>
+                  </a>
                 </div>
               </div>
             </a>

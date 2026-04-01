@@ -100,7 +100,6 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
         {locationDateText && (
           <Box display="flex" sx={{ mb: 1.5 }} alignItems="center" gap="4px">
             <Typography
-              strong
               variant="p2"
               sx={{ mt: caption ? 0.5 : 0, color: "common.black" }}
             >
