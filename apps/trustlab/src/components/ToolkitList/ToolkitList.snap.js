@@ -9,7 +9,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
       class="MuiBox-root css-c3vlm2"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ilsdt7-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-i80h1v-MuiContainer-root"
       >
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ipzchf-MuiGrid2-root"

@@ -22,7 +22,7 @@ const CardList = forwardRef(function CardList(props, ref) {
       data-testid="card-list"
       {...other}
     >
-      <Section sx={{ px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {title && (
           <Box sx={{ mb: 4 }}>
             <Typography

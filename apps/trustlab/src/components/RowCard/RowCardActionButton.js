@@ -12,6 +12,12 @@ function RowCardActionButton({
     return null;
   }
 
+  let component = "span";
+  if (hasEmbed) {
+    component = "button";
+  } else if (link?.href) {
+    component = Link;
+  }
   return (
     <Box>
       <Button
@@ -19,7 +25,7 @@ function RowCardActionButton({
         color="primary"
         size="small"
         name={actionLabel}
-        component={!hasEmbed && link?.href ? Link : "button"}
+        component={component}
         href={!hasEmbed ? link?.href : undefined}
         onClick={hasEmbed ? onOpen : undefined}
         sx={{

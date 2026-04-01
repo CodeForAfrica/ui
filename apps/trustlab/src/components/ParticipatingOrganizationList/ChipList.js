@@ -24,7 +24,7 @@ const ChipList = forwardRef(function ChipList(props, ref) {
       data-testid="chip-list"
       {...other}
     >
-      <Section sx={{ px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {title && (
           <Typography
             variant="h6"

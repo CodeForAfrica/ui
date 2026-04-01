@@ -6,7 +6,7 @@ exports[`<Facilitators /> renders unchanged 1`] = `
     class="MuiBox-root css-3ij0z"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-2zizl3-MuiGrid-root"

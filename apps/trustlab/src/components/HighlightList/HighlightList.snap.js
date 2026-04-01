@@ -6,7 +6,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <p
         class="MuiTypography-root MuiTypography-p1 css-vdhse4-MuiTypography-root"
@@ -82,7 +82,7 @@ exports[`<HighlightList /> renders with a single item 1`] = `
     class="MuiBox-root css-1k9ek97"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1tkizv1-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <p
         class="MuiTypography-root MuiTypography-p1 css-vdhse4-MuiTypography-root"

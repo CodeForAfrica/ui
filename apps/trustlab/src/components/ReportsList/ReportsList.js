@@ -101,7 +101,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   return (
     <Box ref={listRef}>
       {hasFilters ? (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}
@@ -111,7 +111,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       <Box sx={{ background: "#fff" }}>
         {reports.length ? (
           <Box sx={{ background: "#fff" }}>
-            <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+            <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
               <Grid
                 container
                 spacing={3}
@@ -173,7 +173,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
                 width: 220,
               }}
             />
-            <Typography strong variant="display4">
+            <Typography variant="display4">
               {notFoundTitleLabel || "No Reports Found"}
             </Typography>
             <LexicalRichText
