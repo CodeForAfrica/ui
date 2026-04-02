@@ -135,7 +135,7 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
                       }}
                       sx={{
                         m: 0,
-                        height: { xs: 120, sm: 264 },
+                        height: { xs: 178, sm: 183, md: 262 },
                         borderRadius: 2,
                         overflow: "hidden",
                         position: "relative",
