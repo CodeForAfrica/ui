@@ -17,7 +17,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
         py: 8,
         textAlign: "center",
         margin: "0 auto",
-        px: { xs: 2.5, md: 0 },
+        px: { xs: 2.5, sm: 0 },
       }}
     >
       <Box
@@ -42,9 +42,7 @@ const ErrorPage = forwardRef(function ErrorPage(props, ref) {
             width: { xs: 172, md: 380 },
           }}
         />
-        <Typography strong variant="display4">
-          {title}
-        </Typography>
+        <Typography variant="display4">{title}</Typography>
         <LexicalRichText
           elements={subtitle}
           TypographyProps={{

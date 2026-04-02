@@ -9,7 +9,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
       class="MuiBox-root css-c3vlm2"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1be4fpk-MuiContainer-root"
+        class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
       >
         <h6
           class="MuiTypography-root MuiTypography-subheading2 css-7hdx8h-MuiTypography-root"

@@ -19,7 +19,7 @@ const ContentActionBanner = forwardRef(function ContentActionBanner(
       }}
       data-testid="content-action-banner"
     >
-      <Section sx={{ py: { xs: 2.5, md: 3 }, px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ py: { xs: 2.5, md: 3 }, px: { xs: 2.5, sm: 0 } }}>
         <Box
           alignItems={{ md: "center", xs: "flex-start" }}
           justifyContent="space-between"

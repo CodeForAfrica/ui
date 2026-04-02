@@ -6,22 +6,22 @@ exports[`<Page /> renders unchanged 1`] = `
     class="MuiBox-root css-0"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-15auk95-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-8vselx-MuiContainer-root"
     >
       <div
-        class="MuiBox-root css-weat77"
+        class="MuiStack-root css-uqu7z6-MuiStack-root"
       >
         <div
           class="MuiBox-root css-0"
         />
         <div
-          class="MuiBox-root css-13klagh"
+          class="MuiBox-root css-5p7viv"
         >
           <div
             class="MuiBox-root css-18pkikv"
           />
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-1okbjwo-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorPrimary css-1pk9cg-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

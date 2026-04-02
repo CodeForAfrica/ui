@@ -7,6 +7,7 @@ import {
   DialogContent,
   DialogTitle,
   IconButton,
+  Stack,
 } from "@mui/material";
 import React, { forwardRef, useState } from "react";
 
@@ -60,13 +61,12 @@ const ActionBanner = forwardRef(function ActionBanner(
         color: textColor,
       }}
     >
-      <Section sx={{ py: { xs: 2.5, md: 3 }, px: { xs: 2.5, md: 0 } }}>
-        <Box
-          alignItems={{ md: "center", xs: "flex-start" }}
+      <Section sx={{ py: { xs: 2.5, md: 3 }, px: { xs: 2.5, sm: 0 } }}>
+        <Stack
+          alignItems={{ sm: "center" }}
           justifyContent="space-between"
-          flexDirection={{ md: "row", xs: "column" }}
-          display="flex"
-          gap={2}
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 2, sm: 0 }}
         >
           <LexicalRichText
             elements={title}
@@ -90,19 +90,24 @@ const ActionBanner = forwardRef(function ActionBanner(
             onClick={hasEmbed ? handleOpen : undefined}
             color={buttonProps?.borderColor || "#000"}
             bgcolor={backgroundColor || "transparent"}
-            sx={{ mr: { xs: 0, md: 10 } }}
             buttonProps={{
               sx: {
                 height: 76,
                 fontSize: 24,
-                width: { xs: "100%", md: "max-content" },
                 fontWeight: 900,
+              },
+            }}
+            sx={{
+              mr: { xs: 0, md: 10 },
+              width: "max-content",
+              "& button, & a": {
+                width: "max-content",
               },
             }}
           >
             {buttonLink?.label || "Learn More"}
           </Button>
-        </Box>
+        </Stack>
       </Section>
 
       {hasEmbed && (

@@ -14,7 +14,7 @@ const Helplines = forwardRef(function Helplines(
     <Box bgcolor="common.white">
       <Section
         ref={ref}
-        sx={{ background: "common.white", py: 4, px: { xs: 2.5, md: 0 } }}
+        sx={{ background: "common.white", py: 4, px: { xs: 2.5, sm: 0 } }}
       >
         {/* If displayType is list, render  RowCard instead of helplineCard and shouldnt be wrapped in Stack */}
         {displayType === "list" ? (

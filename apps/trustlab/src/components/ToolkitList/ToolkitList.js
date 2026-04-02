@@ -92,7 +92,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   return (
     <Box ref={ref}>
       {hasFilters && (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, md: 0 } }}>
+        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             filters={filters}
             filterByLabel={filterByLabel}
@@ -105,7 +105,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
       )}
       {toolkits.length > 0 && (
         <Box sx={{ background: "#fff" }} ref={listRef}>
-          <Section sx={{ py: 8, px: { xs: 2.5, md: 0 } }}>
+          <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
             <Grid container spacing={3} {...other}>
               {toolkits.map((tk) => (
                 <Grid key={tk.id} size={{ xs: 12, sm: 4 }}>

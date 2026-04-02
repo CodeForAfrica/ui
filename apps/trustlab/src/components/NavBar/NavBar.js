@@ -58,6 +58,14 @@ function NavBar({ logo, menus, searchButtonLabel, socialLinks }) {
           Link={Link}
           NavListItemProps={{
             slotProps: {
+              item: {
+                sx: {
+                  "&:last-of-type": {
+                    mb: { xs: 0 },
+                    mr: { md: 0 },
+                  },
+                },
+              },
               typography: {
                 sx: {
                   color: "#CCCED9",

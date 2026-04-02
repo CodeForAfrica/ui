@@ -22,7 +22,7 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
       data-testid="testimonial"
       {...other}
     >
-      <Section sx={{ px: { xs: 2.5, md: 0 } }}>
+      <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         <Grid container spacing={{ xs: 4, md: 6 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             {title && (
