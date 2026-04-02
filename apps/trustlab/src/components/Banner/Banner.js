@@ -18,6 +18,21 @@ function Banner({
   const hasImage = image && image.url;
   const isPageHeader = blockType === "page-header";
 
+  let figureSx;
+  if (hasImage) {
+    // Default to a square image,
+    figureSx = { height: "200px", width: "200px" };
+    // but allow rectangular images if we have the image dimensions
+    if (image?.width && image?.height) {
+      figureSx = {
+        aspectRatio: `${image.width} / ${image.height}`,
+        height: { xs: "200px", sm: "auto" },
+        maxHeight: { xs: "none", sm: "300px" },
+        width: { xs: "100%", sm: "200px" },
+        maxWidth: { xs: "350px", sm: "none" },
+      };
+    }
+  }
   return (
     <Box
       component={component}
@@ -107,8 +122,7 @@ function Banner({
                   },
                 }}
                 sx={{
-                  height: "200px",
-                  width: "200px",
+                  ...figureSx,
                 }}
               />
             </Grid>
