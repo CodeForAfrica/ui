@@ -23,7 +23,7 @@ function Banner({
     // Default to a square image,
     figureSx = { height: "200px", width: "200px" };
     // but allow rectangular images if we have the image dimensions
-    if (image?.width && image?.height) {
+    if (image.width && image.height) {
       figureSx = {
         aspectRatio: `${image.width} / ${image.height}`,
         height: { xs: "200px", sm: "auto" },
