@@ -32,7 +32,7 @@ const mockImages = [
   },
 ];
 
-describe("ImageLightbox", () => {
+describe("<ImageLightbox />", () => {
   it("renders nothing when closed", () => {
     const { queryByRole, container } = render(
       <ImageLightbox
