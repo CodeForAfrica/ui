@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Figure, RichTypography } from "@commons-ui/next";
-import { Grid } from "@mui/material";
+import { Grid2 as Grid } from "@mui/material";
 import React, { forwardRef } from "react";
 
 const Gallery = forwardRef(function Gallery({ title, images }, ref) {
@@ -30,7 +30,7 @@ const Gallery = forwardRef(function Gallery({ title, images }, ref) {
       </RichTypography>
       <Grid container spacing={2}>
         {images.map(({ image }) => (
-          <Grid item xs={12} sm={6} md={4} key={image.id}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={image.id}>
             <Figure
               ImageProps={{
                 alt: image.alt || "",
@@ -38,7 +38,7 @@ const Gallery = forwardRef(function Gallery({ title, images }, ref) {
               }}
               sx={{
                 m: 0,
-                height: 264,
+                height: { xs: 178, sm: 183, md: 262 },
                 position: "relative",
                 width: "auto",
                 "&:hover": {
