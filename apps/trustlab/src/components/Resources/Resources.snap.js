@@ -51,11 +51,11 @@ exports[`<Resources /> renders unchanged 1`] = `
                 class="MuiDivider-root MuiDivider-fullWidth css-1iejfuu-MuiDivider-root"
               />
             </div>
-            <h6
+            <h3
               class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               RiskDetection toolkit
-            </h6>
+            </h3>
             <div
               class="MuiBox-root css-jeo9ow"
             >
@@ -100,11 +100,11 @@ exports[`<Resources /> renders unchanged 1`] = `
                 class="MuiDivider-root MuiDivider-fullWidth css-1iejfuu-MuiDivider-root"
               />
             </div>
-            <h6
+            <h3
               class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               Roboshield toolkit
-            </h6>
+            </h3>
             <div
               class="MuiBox-root css-jeo9ow"
             >
@@ -149,11 +149,11 @@ exports[`<Resources /> renders unchanged 1`] = `
                 class="MuiDivider-root MuiDivider-fullWidth css-1iejfuu-MuiDivider-root"
               />
             </div>
-            <h6
+            <h3
               class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               SelfDefence software
-            </h6>
+            </h3>
             <div
               class="MuiBox-root css-jeo9ow"
             >
@@ -198,11 +198,11 @@ exports[`<Resources /> renders unchanged 1`] = `
                 class="MuiDivider-root MuiDivider-fullWidth css-1iejfuu-MuiDivider-root"
               />
             </div>
-            <h6
+            <h3
               class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
             >
               PolicyForge toolkit
-            </h6>
+            </h3>
             <div
               class="MuiBox-root css-jeo9ow"
             >

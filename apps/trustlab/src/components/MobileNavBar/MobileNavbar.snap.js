@@ -12,6 +12,8 @@ exports[`<MobileNavBar /> renders unchanged 1`] = `
       class="MuiGrid-root MuiGrid-item css-13i4rnv-MuiGrid-root"
     >
       <button
+        aria-expanded="false"
+        aria-label="Open navigation"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-53g0n7-MuiButtonBase-root-MuiIconButton-root"
         tabindex="0"
         type="button"
