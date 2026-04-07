@@ -19,7 +19,7 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
     />
   </div>
   <div
-    class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+    class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
   >
     <h3
       class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
@@ -60,7 +60,7 @@ exports[`<CategoryCard /> renders without image 1`] = `
   style="--Paper-shadow: none;"
 >
   <div
-    class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+    class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
   >
     <h3
       class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
@@ -102,7 +102,7 @@ exports[`<CategoryCard /> renders without link 1`] = `
     />
   </div>
   <div
-    class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+    class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
   >
     <h3
       class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
