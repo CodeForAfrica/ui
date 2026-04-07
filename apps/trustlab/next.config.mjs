@@ -67,7 +67,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/media/:path*",
+        source: "/api/media/file/:path*",
         headers: [
           {
             key: "Cache-Control",
