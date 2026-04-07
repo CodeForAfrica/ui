@@ -168,9 +168,8 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
                 }}
                 TypographyProps={{
                   gutterBottom: true,
-                  variant: {
-                    p: "p2",
-                  },
+                  variant: "p2",
+                  component: "p",
                   sx: {
                     mb: 2,
                   },
