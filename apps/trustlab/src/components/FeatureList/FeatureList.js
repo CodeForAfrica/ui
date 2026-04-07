@@ -9,7 +9,6 @@ const FeatureList = forwardRef(function FeatureList(props, ref) {
     return null;
   }
 
-  console.log(description);
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
       <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
