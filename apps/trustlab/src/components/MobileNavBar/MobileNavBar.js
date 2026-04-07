@@ -32,7 +32,11 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
         />
       </Grid>
       <Grid item>
-        <IconButton onClick={handleClick}>
+        <IconButton
+          onClick={handleClick}
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+        >
           <SvgIcon
             component={Icon}
             sx={{

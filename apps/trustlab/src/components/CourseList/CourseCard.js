@@ -4,7 +4,7 @@ import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
 
 const CourseCard = React.forwardRef(function CourseCard(props, ref) {
-  const { image, title, description, link, ...other } = props;
+  const { image, title, description, link } = props;
 
   return (
     <Card
@@ -20,12 +20,10 @@ const CourseCard = React.forwardRef(function CourseCard(props, ref) {
       }}
       component={link?.href ? Link : "div"}
       href={link?.href}
-      {...other}
     >
       <CardMedia
         image={image.src}
         title={title}
-        {...image}
         sx={[
           {
             height: 200,

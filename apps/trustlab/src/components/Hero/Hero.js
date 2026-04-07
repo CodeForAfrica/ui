@@ -179,6 +179,9 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         ImageProps={{
                           alt: slide.image.alt,
                           src: slide.image.url,
+                          ...(index === 0
+                            ? { priority: true }
+                            : { loading: "lazy" }),
                           sx: {
                             objectPosition: { xs: "left", md: "right" },
                             objectFit: "contain",
@@ -238,6 +241,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             }}
           >
             <IconButton
+              aria-label="Previous slide"
               sx={{
                 backgroundColor: "rgba(255, 255, 255, 0.40)",
                 transform: "rotate(180deg)",
@@ -273,6 +277,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             {slides.map((slide, index) => (
               <Button
                 key={slide.id}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={activeStep === index ? "true" : undefined}
                 onClick={() => {
                   setActiveStep((prevStep) => {
                     prevStepRef.current = prevStep;
@@ -293,6 +299,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
               />
             ))}
             <IconButton
+              aria-label="Next slide"
               sx={{
                 backgroundColor: "rgba(255, 255, 255, 0.40)",
                 ml: 1.875,

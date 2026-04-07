@@ -11,12 +11,18 @@ const outputFileTracingRoot = TRACING_ROOT
   ? path.join(__dirname, TRACING_ROOT)
   : undefined;
 
+const imageDomains =
+  process.env.IMAGE_DOMAINS?.split(",")
+    .map((d) => d.trim())
+    .filter(Boolean) ?? [];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: process.env.IMAGE_DOMAINS?.split(",")
-      .map((d) => d.trim())
-      .filter(Boolean),
+    remotePatterns: imageDomains.map((hostname) => ({
+      protocol: "https",
+      hostname,
+    })),
     unoptimized:
       process.env.IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() === "true",
   },
@@ -58,6 +64,19 @@ const nextConfig = {
     "@commons-ui/next",
     "@commons-ui/payload",
   ],
+  async headers() {
+    return [
+      {
+        source: "/api/media/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000",
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {

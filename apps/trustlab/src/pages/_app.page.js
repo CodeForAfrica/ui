@@ -49,7 +49,7 @@ function MyApp(props) {
           {getLayout(<Component {...pageProps} />, pageProps)}
         </ThemeProvider>
       </CacheProvider>
-      <GoogleAnalytics gaId={gaId} />
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </>
   );
 }
