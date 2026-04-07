@@ -5,7 +5,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
   class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
 >
   <div
-    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-ipzchf-MuiGrid2-root"
+    class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-3 css-12a6e93-MuiGrid2-root"
   >
     <div
       class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-8o12w-MuiGrid2-root"
@@ -29,7 +29,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
           />
         </div>
         <div
-          class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+          class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
@@ -85,7 +85,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
           />
         </div>
         <div
-          class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+          class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
@@ -141,7 +141,7 @@ exports[`<CategoryList /> renders unchanged 1`] = `
           />
         </div>
         <div
-          class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+          class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
         >
           <h3
             class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"

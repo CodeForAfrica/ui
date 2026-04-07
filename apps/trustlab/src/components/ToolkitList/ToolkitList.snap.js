@@ -36,7 +36,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 />
               </div>
               <div
-                class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+                class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1of270-MuiTypography-root"
@@ -86,7 +86,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 />
               </div>
               <div
-                class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
+                class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
               >
                 <h3
                   class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1of270-MuiTypography-root"
