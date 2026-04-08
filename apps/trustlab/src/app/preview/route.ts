@@ -8,9 +8,7 @@ import type { NextRequest } from "next/server";
 import configPromise from "@payload-config";
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 
-export async function GET(
-  req: NextRequest,
-): Promise<Response> {
+export async function GET(req: NextRequest): Promise<Response> {
   const payload = await getPayload({ config: configPromise });
   const { searchParams } = new URL(req.url);
   const path = searchParams.get("path");
