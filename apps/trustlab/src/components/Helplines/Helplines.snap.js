@@ -33,6 +33,8 @@ exports[`<Helplines /> renders unchanged 1`] = `
                 <img
                   alt="Rapid Response icon"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-9uzd9u-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png"
                 />
               </div>
@@ -87,6 +89,8 @@ exports[`<Helplines /> renders unchanged 1`] = `
                 <img
                   alt="Rapid Response icon"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-9uzd9u-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png"
                 />
               </div>
@@ -141,6 +145,8 @@ exports[`<Helplines /> renders unchanged 1`] = `
                 <img
                   alt="Rapid Response icon"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-9uzd9u-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png"
                 />
               </div>

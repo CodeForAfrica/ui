@@ -29,6 +29,8 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 <img
                   alt="A"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-157ywbk-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/img/a.jpg"
                 />
                 <div
@@ -79,6 +81,8 @@ exports[`ToolkitList renders initial toolkits 1`] = `
                 <img
                   alt="B"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-157ywbk-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/img/b.jpg"
                 />
                 <div

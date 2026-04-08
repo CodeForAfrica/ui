@@ -32,6 +32,8 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 <img
                   alt="A"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-5euy9a-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/img/a.jpg"
                 />
               </div>
@@ -86,6 +88,8 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 <img
                   alt="B"
                   class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-5euy9a-MuiCardMedia-root"
+                  decoding="async"
+                  loading="lazy"
                   src="/img/b.jpg"
                 />
               </div>

@@ -12,6 +12,8 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
     <img
       alt="Test image"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1v4c65z-MuiCardMedia-root"
+      decoding="async"
+      loading="lazy"
       src="/test-image.jpg"
     />
     <div
@@ -95,6 +97,8 @@ exports[`<CategoryCard /> renders without link 1`] = `
     <img
       alt="Test image"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1v4c65z-MuiCardMedia-root"
+      decoding="async"
+      loading="lazy"
       src="/test-image.jpg"
     />
     <div

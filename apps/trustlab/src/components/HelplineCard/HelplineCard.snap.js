@@ -12,6 +12,8 @@ exports[`<HelplineCard /> renders unchanged 1`] = `
     >
       <img
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-9uzd9u-MuiCardMedia-root"
+        decoding="async"
+        loading="lazy"
       />
     </div>
     <div
