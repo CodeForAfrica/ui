@@ -65,7 +65,6 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
       <CardContent
         sx={{
           p: 0,
-          mt: 2,
           textDecoration: "none",
           flex: 1,
           height: "100%",

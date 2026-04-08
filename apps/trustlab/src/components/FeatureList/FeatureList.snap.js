@@ -146,7 +146,7 @@ exports[`<FeatureList /> renders with title and description 1`] = `
         Who Attends Our Briefings
       </p>
       <p
-        class="MuiTypography-root MuiTypography-p1 css-12h783y-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1idazhi-MuiTypography-root"
       >
         TrustLab briefings bring together a carefully curated cross-section of stakeholders united by a common purpose.
       </p>

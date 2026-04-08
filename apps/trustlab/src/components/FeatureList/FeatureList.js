@@ -31,7 +31,7 @@ const FeatureList = forwardRef(function FeatureList(props, ref) {
           <Typography
             sx={{
               mb: 3,
-              width: "50%",
+              width: "100%",
               fontFamily: "Inter",
               fontSize: "16px",
               fontWeight: 500,
