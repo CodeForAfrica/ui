@@ -49,6 +49,8 @@ function HelplineCard({
           component="img"
           image={media?.url}
           alt={media?.alt}
+          loading="lazy"
+          decoding="async"
           sx={{
             height: { xs: "108px", md: "180px" },
             width: { xs: "108px", md: "180px" },

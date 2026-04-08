@@ -180,7 +180,12 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           alt: slide.image.alt,
                           src: slide.image.url,
                           ...(index === 0
-                            ? { priority: true }
+                            ? {
+                                priority: true,
+                                fetchPriority: "high",
+                                sizes:
+                                  "(min-width: 900px) 322px, (min-width: 600px) 365px, calc(100vw - 20px)",
+                              }
                             : { loading: "lazy" }),
                           sx: {
                             objectPosition: { xs: "left", md: "right" },
@@ -287,14 +292,27 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   setAutoSlide(false);
                 }}
                 sx={{
-                  width: 12,
-                  height: 12,
-                  minWidth: 0,
+                  // Keep the visible dot small, but expand the button hit area to
+                  // meet touch-target guidance and pass Lighthouse target-size.
+                  width: 24,
+                  height: 24,
+                  minWidth: 24,
                   borderRadius: "50%",
                   border: "none",
-                  backgroundColor: activeStep === index ? "#717680" : "#A4A7AE",
-                  mx: 0.5,
+                  backgroundColor: "transparent",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mx: 0.25,
                   p: 0,
+                  "&::before": {
+                    content: '""',
+                    width: 12,
+                    height: 12,
+                    borderRadius: "50%",
+                    backgroundColor:
+                      activeStep === index ? "#717680" : "#A4A7AE",
+                  },
                 }}
               />
             ))}

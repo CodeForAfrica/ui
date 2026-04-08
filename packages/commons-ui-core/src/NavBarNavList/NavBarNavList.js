@@ -35,6 +35,7 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           <Component
             color="inherit"
             underline="none"
+            prefetch={false}
             // in mobile h3 = h4 in desktop
             variant="h3"
             {...typography}

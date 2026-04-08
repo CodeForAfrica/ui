@@ -28,7 +28,6 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           alt="Logo"
           width={136}
           height={61}
-          priority
         />
       </Grid>
       <Grid item>

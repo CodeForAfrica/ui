@@ -28,6 +28,7 @@ function MyApp(props) {
   const { analytics, ...pageProps } = appProps;
   const { analyticsId: gaId } = analytics || {};
   const getLayout = Component.getLayout || getDefaultLayout;
+  const shouldLoadAnalytics = process.env.NODE_ENV === "production" && gaId;
 
   return (
     <>
@@ -49,7 +50,7 @@ function MyApp(props) {
           {getLayout(<Component {...pageProps} />, pageProps)}
         </ThemeProvider>
       </CacheProvider>
-      {gaId && <GoogleAnalytics gaId={gaId} />}
+      {shouldLoadAnalytics ? <GoogleAnalytics gaId={gaId} /> : null}
     </>
   );
 }

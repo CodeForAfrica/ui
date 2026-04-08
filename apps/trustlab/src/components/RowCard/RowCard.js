@@ -70,6 +70,8 @@ const RowCard = forwardRef(function RowCard(props, ref) {
             component="img"
             image={image.src}
             alt={image.alt ?? title}
+            loading="lazy"
+            decoding="async"
             sx={{ height: 220 }}
           />
         </Box>

@@ -43,6 +43,8 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
             component="img"
             image={image.src}
             alt={image.alt ?? title}
+            loading="lazy"
+            decoding="async"
             sx={{
               borderRadius: "10px",
               objectFit: "cover",

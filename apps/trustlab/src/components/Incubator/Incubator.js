@@ -80,6 +80,7 @@ const Incubator = forwardRef((props, ref) => {
               ImageProps={{
                 alt,
                 src: url,
+                sizes: "(min-width: 600px) 42vw, calc(100vw - 20px)",
               }}
               sx={{
                 height: { xs: "374.47px", md: "420px" },

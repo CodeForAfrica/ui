@@ -16,9 +16,7 @@ exports[`<Footer /> renders unchanged 1`] = `
     />
     <div
       aria-hidden="true"
-      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-kdr9n7-MuiSvgIcon-root"
-      focusable="false"
-      viewbox="0 0 297 297"
+      class="MuiBox-root css-1nvwspg"
     />
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ni3ei2-MuiContainer-root"

@@ -8,7 +8,8 @@ import FooterDescription from "./FooterDescription";
 import Funders from "./Funders";
 
 import LeftIcon from "@/trustlab/assets/left-footer-icon.svg";
-import RightIcon from "@/trustlab/assets/right-footer-icon.svg";
+/* eslint-disable-next-line import/no-unresolved */
+import RightIconUrl from "@/trustlab/assets/right-footer-icon.svg?url";
 import { grey } from "@/trustlab/colors";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
@@ -53,17 +54,20 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           display: { xs: "none", sm: "block" },
         }}
       />
-      <SvgIcon
-        component={RightIcon}
-        viewBox="0 0 297 297"
+      <Box
+        aria-hidden="true"
         sx={{
-          color: "common.white",
           position: "absolute",
-          right: -90,
-          bottom: { xs: -170, md: -92 },
+          right: "-2px",
+          bottom: { xs: "-73px", md: "3px" },
           zIndex: 1,
-          width: "240px",
-          height: "240px",
+          width: "152px",
+          height: "152px",
+          backgroundImage: `url(${RightIconUrl})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          pointerEvents: "none",
         }}
       />
       <Section

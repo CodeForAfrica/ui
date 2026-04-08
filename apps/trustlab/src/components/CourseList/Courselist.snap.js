@@ -30,7 +30,6 @@ exports[`<CourseList /> renders unchanged 1`] = `
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1ke25d7-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
           href="/course-1"
-          id="course-1"
           style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <div
@@ -65,7 +64,6 @@ exports[`<CourseList /> renders unchanged 1`] = `
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1ke25d7-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
           href="/course-2"
-          id="course-2"
           style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <div
@@ -100,7 +98,6 @@ exports[`<CourseList /> renders unchanged 1`] = `
         <a
           class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1ke25d7-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
           href="/course-3"
-          id="course-3"
           style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
         >
           <div

@@ -1,42 +1,82 @@
+import dynamic from "next/dynamic";
 import React from "react";
 import { SWRConfig } from "swr";
 
-import ActionBanner from "@/trustlab/components/ActionBanner";
-import Banner from "@/trustlab/components/Banner";
-import CallToAction from "@/trustlab/components/CallToAction";
-import CategoryList from "@/trustlab/components/CategoryList";
-import ComingSoon from "@/trustlab/components/ComingSoon";
-import Content from "@/trustlab/components/Content";
-import ContentActionBanner from "@/trustlab/components/ContentActionBanner";
-import ContentOverview from "@/trustlab/components/ContentOverview";
-import CourseList from "@/trustlab/components/CourseList/CourseList";
-import DonorOverviewList from "@/trustlab/components/DonorOverviewList";
-import ErrorPage from "@/trustlab/components/Error";
-import Facilitators from "@/trustlab/components/Facilitators";
-import FeatureList from "@/trustlab/components/FeatureList";
-import Gallery from "@/trustlab/components/Gallery/Gallery";
-import Helplines from "@/trustlab/components/Helplines";
-import Hero from "@/trustlab/components/Hero";
-import HighlightList from "@/trustlab/components/HighlightList";
-import HorizontalGallery from "@/trustlab/components/HorizontalGallery";
-import Incubator from "@/trustlab/components/Incubator";
-import IntelligenceBriefings from "@/trustlab/components/IntelligenceBriefings";
-import OpportunityList from "@/trustlab/components/OpportunityList";
-import OpportunityOverview from "@/trustlab/components/OpportunityOverview";
-import OverviewCardList from "@/trustlab/components/OverviewCardList";
-import PageOverview from "@/trustlab/components/PageOverview";
-import ParticipatingOrganizationList from "@/trustlab/components/ParticipatingOrganizationList";
-import PartnerOverviewList from "@/trustlab/components/PartnerOverviewList";
-import PartnersList from "@/trustlab/components/PartnersList";
-import PlaybooksList from "@/trustlab/components/PlaybooksList";
-import PostList from "@/trustlab/components/PostList";
-import ReportsList from "@/trustlab/components/ReportsList";
-import Resources from "@/trustlab/components/Resources";
-import Spotlight from "@/trustlab/components/Spotlight";
-import Testimonial from "@/trustlab/components/Testimonial";
-import ToolkitList from "@/trustlab/components/ToolkitList";
-import WhereWeWork from "@/trustlab/components/WhereWeWork";
 import { getPageStaticProps } from "@/trustlab/lib/data";
+
+const ActionBanner = dynamic(
+  () => import("@/trustlab/components/ActionBanner"),
+);
+const Banner = dynamic(() => import("@/trustlab/components/Banner"));
+const CallToAction = dynamic(
+  () => import("@/trustlab/components/CallToAction"),
+);
+const CategoryList = dynamic(
+  () => import("@/trustlab/components/CategoryList"),
+);
+const ComingSoon = dynamic(() => import("@/trustlab/components/ComingSoon"));
+const Content = dynamic(() => import("@/trustlab/components/Content"));
+const ContentActionBanner = dynamic(
+  () => import("@/trustlab/components/ContentActionBanner"),
+);
+const ContentOverview = dynamic(
+  () => import("@/trustlab/components/ContentOverview"),
+);
+const CourseList = dynamic(
+  () => import("@/trustlab/components/CourseList/CourseList"),
+);
+const DonorOverviewList = dynamic(
+  () => import("@/trustlab/components/DonorOverviewList"),
+);
+const ErrorPage = dynamic(() => import("@/trustlab/components/Error"));
+const Facilitators = dynamic(
+  () => import("@/trustlab/components/Facilitators"),
+);
+const FeatureList = dynamic(() => import("@/trustlab/components/FeatureList"));
+const Gallery = dynamic(() => import("@/trustlab/components/Gallery/Gallery"));
+const Helplines = dynamic(() => import("@/trustlab/components/Helplines"));
+const Hero = dynamic(() => import("@/trustlab/components/Hero"));
+const HighlightList = dynamic(
+  () => import("@/trustlab/components/HighlightList"),
+);
+const HorizontalGallery = dynamic(
+  () => import("@/trustlab/components/HorizontalGallery"),
+);
+const Incubator = dynamic(() => import("@/trustlab/components/Incubator"));
+const IntelligenceBriefings = dynamic(
+  () => import("@/trustlab/components/IntelligenceBriefings"),
+);
+const OpportunityList = dynamic(
+  () => import("@/trustlab/components/OpportunityList"),
+);
+const OpportunityOverview = dynamic(
+  () => import("@/trustlab/components/OpportunityOverview"),
+);
+const OverviewCardList = dynamic(
+  () => import("@/trustlab/components/OverviewCardList"),
+);
+const PageOverview = dynamic(
+  () => import("@/trustlab/components/PageOverview"),
+);
+const ParticipatingOrganizationList = dynamic(
+  () => import("@/trustlab/components/ParticipatingOrganizationList"),
+);
+const PartnerOverviewList = dynamic(
+  () => import("@/trustlab/components/PartnerOverviewList"),
+);
+const PartnersList = dynamic(
+  () => import("@/trustlab/components/PartnersList"),
+);
+const PlaybooksList = dynamic(
+  () => import("@/trustlab/components/PlaybooksList"),
+);
+const PostList = dynamic(() => import("@/trustlab/components/PostList"));
+const ReportsList = dynamic(() => import("@/trustlab/components/ReportsList"));
+const Resources = dynamic(() => import("@/trustlab/components/Resources"));
+const Spotlight = dynamic(() => import("@/trustlab/components/Spotlight"));
+const Testimonial = dynamic(() => import("@/trustlab/components/Testimonial"));
+const ToolkitList = dynamic(() => import("@/trustlab/components/ToolkitList"));
+const WhereWeWork = dynamic(() => import("@/trustlab/components/WhereWeWork"));
 
 const componentsBySlugs = {
   "action-banner": ActionBanner,
