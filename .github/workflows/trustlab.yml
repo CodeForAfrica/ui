@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - ft/fix-trustlab-failing-build
     paths:
       - "apps/trustlab/**"
       - "docker/apps/trustlab/**"

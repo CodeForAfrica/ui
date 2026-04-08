@@ -3,18 +3,13 @@ import { getPayload } from "payload";
 
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
+import type { NextRequest } from "next/server";
 
 import configPromise from "@payload-config";
 import { canManageContent } from "@/trustlab/payload/access/abilities";
 
 export async function GET(
-  req: {
-    cookies: {
-      get: (name: string) => {
-        value: string;
-      };
-    };
-  } & Request,
+  req: NextRequest,
 ): Promise<Response> {
   const payload = await getPayload({ config: configPromise });
   const { searchParams } = new URL(req.url);

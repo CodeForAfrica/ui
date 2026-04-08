@@ -72,3 +72,4 @@ credentials.json
 media
 
 **/public/cache/
+**/.claude/**.local.json
