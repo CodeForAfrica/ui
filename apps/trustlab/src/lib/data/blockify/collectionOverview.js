@@ -6,8 +6,8 @@ function getSpotlightButtonLink(post) {
     };
   }
   return {
-    href: post.link?.href || "",
-    label: post.link?.label || "Read",
+    href: post?.link?.href || "",
+    label: post?.link?.label || "Read",
   };
 }
 async function collectionOverview(block, api) {
