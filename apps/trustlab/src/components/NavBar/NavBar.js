@@ -32,6 +32,7 @@ function NavBar({ logo, menus, searchButtonLabel, socialLinks }) {
           logo={logo}
           menus={menus}
           socialLinks={socialLinks}
+          prefetch={false}
           menuIcon={menuIcon}
           CloseIcon={CloseIcon}
           NextImageButton={NextImageButton}
@@ -54,6 +55,7 @@ function NavBar({ logo, menus, searchButtonLabel, socialLinks }) {
           logo={logo}
           menus={menus}
           socialLinks={socialLinks}
+          prefetch={false}
           NextImageButton={NextImageButton}
           Link={Link}
           NavListItemProps={{

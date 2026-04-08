@@ -182,7 +182,6 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                           ...(index === 0
                             ? {
                                 priority: true,
-                                fetchPriority: "high",
                                 sizes:
                                   "(min-width: 900px) 322px, (min-width: 600px) 365px, calc(100vw - 20px)",
                               }
