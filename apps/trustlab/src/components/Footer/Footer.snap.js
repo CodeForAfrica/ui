@@ -16,7 +16,7 @@ exports[`<Footer /> renders unchanged 1`] = `
     />
     <div
       aria-hidden="true"
-      class="MuiBox-root css-1nvwspg"
+      class="MuiBox-root css-wyg1a1"
     />
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1ni3ei2-MuiContainer-root"
