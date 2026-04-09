@@ -1,6 +1,5 @@
 import ActionBanner from "./ActionBanner";
 import CallToAction from "./CallToAction";
-import ComingSoon from "./ComingSoon";
 import Content from "./Content";
 import ContentActionBanner from "./ContentActionBanner";
 import ContentOverview from "./ContentOverview";
@@ -41,7 +40,6 @@ import WhereWeWork from "./WhereWeWork";
 export default [
   ActionBanner,
   CallToAction,
-  ComingSoon,
   Content,
   ContentActionBanner,
   ContentOverview,
