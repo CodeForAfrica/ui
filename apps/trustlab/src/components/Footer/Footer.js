@@ -58,11 +58,11 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         aria-hidden="true"
         sx={{
           position: "absolute",
-          right: "-2px",
-          bottom: { xs: "-76px", md: "0" },
+          right: { xs: 0, sm: "-2px" },
+          bottom: 0,
           zIndex: 1,
-          width: { xs: "152px", md: "240px" },
-          height: { xs: "152px", md: "240px" },
+          width: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
+          height: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
           backgroundImage: `url(${RightIconUrl})`,
           backgroundPosition: "center bottom",
           backgroundRepeat: "no-repeat",
