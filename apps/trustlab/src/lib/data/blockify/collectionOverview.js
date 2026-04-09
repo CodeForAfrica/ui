@@ -1,13 +1,17 @@
 function getSpotlightButtonLink(post) {
-  if (post?.isApplication) {
+  if (!post) {
+    return post;
+  }
+
+  if (post.isApplication) {
     return {
       href: post.applicationLink?.href ?? "",
       label: post.applicationLink?.label || "Apply",
     };
   }
   return {
-    href: post?.link?.href || "",
-    label: post?.link?.label || "Read",
+    href: post.link?.href || "",
+    label: post.link?.label || "Read",
   };
 }
 async function collectionOverview(block, api) {

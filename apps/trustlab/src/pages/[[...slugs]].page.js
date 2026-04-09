@@ -4,6 +4,9 @@ import { SWRConfig } from "swr";
 
 import { getPageStaticProps } from "@/trustlab/lib/data";
 
+// These CMS blocks are route-driven: most pages render only a small subset,
+// so code-splitting them avoids shipping the full block registry upfront.
+// Docs: https://nextjs.org/docs/pages/guides/lazy-loading
 const ActionBanner = dynamic(
   () => import("@/trustlab/components/ActionBanner"),
 );
