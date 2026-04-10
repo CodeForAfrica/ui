@@ -11,7 +11,6 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
     menus,
     socialLinks,
     Component,
-    prefetch,
     children,
     ...other
   } = props;
@@ -36,7 +35,6 @@ const NavBarNavList = React.forwardRef(function NavBarNavList(props, ref) {
           <Component
             color="inherit"
             underline="none"
-            prefetch={prefetch}
             // in mobile h3 = h4 in desktop
             variant="h3"
             {...typography}

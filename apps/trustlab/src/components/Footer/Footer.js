@@ -8,8 +8,7 @@ import FooterDescription from "./FooterDescription";
 import Funders from "./Funders";
 
 import LeftIcon from "@/trustlab/assets/left-footer-icon.svg";
-/* eslint-disable-next-line import/no-unresolved */
-import RightIconUrl from "@/trustlab/assets/right-footer-icon.svg?url";
+import RightIcon from "@/trustlab/assets/right-footer-icon.webp";
 import { grey } from "@/trustlab/colors";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
@@ -63,7 +62,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           zIndex: 1,
           width: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
           height: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
-          backgroundImage: `url(${RightIconUrl})`,
+          backgroundImage: `url(${RightIcon.src})`,
           backgroundPosition: "center bottom",
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",

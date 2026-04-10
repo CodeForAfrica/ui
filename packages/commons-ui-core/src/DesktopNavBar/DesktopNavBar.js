@@ -10,7 +10,6 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
     sx,
     NextImageButton = React.Fragment,
     Link = React.Fragment,
-    prefetch,
     NavListItemProps,
     socialLinks = [],
     children,
@@ -40,7 +39,6 @@ const DesktopNavBar = React.forwardRef(function DesktopNavBar(props, ref) {
             socialLinks={socialLinks}
             direction="row"
             Component={Link}
-            prefetch={prefetch}
             {...NavListItemProps}
           >
             {children}
