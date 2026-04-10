@@ -1,15 +1,15 @@
 import { Section, StayInTouch } from "@commons-ui/core";
 import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Grid2 as Grid, SvgIcon } from "@mui/material";
+import { Box, Grid2 as Grid } from "@mui/material";
 import React from "react";
 
 import FooterDescription from "./FooterDescription";
 import Funders from "./Funders";
 
-import LeftImage from "@/trustlab/assets/left-footer-icon.svg";
+/* eslint-disable-next-line import/no-unresolved */
+import LeftImageUrl from "@/trustlab/assets/left-footer-icon.svg?url";
 import RightImage from "@/trustlab/assets/right-footer-icon.webp";
-import { grey } from "@/trustlab/colors";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
 const Footer = React.forwardRef(function Footer(props, ref) {
@@ -32,43 +32,27 @@ const Footer = React.forwardRef(function Footer(props, ref) {
         py: 8,
         position: "relative",
         overflow: "hidden",
+        backgroundImage: {
+          xs: `url(${RightImage.src})`,
+          sm: `url(${RightImage.src})`,
+          md: `url(${LeftImageUrl}), url(${RightImage.src})`,
+        },
+        backgroundPosition: {
+          xs: "right bottom",
+          sm: "right -2px bottom",
+          md: "left -30px center, right -2px bottom",
+        },
+        backgroundRepeat: "no-repeat",
+        backgroundSize: {
+          xs: "120px auto",
+          sm: "152px auto",
+          md: "155px auto, 152px auto",
+          lg: "155px auto, 240px auto",
+        },
       })}
       component="footer"
       ref={ref}
     >
-      <SvgIcon
-        component={LeftImage}
-        width="155"
-        height="299"
-        viewBox="0 0 155 299"
-        fill={grey[900]}
-        sx={{
-          color: "transparent",
-          position: "absolute",
-          left: { xs: -140, md: -100 },
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 1,
-          fontSize: 300,
-          display: { xs: "none", sm: "block" },
-        }}
-      />
-      <Box
-        aria-hidden="true"
-        sx={{
-          position: "absolute",
-          right: { xs: 0, sm: "-2px" },
-          bottom: 0,
-          zIndex: 1,
-          width: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
-          height: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
-          backgroundImage: `url(${RightImage.src})`,
-          backgroundPosition: "center bottom",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          pointerEvents: "none",
-        }}
-      />
       <Section
         sx={{
           px: { xs: 2.5, sm: 8.5, md: 15, lg: 15 },
