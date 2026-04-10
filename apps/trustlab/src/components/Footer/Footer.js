@@ -7,8 +7,8 @@ import React from "react";
 import FooterDescription from "./FooterDescription";
 import Funders from "./Funders";
 
-import LeftIcon from "@/trustlab/assets/left-footer-icon.svg";
-import RightIcon from "@/trustlab/assets/right-footer-icon.webp";
+import LeftImage from "@/trustlab/assets/left-footer-icon.svg";
+import RightImage from "@/trustlab/assets/right-footer-icon.webp";
 import { grey } from "@/trustlab/colors";
 import FooterLinks from "@/trustlab/components/FooterLinks";
 
@@ -37,7 +37,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
       ref={ref}
     >
       <SvgIcon
-        component={LeftIcon}
+        component={LeftImage}
         width="155"
         height="299"
         viewBox="0 0 155 299"
@@ -62,7 +62,7 @@ const Footer = React.forwardRef(function Footer(props, ref) {
           zIndex: 1,
           width: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
           height: { xs: "120px", sm: "152px", md: "152px", lg: "240px" },
-          backgroundImage: `url(${RightIcon.src})`,
+          backgroundImage: `url(${RightImage.src})`,
           backgroundPosition: "center bottom",
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",

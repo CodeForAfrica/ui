@@ -11,17 +11,10 @@ import Page from "@/trustlab/components/Page";
 import AdminBar from "@/trustlab/components/PayloadAdminBar";
 import SEO from "@/trustlab/next-seo.config";
 import theme from "@/trustlab/theme";
+import site from "@/trustlab/utils/site";
 
 function getDefaultLayout(page, pageProps) {
   return <Page {...pageProps}>{page}</Page>;
-}
-
-function getRuntimeEnvironment() {
-  if (typeof window !== "undefined") {
-    return window.SENTRY_ENVIRONMENT?.trim().toLowerCase();
-  }
-
-  return process.env.SENTRY_ENVIRONMENT?.trim().toLowerCase();
 }
 
 const clientSideEmotionCache = createEmotionCache();
@@ -36,7 +29,7 @@ function MyApp(props) {
   const { analytics, ...pageProps } = appProps;
   const { analyticsId: gaId } = analytics || {};
   const getLayout = Component.getLayout || getDefaultLayout;
-  const shouldLoadAnalytics = getRuntimeEnvironment() === "production" && gaId;
+  const shouldLoadAnalytics = site.environment === "production" && gaId;
 
   return (
     <>

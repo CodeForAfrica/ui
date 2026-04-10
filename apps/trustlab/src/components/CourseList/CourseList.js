@@ -35,7 +35,6 @@ const CourseList = forwardRef(({ title, description, courses }, ref) => {
       <Grid spacing={{ xs: 2.5, sm: 5 }} container>
         {courses.map((course) => (
           <Grid
-            item
             key={course.id}
             size={{
               xs: 12,

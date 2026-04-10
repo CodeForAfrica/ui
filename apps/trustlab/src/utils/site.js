@@ -7,9 +7,13 @@
 // All runtime env vars that differ between server and client are resolved here via
 // window.* (injected by _document.page.js) on the client and process.env on the server.
 
-const environment = process?.env?.SENTRY_ENVIRONMENT?.trim().toLowerCase();
-const name = process?.env?.APP_NAME?.trim() ?? "TrustLab";
 const isClient = typeof window !== "undefined";
+const environment = (
+  isClient ? window.SENTRY_ENVIRONMENT : process?.env?.SENTRY_ENVIRONMENT
+)
+  ?.trim()
+  .toLowerCase();
+const name = process?.env?.APP_NAME?.trim() ?? "TrustLab";
 const sentryDsn = isClient ? window.SENTRY_DSN : process.env.SENTRY_DSN;
 const seoDisabled =
   (isClient ? window.SEO_DISABLED : process.env.SEO_DISABLED)
