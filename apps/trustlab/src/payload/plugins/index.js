@@ -1,4 +1,3 @@
-import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { sentryPlugin } from "@payloadcms/plugin-sentry";
 import { seoPlugin } from "@payloadcms/plugin-seo";
@@ -77,8 +76,6 @@ const plugins = [
     generateURL: ({ doc }) => (doc?.slug ? `${site.url}${doc.slug}` : ""),
     uploadsCollection: "media",
   }),
-  // Add Form builder plugin to store page under construction submissions email.
-  formBuilderPlugin({}),
 ];
 
 export default plugins;

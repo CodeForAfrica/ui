@@ -17,7 +17,6 @@ const CallToAction = dynamic(
 const CategoryList = dynamic(
   () => import("@/trustlab/components/CategoryList"),
 );
-const ComingSoon = dynamic(() => import("@/trustlab/components/ComingSoon"));
 const Content = dynamic(() => import("@/trustlab/components/Content"));
 const ContentActionBanner = dynamic(
   () => import("@/trustlab/components/ContentActionBanner"),
@@ -88,7 +87,6 @@ const componentsBySlugs = {
   "course-list": CourseList,
   "donor-overview-list": DonorOverviewList,
   resources: Resources,
-  "coming-soon": ComingSoon,
   error: ErrorPage,
   facilitators: Facilitators,
   gallery: Gallery,
