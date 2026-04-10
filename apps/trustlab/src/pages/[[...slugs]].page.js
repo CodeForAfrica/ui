@@ -5,7 +5,6 @@ import ActionBanner from "@/trustlab/components/ActionBanner";
 import Banner from "@/trustlab/components/Banner";
 import CallToAction from "@/trustlab/components/CallToAction";
 import CategoryList from "@/trustlab/components/CategoryList";
-import ComingSoon from "@/trustlab/components/ComingSoon";
 import Content from "@/trustlab/components/Content";
 import ContentActionBanner from "@/trustlab/components/ContentActionBanner";
 import ContentOverview from "@/trustlab/components/ContentOverview";
@@ -45,7 +44,6 @@ const componentsBySlugs = {
   "course-list": CourseList,
   "donor-overview-list": DonorOverviewList,
   resources: Resources,
-  "coming-soon": ComingSoon,
   error: ErrorPage,
   facilitators: Facilitators,
   gallery: Gallery,
