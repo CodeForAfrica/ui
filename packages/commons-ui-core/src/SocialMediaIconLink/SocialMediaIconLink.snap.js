@@ -3,6 +3,7 @@
 exports[`<SocialMediaIconLink /> renders unchanged 1`] = `
 <div>
   <a
+    aria-label="Github"
     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1qgi5s6-MuiTypography-root-MuiLink-root"
     href="https://github.com/CodeForAfrica"
   >

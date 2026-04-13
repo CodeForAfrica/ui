@@ -21,6 +21,7 @@ const ActionBanner = forwardRef(function ActionBanner(
     title,
     button: buttonProps,
     buttonLink,
+    buttonAriaLabel,
     embedCode,
     embedDialogTitle,
     embedCloseLabel,
@@ -88,6 +89,7 @@ const ActionBanner = forwardRef(function ActionBanner(
             href={buttonHref}
             component={buttonComponent}
             onClick={hasEmbed ? handleOpen : undefined}
+            aria-label={buttonAriaLabel || undefined}
             color={buttonProps?.borderColor || "#000"}
             bgcolor={backgroundColor || "transparent"}
             buttonProps={{

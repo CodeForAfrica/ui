@@ -37,6 +37,7 @@ class MyDocument extends Document {
   render() {
     const runtimeConfig = JSON.stringify({
       SENTRY_DSN: process.env.SENTRY_DSN,
+      SENTRY_ENVIRONMENT: process.env.SENTRY_ENVIRONMENT,
       SEO_DISABLED: process.env.SEO_DISABLED,
     });
 

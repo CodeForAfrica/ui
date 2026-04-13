@@ -76,6 +76,8 @@ exports[`<ReportCard /> renders unchanged 1`] = `
       <img
         alt="Test image"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+        decoding="async"
+        loading="lazy"
         src="/test-image.jpg"
       />
       <div
@@ -209,6 +211,8 @@ exports[`<ReportCard /> renders without link 1`] = `
       <img
         alt="Test image"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1ev1ed9-MuiCardMedia-root"
+        decoding="async"
+        loading="lazy"
         src="/test-image.jpg"
       />
       <div

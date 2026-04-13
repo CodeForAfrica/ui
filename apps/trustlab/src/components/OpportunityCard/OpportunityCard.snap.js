@@ -13,6 +13,8 @@ exports[`OpportunityCard renders without crashing 1`] = `
       <img
         alt="Test image"
         class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1v4c65z-MuiCardMedia-root"
+        decoding="async"
+        loading="lazy"
         src="https://example.com/image.jpg"
       />
       <div

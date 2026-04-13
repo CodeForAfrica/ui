@@ -43,6 +43,7 @@ const SocialMediaIconLink = React.forwardRef(function SocialMediaIconLink(
   return (
     <IconLink
       color="inherit"
+      aria-label={platform}
       {...props}
       href={href}
       IconProps={{

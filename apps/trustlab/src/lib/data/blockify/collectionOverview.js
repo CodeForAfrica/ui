@@ -1,6 +1,8 @@
-import { getPost } from "@/trustlab/utils/post";
-
 function getSpotlightButtonLink(post) {
+  if (!post) {
+    return post;
+  }
+
   if (post.isApplication) {
     return {
       href: post.applicationLink?.href ?? "",
@@ -14,9 +16,25 @@ function getSpotlightButtonLink(post) {
 }
 async function collectionOverview(block, api) {
   const { blockType, items: collectionList, ...other } = block;
-  const promises = collectionList.map(async ({ value }) => {
+  const slugs = collectionList.map(({ value }) => value?.slug).filter(Boolean);
+
+  const postsBySlug = new Map();
+  if (slugs.length) {
+    const { docs } = await api.getCollection("posts", {
+      limit: slugs.length,
+      where: {
+        slug: { in: slugs },
+      },
+    });
+
+    docs.forEach((post) => {
+      postsBySlug.set(post.slug, post);
+    });
+  }
+
+  const items = collectionList.map(({ value }) => {
     const { excerpt, image = {}, title, tags = [], id, slug } = value;
-    const post = await getPost(api, slug);
+    const post = postsBySlug.get(slug);
     const href = post?.link?.href || null;
     const [firstTag] = tags;
 
@@ -33,8 +51,6 @@ async function collectionOverview(block, api) {
       buttonLink: getSpotlightButtonLink(post),
     };
   });
-
-  const items = await Promise.all(promises);
   return {
     ...other,
     items,

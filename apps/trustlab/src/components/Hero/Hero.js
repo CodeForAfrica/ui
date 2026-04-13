@@ -179,6 +179,13 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                         ImageProps={{
                           alt: slide.image.alt,
                           src: slide.image.url,
+                          ...(index === 0
+                            ? {
+                                priority: true,
+                                sizes:
+                                  "(min-width: 900px) 322px, (min-width: 600px) 365px, calc(100vw - 20px)",
+                              }
+                            : { loading: "lazy" }),
                           sx: {
                             objectPosition: { xs: "left", md: "right" },
                             objectFit: "contain",
@@ -238,6 +245,7 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             }}
           >
             <IconButton
+              aria-label="Previous slide"
               sx={{
                 backgroundColor: "rgba(255, 255, 255, 0.40)",
                 transform: "rotate(180deg)",
@@ -273,6 +281,8 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
             {slides.map((slide, index) => (
               <Button
                 key={slide.id}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={activeStep === index ? "true" : undefined}
                 onClick={() => {
                   setActiveStep((prevStep) => {
                     prevStepRef.current = prevStep;
@@ -281,18 +291,32 @@ const Hero = forwardRef(function Hero({ slides }, ref) {
                   setAutoSlide(false);
                 }}
                 sx={{
-                  width: 12,
-                  height: 12,
-                  minWidth: 0,
+                  // Keep the visible dot small, but expand the button hit area to
+                  // meet touch-target guidance and pass Lighthouse target-size.
+                  width: 24,
+                  height: 24,
+                  minWidth: 24,
                   borderRadius: "50%",
                   border: "none",
-                  backgroundColor: activeStep === index ? "#717680" : "#A4A7AE",
-                  mx: 0.5,
+                  backgroundColor: "transparent",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  mx: 0.25,
                   p: 0,
+                  "&::before": {
+                    content: '""',
+                    width: 12,
+                    height: 12,
+                    borderRadius: "50%",
+                    backgroundColor:
+                      activeStep === index ? "#717680" : "#A4A7AE",
+                  },
                 }}
               />
             ))}
             <IconButton
+              aria-label="Next slide"
               sx={{
                 backgroundColor: "rgba(255, 255, 255, 0.40)",
                 ml: 1.875,

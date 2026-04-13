@@ -58,7 +58,7 @@ function AdminBar(props) {
       <Container>
         <StyledPayloadAdminBar
           {...adminBarProps}
-          cmsURL={site.url}
+          cmsURL={site.url.replace(/\/+$/, "")}
           collectionSlug={collection}
           collectionLabels={{
             plural: collectionLabels[collection]?.plural || "Pages",

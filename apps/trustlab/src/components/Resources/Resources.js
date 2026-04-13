@@ -89,6 +89,7 @@ const Resources = forwardRef(function Resources(props, ref) {
                     textDecoration: "none",
                   }}
                   variant="subheading2"
+                  component="h3"
                 >
                   {resource.title}
                 </Typography>

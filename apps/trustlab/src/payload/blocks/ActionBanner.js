@@ -43,6 +43,16 @@ const ActionBanner = {
       ],
     },
     {
+      name: "buttonAriaLabel",
+      type: "text",
+      label: { en: "Button Accessible Label" },
+      localized: true,
+      admin: {
+        description:
+          'Provide a descriptive label for screen readers when the button text is generic (e.g. "Learn more about Baraza"). Leave blank if the button text is already descriptive.',
+      },
+    },
+    {
       name: "embedCode",
       type: "code",
       label: { en: "Embed Code" },
