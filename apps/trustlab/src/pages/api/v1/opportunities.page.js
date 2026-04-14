@@ -15,6 +15,8 @@ export default async function handler(req, res) {
       month,
       location,
       opportunity,
+      search,
+      sort,
     } = req.query;
 
     const limit = parseInt(req.query?.limit, 10) || 12;
@@ -27,6 +29,8 @@ export default async function handler(req, res) {
       month,
       location,
       opportunity,
+      ...(search ? { search } : {}),
+      ...(sort ? { sort } : {}),
     };
 
     const result = await getOpportunities(api, options);

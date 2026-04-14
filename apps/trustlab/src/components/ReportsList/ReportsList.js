@@ -20,6 +20,8 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     cardActionLabel,
     hasPagination,
     hasFilters,
+    hasSearch,
+    hasSortBy,
     pagination: p = { page: 1, count: 1 },
     reportsType,
     reportsPerPage,
@@ -37,6 +39,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   const router = useRouter();
   const { query } = router;
   const { page: initialPage } = query;
+
   useEffect(() => {
     if (initialPage) {
       const parsed = parseInt(initialPage, 10);
@@ -76,6 +79,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       });
     }
   };
+
   function handleApplyFilters(filterParams) {
     // filter keys are singular (year/month/report); API expects plural
     const keyMap = { year: "years", month: "months", report: "reports" };
@@ -83,10 +87,19 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       Object.entries(filterParams).map(([k, v]) => [keyMap[k] ?? k, v]),
     );
 
-    setParams({ reportsType, limit: reportsPerPage, ...mappedParams });
+    setParams((prev) => ({
+      reportsType,
+      limit: reportsPerPage,
+      ...mappedParams,
+      // preserve sort and search across filter changes
+      ...(prev.sort ? { sort: prev.sort } : {}),
+      ...(prev.search ? { search: prev.search } : {}),
+    }));
     setPage(1);
 
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams(window.location.search);
+    // clear existing filter params before setting new ones
+    ["years", "months", "reports"].forEach((k) => searchParams.delete(k));
     Object.entries(mappedParams).forEach(([key, value]) => {
       if (Array.isArray(value) && value.length > 0) {
         searchParams.set(key, value.join(","));
@@ -94,6 +107,63 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
         searchParams.set(key, value);
       }
     });
+    searchParams.delete("page");
+
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
+  }
+
+  function handleSortChange(sortValue) {
+    setParams((prev) => {
+      const next = { ...prev };
+      if (sortValue) {
+        next.sort = sortValue;
+      } else {
+        delete next.sort;
+      }
+      return next;
+    });
+    setPage(1);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    if (sortValue) {
+      searchParams.set("sort", sortValue);
+    } else {
+      searchParams.delete("sort");
+    }
+    searchParams.delete("page");
+
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
+  }
+
+  function handleSearch(searchTerm) {
+    setParams((prev) => {
+      const next = { ...prev };
+      if (searchTerm) {
+        next.search = searchTerm;
+      } else {
+        delete next.search;
+      }
+      return next;
+    });
+    setPage(1);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchTerm) {
+      searchParams.set("search", searchTerm);
+    } else {
+      searchParams.delete("search");
+    }
+    searchParams.delete("page");
 
     const queryString = searchParams.toString();
     let urlPath = window.location.pathname;
@@ -108,8 +178,8 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     if (!router.isReady) {
       return;
     }
-    const { years, months, reports: reportsFilter } = query;
-    if (!years && !months && !reportsFilter) {
+    const { years, months, reports: reportsFilter, sort, search } = query;
+    if (!years && !months && !reportsFilter && !sort && !search) {
       return;
     }
 
@@ -126,18 +196,28 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     if (reportsFilter) {
       newParams.reports = parseParam(reportsFilter);
     }
+    if (sort) {
+      newParams.sort = sort;
+    }
+    if (search) {
+      newParams.search = search;
+    }
 
     setParams(newParams);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
+  const showFiltersBar = hasFilters || hasSearch || hasSortBy;
+
   return (
     <Box ref={listRef}>
-      {hasFilters ? (
+      {showFiltersBar ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}
+            onSortChange={hasSortBy ? handleSortChange : undefined}
+            onSearch={hasSearch ? handleSearch : undefined}
           />
         </Section>
       ) : null}

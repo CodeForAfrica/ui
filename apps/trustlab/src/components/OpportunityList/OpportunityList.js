@@ -16,6 +16,8 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     cardActionLabel,
     hasPagination,
     hasFilters,
+    hasSearch,
+    hasSortBy,
     pagination: p = { page: 1, count: 1 },
     itemsType,
     itemsPerPage,
@@ -25,6 +27,9 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     filterByLabel,
     applyFiltersLabel,
     clearFiltersLabel,
+    searchPlaceholderLabel,
+    sortByLabel,
+    sortOptions,
     title,
     description,
     ...other
@@ -94,7 +99,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     params,
     initialItems,
     p?.count,
-    !hasFilters && !hasPagination,
+    !hasFilters && !hasPagination && !hasSearch && !hasSortBy,
     apiEndpoint,
   );
 
@@ -121,15 +126,20 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   };
 
   function handleApplyFilters(filterParams) {
-    const newParams = {
+    setParams((prev) => ({
       type: itemsType,
       limit: itemsPerPage,
       ...filterParams,
-    };
-    setParams(newParams);
+      ...(prev.sort ? { sort: prev.sort } : {}),
+      ...(prev.search ? { search: prev.search } : {}),
+    }));
     setPage(1);
 
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams(window.location.search);
+    // clear existing filter params before setting new ones
+    ["year", "month", "location", "opportunity"].forEach((k) =>
+      searchParams.delete(k),
+    );
     Object.entries(filterParams).forEach(([key, value]) => {
       if (Array.isArray(value) && value.length > 0) {
         searchParams.set(key, value.join(","));
@@ -137,6 +147,63 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
         searchParams.set(key, value);
       }
     });
+    searchParams.delete("page");
+
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
+  }
+
+  function handleSortChange(sortValue) {
+    setParams((prev) => {
+      const next = { ...prev };
+      if (sortValue) {
+        next.sort = sortValue;
+      } else {
+        delete next.sort;
+      }
+      return next;
+    });
+    setPage(1);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    if (sortValue) {
+      searchParams.set("sort", sortValue);
+    } else {
+      searchParams.delete("sort");
+    }
+    searchParams.delete("page");
+
+    const queryString = searchParams.toString();
+    let urlPath = window.location.pathname;
+    if (queryString) {
+      urlPath = `${urlPath}?${queryString}`;
+    }
+    router.push(urlPath, undefined, { shallow: true, scroll: false });
+  }
+
+  function handleSearch(searchTerm) {
+    setParams((prev) => {
+      const next = { ...prev };
+      if (searchTerm) {
+        next.search = searchTerm;
+      } else {
+        delete next.search;
+      }
+      return next;
+    });
+    setPage(1);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchTerm) {
+      searchParams.set("search", searchTerm);
+    } else {
+      searchParams.delete("search");
+    }
+    searchParams.delete("page");
 
     const queryString = searchParams.toString();
     let urlPath = window.location.pathname;
@@ -180,16 +247,22 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
         ) : null}
       </Box>
 
-      {hasFilters ? (
+      {hasFilters || hasSearch || hasSortBy ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             {...other}
             onApply={(filterParams) => handleApplyFilters(filterParams)}
             filters={filters}
             filterByLabel={filterByLabel}
-            hasFilters={hasFilters}
             applyFiltersLabel={applyFiltersLabel}
             clearFiltersLabel={clearFiltersLabel}
+            onSearch={hasSearch ? handleSearch : undefined}
+            searchPlaceholderLabel={
+              hasSearch ? searchPlaceholderLabel : undefined
+            }
+            onSortChange={hasSortBy ? handleSortChange : undefined}
+            sortByLabel={hasSortBy ? sortByLabel : undefined}
+            sortOptions={hasSortBy ? sortOptions : undefined}
           />
         </Section>
       ) : null}

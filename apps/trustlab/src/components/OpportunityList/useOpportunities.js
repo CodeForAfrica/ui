@@ -28,6 +28,9 @@ function useOpportunities(
   if (params?.search) {
     searchParams.set("search", params.search);
   }
+  if (params?.sort) {
+    searchParams.set("sort", params.sort);
+  }
   if (params?.opportunity) {
     searchParams.set("opportunity", params.opportunity);
   }

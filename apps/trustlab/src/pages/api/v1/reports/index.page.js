@@ -12,6 +12,7 @@ export default async function handler(req, res) {
       months,
       reports,
       reportsType,
+      search,
       limit = 12,
     } = req.query;
 
@@ -45,6 +46,11 @@ export default async function handler(req, res) {
     const andConditions = [];
     if (reportsType) {
       andConditions.push({ reportType: { equals: reportsType } });
+    }
+
+    // Title search
+    if (search) {
+      andConditions.push({ title: { like: search } });
     }
 
     // Reports (slug) filter
