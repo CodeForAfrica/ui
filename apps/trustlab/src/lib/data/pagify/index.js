@@ -4,14 +4,13 @@ import report from "./report";
 
 const { opportunity, organisations } = opportunities;
 const COLLECTION_BY_SLUG = {
-  events: post,
   helplines: post,
   incubators: opportunity,
   opportunities: opportunity,
   barazas: opportunity,
   "intelligence-briefings": opportunity,
   organisations,
-  research: report,
+  "baseline-report": report,
   resources: post,
 };
 
