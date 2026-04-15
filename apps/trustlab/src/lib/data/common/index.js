@@ -115,10 +115,7 @@ export async function getPageProps(api, context) {
 
   const blocks = await blockify(page?.blocks, api, context);
   const { analytics } = siteSettings;
-  let seo = null;
-  if (page?.meta) {
-    seo = getPageSeoFromMeta(page, siteSettings);
-  }
+  const seo = getPageSeoFromMeta(page, siteSettings);
   return {
     analytics,
     blocks,
