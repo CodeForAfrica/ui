@@ -14,6 +14,9 @@ function nestCollectionUnderPage(pageSlug) {
     } catch (error) {
       // Handle Errors
     }
+    // TODO(kilemensi): Using `link` here is a bug since a given collection can
+    //                  have a `link` field. This should be refactored in the
+    //                  future.
     return { ...doc, link: { href } };
   };
 }
