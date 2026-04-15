@@ -12,7 +12,7 @@ async function findAndFormatPagePath(payload, page) {
           equals: page,
         },
       },
-      limit: 0,
+      limit: 1,
     };
     ({ docs } = await payload.find(options));
   } else if (typeof page === "object") {
