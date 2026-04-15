@@ -5,14 +5,14 @@ exports[`ReportFilters renders unchanged 1`] = `
   <div
     class="MuiBox-root css-1821gv5"
   >
+    <h6
+      class="MuiTypography-root MuiTypography-subtitle1 css-1dte1p5-MuiTypography-root"
+    >
+      Filter By
+    </h6>
     <div
       class="MuiStack-root css-1u7tqyj-MuiStack-root"
     >
-      <h6
-        class="MuiTypography-root MuiTypography-subtitle1 css-14jb5t3-MuiTypography-root"
-      >
-        Filter By
-      </h6>
       <button
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
         tabindex="0"

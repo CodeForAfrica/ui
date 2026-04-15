@@ -120,18 +120,35 @@ function SortDropdown({ label, options = [], value, onChange }) {
         anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
         onClose={() => setAnchorEl(null)}
       >
-        {options.map((opt) => (
-          <MenuItem
-            key={opt.value}
-            selected={opt.value === value}
-            onClick={() => {
-              onChange?.(opt.value === value ? null : opt.value);
-              setAnchorEl(null);
-            }}
-          >
-            <ListItemText primary={opt.label} />
-          </MenuItem>
-        ))}
+        {options.map((opt) => {
+          const isSelected = opt.value === value;
+          return (
+            <MenuItem
+              key={opt.value}
+              onClick={() => {
+                onChange?.(isSelected ? null : opt.value);
+                setAnchorEl(null);
+              }}
+              sx={{ minWidth: 160, justifyContent: "space-between", gap: 2 }}
+            >
+              <ListItemText primary={opt.label} />
+              {isSelected && (
+                <SvgIcon
+                  sx={{ fontSize: 16, fill: "none", flexShrink: 0 }}
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2.5 8 L6.5 12 L13.5 4"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </SvgIcon>
+              )}
+            </MenuItem>
+          );
+        })}
       </Menu>
     </>
   );
@@ -329,7 +346,16 @@ const Filters = React.forwardRef(function Filters(
 
   return (
     <Box ref={ref} display="flex" flexDirection="column" gap={1} sx={sx}>
-      {/* Row 1: Filter By Label + Filter dropdowns + Search + Sort By */}
+      {/* Filter By label sits above the controls row */}
+      {filterByLabel && (
+        <Typography variant="subtitle1" fontWeight={700}>
+          {filterByLabel}
+        </Typography>
+      )}
+
+      {/* Controls row — flat flex row that wraps.
+          xs: search claims its own line (width 100%), filters + sort wrap below.
+          sm+: search is capped at 50%, everything stays on one line. */}
       <Stack
         direction="row"
         alignItems="center"
@@ -337,33 +363,6 @@ const Filters = React.forwardRef(function Filters(
         useFlexGap
         gap={2}
       >
-        {filterByLabel && (
-          <Typography
-            variant="subtitle1"
-            fontWeight={700}
-            sx={{ flexShrink: 0 }}
-          >
-            {filterByLabel}
-          </Typography>
-        )}
-        {processedFilters.map((filter) => (
-          <FilterDropdown
-            key={filter.type}
-            label={filter.label}
-            options={filter.options}
-            selected={selectedValues[filter.type] || []}
-            onChange={(values) => handleFilterChange(filter.type, values)}
-            getOptionValue={filter.getOptionValue}
-            getOptionLabel={filter.getOptionLabel}
-            startIcon={
-              <SvgIcon
-                component={filter.icon}
-                sx={{ fill: "none", fontSize: "16px" }}
-              />
-            }
-            size="small"
-          />
-        ))}
         {showSearch && (
           <InputBase
             value={searchValue}
@@ -392,9 +391,10 @@ const Filters = React.forwardRef(function Filters(
               </InputAdornment>
             }
             sx={{
-              flex: 1,
+              width: { xs: "100%", sm: "auto" },
+              flex: { sm: 1 },
+              maxWidth: { sm: "50%" },
               minWidth: 180,
-              maxWidth: "45%",
               border: "1px solid #C9CACB",
               borderRadius: "10px",
               px: 1.5,
@@ -404,13 +404,34 @@ const Filters = React.forwardRef(function Filters(
             }}
           />
         )}
-        {showSort && (
-          <SortDropdown
-            label={sortByLabel}
-            options={sortOptions}
-            value={sortValue}
-            onChange={handleSortChange}
+        {processedFilters.map((filter) => (
+          <FilterDropdown
+            key={filter.type}
+            label={filter.label}
+            options={filter.options}
+            selected={selectedValues[filter.type] || []}
+            onChange={(values) => handleFilterChange(filter.type, values)}
+            getOptionValue={filter.getOptionValue}
+            getOptionLabel={filter.getOptionLabel}
+            startIcon={
+              <SvgIcon
+                component={filter.icon}
+                sx={{ fill: "none", fontSize: "16px" }}
+              />
+            }
+            size="small"
           />
+        ))}
+        {/* ml:auto keeps sort at the far right of whichever line it lands on */}
+        {showSort && (
+          <Box sx={{ ml: "auto" }}>
+            <SortDropdown
+              label={sortByLabel}
+              options={sortOptions}
+              value={sortValue}
+              onChange={handleSortChange}
+            />
+          </Box>
         )}
       </Stack>
 
