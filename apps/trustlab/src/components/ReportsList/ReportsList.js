@@ -27,6 +27,14 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     reportsPerPage,
     notFoundTitleLabel,
     notFoundSubtitleLabel,
+    // filter bar props — destructured so they don't leak into <Grid>
+    filterByLabel,
+    filters,
+    clearFiltersLabel,
+    applyFiltersLabel,
+    searchPlaceholderLabel,
+    sortByLabel,
+    sortOptions,
     ...other
   } = props;
 
@@ -80,7 +88,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     }
   };
 
-  function handleApplyFilters(filterParams) {
+  const handleApplyFilters = (filterParams) => {
     // filter keys are singular (year/month/report); API expects plural
     const keyMap = { year: "years", month: "months", report: "reports" };
     const mappedParams = Object.fromEntries(
@@ -115,9 +123,9 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       urlPath = `${urlPath}?${queryString}`;
     }
     router.push(urlPath, undefined, { shallow: true, scroll: false });
-  }
+  };
 
-  function handleSortChange(sortValue) {
+  const handleSortChange = (sortValue) => {
     setParams((prev) => {
       const next = { ...prev };
       if (sortValue) {
@@ -143,9 +151,18 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       urlPath = `${urlPath}?${queryString}`;
     }
     router.push(urlPath, undefined, { shallow: true, scroll: false });
-  }
+  };
 
-  function handleSearch(searchTerm) {
+  const handleClearAll = () => {
+    setParams({ reportsType, limit: reportsPerPage });
+    setPage(1);
+    router.push(window.location.pathname, undefined, {
+      shallow: true,
+      scroll: false,
+    });
+  };
+
+  const handleSearch = (searchTerm) => {
     setParams((prev) => {
       const next = { ...prev };
       if (searchTerm) {
@@ -171,7 +188,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       urlPath = `${urlPath}?${queryString}`;
     }
     router.push(urlPath, undefined, { shallow: true, scroll: false });
-  }
+  };
 
   // Initialize params from URL on mount (e.g. bookmarked filtered URL)
   useEffect(() => {
@@ -214,10 +231,19 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       {showFiltersBar ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
-            {...other}
-            onApply={(filterParams) => handleApplyFilters(filterParams)}
+            filterByLabel={filterByLabel}
+            filters={filters}
+            clearFiltersLabel={clearFiltersLabel}
+            applyFiltersLabel={applyFiltersLabel}
+            onApply={handleApplyFilters}
+            onClearAll={handleClearAll}
             onSortChange={hasSortBy ? handleSortChange : undefined}
+            sortByLabel={hasSortBy ? sortByLabel : undefined}
+            sortOptions={hasSortBy ? sortOptions : undefined}
             onSearch={hasSearch ? handleSearch : undefined}
+            searchPlaceholderLabel={
+              hasSearch ? searchPlaceholderLabel : undefined
+            }
           />
         </Section>
       ) : null}

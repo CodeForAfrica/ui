@@ -6,6 +6,7 @@ import {
   Chip,
   SvgIcon,
   InputBase,
+  InputAdornment,
   Menu,
   MenuItem,
   ListItemText,
@@ -153,6 +154,8 @@ const Filters = React.forwardRef(function Filters(
     sortByLabel,
     sortOptions = [],
     onSortChange,
+    // Atomic clear (preferred over onApply/onClear when search/sort are active)
+    onClearAll,
   },
   ref,
 ) {
@@ -286,11 +289,15 @@ const Filters = React.forwardRef(function Filters(
     if (searchTimerRef.current) {
       clearTimeout(searchTimerRef.current);
     }
-    onSearch?.("");
-    onSortChange?.(null);
-    onClear?.();
-    onApply?.({});
-  }, [onApply, onClear, onSearch, onSortChange]);
+    if (onClearAll) {
+      // Single atomic call — parent handles state + URL in one router.push
+      onClearAll();
+    } else {
+      // Fallback for consumers that don't use search/sort (no race risk there)
+      onClear?.();
+      onApply?.({});
+    }
+  }, [onApply, onClear, onClearAll]);
 
   const anySelected = useMemo(() => {
     return (
@@ -315,9 +322,10 @@ const Filters = React.forwardRef(function Filters(
     return chips;
   }, [selectedValues, getChipLabel]);
 
-  const showSearch =
-    searchPlaceholderLabel !== undefined && searchPlaceholderLabel !== null;
-  const showSort = sortByLabel && sortOptions.length > 0;
+  // Gate on the callback props so a stale CMS label can't accidentally re-show
+  // a control whose feature flag has been disabled
+  const showSearch = Boolean(onSearch);
+  const showSort = Boolean(onSortChange) && sortOptions.length > 0;
 
   return (
     <Box ref={ref} display="flex" flexDirection="column" gap={1} sx={sx}>
@@ -361,9 +369,32 @@ const Filters = React.forwardRef(function Filters(
             value={searchValue}
             onChange={handleSearchChange}
             placeholder={searchPlaceholderLabel || "Search..."}
+            startAdornment={
+              <InputAdornment position="start" sx={{ ml: 0.5, mr: 0.25 }}>
+                <SvgIcon
+                  sx={{ fontSize: 16, fill: "none", color: "text.secondary" }}
+                  viewBox="0 0 20 20"
+                >
+                  <circle
+                    cx="9"
+                    cy="9"
+                    r="6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="m14 14 3.5 3.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </SvgIcon>
+              </InputAdornment>
+            }
             sx={{
               flex: 1,
               minWidth: 180,
+              maxWidth: "45%",
               border: "1px solid #C9CACB",
               borderRadius: "10px",
               px: 1.5,
@@ -415,7 +446,6 @@ const Filters = React.forwardRef(function Filters(
             <Button
               variant="text"
               onClick={clearAll}
-              disabled={!anySelected}
               size="small"
               sx={{
                 textTransform: "none",

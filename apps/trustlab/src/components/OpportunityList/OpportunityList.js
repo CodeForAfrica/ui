@@ -125,7 +125,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     }
   };
 
-  function handleApplyFilters(filterParams) {
+  const handleApplyFilters = (filterParams) => {
     setParams((prev) => ({
       type: itemsType,
       limit: itemsPerPage,
@@ -155,7 +155,16 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
       urlPath = `${urlPath}?${queryString}`;
     }
     router.push(urlPath, undefined, { shallow: true, scroll: false });
-  }
+  };
+
+  const handleClearAll = () => {
+    setParams({ type: itemsType, limit: itemsPerPage });
+    setPage(1);
+    router.push(window.location.pathname, undefined, {
+      shallow: true,
+      scroll: false,
+    });
+  };
 
   function handleSortChange(sortValue) {
     setParams((prev) => {
@@ -250,12 +259,12 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
       {hasFilters || hasSearch || hasSortBy ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
-            {...other}
-            onApply={(filterParams) => handleApplyFilters(filterParams)}
-            filters={filters}
             filterByLabel={filterByLabel}
+            filters={filters}
             applyFiltersLabel={applyFiltersLabel}
             clearFiltersLabel={clearFiltersLabel}
+            onApply={handleApplyFilters}
+            onClearAll={handleClearAll}
             onSearch={hasSearch ? handleSearch : undefined}
             searchPlaceholderLabel={
               hasSearch ? searchPlaceholderLabel : undefined
