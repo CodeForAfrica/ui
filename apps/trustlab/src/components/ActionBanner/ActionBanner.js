@@ -13,6 +13,7 @@ import React, { forwardRef, useState } from "react";
 
 import CloseIcon from "@/trustlab/assets/icons/close.svg";
 import Button from "@/trustlab/components/StyledButton";
+import sanitizeEmbedHtml from "@/trustlab/utils/sanitizeEmbedHtml";
 
 const ActionBanner = forwardRef(function ActionBanner(
   {
@@ -28,7 +29,8 @@ const ActionBanner = forwardRef(function ActionBanner(
   },
   ref,
 ) {
-  const hasEmbed = Boolean(embedCode);
+  const sanitizedEmbedCode = sanitizeEmbedHtml(embedCode);
+  const hasEmbed = Boolean(sanitizedEmbedCode);
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -145,7 +147,7 @@ const ActionBanner = forwardRef(function ActionBanner(
           </DialogTitle>
           <DialogContent>
             <Box
-              dangerouslySetInnerHTML={{ __html: embedCode }}
+              dangerouslySetInnerHTML={{ __html: sanitizedEmbedCode }}
               sx={{
                 width: "100%",
                 "& iframe": {
