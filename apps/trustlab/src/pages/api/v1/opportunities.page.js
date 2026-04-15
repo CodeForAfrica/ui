@@ -20,6 +20,19 @@ export default async function handler(req, res) {
     } = req.query;
 
     const limit = parseInt(req.query?.limit, 10) || 12;
+    const ALLOWED_SORT = [
+      "-date",
+      "date",
+      "-title",
+      "title",
+      "-createdAt",
+      "createdAt",
+      "-updatedAt",
+      "updatedAt",
+    ];
+    const validatedSort =
+      sort && ALLOWED_SORT.includes(sort) ? sort : undefined;
+
     const options = {
       page: parseInt(page, 10),
       limit,
@@ -30,7 +43,7 @@ export default async function handler(req, res) {
       location,
       opportunity,
       ...(search ? { search } : {}),
-      ...(sort ? { sort } : {}),
+      ...(validatedSort ? { sort: validatedSort } : {}),
     };
 
     const result = await getOpportunities(api, options);

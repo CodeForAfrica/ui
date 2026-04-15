@@ -91,7 +91,12 @@ const OpportunityList = {
       type: "text",
       localized: true,
       admin: {
-        condition: (_, siblingData) => Boolean(siblingData?.hasFilters),
+        condition: (_, siblingData) =>
+          Boolean(
+            siblingData?.hasFilters ||
+            siblingData?.hasSearch ||
+            siblingData?.hasSortBy,
+          ),
       },
     },
     {
