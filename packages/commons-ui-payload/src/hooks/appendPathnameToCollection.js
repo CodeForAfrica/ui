@@ -26,7 +26,7 @@ function appendPathnameToCollection(page) {
         pathname = `${pagePathname}${pathname}`;
       }
     } catch (error) {
-      // Log error?
+      // Log error? This is a library though so maybe not.
     }
     return { ...doc, pathname };
   };

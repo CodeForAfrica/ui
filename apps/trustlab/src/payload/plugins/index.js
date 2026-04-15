@@ -64,6 +64,7 @@ const plugins = [
     Sentry,
   }),
   seoPlugin({
+    // helplines don't have individual pages and we don't resources collection
     collections: ["opportunities", "pages", "posts", "reports"],
     generateDescription: ({ doc }) => {
       const data = doc?.description || doc?.excerpt;

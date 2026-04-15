@@ -46,7 +46,7 @@ export async function getReport(api, slug, parentPage) {
       blockType: "page-header",
       backButton: {
         label: settings.backButtonLabel ?? "Back to Reports",
-        href: parentPage.pathname || "/research",
+        href: parentPage?.pathname || "/research",
       },
       title: report.title,
       backgroundColor: "#010101",
