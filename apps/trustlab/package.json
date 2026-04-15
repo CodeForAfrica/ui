@@ -51,7 +51,8 @@
     "require-in-the-middle": "catalog:payload-v3",
     "sharp": "catalog:",
     "swr": "catalog:",
-    "validate-color": "catalog:"
+    "validate-color": "catalog:",
+    "xss": "catalog:"
   },
   "devDependencies": {
     "@commons-ui/testing-library": "workspace:*",
