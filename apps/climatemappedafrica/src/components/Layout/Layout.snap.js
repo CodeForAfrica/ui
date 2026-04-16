@@ -91,6 +91,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                   class="MuiStack-root css-1d9cypr-MuiStack-root"
                 >
                   <a
+                    aria-label="Facebook"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1bo9crh-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
                     href="https://www.google.com"
                     id="67050ad20d400b5e511b2871"
@@ -284,6 +285,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                   class="MuiStack-root css-1rq54rq-MuiStack-root"
                 >
                   <a
+                    aria-label="Facebook"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ivk23z-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
                     href="https://www.google.com"
                     id="67050ad20d400b5e511b2871"
@@ -301,6 +303,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                     </svg>
                   </a>
                   <a
+                    aria-label="Twitter"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ivk23z-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
                     href="https://Twitter.com"
                     id="6706844a6339b76017e6c782"
@@ -318,6 +321,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                     </svg>
                   </a>
                   <a
+                    aria-label="Github"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ivk23z-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
                     href="https://github.com"
                     id="670684516339b76017e6c783"
@@ -335,6 +339,7 @@ exports[`<Layout /> renders unchanged 1`] = `
                     </svg>
                   </a>
                   <a
+                    aria-label="Instagram"
                     class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1ivk23z-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
                     href="https://instagram.com"
                     id="6706845b6339b76017e6c784"
