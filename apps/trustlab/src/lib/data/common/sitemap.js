@@ -31,7 +31,7 @@ function getAbsoluteUrl(pathname) {
 }
 
 function getLastModified(doc) {
-  const rawDate = doc?.updatedAt || doc?.createdAt || null;
+  const rawDate = doc?.updatedAt || doc?.createdAt;
   if (!rawDate) {
     return null;
   }
@@ -91,7 +91,7 @@ function dedupeEntries(entries) {
   const seen = new Set();
 
   return entries.filter((entry) => {
-    if (!entry?.url || seen.has(entry.url)) {
+    if (seen.has(entry.url)) {
       return false;
     }
 
@@ -109,7 +109,7 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
-export async function getSitemapEntries(api) {
+async function getSitemapEntries(api) {
   const pages = await getPagesEntries(api);
   return dedupeEntries(pages).sort((left, right) =>
     left.url.localeCompare(right.url),
@@ -121,7 +121,7 @@ export async function getSitemapXml(api) {
   const xmlEntries = entries
     .map(({ url, lastModified }) => {
       const lastModifiedNode = lastModified
-        ? `\n    <lastmod>${escapeXml(lastModified)}</lastmod>`
+        ? `\n    <lastmod>${lastModified}</lastmod>`
         : "";
 
       return `  <url>\n    <loc>${escapeXml(url)}</loc>${lastModifiedNode}\n  </url>`;
