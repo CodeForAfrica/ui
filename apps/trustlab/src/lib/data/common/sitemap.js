@@ -1,4 +1,4 @@
-import { formatPagePath } from "@commons-ui/payload";
+import * as Sentry from "@sentry/nextjs";
 
 import { site } from "@/trustlab/utils";
 
@@ -56,19 +56,11 @@ function toSitemapEntry(doc, pathname) {
   };
 }
 
-function getPagePathname(doc) {
-  if (!doc) {
-    return null;
-  }
-
-  const pathname = formatPagePath("pages", doc);
-  return normalizePathname(pathname);
-}
-
 async function getPagesEntries(api) {
   const { docs } = await api.getCollection("pages", {
     pagination: false,
     select: {
+      pathname: true,
       slug: true,
       parent: true,
       breadcrumbs: true,
@@ -76,44 +68,38 @@ async function getPagesEntries(api) {
       createdAt: true,
     },
     where: {
-      slug: {
-        not_in: ["404", "500"],
-      },
+      and: [
+        {
+          _status: {
+            equals: "published",
+          },
+        },
+        {
+          slug: {
+            not_in: ["404", "500"],
+          },
+        },
+      ],
     },
   });
 
   return docs
-    .map((doc) => toSitemapEntry(doc, getPagePathname(doc)))
+    .map((doc) => {
+      if (!doc?.pathname) {
+        Sentry.logger.warn("Page without `pathname` in sitemap", {
+          slug: doc?.slug,
+        });
+        return null;
+      }
+
+      return toSitemapEntry(doc, doc.pathname);
+    })
     .filter(Boolean);
-}
-
-function dedupeEntries(entries) {
-  const seen = new Set();
-
-  return entries.filter((entry) => {
-    if (seen.has(entry.url)) {
-      return false;
-    }
-
-    seen.add(entry.url);
-    return true;
-  });
-}
-
-function escapeXml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&apos;");
 }
 
 async function getSitemapEntries(api) {
   const pages = await getPagesEntries(api);
-  return dedupeEntries(pages).sort((left, right) =>
-    left.url.localeCompare(right.url),
-  );
+  return pages.sort((left, right) => left.url.localeCompare(right.url));
 }
 
 async function buildSitemapXml(api) {
@@ -124,7 +110,7 @@ async function buildSitemapXml(api) {
         ? `\n    <lastmod>${lastModified}</lastmod>`
         : "";
 
-      return `  <url>\n    <loc>${escapeXml(url)}</loc>${lastModifiedNode}\n  </url>`;
+      return `  <url>\n    <loc>${url}</loc>${lastModifiedNode}\n  </url>`;
     })
     .join("\n");
 
