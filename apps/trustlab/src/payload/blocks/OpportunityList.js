@@ -91,8 +91,64 @@ const OpportunityList = {
       type: "text",
       localized: true,
       admin: {
-        condition: (_, siblingData) => Boolean(siblingData?.hasFilters),
+        condition: (_, siblingData) =>
+          Boolean(
+            siblingData?.hasFilters ||
+            siblingData?.hasSearch ||
+            siblingData?.hasSortBy,
+          ),
       },
+    },
+    {
+      name: "hasSearch",
+      type: "checkbox",
+      label: { en: "Enable Search" },
+    },
+    {
+      name: "searchPlaceholderLabel",
+      type: "text",
+      label: { en: "Search Placeholder Label" },
+      localized: true,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasSearch),
+      },
+    },
+    {
+      name: "hasSortBy",
+      type: "checkbox",
+      label: { en: "Enable Sort By" },
+    },
+    {
+      name: "sortByLabel",
+      type: "text",
+      label: { en: "Sort By Label" },
+      localized: true,
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasSortBy),
+      },
+    },
+    {
+      name: "sortOptions",
+      type: "array",
+      label: { en: "Sort Options" },
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasSortBy),
+      },
+      fields: [
+        {
+          name: "label",
+          type: "text",
+          label: { en: "Option Label" },
+          localized: true,
+          required: true,
+        },
+        {
+          name: "value",
+          type: "text",
+          label: { en: "Sort Value (e.g. -date, date, -title)" },
+          required: true,
+        },
+      ],
     },
     {
       name: "hasPagination",

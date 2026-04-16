@@ -12,6 +12,12 @@ function useReports(page, params, initialReports, initialCount, skip) {
   if (params?.reportsType) {
     searchParams.set("reportsType", params.reportsType);
   }
+  if (params?.sort) {
+    searchParams.set("sort", params.sort);
+  }
+  if (params?.search) {
+    searchParams.set("search", params.search);
+  }
 
   ["years", "months", "reports"].forEach((key) => {
     if (params?.[key]) {

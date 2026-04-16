@@ -12,6 +12,7 @@ export default async function handler(req, res) {
       months,
       reports,
       reportsType,
+      search,
       limit = 12,
     } = req.query;
 
@@ -45,6 +46,11 @@ export default async function handler(req, res) {
     const andConditions = [];
     if (reportsType) {
       andConditions.push({ reportType: { equals: reportsType } });
+    }
+
+    // Title search
+    if (search) {
+      andConditions.push({ title: { like: search } });
     }
 
     // Reports (slug) filter
@@ -105,10 +111,23 @@ export default async function handler(req, res) {
     const where = andConditions.length > 0 ? { and: andConditions } : {};
 
     try {
+      const ALLOWED_SORT = [
+        "-date",
+        "date",
+        "-title",
+        "title",
+        "-createdAt",
+        "createdAt",
+        "-updatedAt",
+        "updatedAt",
+      ];
+      const validatedSort =
+        sort && ALLOWED_SORT.includes(sort) ? sort : "-createdAt";
+
       const result = await getReports(api, {
         limit,
         page: page || 1,
-        sort: sort || "-createdAt",
+        sort: validatedSort,
         where,
       });
       return res.status(200).json(result);

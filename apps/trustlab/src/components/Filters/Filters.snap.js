@@ -11,7 +11,7 @@ exports[`ReportFilters renders unchanged 1`] = `
       Filter By
     </h6>
     <div
-      class="MuiStack-root css-p81m6m-MuiStack-root"
+      class="MuiStack-root css-1u7tqyj-MuiStack-root"
     >
       <button
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"

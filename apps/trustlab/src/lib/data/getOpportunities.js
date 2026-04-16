@@ -22,12 +22,17 @@ async function getOpportunities(api, options = {}) {
     year,
     opportunity: id,
     month,
+    search,
   } = options;
 
   const where = {};
 
   if (type && type !== "all") {
     where.type = { equals: type };
+  }
+
+  if (search) {
+    where.title = { like: search };
   }
 
   if (id) {
