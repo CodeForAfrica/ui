@@ -1,43 +1,34 @@
 import blockify from "@/trustlab/lib/data/blockify";
 
-const opportunity = (collection) => async (api, context) => {
-  const { params, locale } = context;
-  const { slugs } = params;
+function pagifyOpportunities(collection) {
+  return async function pagifyOpportunity(api, context, parentPage) {
+    const { params, locale } = context;
+    const { slugs } = params;
+    if (!slugs || slugs.length < 2) {
+      return null;
+    }
 
-  if (!slugs || slugs.length < 2) {
-    return null;
-  }
+    const slug = slugs[slugs.length - 1];
+    const { docs } = await api.getCollection(collection, {
+      where: {
+        slug: { equals: slug },
+      },
+      locale,
+      depth: 2,
+    });
+    if (!docs?.length) {
+      return null;
+    }
 
-  const opportunitySlug = slugs[slugs.length - 1];
-  const result = await api.getCollection(collection, {
-    where: {
-      slug: { equals: opportunitySlug },
-    },
-    locale,
-    depth: 2,
-  });
-
-  const doc = result.docs?.[0];
-
-  if (!doc) {
-    return null;
-  }
-
-  const contentBlocks = doc.blocks || [];
-  const processedBlocks = await blockify(contentBlocks, api, { locale });
-
-  const blocks = processedBlocks.filter(Boolean);
-
-  return {
-    id: doc.id,
-    slug: doc.slug,
-    title: doc.title,
-    type: doc.type,
-    blocks,
+    const doc = docs[0];
+    const contentBlocks = doc.blocks || [];
+    const processedBlocks = await blockify(contentBlocks, api, { locale });
+    const blocks = processedBlocks.filter(Boolean);
+    return { ...doc, blocks, parent: parentPage };
   };
-};
+}
 
 export default {
-  opportunity: opportunity("opportunities"),
-  organisations: opportunity("organisations"),
+  opportunity: pagifyOpportunities("opportunities"),
+  organisations: pagifyOpportunities("organisations"),
 };
