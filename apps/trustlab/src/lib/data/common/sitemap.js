@@ -116,7 +116,7 @@ async function getSitemapEntries(api) {
   );
 }
 
-export async function getSitemapXml(api) {
+async function getSitemapXml(api) {
   const entries = await getSitemapEntries(api);
   const xmlEntries = entries
     .map(({ url, lastModified }) => {

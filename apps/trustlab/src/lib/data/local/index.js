@@ -1,5 +1,5 @@
 import { getPageProps, getPagePaths } from "@/trustlab/lib/data/common";
-import { getSitemapXml as buildSitemapXml } from "@/trustlab/lib/data/common/sitemap";
+import buildSitemapXml from "@/trustlab/lib/data/common/sitemap";
 import api from "@/trustlab/lib/payload";
 
 export async function getPageStaticPaths() {

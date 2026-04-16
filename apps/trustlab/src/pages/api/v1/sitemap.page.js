@@ -1,3 +1,5 @@
+import * as Sentry from "@sentry/nextjs";
+
 import { getSitemapXml } from "@/trustlab/lib/data";
 
 export default async function handler(req, res) {
@@ -15,7 +17,8 @@ export default async function handler(req, res) {
     );
     res.setHeader("Content-Type", "application/xml; charset=utf-8");
     res.send(sitemapXml);
-  } catch (_error) {
+  } catch (error) {
+    Sentry.captureException(error);
     res.status(500).end();
   }
 }
