@@ -16,7 +16,7 @@
     "prepare": "husky",
     "release": "changeset version && pnpm install",
     "publish": "-r publish",
-    "jest": "turbo run jest",
+    "jest": "turbo run jest --concurrency=2",
     "jest:ci": "turbo run jest --concurrency=2 -- --ci --maxWorkers=4",
     "jest:coverage": "turbo run jest -- --coverage",
     "jest:debug": "turbo run jest --concurrency=1 -- --runInBand --detectOpenHandles",
