@@ -1,4 +1,5 @@
 import { getPageProps, getPagePaths } from "@/trustlab/lib/data/common";
+import { getSitemapXml as buildSitemapXml } from "@/trustlab/lib/data/common/sitemap";
 import api from "@/trustlab/lib/payload";
 
 export async function getPageStaticPaths() {
@@ -19,6 +20,10 @@ export async function getPageStaticProps(context) {
 export async function getRobotsTxt() {
   const siteSettings = await api.findGlobal("site-settings");
   return siteSettings?.robotsTxt;
+}
+
+export async function getSitemapXml() {
+  return buildSitemapXml(api);
 }
 
 export default undefined;
