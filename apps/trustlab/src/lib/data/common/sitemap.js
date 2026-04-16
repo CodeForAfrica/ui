@@ -116,7 +116,7 @@ async function getSitemapEntries(api) {
   );
 }
 
-async function getSitemapXml(api) {
+async function buildSitemapXml(api) {
   const entries = await getSitemapEntries(api);
   const xmlEntries = entries
     .map(({ url, lastModified }) => {
@@ -131,4 +131,4 @@ async function getSitemapXml(api) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${xmlEntries}\n</urlset>\n`;
 }
 
-export default getSitemapXml;
+export default buildSitemapXml;
