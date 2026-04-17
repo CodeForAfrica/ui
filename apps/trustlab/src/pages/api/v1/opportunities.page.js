@@ -27,9 +27,8 @@ export default async function handler(req, res) {
       location,
       opportunity,
       search,
-      sort = "-date",
+      sort,
     } = req.query;
-
     const limit = parseInt(req.query?.limit, 10) || 12;
     const validatedSort =
       sort && ALLOWED_SORT.includes(sort) ? sort : undefined;

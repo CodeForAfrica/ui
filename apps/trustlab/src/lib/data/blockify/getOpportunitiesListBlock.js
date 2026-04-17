@@ -1,6 +1,6 @@
 import getOpportunities from "@/trustlab/lib/data/getOpportunities";
 
-async function getOpportunityListBlock(block, api, options = {}) {
+async function getOpportunitiesListBlock(block, api, options = {}) {
   const { locale } = options;
   const {
     opportunityType = null,
@@ -8,7 +8,7 @@ async function getOpportunityListBlock(block, api, options = {}) {
     hasPagination = false,
     hasFilters = false,
     filters,
-    defaultSort = null,
+    defaultSort,
     ...rest
   } = block;
 
@@ -63,7 +63,7 @@ async function getOpportunityListBlock(block, api, options = {}) {
 
   return {
     ...rest,
-    slug: "opportunity-list",
+    slug: "opportunities-list",
     items: result.docs,
     itemsType: opportunityType,
     itemsPerPage,
@@ -79,4 +79,4 @@ async function getOpportunityListBlock(block, api, options = {}) {
   };
 }
 
-export default getOpportunityListBlock;
+export default getOpportunitiesListBlock;

@@ -16,8 +16,8 @@ import HighlightList from "./HighlightList";
 import HorizontalGallery from "./HorizontalGallery";
 import Incubator from "./Incubator";
 import IntelligenceBriefings from "./IntelligenceBriefings";
+import OpportunitiesList from "./OpportunitiesList";
 import OpportunityCategory from "./OpportunityCategory";
-import OpportunityList from "./OpportunityList";
 import OpportunityOverview from "./OpportunityOverview";
 import PageHeader from "./PageHeader";
 import PageOverview from "./PageOverview";
@@ -57,7 +57,7 @@ export default [
   Incubator,
   IntelligenceBriefings,
   OpportunityCategory,
-  OpportunityList,
+  OpportunitiesList,
   OpportunityOverview,
   PageHeader,
   PageOverview,

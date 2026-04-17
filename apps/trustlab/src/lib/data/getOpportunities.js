@@ -17,7 +17,7 @@ async function getOpportunities(api, options = {}) {
     limit = 12,
     type,
     locale,
-    sort = "-createdAt",
+    sort,
     location,
     year,
     opportunity: id,
@@ -45,9 +45,9 @@ async function getOpportunities(api, options = {}) {
 
   if (year) {
     const startOfYear = new Date(year, 0, 1).toISOString();
-    const endOfYear = new Date(year, 11, 31, 23, 59, 59, 999).toISOString();
+    const startOfNextYear = new Date(Number(year) + 1, 0, 1).toISOString();
     andConditions.push({ date: { greater_than_equal: startOfYear } });
-    andConditions.push({ date: { less_than_equal: endOfYear } });
+    andConditions.push({ date: { less_than: startOfNextYear } });
   }
 
   if (month) {
@@ -55,17 +55,13 @@ async function getOpportunities(api, options = {}) {
     const monthIndex = parseInt(month, 10) - 1;
     const targetYear = year || new Date().getFullYear();
     const startOfMonth = new Date(targetYear, monthIndex, 1).toISOString();
-    const endOfMonth = new Date(
+    const startOfNextMonth = new Date(
       targetYear,
       monthIndex + 1,
-      0,
-      23,
-      59,
-      59,
-      999,
+      1,
     ).toISOString();
     andConditions.push({ date: { greater_than_equal: startOfMonth } });
-    andConditions.push({ date: { less_than_equal: endOfMonth } });
+    andConditions.push({ date: { less_than: startOfNextMonth } });
   }
 
   const where = andConditions.length ? { and: andConditions } : {};

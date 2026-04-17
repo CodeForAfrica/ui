@@ -10,7 +10,7 @@ import Filters from "@/trustlab/components/Filters";
 import OpportunityCard from "@/trustlab/components/OpportunityCard";
 import Pagination from "@/trustlab/components/Pagination";
 
-const OpportunityList = forwardRef(function OpportunityList(props, ref) {
+const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
   const {
     items: initialItems = [],
     cardActionLabel,
@@ -22,7 +22,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     itemsType,
     itemsPerPage,
     apiEndpoint,
-    testId = "opportunity-list",
+    testId = "opportunities-list",
     filters,
     filterByLabel,
     applyFiltersLabel,
@@ -329,4 +329,4 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   );
 });
 
-export default OpportunityList;
+export default OpportunitiesList;

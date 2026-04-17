@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (method === "GET") {
     const {
       page,
-      sort = "-date",
+      sort,
       years,
       months,
       reports,

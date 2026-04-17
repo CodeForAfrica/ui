@@ -1,9 +1,9 @@
 import { richText } from "@commons-ui/payload";
 
-const OpportunityList = {
-  slug: "opportunity-list",
-  labels: { singular: "Opportunity List", plural: "Opportunity Lists" },
-  imageURL: "/images/cms/blocks/opportunity-list.png",
+const OpportunitiesList = {
+  slug: "opportunities-list",
+  labels: { singular: "Opportunities List", plural: "Opportunities Lists" },
+  imageURL: "/images/cms/blocks/opportunities-list.png",
   fields: [
     {
       name: "title",
@@ -144,21 +144,41 @@ const OpportunityList = {
         },
         {
           name: "value",
-          type: "text",
-          label: { en: "Sort Value (e.g. -date, date, -title)" },
+          type: "select",
+          label: { en: "Sort Value" },
           required: true,
+          options: [
+            { label: "Date (Newest first)", value: "-date" },
+            { label: "Date (Oldest first)", value: "date" },
+            { label: "Title (A → Z)", value: "title" },
+            { label: "Title (Z → A)", value: "-title" },
+            { label: "Created At (Newest first)", value: "-createdAt" },
+            { label: "Created At (Oldest first)", value: "createdAt" },
+            { label: "Updated At (Newest first)", value: "-updatedAt" },
+            { label: "Updated At (Oldest first)", value: "updatedAt" },
+          ],
         },
       ],
     },
     {
       name: "defaultSort",
-      type: "text",
-      label: { en: "Default Sort (e.g. -date, -createdAt)" },
+      type: "select",
+      label: { en: "Default Sort" },
+      defaultValue: "-date",
       admin: {
         condition: (_, siblingData) => Boolean(siblingData?.hasSortBy),
-        description:
-          "Sort applied on initial load and after clearing filters. Must match one of the sort option values above.",
+        description: "Sort applied on initial load and after clearing filters.",
       },
+      options: [
+        { label: "Date (Newest first)", value: "-date" },
+        { label: "Date (Oldest first)", value: "date" },
+        { label: "Title (A → Z)", value: "title" },
+        { label: "Title (Z → A)", value: "-title" },
+        { label: "Created At (Newest first)", value: "-createdAt" },
+        { label: "Created At (Oldest first)", value: "createdAt" },
+        { label: "Updated At (Newest first)", value: "-updatedAt" },
+        { label: "Updated At (Oldest first)", value: "updatedAt" },
+      ],
     },
     {
       name: "hasPagination",
@@ -217,4 +237,4 @@ const OpportunityList = {
   ],
 };
 
-export default OpportunityList;
+export default OpportunitiesList;
