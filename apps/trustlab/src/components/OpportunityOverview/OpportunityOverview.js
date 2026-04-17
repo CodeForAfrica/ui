@@ -90,7 +90,7 @@ const OpportunityOverview = forwardRef(
                   >
                     {metrics.map((metric, index) => (
                       <Box
-                        key={metric.id ?? metric.value}
+                        key={metric.id ?? index}
                         sx={{
                           display: "flex",
                           alignItems: "flex-start",
@@ -149,7 +149,7 @@ const OpportunityOverview = forwardRef(
                   },
                 }}
                 sx={{
-                  height: { xs: "374px", md: image?.height },
+                  height: { xs: "374px", md: image?.height ?? "100%" },
                   minHeight: "270px",
                   maxHeight: "420px",
                   m: 0,
