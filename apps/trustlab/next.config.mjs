@@ -3,6 +3,8 @@ import { withPayload } from "@payloadcms/next/withPayload";
 import { fileURLToPath } from "url";
 import path from "path";
 
+import { securityHeaders } from "./src/utils/securityHeaders.mjs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -63,6 +65,10 @@ const nextConfig = {
   ],
   async headers() {
     return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
       {
         source: "/api/media/file/:path*",
         headers: [
