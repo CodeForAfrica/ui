@@ -25,7 +25,6 @@ const Content = forwardRef((props, ref) => {
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
       ref={ref}
-      bgcolor="common.white"
     >
       <Section sx={{ m: "0 auto" }}>
         <LexicalRichText
