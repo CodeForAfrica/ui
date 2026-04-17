@@ -3,7 +3,7 @@
 exports[`<Content /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1tcffz9"
+    class="MuiBox-root css-gwf927"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-hxqkgq-MuiContainer-root"
