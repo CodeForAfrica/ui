@@ -16,6 +16,7 @@ import DownloadIcon from "@/trustlab/assets/icons/download-icon.svg";
 
 const ReportCard = forwardRef(function ReportCard(props, ref) {
   const {
+    CardProps,
     image,
     title,
     overview,
@@ -25,9 +26,12 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
     date,
     sx,
     file,
-    ...other
   } = props;
 
+  let cardSx = [];
+  if (CardProps?.sx) {
+    cardSx = Array.isArray(CardProps.sx) ? CardProps.sx : [CardProps.sx];
+  }
   return (
     <Box
       sx={[
@@ -54,8 +58,11 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
       >
         <Card
           elevation={0}
-          sx={[{ borderRadius: "5px", p: 0, background: "transparent" }]}
-          {...other}
+          {...CardProps}
+          sx={[
+            { borderRadius: "5px", p: 0, background: "transparent" },
+            ...cardSx,
+          ]}
         >
           {image?.src && !condensed && (
             <CardMedia

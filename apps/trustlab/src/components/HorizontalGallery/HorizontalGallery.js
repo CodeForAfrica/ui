@@ -66,7 +66,6 @@ const HorizontalGallery = forwardRef(function HorizontalGallery(
   if (!images?.length) {
     return null;
   }
-
   return (
     <Box component="section" sx={{ backgroundColor: "common.white" }} ref={ref}>
       <Section

@@ -2,7 +2,13 @@ import { Section } from "@commons-ui/core";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { forwardRef, useState, useEffect, useRef } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import useOpportunities from "./useOpportunities";
 
@@ -22,7 +28,6 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     itemsType,
     itemsPerPage,
     apiEndpoint,
-    testId = "opportunity-list",
     filters,
     filterByLabel,
     applyFiltersLabel,
@@ -32,7 +37,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     sortOptions,
     title,
     description,
-    ...other
+    sx,
   } = props;
 
   const router = useRouter();
@@ -64,6 +69,8 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   }));
 
   const listRef = useRef(null);
+
+  useImperativeHandle(ref, () => listRef.current);
 
   // Sync page and params with URL query changes
   useEffect(() => {
@@ -223,7 +230,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   }
 
   return (
-    <Box ref={listRef} data-testid={testId}>
+    <Box ref={listRef} sx={sx}>
       <Box sx={{ background: "#fff" }}>
         {title || description ? (
           <Section
@@ -277,15 +284,9 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
       ) : null}
       <Box sx={{ background: "#fff" }}>
         {items.length ? (
-          <Box sx={{ background: "#fff" }}>
+          <Box>
             <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
-              <Grid
-                container
-                spacing={3}
-                rowSpacing={3.75}
-                ref={ref}
-                {...other}
-              >
+              <Grid container spacing={3} rowSpacing={3.75}>
                 {items.map((item, index) => (
                   <Grid key={item.id ?? index} size={{ xs: 12, sm: 6, md: 4 }}>
                     <OpportunityCard

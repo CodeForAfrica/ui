@@ -12,10 +12,10 @@ exports[`<PartnersList /> renders unchanged 1`] = `
         class="MuiTypography-root MuiTypography-subheading2 css-145khn7-MuiTypography-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-rad9ss-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-wrap-xs-nowrap MuiGrid2-direction-xs-column MuiGrid2-direction-sm-row MuiGrid2-spacing-xs-2 MuiGrid2-spacing-sm-10 css-1ohruia-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4 css-1a6g39z-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-3assps-MuiGrid2-root"
         >
           <figure
             class="MuiBox-root css-ojmbah"
@@ -34,15 +34,26 @@ exports[`<PartnersList /> renders unchanged 1`] = `
           </figure>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 css-1361935-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-column MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-8 css-s5yfiq-MuiGrid2-root"
         >
-          <h2
-            class="MuiTypography-root MuiTypography-h2 css-uqq5zv-MuiTypography-root"
-          >
-            Example Partner
-          </h2>
           <div
-            class="MuiBox-root css-ali80x"
+            class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2 css-uqq5zv-MuiTypography-root"
+            >
+              Example Partner
+            </h2>
+          </div>
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
+          >
+            <div
+              class="MuiBox-root css-ali80x"
+            />
+          </div>
+          <div
+            class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
           />
         </div>
       </div>

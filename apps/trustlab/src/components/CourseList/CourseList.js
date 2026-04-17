@@ -6,6 +6,9 @@ import React, { forwardRef } from "react";
 import CourseCard from "./CourseCard";
 
 const CourseList = forwardRef(({ title, description, courses }, ref) => {
+  if (!courses?.length) {
+    return null;
+  }
   return (
     <Section ref={ref} sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
       <Box

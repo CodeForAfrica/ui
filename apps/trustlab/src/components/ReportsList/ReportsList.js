@@ -3,7 +3,13 @@ import { Figure } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { forwardRef, useState, useEffect, useRef } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import useReports from "./useReports";
 
@@ -35,7 +41,6 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     searchPlaceholderLabel,
     sortByLabel,
     sortOptions,
-    ...other
   } = props;
 
   const [page, setPage] = useState(p?.page);
@@ -44,6 +49,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     limit: reportsPerPage,
   });
   const listRef = useRef(null);
+  useImperativeHandle(ref, () => listRef.current);
   const router = useRouter();
   const { query } = router;
   const { page: initialPage } = query;
@@ -249,15 +255,9 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       ) : null}
       <Box sx={{ background: "#fff" }}>
         {reports.length ? (
-          <Box sx={{ background: "#fff" }}>
+          <Box>
             <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
-              <Grid
-                container
-                spacing={3}
-                rowSpacing={3.75}
-                ref={ref}
-                {...other}
-              >
+              <Grid container spacing={3} rowSpacing={3.75}>
                 {reports.map((report, index) => (
                   <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
                     <ReportCard

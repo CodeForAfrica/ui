@@ -14,7 +14,7 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
     date,
     viewMoreLabel = "View more",
     viewLessLabel = "View less",
-    ...other
+    sx,
   } = props;
 
   const [expanded, setExpanded] = useState(false);
@@ -32,16 +32,18 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
       ref={ref}
       elevation={0}
       href={link?.href}
-      sx={{
-        textDecoration: "none",
-        backgroundColor: "transparent",
-        img: { filter: "grayscale(100%)" },
-        "&:hover img": { filter: "grayscale(0%)" },
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-      }}
-      {...other}
+      sx={[
+        {
+          textDecoration: "none",
+          backgroundColor: "transparent",
+          img: { filter: "grayscale(100%)" },
+          "&:hover img": { filter: "grayscale(0%)" },
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       {image?.src && (
         <Box

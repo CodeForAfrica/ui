@@ -6,6 +6,8 @@ import React, { forwardRef } from "react";
 
 import DownloadIcon from "@/trustlab/assets/icons/download-icon.svg";
 
+const NAVBAR_HEIGHT = 94;
+
 const PostImageOverview = forwardRef(function PostImageOverview(
   {
     title,
@@ -23,13 +25,10 @@ const PostImageOverview = forwardRef(function PostImageOverview(
   },
   ref,
 ) {
-  if (!content && !image) {
+  if (!(content && image)) {
     return null;
   }
-
   const { url, alt } = image;
-  const NAVBAR_HEIGHT = 94;
-
   return (
     <Box
       sx={{

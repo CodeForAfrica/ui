@@ -21,7 +21,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
     applyFiltersLabel,
     clearFiltersLabel,
     cardActionLabel,
-    ...other
+    sx,
   } = props;
 
   const [page, setPage] = useState(p?.page);
@@ -87,7 +87,13 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
   };
 
   return (
-    <Box sx={{ backgroundColor: "background.paper" }}>
+    <Box
+      sx={[
+        { backgroundColor: "background.paper" },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
+      ref={ref}
+    >
       {hasFilters ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
@@ -106,7 +112,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
             <Typography sx={{ mb: 2 }} variant="subheading2">
               {title}
             </Typography>
-            <Grid container ref={ref} {...other}>
+            <Grid container>
               {playbooks.map((pb) => (
                 <Grid key={pb.id} size={{ xs: 12 }}>
                   <RowCard

@@ -8,17 +8,19 @@ import React, { forwardRef } from "react";
 import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 
 const ErrorPage = forwardRef(function ErrorPage(props, ref) {
-  const { title, subtitle, image, link, ...other } = props;
+  const { title, subtitle, image, link, sx } = props;
   return (
     <Section
       ref={ref}
-      {...other}
-      sx={{
-        py: 8,
-        textAlign: "center",
-        margin: "0 auto",
-        px: { xs: 2.5, sm: 0 },
-      }}
+      sx={[
+        {
+          py: 8,
+          textAlign: "center",
+          margin: "0 auto",
+          px: { xs: 2.5, sm: 0 },
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       <Box
         display="flex"

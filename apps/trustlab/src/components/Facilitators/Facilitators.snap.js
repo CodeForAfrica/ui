@@ -9,26 +9,22 @@ exports[`<Facilitators /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4 css-2zizl3-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-4 css-dyifvy-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5 css-12id31i-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-5 css-135i948-MuiGrid2-root"
         >
           <div
             class="MuiBox-root css-1qmzqr2"
-          >
-            <div
-              class="payload-richtext"
-            />
-          </div>
+          />
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-7 css-1xur3h6-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-7 css-q7135s-MuiGrid2-root"
         >
-          <div
-            class="MuiBox-root css-1dqpc7h"
+          <ul
+            class="MuiBox-root css-ttvqoc"
           >
-            <div
+            <li
               class="MuiBox-root css-axw7ok"
             >
               <div
@@ -39,8 +35,8 @@ exports[`<Facilitators /> renders unchanged 1`] = `
               >
                 Nahila Habade
               </p>
-            </div>
-            <div
+            </li>
+            <li
               class="MuiBox-root css-axw7ok"
             >
               <div
@@ -51,8 +47,8 @@ exports[`<Facilitators /> renders unchanged 1`] = `
               >
                 Monica Atieno
               </p>
-            </div>
-            <div
+            </li>
+            <li
               class="MuiBox-root css-axw7ok"
             >
               <div
@@ -63,8 +59,8 @@ exports[`<Facilitators /> renders unchanged 1`] = `
               >
                 Kimberly Michaels
               </p>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

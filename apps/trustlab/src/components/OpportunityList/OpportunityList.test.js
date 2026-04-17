@@ -67,16 +67,6 @@ jest.mock("./useOpportunities", () => ({
   })),
 }));
 describe("OpportunityList", () => {
-  it("renders without crashing", () => {
-    const { getByTestId } = render(<OpportunityList />);
-    expect(getByTestId("opportunity-list")).toBeInTheDocument();
-  });
-
-  it("renders with custom testId", () => {
-    const { getByTestId } = render(<OpportunityList testId="barazas-list" />);
-    expect(getByTestId("barazas-list")).toBeInTheDocument();
-  });
-
   it("renders items when provided", () => {
     const { getByText } = render(<OpportunityList items={mockItems} />);
     expect(getByText("Test Item 1")).toBeInTheDocument();

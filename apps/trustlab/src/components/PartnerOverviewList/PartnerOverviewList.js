@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link, RichTypography } from "@commons-ui/next";
-import { Button, Grid, Box } from "@mui/material";
+import { Button, Grid2 as Grid, Box } from "@mui/material";
 import React from "react";
 
 const PartnerOverviewList = React.forwardRef(
@@ -39,7 +39,7 @@ const PartnerOverviewList = React.forwardRef(
             flexWrap
             container
             flexDirection={{ xs: "column", sm: "row" }}
-            gap={4}
+            spacing={4}
             justifyContent="center"
             alignItems="center"
           >
@@ -50,9 +50,7 @@ const PartnerOverviewList = React.forwardRef(
 
               return (
                 <Grid
-                  item
-                  xs={5}
-                  sm={2}
+                  size={{ xs: 5, sm: 2 }}
                   justifyContent="center"
                   key={id}
                   sx={{

@@ -3,7 +3,7 @@
 exports[`OpportunityCard renders without crashing 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-hx403l-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-1wgs0mi-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
     href="/test-link"
     style="--Paper-shadow: none;"
   >
@@ -58,11 +58,7 @@ exports[`OpportunityCard renders without crashing 1`] = `
           <div
             class="MuiBox-root css-0"
           >
-            <div
-              class="payload-richtext"
-            >
-              This is a test description for the opportunity card.
-            </div>
+            This is a test description for the opportunity card.
           </div>
         </div>
         <button
