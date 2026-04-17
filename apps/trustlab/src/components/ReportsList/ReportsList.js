@@ -209,7 +209,11 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     const parseParam = (v) =>
       typeof v === "string" && v.includes(",") ? v.split(",") : v;
 
-    const newParams = { reportsType, limit: reportsPerPage };
+    const newParams = {
+      reportsType,
+      limit: reportsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
+    };
     if (years) {
       newParams.years = parseParam(years);
     }
