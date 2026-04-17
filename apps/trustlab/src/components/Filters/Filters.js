@@ -1,9 +1,28 @@
-import { Box, Typography, Button, Stack, Chip, SvgIcon } from "@mui/material";
-import React, { useState, useMemo, useCallback } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  Stack,
+  Chip,
+  SvgIcon,
+  InputBase,
+  InputAdornment,
+  Menu,
+  MenuItem,
+  ListItemText,
+} from "@mui/material";
+import React, {
+  useState,
+  useMemo,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
 
 import FilterDropdown from "./FilterDropdown";
 
 import CalendarIcon from "@/trustlab/assets/icons/calendar.svg";
+import ChevronDownIcon from "@/trustlab/assets/icons/chevron-down.svg";
 import CloseIcon from "@/trustlab/assets/icons/close.svg";
 import DocumentIcon from "@/trustlab/assets/icons/document.svg";
 
@@ -52,12 +71,124 @@ const monthLabels = [
   "December",
 ];
 
+function SortDropdown({ label, options = [], value, onChange }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const selectedOption = options.find((o) => o.value === value);
+  const buttonLabel = selectedOption
+    ? `${label}: ${selectedOption.label}`
+    : label;
+
+  return (
+    <>
+      <Button
+        variant="outlined"
+        size="small"
+        onClick={(e) => setAnchorEl(e.currentTarget)}
+        endIcon={
+          <SvgIcon
+            component={ChevronDownIcon}
+            inheritViewBox
+            sx={{ fill: "none", fontSize: 16, display: "block", mt: "-4px" }}
+          />
+        }
+        sx={{
+          textTransform: "none",
+          backgroundColor: "#fff",
+          borderRadius: "10px",
+          border: "1px solid #C9CACB",
+          display: "inline-flex",
+          alignItems: "center",
+          lineHeight: 1,
+          "& .MuiButton-endIcon": {
+            m: 0,
+            display: "inline-flex",
+            alignItems: "center",
+          },
+          "& .MuiButton-endIcon svg": {
+            fontSize: 16,
+            display: "block",
+          },
+        }}
+      >
+        {buttonLabel}
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        onClose={() => setAnchorEl(null)}
+      >
+        {options.map((opt) => {
+          const isSelected = opt.value === value;
+          return (
+            <MenuItem
+              key={opt.value}
+              onClick={() => {
+                onChange?.(isSelected ? null : opt.value);
+                setAnchorEl(null);
+              }}
+              sx={{ minWidth: 160, justifyContent: "space-between", gap: 2 }}
+            >
+              <ListItemText primary={opt.label} />
+              {isSelected && (
+                <SvgIcon
+                  sx={{ fontSize: 16, fill: "none", flexShrink: 0 }}
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2.5 8 L6.5 12 L13.5 4"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </SvgIcon>
+              )}
+            </MenuItem>
+          );
+        })}
+      </Menu>
+    </>
+  );
+}
+
+const SEARCH_DEBOUNCE_MS = 400;
+
 const Filters = React.forwardRef(function Filters(
-  { filterByLabel, filters = [], clearFiltersLabel, onApply, onClear, sx },
+  {
+    filterByLabel,
+    filters = [],
+    clearFiltersLabel,
+    onApply,
+    onClear,
+    sx,
+    // Search
+    searchPlaceholderLabel,
+    onSearch,
+    // Sort
+    sortByLabel,
+    sortOptions = [],
+    onSortChange,
+    // Atomic clear (preferred over onApply/onClear when search/sort are active)
+    onClearAll,
+  },
   ref,
 ) {
-  // Initialize selected state for all filter types
   const [selectedValues, setSelectedValues] = useState({});
+  const [sortValue, setSortValue] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
+  const searchTimerRef = useRef(null);
+
+  // Cleanup debounce timer on unmount
+  useEffect(() => {
+    return () => {
+      if (searchTimerRef.current) {
+        clearTimeout(searchTimerRef.current);
+      }
+    };
+  }, []);
 
   // Process filters config and build options
   const processedFilters = useMemo(() => {
@@ -146,19 +277,52 @@ const Filters = React.forwardRef(function Filters(
     [selectedValues, handleFilterChange],
   );
 
+  const handleSearchChange = useCallback(
+    (e) => {
+      const val = e.target.value;
+      setSearchValue(val);
+      if (searchTimerRef.current) {
+        clearTimeout(searchTimerRef.current);
+      }
+      searchTimerRef.current = setTimeout(() => {
+        onSearch?.(val);
+      }, SEARCH_DEBOUNCE_MS);
+    },
+    [onSearch],
+  );
+
+  const handleSortChange = useCallback(
+    (value) => {
+      setSortValue(value);
+      onSortChange?.(value);
+    },
+    [onSortChange],
+  );
+
   const clearAll = useCallback(() => {
     setSelectedValues({});
-    if (onClear) {
-      onClear();
+    setSortValue(null);
+    setSearchValue("");
+    if (searchTimerRef.current) {
+      clearTimeout(searchTimerRef.current);
     }
-    if (onApply) {
-      onApply({});
+    if (onClearAll) {
+      // Single atomic call — parent handles state + URL in one router.push
+      onClearAll();
+    } else {
+      // Fallback for consumers that don't use search/sort (no race risk there)
+      onClear?.();
+      onApply?.({});
     }
-  }, [onApply, onClear]);
+  }, [onApply, onClear, onClearAll]);
 
   const anySelected = useMemo(() => {
-    return Object.values(selectedValues).some((values) => values?.length > 0);
-  }, [selectedValues]);
+    return (
+      Object.values(selectedValues).some((values) => values?.length > 0) ||
+      !!searchValue ||
+      !!sortValue
+    );
+  }, [selectedValues, searchValue, sortValue]);
 
   // Collect all chips from all filter types
   const allChips = useMemo(() => {
@@ -175,17 +339,71 @@ const Filters = React.forwardRef(function Filters(
     return chips;
   }, [selectedValues, getChipLabel]);
 
+  // Gate on the callback props so a stale CMS label can't accidentally re-show
+  // a control whose feature flag has been disabled
+  const showSearch = Boolean(onSearch);
+  const showSort = Boolean(onSortChange) && sortOptions.length > 0;
+
   return (
     <Box ref={ref} display="flex" flexDirection="column" gap={1} sx={sx}>
-      {/* Row 1: Filter By Label */}
+      {/* Filter By label sits above the controls row */}
       {filterByLabel && (
         <Typography variant="subtitle1" fontWeight={700}>
           {filterByLabel}
         </Typography>
       )}
 
-      {/* Row 2: Dropdown buttons */}
-      <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
+      {/* Controls row — flat flex row that wraps.
+          xs: search claims its own line (width 100%), filters + sort wrap below.
+          sm+: search is capped at 50%, everything stays on one line. */}
+      <Stack
+        direction="row"
+        alignItems="center"
+        flexWrap="wrap"
+        useFlexGap
+        gap={2}
+      >
+        {showSearch && (
+          <InputBase
+            value={searchValue}
+            onChange={handleSearchChange}
+            placeholder={searchPlaceholderLabel || "Search..."}
+            startAdornment={
+              <InputAdornment position="start" sx={{ ml: 0.5, mr: 0.25 }}>
+                <SvgIcon
+                  sx={{ fontSize: 16, fill: "none", color: "text.secondary" }}
+                  viewBox="0 0 20 20"
+                >
+                  <circle
+                    cx="9"
+                    cy="9"
+                    r="6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="m14 14 3.5 3.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </SvgIcon>
+              </InputAdornment>
+            }
+            sx={{
+              width: { xs: "100%", sm: "auto" },
+              flex: { sm: 1 },
+              maxWidth: { sm: "50%" },
+              minWidth: 180,
+              border: "1px solid #C9CACB",
+              borderRadius: "10px",
+              px: 1.5,
+              py: 0.5,
+              fontSize: "14px",
+              backgroundColor: "#fff",
+            }}
+          />
+        )}
         {processedFilters.map((filter) => (
           <FilterDropdown
             key={filter.type}
@@ -198,15 +416,23 @@ const Filters = React.forwardRef(function Filters(
             startIcon={
               <SvgIcon
                 component={filter.icon}
-                sx={{
-                  fill: "none",
-                  fontSize: "16px",
-                }}
+                sx={{ fill: "none", fontSize: "16px" }}
               />
             }
             size="small"
           />
         ))}
+        {/* ml:auto keeps sort at the far right of whichever line it lands on */}
+        {showSort && (
+          <Box sx={{ ml: "auto" }}>
+            <SortDropdown
+              label={sortByLabel}
+              options={sortOptions}
+              value={sortValue}
+              onChange={handleSortChange}
+            />
+          </Box>
+        )}
       </Stack>
 
       {/* Row 3: Chips + Actions */}
@@ -241,7 +467,6 @@ const Filters = React.forwardRef(function Filters(
             <Button
               variant="text"
               onClick={clearAll}
-              disabled={!anySelected}
               size="small"
               sx={{
                 textTransform: "none",

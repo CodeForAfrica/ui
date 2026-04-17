@@ -1,7 +1,7 @@
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
 import { sentryPlugin } from "@payloadcms/plugin-sentry";
 import { seoPlugin } from "@payloadcms/plugin-seo";
-/* eslint-disable-next-line import/no-unresolved */
+// eslint-disable-next-line import/no-unresolved
 import { convertLexicalToPlaintext } from "@payloadcms/richtext-lexical/plaintext";
 import { s3Storage } from "@payloadcms/storage-s3";
 import * as Sentry from "@sentry/nextjs";
@@ -64,7 +64,8 @@ const plugins = [
     Sentry,
   }),
   seoPlugin({
-    collections: ["pages", "posts", "helplines", "resources"],
+    // helplines don't have individual pages and we don't resources collection
+    collections: ["opportunities", "pages", "posts", "reports"],
     generateDescription: ({ doc }) => {
       const data = doc?.description || doc?.excerpt;
       if (data) {

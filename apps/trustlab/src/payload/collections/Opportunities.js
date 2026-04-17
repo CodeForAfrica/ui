@@ -1,6 +1,20 @@
-import { slug, image } from "@commons-ui/payload";
+import { image, appendPathnameToCollection, slug } from "@commons-ui/payload";
 
 import blocks from "@/trustlab/payload/blocks";
+
+const pageByType = {
+  "intelligence-briefing": "intelligence-briefings",
+  baraza: "barazas",
+  incubator: "incubators",
+};
+
+async function appendPathnameToOpportunities({ doc, req }) {
+  const parentSlug = pageByType[doc.type];
+  if (!parentSlug) {
+    return doc;
+  }
+  return appendPathnameToCollection(parentSlug)({ doc, req });
+}
 
 const Opportunities = {
   slug: "opportunities",
@@ -74,6 +88,9 @@ const Opportunities = {
       fieldToUse: "title",
     }),
   ],
+  hooks: {
+    afterRead: [appendPathnameToOpportunities],
+  },
 };
 
 export default Opportunities;

@@ -1,17 +1,24 @@
 import formatPagePath from "@/commons-ui/payload/utils/formatPagePath";
 
-async function findAndFormatPagePath(payload, slug) {
-  const collection = "pages";
-  const options = {
-    collection,
-    where: {
-      slug: {
-        equals: slug,
+const collection = "pages";
+
+async function findAndFormatPagePath(payload, page) {
+  let docs;
+  if (typeof page === "string") {
+    const options = {
+      collection,
+      where: {
+        slug: {
+          equals: page,
+        },
       },
-    },
-    limit: 0,
-  };
-  const { docs } = await payload.find(options);
+      limit: 1,
+    };
+    ({ docs } = await payload.find(options));
+  } else if (typeof page === "object") {
+    // Assume page is doc/object already
+    docs = [page];
+  }
   if (docs?.length) {
     return formatPagePath(collection, docs[0]);
   }

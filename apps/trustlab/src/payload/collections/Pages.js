@@ -1,4 +1,4 @@
-import { slug, fullTitle } from "@commons-ui/payload";
+import { appendPathname, fullTitle, slug } from "@commons-ui/payload";
 
 import { canManagePages } from "@/trustlab/payload/access/abilities";
 import { anyone } from "@/trustlab/payload/access/anyone";
@@ -59,6 +59,7 @@ const Pages = {
   hooks: {
     afterChange: [revalidatePage],
     afterDelete: [revalidateDelete],
+    afterRead: [appendPathname],
   },
 };
 

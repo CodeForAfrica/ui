@@ -61,6 +61,7 @@ class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
           <script
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `Object.assign(window, ${runtimeConfig});`,
             }}

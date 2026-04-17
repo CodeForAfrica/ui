@@ -1,4 +1,23 @@
-import { image, richText, slug } from "@commons-ui/payload";
+import {
+  appendPathnameToCollection,
+  image,
+  richText,
+  slug,
+} from "@commons-ui/payload";
+
+const pageByType = {
+  baseline: "baseline-report",
+  situational: "situational-reports",
+  "bi-weekly": "bi-weekly-reports",
+};
+
+async function appendPathnameToReports({ doc, req }) {
+  const parentSlug = pageByType[doc.reportType];
+  if (!parentSlug) {
+    return doc;
+  }
+  return appendPathnameToCollection(parentSlug)({ doc, req });
+}
 
 const Reports = {
   slug: "reports",
@@ -27,6 +46,7 @@ const Reports = {
       localized: true,
     }),
     {
+      // TODO(kilemensi): `type` instead of `reportType`
       name: "reportType",
       type: "select",
       required: true,
@@ -73,6 +93,9 @@ const Reports = {
       },
     }),
   ],
+  hooks: {
+    afterRead: [appendPathnameToReports],
+  },
   timestamps: true,
 };
 
