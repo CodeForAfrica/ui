@@ -17,6 +17,8 @@ const LexicalRichText = forwardRef(function LexicalRichText(props, ref) {
   const { TypographyProps, ...others } = converterProps;
 
   return (
+    // TODO(kilemensi): {...others} need to be removed but all apps must be
+    //                  checked first
     <Box {...others} sx={sx} ref={ref}>
       <RichText converters={converters} data={elements} disableContainer />
     </Box>
