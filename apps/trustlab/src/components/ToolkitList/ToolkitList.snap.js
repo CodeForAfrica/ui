@@ -18,7 +18,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1nwtms1-MuiGrid2-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-161p3f9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-9i6ppf-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
               href="/toolkits/a"
               style="--Paper-shadow: none;"
             >
@@ -65,7 +65,7 @@ exports[`ToolkitList renders initial toolkits 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-4 css-1nwtms1-MuiGrid2-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-161p3f9-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-9i6ppf-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
               href="/toolkits/b"
               style="--Paper-shadow: none;"
             >
