@@ -1,6 +1,17 @@
 import getOpportunities from "@/trustlab/lib/data/getOpportunities";
 import api from "@/trustlab/lib/payload";
 
+const ALLOWED_SORT = [
+  "-date",
+  "date",
+  "-title",
+  "title",
+  "-createdAt",
+  "createdAt",
+  "-updatedAt",
+  "updatedAt",
+];
+
 export default async function handler(req, res) {
   if (req.method !== "GET") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -18,18 +29,7 @@ export default async function handler(req, res) {
       search,
       sort,
     } = req.query;
-
     const limit = parseInt(req.query?.limit, 10) || 12;
-    const ALLOWED_SORT = [
-      "-date",
-      "date",
-      "-title",
-      "title",
-      "-createdAt",
-      "createdAt",
-      "-updatedAt",
-      "updatedAt",
-    ];
     const validatedSort =
       sort && ALLOWED_SORT.includes(sort) ? sort : undefined;
 
