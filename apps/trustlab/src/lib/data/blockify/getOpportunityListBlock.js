@@ -8,6 +8,7 @@ async function getOpportunityListBlock(block, api, options = {}) {
     hasPagination = false,
     hasFilters = false,
     filters,
+    defaultSort = null,
     ...rest
   } = block;
 
@@ -16,6 +17,7 @@ async function getOpportunityListBlock(block, api, options = {}) {
     limit: hasPagination ? itemsPerPage : 100,
     type: opportunityType,
     locale,
+    ...(defaultSort ? { sort: defaultSort } : {}),
   });
 
   const allOpportunities = await getOpportunities(api, {
@@ -68,6 +70,7 @@ async function getOpportunityListBlock(block, api, options = {}) {
     hasPagination,
     hasFilters,
     filters: processedFilters,
+    defaultSort,
     pagination: {
       page: result.page,
       count: result.totalPages,

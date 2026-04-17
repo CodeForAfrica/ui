@@ -25,73 +25,50 @@ async function getOpportunities(api, options = {}) {
     search,
   } = options;
 
-  const where = {};
+  const andConditions = [];
 
   if (type && type !== "all") {
-    where.type = { equals: type };
+    andConditions.push({ type: { equals: type } });
   }
 
   if (search) {
-    where.title = { like: search };
+    andConditions.push({ title: { like: search } });
   }
 
   if (id) {
-    where.id = { equals: id };
+    andConditions.push({ id: { equals: id } });
   }
 
   if (location) {
-    where.location = { contains: location };
+    andConditions.push({ location: { contains: location } });
   }
 
-  if (year || month) {
-    const andConditions = [];
-
-    if (year) {
-      const startOfYear = new Date(year, 0, 1).toISOString();
-      const endOfYear = new Date(year, 11, 31, 23, 59, 59, 999).toISOString();
-      andConditions.push({
-        date: {
-          greater_than_equal: startOfYear,
-        },
-      });
-      andConditions.push({
-        date: {
-          less_than_equal: endOfYear,
-        },
-      });
-    }
-
-    if (month) {
-      // month is 1-based (1 = January)
-      const monthIndex = parseInt(month, 10) - 1;
-      const targetYear = year || new Date().getFullYear();
-      const startOfMonth = new Date(targetYear, monthIndex, 1).toISOString();
-      const endOfMonth = new Date(
-        targetYear,
-        monthIndex + 1,
-        0,
-        23,
-        59,
-        59,
-        999,
-      ).toISOString();
-
-      andConditions.push({
-        date: {
-          greater_than_equal: startOfMonth,
-        },
-      });
-      andConditions.push({
-        date: {
-          less_than_equal: endOfMonth,
-        },
-      });
-    }
-
-    if (andConditions.length > 0) {
-      where.and = andConditions;
-    }
+  if (year) {
+    const startOfYear = new Date(year, 0, 1).toISOString();
+    const endOfYear = new Date(year, 11, 31, 23, 59, 59, 999).toISOString();
+    andConditions.push({ date: { greater_than_equal: startOfYear } });
+    andConditions.push({ date: { less_than_equal: endOfYear } });
   }
+
+  if (month) {
+    // month is 1-based (1 = January)
+    const monthIndex = parseInt(month, 10) - 1;
+    const targetYear = year || new Date().getFullYear();
+    const startOfMonth = new Date(targetYear, monthIndex, 1).toISOString();
+    const endOfMonth = new Date(
+      targetYear,
+      monthIndex + 1,
+      0,
+      23,
+      59,
+      59,
+      999,
+    ).toISOString();
+    andConditions.push({ date: { greater_than_equal: startOfMonth } });
+    andConditions.push({ date: { less_than_equal: endOfMonth } });
+  }
+
+  const where = andConditions.length ? { and: andConditions } : {};
 
   const result = await api.getCollection("opportunities", {
     where,

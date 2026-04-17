@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       location,
       opportunity,
       search,
-      sort,
+      sort = "-date",
     } = req.query;
 
     const limit = parseInt(req.query?.limit, 10) || 12;

@@ -30,6 +30,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     searchPlaceholderLabel,
     sortByLabel,
     sortOptions,
+    defaultSort,
     title,
     description,
     ...other
@@ -52,7 +53,8 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   const [params, setParams] = useState(() => ({
     type: itemsType,
     limit: itemsPerPage,
-    // Parse query params to restore filter state
+    ...(defaultSort ? { sort: defaultSort } : {}),
+    // Parse query params to restore filter state (may override defaultSort)
     ...Object.entries(queryParams).reduce((acc, [key, value]) => {
       if (typeof value === "string" && value.includes(",")) {
         acc[key] = value.split(",");
@@ -65,8 +67,12 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
 
   const listRef = useRef(null);
 
-  // Sync page and params with URL query changes
+  // Sync page and params with URL query changes — wait until router is ready
+  // so that query is populated on hard page loads with search params.
   useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
     const { page: queryPage, ...currentQueryParams } = query;
 
     // Sync page from URL
@@ -81,6 +87,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     const newParams = {
       type: itemsType,
       limit: itemsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
       ...Object.entries(currentQueryParams).reduce((acc, [key, value]) => {
         if (typeof value === "string" && value.includes(",")) {
           acc[key] = value.split(",");
@@ -92,7 +99,7 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
     };
     setParams(newParams);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.isReady]);
 
   const { items = [], pagination = p } = useOpportunities(
     page,
@@ -158,7 +165,11 @@ const OpportunityList = forwardRef(function OpportunityList(props, ref) {
   };
 
   const handleClearAll = () => {
-    setParams({ type: itemsType, limit: itemsPerPage });
+    setParams({
+      type: itemsType,
+      limit: itemsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
+    });
     setPage(1);
     router.push(window.location.pathname, undefined, {
       shallow: true,

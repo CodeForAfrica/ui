@@ -151,6 +151,16 @@ const OpportunityList = {
       ],
     },
     {
+      name: "defaultSort",
+      type: "text",
+      label: { en: "Default Sort (e.g. -date, -createdAt)" },
+      admin: {
+        condition: (_, siblingData) => Boolean(siblingData?.hasSortBy),
+        description:
+          "Sort applied on initial load and after clearing filters. Must match one of the sort option values above.",
+      },
+    },
+    {
       name: "hasPagination",
       type: "checkbox",
       label: { en: "Enable Pagination" },
