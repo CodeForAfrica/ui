@@ -1,27 +1,31 @@
 import { Section } from "@commons-ui/core";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Box } from "@mui/material";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 const Content = forwardRef((props, ref) => {
   const {
     content,
     backgroundColor = "common.white",
     textColor = "text.primary",
+    sx,
   } = props;
+
   if (!content) {
     return null;
   }
   return (
     <Box
-      sx={{
-        py: 4,
-        px: { xs: 2.5 },
-        backgroundColor,
-      }}
+      sx={[
+        {
+          py: 4,
+          px: { xs: 2.5 },
+          backgroundColor,
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
       ref={ref}
       bgcolor="common.white"
-      {...props}
     >
       <Section sx={{ m: "0 auto" }}>
         <LexicalRichText

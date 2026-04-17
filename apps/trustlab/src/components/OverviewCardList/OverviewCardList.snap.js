@@ -17,10 +17,10 @@ exports[`<OverviewCardList /> renders unchanged 1`] = `
         class="MuiDivider-root MuiDivider-fullWidth css-1kzkyux-MuiDivider-root"
       />
       <div
-        class="MuiGrid-root MuiGrid-container css-1cbqmz1-MuiGrid-root"
+        class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-1 css-h1lz3w-MuiGrid2-root"
       >
         <div
-          class="MuiGrid-root MuiGrid-item css-1bz7o24-MuiGrid-root"
+          class="MuiGrid2-root MuiGrid2-direction-xs-row css-17qytqa-MuiGrid2-root"
         >
           <div
             class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-tjmr4c-MuiPaper-root-MuiCard-root"

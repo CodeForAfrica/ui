@@ -5,22 +5,21 @@ import { Box, Button, Card, Grid2 as Grid, Typography } from "@mui/material";
 import { forwardRef } from "react";
 
 const CardList = forwardRef(function CardList(props, ref) {
-  const { title, subtitle, organizations = [], sx, ...other } = props;
+  const { title, subtitle, organizations = [], sx } = props;
 
   if (!organizations.length) {
     return null;
   }
-
   return (
     <Box
       ref={ref}
-      sx={{
-        py: { xs: 6, md: 8 },
-        color: "#0A1628",
-        ...sx,
-      }}
-      data-testid="card-list"
-      {...other}
+      sx={[
+        {
+          py: { xs: 6, md: 8 },
+          color: "#0A1628",
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {title && (

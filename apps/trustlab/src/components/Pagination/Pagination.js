@@ -69,7 +69,7 @@ const Pagination = forwardRef(function Pagination(
     showJumpToPage = true,
     itemSx,
     arrowSx,
-    ...rest
+    sx,
   },
   ref,
 ) {
@@ -117,15 +117,14 @@ const Pagination = forwardRef(function Pagination(
   if (count <= 1) {
     return null;
   }
-
   return (
     <Box
-      ref={ref}
       display="flex"
       justifyContent="center"
       alignItems="center"
       gap={2}
-      {...rest}
+      sx={sx}
+      ref={ref}
     >
       {showJumpToPage && count > 1 && (
         <Box
@@ -141,7 +140,7 @@ const Pagination = forwardRef(function Pagination(
             onKeyDown={handleJumpToPage}
             disabled={disabled}
             size="small"
-            placeholder={count}
+            placeholder={count.toString()}
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "8px",

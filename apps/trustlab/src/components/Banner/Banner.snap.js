@@ -22,15 +22,11 @@ exports[`<Banner /> renders unchanged 1`] = `
           <div
             class="MuiBox-root css-0"
           >
-            <div
-              class="payload-richtext"
+            <h6
+              class="MuiTypography-root MuiTypography-subheading1 css-klbr0l-MuiTypography-root"
             >
-              <h6
-                class="MuiTypography-root MuiTypography-subheading1 css-klbr0l-MuiTypography-root"
-              >
-                TrustLab is a three-year EU-funded initiative by DW Akademie, Code for Africa (CfA), and Siasa Place. 
-              </h6>
-            </div>
+              TrustLab is a three-year EU-funded initiative by DW Akademie, Code for Africa (CfA), and Siasa Place. 
+            </h6>
           </div>
         </div>
       </div>

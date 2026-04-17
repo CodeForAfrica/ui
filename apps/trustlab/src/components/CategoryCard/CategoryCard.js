@@ -11,7 +11,7 @@ import {
 import { forwardRef } from "react";
 
 const CategoryCard = forwardRef(function CategoryCard(props, ref) {
-  const { image, title, description, link, ...other } = props;
+  const { image, title, description, link, sx } = props;
 
   return (
     <Card
@@ -27,8 +27,8 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        ...(Array.isArray(sx) ? sx : [sx]),
       }}
-      {...other}
     >
       {image?.src && (
         <Box

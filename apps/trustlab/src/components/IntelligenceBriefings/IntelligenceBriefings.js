@@ -12,7 +12,7 @@ const IntelligenceBriefings = React.forwardRef(
       <Box ref={ref} bgcolor="common.white">
         <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
           <Grid container spacing={4}>
-            <Grid item size={{ xs: 12, md: 4 }}>
+            <Grid size={{ xs: 12, md: 4 }}>
               <Typography variant="display4" gutterBottom>
                 {title}
               </Typography>
@@ -31,7 +31,6 @@ const IntelligenceBriefings = React.forwardRef(
                     }}
                   />
                 )}
-
                 {subtitle && (
                   <Box>
                     <Divider sx={{ background: "black", mb: 2 }} />
@@ -39,7 +38,6 @@ const IntelligenceBriefings = React.forwardRef(
                     <Divider sx={{ background: "black", mt: 2 }} />
                   </Box>
                 )}
-
                 {briefs.length > 0 && (
                   <Stack
                     direction="row"

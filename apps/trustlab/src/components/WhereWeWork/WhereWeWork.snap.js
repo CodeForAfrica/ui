@@ -26,15 +26,11 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
           <div
             class="MuiBox-root css-0"
           >
-            <div
-              class="payload-richtext"
+            <p
+              class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
             >
-              <p
-                class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
-              >
-                This is a placeholder text that should be updated.
-              </p>
-            </div>
+              This is a placeholder text that should be updated.
+            </p>
           </div>
         </div>
       </div>

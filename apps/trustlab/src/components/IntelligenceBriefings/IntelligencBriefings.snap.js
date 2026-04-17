@@ -29,15 +29,11 @@ exports[`<IntelligenceBriefings /> renders unchanged 1`] = `
             <div
               class="MuiBox-root css-0"
             >
-              <div
-                class="payload-richtext"
+              <p
+                class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
               >
-                <p
-                  class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
-                >
-                  This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders
-                </p>
-              </div>
+                This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders
+              </p>
             </div>
             <div
               class="MuiBox-root css-0"

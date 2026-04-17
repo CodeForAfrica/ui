@@ -31,15 +31,11 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
     <div
       class="MuiBox-root css-1rr4qq7"
     >
-      <div
-        class="payload-richtext"
+      <p
+        class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
       >
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
-        >
-          This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
-        </p>
-      </div>
+        This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
+      </p>
     </div>
     <div
       class="MuiBox-root css-1yuhvjn"
@@ -72,15 +68,11 @@ exports[`<CategoryCard /> renders without image 1`] = `
     <div
       class="MuiBox-root css-1rr4qq7"
     >
-      <div
-        class="payload-richtext"
+      <p
+        class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
       >
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
-        >
-          This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
-        </p>
-      </div>
+        This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
+      </p>
     </div>
   </div>
 </div>
@@ -116,15 +108,11 @@ exports[`<CategoryCard /> renders without link 1`] = `
     <div
       class="MuiBox-root css-1rr4qq7"
     >
-      <div
-        class="payload-richtext"
+      <p
+        class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
       >
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
-        >
-          This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
-        </p>
-      </div>
+        This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
+      </p>
     </div>
   </div>
 </div>
