@@ -11,7 +11,7 @@ import {
 import { forwardRef } from "react";
 
 const CategoryCard = forwardRef(function CategoryCard(props, ref) {
-  const { image, title, description, link, sx } = props;
+  const { image, description, link, sx, title } = props;
 
   return (
     <Card
@@ -19,16 +19,18 @@ const CategoryCard = forwardRef(function CategoryCard(props, ref) {
       ref={ref}
       elevation={0}
       href={link?.href}
-      sx={{
-        textDecoration: "none",
-        backgroundColor: "transparent",
-        img: { filter: "grayscale(100%)" },
-        "&:hover img": { filter: "grayscale(0%)" },
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
+      sx={[
+        {
+          textDecoration: "none",
+          backgroundColor: "transparent",
+          img: { filter: "grayscale(100%)" },
+          "&:hover img": { filter: "grayscale(0%)" },
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        },
         ...(Array.isArray(sx) ? sx : [sx]),
-      }}
+      ]}
     >
       {image?.src && (
         <Box
