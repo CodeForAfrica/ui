@@ -1,4 +1,4 @@
-import { richText, link } from "@commons-ui/payload";
+import { link, richText } from "@commons-ui/payload";
 
 const ContentOverview = {
   slug: "content-overview",
@@ -6,6 +6,11 @@ const ContentOverview = {
   imageAltText: "Content Overview block.",
   labels: { singular: "Content Overview", plural: "Content Overviews" },
   fields: [
+    {
+      name: "title",
+      type: "text",
+      localized: true,
+    },
     richText({ name: "content", required: true, localized: true }),
     {
       name: "card",

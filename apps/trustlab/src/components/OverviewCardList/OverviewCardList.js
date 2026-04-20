@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Box, Divider, Grid, Typography } from "@mui/material";
+import { Box, Divider, Grid2 as Grid, Typography } from "@mui/material";
 
 import Card from "@/trustlab/components/Card";
 import HelplineCard from "@/trustlab/components/HelplineCard";
@@ -17,10 +17,12 @@ function OverviewCardList({
   if (isSpotlight) {
     OverviewCard = SpotlightCard;
   }
-
   const foregroundColor = isSpotlight ? "common.white" : "common.black";
   const backgroundColor = isSpotlight ? "common.black" : "common.white";
 
+  if (!items?.length) {
+    return null;
+  }
   return (
     <Box
       sx={{
@@ -46,19 +48,15 @@ function OverviewCardList({
         />
         <Grid
           container
+          justifyContent={{ xs: "center", md: "space-between" }}
+          spacing={1}
           sx={{
-            gap: 1,
-            justifyContent: {
-              xs: "center",
-              md: "space-between",
-            },
             mt: 3,
           }}
         >
           {items.map(({ title, image, id, excerpt, tag, href }) => {
             return (
               <Grid
-                item
                 key={id}
                 sx={{
                   flexGrow: {

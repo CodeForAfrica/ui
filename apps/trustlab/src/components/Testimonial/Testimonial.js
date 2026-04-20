@@ -5,26 +5,36 @@ import { Box, Grid2 as Grid, Typography } from "@mui/material";
 import { forwardRef } from "react";
 
 const Testimonial = forwardRef(function Testimonial(props, ref) {
-  const { title, description, image, signatureIcon, sx, ...other } = props;
+  const { title, description, image, signatureIcon, sx } = props;
 
-  if (!description) {
+  if (!(description && image?.src && image.width && image.height)) {
     return null;
   }
-
+  const figureSx = {
+    aspectRatio: `${image.width} / ${image.height}`,
+    height: { xs: "326px", sm: "auto" },
+    maxHeight: { xs: "none", sm: "326px" },
+    width: { xs: "100%", sm: "326px" },
+    maxWidth: { xs: "326px", sm: "none" },
+  };
   return (
     <Box
       ref={ref}
-      sx={{
-        backgroundColor: "#fff",
-        py: 2,
-        ...sx,
-      }}
-      data-testid="testimonial"
-      {...other}
+      sx={[
+        {
+          backgroundColor: "#fff",
+          py: 2,
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
-        <Grid container spacing={{ xs: 4, md: 6 }}>
-          <Grid size={{ xs: 12, md: 6 }}>
+        <Grid
+          container
+          justifyContent="space-between"
+          spacing={{ xs: 4, md: 6 }}
+        >
+          <Grid size={{ xs: 12, sm: 6, md: 8 }}>
             {title && (
               <Typography
                 variant="h3"
@@ -68,25 +78,29 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
               </Box>
             )}
           </Grid>
-          {image?.src && (
-            <Grid size={{ xs: 12, md: 6 }}>
+          <Grid
+            size={{ xs: 12, sm: "grow" }}
+            container
+            justifyContent={{ xs: "flex-start", sm: "flex-end" }}
+            alignItems="flex-start"
+          >
+            <Grid>
               <Figure
                 ImageProps={{
                   alt: image.alt || "Testimonial illustration",
+                  title: image.alt || "Testimonial illustration",
                   src: image.src,
                   sx: {
-                    objectFit: "contain",
-                    maxWidth: "100%",
+                    objectPosition: { xs: "left", sm: "right" },
                   },
                 }}
                 sx={{
-                  position: "relative",
-                  height: { xs: "calc(100vw - 40px)", md: 300 },
-                  width: "100%",
+                  ...figureSx,
+                  objectPosition: { xs: "left", sm: "right" },
                 }}
               />
             </Grid>
-          )}
+          </Grid>
         </Grid>
       </Section>
     </Box>

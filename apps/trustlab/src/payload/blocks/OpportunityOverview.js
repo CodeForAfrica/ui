@@ -8,6 +8,11 @@ const OpportunityOverview = {
   imageAltText: "Opportunity Overview block.",
   labels: { singular: "Opportunity Overview", plural: "Opportunity Overviews" },
   fields: [
+    {
+      name: "title",
+      type: "text",
+      localized: true,
+    },
     richText({ name: "content", required: true, localized: true }),
     image({ overrides: { name: "image", required: true } }),
     {

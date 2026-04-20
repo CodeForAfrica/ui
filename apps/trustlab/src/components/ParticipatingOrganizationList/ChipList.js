@@ -6,23 +6,22 @@ import { forwardRef } from "react";
 import ExternalLinkIcon from "@/trustlab/assets/icons/Type=external-link, Size=24, Color=CurrentColor.svg";
 
 const ChipList = forwardRef(function ChipList(props, ref) {
-  const { title, organizations = [], sx, ...other } = props;
+  const { title, organizations = [], sx } = props;
 
   if (!organizations.length) {
     return null;
   }
-
   return (
     <Box
       ref={ref}
-      sx={{
-        backgroundColor: "#F0F0F5",
-        py: 3,
-        borderRadius: "10px",
-        ...sx,
-      }}
-      data-testid="chip-list"
-      {...other}
+      sx={[
+        {
+          backgroundColor: "#F0F0F5",
+          py: 3,
+          borderRadius: "10px",
+        },
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
     >
       <Section sx={{ px: { xs: 2.5, sm: 0 } }}>
         {title && (

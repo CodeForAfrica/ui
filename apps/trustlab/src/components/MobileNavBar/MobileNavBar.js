@@ -1,6 +1,6 @@
 import { NavBarNavList, Section } from "@commons-ui/core";
 import { Link, NextImageButton } from "@commons-ui/next";
-import { SvgIcon, Drawer, Grid, IconButton } from "@mui/material";
+import { Drawer, Grid2 as Grid, IconButton, SvgIcon } from "@mui/material";
 import React, { useState } from "react";
 
 import XIcon from "@/trustlab/assets/icons/Type=x, Size=24, Color=CurrentColor.svg";
@@ -21,7 +21,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
       sx={{ display: { xs: "flex", md: "none" }, height: 94 }}
       ref={ref}
     >
-      <Grid item>
+      <Grid>
         <NextImageButton
           {...logo}
           href="/"
@@ -30,7 +30,7 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           height={61}
         />
       </Grid>
-      <Grid item>
+      <Grid>
         <IconButton
           onClick={handleClick}
           aria-label={open ? "Close navigation" : "Open navigation"}

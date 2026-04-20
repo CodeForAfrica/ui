@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OpportunityCard renders without crashing 1`] = `
+exports[`<OpportunityCard /> renders without crashing 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-hx403l-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
+    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-1wgs0mi-MuiTypography-root-MuiLink-root-MuiPaper-root-MuiCard-root"
     href="/test-link"
     style="--Paper-shadow: none;"
   >
@@ -24,30 +24,34 @@ exports[`OpportunityCard renders without crashing 1`] = `
     <div
       class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
     >
-      <h3
-        class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1eheyeq-MuiTypography-root"
+      <div
+        class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-i2gvsx-MuiTypography-root"
       >
         Test Opportunity
-      </h3>
-      <p
-        class="MuiTypography-root MuiTypography-p2 css-37928j-MuiTypography-root"
+      </div>
+      <div
+        class="MuiTypography-root MuiTypography-p2 css-dbyv4o-MuiTypography-root"
       >
         Test Caption
-      </p>
+      </div>
       <div
-        class="MuiBox-root css-1bbexbq"
+        class="MuiStack-root css-niqf4j-MuiStack-root"
       >
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-9kjxk-MuiTypography-root"
+        <div
+          class="MuiTypography-root MuiTypography-p2 css-drfs95-MuiTypography-root"
         >
           Nairobi, Kenya
-        </p>
-        |
-        <p
-          class="MuiTypography-root MuiTypography-p2 css-4l49d0-MuiTypography-root"
+        </div>
+        <div
+          aria-orientation="vertical"
+          class="MuiDivider-root MuiDivider-middle MuiDivider-vertical MuiDivider-flexItem css-x39m9m-MuiDivider-root"
+          role="separator"
+        />
+        <div
+          class="MuiTypography-root MuiTypography-p2 css-15jnnqw-MuiTypography-root"
         >
           15-01-2024
-        </p>
+        </div>
       </div>
       <div
         class="MuiBox-root css-0"
@@ -58,15 +62,11 @@ exports[`OpportunityCard renders without crashing 1`] = `
           <div
             class="MuiBox-root css-0"
           >
-            <div
-              class="payload-richtext"
-            >
-              This is a test description for the opportunity card.
-            </div>
+            This is a test description for the opportunity card.
           </div>
         </div>
         <button
-          class="MuiTypography-root MuiTypography-p2 css-1wpjqtt-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p2 css-i8e380-MuiTypography-root"
         >
           View more
         </button>

@@ -6,7 +6,7 @@ import {
 } from "@commons-ui/payload";
 
 const pageByType = {
-  baseline: "baseline-report",
+  baseline: "baseline-reports",
   situational: "situational-reports",
   "bi-weekly": "bi-weekly-reports",
 };

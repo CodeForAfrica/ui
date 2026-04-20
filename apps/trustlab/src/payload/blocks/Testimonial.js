@@ -21,6 +21,7 @@ const Testimonial = {
       name: "image",
       type: "upload",
       relationTo: "media",
+      required: true,
       label: { en: "Image" },
     },
     {

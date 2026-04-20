@@ -1,5 +1,4 @@
 import { createRender } from "@commons-ui/testing-library";
-import React from "react";
 
 import OpportunitiesList from "./OpportunitiesList";
 
@@ -66,15 +65,11 @@ jest.mock("./useOpportunities", () => ({
     pagination: { page: 1, count: 5 },
   })),
 }));
-describe("OpportunitiesList", () => {
-  it("renders without crashing", () => {
-    const { getByTestId } = render(<OpportunitiesList />);
-    expect(getByTestId("opportunities-list")).toBeInTheDocument();
-  });
 
-  it("renders with custom testId", () => {
-    const { getByTestId } = render(<OpportunitiesList testId="barazas-list" />);
-    expect(getByTestId("barazas-list")).toBeInTheDocument();
+describe("<OpportunitiesList />", () => {
+  it("renders unchanged", () => {
+    const { container } = render(<OpportunitiesList testId="barazas-list" />);
+    expect(container).toMatchSnapshot();
   });
 
   it("renders items when provided", () => {

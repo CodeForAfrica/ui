@@ -58,11 +58,7 @@ exports[`<Resources /> renders unchanged 1`] = `
             </h3>
             <div
               class="MuiBox-root css-jeo9ow"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
         <div
@@ -107,11 +103,7 @@ exports[`<Resources /> renders unchanged 1`] = `
             </h3>
             <div
               class="MuiBox-root css-jeo9ow"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
         <div
@@ -156,11 +148,7 @@ exports[`<Resources /> renders unchanged 1`] = `
             </h3>
             <div
               class="MuiBox-root css-jeo9ow"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
         <div
@@ -205,11 +193,7 @@ exports[`<Resources /> renders unchanged 1`] = `
             </h3>
             <div
               class="MuiBox-root css-jeo9ow"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>

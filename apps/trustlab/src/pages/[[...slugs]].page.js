@@ -24,9 +24,7 @@ const ContentActionBanner = dynamic(
 const ContentOverview = dynamic(
   () => import("@/trustlab/components/ContentOverview"),
 );
-const CourseList = dynamic(
-  () => import("@/trustlab/components/CourseList/CourseList"),
-);
+const CourseList = dynamic(() => import("@/trustlab/components/CourseList"));
 const DonorOverviewList = dynamic(
   () => import("@/trustlab/components/DonorOverviewList"),
 );

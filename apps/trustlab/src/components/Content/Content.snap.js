@@ -3,19 +3,14 @@
 exports[`<Content /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-286m8z"
-    content="[object Object]"
+    class="MuiBox-root css-gwf927"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-hxqkgq-MuiContainer-root"
     >
       <div
         class="MuiBox-root css-1n3ttdb"
-      >
-        <div
-          class="payload-richtext"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>

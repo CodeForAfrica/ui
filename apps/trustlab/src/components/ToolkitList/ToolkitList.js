@@ -22,7 +22,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
     applyFiltersLabel,
     clearFiltersLabel,
     toolkitsPerPage,
-    ...other
+    sx,
   } = props;
 
   const [page, setPage] = useState(p?.page);
@@ -90,7 +90,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   };
 
   return (
-    <Box ref={ref}>
+    <Box sx={sx} ref={ref}>
       {hasFilters && (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
           <Filters
@@ -106,7 +106,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
       {toolkits.length > 0 && (
         <Box sx={{ background: "#fff" }} ref={listRef}>
           <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
-            <Grid container spacing={3} {...other}>
+            <Grid container spacing={3}>
               {toolkits.map((tk) => (
                 <Grid key={tk.id} size={{ xs: 12, sm: 4 }}>
                   <CategoryCard {...tk} />

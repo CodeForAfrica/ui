@@ -38,6 +38,7 @@ const Helplines = forwardRef(function Helplines(
             ))}
           </Box>
         ) : (
+          // TODO(kilemensi): Why do we need a Stack and Grid? Can we just use Grid with spacing?
           <Stack spacing={4}>
             <Typography variant="display4">{title}</Typography>
             <Grid

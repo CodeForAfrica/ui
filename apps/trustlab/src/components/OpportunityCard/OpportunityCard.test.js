@@ -1,6 +1,5 @@
 import { createRender } from "@commons-ui/testing-library";
 import { fireEvent } from "@testing-library/react";
-import React from "react";
 
 import OpportunityCard from "./OpportunityCard";
 
@@ -34,7 +33,7 @@ const defaultProps = {
   date: "15-01-2024",
 };
 
-describe("OpportunityCard", () => {
+describe("<OpportunityCard />", () => {
   it("renders without crashing", () => {
     const { getByText, container } = render(
       <OpportunityCard {...defaultProps} />,
