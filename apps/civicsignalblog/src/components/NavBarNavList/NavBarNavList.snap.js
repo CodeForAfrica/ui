@@ -59,6 +59,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1gfen40"
     >
       <a
+        aria-label="Facebook"
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iki3ku-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
         href="https://www.facebook.com/CodeForAfrica"
         rel="noreferrer noopener"
@@ -79,6 +80,7 @@ exports[`<NavBarNavList /> renders unchanged 1`] = `
       class="css-1gfen40"
     >
       <a
+        aria-label="Twitter"
         class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1iki3ku-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
         href="https://twitter.com/Code4Africa"
         rel="noreferrer noopener"

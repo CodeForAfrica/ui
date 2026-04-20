@@ -37,15 +37,11 @@ exports[`<Card /> renders unchanged 1`] = `
       <div
         class="MuiBox-root css-7x1cxm"
       >
-        <div
-          class="payload-richtext"
+        <p
+          class="MuiTypography-root MuiTypography-p1 css-4upu4p-MuiTypography-root"
         >
-          <p
-            class="MuiTypography-root MuiTypography-p1 css-4upu4p-MuiTypography-root"
-          >
-            A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
-          </p>
-        </div>
+          A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
+        </p>
       </div>
     </div>
     <div

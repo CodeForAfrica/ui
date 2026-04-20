@@ -8,7 +8,6 @@ const ParticipatingOrganizationList = forwardRef(
     if (variant === "card") {
       return <CardList ref={ref} {...props} />;
     }
-
     return <ChipList ref={ref} {...props} />;
   },
 );

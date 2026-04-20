@@ -1,7 +1,7 @@
 import { Section } from "@commons-ui/core";
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Grid, Box, Button, SvgIcon, Typography } from "@mui/material";
+import { Box, Button, Grid2 as Grid, SvgIcon, Typography } from "@mui/material";
 import React, { forwardRef } from "react";
 
 import VisitIcon from "@/trustlab/assets/icons/Type=visit, Size=20, Color=CurrentColor.svg";
@@ -19,7 +19,6 @@ const Incubator = forwardRef((props, ref) => {
   if (!content && !image) {
     return null;
   }
-
   const { url, alt } = image;
   return (
     <Box
@@ -33,7 +32,7 @@ const Incubator = forwardRef((props, ref) => {
           {title}
         </Typography>
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={7}>
+          <Grid size={{ xs: 12, sm: 7 }}>
             <LexicalRichText
               elements={content}
               sx={{
@@ -75,7 +74,7 @@ const Incubator = forwardRef((props, ref) => {
               </Button>
             )}
           </Grid>
-          <Grid item xs={12} sm={5}>
+          <Grid size={{ xs: 12, sm: 5 }}>
             <Figure
               ImageProps={{
                 alt,

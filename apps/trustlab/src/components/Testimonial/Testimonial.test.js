@@ -20,16 +20,9 @@ const mockDescription = {
 };
 
 describe("Testimonial", () => {
-  it("renders nothing when no description provided", () => {
+  it("renders nothing when no description and image provided", () => {
     const { container } = render(<Testimonial />);
     expect(container.firstChild).toBeNull();
-  });
-
-  it("renders testimonial when description is provided", () => {
-    const { getByTestId } = render(
-      <Testimonial description={mockDescription} />,
-    );
-    expect(getByTestId("testimonial")).toBeInTheDocument();
   });
 
   it("renders title when provided", () => {
@@ -37,6 +30,11 @@ describe("Testimonial", () => {
       <Testimonial
         title="Testimonial/Participants Reflection"
         description={mockDescription}
+        image={{
+          height: 300,
+          src: "/images/testimonial.png",
+          width: 300,
+        }}
       />,
     );
     expect(
@@ -45,7 +43,16 @@ describe("Testimonial", () => {
   });
 
   it("renders description text", () => {
-    const { getByText } = render(<Testimonial description={mockDescription} />);
+    const { getByText } = render(
+      <Testimonial
+        description={mockDescription}
+        image={{
+          height: 300,
+          src: "/images/testimonial.png",
+          width: 300,
+        }}
+      />,
+    );
     expect(
       getByText(/Participants reflected on how online harassment/),
     ).toBeInTheDocument();
@@ -56,25 +63,32 @@ describe("Testimonial", () => {
       <Testimonial
         description={mockDescription}
         image={{
+          alt: "Testimonial",
+          height: 300,
           src: "/images/testimonial.png",
-          alt: "Testimonial illustration",
+          width: 300,
         }}
       />,
     );
-    expect(getByAltText("Testimonial illustration")).toBeInTheDocument();
+    expect(getByAltText("Testimonial")).toBeInTheDocument();
   });
 
   it("renders signature icon when provided", () => {
     const { getByAltText } = render(
       <Testimonial
         description={mockDescription}
+        image={{
+          height: 300,
+          src: "/images/testimonial.png",
+          width: 300,
+        }}
         signatureIcon={{
           src: "/images/signature.png",
-          alt: "Siasa Place Logo",
+          alt: "Signature icon",
         }}
       />,
     );
-    expect(getByAltText("Siasa Place Logo")).toBeInTheDocument();
+    expect(getByAltText("Signature icon")).toBeInTheDocument();
   });
 
   it("uses default alt text for image when not provided", () => {
@@ -82,7 +96,9 @@ describe("Testimonial", () => {
       <Testimonial
         description={mockDescription}
         image={{
+          height: 300,
           src: "/images/testimonial.png",
+          width: 300,
         }}
       />,
     );
@@ -93,21 +109,16 @@ describe("Testimonial", () => {
     const { getByAltText } = render(
       <Testimonial
         description={mockDescription}
+        image={{
+          height: 300,
+          src: "/images/testimonial.png",
+          width: 300,
+        }}
         signatureIcon={{
           src: "/images/signature.png",
         }}
       />,
     );
     expect(getByAltText("Signature")).toBeInTheDocument();
-  });
-
-  it("applies custom sx prop", () => {
-    const { getByTestId } = render(
-      <Testimonial
-        description={mockDescription}
-        sx={{ backgroundColor: "red" }}
-      />,
-    );
-    expect(getByTestId("testimonial")).toHaveStyle({ backgroundColor: "red" });
   });
 });

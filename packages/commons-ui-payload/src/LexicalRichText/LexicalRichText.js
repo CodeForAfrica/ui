@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { RichText as ConvertRichText } from "@payloadcms/richtext-lexical/react";
+import { RichText } from "@payloadcms/richtext-lexical/react";
 import { forwardRef } from "react";
 
 import { styleConverter } from "./converter";
@@ -12,13 +12,15 @@ export const jsxConverters =
   });
 
 const LexicalRichText = forwardRef(function LexicalRichText(props, ref) {
-  const { elements, ...converterProps } = props;
+  const { elements, sx, ...converterProps } = props;
   const converters = jsxConverters(converterProps);
   const { TypographyProps, ...others } = converterProps;
 
   return (
-    <Box {...others} ref={ref}>
-      <ConvertRichText data={elements} converters={converters} />
+    // TODO(kilemensi): {...others} need to be removed but all apps must be
+    //                  checked first
+    <Box {...others} sx={sx} ref={ref}>
+      <RichText converters={converters} data={elements} disableContainer />
     </Box>
   );
 });

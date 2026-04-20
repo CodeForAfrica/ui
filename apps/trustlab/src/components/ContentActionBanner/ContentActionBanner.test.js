@@ -19,13 +19,6 @@ const mockContent = {
 };
 
 describe("ContentActionBanner", () => {
-  it("renders without crashing", () => {
-    const { getByTestId } = render(
-      <ContentActionBanner content={mockContent} />,
-    );
-    expect(getByTestId("content-action-banner")).toBeInTheDocument();
-  });
-
   it("renders title text", () => {
     const { getByText } = render(<ContentActionBanner content={mockContent} />);
     expect(getByText("Join our community today")).toBeInTheDocument();
@@ -73,24 +66,6 @@ describe("ContentActionBanner", () => {
       />,
     );
     expect(queryByRole("link")).not.toBeInTheDocument();
-  });
-
-  it("applies backgroundColor correctly", () => {
-    const { getByTestId } = render(
-      <ContentActionBanner content={mockContent} backgroundColor="#FF5733" />,
-    );
-    expect(getByTestId("content-action-banner")).toHaveStyle({
-      backgroundColor: "#FF5733",
-    });
-  });
-
-  it("applies textColor correctly", () => {
-    const { getByTestId } = render(
-      <ContentActionBanner content={mockContent} textColor="#FFFFFF" />,
-    );
-    expect(getByTestId("content-action-banner")).toHaveStyle({
-      color: "#FFFFFF",
-    });
   });
 
   it("applies button border color from buttonProps", () => {

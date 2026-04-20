@@ -3,7 +3,13 @@ import { Figure } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Grid2 as Grid, Box, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { forwardRef, useState, useEffect, useRef } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import useReports from "./useReports";
 
@@ -35,15 +41,17 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     searchPlaceholderLabel,
     sortByLabel,
     sortOptions,
-    ...other
+    defaultSort,
   } = props;
 
   const [page, setPage] = useState(p?.page);
   const [params, setParams] = useState({
     reportsType,
     limit: reportsPerPage,
+    ...(defaultSort ? { sort: defaultSort } : {}),
   });
   const listRef = useRef(null);
+  useImperativeHandle(ref, () => listRef.current);
   const router = useRouter();
   const { query } = router;
   const { page: initialPage } = query;
@@ -63,7 +71,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     params,
     initialReports,
     p?.count,
-    !hasPagination,
+    !hasFilters && !hasPagination && !hasSearch && !hasSortBy,
   );
 
   const handlePageChange = (value) => {
@@ -154,7 +162,11 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   };
 
   const handleClearAll = () => {
-    setParams({ reportsType, limit: reportsPerPage });
+    setParams({
+      reportsType,
+      limit: reportsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
+    });
     setPage(1);
     router.push(window.location.pathname, undefined, {
       shallow: true,
@@ -203,7 +215,11 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     const parseParam = (v) =>
       typeof v === "string" && v.includes(",") ? v.split(",") : v;
 
-    const newParams = { reportsType, limit: reportsPerPage };
+    const newParams = {
+      reportsType,
+      limit: reportsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
+    };
     if (years) {
       newParams.years = parseParam(years);
     }
@@ -249,15 +265,9 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
       ) : null}
       <Box sx={{ background: "#fff" }}>
         {reports.length ? (
-          <Box sx={{ background: "#fff" }}>
+          <Box>
             <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
-              <Grid
-                container
-                spacing={3}
-                rowSpacing={3.75}
-                ref={ref}
-                {...other}
-              >
+              <Grid container spacing={3} rowSpacing={3.75}>
                 {reports.map((report, index) => (
                   <Grid key={report.id ?? index} size={{ xs: 12, sm: 4 }}>
                     <ReportCard

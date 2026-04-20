@@ -27,11 +27,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
           >
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
         <div
@@ -45,11 +41,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
           >
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
         <div
@@ -63,11 +55,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
           >
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -103,11 +91,7 @@ exports[`<HighlightList /> renders with a single item 1`] = `
           >
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
