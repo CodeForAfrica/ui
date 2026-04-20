@@ -1,7 +1,7 @@
 import { createRender } from "@commons-ui/testing-library";
 import React from "react";
 
-import OpportunityList from "./OpportunityList";
+import OpportunitiesList from "./OpportunitiesList";
 
 import theme from "@/trustlab/theme";
 
@@ -66,26 +66,26 @@ jest.mock("./useOpportunities", () => ({
     pagination: { page: 1, count: 5 },
   })),
 }));
-describe("OpportunityList", () => {
+describe("OpportunitiesList", () => {
   it("renders without crashing", () => {
-    const { getByTestId } = render(<OpportunityList />);
-    expect(getByTestId("opportunity-list")).toBeInTheDocument();
+    const { getByTestId } = render(<OpportunitiesList />);
+    expect(getByTestId("opportunities-list")).toBeInTheDocument();
   });
 
   it("renders with custom testId", () => {
-    const { getByTestId } = render(<OpportunityList testId="barazas-list" />);
+    const { getByTestId } = render(<OpportunitiesList testId="barazas-list" />);
     expect(getByTestId("barazas-list")).toBeInTheDocument();
   });
 
   it("renders items when provided", () => {
-    const { getByText } = render(<OpportunityList items={mockItems} />);
+    const { getByText } = render(<OpportunitiesList items={mockItems} />);
     expect(getByText("Test Item 1")).toBeInTheDocument();
     expect(getByText("Test Item 2")).toBeInTheDocument();
   });
 
   it("renders pagination when hasPagination is true", () => {
     const { container } = render(
-      <OpportunityList
+      <OpportunitiesList
         items={mockItems}
         hasPagination
         pagination={{ page: 1, count: 5 }}
@@ -99,7 +99,7 @@ describe("OpportunityList", () => {
 
   it("does not render pagination when hasPagination is false", () => {
     const { container } = render(
-      <OpportunityList items={mockItems} hasPagination={false} />,
+      <OpportunitiesList items={mockItems} hasPagination={false} />,
     );
     const pagination = container.querySelector(
       '[aria-label="pagination navigation"]',
@@ -109,13 +109,13 @@ describe("OpportunityList", () => {
 
   it("does not render filters when hasFilters is false", () => {
     const { container } = render(
-      <OpportunityList items={mockItems} hasFilters={false} />,
+      <OpportunitiesList items={mockItems} hasFilters={false} />,
     );
     expect(container.querySelector("form")).not.toBeInTheDocument();
   });
 
   it("renders correct number of cards", () => {
-    const { getAllByRole } = render(<OpportunityList items={mockItems} />);
+    const { getAllByRole } = render(<OpportunitiesList items={mockItems} />);
     const cards = getAllByRole("link");
     expect(cards).toHaveLength(mockItems.length);
   });

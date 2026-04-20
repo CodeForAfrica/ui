@@ -122,7 +122,7 @@ export default async function handler(req, res) {
         "updatedAt",
       ];
       const validatedSort =
-        sort && ALLOWED_SORT.includes(sort) ? sort : "-createdAt";
+        sort && ALLOWED_SORT.includes(sort) ? sort : "-date";
 
       const result = await getReports(api, {
         limit,
