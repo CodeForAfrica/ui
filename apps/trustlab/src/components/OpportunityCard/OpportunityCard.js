@@ -1,7 +1,9 @@
-import { Link } from "@commons-ui/next";
+import { Link, RichTypography } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia } from "@mui/material";
 import { forwardRef, useState } from "react";
+
+import LocationAndText from "@/trustlab/components/LocationAndDate";
 
 const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
   const {
@@ -18,8 +20,6 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
   } = props;
 
   const [expanded, setExpanded] = useState(false);
-  const locationDateText = [location, date].filter(Boolean).join(" | ");
-
   const handleToggleExpand = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -91,33 +91,13 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
           "&:last-child": { pb: 0 },
         }}
       >
-        <Typography sx={{ my: 1 }} variant="h3" gutterBottom>
+        <RichTypography sx={{ my: 1 }} variant="h3" gutterBottom>
           {title}
-        </Typography>
-
-        {caption && (
-          <Typography variant="p2" sx={{ color: "#828499", mb: 1.5 }}>
-            {caption}
-          </Typography>
-        )}
-
-        {locationDateText && (
-          <Box display="flex" sx={{ mb: 1.5 }} alignItems="center" gap="4px">
-            <Typography
-              variant="p2"
-              sx={{ mt: caption ? 0.5 : 0, color: "common.black" }}
-            >
-              {location}
-            </Typography>
-            |
-            <Typography
-              variant="p2"
-              sx={{ mt: caption ? 0.5 : 0, color: "#828499" }}
-            >
-              {date}
-            </Typography>
-          </Box>
-        )}
+        </RichTypography>
+        <RichTypography variant="p2" sx={{ color: "#828499", mb: 1.5 }}>
+          {caption}
+        </RichTypography>
+        <LocationAndText date={date} location={location} />
         {description && (
           <Box>
             <Box
@@ -139,7 +119,7 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
               />
             </Box>
             {viewMoreLabel && (
-              <Typography
+              <RichTypography
                 component="button"
                 variant="p2"
                 onClick={handleToggleExpand}
@@ -157,7 +137,7 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
                 }}
               >
                 {expanded ? viewLessLabel : viewMoreLabel}
-              </Typography>
+              </RichTypography>
             )}
           </Box>
         )}

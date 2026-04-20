@@ -66,7 +66,7 @@ jest.mock("./useOpportunities", () => ({
     pagination: { page: 1, count: 5 },
   })),
 }));
-describe("OpportunityList", () => {
+describe("<OpportunityList />", () => {
   it("renders items when provided", () => {
     const { getByText } = render(<OpportunityList items={mockItems} />);
     expect(getByText("Test Item 1")).toBeInTheDocument();

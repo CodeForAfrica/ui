@@ -4,6 +4,8 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Grid2 as Grid } from "@mui/material";
 import { forwardRef } from "react";
 
+import LocationAndDate from "@/trustlab/components/LocationAndDate";
+
 const headingSx = {
   fontFamily: "Inter",
   fontSize: "24px",
@@ -91,8 +93,7 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
     return null;
   }
   const { cardType, items, richContent, title: cardTitle } = card;
-  // Seems like location and date are optional & we're introducing title as optional.
-  const hasLocationDate = location?.length && date?.length;
+  const hasLocationOrDate = location?.length || date?.length;
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
       <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
@@ -110,18 +111,9 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
                 </RichTypography>
               </Grid>
             ) : null}
-            {hasLocationDate ? (
+            {hasLocationOrDate ? (
               <Grid>
-                <RichTypography component="span" variant="p2">
-                  {location} |{" "}
-                </RichTypography>
-                <RichTypography
-                  component="span"
-                  variant="p2"
-                  sx={{ color: "#828499" }}
-                >
-                  {date}
-                </RichTypography>
+                <LocationAndDate date={date} location={location} />
               </Grid>
             ) : null}
             <Grid>

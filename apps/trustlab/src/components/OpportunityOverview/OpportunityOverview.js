@@ -4,6 +4,8 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Grid2 as Grid, Typography } from "@mui/material";
 import { forwardRef } from "react";
 
+import LocationAndDate from "@/trustlab/components/LocationAndDate";
+
 const OpportunityOverview = forwardRef(
   function OpportunityOverview(props, ref) {
     const {
@@ -21,8 +23,7 @@ const OpportunityOverview = forwardRef(
       return null;
     }
     const { url, alt } = image;
-    // Seems like location and date are optional & we're introducing title as optional.
-    const hasLocationDate = location?.length && date?.length;
+    const hasLocationOrDate = location?.length || date?.length;
     return (
       <Box sx={{ backgroundColor }} ref={ref}>
         <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
@@ -40,18 +41,9 @@ const OpportunityOverview = forwardRef(
                   </RichTypography>
                 </Grid>
               ) : null}
-              {hasLocationDate ? (
+              {hasLocationOrDate ? (
                 <Grid>
-                  <RichTypography component="span" variant="p2">
-                    {location} |{" "}
-                  </RichTypography>
-                  <RichTypography
-                    component="span"
-                    variant="p2"
-                    sx={{ color: "#828499" }}
-                  >
-                    {date}
-                  </RichTypography>
+                  <LocationAndDate date={date} location={location} />
                 </Grid>
               ) : null}
               <Grid>

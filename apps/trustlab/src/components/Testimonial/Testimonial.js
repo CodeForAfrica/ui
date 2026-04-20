@@ -78,31 +78,29 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
               </Box>
             )}
           </Grid>
-          {image?.src && (
-            <Grid
-              size={{ xs: 12, sm: "grow" }}
-              container
-              justifyContent={{ xs: "flex-start", sm: "flex-end" }}
-              alignItems="flex-start"
-            >
-              <Grid>
-                <Figure
-                  ImageProps={{
-                    alt: image.alt || "Testimonial illustration",
-                    title: image.alt || "Testimonial illustration",
-                    src: image.src,
-                    sx: {
-                      objectPosition: { xs: "left", sm: "right" },
-                    },
-                  }}
-                  sx={{
-                    ...figureSx,
+          <Grid
+            size={{ xs: 12, sm: "grow" }}
+            container
+            justifyContent={{ xs: "flex-start", sm: "flex-end" }}
+            alignItems="flex-start"
+          >
+            <Grid>
+              <Figure
+                ImageProps={{
+                  alt: image.alt || "Testimonial illustration",
+                  title: image.alt || "Testimonial illustration",
+                  src: image.src,
+                  sx: {
                     objectPosition: { xs: "left", sm: "right" },
-                  }}
-                />
-              </Grid>
+                  },
+                }}
+                sx={{
+                  ...figureSx,
+                  objectPosition: { xs: "left", sm: "right" },
+                }}
+              />
             </Grid>
-          )}
+          </Grid>
         </Grid>
       </Section>
     </Box>
