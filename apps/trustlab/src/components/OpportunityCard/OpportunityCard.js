@@ -3,7 +3,7 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Card, CardContent, CardMedia } from "@mui/material";
 import { forwardRef, useState } from "react";
 
-import LocationAndText from "@/trustlab/components/LocationAndDate";
+import LocationAndDate from "@/trustlab/components/LocationAndDate";
 
 const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
   const {
@@ -97,7 +97,7 @@ const OpportunityCard = forwardRef(function OpportunityCard(props, ref) {
         <RichTypography variant="p2" sx={{ color: "#828499", mb: 1.5 }}>
           {caption}
         </RichTypography>
-        <LocationAndText date={date} location={location} />
+        <LocationAndDate date={date} location={location} />
         {description && (
           <Box>
             <Box
