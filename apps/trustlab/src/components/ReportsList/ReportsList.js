@@ -41,12 +41,14 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     searchPlaceholderLabel,
     sortByLabel,
     sortOptions,
+    defaultSort,
   } = props;
 
   const [page, setPage] = useState(p?.page);
   const [params, setParams] = useState({
     reportsType,
     limit: reportsPerPage,
+    ...(defaultSort ? { sort: defaultSort } : {}),
   });
   const listRef = useRef(null);
   useImperativeHandle(ref, () => listRef.current);
@@ -69,7 +71,7 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     params,
     initialReports,
     p?.count,
-    !hasPagination,
+    !hasFilters && !hasPagination && !hasSearch && !hasSortBy,
   );
 
   const handlePageChange = (value) => {
@@ -160,7 +162,11 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   };
 
   const handleClearAll = () => {
-    setParams({ reportsType, limit: reportsPerPage });
+    setParams({
+      reportsType,
+      limit: reportsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
+    });
     setPage(1);
     router.push(window.location.pathname, undefined, {
       shallow: true,
@@ -209,7 +215,11 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     const parseParam = (v) =>
       typeof v === "string" && v.includes(",") ? v.split(",") : v;
 
-    const newParams = { reportsType, limit: reportsPerPage };
+    const newParams = {
+      reportsType,
+      limit: reportsPerPage,
+      ...(defaultSort ? { sort: defaultSort } : {}),
+    };
     if (years) {
       newParams.years = parseParam(years);
     }

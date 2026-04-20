@@ -1,6 +1,5 @@
 import { createRender } from "@commons-ui/testing-library";
 import { fireEvent } from "@testing-library/react";
-import React from "react";
 
 import OpportunityCard from "./OpportunityCard";
 

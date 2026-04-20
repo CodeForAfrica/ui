@@ -46,8 +46,8 @@ const Incubator = dynamic(() => import("@/trustlab/components/Incubator"));
 const IntelligenceBriefings = dynamic(
   () => import("@/trustlab/components/IntelligenceBriefings"),
 );
-const OpportunityList = dynamic(
-  () => import("@/trustlab/components/OpportunityList"),
+const OpportunitiesList = dynamic(
+  () => import("@/trustlab/components/OpportunitiesList"),
 );
 const OpportunityOverview = dynamic(
   () => import("@/trustlab/components/OpportunityOverview"),
@@ -93,7 +93,7 @@ const componentsBySlugs = {
   hero: Hero,
   incubator: Incubator,
   "intelligence-briefings": IntelligenceBriefings,
-  "opportunity-list": OpportunityList,
+  "opportunities-list": OpportunitiesList,
   "participating-organization-list": ParticipatingOrganizationList,
   "page-header": Banner,
   "page-overview": PageOverview,
