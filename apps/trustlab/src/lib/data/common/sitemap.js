@@ -56,6 +56,13 @@ function toSitemapEntry(doc, pathname) {
   };
 }
 
+function warnOnMissingPathname(collection, doc) {
+  Sentry.logger.warn(`Collection item without \`pathname\` in sitemap`, {
+    collection,
+    slug: doc?.slug,
+  });
+}
+
 async function getPagesEntries(api) {
   const { docs } = await api.getCollection("pages", {
     pagination: false,
@@ -86,9 +93,32 @@ async function getPagesEntries(api) {
   return docs
     .map((doc) => {
       if (!doc?.pathname) {
-        Sentry.logger.warn("Page without `pathname` in sitemap", {
-          slug: doc?.slug,
-        });
+        warnOnMissingPathname("pages", doc);
+        return null;
+      }
+
+      return toSitemapEntry(doc, doc.pathname);
+    })
+    .filter(Boolean);
+}
+
+async function getOpportunitiesEntries(api) {
+  const { docs } = await api.getCollection("opportunities", {
+    pagination: false,
+    select: {
+      pathname: true,
+      slug: true,
+      type: true,
+      updatedAt: true,
+      createdAt: true,
+      date: true,
+    },
+  });
+
+  return docs
+    .map((doc) => {
+      if (!doc?.pathname) {
+        warnOnMissingPathname("opportunities", doc);
         return null;
       }
 
@@ -98,8 +128,14 @@ async function getPagesEntries(api) {
 }
 
 async function getSitemapEntries(api) {
-  const pages = await getPagesEntries(api);
-  return pages.sort((left, right) => left.url.localeCompare(right.url));
+  const [pages, opportunities] = await Promise.all([
+    getPagesEntries(api),
+    getOpportunitiesEntries(api),
+  ]);
+
+  return [...pages, ...opportunities].sort((left, right) =>
+    left.url.localeCompare(right.url),
+  );
 }
 
 async function buildSitemapXml(api) {
