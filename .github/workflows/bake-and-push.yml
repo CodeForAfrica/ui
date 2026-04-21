@@ -17,14 +17,14 @@ permissions:
 on:
   workflow_call:
     inputs:
-      target_os:
-        required: true
-        type: string
-        description: "Target OS (e.g. ubuntu-24.04 or ubuntu-24.04-arm) of the image"
       target:
         required: true
         type: string
         description: "Bake target name (e.g. techlabblog)"
+      target_os:
+        required: true
+        type: string
+        description: "JSON string. Target OS (e.g. ubuntu-24.04 or ubuntu-24.04-arm) of the image"
       tag:
         required: true
         type: string
@@ -68,10 +68,9 @@ on:
 
 jobs:
   bake:
-    runs-on: ${{ inputs.target_os }}
+    runs-on: ${{ fromJSON(inputs.target_os) }}
     permissions:
       contents: read
-
     steps:
       - uses: actions/checkout@v4
         with:
