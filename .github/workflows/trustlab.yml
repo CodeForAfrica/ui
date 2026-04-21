@@ -28,7 +28,8 @@ jobs:
     strategy:
       matrix:
         node-version: [24]
-        os: [ubuntu-latest]
+        os: [ubuntu-24.04]
+        target_os: [ubuntu-24.04-arm]
     permissions:
       contents: read
     outputs:
@@ -58,8 +59,8 @@ jobs:
       contents: read
     uses: ./.github/workflows/bake-and-push.yml
     with:
+      os: ${{ matrix.target_os }}
       target: trustlab
-      arch: arm64
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       set: |

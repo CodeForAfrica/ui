@@ -17,11 +17,10 @@ permissions:
 on:
   workflow_call:
     inputs:
-      arch:
+      os:
         required: true
         type: string
-        description: "Target architecture (e.g. amd64 or arm64) of the image"
-        default: "amd64"
+        description: "Target OS (e.g. ubuntu-24.04 or ubuntu-24.04-arm) of the image"
       target:
         required: true
         type: string
@@ -69,7 +68,7 @@ on:
 
 jobs:
   bake:
-    runs-on: ${{ inputs.architecture == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
+    runs-on: ${{ inputs.os }}
     permissions:
       contents: read
 
