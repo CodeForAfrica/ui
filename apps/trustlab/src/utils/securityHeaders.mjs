@@ -28,7 +28,14 @@ function getContentSecurityPolicy(nodeEnv) {
   ].join("; ");
 }
 
-export function getSecurityHeaders(nodeEnv = process.env.NODE_ENV) {
+function isExplicitlyEnabled(value) {
+  return ["1", "true", "yes"].includes(value?.trim()?.toLowerCase());
+}
+
+export function getSecurityHeaders(
+  nodeEnv = process.env.NODE_ENV,
+  { enableHsts = isExplicitlyEnabled(process.env.ENABLE_HSTS) } = {},
+) {
   const headers = [
     {
       key: "Content-Security-Policy",
@@ -52,9 +59,9 @@ export function getSecurityHeaders(nodeEnv = process.env.NODE_ENV) {
     },
   ];
 
-  if (nodeEnv === "production") {
-    // HSTS is intentionally production-only so local HTTP development and
-    // non-TLS preview setups do not get sticky HTTPS behavior.
+  if (nodeEnv === "production" && enableHsts) {
+    // HSTS is opt-in so HTTP-only preview/staging deployments do not cache
+    // sticky HTTPS behavior for a host that is not guaranteed to be TLS-only.
     headers.push({
       key: "Strict-Transport-Security",
       value: "max-age=31536000; includeSubDomains; preload",
