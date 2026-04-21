@@ -10,7 +10,7 @@ import React from "react";
 
 function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
   const dialogTitleId = React.useId();
-  const hasEmbed = Boolean(embedCode);
+  const hasEmbed = Boolean(embedCode?.trim());
 
   return (
     <Dialog

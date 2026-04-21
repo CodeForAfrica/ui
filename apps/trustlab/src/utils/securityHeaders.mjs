@@ -21,8 +21,10 @@ function getContentSecurityPolicy(nodeEnv) {
     "img-src 'self' data: blob: https:",
     "media-src 'self' blob: https:",
     "object-src 'none'",
-    // Inline script/style support is still required by the current app and MUI
-    // setup, so this policy tightens sources without breaking rendering.
+    // Inline scripts are still required by the current Next.js/pages-router
+    // document output (for example runtime config bootstrapping and framework
+    // inline script tags). This should move to nonce- or hash-based CSP when
+    // we are ready to harden `script-src` further.
     `script-src ${scriptSrc.join(" ")}`,
     "style-src 'self' 'unsafe-inline' https:",
   ].join("; ");
