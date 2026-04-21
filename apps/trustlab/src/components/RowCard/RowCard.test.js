@@ -102,16 +102,4 @@ describe("<RowCard />", () => {
     render(<RowCard title="No Link" description={richTextMock} />);
     expect(screen.queryByRole("button")).toBeNull();
   });
-
-  it("clicking card triggers navigation when link exists (href attribute present)", async () => {
-    render(
-      <RowCard
-        title="Navigate"
-        link={{ href: "/navigate", label: "Go" }}
-        description={richTextMock}
-      />,
-    );
-    const card = screen.getByText("Navigate").closest("a");
-    expect(card).toHaveAttribute("href", "/navigate");
-  });
 });

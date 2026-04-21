@@ -80,6 +80,17 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        // Only a single baseline report page exists, so we redirect to the main
+        // research page.
+        source: "/research/baseline-reports",
+        destination: "/research",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {

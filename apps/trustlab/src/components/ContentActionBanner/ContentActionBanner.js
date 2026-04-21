@@ -17,7 +17,6 @@ const ContentActionBanner = forwardRef(function ContentActionBanner(
         backgroundColor,
         color: textColor,
       }}
-      data-testid="content-action-banner"
     >
       <Section sx={{ py: { xs: 2.5, md: 3 }, px: { xs: 2.5, sm: 0 } }}>
         <Box

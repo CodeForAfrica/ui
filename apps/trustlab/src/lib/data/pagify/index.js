@@ -10,7 +10,7 @@ const COLLECTION_BY_SLUG = {
   barazas: opportunity,
   "intelligence-briefings": opportunity,
   organisations,
-  "baseline-report": report,
+  "baseline-reports": report,
   resources: post,
 };
 

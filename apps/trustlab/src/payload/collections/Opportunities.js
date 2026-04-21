@@ -70,6 +70,7 @@ const Opportunities = {
     {
       name: "date",
       type: "date",
+      required: true,
       admin: {
         position: "sidebar",
         date: {

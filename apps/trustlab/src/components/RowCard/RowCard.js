@@ -1,4 +1,3 @@
-import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Card, CardMedia, Typography, Stack } from "@mui/material";
 import { useState, forwardRef } from "react";
@@ -19,7 +18,6 @@ const RowCard = forwardRef(function RowCard(props, ref) {
     embedCode,
     embedButtonLabel,
     embedCloseLabel,
-    ...other
   } = props;
   const sanitizedEmbedCode = sanitizeEmbedHtml(embedCode);
   const hasEmbed = Boolean(sanitizedEmbedCode);
@@ -40,8 +38,6 @@ const RowCard = forwardRef(function RowCard(props, ref) {
     <Card
       ref={ref}
       elevation={0}
-      component={link?.href ? Link : "div"}
-      href={link?.href}
       sx={[
         {
           textDecoration: "none",
@@ -54,7 +50,6 @@ const RowCard = forwardRef(function RowCard(props, ref) {
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
-      {...other}
     >
       {image?.src && (
         <Box

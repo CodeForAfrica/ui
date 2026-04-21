@@ -15,11 +15,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
       </h2>
       <div
         class="MuiBox-root css-0"
-      >
-        <div
-          class="payload-richtext"
-        />
-      </div>
+      />
     </div>
     <div
       class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row MuiGrid2-spacing-xs-2.5 MuiGrid2-spacing-sm-5 css-rboycm-MuiGrid2-root"
@@ -49,11 +45,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             </div>
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
           <div />
         </a>
@@ -83,11 +75,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             </div>
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
           <div />
         </a>
@@ -117,11 +105,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
             </div>
             <div
               class="MuiBox-root css-0"
-            >
-              <div
-                class="payload-richtext"
-              />
-            </div>
+            />
           </div>
           <div />
         </a>

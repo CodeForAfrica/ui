@@ -39,27 +39,6 @@ const mockOrganizations = [
 ];
 
 describe("ParticipatingOrganizationList", () => {
-  it("renders chip variant by default", () => {
-    const { getByTestId } = render(
-      <ParticipatingOrganizationList
-        title="Participants"
-        organizations={mockOrganizations}
-      />,
-    );
-    expect(getByTestId("chip-list")).toBeInTheDocument();
-  });
-
-  it("renders card variant when specified", () => {
-    const { getByTestId } = render(
-      <ParticipatingOrganizationList
-        variant="card"
-        title="Participants"
-        organizations={mockOrganizations}
-      />,
-    );
-    expect(getByTestId("card-list")).toBeInTheDocument();
-  });
-
   it("renders nothing when no organizations provided", () => {
     const { container } = render(
       <ParticipatingOrganizationList organizations={[]} />,

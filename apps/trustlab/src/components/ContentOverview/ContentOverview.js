@@ -1,8 +1,10 @@
 import { Section } from "@commons-ui/core";
-import { Link } from "@commons-ui/next";
+import { Link, RichTypography } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
-import { Box, Grid2 as Grid, Typography } from "@mui/material";
-import React, { forwardRef } from "react";
+import { Box, Grid2 as Grid } from "@mui/material";
+import { forwardRef } from "react";
+
+import LocationAndDate from "@/trustlab/components/LocationAndDate";
 
 const headingSx = {
   fontFamily: "Inter",
@@ -85,39 +87,57 @@ const itemValueSx = {
 };
 
 const ContentOverview = forwardRef(function ContentOverview(props, ref) {
-  const { content, card } = props;
+  const { card, content, date, location, title } = props;
 
-  if (!content || !card) {
+  if (!(content && card)) {
     return null;
   }
-
-  const { title, cardType, items, richContent } = card;
-
+  const { cardType, items, richContent, title: cardTitle } = card;
+  const hasLocationOrDate = location?.length || date?.length;
   return (
     <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
       <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
         <Grid container spacing={4} alignItems="flex-start">
-          <Grid size={{ xs: 12, sm: 6 }}>
-            <LexicalRichText
-              elements={content}
-              sx={{
-                "h1, h2, h3, h4, h5, h6": {
-                  ...headingSx,
-                  mb: 1,
-                },
-                p: { mb: 2 },
-              }}
-              TypographyProps={{
-                gutterBottom: true,
-                sx: bodySx,
-              }}
-            />
+          <Grid
+            size={{ xs: 12, sm: 6 }}
+            container
+            spacing={1}
+            direction="column"
+          >
+            {title ? (
+              <Grid>
+                <RichTypography variant="h2" fontSize={26} lineHeight="29px">
+                  {title}
+                </RichTypography>
+              </Grid>
+            ) : null}
+            {hasLocationOrDate ? (
+              <Grid>
+                <LocationAndDate date={date} location={location} />
+              </Grid>
+            ) : null}
+            <Grid>
+              <LexicalRichText
+                elements={content}
+                sx={{
+                  "h1, h2, h3, h4, h5, h6": {
+                    ...headingSx,
+                    mb: 1,
+                  },
+                  p: { mb: 2 },
+                }}
+                TypographyProps={{
+                  gutterBottom: true,
+                  sx: bodySx,
+                }}
+              />
+            </Grid>
           </Grid>
           <Grid size={{ xs: 12, sm: 6 }}>
             <Box sx={cardContainerSx}>
-              <Typography variant="h3" sx={cardTitleSx}>
-                {title}
-              </Typography>
+              <RichTypography variant="h3" sx={cardTitleSx}>
+                {cardTitle}
+              </RichTypography>
 
               {cardType === "richtext" ? (
                 <LexicalRichText
@@ -132,16 +152,18 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
                   {items?.map((item, index) => (
                     <Box key={item.id ?? index}>
                       {item.fieldLabel ? (
-                        <Typography sx={itemLabelSx}>
+                        <RichTypography sx={itemLabelSx}>
                           {item.fieldLabel}
-                        </Typography>
+                        </RichTypography>
                       ) : null}
                       {item.isLink && item.href ? (
                         <Box component={Link} href={item.href} sx={itemLinkSx}>
                           {item.label}
                         </Box>
                       ) : (
-                        <Typography sx={itemValueSx}>{item.value}</Typography>
+                        <RichTypography sx={itemValueSx}>
+                          {item.value}
+                        </RichTypography>
                       )}
                     </Box>
                   ))}

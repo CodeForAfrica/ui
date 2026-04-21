@@ -11,6 +11,7 @@ const defaultProps = {
   title: "Rapid Response",
   briefs: [
     {
+      id: 1,
       icon: {
         url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
         alt: "Rapid Response icon",
@@ -47,6 +48,7 @@ const defaultProps = {
       },
     },
     {
+      id: 2,
       icon: {
         url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
         alt: "Rapid Response icon",
@@ -83,6 +85,7 @@ const defaultProps = {
       },
     },
     {
+      id: 4,
       icon: {
         url: "/api/media/file/screenshot-2025-07-21-at-20830-pm-1.png",
         alt: "Rapid Response icon",
