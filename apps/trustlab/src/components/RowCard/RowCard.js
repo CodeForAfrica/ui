@@ -5,7 +5,6 @@ import { useState, forwardRef } from "react";
 import RowCardActionButton from "./RowCardActionButton";
 
 import HelplineEmbedDialog from "@/trustlab/components/HelplineCard/HelplineEmbedDialog";
-import sanitizeEmbedHtml from "@/trustlab/utils/sanitizeEmbedHtml";
 
 const RowCard = forwardRef(function RowCard(props, ref) {
   const {
@@ -19,8 +18,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
     embedButtonLabel,
     embedCloseLabel,
   } = props;
-  const sanitizedEmbedCode = sanitizeEmbedHtml(embedCode);
-  const hasEmbed = Boolean(sanitizedEmbedCode);
+  const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
   const buttonLabel = embedButtonLabel || actionLabel;
 
@@ -111,7 +109,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
       </Stack>
       <HelplineEmbedDialog
         closeLabel={embedCloseLabel}
-        embedCode={sanitizedEmbedCode}
+        embedCode={embedCode}
         onClose={handleClose}
         open={open}
         title={title}

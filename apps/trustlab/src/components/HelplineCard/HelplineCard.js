@@ -14,8 +14,6 @@ import React, { useState } from "react";
 
 import HelplineEmbedDialog from "./HelplineEmbedDialog";
 
-import sanitizeEmbedHtml from "@/trustlab/utils/sanitizeEmbedHtml";
-
 function HelplineCard({
   title,
   icon: media,
@@ -25,8 +23,7 @@ function HelplineCard({
   embedButtonLabel,
   embedCloseLabel,
 }) {
-  const sanitizedEmbedCode = sanitizeEmbedHtml(embedCode);
-  const hasEmbed = Boolean(sanitizedEmbedCode);
+  const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
   const buttonLabel = embedButtonLabel || link?.label || title;
 
@@ -127,7 +124,7 @@ function HelplineCard({
       </CardActions>
       <HelplineEmbedDialog
         closeLabel={embedCloseLabel}
-        embedCode={sanitizedEmbedCode}
+        embedCode={embedCode}
         onClose={handleClose}
         open={open}
         title={title}
