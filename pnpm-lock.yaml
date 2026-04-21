@@ -612,9 +612,6 @@ catalogs:
     xlsx:
       specifier: ^0.18.5
       version: 0.18.5
-    xss:
-      specifier: ^1.0.15
-      version: 1.0.15
     yup:
       specifier: ^0.32.11
       version: 0.32.11
@@ -2463,9 +2460,6 @@ importers:
       validate-color:
         specifier: 'catalog:'
         version: 2.2.4
-      xss:
-        specifier: 'catalog:'
-        version: 1.0.15
     devDependencies:
       '@commons-ui/testing-library':
         specifier: workspace:*
@@ -24589,33 +24583,33 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)))(webpack@5.105.4(@swc/core@1.15.18))':
-    dependencies:
-      webpack: 5.105.4(@swc/core@1.15.18)
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18))
-
   '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4))(webpack@5.105.4)':
     dependencies:
       webpack: 5.105.4(@swc/core@1.15.18)(webpack-cli@4.10.0)
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4)
 
-  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)))':
+  '@webpack-cli/configtest@1.2.0(webpack-cli@4.10.0)(webpack@5.105.4(@swc/core@1.15.18))':
+    dependencies:
+      webpack: 5.105.4(@swc/core@1.15.18)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18))
+
+  '@webpack-cli/info@1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4))':
     dependencies:
       envinfo: 7.21.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18))
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4)
 
   '@webpack-cli/info@1.5.0(webpack-cli@4.10.0)':
     dependencies:
       envinfo: 7.21.0
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4)
-
-  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)))':
-    dependencies:
       webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18))
+
+  '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4))':
+    dependencies:
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4)
 
   '@webpack-cli/serve@1.7.0(webpack-cli@4.10.0)':
     dependencies:
-      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4)
+      webpack-cli: 4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18))
 
   '@wry/caches@1.0.1':
     dependencies:
@@ -35247,9 +35241,9 @@ snapshots:
   webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)):
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)))(webpack@5.105.4(@swc/core@1.15.18))
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)))
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4(@swc/core@1.15.18)))
+      '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0)(webpack@5.105.4(@swc/core@1.15.18))
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
@@ -35266,8 +35260,8 @@ snapshots:
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
       '@webpack-cli/configtest': 1.2.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4))(webpack@5.105.4)
-      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0)
-      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0)
+      '@webpack-cli/info': 1.5.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4))
+      '@webpack-cli/serve': 1.7.0(webpack-cli@4.10.0(webpack-bundle-analyzer@4.10.2)(webpack@5.105.4))
       colorette: 2.0.20
       commander: 7.2.0
       cross-spawn: 7.0.6
