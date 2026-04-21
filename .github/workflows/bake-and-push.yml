@@ -17,7 +17,7 @@ permissions:
 on:
   workflow_call:
     inputs:
-      os:
+      target_os:
         required: true
         type: string
         description: "Target OS (e.g. ubuntu-24.04 or ubuntu-24.04-arm) of the image"
@@ -68,7 +68,7 @@ on:
 
 jobs:
   bake:
-    runs-on: ${{ inputs.os }}
+    runs-on: ${{ inputs.target_os }}
     permissions:
       contents: read
 

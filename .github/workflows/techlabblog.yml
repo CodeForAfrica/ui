@@ -83,8 +83,8 @@ jobs:
       contents: read
     uses: ./.github/workflows/bake-and-push.yml
     with:
-      os: ${{ matrix.target_os }}
       target: techlabblog
+      target_os: ${{ matrix.target_os }}
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       set: |
