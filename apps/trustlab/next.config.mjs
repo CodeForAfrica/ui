@@ -91,10 +91,6 @@ const nextConfig = {
         source: "/robots.txt",
         destination: "/api/v1/robots",
       },
-      {
-        source: "/sitemap.xml",
-        destination: "/api/v1/sitemap",
-      },
     ];
   },
 };
