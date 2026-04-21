@@ -58,10 +58,9 @@ jobs:
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: trustlab
+      arch: arm64
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
-      # Both DEV and PROD are running on arm64 machines.
-      platforms: linux/arm64
       set: |
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', github.sha) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}

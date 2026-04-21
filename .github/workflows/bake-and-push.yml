@@ -17,6 +17,11 @@ permissions:
 on:
   workflow_call:
     inputs:
+      arch:
+        required: true
+        type: string
+        description: "Target architecture (e.g. amd64 or arm64) of the image"
+        default: "amd64"
       target:
         required: true
         type: string
@@ -35,11 +40,6 @@ on:
           Use this in CI to avoid rebuilding base images on every app push.
           Omit (or leave empty) to build base images inline — useful when
           testing base image changes locally via act or in build-base-images.yml.
-      platforms:
-        required: false
-        type: string
-        default: "linux/amd64,linux/arm64"
-        description: "Target platforms (comma-separated). Override to build for a single platform."
       set:
         required: false
         type: string
@@ -69,7 +69,7 @@ on:
 
 jobs:
   bake:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.architecture == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
     permissions:
       contents: read
 
@@ -81,8 +81,6 @@ jobs:
       - name: Build metadata
         id: meta
         run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
-
-      - uses: docker/setup-qemu-action@v3
 
       - uses: docker/setup-buildx-action@v3
 
@@ -110,5 +108,4 @@ jobs:
           set: |
             *.cache-from=type=gha,scope=${{ inputs.target }}
             *.cache-to=type=gha,mode=max,scope=${{ inputs.target }}
-            *.platform=${{ inputs.platforms }}
             ${{ inputs.set }}
