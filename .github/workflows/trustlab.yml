@@ -27,24 +27,24 @@ jobs:
     strategy:
       matrix:
         node-version: [24]
-        os: [ubuntu-latest]
+        os: [ubuntu-24.04]
     permissions:
       contents: read
     outputs:
       changed: ${{ steps.check.outputs.changed }}
       version: ${{ steps.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: check
-        uses: EndBug/version-check@v2
+        uses: EndBug/version-check@v3
         with:
           diff-search: true
           file-name: apps/trustlab/package.json
@@ -58,10 +58,9 @@ jobs:
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: trustlab
+      target_os: "['ubuntu-24.04-arm']"
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
-      # Both DEV and PROD are running on arm64 machines.
-      platforms: linux/arm64
       set: |
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', github.sha) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}
