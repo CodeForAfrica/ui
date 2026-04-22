@@ -35,17 +35,17 @@ jobs:
       changed: ${{ steps.check.outputs.changed }}
       version: ${{ steps.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: check
-        uses: EndBug/version-check@v2
+        uses: EndBug/version-check@v3
         with:
           diff-search: true
           file-name: apps/trustlab/package.json
