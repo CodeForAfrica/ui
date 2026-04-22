@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - chore/test-workflows-runs-on-arm64
     paths:
       - "apps/trustlab/**"
       - "docker/apps/trustlab/**"
