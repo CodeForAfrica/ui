@@ -10,7 +10,6 @@ import React from "react";
 
 function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
   const dialogTitleId = React.useId();
-  const hasEmbed = Boolean(embedCode?.trim());
 
   return (
     <Dialog
@@ -18,7 +17,7 @@ function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
       fullWidth
       maxWidth={false}
       onClose={onClose}
-      open={Boolean(hasEmbed && open)}
+      open={Boolean(open)}
       PaperProps={{
         sx: {
           width: "100%",
@@ -48,7 +47,7 @@ function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
             },
           }}
           dangerouslySetInnerHTML={
-            hasEmbed
+            embedCode?.trim()
               ? {
                   __html: embedCode,
                 }

@@ -6,6 +6,7 @@
         "APP_NAME",
         "APP_URL",
         "DEFAULT_LOCALE",
+        "ENABLE_HSTS",
         "LOCALES",
         "NEXT_RUNTIME",
         "PREVIEW_SECRET",

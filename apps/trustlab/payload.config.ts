@@ -27,17 +27,19 @@ import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const defaultAllowedOrigin = site.url.replace(/\/+$/, "");
+const normaliseOrigin = (value?: string) =>
+  value?.trim()?.replace(/\/+$/, "") ?? "";
 
-const normalizeOrigins = (value?: string) =>
+const normaliseOrigins = (value?: string) =>
   value
     ?.split(",")
     .map((d) => d.trim())
-    .map((d) => d.replace(/\/+$/, ""))
+    .map((d) => normaliseOrigin(d))
     .filter(Boolean) ?? [];
 
-const cors = normalizeOrigins(process.env.PAYLOAD_CORS);
-const csrf = normalizeOrigins(process.env.PAYLOAD_CSRF);
+const serverUrl = normaliseOrigin(site.url) || "";
+const cors = normaliseOrigins(process.env.PAYLOAD_CORS?.trim() || serverUrl);
+const csrf = normaliseOrigins(process.env.PAYLOAD_CSRF?.trim() || serverUrl);
 
 let nodemailerAdapterArgs: NodemailerAdapterArgs | undefined;
 if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
@@ -88,8 +90,8 @@ export default buildConfig({
     Users,
     Opportunities,
   ] as CollectionConfig[],
-  cors: cors.length ? cors : [defaultAllowedOrigin],
-  csrf: csrf.length ? csrf : [defaultAllowedOrigin],
+  cors,
+  csrf,
   db: mongooseAdapter({
     url: process.env.DATABASE_URL ?? false,
   }),
@@ -107,7 +109,7 @@ export default buildConfig({
     : undefined),
   plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET || "",
-  serverURL: defaultAllowedOrigin,
+  serverURL: serverUrl,
   sharp,
   telemetry: process.env.NEXT_TELEMETRY_DISABLED === "0",
   typescript: {
