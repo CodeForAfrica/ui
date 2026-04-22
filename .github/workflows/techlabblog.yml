@@ -31,26 +31,27 @@ jobs:
     strategy:
       matrix:
         node-version: [24]
-        os: [ubuntu-latest]
+        os: [ubuntu-24.04]
+        target_os: [ubuntu-24.04-arm]
     permissions:
       contents: read
     outputs:
       changed: ${{ steps.check.outputs.changed }}
       version: ${{ steps.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       # EndBug/version-check requires Node.js — it ships as a JS action.
       # https://github.com/EndBug/version-check#github-workflow
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Check if version is bumped
         id: check
-        uses: EndBug/version-check@v2
+        uses: EndBug/version-check@v3
         with:
           # Search every commit's diff, not just the commit message. This catches
           # version bumps that aren't mentioned in the commit message.
@@ -83,6 +84,7 @@ jobs:
     uses: ./.github/workflows/bake-and-push.yml
     with:
       target: techlabblog
+      target_os: "['ubuntu-24.04-arm']"
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       set: |
