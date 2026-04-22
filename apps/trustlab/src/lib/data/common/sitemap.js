@@ -2,32 +2,12 @@ import * as Sentry from "@sentry/nextjs";
 
 import { site } from "@/trustlab/utils";
 
-function normalizePathname(pathname) {
+function getAbsoluteUrl(pathname) {
   if (!pathname || typeof pathname !== "string") {
     return null;
   }
-
-  if (pathname === "/") {
-    return pathname;
-  }
-
-  const trimmed = pathname.trim();
-  if (!trimmed) {
-    return null;
-  }
-
-  const withLeadingSlash = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
-  return withLeadingSlash.replace(/\/+$/, "");
-}
-
-function getAbsoluteUrl(pathname) {
-  const normalizedPathname = normalizePathname(pathname);
-  if (!normalizedPathname) {
-    return null;
-  }
-
   const siteUrl = site.url.replace(/\/+$/, "");
-  return `${siteUrl}${normalizedPathname}`;
+  return `${siteUrl}${pathname}`;
 }
 
 function getLastModified(doc) {
@@ -35,12 +15,10 @@ function getLastModified(doc) {
   if (!rawDate) {
     return null;
   }
-
   const parsedDate = new Date(rawDate);
   if (Number.isNaN(parsedDate.getTime())) {
     return null;
   }
-
   return parsedDate.toISOString();
 }
 
@@ -49,7 +27,6 @@ function toSitemapEntry(doc, pathname) {
   if (!url) {
     return null;
   }
-
   return {
     url,
     lastModified: getLastModified(doc),
@@ -89,7 +66,6 @@ async function getPagesEntries(api) {
       ],
     },
   });
-
   return docs
     .map((doc) => {
       if (!doc?.pathname) {
@@ -114,7 +90,6 @@ async function getOpportunitiesEntries(api) {
       date: true,
     },
   });
-
   return docs
     .map((doc) => {
       if (!doc?.pathname) {
@@ -132,10 +107,7 @@ async function getSitemapEntries(api) {
     getPagesEntries(api),
     getOpportunitiesEntries(api),
   ]);
-
-  return [...pages, ...opportunities].sort((left, right) =>
-    left.url.localeCompare(right.url),
-  );
+  return [...pages, ...opportunities];
 }
 
 async function buildSitemapXml(api) {
@@ -149,7 +121,6 @@ async function buildSitemapXml(api) {
       return `  <url>\n    <loc>${url}</loc>${lastModifiedNode}\n  </url>`;
     })
     .join("\n");
-
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${xmlEntries}\n</urlset>\n`;
 }
 

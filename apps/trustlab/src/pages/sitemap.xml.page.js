@@ -11,20 +11,17 @@ export async function getServerSideProps({ res }) {
     );
     res.setHeader("Content-Type", "application/xml; charset=utf-8");
     res.write(sitemapXml);
-    res.end();
-    return {
-      props: {},
-    };
   } catch (error) {
     Sentry.captureException(error);
     res.statusCode = 500;
-    res.end();
-    return {
-      props: {},
-    };
   }
+  res.end();
+  return {
+    props: {},
+  };
 }
 
 export default function SitemapXml() {
+  // All work is done and returned in getServerSideProps.
   return null;
 }
