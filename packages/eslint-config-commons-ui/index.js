@@ -1,17 +1,27 @@
 const babelParser = require("@babel/eslint-parser");
-const { fixupConfigRules } = require("@eslint/compat");
-const { FlatCompat } = require("@eslint/eslintrc");
 const js = require("@eslint/js");
+const turboConfig = require("eslint-config-turbo/flat");
+const importPlugin = require("eslint-plugin-import");
 const pluginJest = require("eslint-plugin-jest");
 const jestDom = require("eslint-plugin-jest-dom");
 const json = require("eslint-plugin-json");
+const jsxA11y = require("eslint-plugin-jsx-a11y");
 const markdown = require("eslint-plugin-markdown");
 const playwright = require("eslint-plugin-playwright");
-const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
+const reactPlugin = require("eslint-plugin-react");
+const reactHooks = require("eslint-plugin-react-hooks");
 const testingLibrary = require("eslint-plugin-testing-library");
 const globals = require("globals");
 
-const flatCompat = new FlatCompat();
+const { importOrderRule } = require("./shared");
+
+const codeFiles = ["**/*.{js,mjs,cjs,jsx}"];
+const testFiles = [
+  "**/*.test.{js,jsx,ts,tsx}",
+  "**/jest.setup.{js,jsx,ts,tsx}",
+];
+const playwrightFiles = ["**/*.spec.{js,jsx,ts,tsx}"];
+const turbo = turboConfig.default ?? turboConfig;
 
 module.exports = [
   {
@@ -43,27 +53,41 @@ module.exports = [
       "**/src/app/(payload)/admin/importMap.js",
     ],
   },
-  {
-    ...js.configs.recommended,
-  },
+  js.configs.recommended,
   ...markdown.configs.recommended,
   json.configs.recommended,
-  ...fixupConfigRules(flatCompat.extends("airbnb")),
-  ...fixupConfigRules(flatCompat.extends("airbnb/hooks")),
-  eslintPluginPrettierRecommended,
-  ...fixupConfigRules(flatCompat.extends("turbo")),
+  // Enforce that env vars used in code are declared in turbo.json pipeline
+  // configuration, ensuring correct cache invalidation in Turbo builds.
+  ...turbo,
   {
+    linterOptions: {
+      // Warn on stale eslint-disable comments so they don't accumulate silently.
+      reportUnusedDisableDirectives: "warn",
+    },
+  },
+  {
+    files: codeFiles,
     plugins: {
-      "jest-dom": jestDom,
-      "testing-library": testingLibrary,
+      import: importPlugin,
+      "jsx-a11y": jsxA11y,
+      react: reactPlugin,
+      "react-hooks": reactHooks,
     },
 
     languageOptions: {
       parser: babelParser,
+      ecmaVersion: "latest",
       sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
 
       parserOptions: {
         requireConfigFile: false,
+        ecmaFeatures: {
+          jsx: true,
+        },
 
         babelOptions: {
           presets: ["@babel/preset-react"],
@@ -74,65 +98,53 @@ module.exports = [
     },
 
     settings: {
-      "import/resolver": {
-        jsconfig: {
-          config: "jsconfig.json",
-        },
+      react: {
+        version: "detect",
       },
     },
 
     rules: {
+      ...jsxA11y.flatConfigs.recommended.rules,
+      ...reactPlugin.configs.flat.recommended.rules,
+      ...reactPlugin.configs.flat["jsx-runtime"].rules,
+      ...reactHooks.configs.recommended.rules,
       curly: ["error", "all"],
-      "import/order": [
-        "error",
-        {
-          alphabetize: {
-            order: "asc",
-            caseInsensitive: true,
-          },
-
-          "newlines-between": "always",
-        },
-      ],
+      "import/order": importOrderRule,
+      "jsx-a11y/no-autofocus": "off",
       "no-restricted-imports": [
         "error",
         {
           patterns: ["@mui/*/*/*", "!@mui/material/test-utils/*"],
         },
       ],
-      "no-constant-binary-expression": "off",
+      "no-constant-binary-expression": "warn",
 
       "react/jsx-filename-extension": [
         1,
         {
-          extensions: [".js"],
+          extensions: [".js", ".jsx"],
         },
       ],
-
+      "react/display-name": "off",
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "react/require-default-props": "off",
-      "import/no-extraneous-dependencies": "off",
+      "react-hooks/exhaustive-deps": "off",
       "no-unused-vars": [
         "error",
         {
+          argsIgnorePattern: "^_",
           caughtErrors: "none",
           ignoreRestSiblings: true,
+          varsIgnorePattern: "^(React|_)$",
         },
       ],
     },
   },
   {
-    files: ["**/*.test.js", "**/jest.setup.js"],
-    plugins: {
-      jest: pluginJest,
-      "jest-dom": jestDom,
-      "testing-library": testingLibrary,
-    },
+    files: testFiles,
     ...pluginJest.configs["flat/recommended"],
-    ...jestDom.configs["flat/recommended"],
-    ...testingLibrary.configs["flat/react"],
     languageOptions: {
       globals: {
         ...pluginJest.environments.globals.globals,
@@ -141,8 +153,24 @@ module.exports = [
         ...globals.node,
       },
     },
+  },
+  {
+    files: testFiles,
+    ...jestDom.configs["flat/recommended"],
+  },
+  {
+    files: testFiles,
+    ...testingLibrary.configs["flat/react"],
+  },
+  {
+    files: testFiles,
     rules: {
-      "testing-library/render-result-naming-convention": "off", // No need to comment every test file with this rule.
+      "jest-dom/prefer-empty": "off",
+      "jest-dom/prefer-in-document": "off",
+      "testing-library/no-container": "off",
+      "testing-library/no-node-access": "off",
+      "testing-library/prefer-screen-queries": "off",
+      "testing-library/render-result-naming-convention": "off",
     },
   },
   {
@@ -154,7 +182,7 @@ module.exports = [
     },
   },
   {
-    files: ["**/*.spec.js"],
+    files: playwrightFiles,
     ...playwright.configs["flat/recommended"],
   },
   {

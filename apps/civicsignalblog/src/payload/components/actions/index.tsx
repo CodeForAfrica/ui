@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 import { useAuth } from "payload/components/utilities";
 import React, { useEffect, useState } from "react";
 

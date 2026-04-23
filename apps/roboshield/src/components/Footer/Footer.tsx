@@ -3,12 +3,13 @@ import { Figure, Link, RichTypography } from "@commons-ui/next";
 import { Box, Grid, Stack } from "@mui/material";
 import { Theme, styled } from "@mui/material/styles";
 
+import FooterDescription from "./FooterDescription";
+
 import type { SocialMediaLink } from "@/roboshield/components/NavBarNavList";
 import NewsletterSubscription from "@/roboshield/components/NewsletterSubscription";
 import type { Children } from "@/roboshield/components/RichText";
 import RichText from "@/roboshield/components/RichText";
 import { SettingsSite } from "@/root/payload-types";
-import FooterDescription from "./FooterDescription";
 
 type Partner = SettingsSite["initiative"]["partners"];
 

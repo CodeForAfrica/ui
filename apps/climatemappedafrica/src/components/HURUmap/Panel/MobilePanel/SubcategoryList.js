@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { Link } from "@commons-ui/next";
 import { Box, Button, Popover } from "@mui/material";
 import PropTypes from "prop-types";

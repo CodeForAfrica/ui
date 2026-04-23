@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { CssBaseline } from "@mui/material";
 import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import { GoogleAnalytics } from "@next/third-parties/google";

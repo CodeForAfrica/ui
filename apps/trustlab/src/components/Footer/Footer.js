@@ -7,7 +7,6 @@ import React from "react";
 import FooterDescription from "./FooterDescription";
 import Funders from "./Funders";
 
-/* eslint-disable-next-line import/no-unresolved */
 import LeftImageUrl from "@/trustlab/assets/left-footer-icon.svg?url";
 import RightImage from "@/trustlab/assets/right-footer-icon.webp";
 import FooterLinks from "@/trustlab/components/FooterLinks";

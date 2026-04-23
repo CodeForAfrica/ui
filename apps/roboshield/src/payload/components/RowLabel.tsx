@@ -4,8 +4,8 @@
 // Required in Payload v3, where custom components must be used for label customization.
 // See: https://payloadcms.com/docs/fields/array#admin-options
 
-import React from "react";
 import { useRowLabel } from "@payloadcms/ui";
+import React from "react";
 
 interface RowData extends Record<string, any> {
   title?: string;

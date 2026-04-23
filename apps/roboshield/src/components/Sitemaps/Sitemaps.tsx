@@ -1,12 +1,11 @@
 import { Box, TextareaAutosize } from "@mui/material";
 import { ChangeEvent, useState } from "react";
 
-import StepperNav from "@/roboshield/components/StepperNav";
-
-import { useGlobalState } from "@/roboshield/context/GlobalContext";
-import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
+import StepperNav from "@/roboshield/components/StepperNav";
+import { useGlobalState } from "@/roboshield/context/GlobalContext";
+import { StepComponent } from "@/roboshield/types/stepComponent";
 
 interface Props extends StepComponent {
   placeholder?: string;

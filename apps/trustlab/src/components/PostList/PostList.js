@@ -32,7 +32,6 @@ function PostList({
         setPage(parsed);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPage]);
 
   const {

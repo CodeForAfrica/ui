@@ -11,7 +11,7 @@
     "build-next": "turbo run build-next",
     "build-payload": "turbo run build-payload",
     "dev": "turbo run dev --parallel",
-    "lint-check": "turbo run lint-check",
+    "lint:check": "turbo run lint:check",
     "lint": "turbo run lint",
     "prepare": "husky",
     "release": "changeset version && pnpm install",
@@ -48,7 +48,13 @@
   "packageManager": "pnpm@10.30.3",
   "pnpm": {
     "overrides": {
-      "sharp": "catalog:"
+      "@swc/core": "catalog:",
+      "eslint-import-resolver-typescript": "catalog:",
+      "jose": "catalog:",
+      "pino": "catalog:",
+      "semver": "catalog:",
+      "sharp": "catalog:",
+      "undici-types": "catalog:"
     }
   }
 }

@@ -98,7 +98,7 @@ export default async function processPageDocuments(page, api, context) {
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
-    // eslint-disable-next-line no-param-reassign
+
     page.fallback = {
       [swrKey]: documents,
     };

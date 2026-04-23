@@ -1,8 +1,8 @@
 "use client";
 
 import { Section } from "@commons-ui/core";
-import React from "react";
 import { alpha, Box, Typography } from "@mui/material";
+import React from "react";
 
 import bg from "@/techlabblog/assets/images/1920x668px bg - 2 2.png";
 

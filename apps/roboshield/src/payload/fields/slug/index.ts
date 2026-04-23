@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
+import type { Field } from "payload";
 
 import formatSlug from "./formatSlug";
-import type { Field } from "payload";
 
 function slug({ fieldToUse = "title", overrides = undefined } = {}): Field {
   const slugResult: Field = {

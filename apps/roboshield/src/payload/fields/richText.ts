@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
+import { Field, FieldHook, Payload } from "payload";
 
 import mapLinkTypeToHref, { NodeType } from "../utils/mapLinkTypeToHref";
-import { Field, FieldHook, Payload } from "payload";
 
 async function insertHref(nodes: NodeType[] | null, payload: Payload) {
   if (!nodes?.length) {

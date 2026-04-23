@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { Link } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import React, { Fragment } from "react";

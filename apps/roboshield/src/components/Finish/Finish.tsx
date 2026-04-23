@@ -3,10 +3,9 @@ import { sendGAEvent } from "@next/third-parties/google";
 import { useEffect, useState } from "react";
 
 import Code from "@/roboshield/components/Code";
-import StepperNav from "@/roboshield/components/StepperNav";
-
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
+import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
 import { StepComponent } from "@/roboshield/types/stepComponent";

@@ -1,14 +1,8 @@
-const path = require("path");
-
-const buildEslintCommand = (filenames) =>
-  `next lint --fix --file ${filenames
-    .map((f) => path.relative(process.cwd(), f))
-    .join(" --file ")}`;
+const base = require("eslint-config-commons-ui/lintstaged")(__dirname);
 
 module.exports = {
-  // Since we don't have eslint json/md plugins installed in this app, we can't
-  // use the eslint to lint json,md here
-  "*.{json,md,mdx}": ["prettier --write"],
-  "*.{yaml,yml}": "prettier --write",
-  "*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,mdx}": [buildEslintCommand],
+  // mdx is formatted by prettier but not linted by eslint (no mdx eslint plugin)
+  "*.{json,md,mdx,yaml,yml}": ["prettier --write"],
+  "*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}":
+    base["*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}"],
 };

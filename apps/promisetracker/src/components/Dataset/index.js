@@ -151,7 +151,11 @@ function Dataset({ dataset, ...props }) {
         className={classes.formats}
       >
         {Object.keys(formats).map((format) => (
-          <RichTypography variant="caption" className={classes.format}>
+          <RichTypography
+            key={format}
+            variant="caption"
+            className={classes.format}
+          >
             {format}
           </RichTypography>
         ))}

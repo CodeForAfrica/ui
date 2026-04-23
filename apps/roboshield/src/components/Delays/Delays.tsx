@@ -2,14 +2,13 @@ import InfoIcon from "@mui/icons-material/Info";
 import { Box, IconButton, InputLabel, Stack, Tooltip } from "@mui/material";
 import { useState } from "react";
 
-import StepperNav from "@/roboshield/components/StepperNav";
-import TimePicker from "@/roboshield/components/TimePicker";
-
 import Input from "@/roboshield/components/Input";
-import { useGlobalState } from "@/roboshield/context/GlobalContext";
-import { StepComponent } from "@/roboshield/types/stepComponent";
 import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
 import StepHint from "@/roboshield/components/StepHint";
+import StepperNav from "@/roboshield/components/StepperNav";
+import TimePicker from "@/roboshield/components/TimePicker";
+import { useGlobalState } from "@/roboshield/context/GlobalContext";
+import { StepComponent } from "@/roboshield/types/stepComponent";
 
 interface LabelNode {
   title: string;

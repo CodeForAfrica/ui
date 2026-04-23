@@ -1,4 +1,5 @@
 import type { PayloadRequest } from "payload";
+
 import { ROLE_ADMIN } from "./roles";
 
 export const isAdminOrSelf = ({ req: { user } }: { req: PayloadRequest }) => {

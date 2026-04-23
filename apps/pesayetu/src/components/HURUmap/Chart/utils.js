@@ -32,17 +32,13 @@ export function createFiltersForGroups(groups) {
 
 export function calculateTooltipPosition(event, tooltipBox, offsetX, offsetY) {
   let x = event.pageX + offsetX;
-  /* eslint-env browser */
   if (x + tooltipBox.width > window.innerWidth) {
     x = +event.pageX - offsetX - tooltipBox.width;
   }
   let y = event.pageY + offsetY;
-  /* eslint-env browser */
   if (y < window.innerHeight) {
-    /* eslint-env browser */
     y = window.innerHeight + offsetY;
   }
-  /* eslint-env browser */
   if (y + tooltipBox.height > window.innerHeight) {
     y = +event.pageY - offsetY - tooltipBox.height;
   }

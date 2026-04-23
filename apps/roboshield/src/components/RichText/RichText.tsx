@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import {
   DefaultNodeTypes,
   type DefaultTypedEditorState,
@@ -6,9 +7,9 @@ import {
   JSXConvertersFunction,
   RichText as ConvertRichText,
 } from "@payloadcms/richtext-lexical/react";
-import { styleConverter } from "./styleConverter";
-import { Box } from "@mui/material";
 import { forwardRef } from "react";
+
+import { styleConverter } from "./styleConverter";
 
 export type Children = DefaultNodeTypes[];
 

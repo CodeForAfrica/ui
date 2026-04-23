@@ -4,25 +4,25 @@
   "main": "index.js",
   "license": "MIT",
   "files": [
+    ".lintstagedrc.js",
     "index.js",
-    "next.js"
+    "lintstaged.js",
+    "next.js",
+    "shared.js",
+    "typescript.js"
   ],
   "scripts": {
-    "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
+    "lint:check": "eslint .",
+    "lint": "eslint --fix .",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
     "@babel/eslint-parser": "catalog:",
     "@babel/preset-react": "catalog:",
-    "@eslint/compat": "catalog:",
     "@eslint/js": "catalog:",
-    "@eslint/eslintrc": "catalog:",
     "@next/eslint-plugin-next": "catalog:",
-    "eslint-config-airbnb": "catalog:",
-    "eslint-config-prettier": "catalog:",
     "eslint-config-turbo": "catalog:",
-    "eslint-import-resolver-jsconfig": "catalog:",
+    "eslint-import-resolver-typescript": "catalog:",
     "eslint-plugin-import": "catalog:",
     "eslint-plugin-jest": "catalog:",
     "eslint-plugin-jest-dom": "catalog:",
@@ -30,11 +30,11 @@
     "eslint-plugin-jsx-a11y": "catalog:",
     "eslint-plugin-markdown": "catalog:",
     "eslint-plugin-playwright": "catalog:",
-    "eslint-plugin-prettier": "catalog:",
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-testing-library": "catalog:",
-    "globals": "catalog:"
+    "globals": "catalog:",
+    "typescript-eslint": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",

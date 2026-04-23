@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { Section } from "@commons-ui/core";
 import { Button, Typography, Grid } from "@mui/material";
 import Router from "next/router";

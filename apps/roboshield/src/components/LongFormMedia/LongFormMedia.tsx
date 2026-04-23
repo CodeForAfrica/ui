@@ -1,6 +1,7 @@
 import { Figure } from "@commons-ui/next";
 import { Box } from "@mui/material";
 import React from "react";
+
 import { MediaBlock } from "@/roboshield/components/Content/Content";
 import { Media } from "@/root/payload-types";
 
