@@ -27,16 +27,19 @@ import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const normaliseOrigin = (value?: string) =>
+  value?.trim()?.replace(/\/+$/, "") ?? "";
 
-const cors =
-  process.env.PAYLOAD_CORS?.split(",")
+const normaliseOrigins = (value?: string) =>
+  value
+    ?.split(",")
     .map((d) => d.trim())
+    .map((d) => normaliseOrigin(d))
     .filter(Boolean) ?? [];
 
-const csrf =
-  process.env.PAYLOAD_CSRF?.split(",")
-    .map((d) => d.trim())
-    .filter(Boolean) ?? [];
+const serverUrl = normaliseOrigin(site.url) || "";
+const cors = normaliseOrigins(process.env.PAYLOAD_CORS?.trim() || serverUrl);
+const csrf = normaliseOrigins(process.env.PAYLOAD_CSRF?.trim() || serverUrl);
 
 let nodemailerAdapterArgs: NodemailerAdapterArgs | undefined;
 if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
@@ -106,8 +109,7 @@ export default buildConfig({
     : undefined),
   plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET || "",
-  // Just the origin, without trailing slash.
-  serverURL: site.url.slice(0, -1),
+  serverURL: serverUrl,
   sharp,
   telemetry: process.env.NEXT_TELEMETRY_DISABLED === "0",
   typescript: {

@@ -23,7 +23,7 @@ function HelplineCard({
   embedButtonLabel,
   embedCloseLabel,
 }) {
-  const hasEmbed = Boolean(embedCode);
+  const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
   const buttonLabel = embedButtonLabel || link?.label || title;
 

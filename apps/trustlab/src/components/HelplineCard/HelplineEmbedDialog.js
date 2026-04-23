@@ -17,7 +17,7 @@ function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
       fullWidth
       maxWidth={false}
       onClose={onClose}
-      open={Boolean(embedCode && open)}
+      open={Boolean(open)}
       PaperProps={{
         sx: {
           width: "100%",
@@ -47,7 +47,7 @@ function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
             },
           }}
           dangerouslySetInnerHTML={
-            embedCode
+            embedCode?.trim()
               ? {
                   __html: embedCode,
                 }

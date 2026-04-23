@@ -18,7 +18,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
     embedButtonLabel,
     embedCloseLabel,
   } = props;
-  const hasEmbed = Boolean(embedCode);
+  const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
   const buttonLabel = embedButtonLabel || actionLabel;
 

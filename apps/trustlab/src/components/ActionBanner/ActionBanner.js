@@ -28,7 +28,7 @@ const ActionBanner = forwardRef(function ActionBanner(
   },
   ref,
 ) {
-  const hasEmbed = Boolean(embedCode);
+  const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
