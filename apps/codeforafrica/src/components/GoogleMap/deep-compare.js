@@ -41,6 +41,5 @@ export function useDeepCompareMemoize(value) {
 }
 
 export function useDeepCompareEffectForMaps(callback, dependencies) {
-   
   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }

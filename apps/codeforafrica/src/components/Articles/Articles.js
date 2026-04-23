@@ -83,7 +83,6 @@ const Articles = React.forwardRef(function Articles(props, ref) {
 
     // We don't want to listen to router changes here since we're the ones
     // updating them
-     
   }, [queryParams]);
 
   return (

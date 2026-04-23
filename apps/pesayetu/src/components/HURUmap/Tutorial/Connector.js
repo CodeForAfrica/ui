@@ -18,23 +18,19 @@ function Connector() {
       ?.getBoundingClientRect();
 
     if (firstElement && secondElement) {
-       
       const y1 = firstElement?.top + firstElement?.height / 2;
-       
+
       const y2 = secondElement?.top + secondElement?.height / 2;
       if (firstElement.left < secondElement.left) {
         setStart({
-           
           x1: firstElement?.left + firstElement?.width + 20,
           y1,
         });
-         
+
         setEnd({ x2: secondElement?.left - 20, y2 });
       } else {
-         
         setStart({ x1: firstElement?.left - 20, y1 });
         setEnd({
-           
           x2: secondElement?.left + secondElement?.width + 20,
           y2,
         });

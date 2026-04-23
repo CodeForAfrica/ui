@@ -57,7 +57,6 @@ function Lists({
       }
       router.push(newPathname, newPathname, { shallow: true });
     }
-     
   }, [page, pageSize, sort, router.isReady]);
 
   const paginate = (newPage) => {
