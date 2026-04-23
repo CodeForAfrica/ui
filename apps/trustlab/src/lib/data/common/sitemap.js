@@ -40,6 +40,19 @@ function warnOnMissingPathname(collection, doc) {
   });
 }
 
+function docsToSitemapEntries(docs, collection) {
+  return docs
+    .map((doc) => {
+      if (!doc?.pathname) {
+        warnOnMissingPathname(collection, doc);
+        return null;
+      }
+
+      return toSitemapEntry(doc, doc.pathname);
+    })
+    .filter(Boolean);
+}
+
 async function getPagesEntries(api) {
   const { docs } = await api.getCollection("pages", {
     pagination: false,
@@ -66,16 +79,7 @@ async function getPagesEntries(api) {
       ],
     },
   });
-  return docs
-    .map((doc) => {
-      if (!doc?.pathname) {
-        warnOnMissingPathname("pages", doc);
-        return null;
-      }
-
-      return toSitemapEntry(doc, doc.pathname);
-    })
-    .filter(Boolean);
+  return docsToSitemapEntries(docs, "pages");
 }
 
 async function getOpportunitiesEntries(api) {
@@ -90,16 +94,7 @@ async function getOpportunitiesEntries(api) {
       date: true,
     },
   });
-  return docs
-    .map((doc) => {
-      if (!doc?.pathname) {
-        warnOnMissingPathname("opportunities", doc);
-        return null;
-      }
-
-      return toSitemapEntry(doc, doc.pathname);
-    })
-    .filter(Boolean);
+  return docsToSitemapEntries(docs, "opportunities");
 }
 
 async function getSitemapEntries(api) {
