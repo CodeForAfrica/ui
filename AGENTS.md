@@ -92,16 +92,16 @@ pnpm bump             # Bump versions via scripts/bump.js
 
 ### Shared packages
 
-| Package                         | Purpose                                                 |
-| ------------------------------- | ------------------------------------------------------- |
-| `commons-ui-core`               | Base React components (MUI + Emotion)                   |
-| `commons-ui-next`               | Next.js-specific helpers                                |
-| `commons-ui-payload`            | Payload CMS integration helpers                         |
-| `commons-ui-testing-library`    | Shared test utilities                                   |
-| `eslint-config-commons-ui`      | Shared ESLint config (extends airbnb + next + prettier) |
-| `jest-config-commons-ui`        | Shared Jest config                                      |
-| `playwright-config-commons-ui`  | Shared Playwright config                                |
-| `hurumap-core` / `hurumap-next` | Hurumap data visualization library                      |
+| Package                         | Purpose                                                           |
+| ------------------------------- | ----------------------------------------------------------------- |
+| `commons-ui-core`               | Base React components (MUI + Emotion)                             |
+| `commons-ui-next`               | Next.js-specific helpers                                          |
+| `commons-ui-payload`            | Payload CMS integration helpers                                   |
+| `commons-ui-testing-library`    | Shared test utilities                                             |
+| `eslint-config-commons-ui`      | Shared ESLint flat config: base, Next.js, and TypeScript variants |
+| `jest-config-commons-ui`        | Shared Jest config                                                |
+| `playwright-config-commons-ui`  | Shared Playwright config                                          |
+| `hurumap-core` / `hurumap-next` | Hurumap data visualization library                                |
 
 ### Key technology choices
 
