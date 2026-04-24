@@ -38,13 +38,11 @@
   "devDependencies": {
     "@babel/core": "catalog:",
     "eslint": "catalog:",
-    "prettier": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {
     "eslint": "catalog:",
-    "prettier": "catalog:",
     "typescript": "catalog:"
   },
   "engines": {

@@ -74,7 +74,6 @@
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
     "playwright-config-commons-ui": "workspace:*",
-    "prettier": "catalog:",
     "react-test-renderer": "catalog:",
     "typescript": "catalog:",
     "webpack": "catalog:"

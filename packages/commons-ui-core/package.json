@@ -43,7 +43,6 @@
     "identity-obj-proxy": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "prettier": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-test-renderer": "catalog:",

@@ -18,7 +18,6 @@
     "@playwright/test": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "prettier": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
   },

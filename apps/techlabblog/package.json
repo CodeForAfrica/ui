@@ -47,7 +47,6 @@
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
     "eslint-plugin-mdx": "catalog:",
-    "prettier": "catalog:",
     "typescript": "catalog:"
   },
   "engines": {

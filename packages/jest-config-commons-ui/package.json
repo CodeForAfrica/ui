@@ -26,7 +26,6 @@
     "eslint-config-commons-ui": "workspace:*",
     "identity-obj-proxy": "catalog:",
     "jest": "catalog:",
-    "prettier": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
   },

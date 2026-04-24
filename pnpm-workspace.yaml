@@ -167,7 +167,7 @@ catalog:
   payload: ^2.30.0
   pino: ^10.3.1
   plaiceholder: ^2.5.0
-  prettier: ^3.3.3
+  oxfmt: ^0.46.0
   prop-types: ^15.8.1
   qs: ^6.13.0
   react-ace: ^11.0.1
