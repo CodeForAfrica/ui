@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "files": [
-    ".lintstagedrc.js",
     "index.js",
     "lintstaged.js",
     "next.js",

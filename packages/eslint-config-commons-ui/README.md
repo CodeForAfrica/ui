@@ -39,4 +39,4 @@ pnpm -C packages/<package-name> exec eslint .
 
 ## Lint-Staged
 
-The shared `lint-staged` config lives in `.lintstagedrc.js` in this package. Workspaces import it through a local `.lintstagedrc.js` stub so `lint-staged` can select the nearest config for staged files while still running commands from the owning workspace directory.
+The shared `lint-staged` config lives in `lintstaged.js` in this package. Workspaces import it through a local `.lintstagedrc.js` stub so `lint-staged` can select the nearest config for staged files while still running commands from the owning workspace directory.
