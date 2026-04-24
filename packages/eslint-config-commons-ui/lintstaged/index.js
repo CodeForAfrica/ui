@@ -1,4 +1,4 @@
-const path = require("path");
+const { createCommandBuilder } = require("./functions");
 
 /**
  * Factory that returns a lint-staged config scoped to the given directory.
@@ -10,13 +10,7 @@ const path = require("path");
  * @param {string} configDir - absolute path of the workspace root (pass __dirname)
  */
 function createLintStagedConfig(configDir) {
-  const quotedFiles = (filenames) =>
-    filenames
-      .map((filename) => JSON.stringify(path.relative(configDir, filename)))
-      .join(" ");
-
-  const buildCommand = (bin, args, filenames) =>
-    `pnpm -C ${JSON.stringify(configDir)} exec ${bin} ${args} ${quotedFiles(filenames)}`;
+  const buildCommand = createCommandBuilder(configDir);
 
   const buildEslintCommand = (filenames) =>
     buildCommand("eslint", "--fix --no-warn-ignored", filenames);

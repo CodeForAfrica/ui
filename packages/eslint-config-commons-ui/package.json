@@ -5,7 +5,7 @@
   "license": "MIT",
   "files": [
     "index.js",
-    "lintstaged.js",
+    "lintstaged/",
     "next.js",
     "shared.js",
     "typescript.js"
