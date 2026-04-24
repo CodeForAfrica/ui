@@ -4,7 +4,7 @@
   "sortPackageJson": false,
   "ignorePatterns": [
     ".next/**",
-    ".turbo",
+    ".turbo/**",
     "build/**",
     "coverage/**",
     "dist/**",
