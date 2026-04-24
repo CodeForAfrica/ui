@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { Figure, Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Stack } from "@mui/material";

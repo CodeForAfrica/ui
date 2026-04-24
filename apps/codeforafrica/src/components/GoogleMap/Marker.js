@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import React from "react";
 
 function Marker(options) {

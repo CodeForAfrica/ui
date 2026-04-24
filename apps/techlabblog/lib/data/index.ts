@@ -1,8 +1,9 @@
-import { compile, run } from "@mdx-js/mdx";
 import type { PathLike } from "fs";
 import { promises as fs } from "fs";
-import type { MDXModule } from "mdx/types";
 import path from "path";
+
+import { compile, run } from "@mdx-js/mdx";
+import type { MDXModule } from "mdx/types";
 import * as runtime from "react/jsx-runtime";
 
 import { useMDXComponents } from "@/techlabblog/mdx-components";

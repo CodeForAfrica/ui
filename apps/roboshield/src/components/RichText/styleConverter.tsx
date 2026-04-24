@@ -1,5 +1,5 @@
-import { JSXConverters } from "@payloadcms/richtext-lexical/react";
 import { RichTypography, Link } from "@commons-ui/next";
+import { JSXConverters } from "@payloadcms/richtext-lexical/react";
 
 const DEFAULT_PROPS = {
   html: false,

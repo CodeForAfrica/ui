@@ -6,12 +6,10 @@ function stringifyDescription(description) {
   }
   return description.reduce((result, item) => {
     if (item.text) {
-      // eslint-disable-next-line no-param-reassign
       result += item.text;
     }
 
     if (Array.isArray(item.children)) {
-      // eslint-disable-next-line no-param-reassign
       result += stringifyDescription(item.children);
     }
     return result;

@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { Link } from "@commons-ui/next";
 import { SvgIcon } from "@mui/material";
 import React from "react";

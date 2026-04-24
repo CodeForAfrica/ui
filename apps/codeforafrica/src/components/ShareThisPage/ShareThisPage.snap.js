@@ -12,7 +12,8 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
         aria-label="Twitter"
         class="react-share__ShareButton MuiBox-root css-15p9n5u"
         data-mui-internal-clone-element="true"
-        style="background-color: transparent; padding: 0px; cursor: pointer;"
+        style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+        type="button"
       >
         <div
           aria-hidden="true"
@@ -25,7 +26,8 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
         aria-label="Linkedin"
         class="react-share__ShareButton MuiBox-root css-15p9n5u"
         data-mui-internal-clone-element="true"
-        style="background-color: transparent; padding: 0px; cursor: pointer;"
+        style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+        type="button"
       >
         <div
           aria-hidden="true"
@@ -38,7 +40,8 @@ exports[`<ShareThisPage /> renders unchanged 1`] = `
         aria-label="Facebook"
         class="react-share__ShareButton MuiBox-root css-15p9n5u"
         data-mui-internal-clone-element="true"
-        style="background-color: transparent; padding: 0px; cursor: pointer;"
+        style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+        type="button"
       >
         <div
           aria-hidden="true"

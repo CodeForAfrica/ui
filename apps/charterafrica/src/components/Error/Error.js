@@ -1,5 +1,3 @@
-import RichTypography from "@/commons-ui/core/RichTypography";
-import Section from "@/commons-ui/core/Section";
 import { Link } from "@commons-ui/next";
 import { Button } from "@mui/material";
 import PropTypes from "prop-types";
@@ -8,6 +6,8 @@ import React from "react";
 import { secondary } from "@/charterafrica/colors";
 import BackgroundBox from "@/charterafrica/components/BackgroundBox";
 import RichText from "@/charterafrica/components/RichText";
+import RichTypography from "@/commons-ui/core/RichTypography";
+import Section from "@/commons-ui/core/Section";
 
 const Error = React.forwardRef(function Error(props, ref) {
   const { statusCode, description, title, link } = props;

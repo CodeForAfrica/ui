@@ -11,8 +11,8 @@
     "jest.setup.js"
   ],
   "scripts": {
-    "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 eslint --flag unstable_config_lookup_from_file --fix './'",
+    "lint:check": "eslint .",
+    "lint": "eslint --fix .",
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {

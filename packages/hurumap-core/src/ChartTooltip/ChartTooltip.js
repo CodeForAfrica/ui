@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { StyledEngineProvider } from "@mui/material/styles";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";

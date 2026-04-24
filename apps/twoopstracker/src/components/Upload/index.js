@@ -142,7 +142,11 @@ function Upload({
         )}
         {!loading && messages?.errors ? (
           messages.errors?.map(({ message }) => (
-            <Typography variant="caption" className={classes.error}>
+            <Typography
+              key={message}
+              variant="caption"
+              className={classes.error}
+            >
               {message}
             </Typography>
           ))

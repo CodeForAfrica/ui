@@ -1,7 +1,8 @@
 import type { Block } from "payload";
-import { RichText } from "./RichText";
-import { MediaBlock } from "./MediaBlock";
+
 import { ExternalEmbed } from "./ExternalEmbed";
+import { MediaBlock } from "./MediaBlock";
+import { RichText } from "./RichText";
 
 export const Content: Block = {
   slug: "content",

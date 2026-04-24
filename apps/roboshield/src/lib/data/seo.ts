@@ -1,6 +1,7 @@
+import { NextSeoProps } from "next-seo";
+
 import site from "@/roboshield/utils/site";
 import { Media, Page, SettingsSite } from "@/root/payload-types";
-import { NextSeoProps } from "next-seo";
 
 type OpenGraphMedia = {
   url: string;
@@ -21,12 +22,10 @@ function stringifyDescription(description: RichTextProps) {
   }
   return description.reduce((result, item) => {
     if (item.text) {
-      // eslint-disable-next-line no-param-reassign
       result += item.text;
     }
 
     if (Array.isArray(item.children)) {
-      // eslint-disable-next-line no-param-reassign
       result += stringifyDescription(item.children);
     }
     return result;

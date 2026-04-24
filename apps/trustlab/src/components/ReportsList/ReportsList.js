@@ -13,7 +13,6 @@ import {
 
 import useReports from "./useReports";
 
-// eslint-disable-next-line import/no-unresolved
 import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
@@ -63,7 +62,6 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
         setPage(parsed);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPage]);
 
   const { reports = [], pagination = p } = useReports(
@@ -237,7 +235,6 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     }
 
     setParams(newParams);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
   const showFiltersBar = hasFilters || hasSearch || hasSortBy;

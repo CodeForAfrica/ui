@@ -1,7 +1,8 @@
 import { getPayload } from "payload";
-import configPromise from "@/root/payload.config";
 import { PaginatedDocs } from "payload";
+
 import { Config, Page, SettingsSite } from "@/root/payload-types";
+import configPromise from "@/root/payload.config";
 
 export type CollectionConfig = keyof Config["collections"];
 export type CollectionItemTypes = Config["collections"][CollectionConfig];

@@ -1,6 +1,7 @@
 import { RichTypography } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
+
 import { ExternalEmbedBlock } from "@/roboshield/components/Content/Content";
 
 export default function LongFormExternalEmbed(props: ExternalEmbedBlock) {

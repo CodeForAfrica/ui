@@ -6,7 +6,8 @@ exports[`<FacebookShareBarButton /> renders unchanged 1`] = `
     aria-label="Title"
     class="react-share__ShareButton MuiBox-root css-15p9n5u"
     data-mui-internal-clone-element="true"
-    style="background-color: transparent; padding: 0px; cursor: pointer;"
+    style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+    type="button"
   >
     <div
       aria-hidden="true"
@@ -24,7 +25,8 @@ exports[`<LinkedinShareBarButton /> renders unchanged 1`] = `
     aria-label="Title"
     class="react-share__ShareButton MuiBox-root css-15p9n5u"
     data-mui-internal-clone-element="true"
-    style="background-color: transparent; padding: 0px; cursor: pointer;"
+    style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+    type="button"
   >
     <div
       aria-hidden="true"
@@ -42,7 +44,8 @@ exports[`<TwitterShareBarButton /> renders unchanged 1`] = `
     aria-label="Title"
     class="react-share__ShareButton MuiBox-root css-15p9n5u"
     data-mui-internal-clone-element="true"
-    style="background-color: transparent; padding: 0px; cursor: pointer;"
+    style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+    type="button"
   >
     <div
       aria-hidden="true"

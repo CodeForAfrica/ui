@@ -38,7 +38,6 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
         setPage(parsed);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPage]);
 
   const { playbooks = [], pagination = p } = usePlaybooks(

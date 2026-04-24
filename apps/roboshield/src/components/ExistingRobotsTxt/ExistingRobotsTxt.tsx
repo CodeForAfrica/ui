@@ -1,3 +1,4 @@
+import { RichTypography } from "@commons-ui/core";
 import { Box, Button, Snackbar, Stack, Typography } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Checkbox from "@mui/material/Checkbox";
@@ -6,13 +7,12 @@ import FormGroup from "@mui/material/FormGroup";
 import { useState } from "react";
 
 import Input from "@/roboshield/components/Input";
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { StepComponent } from "@/roboshield/types/stepComponent";
 import { validateUrl } from "@/roboshield/utils/urls";
-import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
-import StepHint from "@/roboshield/components/StepHint";
-import { RichTypography } from "@commons-ui/core";
 
 interface Props extends StepComponent {
   existingRobotsTxt?: string;

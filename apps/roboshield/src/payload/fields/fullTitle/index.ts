@@ -1,7 +1,7 @@
 import { deepmerge } from "@mui/utils";
+import { Field } from "payload";
 
 import populateFullTitle from "./populateFullTitle";
-import { Field } from "payload";
 
 interface Args {
   overrides?: Partial<Field>;

@@ -1,6 +1,7 @@
+import { GetServerSidePropsContext } from "next";
+
 import { getPageProps } from "@/roboshield/lib/data/common";
 import api from "@/roboshield/lib/payload";
-import { GetServerSidePropsContext } from "next";
 
 export async function getPageServerSideProps(
   context: GetServerSidePropsContext,

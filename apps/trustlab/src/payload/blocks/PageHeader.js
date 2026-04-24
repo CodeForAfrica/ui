@@ -1,6 +1,6 @@
-import { linkGroup } from "@/commons-ui/payload/fields";
-
 import BannerBlock from "./BannerBlock";
+
+import { linkGroup } from "@/commons-ui/payload/fields";
 
 const PageHeader = BannerBlock(
   "page-header",

@@ -28,7 +28,6 @@ export default function Embed({
   // Standalone = false implies in an iframe (default)
   const [standalone, setStandalone] = useState(false);
   useEffect(() => {
-    /* eslint-env browser */
     if (window.self === window.top) {
       setStandalone(true);
     }

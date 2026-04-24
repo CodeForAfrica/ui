@@ -114,7 +114,6 @@ function ExplorePage({
       router.push(href);
     }
     // router shouldn't part of useEffect dependencies: https://nextjs.org/docs/api-reference/next/router#userouter
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [explorePagePath, state.slug]);
 
   const handleSelectLocation = (payload) => {

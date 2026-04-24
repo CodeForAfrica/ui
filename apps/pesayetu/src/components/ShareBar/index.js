@@ -40,7 +40,6 @@ function ShareBar({ socialLinks, title, children, ...props }) {
   if (!socialLinks?.length) {
     return null;
   }
-  /* eslint-env browser */
   const url = typeof window !== "undefined" ? window.location : null;
   return (
     <div className={classes.root}>

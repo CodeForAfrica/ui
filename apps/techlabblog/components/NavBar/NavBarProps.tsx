@@ -1,4 +1,5 @@
 import { Theme, SxProps } from "@mui/material/styles";
+
 import type { LogoProps } from "@/techlabblog/components/Logo";
 import type {
   Menu,

@@ -3,8 +3,9 @@ import { Card, CardContent, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-import RichText from "@/roboshield/components/RichText";
 import { Statistics } from "./Statistics";
+
+import RichText from "@/roboshield/components/RichText";
 
 const StatisticCardRoot = styled(Card, {
   slot: "Root",

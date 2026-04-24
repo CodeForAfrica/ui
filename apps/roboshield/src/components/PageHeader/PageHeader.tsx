@@ -1,8 +1,9 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+
 import TwoToneBackground from "@/roboshield/components/TwoToneBackground";
-import { Page } from "@/root/payload-types";
 import { ExtractBlockType } from "@/roboshield/utils/blocks";
+import { Page } from "@/root/payload-types";
 
 type PageHeaderProps = ExtractBlockType<
   NonNullable<Page["blocks"]>[number],

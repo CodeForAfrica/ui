@@ -1,4 +1,5 @@
 import { type Tab } from "payload";
+
 import image from "../../fields/image";
 import link from "../../fields/links/link";
 import richText from "../../fields/richText";

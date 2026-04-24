@@ -1,4 +1,3 @@
-import RichTypography from "@/commons-ui/core/RichTypography";
 import {
   Accordion,
   AccordionDetails,
@@ -26,6 +25,7 @@ import { neutral } from "@/charterafrica/colors";
 import DynamicLineClampedTypography from "@/charterafrica/components/Comments/DynamicLineClampedTypography";
 import LineClampedRichTypography from "@/charterafrica/components/LineClampedRichTypography";
 import formatDateTime from "@/charterafrica/utils/formatDate";
+import RichTypography from "@/commons-ui/core/RichTypography";
 
 const Comment = forwardRef((props, ref) => {
   const {

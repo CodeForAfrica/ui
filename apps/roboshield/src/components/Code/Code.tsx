@@ -1,11 +1,12 @@
 import { Box, Button, Grid, Stack, SvgIcon } from "@mui/material";
 import { Theme } from "@mui/material";
-import CopyIcon from "@/roboshield/assets/icons/Type=copy, Size=24, Color=CurrentColor.svg";
-import SaveIcon from "@/roboshield/assets/icons/Type=save, Size=24, Color=CurrentColor.svg";
-import BackIcon from "@/roboshield/assets/icons/Type=back, Size=24, Color=CurrentColor.svg";
-import ResetIcon from "@/roboshield/assets/icons/Type=reset, Size=24, Color=CurrentColor.svg";
 
 import CodeEditor from "./CodeEditor";
+
+import BackIcon from "@/roboshield/assets/icons/Type=back, Size=24, Color=CurrentColor.svg";
+import CopyIcon from "@/roboshield/assets/icons/Type=copy, Size=24, Color=CurrentColor.svg";
+import ResetIcon from "@/roboshield/assets/icons/Type=reset, Size=24, Color=CurrentColor.svg";
+import SaveIcon from "@/roboshield/assets/icons/Type=save, Size=24, Color=CurrentColor.svg";
 
 interface CodeProps {
   code: string;

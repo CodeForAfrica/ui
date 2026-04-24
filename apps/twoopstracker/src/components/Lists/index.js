@@ -57,7 +57,6 @@ function Lists({
       }
       router.push(newPathname, newPathname, { shallow: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, pageSize, sort, router.isReady]);
 
   const paginate = (newPage) => {
@@ -227,11 +226,10 @@ function Lists({
             </ContentActions>
             <Grid container>
               {lists?.results?.map((item) => (
-                <Grid item xs={12}>
+                <Grid key={item.name} item xs={12}>
                   <ListCard
                     editLabel="Edit"
                     deleteLabel="Delete"
-                    key={item.name}
                     classes={{ root: classes.listItem }}
                     {...item}
                     mutate={mutate}

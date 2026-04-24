@@ -161,6 +161,7 @@ function Promises({
           <Grid item xs={12} className={classes.chips}>
             {selectedFilters?.map((filterItem) => (
               <Chip
+                key={filterItem.slug}
                 className={classes.chip}
                 value={filterItem.slug}
                 label={filterItem.name}

@@ -8,8 +8,8 @@ import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
 import NavBarNavList from "@/techlabblog/components/NavBarNavList";
-import type { ConnectProps } from "@/techlabblog/lib/data";
 import type { Menu } from "@/techlabblog/components/NavBarNavList";
+import type { ConnectProps } from "@/techlabblog/lib/data";
 
 interface FooterProps {
   copyright?: string;

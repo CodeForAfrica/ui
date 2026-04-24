@@ -12,8 +12,8 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "clean": "rm -rf .next .turbo build dist node_modules",
     "jest": "jest --passWithNoTests",
-    "lint-check": "TIMING=1 next lint './'",
-    "lint": "TIMING=1 next lint --fix './'",
+    "lint:check": "eslint .",
+    "lint": "eslint --fix .",
     "generate:types": "payload generate:types"
   },
   "dependencies": {
@@ -71,8 +71,8 @@
     "@types/react-dom": "catalog:",
     "babel-jest": "catalog:",
     "eslint": "catalog:",
+    "eslint-config-commons-ui": "workspace:*",
     "eslint-config-next": "catalog:",
-    "eslint-config-prettier": "catalog:",
     "eslint-import-resolver-typescript": "catalog:",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",

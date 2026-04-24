@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { Section } from "@commons-ui/core";
 import PropTypes from "prop-types";
 import React from "react";

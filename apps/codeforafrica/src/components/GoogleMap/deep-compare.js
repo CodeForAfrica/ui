@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { createCustomEqual } from "fast-equals";
 import React from "react";
 
@@ -42,6 +41,5 @@ export function useDeepCompareMemoize(value) {
 }
 
 export function useDeepCompareEffectForMaps(callback, dependencies) {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }

@@ -41,7 +41,6 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
         setPage(parsed);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialPage]);
 
   const { toolkits = [], pagination = p } = useToolkits(

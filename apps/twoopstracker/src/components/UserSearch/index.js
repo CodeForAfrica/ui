@@ -80,12 +80,11 @@ function UserSearch({ searches: searchesProp, paginationProps, ...props }) {
         <>
           <Grid container>
             {searches?.results?.map((item) => (
-              <Grid item xs={12}>
+              <Grid key={item.created_at} item xs={12}>
                 <UserSearchCard
                   {...item}
                   editLabel="Edit"
                   deleteLabel="Delete"
-                  key={item.created_at}
                   onDelete={handleDeleteSearch}
                   onEdit={handleEditSearch}
                 />

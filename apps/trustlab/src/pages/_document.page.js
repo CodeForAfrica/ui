@@ -23,7 +23,6 @@ class MyDocument extends Document {
       <style
         key={style.key}
         data-emotion={`${style.key} ${style.ids.join(" ")}`}
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: style.css }}
       />
     ));
@@ -61,7 +60,6 @@ class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
           {this.props.emotionStyleTags}
           <script
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `Object.assign(window, ${runtimeConfig});`,
             }}

@@ -105,7 +105,6 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
       }, {}),
     };
     setParams(newParams);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
   const { items = [], pagination = p } = useOpportunities(

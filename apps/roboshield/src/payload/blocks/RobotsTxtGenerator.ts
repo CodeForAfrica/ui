@@ -1,4 +1,5 @@
 import type { Block, Field, Validate } from "payload";
+
 import richText from "../fields/richText";
 
 const validateSteps: Validate = (value = [], args) => {

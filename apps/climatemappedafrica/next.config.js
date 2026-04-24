@@ -51,8 +51,8 @@ module.exports = {
     );
     // Since *.svg files are now handled ☝️, we can safely ignore file loader rule.
     fileLoaderRule.exclude = /\.svg$/i;
-    config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
-    // eslint-disable-next-line no-param-reassign
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,

@@ -4,19 +4,18 @@ import { FC, useEffect } from "react";
 import React from "react";
 import { useState } from "react";
 
-import Delays from "@/roboshield/components/Delays";
-import Sitemaps from "@/roboshield/components/Sitemaps";
-
 import CommonBots from "@/roboshield/components/CommonBots";
 import CommonSettings from "@/roboshield/components/CommonSettings";
+import Delays from "@/roboshield/components/Delays";
 import ExistingRobotsTxt from "@/roboshield/components/ExistingRobotsTxt";
 import Finish from "@/roboshield/components/Finish";
+import RichText, { Children } from "@/roboshield/components/RichText";
+import Sitemaps from "@/roboshield/components/Sitemaps";
 import {
   useGlobalState,
   defaultState,
 } from "@/roboshield/context/GlobalContext";
 import { generateRobots } from "@/roboshield/lib/robots";
-import RichText, { Children } from "@/roboshield/components/RichText";
 
 type Props = {
   steps: {

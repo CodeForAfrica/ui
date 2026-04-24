@@ -1,6 +1,6 @@
-import React from "react";
-import { Tooltip, IconButton, Box } from "@mui/material";
 import CodeIcon from "@mui/icons-material/Code";
+import { Tooltip, IconButton, Box } from "@mui/material";
+import React from "react";
 
 interface SkipToLastStepProps {
   handleSkipToLast: () => void;

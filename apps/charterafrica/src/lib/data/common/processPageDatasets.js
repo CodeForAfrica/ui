@@ -85,7 +85,7 @@ export default async function processPageDatasets(page, api, context) {
     if (qs) {
       swrKey = `${swrKey}?${qs}`;
     }
-    // eslint-disable-next-line no-param-reassign
+
     page.fallback = {
       [swrKey]: datasets,
     };

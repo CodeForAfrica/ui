@@ -1,7 +1,5 @@
 "use client";
 
-/* eslint-env browser */
-
 import { RichTypography as CuiRichTypography } from "@commons-ui/core";
 import { useRouter } from "next/router";
 import React from "react";
