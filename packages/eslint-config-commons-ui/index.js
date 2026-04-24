@@ -21,6 +21,7 @@ const testFiles = [
   "**/jest.setup.{js,jsx,ts,tsx}",
 ];
 const playwrightFiles = ["**/*.spec.{js,jsx,ts,tsx}"];
+// eslint-config-turbo publishes a default export under CJS in this environment.
 const turbo = turboConfig.default ?? turboConfig;
 
 module.exports = [
