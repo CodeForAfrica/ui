@@ -131,9 +131,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                     class="MuiStack-root css-6za6r5-MuiStack-root"
                   >
                     <button
+                      aria-label="Share on X"
                       class="react-share__ShareButton"
                       medium="twitter"
-                      style="background-color: transparent; padding: 0px; cursor: pointer;"
+                      style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+                      type="button"
                     >
                       <div
                         aria-hidden="true"
@@ -143,9 +145,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                       />
                     </button>
                     <button
+                      aria-label="Share on Facebook"
                       class="react-share__ShareButton"
                       medium="facebook"
-                      style="background-color: transparent; padding: 0px; cursor: pointer;"
+                      style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+                      type="button"
                     >
                       <div
                         aria-hidden="true"
@@ -155,9 +159,11 @@ exports[`<Tool /> renders unchanged 1`] = `
                       />
                     </button>
                     <button
+                      aria-label="Share on LinkedIn"
                       class="react-share__ShareButton"
                       medium="linkedin"
-                      style="background-color: transparent; padding: 0px; cursor: pointer;"
+                      style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+                      type="button"
                     >
                       <div
                         aria-hidden="true"
