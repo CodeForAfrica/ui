@@ -71,7 +71,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Format
-        run: pnpm format-check
+        run: pnpm format:check
 
       - name: Lint
         run: pnpm lint:check

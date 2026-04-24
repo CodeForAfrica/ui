@@ -5,7 +5,7 @@
   "license": "MIT",
   "files": [
     "index.js",
-    "lintstaged.js",
+    "lintstaged/",
     "next.js",
     "shared.js",
     "typescript.js"
@@ -38,13 +38,11 @@
   "devDependencies": {
     "@babel/core": "catalog:",
     "eslint": "catalog:",
-    "prettier": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {
     "eslint": "catalog:",
-    "prettier": "catalog:",
     "typescript": "catalog:"
   },
   "engines": {

@@ -47,7 +47,6 @@
     "jest-config-commons-ui": "workspace:*",
     "next": "catalog:",
     "payload": "catalog:payload-v3",
-    "prettier": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-test-renderer": "catalog:",

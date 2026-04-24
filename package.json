@@ -23,8 +23,8 @@
     "playwright": "turbo run playwright",
     "test": "turbo run jest playwright --parallel",
     "clean": "turbo run clean && rm -rf node_modules",
-    "format-check": "prettier --check \"**/*.+(json|md|yml)\" './'",
-    "format": "prettier --write \"**/*.+(json|md|yml)\" './'",
+    "format:check": "oxfmt --check .",
+    "format": "oxfmt .",
     "bump": "node scripts/bump.js"
   },
   "devDependencies": {
@@ -36,8 +36,8 @@
     "eslint-config-commons-ui": "workspace:*",
     "husky": "catalog:",
     "lint-staged": "catalog:",
+    "oxfmt": "catalog:",
     "playwright-config-commons-ui": "workspace:*",
-    "prettier": "catalog:",
     "react": "catalog:",
     "turbo": "catalog:"
   },

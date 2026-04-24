@@ -78,7 +78,6 @@
     "eslint-plugin-import": "catalog:",
     "jest": "catalog:",
     "jest-config-commons-ui": "workspace:*",
-    "prettier": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:"

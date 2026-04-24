@@ -112,7 +112,6 @@
     "jscodeshift": "catalog:",
     "next-sitemap": "catalog:",
     "playwright-config-commons-ui": "workspace:*",
-    "prettier": "catalog:",
     "react-test-renderer": "catalog:",
     "storybook": "catalog:",
     "svg-url-loader": "catalog:",

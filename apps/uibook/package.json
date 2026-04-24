@@ -65,7 +65,6 @@
     "eslint-config-commons-ui": "workspace:*",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
-    "prettier": "catalog:",
     "storybook": "catalog:",
     "typescript": "catalog:",
     "webpack": "catalog:"
