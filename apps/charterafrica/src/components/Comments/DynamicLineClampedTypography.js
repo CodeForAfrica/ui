@@ -31,7 +31,6 @@ const DynamicLineClampedTypography = forwardRef(
           variant="p3"
           {...props}
         >
-          {/* eslint-disable-next-line react/no-danger */}
           <span dangerouslySetInnerHTML={{ __html: comment }} ref={textRef} />
         </LineClampedRichTypography>
 

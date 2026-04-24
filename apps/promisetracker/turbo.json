@@ -9,6 +9,7 @@
         "APP_SLUG",
         "GOOGLE_ID",
         "GOOGLE_SECRET",
+        "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID",
         "NEXT_RUNTIME",
         "NEXTAUTH_SECRET",
         "NODE_ENV",

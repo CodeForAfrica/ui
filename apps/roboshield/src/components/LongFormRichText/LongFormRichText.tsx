@@ -1,8 +1,8 @@
+import type { Theme } from "@mui/material/styles";
 import React from "react";
 
-import RichText from "@/roboshield/components/RichText";
 import { RichTextBlock } from "@/roboshield/components/Content/Content";
-import type { Theme } from "@mui/material/styles";
+import RichText from "@/roboshield/components/RichText";
 
 export default function LongFormRichText({ content }: RichTextBlock) {
   return (

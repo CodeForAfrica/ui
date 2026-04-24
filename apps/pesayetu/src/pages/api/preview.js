@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 import getPostTypeById from "@/pesayetu/functions/postTypes/getPostTypeById";
 import { postTypes } from "@/pesayetu/lib/wordpress/_config/postTypes";
 import { wpPreviewSecret } from "@/pesayetu/lib/wordpress/connector";

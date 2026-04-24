@@ -1,11 +1,16 @@
-const { fixupConfigRules } = require("@eslint/compat");
-const { FlatCompat } = require("@eslint/eslintrc");
+const nextPlugin = require("@next/eslint-plugin-next");
 
 const commonConfig = require("./index");
 
-const flatCompat = new FlatCompat();
-
 module.exports = [
-  ...fixupConfigRules(flatCompat.extends("plugin:@next/next/core-web-vitals")),
+  {
+    settings: {
+      next: {
+        rootDir: "./",
+      },
+    },
+  },
+  nextPlugin.flatConfig.recommended,
+  nextPlugin.flatConfig.coreWebVitals,
   ...commonConfig,
 ];

@@ -4,7 +4,6 @@ import { LexicalRichText } from "@commons-ui/payload";
 import { Typography, Box, Button } from "@mui/material";
 import React, { forwardRef } from "react";
 
-// eslint-disable-next-line import/no-unresolved
 import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 
 const ErrorPage = forwardRef(function ErrorPage(props, ref) {

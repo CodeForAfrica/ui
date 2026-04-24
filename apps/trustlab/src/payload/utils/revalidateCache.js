@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { findAndFormatPagePath } from "@commons-ui/payload";
 
 import { site } from "@/trustlab/utils";

@@ -1,12 +1,11 @@
-import { createEmotionCache } from "@/commons-ui/core/styles";
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-/* eslint-disable-next-line import/no-unresolved */
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import React from "react";
 
+import { createEmotionCache } from "@/commons-ui/core/styles";
 import Page from "@/trustlab/components/Page";
 import AdminBar from "@/trustlab/components/PayloadAdminBar";
 import SEO from "@/trustlab/next-seo.config";

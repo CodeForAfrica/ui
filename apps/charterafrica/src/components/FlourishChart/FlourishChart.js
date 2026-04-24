@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { RichTypography, Section } from "@commons-ui/core";
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";

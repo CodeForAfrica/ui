@@ -1,4 +1,3 @@
-import RichTypography from "@/commons-ui/core/RichTypography";
 import { Section } from "@commons-ui/core";
 import { Box, Divider } from "@mui/material";
 import PropTypes from "prop-types";
@@ -7,6 +6,7 @@ import React, { Fragment } from "react";
 import Explainer from "./Explainer";
 
 import { secondary } from "@/charterafrica/colors";
+import RichTypography from "@/commons-ui/core/RichTypography";
 
 const Explainers = React.forwardRef(function Explainers(props, ref) {
   const { explainers, sx, title } = props;

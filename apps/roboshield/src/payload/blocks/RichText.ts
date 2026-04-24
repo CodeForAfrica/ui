@@ -1,4 +1,5 @@
 import type { Block } from "payload";
+
 import richText from "../fields/richText";
 
 export const RichText: Block = {

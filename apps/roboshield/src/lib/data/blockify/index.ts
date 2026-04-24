@@ -1,6 +1,6 @@
-import { Page } from "@/root/payload-types";
-import { ExtractBlockType } from "@/roboshield/utils/blocks";
 import { Api } from "@/roboshield/lib/payload";
+import { ExtractBlockType } from "@/roboshield/utils/blocks";
+import { Page } from "@/root/payload-types";
 
 type PropsifyBlockFunction<T> = (
   block: T,

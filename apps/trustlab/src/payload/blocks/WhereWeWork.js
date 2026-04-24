@@ -1,6 +1,6 @@
-import { image, richText } from "@/commons-ui/payload/fields";
-
 import colorSettingsField from "../fields/colorSettingsField";
+
+import { image, richText } from "@/commons-ui/payload/fields";
 
 const WhereWeWork = {
   slug: "where-we-work",

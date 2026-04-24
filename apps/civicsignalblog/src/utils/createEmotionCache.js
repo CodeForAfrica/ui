@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import createCache from "@emotion/cache";
 
 const isBrowser = typeof document !== "undefined";

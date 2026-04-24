@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { Box, useTheme, useMediaQuery } from "@mui/material";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";

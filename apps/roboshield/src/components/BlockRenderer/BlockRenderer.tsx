@@ -1,10 +1,11 @@
-import PageHeader from "@/roboshield/components/PageHeader";
+import { FC } from "react";
+
 import Content from "@/roboshield/components/Content";
+import Hero from "@/roboshield/components/Hero";
+import PageHeader from "@/roboshield/components/PageHeader";
+import RobotsTxtGenerator from "@/roboshield/components/RobotsTxtGenerator";
 import Statistics from "@/roboshield/components/Statistics";
 import { Page } from "@/root/payload-types";
-import Hero from "@/roboshield/components/Hero";
-import RobotsTxtGenerator from "@/roboshield/components/RobotsTxtGenerator";
-import { FC } from "react";
 
 interface BlockRendererProps extends Pick<Page, "blocks"> {}
 

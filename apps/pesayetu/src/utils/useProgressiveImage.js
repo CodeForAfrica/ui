@@ -4,7 +4,6 @@ const useProgressiveImage = (src) => {
   const [sourceLoaded, setSourceLoaded] = useState(null);
 
   useEffect(() => {
-    /* eslint-env browser */
     const img = new Image();
     img.src = src;
     img.onload = () => setSourceLoaded(src);

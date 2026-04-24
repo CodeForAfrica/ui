@@ -254,7 +254,7 @@ function UserProfile({
               </ClickAwayListener>
 
               {accountLink?.map((item) => (
-                <div>
+                <div key={item.href}>
                   <Divider
                     sx={{
                       opacity: "0.6",

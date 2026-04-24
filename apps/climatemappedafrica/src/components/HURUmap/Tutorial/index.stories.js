@@ -16,7 +16,7 @@ function Template({ sampleElements, ...args }) {
     <>
       <Tutorial {...args} />
       {sampleElements.map((sample) => (
-        <RichTypography>{sample}</RichTypography>
+        <RichTypography key={sample}>{sample}</RichTypography>
       ))}
     </>
   );

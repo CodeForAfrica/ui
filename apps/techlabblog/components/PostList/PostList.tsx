@@ -2,9 +2,9 @@ import { Grid } from "@mui/material";
 import type { SxProps, Theme } from "@mui/material/styles";
 import React from "react";
 
-import type { PostProps } from "@/techlabblog/components/Post";
-
 import PostCard from "./PostCard";
+
+import type { PostProps } from "@/techlabblog/components/Post";
 
 interface PostListProps {
   posts?: PostProps[];

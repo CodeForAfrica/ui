@@ -1,5 +1,3 @@
-/* eslint-env jest */
-
 jest.mock("next/router", () => ({
   useRouter: jest.fn().mockImplementation(() => ({
     asPath: "",

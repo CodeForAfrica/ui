@@ -30,8 +30,8 @@
     "payload-migrate:down": "payload migrate:down",
     "start": "PAYLOAD_CONFIG_PATH=${PAYLOAD_CONFIG_PATH:-dist/payload.config.js} NODE_ENV=${NODE_ENV:-production} node dist/server.js",
     "dev": "NODE_OPTIONS='--inspect --conditions=dev' TS_NODE_PROJECT=tsconfig.server.json tsx server.ts",
-    "lint-check": "TIMING=1 eslint './'",
-    "lint": "TIMING=1 next lint --fix './'",
+    "lint:check": "eslint .",
+    "lint": "eslint --fix .",
     "jest": "jest",
     "playwright": "npx playwright test",
     "clean": "rm -rf .next .turbo build dist node_modules"

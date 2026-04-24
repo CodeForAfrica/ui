@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint-check": "next lint",
-    "lint": "next lint --fix",
+    "lint:check": "eslint .",
+    "lint": "eslint --fix .",
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
@@ -42,8 +42,8 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "eslint": "catalog:",
+    "eslint-config-commons-ui": "workspace:*",
     "eslint-config-next": "catalog:",
-    "eslint-config-prettier": "catalog:",
     "eslint-import-resolver-webpack": "catalog:",
     "eslint-plugin-import": "catalog:",
     "eslint-plugin-mdx": "catalog:",

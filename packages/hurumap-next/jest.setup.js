@@ -1,5 +1,3 @@
-/* eslint-env jest */
-
 global.TextEncoder = jest.fn().mockImplementation(() => ({
   encode: jest.fn(),
   encodeInto: jest.fn(),

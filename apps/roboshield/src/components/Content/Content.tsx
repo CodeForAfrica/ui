@@ -1,13 +1,14 @@
 import { Section } from "@commons-ui/core";
-import { Page } from "@/root/payload-types";
+import { FC } from "react";
+
+import LongFormExternalEmbed from "@/roboshield/components/LongFormExternalEmbed";
+import LongFormMedia from "@/roboshield/components/LongFormMedia";
+import LongFormRichText from "@/roboshield/components/LongFormRichText";
 import {
   ExtractBlockType,
   ExtractNestedBlockType,
 } from "@/roboshield/utils/blocks";
-import LongFormRichText from "@/roboshield/components/LongFormRichText";
-import LongFormMedia from "@/roboshield/components/LongFormMedia";
-import LongFormExternalEmbed from "@/roboshield/components/LongFormExternalEmbed";
-import { FC } from "react";
+import { Page } from "@/root/payload-types";
 
 type ContentProps = ExtractBlockType<
   NonNullable<Page["blocks"]>[number],

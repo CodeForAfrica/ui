@@ -1,9 +1,10 @@
-import RichText from "@/roboshield/components/RichText";
 import { Section } from "@commons-ui/core";
 import { Box, Button, Typography } from "@mui/material";
+import { Theme } from "@mui/material";
 import React from "react";
 import ReactRotatingText from "react-rotating-text";
-import { Theme } from "@mui/material";
+
+import RichText from "@/roboshield/components/RichText";
 import { SiteHero } from "@/root/payload-types";
 
 const Hero = (props: SiteHero) => {

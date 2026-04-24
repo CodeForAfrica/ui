@@ -10,9 +10,10 @@ import {
 } from "@mui/material";
 import React from "react";
 
-import type NavBarProps from "@/techlabblog/components/NavBar/NavBarProps";
 import DesktopNavBar from "./DesktopNavBar";
 import MobileNavBar from "./MobileNavBar";
+
+import type NavBarProps from "@/techlabblog/components/NavBar/NavBarProps";
 
 interface ScrollStyleProps extends AppBarProps {
   ToolbarProps: ToolbarProps;

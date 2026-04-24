@@ -12,12 +12,12 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { ChangeEvent, useState } from "react";
 
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import { platforms } from "@/roboshield/lib/config";
 import { StepComponent } from "@/roboshield/types/stepComponent";
-import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
-import StepHint from "@/roboshield/components/StepHint";
 
 interface LabelNode {
   title: string;

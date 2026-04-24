@@ -7,7 +7,6 @@ export function downloadSheetData(data, type, filename, title) {
     const link = document.createElement("a");
     link.href = href;
     link.download = filename;
-    /* eslint-env browser */
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -32,7 +31,6 @@ export function downloadJson(data, filename) {
   const link = document.createElement("a");
   link.href = href;
   link.download = filename;
-  /* eslint-env browser */
   document.body.appendChild(link);
   link.click();
   link.remove();
@@ -42,10 +40,8 @@ export function downloadImage(url, title, imgType) {
   const link = document.createElement("a");
   link.download = `${title}.${imgType}`;
   link.href = url;
-  /* eslint-env browser */
   document.body.appendChild(link);
   link.click();
-  /* eslint-env browser */
   document.body.removeChild(link);
 }
 

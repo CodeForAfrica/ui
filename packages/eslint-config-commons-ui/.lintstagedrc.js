@@ -1,5 +1,3 @@
-module.exports = {
-  "*.{json,md}": ["eslint", "prettier --write"],
-  "*.js": "eslint --fix",
-  "*.{yaml,yml}": "prettier --write",
-};
+const createLintStagedConfig = require("./lintstaged");
+
+module.exports = createLintStagedConfig(__dirname);

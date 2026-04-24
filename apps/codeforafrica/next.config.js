@@ -36,7 +36,7 @@ const nextConfig = {
         loader: "frontmatter-markdown-loader",
       },
     );
-    config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
+    config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
 };

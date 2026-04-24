@@ -95,7 +95,6 @@ export default async function handler(req, res) {
       },
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error("Error fetching playbooks:", error);
     return res.status(500).json({ error: "Failed to fetch playbooks" });
   }

@@ -24,7 +24,11 @@ function DataSources({ items, title, subtitle, image, ...props }) {
               {title}
             </Header>
             {items.map(({ title: dataSourceTitle, href }) => (
-              <Typography variant="body2" className={classes.linkWrapper}>
+              <Typography
+                key={href ?? dataSourceTitle}
+                variant="body2"
+                className={classes.linkWrapper}
+              >
                 <Link underline="always" href={href}>
                   {dataSourceTitle}
                 </Link>

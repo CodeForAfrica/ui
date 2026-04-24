@@ -19,6 +19,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { useCallback, useState } from "react";
 import { useMemo, memo } from "react";
 
+import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
+import StepHint from "@/roboshield/components/StepHint";
 import StepperNav from "@/roboshield/components/StepperNav";
 import { useGlobalState } from "@/roboshield/context/GlobalContext";
 import {
@@ -27,8 +29,6 @@ import {
   groupAndSortRobots,
 } from "@/roboshield/lib/robots-data";
 import { StepComponent } from "@/roboshield/types/stepComponent";
-import SkipToLastStep from "@/roboshield/components/SkipToLastStep";
-import StepHint from "@/roboshield/components/StepHint";
 
 export default function CommonBots({
   handleNext,

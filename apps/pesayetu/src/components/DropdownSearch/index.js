@@ -150,6 +150,7 @@ function DropdownSearch({
           <List classes={{ root: classes.selectMenu }}>
             {suggestions.map(({ name, code }) => (
               <ListItem
+                key={code}
                 component={Link}
                 href={`${hrefProp}/${code}`}
                 variant="subtitle1"

@@ -1,8 +1,9 @@
+import { type GlobalConfig } from "payload";
+
 import EngagementTab from "./EngagementTab";
 import GeneralTab from "./GeneralTab";
-import NavigationTab from "./NavigationTab";
 import InitiativeTab from "./InitiativeTab";
-import { type GlobalConfig } from "payload";
+import NavigationTab from "./NavigationTab";
 
 const Site: GlobalConfig = {
   slug: "settings-site",

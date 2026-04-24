@@ -1,4 +1,3 @@
-/* eslint-env browser */
 import { jwtDecode } from "jwt-decode";
 
 import serverFn from "@/promisetracker/lib/server";
@@ -93,7 +92,7 @@ function actnow(site) {
   }
 
   async function getPetitions(query) {
-    const url = `${ACTNOW_URL}/v1/petitions/?${`${query}&` || ""}format=json`;
+    const url = `${ACTNOW_URL}/v1/petitions/?${query ? `${query}&` : ""}format=json`;
     const response = await fetch(url);
     const petitions = response.ok ? await response.json() : [];
 
