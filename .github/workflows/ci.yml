@@ -74,7 +74,7 @@ jobs:
         run: pnpm format-check
 
       - name: Lint
-        run: pnpm link:check
+        run: pnpm lint:check
 
       # Standard linux runners for public repositories have 4 vCPUs and 16GB of RAM
       # see: https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories

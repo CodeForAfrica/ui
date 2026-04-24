@@ -43,7 +43,7 @@ pnpm playwright       # E2E tests only (requires build)
 ### Linting & Formatting
 
 ```bash
-pnpm link:check       # Check linting without fixing
+pnpm lint:check       # Check linting without fixing
 pnpm lint             # Lint and auto-fix
 pnpm format-check     # Check Prettier formatting (JSON/MD/YAML)
 pnpm format           # Format JSON/MD/YAML files
