@@ -19,11 +19,11 @@ function createLintStagedConfig(configDir) {
     buildCommand("oxfmt", "--write --no-error-on-unmatched-pattern", filenames);
 
   return {
-    "*.{js,mjs,cjs,jsx,json,md,ts,mts,cts,tsx}": [
+    "*.{js,mjs,cjs,jsx,json,md,mdx,ts,mts,cts,tsx}": [
       buildEslintCommand,
       buildOxfmtCommand,
     ],
-    "*.{css,html,mdx,scss,yaml,yml}": [buildOxfmtCommand],
+    "*.{css,html,scss,yaml,yml}": [buildOxfmtCommand],
   };
 }
 
