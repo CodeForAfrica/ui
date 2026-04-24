@@ -3,7 +3,25 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "env": ["SENTRY_AUTH_TOKEN", "SENTRY_ORG", "SENTRY_PROJECT"]
+      "env": [
+        "API_SECRET_KEY",
+        "ALLOWED_EMAILS",
+        "GOOGLE_CLIENT_SECRET",
+        "NEXT_APP_GOOGLE_CLIENT_ID",
+        "NEXT_APP_GOOGLE_CREDENTIALS",
+        "NEXT_APP_GOOGLE_SHEET_ID",
+        "NEXT_APP_GOOGLE_SHEET_NAME",
+        "NEXT_APP_VPN_API_URL",
+        "NEXT_RUNTIME",
+        "SECRET",
+        "SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "VPN_MANAGER_KEY_EMAIL_SUBJECT",
+        "VPN_MANAGER_SENDGRID_API_KEY",
+        "VPN_MANAGER_SENDGRID_FROM_EMAIL",
+        "VPN_MANAGER_SENDGRID_FROM_NAME"
+      ]
     }
   }
 }

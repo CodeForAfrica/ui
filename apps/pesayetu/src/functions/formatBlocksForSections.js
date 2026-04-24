@@ -243,7 +243,7 @@ async function format(block) {
       const reusableBlocks = await getReusableBlockById(attributes.ref);
       // NOTE(Obed) By default recursion falls victim to this rule though functions are hoisted. this enables functions to be called recursively as used here.
       //            see: https://github.com/eslint/eslint/issues/12473
-      // eslint-disable-next-line no-use-before-define
+
       reusableBlocks.blocks = await formatBlocksForSections(
         reusableBlocks.blocks,
       );

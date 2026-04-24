@@ -72,7 +72,6 @@ function TweetsContainer({
     }
     // NOTE(kilemensi): Nextjs router shouldn't be a useEffect dependency
     //                  e.g. https://github.com/vercel/next.js/issues/18127
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
   const handleSearch = async () => {
@@ -99,7 +98,6 @@ function TweetsContainer({
       }
       router.push(newPathname, newPathname, { shallow: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     query,
     theme,

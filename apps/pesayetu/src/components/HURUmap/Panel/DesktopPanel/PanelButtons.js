@@ -123,7 +123,7 @@ function PanelButtons({
   };
 
   const open = value === "rich-data" && !tutorialOpen;
-  /* eslint-disable no-param-reassign */
+
   if (open) {
     drawerRef.current.style.visibility = "visible";
   } else {

@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 export default function getFooterMenu(data) {
   const labels = data.map((item) => item.label?.toLowerCase());
   const logoProps = data
