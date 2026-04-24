@@ -3,6 +3,10 @@
   "globalDependencies": ["**/.env.*local"],
   "globalEnv": ["CI", "GITHUB_TOKEN", "NODE_ENV", "PORT"],
   "tasks": {
+    "//#format:check": {},
+    "//#format": {
+      "cache": false
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
@@ -18,8 +22,13 @@
       "dependsOn": ["build"],
       "inputs": ["src/**/*.js"]
     },
-    "lint:check": {},
-    "lint": {},
+    "lint:check": {
+      "dependsOn": ["^lint:check"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"],
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true

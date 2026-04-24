@@ -45,8 +45,8 @@ pnpm playwright       # E2E tests only (requires build)
 ```bash
 pnpm lint:check       # Check linting without fixing
 pnpm lint             # Lint and auto-fix
-pnpm format-check     # Check Prettier formatting (JSON/MD/YAML)
-pnpm format           # Format JSON/MD/YAML files
+pnpm format:check     # Check Oxfmt formatting
+pnpm format           # Format supported source and config files with Oxfmt
 ```
 
 ### Docker (deployment image testing only)
