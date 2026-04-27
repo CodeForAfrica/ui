@@ -30,7 +30,7 @@ function createTransformIgnorePatterns(transpiledPackages = []) {
     ...DEFAULT_TRANSPILED_PACKAGES,
     ...transpiledPackages,
   ]);
-  const nodeModulesPattern = packages.map(escapeRegExp).join("|");
+  const nodeModulesPattern = `(?:${packages.map(escapeRegExp).join("|")})`;
   const pnpmPattern = packages.map(toPnpmPackagePattern).join("|");
   const repoRoot = path.join(__dirname, "../..").replace(/\\/g, "/");
 
