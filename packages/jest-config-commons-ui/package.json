@@ -45,19 +45,25 @@
     "@babel/preset-typescript": "catalog:",
     "babel-jest": "catalog:",
     "identity-obj-proxy": "catalog:",
-    "jest-environment-jsdom": "catalog:",
-    "next": "catalog:"
+    "jest-environment-jsdom": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
     "jest": "catalog:",
+    "next": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
   },
   "peerDependencies": {
-    "jest": "catalog:"
+    "jest": "catalog:",
+    "next": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
   },
   "engines": {
     "node": "24.x",
