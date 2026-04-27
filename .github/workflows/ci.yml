@@ -80,11 +80,3 @@ jobs:
       # see: https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
       - name: Jest
         run: pnpm jest:ci
-
-      # PromiseTracker seems to build success but then "hang".
-      # TODO(kilemensi): Investigate promisetrakcer
-      - name: Build
-        run: pnpm build --filter=promisetracker^...
-
-      - name: Playwright
-        run: pnpm playwright --filter=promisetracker^...

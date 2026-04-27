@@ -28,7 +28,6 @@ module.exports = {
         "packages/hurumap-core/src/*",
       ),
       content: path.resolve(__dirname, "content/"),
-      "@/promisetracker": path.resolve(__dirname, "apps/promisetracker/src/"),
       "@/vpnmanager": path.resolve(__dirname, "apps/vpnmanager/src/"),
       "@/uibook": path.resolve(__dirname, "apps/uibook/src/"),
       "@/techlabblog": path.resolve(__dirname, "apps/techlabblog/src/"),

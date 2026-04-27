@@ -324,18 +324,9 @@ catalogs:
     file-saver:
       specifier: ^2.0.5
       version: 2.0.5
-    form-data:
-      specifier: ^4.0.4
-      version: 4.0.5
     formik:
       specifier: ^2.4.6
       version: 2.4.9
-    formik-mui:
-      specifier: ^4.0.0
-      version: 4.0.0
-    formik-mui-lab:
-      specifier: ^1.0.0
-      version: 1.0.0
     frontmatter-markdown-loader:
       specifier: ^3.6.3
       version: 3.7.0
@@ -474,9 +465,6 @@ catalogs:
     react-vega:
       specifier: ^7.6.0
       version: 7.7.1
-    reading-time:
-      specifier: ^1.5.0
-      version: 1.5.0
     rehype-autolink-headings:
       specifier: ^7.1.0
       version: 7.1.0
@@ -534,9 +522,6 @@ catalogs:
     swr:
       specifier: ^2.2.5
       version: 2.4.1
-    tiny-warning:
-      specifier: ^1.0.3
-      version: 1.0.3
     tsc-alias:
       specifier: ^1.8.10
       version: 1.8.16
@@ -570,9 +555,6 @@ catalogs:
     vega-tooltip:
       specifier: ^0.34.0
       version: 0.34.0
-    victory:
-      specifier: ^36.9.2
-      version: 36.9.2
     video.js:
       specifier: ^8.17.3
       version: 8.23.7
@@ -598,9 +580,6 @@ catalogs:
     '@mui/material':
       specifier: ^5.16.6
       version: 5.18.0
-    '@mui/private-theming':
-      specifier: ^5.16.6
-      version: 5.17.1
     '@mui/styles':
       specifier: ^5.16.6
       version: 5.18.0
@@ -810,7 +789,7 @@ importers:
         version: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
         version: 2.32.3(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.27.7)(typescript@5.9.3)(webpack@5.106.2)
@@ -1021,7 +1000,7 @@ importers:
         version: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
         version: 2.32.3(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.27.7)(typescript@5.9.3)(webpack@5.106.2)
@@ -1223,7 +1202,7 @@ importers:
         version: 1.8.5(webpack@5.106.2)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       papaparse:
         specifier: 'catalog:'
         version: 5.5.3
@@ -1491,7 +1470,7 @@ importers:
         version: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: 'catalog:'
         version: 2.32.3(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.27.7)(typescript@5.9.3)(webpack@5.106.2)
@@ -1654,7 +1633,7 @@ importers:
         version: 1.8.5(webpack@5.106.2(esbuild@0.25.12))
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       papaparse:
         specifier: 'catalog:'
         version: 5.5.3
@@ -1837,154 +1816,6 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
-  apps/promisetracker:
-    dependencies:
-      '@commons-ui/core':
-        specifier: 'catalog:'
-        version: 0.1.0(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mui/styles@5.18.0(@types/react@18.3.28)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(simplebar-react@3.3.2(react@18.3.1))
-      '@commons-ui/next':
-        specifier: workspace:*
-        version: link:../../packages/commons-ui-next
-      '@emotion/react':
-        specifier: 'catalog:'
-        version: 11.14.0(@types/react@18.3.28)(react@18.3.1)
-      '@emotion/server':
-        specifier: 'catalog:'
-        version: 11.11.0(@emotion/css@11.13.5)
-      '@emotion/styled':
-        specifier: 'catalog:'
-        version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
-      '@mui/icons-material':
-        specifier: catalog:mui-styles
-        version: 5.18.0(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
-      '@mui/lab':
-        specifier: catalog:mui-styles
-        version: 5.0.0-alpha.177(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mui/material':
-        specifier: catalog:mui-styles
-        version: 5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mui/private-theming':
-        specifier: catalog:mui-styles
-        version: 5.17.1(@types/react@18.3.28)(react@18.3.1)
-      '@mui/styles':
-        specifier: catalog:mui-styles
-        version: 5.18.0(@types/react@18.3.28)(react@18.3.1)
-      '@mui/utils':
-        specifier: catalog:mui-styles
-        version: 5.17.1(@types/react@18.3.28)(react@18.3.1)
-      '@next/third-parties':
-        specifier: 'catalog:'
-        version: 15.5.15(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)
-      '@sentry/nextjs':
-        specifier: 'catalog:'
-        version: 9.47.1(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.1))(encoding@0.1.13)(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)(webpack@5.106.2)
-      clsx:
-        specifier: 'catalog:'
-        version: 2.1.1
-      date-fns:
-        specifier: 'catalog:'
-        version: 4.1.0
-      form-data:
-        specifier: 'catalog:'
-        version: 4.0.5
-      formik:
-        specifier: 'catalog:'
-        version: 2.4.9(@types/react@18.3.28)(react@18.3.1)
-      formik-mui:
-        specifier: 'catalog:'
-        version: 4.0.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(formik@2.4.9(@types/react@18.3.28)(react@18.3.1))(react@18.3.1)(tiny-warning@1.0.3)
-      formik-mui-lab:
-        specifier: 'catalog:'
-        version: 1.0.0(57bb5be41141021f1bc31119622b668b)
-      jwt-decode:
-        specifier: 'catalog:'
-        version: 4.0.0
-      lodash:
-        specifier: 'catalog:'
-        version: 4.18.1
-      next:
-        specifier: 'catalog:'
-        version: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
-      next-auth:
-        specifier: 'catalog:'
-        version: 4.24.14(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      next-seo:
-        specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      papaparse:
-        specifier: 'catalog:'
-        version: 5.5.3
-      prop-types:
-        specifier: 'catalog:'
-        version: 15.8.1
-      react:
-        specifier: 'catalog:'
-        version: 18.3.1
-      react-dom:
-        specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
-      react-share:
-        specifier: 'catalog:'
-        version: 5.3.0(react@18.3.1)
-      reading-time:
-        specifier: 'catalog:'
-        version: 1.5.0
-      sharp:
-        specifier: ^0.33.5
-        version: 0.33.5
-      simplebar-react:
-        specifier: 'catalog:'
-        version: 3.3.2(react@18.3.1)
-      tiny-warning:
-        specifier: 'catalog:'
-        version: 1.0.3
-      victory:
-        specifier: 'catalog:'
-        version: 36.9.2(react@18.3.1)
-    devDependencies:
-      '@babel/core':
-        specifier: 'catalog:'
-        version: 7.29.0
-      '@babel/preset-env':
-        specifier: 'catalog:'
-        version: 7.29.2(@babel/core@7.29.0)
-      '@babel/preset-react':
-        specifier: 'catalog:'
-        version: 7.28.5(@babel/core@7.29.0)
-      '@playwright/test':
-        specifier: 'catalog:'
-        version: 1.59.1
-      '@svgr/webpack':
-        specifier: 'catalog:'
-        version: 8.1.0(typescript@5.9.3)
-      '@types/node':
-        specifier: 'catalog:'
-        version: 20.19.39
-      '@types/react':
-        specifier: 'catalog:'
-        version: 18.3.28
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.4(jiti@2.6.1)
-      eslint-config-commons-ui:
-        specifier: workspace:*
-        version: link:../../packages/eslint-config-commons-ui
-      eslint-import-resolver-webpack:
-        specifier: 'catalog:'
-        version: 0.13.11(eslint-plugin-import@2.32.0)(webpack@5.106.2)
-      eslint-plugin-import:
-        specifier: 'catalog:'
-        version: 2.32.0(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint-import-resolver-webpack@0.13.11)(eslint@9.39.4(jiti@2.6.1))
-      playwright-config-commons-ui:
-        specifier: workspace:*
-        version: link:../../packages/playwright-config-commons-ui
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
-      webpack:
-        specifier: 'catalog:'
-        version: 5.106.2
-
   apps/roboshield:
     dependencies:
       '@commons-ui/core':
@@ -2082,7 +1913,7 @@ importers:
         version: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: catalog:payload-v3
         version: 3.83.0(graphql@16.13.2)(typescript@5.9.3)
@@ -2357,7 +2188,7 @@ importers:
         version: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       payload:
         specifier: catalog:payload-v3
         version: 3.83.0(graphql@16.13.2)(typescript@5.9.3)
@@ -2484,7 +2315,7 @@ importers:
         version: 4.24.14(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-seo:
         specifier: 'catalog:'
-        version: 6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       prop-types:
         specifier: 'catalog:'
         version: 15.8.1
@@ -2584,7 +2415,7 @@ importers:
         version: 9.39.4(jiti@2.6.1)
       eslint-config-next:
         specifier: 'catalog:'
-        version: 15.5.15(eslint-import-resolver-webpack@0.13.11)(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+        version: 15.5.15(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       eslint-import-resolver-babel-module:
         specifier: 'catalog:'
         version: 5.3.2(@babel/core@7.29.0)(babel-plugin-module-resolver@5.0.3)
@@ -2835,7 +2666,7 @@ importers:
         version: link:../../packages/eslint-config-commons-ui
       eslint-config-next:
         specifier: 'catalog:'
-        version: 15.5.15(eslint-import-resolver-webpack@0.13.11)(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+        version: 15.5.15(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -8020,26 +7851,11 @@ packages:
   '@types/cross-spawn@6.0.6':
     resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
 
-  '@types/d3-array@3.2.2':
-    resolution: {integrity: sha512-hOLWVbm7uRza0BYXpIIW5pxfrKe0W+D5lrFiAEYR+pb6w3N2SwSMaJbXdUfSEv+dT4MfHBLtn5js0LAWaO6otw==}
-
   '@types/d3-color@2.0.6':
     resolution: {integrity: sha512-tbaFGDmJWHqnenvk3QGSvD3RVwr631BjKRD7Sc7VLRgrdX5mk5hTyoeBL6rXZaeoXzmZwIl1D2HPogEdt1rHBg==}
 
-  '@types/d3-color@3.1.3':
-    resolution: {integrity: sha512-iO90scth9WAbmgv7ogoq57O9YpKmFBbmoEoCHDB2xMBY0+/KVrqAaCDyCE16dUspeOvIxFFRI+0sEtqDqy2b4A==}
-
-  '@types/d3-ease@3.0.2':
-    resolution: {integrity: sha512-NcV1JjO5oDzoK26oMzbILE6HW7uVXOHLQvHshBUW4UMdZGfiY6v5BeQwh9a9tCzv+CeefZQHJt5SRgK154RtiA==}
-
-  '@types/d3-interpolate@3.0.4':
-    resolution: {integrity: sha512-mgLPETlrpVV1YRJIglr4Ez47g7Yxjl1lj7YKsiMCb27VJH9W8NVM6Bb9d8kkpG/uAQS5AmbA48q2IAolKKo1MA==}
-
   '@types/d3-path@2.0.4':
     resolution: {integrity: sha512-jjZVLBjEX4q6xneKMmv62UocaFJFOTQSb/1aTzs3m3ICTOFoVaqGBHpNLm/4dVi0/FTltfBKgmOK1ECj3/gGjA==}
-
-  '@types/d3-path@3.1.1':
-    resolution: {integrity: sha512-VMZBYyQvbGmWyWVea0EHs/BwLgxc+MKi1zLDCONksozI4YJMcTt8ZEuIR4Sb1MMTE8MMW49v0IwI5+b7RmfWlg==}
 
   '@types/d3-scale-chromatic@2.0.4':
     resolution: {integrity: sha512-OUgfg6wmoZVhs0/pV8HZhsMw7pYJnS6smfNK2S5ogMaPHfDUaTMu7JA5ssZrRupwf2vWI+haPAuUpsz+M1BOKA==}
@@ -8047,23 +7863,11 @@ packages:
   '@types/d3-scale@3.3.5':
     resolution: {integrity: sha512-YOpKj0kIEusRf7ofeJcSZQsvKbnTwpe1DUF+P2qsotqG53kEsjm7EzzliqQxMkAWdkZcHrg5rRhB4JiDOQPX+A==}
 
-  '@types/d3-scale@4.0.9':
-    resolution: {integrity: sha512-dLmtwB8zkAeO/juAMfnV+sItKjlsw2lKdZVVy6LRr0cBmegxSABiLEpGVmSJJ8O08i4+sGR6qQtb6WtuwJdvVw==}
-
   '@types/d3-shape@2.1.7':
     resolution: {integrity: sha512-HedHlfGHdwzKqX9+PiQVXZrdmGlwo7naoefJP7kCNk4Y7qcpQt1tUaoRa6qn0kbTdlaIHGO7111qLtb/6J8uuw==}
 
-  '@types/d3-shape@3.1.8':
-    resolution: {integrity: sha512-lae0iWfcDeR7qt7rA88BNiqdvPS5pFVPpo5OfjElwNaT2yyekbM0C9vK+yqBqEmHr6lDkRnYNoTBYlAgJa7a4w==}
-
   '@types/d3-time@2.1.4':
     resolution: {integrity: sha512-BTfLsxTeo7yFxI/haOOf1ZwJ6xKgQLT9dCp+EcmQv87Gox6X+oKl4mLKfO6fnWm3P22+A6DknMNEZany8ql2Rw==}
-
-  '@types/d3-time@3.0.4':
-    resolution: {integrity: sha512-yuzZug1nkAAaBlBBikKZTgzCeA+k1uy4ZFwWANOfKw5z5LRhV0gNA7gNkKm7HoK+HRN0wX3EkxGk0fpbWhmB7g==}
-
-  '@types/d3-timer@3.0.2':
-    resolution: {integrity: sha512-Ps3T8E8dZDam6fUyNiMkekK3XUsaUEik+idO9/YjPtfj2qruF8tFBXS7XhtE4iIXBLxhmLjP3SXpLhVf21I9Lw==}
 
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
@@ -9724,10 +9528,6 @@ packages:
     engines: {node: '>=12'}
     hasBin: true
 
-  d3-ease@3.0.1:
-    resolution: {integrity: sha512-wR/XK3D3XcLIZwpbvQwQ5fK+8Ykds1ip7A2Txe0yxncXSdq1L9skcG7blcedkOX+ZcgxGAmLX1FrRGbADwzi0w==}
-    engines: {node: '>=12'}
-
   d3-force@3.0.0:
     resolution: {integrity: sha512-zxV/SsA+U4yte8051P4ECydjD/S+qeYtnaIyAs9tgHCqfguma/aAQDjo85A9Z6EKhBirHRJHXIgJUlffT4wdLg==}
     engines: {node: '>=12'}
@@ -9808,9 +9608,6 @@ packages:
   d3-timer@3.0.1:
     resolution: {integrity: sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA==}
     engines: {node: '>=12'}
-
-  d3-voronoi@1.1.4:
-    resolution: {integrity: sha512-dArJ32hchFsrQ8uMiTBLq256MpnZjeuBtdHpaDlYuQyjU0CVzCJl/BVW+SkszaAeH95D/8gxqAhgx0ouAWAfRg==}
 
   d@1.0.2:
     resolution: {integrity: sha512-MOqHvMWF9/9MX6nza0KgvFH4HpMU0EF5uUDXqX/BtxtU8NfB0QzRtJ8Oe/6SuS4kbhyzVJwjd97EA4PKrzJ8bw==}
@@ -9965,14 +9762,8 @@ packages:
   defu@6.1.7:
     resolution: {integrity: sha512-7z22QmUWiQ/2d0KkdYmANbRUVABpZ9SNYyH5vx6PZ+nE5bcC0l7uFvEfHlyld/HcGBFTL536ClDt3DEcSlEJAQ==}
 
-  delaunator@4.0.1:
-    resolution: {integrity: sha512-WNPWi1IRKZfCt/qIDMfERkDp93+iZEmOxN2yy4Jg+Xhv8SLk2UTqqbe1sfiipn0and9QrE914/ihdx82Y/Giag==}
-
   delaunator@5.1.0:
     resolution: {integrity: sha512-AGrQ4QSgssa1NGmWmLPqN5NY2KajF5MqxetNEO+o0n3ZwZZeTmt7bBnvzHWrmkZFxGgr4HdyFgelzgi06otLuQ==}
-
-  delaunay-find@0.0.6:
-    resolution: {integrity: sha512-1+almjfrnR7ZamBk0q3Nhg6lqSe6Le4vL0WJDSMx4IDbQwTpUTXPjxC00lqLBT8MYsJpPCbI16sIkw9cPsbi7Q==}
 
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -10904,27 +10695,6 @@ packages:
   formdata-polyfill@4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
     engines: {node: '>=12.20.0'}
-
-  formik-mui-lab@1.0.0:
-    resolution: {integrity: sha512-4YSpaFXJ4fJ+er2Eu/XNcKyrrcUEWQiwxWjnSbki9bxRjjSDiKWCrRlDgM+vdl/HEiO+XrwrxA5I9M+xU4r1tg==}
-    peerDependencies:
-      '@emotion/react': '>=11.4.1'
-      '@emotion/styled': '>=11.3.0'
-      '@mui/lab': ^5.0.0-alpha.48
-      '@mui/material': '>=5.0.0'
-      formik: '>=2.2.9'
-      react: '>=17.0.2'
-      tiny-warning: '>=1.0.3'
-
-  formik-mui@4.0.0:
-    resolution: {integrity: sha512-1IzYE83t/Hz05XMQuqs3i/yL7vteqCtjwJDXPBKtomzbif96OrTB2dFk26XEBJaB6ogmtKcxLogrtex3pbOp2A==}
-    peerDependencies:
-      '@emotion/react': '>=11.4.1'
-      '@emotion/styled': '>=11.3.0'
-      '@mui/material': '>=5.0.0'
-      formik: '>=2.2.9'
-      react: '>=17.0.2'
-      tiny-warning: '>=1.0.3'
 
   formik@2.4.9:
     resolution: {integrity: sha512-5nI94BMnlFDdQRBY4Sz39WkhxajZJ57Fzs8wVbtsQlm5ScKIR1QLYqv/ultBnobObtlUyxpxoLodpixrsf36Og==}
@@ -12180,9 +11950,6 @@ packages:
 
   json-stringify-pretty-compact@4.0.0:
     resolution: {integrity: sha512-3CNZ2DnrpByG9Nqj6Xo8vqbjT4F6N+tb4Gb28ESAZjYZ5yqvmc56J+/kuIwkaAMOyblTQhUW7PxMkUb8Q36N3Q==}
-
-  json-stringify-safe@5.0.1:
-    resolution: {integrity: sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==}
 
   json5@1.0.2:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
@@ -14488,9 +14255,6 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
-  reading-time@1.5.0:
-    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
-
   real-require@0.2.0:
     resolution: {integrity: sha512-57frrGM/OCTLqLOAh0mhVA9VBMHd+9U7Zb2THMGdBUoZVOtGbJzjxsYGDJ3A9AYYCP4hn6y1TVbaOfzWtm5GFg==}
     engines: {node: '>= 12.13.0'}
@@ -16174,149 +15938,6 @@ packages:
 
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
-
-  victory-area@36.9.2:
-    resolution: {integrity: sha512-32aharvPf2RgdQB+/u1j3/ajYFNH/7ugLX9ZRpdd65gP6QEbtXL+58gS6CxvFw6gr/y8a0xMlkMKkpDVacXLpw==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-axis@36.9.2:
-    resolution: {integrity: sha512-4Odws+IAjprJtBg2b2ZCxEPgrQ6LgIOa22cFkGghzOSfTyNayN4M3AauNB44RZyn2O/hDiM1gdBkEg1g9YDevQ==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-bar@36.9.2:
-    resolution: {integrity: sha512-R3LFoR91FzwWcnyGK2P8DHNVv9gsaWhl5pSr2KdeNtvLbZVEIvUkTeVN9RMBMzterSFPw0mbWhS1Asb3sV6PPw==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-box-plot@36.9.2:
-    resolution: {integrity: sha512-nUD45V/YHDkAKZyak7YDsz+Vk1F9N0ica3jWQe0AY0JqD9DleHa8RY/olSVws26kLyEj1I+fQqva6GodcLaIqQ==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-brush-container@36.9.2:
-    resolution: {integrity: sha512-KcQjzFeo40tn52cJf1A02l5MqeR9GKkk3loDqM3T2hfi1PCyUrZXEUjGN5HNlLizDRvtcemaAHNAWlb70HbG/g==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-brush-line@36.9.2:
-    resolution: {integrity: sha512-/ncj8HEyl73fh8bhU4Iqe79DL62QP2rWWoogINxsGvndrhpFbL9tj7IPSEawi+riOh/CmohgI/ETu/V7QU9cJw==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-candlestick@36.9.2:
-    resolution: {integrity: sha512-hbStzF61GHkkflJWFgLTZSR8SOm8siJn65rwApLJBIA283yWOlyPjdr/kIQtO/h5QkIiXIuLb7RyiUAJEnH9WA==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-canvas@36.9.2:
-    resolution: {integrity: sha512-ImHJ7JQCpQ9aGCsh37EeVAmqJc7R0gl2CLM99gP9GfuJuZeoZ/GVfX6QFamfr19rYQOD2m9pVbecySBzdYI1zQ==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-chart@36.9.2:
-    resolution: {integrity: sha512-dMNcS0BpqL3YiGvI4BSEmPR76FCksCgf3K4CSZ7C/MGyrElqB6wWwzk7afnlB1Qr71YIHXDmdwsPNAl/iEwTtA==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-core@36.9.2:
-    resolution: {integrity: sha512-AzmMy+9MYMaaRmmZZovc/Po9urHne3R3oX7bbXeQdVuK/uMBrlPiv11gVJnuEH2SXLVyep43jlKgaBp8ef9stQ==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-create-container@36.9.2:
-    resolution: {integrity: sha512-uA0dh1R0YDzuXyE/7StZvq4qshet+WYceY7R1UR5mR/F9079xy+iQsa2Ca4h97/GtVZoLO6r1eKLWBt9TN+U7A==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-cursor-container@36.9.2:
-    resolution: {integrity: sha512-jidab4j3MaciF3fGX70jTj4H9rrLcY8o2LUrhJ67ZLvEFGGmnPtph+p8Fe97Umrag7E/DszjNxQZolpwlgUh3g==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-errorbar@36.9.2:
-    resolution: {integrity: sha512-i/WPMN6/7F55FpEpN9WcwiWwaFJ+2ymfTgfBDLkUD3XJ52HGen4BxUt1ouwDA3FXz9kLa/h6Wbp/fnRhX70row==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-group@36.9.2:
-    resolution: {integrity: sha512-wBmpsjBTKva8mxHvHNY3b8RE58KtnpLLItEyyAHaYkmExwt3Uj8Cld3sF3vmeuijn2iR64NPKeMbgMbfZJzycw==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-histogram@36.9.2:
-    resolution: {integrity: sha512-w0ipFwWZ533qyqduRacr5cf+H4PGAUTdWNyGvZbWyu4+GtYYjGdoOolfUcO1ee8VJ1kZodpG8Z7ud6I/GWIzjQ==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-legend@36.9.2:
-    resolution: {integrity: sha512-cucFJpv6fty+yXp5pElQFQnHBk1TqA4guGUMI+XF/wLlnuM4bhdAtASobRIIBkz0mHGBaCAAV4PzL9azPU/9dg==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-line@36.9.2:
-    resolution: {integrity: sha512-kmYFZUo0o2xC8cXRsmt/oUBRQSZJVT2IJnAkboUepypoj09e6CY5tRH4TSdfEDGkBk23xQkn7d4IFgl4kAGnSA==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-pie@36.9.2:
-    resolution: {integrity: sha512-i3zWezvy5wQEkhXKt4rS9ILGH7Vr9Q5eF9fKO4GMwDPBdYOTE3Dh2tVaSrfDC8g9zFIc0DKzOtVoJRTb+0AkPg==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-polar-axis@36.9.2:
-    resolution: {integrity: sha512-HBR90FF4M56yf/atXjSmy3DMps1vSAaLXmdVXLM/A5g+0pUS7HO719r5x6dsR3I6Rm+8x6Kk8xJs0qgpnGQIEw==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-scatter@36.9.2:
-    resolution: {integrity: sha512-hK9AtbJQfaW05i8BH7Lf1HK7vWMAfQofj23039HEQJqTKbCL77YT+Q0LhZw1a1BRCpC/5aSg9EuqblhfIYw2wg==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-selection-container@36.9.2:
-    resolution: {integrity: sha512-chboroEwqqVlMB60kveXM2WznJ33ZM00PWkFVCoJDzHHlYs7TCADxzhqet2S67SbZGSyvSprY2YztSxX8kZ+XQ==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-shared-events@36.9.2:
-    resolution: {integrity: sha512-W/atiw3Or6MnpBuhluFv6007YrixIRh5NtiRvtFLGxNuQJLYjaSh6koRAih5xJer5Pj7YUx0tL9x67jTRcJ6Dg==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-stack@36.9.2:
-    resolution: {integrity: sha512-imR6FniVlDFlBa/B3Est8kTryNhWj2ZNpivmVOebVDxkKcVlLaDg3LotCUOI7NzOhBQaro0UzeE9KmZV93JcYA==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-tooltip@36.9.2:
-    resolution: {integrity: sha512-76seo4TWD1WfZHJQH87IP3tlawv38DuwrUxpnTn8+uW6/CUex82poQiVevYdmJzhataS9jjyCWv3w7pOmLBCLg==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-vendor@36.9.2:
-    resolution: {integrity: sha512-PnpQQMuxlwYdocC8fIJqVXvkeViHYzotI+NJrCuav0ZYFoq912ZHBk3mCeuj+5/VpodOjPe1z0Fk2ihgzlXqjQ==}
-
-  victory-voronoi-container@36.9.2:
-    resolution: {integrity: sha512-NIVYqck9N4OQnEz9mgQ4wILsci3OBWWK7RLuITGHyoD7Ne/+WH1i0Pv2y9eIx+f55rc928FUTugPPhkHvXyH3A==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-voronoi@36.9.2:
-    resolution: {integrity: sha512-50fq0UBTAFxxU+nabOIPE5P2v/2oAbGAX+Ckz6lu8LFwwig4J1DSz0/vQudqDGjzv3JNEdqTD4FIpyjbxLcxiA==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory-zoom-container@36.9.2:
-    resolution: {integrity: sha512-pXa2Ji6EX/pIarKT6Hcmmu2n7IG/x8Vs0D2eACQ/nbpvZa+DXWIxCRW4hcg2Va35fmXcDIEpGaX3/soXzZ+pbw==}
-    peerDependencies:
-      react: '>=16.6.0'
-
-  victory@36.9.2:
-    resolution: {integrity: sha512-kgVgiSno4KpD0HxmUo5GzqWI4P/eILLOM6AmJfAlagCnOzrtYGsAw+N1YxOcYvTiKsh/zmWawxHlpw3TMenFDQ==}
-    peerDependencies:
-      react: '>=16.6.0'
 
   video.js@8.23.7:
     resolution: {integrity: sha512-cG4HOygYt+Z8j6Sf5DuK6OgEOoM+g9oGP6vpqoZRaD13aHE4PMITbyjJUXZcIQbgB0wJEadBRaVm5lJIzo2jAA==}
@@ -23260,21 +22881,9 @@ snapshots:
     dependencies:
       '@types/node': 20.19.39
 
-  '@types/d3-array@3.2.2': {}
-
   '@types/d3-color@2.0.6': {}
 
-  '@types/d3-color@3.1.3': {}
-
-  '@types/d3-ease@3.0.2': {}
-
-  '@types/d3-interpolate@3.0.4':
-    dependencies:
-      '@types/d3-color': 3.1.3
-
   '@types/d3-path@2.0.4': {}
-
-  '@types/d3-path@3.1.1': {}
 
   '@types/d3-scale-chromatic@2.0.4': {}
 
@@ -23282,23 +22891,11 @@ snapshots:
     dependencies:
       '@types/d3-time': 2.1.4
 
-  '@types/d3-scale@4.0.9':
-    dependencies:
-      '@types/d3-time': 3.0.4
-
   '@types/d3-shape@2.1.7':
     dependencies:
       '@types/d3-path': 2.0.4
 
-  '@types/d3-shape@3.1.8':
-    dependencies:
-      '@types/d3-path': 3.1.1
-
   '@types/d3-time@2.1.4': {}
-
-  '@types/d3-time@3.0.4': {}
-
-  '@types/d3-timer@3.0.2': {}
 
   '@types/debug@4.1.13':
     dependencies:
@@ -25202,8 +24799,6 @@ snapshots:
       iconv-lite: 0.6.3
       rw: 1.3.3
 
-  d3-ease@3.0.1: {}
-
   d3-force@3.0.0:
     dependencies:
       d3-dispatch: 3.0.1
@@ -25291,8 +24886,6 @@ snapshots:
       d3-array: 3.2.4
 
   d3-timer@3.0.1: {}
-
-  d3-voronoi@1.1.4: {}
 
   d@1.0.2:
     dependencies:
@@ -25431,15 +25024,9 @@ snapshots:
 
   defu@6.1.7: {}
 
-  delaunator@4.0.1: {}
-
   delaunator@5.1.0:
     dependencies:
       robust-predicates: 3.0.3
-
-  delaunay-find@0.0.6:
-    dependencies:
-      delaunator: 4.0.1
 
   delayed-stream@1.0.0: {}
 
@@ -25937,6 +25524,26 @@ snapshots:
       - eslint-plugin-import-x
       - supports-color
 
+  eslint-config-next@15.5.15(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3):
+    dependencies:
+      '@next/eslint-plugin-next': 15.5.15
+      '@rushstack/eslint-patch': 1.16.1
+      '@typescript-eslint/eslint-plugin': 8.59.0(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+      '@typescript-eslint/parser': 8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+      eslint: 9.39.4(jiti@2.6.1)
+      eslint-import-resolver-node: 0.3.10
+      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1))
+      eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.4(jiti@2.6.1))
+      eslint-plugin-react: 7.37.5(eslint@9.39.4(jiti@2.6.1))
+      eslint-plugin-react-hooks: 5.2.0(eslint@9.39.4(jiti@2.6.1))
+    optionalDependencies:
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - eslint-import-resolver-webpack
+      - eslint-plugin-import-x
+      - supports-color
+
   eslint-config-turbo@2.9.6(eslint@9.39.4(jiti@2.6.1))(turbo@2.9.6):
     dependencies:
       eslint: 9.39.4(jiti@2.6.1)
@@ -26050,6 +25657,17 @@ snapshots:
       - bluebird
       - supports-color
 
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.10)(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1)):
+    dependencies:
+      debug: 3.2.7
+    optionalDependencies:
+      '@typescript-eslint/parser': 8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+      eslint: 9.39.4(jiti@2.6.1)
+      eslint-import-resolver-node: 0.3.10
+      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1))
+    transitivePeerDependencies:
+      - supports-color
+
   eslint-module-utils@2.12.1(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.10)(eslint-import-resolver-typescript@4.4.4)(eslint-import-resolver-webpack@0.13.11)(eslint@9.39.4(jiti@2.6.1)):
     dependencies:
       debug: 3.2.7
@@ -26060,6 +25678,35 @@ snapshots:
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1))
       eslint-import-resolver-webpack: 0.13.11(eslint-plugin-import@2.32.0)(webpack@5.106.2)
     transitivePeerDependencies:
+      - supports-color
+
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1)):
+    dependencies:
+      '@rtsao/scc': 1.1.0
+      array-includes: 3.1.9
+      array.prototype.findlastindex: 1.2.6
+      array.prototype.flat: 1.3.3
+      array.prototype.flatmap: 1.3.3
+      debug: 3.2.7
+      doctrine: 2.1.0
+      eslint: 9.39.4(jiti@2.6.1)
+      eslint-import-resolver-node: 0.3.10
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-node@0.3.10)(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.32.0(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1)))(eslint@9.39.4(jiti@2.6.1))
+      hasown: 2.0.3
+      is-core-module: 2.16.1
+      is-glob: 4.0.3
+      minimatch: 3.1.5
+      object.fromentries: 2.0.8
+      object.groupby: 1.0.3
+      object.values: 1.2.1
+      semver: 7.7.4
+      string.prototype.trimend: 1.0.9
+      tsconfig-paths: 3.15.0
+    optionalDependencies:
+      '@typescript-eslint/parser': 8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+    transitivePeerDependencies:
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
       - supports-color
 
   eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.59.0(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@4.4.4)(eslint-import-resolver-webpack@0.13.11)(eslint@9.39.4(jiti@2.6.1)):
@@ -26767,25 +26414,6 @@ snapshots:
   formdata-polyfill@4.0.10:
     dependencies:
       fetch-blob: 3.2.0
-
-  formik-mui-lab@1.0.0(57bb5be41141021f1bc31119622b668b):
-    dependencies:
-      '@emotion/react': 11.14.0(@types/react@18.3.28)(react@18.3.1)
-      '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
-      '@mui/lab': 5.0.0-alpha.177(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@mui/material': 5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      formik: 2.4.9(@types/react@18.3.28)(react@18.3.1)
-      react: 18.3.1
-      tiny-warning: 1.0.3
-
-  formik-mui@4.0.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(formik@2.4.9(@types/react@18.3.28)(react@18.3.1))(react@18.3.1)(tiny-warning@1.0.3):
-    dependencies:
-      '@emotion/react': 11.14.0(@types/react@18.3.28)(react@18.3.1)
-      '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1)
-      '@mui/material': 5.18.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react@18.3.1))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      formik: 2.4.9(@types/react@18.3.28)(react@18.3.1)
-      react: 18.3.1
-      tiny-warning: 1.0.3
 
   formik@2.4.9(@types/react@18.3.28)(react@18.3.1):
     dependencies:
@@ -28568,8 +28196,6 @@ snapshots:
 
   json-stringify-pretty-compact@4.0.0: {}
 
-  json-stringify-safe@5.0.1: {}
-
   json5@1.0.2:
     dependencies:
       minimist: 1.2.8
@@ -29751,7 +29377,7 @@ snapshots:
       url-loader: 4.1.1(file-loader@6.2.0(webpack@5.106.2))(webpack@5.106.2)
       webpack: 5.106.2(@swc/core@1.15.30)(esbuild@0.27.7)(webpack-cli@4.10.0)
 
-  next-seo@6.8.0(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-seo@6.8.0(next@15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       next: 15.5.15(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
       react: 18.3.1
@@ -31552,8 +31178,6 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.2
-
-  reading-time@1.5.0: {}
 
   real-require@0.2.0: {}
 
@@ -33757,247 +33381,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
-
-  victory-area@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-      victory-vendor: 36.9.2
-
-  victory-axis@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-bar@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-      victory-vendor: 36.9.2
-
-  victory-box-plot@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-      victory-vendor: 36.9.2
-
-  victory-brush-container@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-brush-line@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-candlestick@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-canvas@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-bar: 36.9.2(react@18.3.1)
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-chart@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-axis: 36.9.2(react@18.3.1)
-      victory-core: 36.9.2(react@18.3.1)
-      victory-polar-axis: 36.9.2(react@18.3.1)
-      victory-shared-events: 36.9.2(react@18.3.1)
-
-  victory-core@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-vendor: 36.9.2
-
-  victory-create-container@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-brush-container: 36.9.2(react@18.3.1)
-      victory-core: 36.9.2(react@18.3.1)
-      victory-cursor-container: 36.9.2(react@18.3.1)
-      victory-selection-container: 36.9.2(react@18.3.1)
-      victory-voronoi-container: 36.9.2(react@18.3.1)
-      victory-zoom-container: 36.9.2(react@18.3.1)
-
-  victory-cursor-container@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-errorbar@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-group@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-core: 36.9.2(react@18.3.1)
-      victory-shared-events: 36.9.2(react@18.3.1)
-
-  victory-histogram@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-bar: 36.9.2(react@18.3.1)
-      victory-core: 36.9.2(react@18.3.1)
-      victory-vendor: 36.9.2
-
-  victory-legend@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-line@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-      victory-vendor: 36.9.2
-
-  victory-pie@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-      victory-vendor: 36.9.2
-
-  victory-polar-axis@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-scatter@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-selection-container@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-shared-events@36.9.2(react@18.3.1):
-    dependencies:
-      json-stringify-safe: 5.0.1
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-stack@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-core: 36.9.2(react@18.3.1)
-      victory-shared-events: 36.9.2(react@18.3.1)
-
-  victory-tooltip@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-vendor@36.9.2:
-    dependencies:
-      '@types/d3-array': 3.2.2
-      '@types/d3-ease': 3.0.2
-      '@types/d3-interpolate': 3.0.4
-      '@types/d3-scale': 4.0.9
-      '@types/d3-shape': 3.1.8
-      '@types/d3-time': 3.0.4
-      '@types/d3-timer': 3.0.2
-      d3-array: 3.2.4
-      d3-ease: 3.0.1
-      d3-interpolate: 3.0.1
-      d3-scale: 4.0.2
-      d3-shape: 3.2.0
-      d3-time: 3.1.0
-      d3-timer: 3.0.1
-
-  victory-voronoi-container@36.9.2(react@18.3.1):
-    dependencies:
-      delaunay-find: 0.0.6
-      lodash: 4.18.1
-      react: 18.3.1
-      react-fast-compare: 3.2.2
-      victory-core: 36.9.2(react@18.3.1)
-      victory-tooltip: 36.9.2(react@18.3.1)
-
-  victory-voronoi@36.9.2(react@18.3.1):
-    dependencies:
-      d3-voronoi: 1.1.4
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory-zoom-container@36.9.2(react@18.3.1):
-    dependencies:
-      lodash: 4.18.1
-      react: 18.3.1
-      victory-core: 36.9.2(react@18.3.1)
-
-  victory@36.9.2(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      victory-area: 36.9.2(react@18.3.1)
-      victory-axis: 36.9.2(react@18.3.1)
-      victory-bar: 36.9.2(react@18.3.1)
-      victory-box-plot: 36.9.2(react@18.3.1)
-      victory-brush-container: 36.9.2(react@18.3.1)
-      victory-brush-line: 36.9.2(react@18.3.1)
-      victory-candlestick: 36.9.2(react@18.3.1)
-      victory-canvas: 36.9.2(react@18.3.1)
-      victory-chart: 36.9.2(react@18.3.1)
-      victory-core: 36.9.2(react@18.3.1)
-      victory-create-container: 36.9.2(react@18.3.1)
-      victory-cursor-container: 36.9.2(react@18.3.1)
-      victory-errorbar: 36.9.2(react@18.3.1)
-      victory-group: 36.9.2(react@18.3.1)
-      victory-histogram: 36.9.2(react@18.3.1)
-      victory-legend: 36.9.2(react@18.3.1)
-      victory-line: 36.9.2(react@18.3.1)
-      victory-pie: 36.9.2(react@18.3.1)
-      victory-polar-axis: 36.9.2(react@18.3.1)
-      victory-scatter: 36.9.2(react@18.3.1)
-      victory-selection-container: 36.9.2(react@18.3.1)
-      victory-shared-events: 36.9.2(react@18.3.1)
-      victory-stack: 36.9.2(react@18.3.1)
-      victory-tooltip: 36.9.2(react@18.3.1)
-      victory-voronoi: 36.9.2(react@18.3.1)
-      victory-voronoi-container: 36.9.2(react@18.3.1)
-      victory-zoom-container: 36.9.2(react@18.3.1)
 
   video.js@8.23.7:
     dependencies:

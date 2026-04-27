@@ -82,7 +82,6 @@ pnpm bump             # Bump versions via scripts/bump.js
 | `climatemappedafrica` | Climate data platform                                                          |
 | `codeforafrica`       | Main CFA website (Payload CMS v2)                                              |
 | `pesayetu`            | Government accountability data (MUI v5 + `mui-styles` catalog)                 |
-| `promisetracker`      | Promise tracking app (MUI v5 + `mui-styles` catalog)                           |
 | `roboshield`          | Bot protection service                                                         |
 | `techlabblog`         | TechLab engineering blog (MDX-based, first app migrated to per-app Dockerfile) |
 | `trustlab`            | CSO/CBO digital threats platform (Payload CMS v3)                              |
@@ -105,7 +104,7 @@ pnpm bump             # Bump versions via scripts/bump.js
 
 ### Key technology choices
 
-- **MUI v6** for most apps; `pesayetu` and `promisetracker` use the `mui-styles` pnpm catalog (MUI v5 + `@mui/styles`)
+- **MUI v6** for most apps; `pesayetu` and `twoopstracker` use the `mui-styles` pnpm catalog (MUI v5 + `@mui/styles`)
 - **Payload CMS 2.x** (catalog `payload`) for `charterafrica`, `codeforafrica`; **Payload CMS 3.x** (catalog `payload-v3`) for `trustlab`
 - **Apollo Client** for GraphQL; **SWR** for REST data fetching
 - **MDX** with remark/rehype pipeline for `techlabblog`
