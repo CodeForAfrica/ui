@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<OpportunitiesList /> renders unchanged 1`] = `
 <div>
@@ -46,12 +46,12 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                   class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-i2gvsx-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1iltire-MuiTypography-root"
                   >
                     Test Item 1
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-p2 css-dbyv4o-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 css-7e94g1-MuiTypography-root"
                   >
                     Category | Type
                   </div>
@@ -59,7 +59,7 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                     class="MuiStack-root css-niqf4j-MuiStack-root"
                   >
                     <div
-                      class="MuiTypography-root MuiTypography-p2 css-drfs95-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1e8bnay-MuiTypography-root"
                     >
                       Nairobi, Kenya
                     </div>
@@ -69,7 +69,7 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                       role="separator"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p2 css-15jnnqw-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1pscdoi-MuiTypography-root"
                     >
                       15-01-2024
                     </div>
@@ -87,7 +87,7 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                       </div>
                     </div>
                     <button
-                      class="MuiTypography-root MuiTypography-p2 css-i8e380-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-3vk8dq-MuiTypography-root"
                     >
                       View more
                     </button>
@@ -121,12 +121,12 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                   class="MuiCardContent-root css-40lmnp-MuiCardContent-root"
                 >
                   <div
-                    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-i2gvsx-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1iltire-MuiTypography-root"
                   >
                     Test Item 2
                   </div>
                   <div
-                    class="MuiTypography-root MuiTypography-p2 css-dbyv4o-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 css-7e94g1-MuiTypography-root"
                   >
                     Category | Report
                   </div>
@@ -134,7 +134,7 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                     class="MuiStack-root css-niqf4j-MuiStack-root"
                   >
                     <div
-                      class="MuiTypography-root MuiTypography-p2 css-drfs95-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1e8bnay-MuiTypography-root"
                     >
                       Mombasa, Kenya
                     </div>
@@ -144,7 +144,7 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                       role="separator"
                     />
                     <div
-                      class="MuiTypography-root MuiTypography-p2 css-15jnnqw-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-1pscdoi-MuiTypography-root"
                     >
                       20-01-2024
                     </div>
@@ -162,7 +162,7 @@ exports[`<OpportunitiesList /> renders unchanged 1`] = `
                       </div>
                     </div>
                     <button
-                      class="MuiTypography-root MuiTypography-p2 css-i8e380-MuiTypography-root"
+                      class="MuiTypography-root MuiTypography-p2 css-3vk8dq-MuiTypography-root"
                     >
                       View more
                     </button>

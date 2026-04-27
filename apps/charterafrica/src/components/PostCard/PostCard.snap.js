@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<PostCard /> renders unchanged 1`] = `
 <div>
@@ -13,7 +13,7 @@ exports[`<PostCard /> renders unchanged 1`] = `
       <div
         class="MuiCardMedia-root css-shxb4t-MuiCardMedia-root"
         role="img"
-        style="background-image: url(/image.jpg);"
+        style="background-image: url("/image.jpg");"
       />
       <div
         class="MuiCardContent-root css-1bgagac-MuiCardContent-root"

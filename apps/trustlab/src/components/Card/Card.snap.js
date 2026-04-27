@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Card /> renders unchanged 1`] = `
 <div>
@@ -9,11 +9,11 @@ exports[`<Card /> renders unchanged 1`] = `
     <div
       class="MuiCardMedia-root css-1avv2mj-MuiCardMedia-root"
       role="img"
-      style="background-image: url(/resources-1.jpg);"
+      style="background-image: url("/resources-1.jpg");"
       title="Digital Security Toolkit for Kenyan Activists"
     >
       <span
-        class="MuiTypography-root MuiTypography-button css-lrr9mk-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-button css-1lznlk3-MuiTypography-root"
       >
         Toolkits
       </span>
@@ -25,7 +25,7 @@ exports[`<Card /> renders unchanged 1`] = `
         class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
       >
         <h2
-          class="MuiTypography-root MuiTypography-h2 css-oz4nc4-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h2 css-y7ihoe-MuiTypography-root"
         >
           Digital Security Toolkit for Kenyan Activists
         </h2>
@@ -38,7 +38,7 @@ exports[`<Card /> renders unchanged 1`] = `
         class="MuiBox-root css-7x1cxm"
       >
         <p
-          class="MuiTypography-root MuiTypography-p1 css-4upu4p-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-p1 css-3pugzb-MuiTypography-root"
         >
           A digital security toolkit for Kenyan activists, that includes free OutlineVPN, anti-DDoS protection, and CfA's anti-trolling tool, FeedShield.
         </p>
@@ -48,7 +48,7 @@ exports[`<Card /> renders unchanged 1`] = `
       class="MuiCardActions-root MuiCardActions-spacing css-s3pqsj-MuiCardActions-root"
     >
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary active css-15f3whe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary active css-cejlb6-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"
         tabindex="0"
       >

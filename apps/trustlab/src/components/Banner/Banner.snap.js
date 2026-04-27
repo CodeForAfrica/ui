@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Banner /> renders unchanged 1`] = `
 <div>
@@ -15,7 +15,7 @@ exports[`<Banner /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-sm-12 css-a0kt09-MuiGrid2-root"
         >
           <div
-            class="MuiTypography-root MuiTypography-display2 css-aagxxh-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-display2 css-g8bqwe-MuiTypography-root"
           >
             About TrustLab
           </div>
@@ -23,7 +23,7 @@ exports[`<Banner /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <h6
-              class="MuiTypography-root MuiTypography-subheading1 css-klbr0l-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading1 css-1gtwypd-MuiTypography-root"
             >
               TrustLab is a three-year EU-funded initiative by DW Akademie, Code for Africa (CfA), and Siasa Place. 
             </h6>

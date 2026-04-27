@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<WhereWeWork /> renders unchanged 1`] = `
 <div>
@@ -15,7 +15,7 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 css-it7ga0-MuiGrid2-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-display4 css-1q4gudl-MuiTypography-root"
           >
             Partner Locations
           </h2>
@@ -27,7 +27,7 @@ exports[`<WhereWeWork /> renders unchanged 1`] = `
             class="MuiBox-root css-0"
           >
             <p
-              class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-ger7mo-MuiTypography-root"
             >
               This is a placeholder text that should be updated.
             </p>

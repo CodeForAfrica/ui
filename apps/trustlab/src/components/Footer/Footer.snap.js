@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Footer /> renders unchanged 1`] = `
 <div>
@@ -24,7 +24,7 @@ exports[`<Footer /> renders unchanged 1`] = `
             class="MuiBox-root css-cf3le8"
           >
             <div
-              class="MuiTypography-root MuiTypography-h1 css-mnbim1-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h1 css-mqe6ye-MuiTypography-root"
             />
             <div
               class="MuiBox-root css-0"

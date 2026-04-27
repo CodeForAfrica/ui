@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Helplines /> renders unchanged 1`] = `
 <div>
@@ -12,7 +12,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
         class="MuiStack-root css-8mcjw0-MuiStack-root"
       >
         <h2
-          class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-display4 css-1q4gudl-MuiTypography-root"
         >
           Rapid Response
         </h2>
@@ -48,7 +48,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                     class="MuiDivider-root MuiDivider-fullWidth css-5tnkj6-MuiDivider-root"
                   />
                   <h3
-                    class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 css-venxvn-MuiTypography-root"
                   >
                     Rapid Response Briefing
                   </h3>
@@ -60,7 +60,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-cktnsj-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1izwtcl-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
@@ -100,7 +100,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                     class="MuiDivider-root MuiDivider-fullWidth css-5tnkj6-MuiDivider-root"
                   />
                   <h3
-                    class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 css-venxvn-MuiTypography-root"
                   >
                     Rapid Response Briefing
                   </h3>
@@ -112,7 +112,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-cktnsj-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1izwtcl-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>
@@ -152,7 +152,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                     class="MuiDivider-root MuiDivider-fullWidth css-5tnkj6-MuiDivider-root"
                   />
                   <h3
-                    class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-h3 css-venxvn-MuiTypography-root"
                   >
                     Rapid Response Briefing
                   </h3>
@@ -164,7 +164,7 @@ exports[`<Helplines /> renders unchanged 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-cktnsj-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-1izwtcl-MuiTypography-root"
                   >
                     This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders.
                   </p>

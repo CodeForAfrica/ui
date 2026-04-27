@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<PartnersList /> renders unchanged 1`] = `
 <div>
@@ -9,7 +9,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
       class="MuiBox-root css-1ridu4c"
     >
       <h6
-        class="MuiTypography-root MuiTypography-subheading2 css-145khn7-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-subheading2 css-d01e6t-MuiTypography-root"
       />
       <div
         class="MuiGrid2-root MuiGrid2-container MuiGrid2-wrap-xs-nowrap MuiGrid2-direction-xs-column MuiGrid2-direction-sm-row MuiGrid2-spacing-xs-2 MuiGrid2-spacing-sm-10 css-1ohruia-MuiGrid2-root"
@@ -40,7 +40,7 @@ exports[`<PartnersList /> renders unchanged 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
           >
             <h2
-              class="MuiTypography-root MuiTypography-h2 css-uqq5zv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h2 css-pbp179-MuiTypography-root"
             >
               Example Partner
             </h2>

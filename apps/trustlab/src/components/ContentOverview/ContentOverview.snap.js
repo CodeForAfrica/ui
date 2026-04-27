@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<ContentOverview /> renders items without labels 1`] = `
 <div>
@@ -29,7 +29,7 @@ exports[`<ContentOverview /> renders items without labels 1`] = `
             class="MuiBox-root css-1hitr06"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 css-11hri23-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 css-babb65-MuiTypography-root"
             >
               Key Highlights
             </div>
@@ -40,7 +40,7 @@ exports[`<ContentOverview /> renders items without labels 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Explored AI's role in amplifying ethnic divisions online
                 </div>
@@ -49,7 +49,7 @@ exports[`<ContentOverview /> renders items without labels 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Identified 47 coordinated inauthentic behaviour networks
                 </div>
@@ -58,7 +58,7 @@ exports[`<ContentOverview /> renders items without labels 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Developed community-level counter-speech playbooks
                 </div>
@@ -101,7 +101,7 @@ exports[`<ContentOverview /> renders richtext card type 1`] = `
             class="MuiBox-root css-1hitr06"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 css-11hri23-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 css-babb65-MuiTypography-root"
             >
               About the Programme
             </div>
@@ -145,7 +145,7 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
             class="MuiBox-root css-1hitr06"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 css-11hri23-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 css-babb65-MuiTypography-root"
             >
               Cohort at a Glance
             </div>
@@ -156,12 +156,12 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Programme
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   TrustLab Incubator
                 </div>
@@ -170,12 +170,12 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Cohort Number
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Cohort 2
                 </div>
@@ -184,12 +184,12 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Cohort Location
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Mombasa
                 </div>
@@ -198,12 +198,12 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Date
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   1-10-2025 to 23-10-2025
                 </div>
@@ -212,12 +212,12 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Organisations
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   5 participants
                 </div>
@@ -226,12 +226,12 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Status
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Completed
                 </div>
@@ -274,7 +274,7 @@ exports[`<ContentOverview /> renders with linked item 1`] = `
             class="MuiBox-root css-1hitr06"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 css-11hri23-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 css-babb65-MuiTypography-root"
             >
               Organisation Details
             </div>
@@ -285,12 +285,12 @@ exports[`<ContentOverview /> renders with linked item 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Organisation
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Organisation Name
                 </div>
@@ -299,12 +299,12 @@ exports[`<ContentOverview /> renders with linked item 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Theme
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Fact-checking & digital literacy
                 </div>
@@ -313,12 +313,12 @@ exports[`<ContentOverview /> renders with linked item 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Organisation Location
                 </div>
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-v1huz0-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-151a55d-MuiTypography-root"
                 >
                   Lamu
                 </div>
@@ -327,7 +327,7 @@ exports[`<ContentOverview /> renders with linked item 1`] = `
                 class="MuiBox-root css-0"
               >
                 <div
-                  class="MuiTypography-root MuiTypography-p1 css-1rsbocf-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-p1 css-7jott4-MuiTypography-root"
                 >
                   Cohort
                 </div>

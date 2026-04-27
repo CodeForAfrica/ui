@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<ReportCard /> renders in condensed mode 1`] = `
 <div
@@ -15,18 +15,18 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
         class="MuiCardContent-root css-3p3r5n-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-8y7i6o-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1y9pvlu-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-0"
         >
           <span
-            class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
           >
             This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
           </span>
@@ -48,7 +48,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
         viewbox="0 0 24 24"
       />
       <p
-        class="MuiTypography-root MuiTypography-p2 css-pddkpv-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1e33n7r-MuiTypography-root"
       >
         Download Report
       </p>
@@ -80,18 +80,18 @@ exports[`<ReportCard /> renders unchanged 1`] = `
         class="MuiCardContent-root css-9bakwa-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-8y7i6o-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1y9pvlu-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-0"
         >
           <span
-            class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
           >
             This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
           </span>
@@ -116,7 +116,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
         viewbox="0 0 24 24"
       />
       <p
-        class="MuiTypography-root MuiTypography-p2 css-pddkpv-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1e33n7r-MuiTypography-root"
       >
         Download Report
       </p>
@@ -140,18 +140,18 @@ exports[`<ReportCard /> renders without image 1`] = `
         class="MuiCardContent-root css-3p3r5n-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-8y7i6o-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1y9pvlu-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-0"
         >
           <span
-            class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
           >
             This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
           </span>
@@ -176,7 +176,7 @@ exports[`<ReportCard /> renders without image 1`] = `
         viewbox="0 0 24 24"
       />
       <p
-        class="MuiTypography-root MuiTypography-p2 css-pddkpv-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1e33n7r-MuiTypography-root"
       >
         Download Report
       </p>
@@ -207,18 +207,18 @@ exports[`<ReportCard /> renders without link 1`] = `
         class="MuiCardContent-root css-9bakwa-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-8y7i6o-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
         >
           Test Report
         </h3>
         <div
-          class="MuiTypography-root MuiTypography-caption css-1i6wbmn-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-caption css-1y9pvlu-MuiTypography-root"
         />
         <div
           class="MuiBox-root css-0"
         >
           <span
-            class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
           >
             This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
           </span>
@@ -243,7 +243,7 @@ exports[`<ReportCard /> renders without link 1`] = `
         viewbox="0 0 24 24"
       />
       <p
-        class="MuiTypography-root MuiTypography-p2 css-pddkpv-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1e33n7r-MuiTypography-root"
       >
         Download Report
       </p>

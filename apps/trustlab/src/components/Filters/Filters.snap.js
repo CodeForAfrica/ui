@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ReportFilters renders unchanged 1`] = `
 <div>
@@ -6,7 +6,7 @@ exports[`ReportFilters renders unchanged 1`] = `
     class="MuiBox-root css-1821gv5"
   >
     <h6
-      class="MuiTypography-root MuiTypography-subtitle1 css-1dte1p5-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-subtitle1 css-1k0y18v-MuiTypography-root"
     >
       Filter By
     </h6>
@@ -14,7 +14,7 @@ exports[`ReportFilters renders unchanged 1`] = `
       class="MuiStack-root css-1u7tqyj-MuiStack-root"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -40,7 +40,7 @@ exports[`ReportFilters renders unchanged 1`] = `
         </span>
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -66,7 +66,7 @@ exports[`ReportFilters renders unchanged 1`] = `
         </span>
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-wl7jr6-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<LocationAndDate /> renders unchanged 1`] = `
 <div>
@@ -6,7 +6,7 @@ exports[`<LocationAndDate /> renders unchanged 1`] = `
     class="MuiStack-root css-niqf4j-MuiStack-root"
   >
     <div
-      class="MuiTypography-root MuiTypography-p2 css-drfs95-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-p2 css-1e8bnay-MuiTypography-root"
     >
       Nairobi, Kenya
     </div>
@@ -16,7 +16,7 @@ exports[`<LocationAndDate /> renders unchanged 1`] = `
       role="separator"
     />
     <div
-      class="MuiTypography-root MuiTypography-p2 css-15jnnqw-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-p2 css-1pscdoi-MuiTypography-root"
     >
       15-01-2024
     </div>
