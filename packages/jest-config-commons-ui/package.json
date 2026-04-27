@@ -2,13 +2,37 @@
   "name": "jest-config-commons-ui",
   "version": "2.0.1",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./javascript": "./javascript.js",
+    "./typescript": "./typescript.js",
+    "./next": "./next/index.js",
+    "./next.js": "./next.js",
+    "./next/app": "./next/app.js",
+    "./next/library": "./next/library.js",
+    "./setup/browser": "./setup/browser.js",
+    "./setup/next/router": "./setup/next/router.js",
+    "./setup/next-router": "./setup/next-router.js",
+    "./setup/react-leaflet": "./setup/react-leaflet.js",
+    "./setup/sentry": "./setup/sentry.js",
+    "./__mocks__/elementMock.js": "./__mocks__/elementMock.js",
+    "./__mocks__/empty.js": "./__mocks__/empty.js",
+    "./__mocks__/fileMock.js": "./__mocks__/fileMock.js",
+    "./__mocks__/nextFontMock.js": "./__mocks__/nextFontMock.js",
+    "./__mocks__/styleMock.js": "./__mocks__/styleMock.js",
+    "./snapshotResolver": "./snapshotResolver/index.js"
+  },
   "license": "MIT",
   "files": [
-    "index.js",
     "__mocks__",
-    "snapshotResolver",
+    "index.js",
+    "javascript.js",
+    "typescript.js",
+    "shared.js",
     "next.js",
-    "jest.setup.js"
+    "next",
+    "setup",
+    "snapshotResolver"
   ],
   "scripts": {
     "lint:check": "eslint .",
@@ -16,15 +40,18 @@
     "clean": "rm -rf .turbo node_modules"
   },
   "dependencies": {
-    "jest-environment-jsdom": "catalog:"
+    "@babel/preset-env": "catalog:",
+    "@babel/preset-react": "catalog:",
+    "@babel/preset-typescript": "catalog:",
+    "babel-jest": "catalog:",
+    "identity-obj-proxy": "catalog:",
+    "jest-environment-jsdom": "catalog:",
+    "next": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
-    "@babel/preset-env": "catalog:",
-    "@babel/preset-react": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
-    "identity-obj-proxy": "catalog:",
     "jest": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"

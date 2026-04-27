@@ -1,40 +1,11 @@
-global.ResizeObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}));
-
-global.TextEncoder = jest.fn().mockImplementation(() => ({
-  encode: jest.fn(),
-  encodeInto: jest.fn(),
-}));
-
-global.TextDecoder = jest.fn().mockImplementation(() => ({
-  decode: jest.fn(),
-}));
-
-// https://github.com/jsdom/jsdom/issues/1695
-global.Element.prototype.scrollIntoView = jest.fn();
+require("jest-config-commons-ui/setup/browser");
 
 // NOTE: Since we use Jest for component testing i.e. unit testing, it's not
 //       recommended to load external env vars (since outcome will not be
 //       predictable)
 process.env.APP_URL = "http://localhost:3000";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    asPath: "",
-    isReady: true,
-    locale: "en",
-    locales: ["en", "fr", "pt"],
-    push: jest.fn(),
-    query: {},
-  })),
-}));
-
-jest.mock("@sentry/nextjs", () => ({
-  captureException: jest.fn(),
-  captureMessage: jest.fn(),
-}));
+require("jest-config-commons-ui/setup/next/router");
+require("jest-config-commons-ui/setup/sentry");
 
 module.exports = require("@commons-ui/testing-library/jest.setup");

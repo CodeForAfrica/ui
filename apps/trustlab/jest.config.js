@@ -1,11 +1,7 @@
-const defaultConfig = require("jest-config-commons-ui/next");
+const createJestConfig = require("jest-config-commons-ui/next/app");
 
-const { moduleNameMapper } = defaultConfig;
-
-module.exports = {
-  ...defaultConfig,
+module.exports = createJestConfig({
   moduleNameMapper: {
-    ...moduleNameMapper,
     "^@/trustlab/(.*)$": "<rootDir>/src/$1",
     "^@/commons-ui/core/(.*)$":
       "<rootDir>/../../packages/commons-ui-core/src/$1",
@@ -15,4 +11,4 @@ module.exports = {
       "<rootDir>/../../packages/commons-ui-payload/src/$1",
     "^next/font/google$": "<rootDir>/__mocks__/nextFontMock.js",
   },
-};
+});

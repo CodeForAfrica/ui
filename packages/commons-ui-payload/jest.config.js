@@ -1,9 +1,9 @@
-const defaultConfig = require("jest-config-commons-ui");
+const javascriptConfig = require("jest-config-commons-ui/javascript");
 
-const { moduleNameMapper } = defaultConfig;
+const { moduleNameMapper } = javascriptConfig;
 
 module.exports = {
-  ...defaultConfig,
+  ...javascriptConfig,
   moduleNameMapper: {
     ...moduleNameMapper,
     // Handle module aliases

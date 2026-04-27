@@ -1,9 +1,8 @@
+const { createTransformIgnorePatterns } = require("./shared");
+
 module.exports = {
   collectCoverage: false,
-  // on node 14.x coverage provider v8 offers good speed and more or less good report
   coverageProvider: "v8",
-  collectCoverageFrom: ["**/*.{js,jsx}", "!**/node_modules/**"],
-  moduleFileExtensions: ["js", "jsx", "json", "node"],
   moduleNameMapper: {
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
@@ -19,9 +18,11 @@ module.exports = {
       "jest-config-commons-ui/__mocks__/fileMock.js",
     //       svg import should return React.element
     "^.+\\.svg$": "jest-config-commons-ui/__mocks__/elementMock.js",
+
+    // Jest 30's resolver can fail on Payload's package metadata in app roots.
+    "^payload$": "<rootDir>/node_modules/payload/dist/index.js",
   },
   roots: ["<rootDir>/src"],
-  // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   snapshotResolver: "jest-config-commons-ui/snapshotResolver",
   testEnvironment: "jsdom",
@@ -29,16 +30,6 @@ module.exports = {
     url: "http://localhost/",
   },
   workerIdleMemoryLimit: "512MB",
-  testMatch: ["**/?(*.)+(test).js?(x)"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/"],
-  transform: {
-    "^.+\\.(js|jsx)$": [
-      "babel-jest",
-      { presets: ["@babel/preset-env", "@babel/preset-react"] },
-    ],
-  },
-  transformIgnorePatterns: [
-    "<rootDir>/node_modules/(?!(@payloadcms|payload))",
-    "^.+\\.module\\.(css|sass|scss)$",
-  ],
+  transformIgnorePatterns: createTransformIgnorePatterns(),
 };

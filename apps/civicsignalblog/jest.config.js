@@ -1,11 +1,7 @@
-const defaultConfig = require("jest-config-commons-ui/next");
+const createJestConfig = require("jest-config-commons-ui/next/app");
 
-const { moduleNameMapper } = defaultConfig;
-
-module.exports = {
-  ...defaultConfig,
+module.exports = createJestConfig({
   moduleNameMapper: {
-    ...moduleNameMapper,
     "^@/civicsignalblog/(.*)$": "<rootDir>/src/$1",
     "^@/commons-ui/core/(.*)$":
       "<rootDir>/../../packages/commons-ui-core/src/$1",
@@ -14,5 +10,5 @@ module.exports = {
     "^@/commons-ui/payload/(.*)$":
       "<rootDir>/../../packages/commons-ui-payload/src/$1",
   },
-  transformIgnorePatterns: ["<rootDir>/node_modules/(?!camelcase-keys)"],
-};
+  transpilePackages: ["camelcase-keys"],
+});
