@@ -80,3 +80,9 @@ jobs:
       # see: https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
       - name: Jest
         run: pnpm jest:ci
+
+      - name: Build
+        run: pnpm build
+
+      - name: Playwright
+        run: pnpm playwright
