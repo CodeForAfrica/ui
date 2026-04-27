@@ -10,5 +10,6 @@ module.exports = createJestConfig({
     "^@/commons-ui/payload/(.*)$":
       "<rootDir>/../../packages/commons-ui-payload/src/$1",
   },
+  payload: true,
   transpilePackages: ["camelcase-keys"],
 });

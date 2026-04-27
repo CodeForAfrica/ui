@@ -12,5 +12,6 @@ module.exports = createJestConfig({
     "^@/hurumap/core/(.*)$": "<rootDir>/../../packages/hurumap-core/src/$1",
     "^@/hurumap/next/(.*)$": "<rootDir>/../../packages/hurumap-next/src/$1",
   },
+  payload: true,
   transpilePackages: ["camelcase-keys", "d3-format"],
 });

@@ -18,9 +18,6 @@ module.exports = {
       "jest-config-commons-ui/__mocks__/fileMock.js",
     //       svg import should return React.element
     "^.+\\.svg$": "jest-config-commons-ui/__mocks__/elementMock.js",
-
-    // Jest 30's resolver can fail on Payload's package metadata in app roots.
-    "^payload$": "<rootDir>/node_modules/payload/dist/index.js",
   },
   roots: ["<rootDir>/src"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],

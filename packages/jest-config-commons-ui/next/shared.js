@@ -4,12 +4,13 @@ const nextModuleNameMapper = {
   "^server-only$": "jest-config-commons-ui/__mocks__/empty.js",
 };
 
-function mergeModuleNameMapper(baseMapper, overrideMapper) {
-  return {
-    ...baseMapper,
-    ...nextModuleNameMapper,
-    ...overrideMapper,
-  };
+const payloadModuleNameMapper = {
+  // Jest 30's resolver can fail on Payload's package metadata.
+  "^payload$": "<rootDir>/node_modules/payload/dist/index.js",
+};
+
+function mergeModuleNameMapper(...mappers) {
+  return Object.assign({}, ...mappers.filter(Boolean));
 }
 
 function mergeTestPathIgnorePatterns(basePatterns, overridePatterns) {
@@ -20,4 +21,5 @@ module.exports = {
   mergeModuleNameMapper,
   mergeTestPathIgnorePatterns,
   nextModuleNameMapper,
+  payloadModuleNameMapper,
 };

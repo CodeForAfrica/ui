@@ -8,5 +8,6 @@ module.exports = createJestConfig({
     "^@/commons-ui/next/(.*)$":
       "<rootDir>/../../packages/commons-ui-next/src/$1",
   },
+  payload: true,
   transpilePackages: ["camelcase-keys"],
 });

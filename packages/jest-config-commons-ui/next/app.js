@@ -6,12 +6,15 @@ const typescriptConfig = require("../typescript");
 const {
   mergeModuleNameMapper,
   mergeTestPathIgnorePatterns,
+  nextModuleNameMapper,
+  payloadModuleNameMapper,
 } = require("./shared");
 
 function createNextAppJestConfig(customConfig = {}) {
   const {
     dir = "./",
     moduleNameMapper,
+    payload = false,
     testPathIgnorePatterns,
     transpilePackages = [],
     transform: _transform,
@@ -28,6 +31,8 @@ function createNextAppJestConfig(customConfig = {}) {
   const createJestConfig = nextJest({ dir });
   const mergedModuleNameMapper = mergeModuleNameMapper(
     baseModuleNameMapper,
+    nextModuleNameMapper,
+    payload ? payloadModuleNameMapper : undefined,
     moduleNameMapper,
   );
   const resolveNextJestConfig = createJestConfig({

@@ -11,4 +11,5 @@ module.exports = createJestConfig({
       "<rootDir>/../../packages/commons-ui-payload/src/$1",
     "^next/font/google$": "<rootDir>/__mocks__/nextFontMock.js",
   },
+  payload: true,
 });
