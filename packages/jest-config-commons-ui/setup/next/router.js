@@ -15,7 +15,7 @@ const mockRouter = {
   isPreview: false,
   isReady: true,
   locale: "en",
-  locales: ["en", "fr", "pt"],
+  locales: ["en"],
   pathname: "/",
   prefetch: jest.fn(() => Promise.resolve()),
   push: jest.fn(),
