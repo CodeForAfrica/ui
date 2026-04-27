@@ -18,7 +18,7 @@ function toPnpmPackagePattern(packageName) {
   if (packageName.startsWith("@") && !packageName.includes("/")) {
     return `${escapeRegExp(packageName)}\\+[^@]+`;
   }
-  return escapeRegExp(packageName).replace("/", "\\+");
+  return escapeRegExp(packageName).replaceAll("/", "\\+");
 }
 
 function unique(values) {
