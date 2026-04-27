@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`FeaturedVideos should render 1`] = `
 <div>
@@ -27,7 +27,7 @@ exports[`FeaturedVideos should render 1`] = `
             >
               <div
                 aria-label="Video Player"
-                class="video-js vjs-fluid vjs-default-skin hide vjs-paused vjs_video_3-dimensions vjs-controls-enabled vjs-workinghover vjs-v8 vjs-user-active"
+                class="video-js vjs-fluid vjs-default-skin hide vjs-paused vjs_video_3-dimensions vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active"
                 data-vjs-player="true"
                 id="vjs_video_3"
                 lang="en-us"
@@ -60,6 +60,7 @@ exports[`FeaturedVideos should render 1`] = `
                   aria-atomic="true"
                   aria-live="off"
                   class="vjs-text-track-display"
+                  style="position: relative; height: 0px; top: unset; bottom: 0px;"
                   translate="yes"
                 >
                   <div

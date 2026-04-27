@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
 <div>
@@ -12,7 +12,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
       >
         <h6
-          class="MuiTypography-root MuiTypography-subheading2 css-7hdx8h-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-subheading2 css-16qltvt-MuiTypography-root"
         />
         <div
           class="MuiGrid2-root MuiGrid2-container MuiGrid2-direction-xs-row css-1jxwjqx-MuiGrid2-root"
@@ -39,7 +39,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 class="MuiStack-root css-1lazeno-MuiStack-root"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-u5vu5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-ig2x9i-MuiTypography-root"
                 >
                   Playbook A
                 </h3>
@@ -47,7 +47,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 css-190xw6s-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 css-c7ofyq-MuiTypography-root"
                   >
                     Playbook description
                   </p>
@@ -56,7 +56,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-19qyozm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-yd7w3-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                     href="/playbooks/a"
                     name="Download"
                     tabindex="0"
@@ -89,7 +89,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                 class="MuiStack-root css-1lazeno-MuiStack-root"
               >
                 <h3
-                  class="MuiTypography-root MuiTypography-h3 css-u5vu5-MuiTypography-root"
+                  class="MuiTypography-root MuiTypography-h3 css-ig2x9i-MuiTypography-root"
                 >
                   Playbook B
                 </h3>
@@ -97,7 +97,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p2 css-190xw6s-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p2 css-c7ofyq-MuiTypography-root"
                   >
                     Playbook description
                   </p>
@@ -106,7 +106,7 @@ exports[`<PlaybooksList /> renders initial playbooks using RowCard 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-19qyozm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-yd7w3-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
                     href="/playbooks/b"
                     name="Download"
                     tabindex="0"

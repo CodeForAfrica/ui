@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<IntelligenceBriefings /> renders unchanged 1`] = `
 <div>
@@ -15,7 +15,7 @@ exports[`<IntelligenceBriefings /> renders unchanged 1`] = `
           class="MuiGrid2-root MuiGrid2-direction-xs-row MuiGrid2-grid-xs-12 MuiGrid2-grid-md-4 css-it7ga0-MuiGrid2-root"
         >
           <h2
-            class="MuiTypography-root MuiTypography-display4 MuiTypography-gutterBottom css-gc2wc1-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-display4 MuiTypography-gutterBottom css-smjjdr-MuiTypography-root"
           >
             Intelligence briefings
           </h2>
@@ -30,7 +30,7 @@ exports[`<IntelligenceBriefings /> renders unchanged 1`] = `
               class="MuiBox-root css-0"
             >
               <p
-                class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-13ce6q1-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-p2 MuiTypography-gutterBottom css-ger7mo-MuiTypography-root"
               >
                 This is a placeholder text that should be updated. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders. Trustlab fact-checkers will help debunk false-claims or other smear campaigns against human rights defenders
               </p>
@@ -42,7 +42,7 @@ exports[`<IntelligenceBriefings /> renders unchanged 1`] = `
                 class="MuiDivider-root MuiDivider-fullWidth css-7osdb6-MuiDivider-root"
               />
               <h3
-                class="MuiTypography-root MuiTypography-h3 css-1srdmz-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h3 css-bqpgp6-MuiTypography-root"
               >
                 Stakeholder round table to strengthen grass roots defenders
               </h3>

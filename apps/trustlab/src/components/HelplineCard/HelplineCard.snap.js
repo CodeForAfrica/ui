@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<HelplineCard /> renders unchanged 1`] = `
 <div>
@@ -26,7 +26,7 @@ exports[`<HelplineCard /> renders unchanged 1`] = `
           class="MuiDivider-root MuiDivider-fullWidth css-5tnkj6-MuiDivider-root"
         />
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-r9nd4k-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-venxvn-MuiTypography-root"
         >
           Anti Trolling
         </h3>

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<CourseList /> renders unchanged 1`] = `
 <div>
@@ -9,7 +9,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
       class="MuiBox-root css-gq77ek"
     >
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-myk591-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-1czwdei-MuiTypography-root"
       >
         Test Course List
       </h2>
@@ -32,14 +32,14 @@ exports[`<CourseList /> renders unchanged 1`] = `
             alt="Course 1 Image"
             class="MuiCardMedia-root css-1qi5ydg-MuiCardMedia-root"
             role="img"
-            style="background-image: url(/images/course1.jpg);"
+            style="background-image: url("/images/course1.jpg");"
             title="Course 1 Title"
           />
           <div
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-114uinv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-1npdmgh-MuiTypography-root"
             >
               Course 1 Title
             </div>
@@ -62,14 +62,14 @@ exports[`<CourseList /> renders unchanged 1`] = `
             alt="Course 2 Image"
             class="MuiCardMedia-root css-1qi5ydg-MuiCardMedia-root"
             role="img"
-            style="background-image: url(/images/course2.jpg);"
+            style="background-image: url("/images/course2.jpg");"
             title="Course 2 Title"
           />
           <div
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-114uinv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-1npdmgh-MuiTypography-root"
             >
               Course 2 Title
             </div>
@@ -92,14 +92,14 @@ exports[`<CourseList /> renders unchanged 1`] = `
             alt="Course 3 Image"
             class="MuiCardMedia-root css-1qi5ydg-MuiCardMedia-root"
             role="img"
-            style="background-image: url(/images/course3.jpg);"
+            style="background-image: url("/images/course3.jpg");"
             title="Course 3 Title"
           />
           <div
             class="MuiCardContent-root css-127evc8-MuiCardContent-root"
           >
             <div
-              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-114uinv-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-h3 MuiTypography-noWrap css-1npdmgh-MuiTypography-root"
             >
               Course 3 Title
             </div>

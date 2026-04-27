@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<ReportsList /> renders unchanged 1`] = `
 <div
@@ -26,7 +26,7 @@ exports[`<ReportsList /> renders unchanged 1`] = `
         />
       </figure>
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-1q4gudl-MuiTypography-root"
       >
         No Reports Found
       </h2>

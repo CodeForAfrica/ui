@@ -1,11 +1,7 @@
-const defaultConfig = require("jest-config-commons-ui/next");
+const createJestConfig = require("jest-config-commons-ui/next/app");
 
-const { moduleNameMapper } = defaultConfig;
-
-module.exports = {
-  ...defaultConfig,
+module.exports = createJestConfig({
   moduleNameMapper: {
-    ...moduleNameMapper,
     "^@/climatemappedafrica/(.*)$": "<rootDir>/src/$1",
     "^@/commons-ui/core/(.*)$":
       "<rootDir>/../../packages/commons-ui-core/src/$1",
@@ -16,5 +12,6 @@ module.exports = {
     "^@/hurumap/core/(.*)$": "<rootDir>/../../packages/hurumap-core/src/$1",
     "^@/hurumap/next/(.*)$": "<rootDir>/../../packages/hurumap-next/src/$1",
   },
-  transformIgnorePatterns: ["<rootDir>/node_modules/(?!camelcase-keys)"],
-};
+  payload: true,
+  transpilePackages: ["camelcase-keys", "d3-format"],
+});

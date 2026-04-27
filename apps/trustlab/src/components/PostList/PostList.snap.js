@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<PostList /> renders unchanged 1`] = `
 <div>
@@ -29,7 +29,7 @@ exports[`<PostList /> renders unchanged 1`] = `
           <div
             class="MuiCardMedia-root css-1h6d4aj-MuiCardMedia-root"
             role="img"
-            style="background-image: url(/resources-1.jpg);"
+            style="background-image: url("/resources-1.jpg");"
             title="TrustLab Incubator Programme"
           />
           <div
@@ -39,7 +39,7 @@ exports[`<PostList /> renders unchanged 1`] = `
               class="MuiCardHeader-content css-1jkp9bu-MuiCardHeader-content"
             >
               <h2
-                class="MuiTypography-root MuiTypography-h2 css-s9xaj3-MuiTypography-root"
+                class="MuiTypography-root MuiTypography-h2 css-upaw3c-MuiTypography-root"
               >
                 TrustLab Incubator Programme
               </h2>
@@ -49,7 +49,7 @@ exports[`<PostList /> renders unchanged 1`] = `
             class="MuiCardContent-root css-yjf187-MuiCardContent-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-p1 css-1p2figo-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p1 css-1gkhkfv-MuiTypography-root"
             >
               The TrustLab supports Kenyan CSOs/CBOs to counter digital threats that affect them and the communities they serve
             </p>
@@ -58,7 +58,7 @@ exports[`<PostList /> renders unchanged 1`] = `
             class="MuiCardActions-root MuiCardActions-spacing css-1qg28ok-MuiCardActions-root"
           >
             <a
-              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-15f3whe-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+              class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-cejlb6-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
               href="/opportunities/trustlab-incubator-programme"
               tabindex="0"
             >
@@ -77,7 +77,7 @@ exports[`<PostList /> renders unchanged 1`] = `
             class="MuiFormControl-root MuiTextField-root css-ywkqil-MuiFormControl-root-MuiTextField-root"
           >
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-153bfbn-MuiInputBase-root-MuiOutlinedInput-root"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall css-1543gzb-MuiInputBase-root-MuiOutlinedInput-root"
             >
               <input
                 aria-invalid="false"

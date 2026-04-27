@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<HighlightList /> renders unchanged 1`] = `
 <div>
@@ -9,7 +9,7 @@ exports[`<HighlightList /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <p
-        class="MuiTypography-root MuiTypography-p1 css-vdhse4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1m8o1hh-MuiTypography-root"
       >
         Highlights / Key Outcomes
       </p>
@@ -73,7 +73,7 @@ exports[`<HighlightList /> renders with a single item 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <p
-        class="MuiTypography-root MuiTypography-p1 css-vdhse4-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p1 css-1m8o1hh-MuiTypography-root"
       >
         Highlights
       </p>

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<CategoryCard /> renders unchanged 1`] = `
 <a
@@ -24,7 +24,7 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
     class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
   >
     <h3
-      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-4oqvgf-MuiTypography-root"
     >
       Test Research Category
     </h3>
@@ -32,7 +32,7 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
       class="MuiBox-root css-1rr4qq7"
     >
       <p
-        class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
       >
         This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
       </p>
@@ -41,7 +41,7 @@ exports[`<CategoryCard /> renders unchanged 1`] = `
       class="MuiBox-root css-1yuhvjn"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-27pozk-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-9nbw9c-MuiButtonBase-root-MuiButton-root"
         tabindex="0"
         type="button"
       >
@@ -61,7 +61,7 @@ exports[`<CategoryCard /> renders without image 1`] = `
     class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
   >
     <h3
-      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-4oqvgf-MuiTypography-root"
     >
       Test Research Category
     </h3>
@@ -69,7 +69,7 @@ exports[`<CategoryCard /> renders without image 1`] = `
       class="MuiBox-root css-1rr4qq7"
     >
       <p
-        class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
       >
         This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
       </p>
@@ -101,7 +101,7 @@ exports[`<CategoryCard /> renders without link 1`] = `
     class="MuiCardContent-root css-1llgzpr-MuiCardContent-root"
   >
     <h3
-      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-1m50nra-MuiTypography-root"
+      class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-4oqvgf-MuiTypography-root"
     >
       Test Research Category
     </h3>
@@ -109,7 +109,7 @@ exports[`<CategoryCard /> renders without link 1`] = `
       class="MuiBox-root css-1rr4qq7"
     >
       <p
-        class="MuiTypography-root MuiTypography-p2 css-afjcqe-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-p2 css-1t6n97s-MuiTypography-root"
       >
         This report is a baseline Information Ecosystem Assessment (IEA) of online communities in Kenya, mapping digital harms and malign actors, using the DISARM and D-RAIL frameworks for analysing weaponised hate speech, information manipulation and other forms of illicit influence operations.
       </p>

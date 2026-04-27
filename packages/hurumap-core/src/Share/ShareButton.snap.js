@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ShareButton renders unchanged 1`] = `
 <div>
@@ -8,7 +8,7 @@ exports[`ShareButton renders unchanged 1`] = `
     <button
       aria-label="Share on Facebook"
       class="react-share__ShareButton"
-      style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; cursor: pointer;"
+      style="background-color: transparent; padding: 0px; display: inline-flex; border-radius: 0; outline-offset: 2px; color: inherit; cursor: pointer;"
       type="button"
     >
       <svg

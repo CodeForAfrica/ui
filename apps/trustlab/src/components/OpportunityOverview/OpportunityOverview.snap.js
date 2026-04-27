@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<OpportunityOverview /> renders unchanged 1`] = `
 <div>
@@ -81,12 +81,12 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p1 css-1tvkar0-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-oupnt4-MuiTypography-root"
                   >
                     3
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-p1 css-139w38v-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-1cd7lny-MuiTypography-root"
                   >
                     Completed
                   </p>
@@ -102,12 +102,12 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p1 css-1tvkar0-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-oupnt4-MuiTypography-root"
                   >
                     13
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-p1 css-139w38v-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-1cd7lny-MuiTypography-root"
                   >
                     Organisations
                   </p>
@@ -123,12 +123,12 @@ exports[`<OpportunityOverview /> renders with metrics 1`] = `
                   class="MuiBox-root css-0"
                 >
                   <p
-                    class="MuiTypography-root MuiTypography-p1 css-1tvkar0-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-oupnt4-MuiTypography-root"
                   >
                     6
                   </p>
                   <p
-                    class="MuiTypography-root MuiTypography-p1 css-139w38v-MuiTypography-root"
+                    class="MuiTypography-root MuiTypography-p1 css-1cd7lny-MuiTypography-root"
                   >
                     Counties
                   </p>

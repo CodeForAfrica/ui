@@ -1,10 +1,4 @@
-jest.mock("next/router", () => ({
-  useRouter: jest.fn().mockImplementation(() => ({
-    asPath: "",
-    isReady: true,
-    push: jest.fn(),
-    query: {},
-  })),
-}));
+require("jest-config-commons-ui/setup/browser");
+require("jest-config-commons-ui/setup/next/router");
 
 module.exports = require("@commons-ui/testing-library/jest.setup");

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Incubator /> renders unchanged 1`] = `
 <div>
@@ -9,7 +9,7 @@ exports[`<Incubator /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-283xsv-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-1h365td-MuiTypography-root"
       >
         Incubator
       </h2>
@@ -23,7 +23,7 @@ exports[`<Incubator /> renders unchanged 1`] = `
             class="MuiBox-root css-1gl9ksj"
           />
           <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-ff6d4r-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-colorPrimary css-lyzojs-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
             href="/apply"
             tabindex="0"
           >

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Resources /> renders unchanged 1`] = `
 <div>
@@ -9,7 +9,7 @@ exports[`<Resources /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-so3kj6-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-8j1ljh-MuiTypography-root"
       >
         Helplines
       </h2>
@@ -52,7 +52,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h3
-              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1snywb6-MuiTypography-root"
             >
               RiskDetection toolkit
             </h3>
@@ -97,7 +97,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h3
-              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1snywb6-MuiTypography-root"
             >
               Roboshield toolkit
             </h3>
@@ -142,7 +142,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h3
-              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1snywb6-MuiTypography-root"
             >
               SelfDefence software
             </h3>
@@ -187,7 +187,7 @@ exports[`<Resources /> renders unchanged 1`] = `
               />
             </div>
             <h3
-              class="MuiTypography-root MuiTypography-subheading2 css-1spqldk-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-subheading2 css-1snywb6-MuiTypography-root"
             >
               PolicyForge toolkit
             </h3>

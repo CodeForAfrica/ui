@@ -12,15 +12,20 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "jest": {
-      "inputs": ["src/**/*.js"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/packages/jest-config-commons-ui/**/*.js",
+        "$TURBO_ROOT$/packages/jest-config-commons-ui/package.json",
+        "$TURBO_ROOT$/packages/commons-ui-testing-library/src/**",
+        "$TURBO_ROOT$/packages/commons-ui-testing-library/jest.setup.js",
+        "$TURBO_ROOT$/packages/commons-ui-testing-library/package.json"
+      ]
     },
     "playwright": {
-      "dependsOn": ["build"],
-      "inputs": ["src/**/*.js"]
+      "dependsOn": ["build"]
     },
     "test": {
-      "dependsOn": ["build"],
-      "inputs": ["src/**/*.js"]
+      "dependsOn": ["build"]
     },
     "lint:check": {
       "dependsOn": ["^lint:check"]

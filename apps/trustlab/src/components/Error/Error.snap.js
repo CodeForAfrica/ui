@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<Error /> renders unchanged 1`] = `
 <div>
@@ -24,7 +24,7 @@ exports[`<Error /> renders unchanged 1`] = `
         />
       </figure>
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-34oflt-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-1q4gudl-MuiTypography-root"
       >
         Test Error Page
       </h2>
@@ -32,7 +32,7 @@ exports[`<Error /> renders unchanged 1`] = `
         class="MuiBox-root css-0"
       />
       <a
-        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary active css-fhb6nm-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary active css-1ooxkbw-MuiTypography-root-MuiLink-root-MuiButtonBase-root-MuiButton-root"
         href="/"
         tabindex="0"
       >
