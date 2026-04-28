@@ -82,6 +82,7 @@
     "frontmatter-markdown-loader": "catalog:",
     "jscodeshift": "catalog:",
     "netlify-cms-proxy-server": "catalog:",
+    "storybook": "catalog:",
     "storybook-addon-material-ui": "catalog:",
     "storybook-addon-next-router": "catalog:",
     "svg-url-loader": "catalog:",

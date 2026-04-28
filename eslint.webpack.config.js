@@ -29,7 +29,6 @@ module.exports = {
       ),
       content: path.resolve(__dirname, "content/"),
       "@/vpnmanager": path.resolve(__dirname, "apps/vpnmanager/src/"),
-      "@/uibook": path.resolve(__dirname, "apps/uibook/src/"),
       "@/techlabblog": path.resolve(__dirname, "apps/techlabblog/src/"),
       "@/roboshield": path.resolve(__dirname, "apps/roboshield/src/"),
     },

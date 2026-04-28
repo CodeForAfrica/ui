@@ -86,7 +86,6 @@ pnpm bump             # Bump versions via scripts/bump.js
 | `techlabblog`         | TechLab engineering blog (MDX-based, first app migrated to per-app Dockerfile) |
 | `trustlab`            | CSO/CBO digital threats platform (Payload CMS v3)                              |
 | `twoopstracker`       | Social media analysis                                                          |
-| `uibook`              | UI component showcase                                                          |
 | `vpnmanager`          | VPN management                                                                 |
 
 ### Shared packages
