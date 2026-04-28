@@ -5,10 +5,12 @@
       "env": [
         "APP_NAME",
         "APP_URL",
+        "DATABASE_URL",
         "DEFAULT_LOCALE",
         "ENABLE_HSTS",
         "LOCALES",
         "NEXT_RUNTIME",
+        "PAYLOAD_SECRET",
         "PREVIEW_SECRET",
         "REVALIDATE_SECRET",
         "S3_ACCESS_KEY_ID",

@@ -33,6 +33,9 @@ jobs:
       WORDPRESS_URL: ${{ secrets.PESAYETU_WORDPRESS_URL }}
       # TwoopsTracker specific environment variables
       TWOOPSTRACKER_API_URL: "https://dev.investigate.africa/v1"
+      # TrustLab specific environment variables
+      DATABASE_URL: ${{ secrets.TRUSTLAB_MONGO_URL }}
+      PAYLOAD_SECRET: ${{ secrets.TRUSTLAB_PAYLOAD_SECRET }}
     strategy:
       matrix:
         node-version: [24]
