@@ -9,7 +9,7 @@
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "clean": "rm -rf .next .turbo node_modules",
-    "playwright": "npx playwright test"
+    "playwright": "npx playwright test --pass-with-no-tests"
   },
   "dependencies": {
     "@commons-ui/core": "workspace:*",

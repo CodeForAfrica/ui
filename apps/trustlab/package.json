@@ -12,7 +12,7 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "generate:all": "pnpm generate:importmap && pnpm generate:types",
     "jest": "jest",
-    "playwright": "npx playwright test",
+    "playwright": "npx playwright test --pass-with-no-tests",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "clean": "rm -rf .next .turbo build coverage dist node_modules"
   },

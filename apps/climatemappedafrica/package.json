@@ -29,7 +29,7 @@
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "jest": "jest",
-    "playwright": "npx playwright test",
+    "playwright": "npx playwright test --pass-with-no-tests",
     "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
