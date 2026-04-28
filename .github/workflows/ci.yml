@@ -92,8 +92,10 @@ jobs:
       - name: Jest
         run: pnpm jest:ci
 
+      # TODO: Re-enable PesaYetu once its external HURUmap API no longer
+      # intermittently returns non-JSON responses during static prerendering.
       - name: Build
-        run: pnpm build
+        run: pnpm exec turbo run build --filter=!pesayetu
 
       - name: Playwright
-        run: pnpm playwright
+        run: pnpm exec turbo run playwright --filter=!pesayetu
