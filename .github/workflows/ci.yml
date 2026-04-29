@@ -80,6 +80,17 @@ jobs:
 
       # TODO: Re-enable build in a dedicated CI build cleanup PR. The current
       # build surface needs app-scoped env isolation for Payload/Next apps.
+      - name: Build
+        if: ${{ false }}
+        run: pnpm build
+
+      # TODO: Re-enable Playwright browser installation with the Playwright check below.
+      - name: Install Playwright browsers
+        if: ${{ false }}
+        run: npx playwright install --with-deps
 
       # TODO: Re-enable Playwright in a dedicated E2E cleanup PR. The current
       # Playwright surface has stale app-level configs for apps with no specs.
+      - name: Playwright
+        if: ${{ false }}
+        run: pnpm playwright
