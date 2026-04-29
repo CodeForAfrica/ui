@@ -2,7 +2,9 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build-next"]
+    },
+    "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "HURUMAP_API_URL",

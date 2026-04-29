@@ -19,25 +19,9 @@ jobs:
     env:
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       MONGO_URL: ${{ secrets.MONGO_URL }}
-      # Payload needs non-empty signing secrets during build/start; CI does not authenticate users.
-      PAYLOAD_SECRET_KEY: "ci-payload-secret-key"
-      PAYLOAD_SECRET: "ci-payload-secret"
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      NEXT_TELEMETRY_DISABLED: 1
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      # PesaYetu specific environment variables
-      HURUMAP_API_URL: ${{ secrets.PESAYETU_HURUMAP_API_URL }}
-      JWT_SECRET_KEY: ${{ secrets.PESAYETU_JWT_SECRET_KEY }}
-      WORDPRESS_APPLICATION_USERNAME: ${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}
-      WORDPRESS_APPLICATION_PASSWORD: ${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}
-      WORDPRESS_MULTISITE_PREFIX: ${{ secrets.PESAYETU_WORDPRESS_MULTISITE_PREFIX }}
-      WORDPRESS_PREVIEW_SECRET: ${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}
-      WORDPRESS_URL: ${{ secrets.PESAYETU_WORDPRESS_URL }}
-      # TwoopsTracker specific environment variables
-      TWOOPSTRACKER_API_URL: "https://dev.investigate.africa/v1"
-      # TrustLab specific environment variables
-      DATABASE_URL: ${{ secrets.TRUSTLAB_MONGO_URL }}
     strategy:
       matrix:
         node-version: [24]
@@ -94,10 +78,8 @@ jobs:
       - name: Jest
         run: pnpm jest:ci
 
-      # TODO: Re-enable PesaYetu once its external HURUmap API no longer
-      # intermittently returns non-JSON responses during static prerendering.
-      - name: Build
-        run: pnpm exec turbo run build --filter=!pesayetu
+      # TODO: Re-enable build in a dedicated CI build cleanup PR. The current
+      # build surface needs app-scoped env isolation for Payload/Next apps.
 
       # TODO: Re-enable Playwright in a dedicated E2E cleanup PR. The current
       # Playwright surface has stale app-level configs for apps with no specs.

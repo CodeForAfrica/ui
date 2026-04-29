@@ -2,6 +2,9 @@
   "extends": ["//"],
   "tasks": {
     "build": {
+      "dependsOn": ["^build", "build-next"]
+    },
+    "build-next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "ADMIN_OAUTH_CLIENT_SECRET",
