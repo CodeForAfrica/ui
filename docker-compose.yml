@@ -195,23 +195,6 @@ services:
     volumes:
       - ./db_data:/apps/vpnmanager/data
 
-  promisetracker:
-    build:
-      secrets:
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-      context: .
-      target: promisetracker-runner
-      args:
-        - SENTRY_DSN=${SENTRY_DSN}
-    env_file:
-      - path: ./apps/promisetracker/.env
-      - path: ./apps/promisetracker/.env.local
-        required: false
-    ports:
-      - ${PROMISE_TRACKER_PORT:-3000}:3000
-
 secrets:
   api_secret_key:
     environment: API_SECRET_KEY

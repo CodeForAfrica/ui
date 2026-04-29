@@ -3,7 +3,7 @@
 COMPOSE=docker compose
 COMPOSE_BUILD_ENV=BUILDKIT_PROGRESS=plain
 
-.PHONY: charterafrica civicsignalblog climatemappedafrica codeforafrica down mongodb mongodb-keyfile pesayetu promisetracker roboshield techlabblog trustlab twoopstracker vpnmanager
+.PHONY: charterafrica civicsignalblog climatemappedafrica codeforafrica down mongodb mongodb-keyfile pesayetu roboshield techlabblog trustlab twoopstracker vpnmanager
 
 charterafrica:
 	./scripts/dc.sh charterafrica
@@ -29,9 +29,6 @@ mongodb-keyfile:
 
 pesayetu:
 	./scripts/dc.sh pesayetu
-
-promisetracker:
-	./scripts/dc.sh promisetracker
 
 roboshield:
 	./scripts/dc.sh roboshield

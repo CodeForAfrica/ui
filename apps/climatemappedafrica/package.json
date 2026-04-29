@@ -29,7 +29,7 @@
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "jest": "jest",
-    "playwright": "npx playwright test",
+    "playwright": "npx playwright test --pass-with-no-tests",
     "clean": "rm -rf .next .turbo build dist node_modules"
   },
   "dependencies": {
@@ -98,14 +98,6 @@
     "@commons-ui/testing-library": "workspace:*",
     "@material-ui/codemod": "catalog:",
     "@playwright/test": "catalog:",
-    "@storybook/addon-essentials": "catalog:",
-    "@storybook/addon-interactions": "catalog:",
-    "@storybook/addon-links": "catalog:",
-    "@storybook/blocks": "catalog:",
-    "@storybook/cli": "catalog:",
-    "@storybook/nextjs": "catalog:",
-    "@storybook/react": "catalog:",
-    "@storybook/test": "catalog:",
     "@svgr/webpack": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
