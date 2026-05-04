@@ -1,0 +1,127 @@
+name: Apps PR Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "apps/techlabblog/**"
+      - "apps/trustlab/**"
+      - "docker/apps/techlabblog/**"
+      - "docker/apps/trustlab/**"
+      - "docker-bake.hcl"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "turbo.json"
+      - "packages/**"
+      - "scripts/revalidate.mjs"
+      - "scripts/pr-build-targets.mjs"
+      - "scripts/pr-build-targets.test.mjs"
+      - ".github/workflows/bake-and-push.yml"
+      - ".github/workflows/apps-pr-build.yml"
+      - ".github/workflows/techlabblog.yml"
+      - ".github/workflows/trustlab.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}"
+  cancel-in-progress: true
+
+jobs:
+  affected:
+    name: Detect affected apps
+    runs-on: ubuntu-24.04
+    outputs:
+      has_targets: ${{ steps.targets.outputs.has_targets }}
+      matrix: ${{ steps.targets.outputs.matrix }}
+      trusted: ${{ steps.trust.outputs.trusted }}
+    steps:
+      - name: Check PR trust boundary
+        id: trust
+        shell: bash
+        run: |
+          trusted=false
+          if [[ "${{ github.event.pull_request.head.repo.full_name }}" == "${{ github.repository }}" ]]; then
+            case "${{ github.event.pull_request.author_association }}" in
+              OWNER|MEMBER|COLLABORATOR)
+                trusted=true
+                ;;
+            esac
+          fi
+          echo "trusted=${trusted}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v6
+        if: ${{ steps.trust.outputs.trusted == 'true' }}
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install pnpm
+        if: ${{ steps.trust.outputs.trusted == 'true' }}
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        if: ${{ steps.trust.outputs.trusted == 'true' }}
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        if: ${{ steps.trust.outputs.trusted == 'true' }}
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build app matrix
+        id: targets
+        shell: bash
+        run: |
+          if [[ "${{ steps.trust.outputs.trusted }}" != "true" ]]; then
+            echo "App PR builds are skipped for fork or untrusted PRs."
+            echo 'matrix={"include":[]}' >> "$GITHUB_OUTPUT"
+            echo "has_targets=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          matrix="$(
+            node scripts/pr-build-targets.mjs \
+              --base "${{ github.event.pull_request.base.sha }}" \
+              --head "${{ github.event.pull_request.head.sha }}"
+          )"
+
+          echo "matrix=${matrix}" >> "$GITHUB_OUTPUT"
+          if [[ "${matrix}" == '{"include":[]}' ]]; then
+            echo "has_targets=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "has_targets=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Build ${{ matrix.target }} image
+    needs: affected
+    if: ${{ needs.affected.outputs.has_targets == 'true' }}
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJSON(needs.affected.outputs.matrix) }}
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/bake-and-push.yml
+    with:
+      target: ${{ matrix.target }}
+      target_os: '["ubuntu-24.04-arm"]'
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+      push: false
+      set: |
+        ${{ matrix.target == 'techlabblog' && format('techlabblog.args.SENTRY_DSN={0}', vars.TECHLABBLOG_SENTRY_DSN) || '' }}
+        ${{ matrix.target == 'techlabblog' && 'techlabblog.args.SENTRY_ENVIRONMENT=ci' || '' }}
+    secrets:
+      DATABASE_URL: ${{ secrets.TRUSTLAB_MONGO_URL }}
+      PAYLOAD_SECRET: ${{ secrets.TRUSTLAB_PAYLOAD_SECRET }}
