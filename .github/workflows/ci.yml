@@ -24,17 +24,16 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
     strategy:
       matrix:
-        node-version: [24]
         os: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         id: pnpm-install
         with:
           run_install: false
@@ -46,7 +45,7 @@ jobs:
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Setup pnpm cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -56,9 +55,9 @@ jobs:
       # Looks like to use pnpm cache, setup-node must run after pnpm/action-setup
       # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: "package.json"
           cache: "pnpm"
 
       - name: Confirm pnpm version
@@ -67,16 +66,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      # root task
+      # https://turborepo.dev/docs/guides/tools/oxc#create-root-tasks-1
       - name: Format
-        run: pnpm format:check
+        run: pnpm exec turbo format:check
 
       - name: Lint
         run: pnpm lint:check
 
       # Standard linux runners for public repositories have 4 vCPUs and 16GB of RAM
       # see: https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
-      - name: Jest
-        run: pnpm jest:ci
+      - name: Test
+        run: pnpm test:ci
 
       # TODO: Re-enable build in a dedicated CI build cleanup PR. The current
       # build surface needs app-scoped env isolation for Payload/Next apps.

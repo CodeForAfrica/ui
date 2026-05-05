@@ -7,10 +7,10 @@ on:
     paths:
       - "apps/techlabblog/**"
       - "docker/apps/techlabblog/**"
-      - "docker/base.Dockerfile"
       - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-techlabblog.yml"
       - ".github/workflows/techlabblog.yml"
-      - ".github/workflows/bake-and-push.yml"
 
 permissions:
   actions: read
@@ -30,9 +30,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24]
         os: [ubuntu-24.04]
-        target_os: [ubuntu-24.04-arm]
     permissions:
       contents: read
     outputs:
@@ -47,7 +45,7 @@ jobs:
       # https://github.com/EndBug/version-check#github-workflow
       - uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: "package.json"
 
       - name: Check if version is bumped
         id: check
@@ -68,28 +66,23 @@ jobs:
   #   codeforafrica/techlabblog:latest     — version bump only (mutable, for convenience)
   #
   # Required GitHub Variables:
-  #   TECHLABBLOG_SENTRY_DSN
+  #   TECHLABBLOG_SENTRY_DSN, UI_BASE_TAG
   #
   # Required GitHub Secrets (for Sentry source map upload during build):
   #   SENTRY_AUTH_TOKEN, SENTRY_ORG, TECHLABBLOG_SENTRY_PROJECT
   #
-  # TODO: Set BASE_TAG below to a published base image version (e.g. v3) once
-  # base images are built and pushed via build-base-images.yml. Until then,
-  # base images are built inline (slower but correct).
   build:
     needs: version-check
     permissions:
       actions: read
       contents: read
-    uses: ./.github/workflows/bake-and-push.yml
+    uses: ./.github/workflows/_build-techlabblog.yml
     with:
-      target: techlabblog
-      target_os: "['ubuntu-24.04-arm']"
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
+      push: true
+      sentry_environment: production
       set: |
-        techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
-        techlabblog.args.SENTRY_ENVIRONMENT=production
         ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', github.sha) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags=codeforafrica/techlabblog:latest' || '' }}

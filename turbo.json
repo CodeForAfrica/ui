@@ -24,9 +24,6 @@
     "playwright": {
       "dependsOn": ["build"]
     },
-    "test": {
-      "dependsOn": ["build"]
-    },
     "lint:check": {
       "dependsOn": ["^lint:check"]
     },

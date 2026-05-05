@@ -7,11 +7,11 @@ on:
     paths:
       - "apps/trustlab/**"
       - "docker/apps/trustlab/**"
-      - "docker/base.Dockerfile"
       - "docker-bake.hcl"
       - "scripts/revalidate.mjs"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-trustlab.yml"
       - ".github/workflows/trustlab.yml"
-      - ".github/workflows/bake-and-push.yml"
 
 permissions:
   actions: read
@@ -26,7 +26,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24]
         os: [ubuntu-24.04]
     permissions:
       contents: read
@@ -40,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: "package.json"
 
       - name: Check if version is bumped
         id: check
@@ -55,12 +54,11 @@ jobs:
     permissions:
       actions: read
       contents: read
-    uses: ./.github/workflows/bake-and-push.yml
+    uses: ./.github/workflows/_build-trustlab.yml
     with:
-      target: trustlab
-      target_os: "['ubuntu-24.04-arm']"
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
+      push: true
       set: |
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', github.sha) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}

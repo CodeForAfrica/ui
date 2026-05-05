@@ -1,10 +1,10 @@
-name: Bake and Push
+name: Reusable | Bake and Push
 
 permissions:
   contents: read
   actions: read
 
-# Reusable workflow for building and pushing a bake target.
+# Reusable workflow for building and optionally pushing a bake target.
 # Replaces build-docker-image.yml for apps migrated to docker-bake.hcl.
 #
 # Callers pass app-specific build args via the `set` input using GitHub Variables
@@ -25,12 +25,17 @@ on:
         required: true
         type: string
         description: >
-          JSON string. Target OS (e.g. ubuntu-24.04-arm or
-          ['ubuntu-24.04-arm', 'ubuntu-24.04']) of the image
+          JSON string passed to runs-on via fromJSON, e.g.
+          ["ubuntu-24.04-arm"].
       tag:
         required: true
         type: string
-        description: "Image tag to push (e.g. git SHA or semver)"
+        description: "Image tag to build or push (e.g. git SHA or semver)"
+      push:
+        required: false
+        type: boolean
+        default: true
+        description: "Whether to push the built image to the registry"
       base_tag:
         required: false
         type: string
@@ -38,9 +43,8 @@ on:
         description: >
           Pre-built base image tag (BASE_TAG). When set, pulls ui-builder-base
           and ui-runner-base from the registry instead of building them inline.
-          Use this in CI to avoid rebuilding base images on every app push.
-          Omit (or leave empty) to build base images inline — useful when
-          testing base image changes locally via act or in build-base-images.yml.
+          Required for CI app builds so they reuse published base images rather
+          than rebuilding base images inline.
       set:
         required: false
         type: string
@@ -56,9 +60,9 @@ on:
       DATABASE_URL:
         required: false
       DOCKER_HUB_USERNAME:
-        required: true
+        required: false
       DOCKER_HUB_ACCESS_TOKEN:
-        required: true
+        required: false
       PAYLOAD_SECRET:
         required: false
       SENTRY_AUTH_TOKEN:
@@ -82,14 +86,21 @@ jobs:
         id: meta
         run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
 
+      - name: Validate base image tag
+        if: ${{ inputs.base_tag == '' }}
+        run: |
+          echo "::error::base_tag is required for CI app builds. Build and publish base images, then set vars.UI_BASE_TAG."
+          exit 1
+
       - uses: docker/setup-buildx-action@v4
 
       - uses: docker/login-action@v4
+        if: ${{ inputs.push }}
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Build and push
+      - name: Build with Docker bake
         uses: docker/bake-action@v7
         env:
           TAG: ${{ inputs.tag }}
@@ -104,7 +115,7 @@ jobs:
         with:
           files: docker-bake.hcl
           targets: ${{ inputs.target }}
-          push: true
+          push: ${{ inputs.push }}
           set: |
             *.cache-from=type=gha,scope=${{ inputs.target }}
             *.cache-to=type=gha,mode=max,scope=${{ inputs.target }}
