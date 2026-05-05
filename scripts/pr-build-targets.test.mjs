@@ -30,7 +30,7 @@ describe("pr-build-targets", () => {
   });
 
   it("filters Turbo package output to build targets", () => {
-    const turboOutput = `warning before json
+    const turboOutput = `
       {
         "packages": {
           "items": [
@@ -46,5 +46,26 @@ describe("pr-build-targets", () => {
       "techlabblog",
       "trustlab",
     ]);
+  });
+
+  it("ignores Turbo output before and after JSON when on different lines", () => {
+    const turboOutput = `warning before json 
+      {
+        "packages": {
+          "items": [
+            { "name": "techlabblog", "path": "apps/techlabblog" }
+          ]
+        }
+      }
+      status after json`;
+
+    assert.deepEqual(parseTurboBuildTargets(turboOutput), ["techlabblog"]);
+  });
+
+  it("ignores Turbo output before and after JSON when on the same line", () => {
+    const turboOutput =
+      'warning {"packages":{"items":[{"name":"trustlab","path":"apps/trustlab"}]}} status';
+
+    assert.deepEqual(parseTurboBuildTargets(turboOutput), ["trustlab"]);
   });
 });

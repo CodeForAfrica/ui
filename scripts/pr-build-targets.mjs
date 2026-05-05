@@ -130,15 +130,7 @@ function matchesPath(file, path) {
 }
 
 export function parseTurboBuildTargets(turboOutput) {
-  const lines = turboOutput.split("\n");
-  const jsonLineIndex = lines.findIndex((line) =>
-    line.trimStart().startsWith("{"),
-  );
-  if (jsonLineIndex === -1) {
-    throw new Error("Turbo output did not include JSON");
-  }
-
-  const data = JSON.parse(lines.slice(jsonLineIndex).join("\n"));
+  const data = parseTurboJson(turboOutput);
   const packages = data.packages?.items ?? [];
   return packages
     .filter(
@@ -147,6 +139,19 @@ export function parseTurboBuildTargets(turboOutput) {
         Object.hasOwn(BUILD_TARGET_CONFIG, pkg.name),
     )
     .map((pkg) => pkg.name);
+}
+
+function parseTurboJson(turboOutput) {
+  const start = turboOutput.indexOf("{");
+  if (start === -1) {
+    throw new Error("Turbo output did not include JSON");
+  }
+  const end = turboOutput.lastIndexOf("}");
+  if (end < start) {
+    throw new Error("Turbo JSON was incomplete");
+  }
+
+  return JSON.parse(turboOutput.slice(start, end + 1));
 }
 
 export function turboBuildTargets(base, head) {
