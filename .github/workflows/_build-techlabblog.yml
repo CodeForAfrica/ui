@@ -49,6 +49,7 @@ jobs:
       tag: ${{ inputs.tag }}
       push: ${{ inputs.push }}
       set: |
+        # Stable app-level config lives here so PR and main builds share one build contract.
         techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
         techlabblog.args.SENTRY_ENVIRONMENT=${{ inputs.sentry_environment }}
         ${{ inputs.set }}
