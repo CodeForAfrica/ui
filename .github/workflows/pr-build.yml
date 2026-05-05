@@ -37,9 +37,7 @@ jobs:
     name: Detect affected apps
     runs-on: ubuntu-24.04
     outputs:
-      has_targets: ${{ steps.targets.outputs.has_targets }}
-      techlabblog: ${{ steps.targets.outputs.techlabblog }}
-      trustlab: ${{ steps.targets.outputs.trustlab }}
+      targets: ${{ steps.targets.outputs.targets }}
     steps:
       - name: Check PR trust boundary
         id: trust
@@ -84,9 +82,7 @@ jobs:
         run: |
           if [[ "${{ steps.trust.outputs.trusted }}" != "true" ]]; then
             echo "App PR builds are skipped for fork or untrusted PRs."
-            echo "has_targets=false" >> "$GITHUB_OUTPUT"
-            echo "techlabblog=false" >> "$GITHUB_OUTPUT"
-            echo "trustlab=false" >> "$GITHUB_OUTPUT"
+            echo "targets=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -98,7 +94,7 @@ jobs:
   build-techlabblog:
     name: Build techlabblog image
     needs: affected
-    if: ${{ needs.affected.outputs.techlabblog == 'true' }}
+    if: ${{ contains(fromJSON(needs.affected.outputs.targets), 'techlabblog') }}
     permissions:
       actions: read
       contents: read
@@ -116,7 +112,7 @@ jobs:
   build-trustlab:
     name: Build trustlab image
     needs: affected
-    if: ${{ needs.affected.outputs.trustlab == 'true' }}
+    if: ${{ contains(fromJSON(needs.affected.outputs.targets), 'trustlab') }}
     permissions:
       actions: read
       contents: read

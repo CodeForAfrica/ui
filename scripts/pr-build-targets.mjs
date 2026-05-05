@@ -8,22 +8,23 @@ import { fileURLToPath } from "node:url";
 // - Turbo owns workspace impact detection, including package-to-app dependents.
 // - Only workspaces under apps/ can become PR build targets.
 // - Only Docker-migrated apps are buildable by this workflow today.
-// - Docker and workflow files live outside Turbo's workspace graph, so path rules
-//   below cover those direct and global image-build inputs explicitly.
+// - Non-workspace build inputs are handled explicitly because Turbo cannot map
+//   them through the workspace graph.
 export const BUILD_TARGET_CONFIG = {
   techlabblog: {
-    paths: [".github/workflows/techlabblog.yml", "docker/apps/techlabblog/"],
+    directBuildInputPaths: [
+      ".github/workflows/techlabblog.yml",
+      "docker/apps/techlabblog/",
+    ],
   },
   trustlab: {
-    paths: [
+    directBuildInputPaths: [
       ".github/workflows/trustlab.yml",
       "docker/apps/trustlab/",
       "scripts/revalidate.mjs",
     ],
   },
 };
-
-export const BUILD_TARGETS = Object.keys(BUILD_TARGET_CONFIG);
 
 const GLOBAL_BUILD_FILES = new Set([
   ".github/workflows/_bake-and-push.yml",
@@ -85,17 +86,6 @@ function run(command, args, options = {}) {
   return result.stdout;
 }
 
-export function createOutputs(targets) {
-  const targetSet = new Set(targets);
-  return {
-    has_targets: targets.length > 0,
-    targets,
-    ...Object.fromEntries(
-      BUILD_TARGETS.map((target) => [target, targetSet.has(target)]),
-    ),
-  };
-}
-
 function writeGitHubOutputs(outputs, outputFile) {
   if (!outputFile) {
     throw new Error("GITHUB_OUTPUT is required when using --github-output");
@@ -112,11 +102,6 @@ function writeGitHubOutputs(outputs, outputFile) {
   appendFileSync(outputFile, `${output}\n`);
 }
 
-export function uniqueBuildTargets(targets) {
-  const targetSet = new Set(targets);
-  return BUILD_TARGETS.filter((target) => targetSet.has(target));
-}
-
 export function changedFilesFromGit(base, head) {
   // Triple-dot matches PR semantics: files changed on head since the merge base.
   return run("git", ["diff", "--name-only", `${base}...${head}`])
@@ -130,22 +115,21 @@ export function hasGlobalBuildChange(changedFiles) {
 }
 
 export function directBuildTargets(changedFiles) {
-  return uniqueBuildTargets(
-    changedFiles.flatMap((file) => {
-      return Object.entries(BUILD_TARGET_CONFIG)
-        .filter(([, config]) =>
-          config.paths.some((path) => matchesPath(file, path)),
-        )
-        .map(([app]) => app);
-    }),
-  );
+  return changedFiles.flatMap((file) => {
+    return Object.entries(BUILD_TARGET_CONFIG)
+      .filter(([, config]) =>
+        config.directBuildInputPaths.some((path) => matchesPath(file, path)),
+      )
+      .map(([app]) => app);
+  });
 }
 
 function matchesPath(file, path) {
+  // Paths ending in "/" match all children.
   return path.endsWith("/") ? file.startsWith(path) : file === path;
 }
 
-export function parseTurboTargets(turboOutput) {
+export function parseTurboBuildTargets(turboOutput) {
   const lines = turboOutput.split("\n");
   const jsonLineIndex = lines.findIndex((line) =>
     line.trimStart().startsWith("{"),
@@ -156,14 +140,16 @@ export function parseTurboTargets(turboOutput) {
 
   const data = JSON.parse(lines.slice(jsonLineIndex).join("\n"));
   const packages = data.packages?.items ?? [];
-  return uniqueBuildTargets(
-    packages
-      .filter((pkg) => pkg.path?.startsWith("apps/"))
-      .map((pkg) => pkg.name),
-  );
+  return packages
+    .filter(
+      (pkg) =>
+        pkg.path?.startsWith("apps/") &&
+        Object.hasOwn(BUILD_TARGET_CONFIG, pkg.name),
+    )
+    .map((pkg) => pkg.name);
 }
 
-export function turboAffectedTargets(base, head) {
+export function turboBuildTargets(base, head) {
   const turboOutput = run(
     "pnpm",
     ["exec", "turbo", "ls", "--affected", "--output=json"],
@@ -175,40 +161,26 @@ export function turboAffectedTargets(base, head) {
       },
     },
   );
-  return parseTurboTargets(turboOutput);
+  return parseTurboBuildTargets(turboOutput);
 }
 
-export function resolveBuildTargets({ changedFiles, turboTargets }) {
-  if (hasGlobalBuildChange(changedFiles)) {
-    return BUILD_TARGETS;
-  }
-
-  return uniqueBuildTargets([
-    ...directBuildTargets(changedFiles),
-    ...turboTargets,
-  ]);
-}
-
-export function affectedBuildTargets({ base, head }) {
+export function buildTargets({ base, head }) {
   const changedFiles = changedFilesFromGit(base, head);
-  const globalBuildChange = hasGlobalBuildChange(changedFiles);
-  console.error(`Changed files:\n${changedFiles.join("\n") || "(none)"}`);
-
-  if (globalBuildChange) {
-    console.error("Global build input changed; building all app targets.");
-    return BUILD_TARGETS;
+  if (hasGlobalBuildChange(changedFiles)) {
+    return Object.keys(BUILD_TARGET_CONFIG).sort();
   }
-
-  return resolveBuildTargets({
-    changedFiles,
-    turboTargets: turboAffectedTargets(base, head),
-  });
+  return [
+    ...new Set([
+      ...directBuildTargets(changedFiles),
+      ...turboBuildTargets(base, head),
+    ]),
+  ].sort();
 }
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
-  const targets = affectedBuildTargets(args);
-  const outputs = createOutputs(targets);
+  const targets = buildTargets(args);
+  const outputs = { targets };
 
   if (args.githubOutput) {
     writeGitHubOutputs(outputs, process.env.GITHUB_OUTPUT);
@@ -222,7 +194,7 @@ if (invokedPath) {
   try {
     main();
   } catch (error) {
-    console.error(error.message);
+    process.stderr.write(`${error.message}\n`);
     process.exitCode = 1;
   }
 }
