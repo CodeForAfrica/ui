@@ -7,10 +7,10 @@ on:
     paths:
       - "apps/techlabblog/**"
       - "docker/apps/techlabblog/**"
-      - "docker/base.Dockerfile"
       - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-techlabblog.yml"
       - ".github/workflows/techlabblog.yml"
-      - ".github/workflows/bake-and-push.yml"
 
 permissions:
   actions: read
@@ -76,16 +76,13 @@ jobs:
     permissions:
       actions: read
       contents: read
-    uses: ./.github/workflows/bake-and-push.yml
+    uses: ./.github/workflows/_build-techlabblog.yml
     with:
-      target: techlabblog
-      target_os: '["ubuntu-24.04-arm"]'
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       push: true
+      sentry_environment: production
       set: |
-        techlabblog.args.SENTRY_DSN=${{ vars.TECHLABBLOG_SENTRY_DSN }}
-        techlabblog.args.SENTRY_ENVIRONMENT=production
         ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', github.sha) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
         ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags=codeforafrica/techlabblog:latest' || '' }}

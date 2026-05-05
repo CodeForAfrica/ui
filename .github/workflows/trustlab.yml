@@ -7,11 +7,11 @@ on:
     paths:
       - "apps/trustlab/**"
       - "docker/apps/trustlab/**"
-      - "docker/base.Dockerfile"
       - "docker-bake.hcl"
       - "scripts/revalidate.mjs"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-trustlab.yml"
       - ".github/workflows/trustlab.yml"
-      - ".github/workflows/bake-and-push.yml"
 
 permissions:
   actions: read
@@ -54,10 +54,8 @@ jobs:
     permissions:
       actions: read
       contents: read
-    uses: ./.github/workflows/bake-and-push.yml
+    uses: ./.github/workflows/_build-trustlab.yml
     with:
-      target: trustlab
-      target_os: '["ubuntu-24.04-arm"]'
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       push: true

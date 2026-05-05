@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 
 import {
   BUILD_TARGETS,
-  createMatrix,
+  createOutputs,
   directBuildTargets,
   hasGlobalBuildChange,
   parseTurboTargets,
@@ -12,9 +12,21 @@ import {
 } from "./pr-build-targets.mjs";
 
 describe("pr-build-targets", () => {
-  it("creates a GitHub Actions matrix", () => {
-    assert.deepEqual(createMatrix(["techlabblog", "trustlab"]), {
-      include: [{ target: "techlabblog" }, { target: "trustlab" }],
+  it("creates GitHub Actions outputs", () => {
+    assert.deepEqual(createOutputs(["techlabblog", "trustlab"]), {
+      has_targets: true,
+      targets: ["techlabblog", "trustlab"],
+      techlabblog: true,
+      trustlab: true,
+    });
+  });
+
+  it("creates empty GitHub Actions outputs", () => {
+    assert.deepEqual(createOutputs([]), {
+      has_targets: false,
+      targets: [],
+      techlabblog: false,
+      trustlab: false,
     });
   });
 
@@ -86,7 +98,7 @@ describe("pr-build-targets", () => {
     );
   });
 
-  it("resolves an empty matrix when no app build targets are affected", () => {
+  it("resolves an empty target list when no app build targets are affected", () => {
     assert.deepEqual(
       resolveBuildTargets({
         changedFiles: ["docs/readme.md"],

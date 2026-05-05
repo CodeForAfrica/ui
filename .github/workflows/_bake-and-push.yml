@@ -1,4 +1,4 @@
-name: Bake and Push
+name: Reusable | Bake and Push
 
 permissions:
   contents: read

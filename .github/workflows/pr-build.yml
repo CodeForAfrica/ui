@@ -1,4 +1,4 @@
-name: Apps PR Build
+name: PR Build
 
 on:
   pull_request:
@@ -17,8 +17,10 @@ on:
       - "scripts/revalidate.mjs"
       - "scripts/pr-build-targets.mjs"
       - "scripts/pr-build-targets.test.mjs"
-      - ".github/workflows/bake-and-push.yml"
-      - ".github/workflows/apps-pr-build.yml"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-techlabblog.yml"
+      - ".github/workflows/_build-trustlab.yml"
+      - ".github/workflows/pr-build.yml"
       - ".github/workflows/techlabblog.yml"
       - ".github/workflows/trustlab.yml"
 
@@ -36,8 +38,8 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       has_targets: ${{ steps.targets.outputs.has_targets }}
-      matrix: ${{ steps.targets.outputs.matrix }}
-      trusted: ${{ steps.trust.outputs.trusted }}
+      techlabblog: ${{ steps.targets.outputs.techlabblog }}
+      trustlab: ${{ steps.targets.outputs.trustlab }}
     steps:
       - name: Check PR trust boundary
         id: trust
@@ -76,52 +78,56 @@ jobs:
         if: ${{ steps.trust.outputs.trusted == 'true' }}
         run: pnpm install --frozen-lockfile --ignore-scripts
 
-      - name: Build app matrix
+      - name: Detect app build targets
         id: targets
         shell: bash
         run: |
           if [[ "${{ steps.trust.outputs.trusted }}" != "true" ]]; then
             echo "App PR builds are skipped for fork or untrusted PRs."
-            echo 'matrix={"include":[]}' >> "$GITHUB_OUTPUT"
             echo "has_targets=false" >> "$GITHUB_OUTPUT"
+            echo "techlabblog=false" >> "$GITHUB_OUTPUT"
+            echo "trustlab=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          matrix="$(
-            node scripts/pr-build-targets.mjs \
-              --base "${{ github.event.pull_request.base.sha }}" \
-              --head "${{ github.event.pull_request.head.sha }}"
-          )"
+          node scripts/pr-build-targets.mjs \
+            --github-output \
+            --base "${{ github.event.pull_request.base.sha }}" \
+            --head "${{ github.event.pull_request.head.sha }}"
 
-          echo "matrix=${matrix}" >> "$GITHUB_OUTPUT"
-          if [[ "${matrix}" == '{"include":[]}' ]]; then
-            echo "has_targets=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          echo "has_targets=true" >> "$GITHUB_OUTPUT"
-
-  build:
-    name: Build ${{ matrix.target }} image
+  build-techlabblog:
+    name: Build techlabblog image
     needs: affected
-    if: ${{ needs.affected.outputs.has_targets == 'true' }}
-    strategy:
-      fail-fast: false
-      max-parallel: 2
-      matrix: ${{ fromJSON(needs.affected.outputs.matrix) }}
+    if: ${{ needs.affected.outputs.techlabblog == 'true' }}
     permissions:
       actions: read
       contents: read
-    uses: ./.github/workflows/bake-and-push.yml
+    uses: ./.github/workflows/_build-techlabblog.yml
     with:
-      target: ${{ matrix.target }}
-      target_os: '["ubuntu-24.04-arm"]'
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
       push: false
-      set: |
-        ${{ matrix.target == 'techlabblog' && format('techlabblog.args.SENTRY_DSN={0}', vars.TECHLABBLOG_SENTRY_DSN) || '' }}
-        ${{ matrix.target == 'techlabblog' && 'techlabblog.args.SENTRY_ENVIRONMENT=ci' || '' }}
+      sentry_environment: ci
+    secrets:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.TECHLABBLOG_SENTRY_PROJECT }}
+
+  build-trustlab:
+    name: Build trustlab image
+    needs: affected
+    if: ${{ needs.affected.outputs.trustlab == 'true' }}
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-trustlab.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+      push: false
     secrets:
       DATABASE_URL: ${{ secrets.TRUSTLAB_MONGO_URL }}
       PAYLOAD_SECRET: ${{ secrets.TRUSTLAB_PAYLOAD_SECRET }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.TRUSTLAB_SENTRY_PROJECT }}

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { spawnSync } from "node:child_process";
+import { appendFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 // Policy:
@@ -25,8 +26,10 @@ export const BUILD_TARGET_CONFIG = {
 export const BUILD_TARGETS = Object.keys(BUILD_TARGET_CONFIG);
 
 const GLOBAL_BUILD_FILES = new Set([
-  ".github/workflows/bake-and-push.yml",
-  ".github/workflows/apps-pr-build.yml",
+  ".github/workflows/_bake-and-push.yml",
+  ".github/workflows/_build-techlabblog.yml",
+  ".github/workflows/_build-trustlab.yml",
+  ".github/workflows/pr-build.yml",
   "scripts/pr-build-targets.mjs",
   "docker-bake.hcl",
   "package.json",
@@ -38,6 +41,7 @@ const GLOBAL_BUILD_FILES = new Set([
 function parseArgs(argv) {
   const args = {
     base: "origin/main",
+    githubOutput: false,
     head: "HEAD",
   };
 
@@ -45,6 +49,8 @@ function parseArgs(argv) {
     const arg = argv[i];
     if (arg === "--base") {
       args.base = readOptionValue(argv, ++i, arg);
+    } else if (arg === "--github-output") {
+      args.githubOutput = true;
     } else if (arg === "--head") {
       args.head = readOptionValue(argv, ++i, arg);
     } else {
@@ -79,10 +85,31 @@ function run(command, args, options = {}) {
   return result.stdout;
 }
 
-export function createMatrix(targets) {
+export function createOutputs(targets) {
+  const targetSet = new Set(targets);
   return {
-    include: targets.map((target) => ({ target })),
+    has_targets: targets.length > 0,
+    targets,
+    ...Object.fromEntries(
+      BUILD_TARGETS.map((target) => [target, targetSet.has(target)]),
+    ),
   };
+}
+
+function writeGitHubOutputs(outputs, outputFile) {
+  if (!outputFile) {
+    throw new Error("GITHUB_OUTPUT is required when using --github-output");
+  }
+
+  const output = Object.entries(outputs)
+    .map(([key, value]) => {
+      const normalizedValue = Array.isArray(value)
+        ? JSON.stringify(value)
+        : String(value);
+      return `${key}=${normalizedValue}`;
+    })
+    .join("\n");
+  appendFileSync(outputFile, `${output}\n`);
 }
 
 export function uniqueBuildTargets(targets) {
@@ -181,7 +208,12 @@ export function affectedBuildTargets({ base, head }) {
 function main() {
   const args = parseArgs(process.argv.slice(2));
   const targets = affectedBuildTargets(args);
-  process.stdout.write(`${JSON.stringify(createMatrix(targets))}\n`);
+  const outputs = createOutputs(targets);
+
+  if (args.githubOutput) {
+    writeGitHubOutputs(outputs, process.env.GITHUB_OUTPUT);
+  }
+  process.stdout.write(`${JSON.stringify(outputs)}\n`);
 }
 
 const invokedPath =
