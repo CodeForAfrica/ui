@@ -7,13 +7,13 @@ Twoops Tracker
 First, run the local CMS:
 
 ```bash
-yarn cms
+pnpm cms
 ```
 
 Then run the development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the site and [http://localhost:3000/admin](http://localhost:3000/admin) to access the CMS.

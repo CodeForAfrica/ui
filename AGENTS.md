@@ -75,18 +75,18 @@ pnpm bump             # Bump versions via scripts/bump.js
 
 ### Apps
 
-| App                   | Description                                                                    |
-| --------------------- | ------------------------------------------------------------------------------ |
-| `charterafrica`       | Digital database for communities (Payload CMS v2)                              |
-| `civicsignalblog`     | CivicSignal research blog                                                      |
-| `climatemappedafrica` | Climate data platform                                                          |
-| `codeforafrica`       | Main CFA website (Payload CMS v2)                                              |
-| `pesayetu`            | Government accountability data (MUI v5 + `mui-styles` catalog)                 |
-| `roboshield`          | Bot protection service                                                         |
-| `techlabblog`         | TechLab engineering blog (MDX-based, first app migrated to per-app Dockerfile) |
-| `trustlab`            | CSO/CBO digital threats platform (Payload CMS v3)                              |
-| `twoopstracker`       | Social media analysis                                                          |
-| `vpnmanager`          | VPN management                                                                 |
+| App                   | Description                                                    |
+| --------------------- | -------------------------------------------------------------- |
+| `charterafrica`       | Digital database for communities (Payload CMS v2)              |
+| `civicsignalblog`     | CivicSignal research blog (Payload CMS v2)                     |
+| `climatemappedafrica` | Climate data platform (Payload CMS v2)                         |
+| `codeforafrica`       | Main CFA website (Payload CMS v2)                              |
+| `pesayetu`            | Government accountability data (MUI v5 + `mui-styles` catalog) |
+| `roboshield`          | Bot protection service (Payload CMS v3)                        |
+| `techlabblog`         | TechLab engineering blog (MDX-based)                           |
+| `trustlab`            | CSO/CBO digital threats platform (Payload CMS v3)              |
+| `twoopstracker`       | Social media analysis                                          |
+| `vpnmanager`          | VPN management                                                 |
 
 ### Shared packages
 
@@ -104,7 +104,7 @@ pnpm bump             # Bump versions via scripts/bump.js
 ### Key technology choices
 
 - **MUI v6** for most apps; `pesayetu` and `twoopstracker` use the `mui-styles` pnpm catalog (MUI v5 + `@mui/styles`)
-- **Payload CMS 2.x** (catalog `payload`) for `charterafrica`, `codeforafrica`; **Payload CMS 3.x** (catalog `payload-v3`) for `trustlab`
+- **Payload CMS 2.x** (catalog `payload`) for `charterafrica`, `civicsignalblog`, `climatemappedafrica`, `codeforafrica`; **Payload CMS 3.x** (catalog `payload-v3`) for `roboshield`, `trustlab`
 - **Apollo Client** for GraphQL; **SWR** for REST data fetching
 - **MDX** with remark/rehype pipeline for `techlabblog`
 - **SVGR** for SVG imports as React components
@@ -125,11 +125,11 @@ Reference catalog versions in `package.json` as `"some-pkg": "catalog:"` or `"so
 Docker is for **deployment image validation only** — use `pnpm dev` for development.
 
 - **`docker/base.Dockerfile`** — shared Node 24 Alpine base images (`ui-builder-base`, `ui-runner-base`) with independent `BASE_TAG` versioning
-- **`docker/apps/<app>.Dockerfile`** — per-app multi-stage builds (pruned → deps → builder → runner)
+- **`docker/apps/<app>/Dockerfile`** — per-app multi-stage builds (pruned → deps → builder → runner)
 - **`docker-bake.hcl`** — orchestrates all build targets; app targets inherit from `_app-runner`
 - **`docker-compose.yml`** — local dev services; for migrated apps uses `image:` (not `build:`)
 
-Only `techlabblog` has been migrated to the per-app Dockerfile pattern. Other apps still use the root `Dockerfile`. See `docker/README.md` for the migration pattern.
+Migration status is tracked in `docker/README.md`; keep that checklist as the single source of truth when migrating additional apps.
 
 ### CI/CD
 
