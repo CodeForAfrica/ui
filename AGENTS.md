@@ -75,39 +75,49 @@ pnpm bump             # Bump versions via scripts/bump.js
 
 ### Apps
 
-| App                   | Description                                                                    |
-| --------------------- | ------------------------------------------------------------------------------ |
-| `charterafrica`       | Digital database for communities (Payload CMS v2)                              |
-| `civicsignalblog`     | CivicSignal research blog                                                      |
-| `climatemappedafrica` | Climate data platform                                                          |
-| `codeforafrica`       | Main CFA website (Payload CMS v2)                                              |
-| `pesayetu`            | Government accountability data (MUI v5 + `mui-styles` catalog)                 |
-| `roboshield`          | Bot protection service                                                         |
-| `techlabblog`         | TechLab engineering blog (MDX-based, first app migrated to per-app Dockerfile) |
-| `trustlab`            | CSO/CBO digital threats platform (Payload CMS v3)                              |
-| `twoopstracker`       | Social media analysis                                                          |
-| `vpnmanager`          | VPN management                                                                 |
+| App                   | Description                      |
+| --------------------- | -------------------------------- |
+| `charterafrica`       | Digital database for communities |
+| `civicsignalblog`     | CivicSignal research blog        |
+| `climatemappedafrica` | Climate data platform            |
+| `codeforafrica`       | Main CFA website                 |
+| `pesayetu`            | Government accountability data   |
+| `roboshield`          | Bot protection service           |
+| `techlabblog`         | TechLab engineering blog         |
+| `trustlab`            | CSO/CBO digital threats platform |
+| `twoopstracker`       | Social media analysis            |
+| `vpnmanager`          | VPN management                   |
 
 ### Shared packages
 
-| Package                         | Purpose                                                           |
-| ------------------------------- | ----------------------------------------------------------------- |
-| `commons-ui-core`               | Base React components (MUI + Emotion)                             |
-| `commons-ui-next`               | Next.js-specific helpers                                          |
-| `commons-ui-payload`            | Payload CMS integration helpers                                   |
-| `commons-ui-testing-library`    | Shared test utilities                                             |
-| `eslint-config-commons-ui`      | Shared ESLint flat config: base, Next.js, and TypeScript variants |
-| `jest-config-commons-ui`        | Shared Jest config                                                |
-| `playwright-config-commons-ui`  | Shared Playwright config                                          |
-| `hurumap-core` / `hurumap-next` | Hurumap data visualization library                                |
+| Package                         | Purpose                            |
+| ------------------------------- | ---------------------------------- |
+| `commons-ui-core`               | Base React components              |
+| `commons-ui-next`               | Next.js-specific helpers           |
+| `commons-ui-payload`            | Payload CMS integration helpers    |
+| `commons-ui-testing-library`    | Shared test utilities              |
+| `eslint-config-commons-ui`      | Shared ESLint flat config          |
+| `jest-config-commons-ui`        | Shared Jest config                 |
+| `playwright-config-commons-ui`  | Shared Playwright config           |
+| `hurumap-core` / `hurumap-next` | Hurumap data visualization library |
 
 ### Key technology choices
 
-- **MUI v6** for most apps; `pesayetu` and `twoopstracker` use the `mui-styles` pnpm catalog (MUI v5 + `@mui/styles`)
-- **Payload CMS 2.x** (catalog `payload`) for `charterafrica`, `codeforafrica`; **Payload CMS 3.x** (catalog `payload-v3`) for `trustlab`
-- **Apollo Client** for GraphQL; **SWR** for REST data fetching
-- **MDX** with remark/rehype pipeline for `techlabblog`
-- **SVGR** for SVG imports as React components
+- **UI stack**:
+  - Current: MUI v6 + Emotion for most apps and shared UI packages.
+  - Legacy:
+    - MUI v5 + `@mui/styles` via the `mui-styles` catalog for `pesayetu` and `twoopstracker`.
+- **CMS stack**:
+  - Current:
+    - Payload CMS v3.x (`catalog:payload-v3`) for `roboshield`, `trustlab`, `commons-ui-payload`.
+    - MDX with remark/rehype pipeline for `techlabblog`.
+  - Legacy:
+    - Payload CMS v2.x (`catalog:`) for `charterafrica`, `civicsignalblog`, `climatemappedafrica`, `codeforafrica`.
+    - WordPress via WPGraphQL for `pesayetu`.
+    - Netlify CMS markdown content for `twoopstracker`.
+- **Testing**:
+  - Jest v30 shared through `jest-config-commons-ui`.
+  - Playwright shared through `playwright-config-commons-ui`.
 
 ### Dependency management
 
@@ -125,11 +135,11 @@ Reference catalog versions in `package.json` as `"some-pkg": "catalog:"` or `"so
 Docker is for **deployment image validation only** — use `pnpm dev` for development.
 
 - **`docker/base.Dockerfile`** — shared Node 24 Alpine base images (`ui-builder-base`, `ui-runner-base`) with independent `BASE_TAG` versioning
-- **`docker/apps/<app>.Dockerfile`** — per-app multi-stage builds (pruned → deps → builder → runner)
+- **`docker/apps/<app>/Dockerfile`** — per-app multi-stage builds (pruned → deps → builder → runner)
 - **`docker-bake.hcl`** — orchestrates all build targets; app targets inherit from `_app-runner`
 - **`docker-compose.yml`** — local dev services; for migrated apps uses `image:` (not `build:`)
 
-Only `techlabblog` has been migrated to the per-app Dockerfile pattern. Other apps still use the root `Dockerfile`. See `docker/README.md` for the migration pattern.
+Migration status is tracked in `docker/README.md`; keep that checklist as the single source of truth when migrating additional apps.
 
 ### CI/CD
 

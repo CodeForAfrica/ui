@@ -12,10 +12,21 @@ Docker-related platform artifacts live under `docker/`, not inside the app
 source trees. That includes Dockerfiles, Dokku `app.json`, and any future
 container/deploy metadata tied to the image rather than the application code.
 
-## Current migrated app
+## Migration status
 
-- `techlabblog`
-- `trustlab`
+Apps checked below have migrated to the per-app Dockerfile pattern under
+`docker/apps/<app>/`. Unchecked apps still use the root `Dockerfile`.
+
+- [ ] `charterafrica`
+- [ ] `civicsignalblog`
+- [ ] `climatemappedafrica`
+- [ ] `codeforafrica`
+- [ ] `pesayetu`
+- [ ] `roboshield`
+- [x] `techlabblog`
+- [x] `trustlab`
+- [ ] `twoopstracker`
+- [ ] `vpnmanager`
 
 ## Workflow
 

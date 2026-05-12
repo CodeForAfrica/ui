@@ -1,5 +1,7 @@
 name: Claude Code
 
+# Mention-triggered Claude Code assistant. The automatic Claude Code Review
+# workflow (`claude-code-review.yml`) was intentionally removed in #1463.
 on:
   issue_comment:
     types: [created]

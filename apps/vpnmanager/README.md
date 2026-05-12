@@ -72,7 +72,7 @@ if you are executing from ui directory.
 ### Deployment
 
 ```sh
-docker-compose up --build vpnmanager
+docker compose up --build vpnmanager
 ```
 
 or
