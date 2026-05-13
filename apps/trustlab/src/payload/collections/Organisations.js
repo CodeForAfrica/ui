@@ -1,5 +1,6 @@
 import { slug, image, richText, linkGroup } from "@commons-ui/payload";
 
+import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
 
 const Organisations = {
@@ -14,7 +15,10 @@ const Organisations = {
     defaultColumns: ["name", "createdAt"],
   },
   access: {
-    read: () => true,
+    read: anyone,
+    create: hasEditorAccess,
+    update: hasEditorAccess,
+    delete: hasEditorAccess,
   },
   fields: [
     {

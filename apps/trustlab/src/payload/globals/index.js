@@ -1,7 +1,9 @@
 import { EngagementTab, GeneralTab, NavigationTab, SeoTab } from "./tabs";
 
-import { loggedIn } from "@/trustlab/payload/access";
-import { canManageSiteSettings } from "@/trustlab/payload/access/abilities";
+import {
+  hasLoggedInAccess,
+  hasAdminAccess,
+} from "@/trustlab/payload/access/abilities";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const SiteSettings = {
@@ -14,8 +16,8 @@ const SiteSettings = {
   access: {
     // Since we're using Local APIs, we should still be able to pull data server-side
     // See: note in https://payloadcms.com/docs/local-api/overview#transactions
-    read: loggedIn,
-    update: canManageSiteSettings,
+    read: hasLoggedInAccess,
+    update: hasAdminAccess,
   },
   fields: [
     {

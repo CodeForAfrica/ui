@@ -6,6 +6,8 @@ import {
   slug,
 } from "@commons-ui/payload";
 
+import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
+
 const Partners = {
   slug: "partners",
   labels: {
@@ -23,9 +25,11 @@ const Partners = {
     useAsTitle: "name",
   },
   access: {
-    read: () => true,
+    read: anyone,
+    create: hasEditorAccess,
+    update: hasEditorAccess,
+    delete: hasEditorAccess,
   },
-
   fields: [
     {
       name: "name",

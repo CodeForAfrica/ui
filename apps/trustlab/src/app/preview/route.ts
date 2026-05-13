@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
 
 import configPromise from "@payload-config";
-import { canManageContent } from "@/trustlab/payload/access/abilities";
+import { isAuthor } from "@/trustlab/payload/access/abilities";
 
 export async function GET(req: NextRequest): Promise<Response> {
   const payload = await getPayload({ config: configPromise });
@@ -37,7 +37,7 @@ export async function GET(req: NextRequest): Promise<Response> {
       "Error verifying token for live preview",
     );
   }
-  if (!(authResult && canManageContent(authResult?.user))) {
+  if (!(authResult && isAuthor(authResult?.user))) {
     return new Response("You are not allowed to preview this page", {
       status: 403,
     });

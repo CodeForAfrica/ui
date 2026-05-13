@@ -1,16 +1,31 @@
 import { checkRole } from "./checkRole";
-import { ROLE_ADMIN, ROLE_AUTHOR, ROLE_EDITOR } from "./roles";
+import { hasValidRole, ROLE_ADMIN, ROLE_AUTHOR, ROLE_EDITOR } from "./roles";
 
-export const canManageContent = (user) => {
-  if (!user) {
+export const isLoggedIn = (user) => hasValidRole(user);
+
+export const hasLoggedInAccess = ({ req } = {}) => isLoggedIn(req?.user);
+
+// Admins and editors can manage any content
+export const isEditor = (user) => checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
+
+export const hasEditorAccess = ({ req } = {}) => isEditor(req?.user);
+
+export const isAuthor = (user) => {
+  // Any valid CMS user has at least author-level capability.
+  return isLoggedIn(user);
+};
+
+export const canAuthor = (user) => {
+  if (!isLoggedIn(user)) {
     return false;
   }
-  // Admin and editors can manage any content
-  if (checkRole([ROLE_ADMIN, ROLE_EDITOR], user)) {
+  if (isEditor(user)) {
     return true;
   }
-
-  // Everyone else can only manage their own content
+  if (!user.id) {
+    return false;
+  }
+  // Authors can manage own content only
   return {
     createdBy: {
       equals: user.id,
@@ -18,14 +33,14 @@ export const canManageContent = (user) => {
   };
 };
 
-export const canManagePages = (user) =>
-  checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
+export const hasAuthorAccess = ({ req } = {}) => canAuthor(req?.user);
 
-export const canManageSiteSettings = ({ req: { user } }) =>
-  checkRole([ROLE_ADMIN], user);
+export const isAdmin = (user) => checkRole([ROLE_ADMIN], user);
+
+export const hasAdminAccess = ({ req } = {}) => isAdmin(req?.user);
 
 // TODO(@kelvinkipruto): what happens on delete? cascade or not?
-export const canManageUsers = (user) => {
+export const canManageUser = (user) => {
   if (!user) {
     return false;
   }
@@ -50,5 +65,8 @@ export const canManageUsers = (user) => {
   };
 };
 
-export const canCreateAccounts = (user) =>
-  checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
+export const hasManageUserAccess = ({ req } = {}) => canManageUser(req?.user);
+
+export const hasCreateUserAccess = (args) => hasEditorAccess(args);
+
+export default undefined;

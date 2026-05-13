@@ -5,6 +5,8 @@ import {
   slug,
 } from "@commons-ui/payload";
 
+import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
+
 const pageByType = {
   baseline: "baseline-reports",
   situational: "situational-reports",
@@ -27,10 +29,10 @@ const Reports = {
     defaultColumns: ["title", "reportType", "updatedAt"],
   },
   access: {
-    read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    read: anyone,
+    create: hasEditorAccess,
+    update: hasEditorAccess,
+    delete: hasEditorAccess,
   },
   fields: [
     {
