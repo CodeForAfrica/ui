@@ -41,7 +41,7 @@ export const hasAdminAccess = ({ req } = {}) => isAdmin(req?.user);
 
 // TODO(@kelvinkipruto): what happens on delete? cascade or not?
 export const canManageUser = (user) => {
-  if (!user) {
+  if (!isLoggedIn(user)) {
     return false;
   }
   // Admins can manage all users
@@ -49,6 +49,9 @@ export const canManageUser = (user) => {
     return true;
   }
   // All other users can manage their own accounts
+  if (!user.id) {
+    return false;
+  }
   const orQuery = [
     {
       id: {

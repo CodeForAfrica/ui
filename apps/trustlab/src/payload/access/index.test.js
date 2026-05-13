@@ -121,9 +121,21 @@ describe("payload.access", () => {
       });
     });
 
-    it("denies requests from anonymous users", () => {
+    it("denies requests from invalid-role and anonymous users", () => {
+      expect(
+        hasManageUserAccess({ req: { user: { id: 1, role: "unknown" } } }),
+      ).toBe(false);
       expect(hasManageUserAccess({ req: {} })).toBe(false);
       expect(hasManageUserAccess(undefined)).toBe(false);
+    });
+
+    it("denies requests from non-admin users without a user id for ownership checks", () => {
+      expect(
+        hasManageUserAccess({ req: { user: { role: ROLE_AUTHOR } } }),
+      ).toBe(false);
+      expect(
+        hasManageUserAccess({ req: { user: { role: ROLE_EDITOR } } }),
+      ).toBe(false);
     });
   });
 
