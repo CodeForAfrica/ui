@@ -1,7 +1,6 @@
 import { appendPathname, fullTitle, slug } from "@commons-ui/payload";
 
-import { canManagePages } from "@/trustlab/payload/access/abilities";
-import { anyone } from "@/trustlab/payload/access/anyone";
+import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -14,9 +13,9 @@ const Pages = {
   slug: "pages",
   access: {
     read: anyone,
-    create: ({ req: { user } }) => canManagePages(user),
-    update: ({ req: { user } }) => canManagePages(user),
-    delete: ({ req: { user } }) => canManagePages(user),
+    create: hasEditorAccess,
+    update: hasEditorAccess,
+    delete: hasEditorAccess,
   },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt", "_status"],

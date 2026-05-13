@@ -55,6 +55,8 @@ export const api = {
   findPage,
 };
 
+// pages/_error getInitialProps can run on the server or in the browser.
+// Keep this path on REST so it does not import Payload's server-only local API.
 export async function getErrorPageProps(context) {
   const slug = context?.params?.slugs?.[0] || "404";
   const props = await getProps(api, slug);

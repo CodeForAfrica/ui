@@ -1,5 +1,7 @@
 import { image, richText, slug, linkGroup } from "@commons-ui/payload";
 
+import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
+
 const Toolkits = {
   slug: "toolkits",
   labels: { singular: "Toolkit", plural: "Toolkits" },
@@ -8,10 +10,10 @@ const Toolkits = {
     defaultColumns: ["title", "updatedAt"],
   },
   access: {
-    read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    read: anyone,
+    create: hasEditorAccess,
+    update: hasEditorAccess,
+    delete: hasEditorAccess,
   },
   fields: [
     {

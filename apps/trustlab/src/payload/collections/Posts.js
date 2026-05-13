@@ -8,8 +8,7 @@ import {
 } from "@commons-ui/payload";
 import { createParentField } from "@payloadcms/plugin-nested-docs";
 
-import { canManageContent } from "@/trustlab/payload/access/abilities";
-import { anyone } from "@/trustlab/payload/access/anyone";
+import { anyone, hasAuthorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
 import { hideAPIURL, revalidatePost } from "@/trustlab/payload/utils";
 
@@ -23,9 +22,9 @@ const Posts = {
   },
   access: {
     read: anyone,
-    create: ({ req: { user } }) => canManageContent(user),
-    update: ({ req: { user } }) => canManageContent(user),
-    delete: ({ req: { user } }) => canManageContent(user),
+    create: hasAuthorAccess,
+    update: hasAuthorAccess,
+    delete: hasAuthorAccess,
   },
   fields: [
     {

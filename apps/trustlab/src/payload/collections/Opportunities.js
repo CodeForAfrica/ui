@@ -1,5 +1,6 @@
 import { image, appendPathnameToCollection, slug } from "@commons-ui/payload";
 
+import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
 
 const pageByType = {
@@ -25,7 +26,10 @@ const Opportunities = {
     defaultColumns: ["title", "type"],
   },
   access: {
-    read: () => true,
+    read: anyone,
+    create: hasEditorAccess,
+    update: hasEditorAccess,
+    delete: hasEditorAccess,
   },
   fields: [
     {

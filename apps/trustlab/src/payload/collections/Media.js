@@ -2,8 +2,7 @@ import path from "path";
 
 import { createdBy } from "@commons-ui/payload";
 
-import { canManageContent } from "@/trustlab/payload/access/abilities";
-import { anyone } from "@/trustlab/payload/access/anyone";
+import { anyone, hasAuthorAccess } from "@/trustlab/payload/access";
 import { hideAPIURL, slugify } from "@/trustlab/payload/utils";
 
 function slugifyFilename(filename) {
@@ -19,9 +18,9 @@ const Media = {
   slug: "media",
   access: {
     read: anyone,
-    create: ({ req: { user } }) => canManageContent(user),
-    update: ({ req: { user } }) => canManageContent(user),
-    delete: ({ req: { user } }) => canManageContent(user),
+    create: hasAuthorAccess,
+    update: hasAuthorAccess,
+    delete: hasAuthorAccess,
   },
   admin: {
     group: "Publication",

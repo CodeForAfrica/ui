@@ -1,7 +1,6 @@
 import { EngagementTab, GeneralTab, NavigationTab, SeoTab } from "./tabs";
 
-import { loggedIn } from "@/trustlab/payload/access";
-import { canManageSiteSettings } from "@/trustlab/payload/access/abilities";
+import { anyone, hasAdminAccess } from "@/trustlab/payload/access";
 import { hideAPIURL } from "@/trustlab/payload/utils";
 
 const SiteSettings = {
@@ -12,10 +11,10 @@ const SiteSettings = {
     hideAPIURL,
   },
   access: {
-    // Since we're using Local APIs, we should still be able to pull data server-side
-    // See: note in https://payloadcms.com/docs/local-api/overview#transactions
-    read: loggedIn,
-    update: canManageSiteSettings,
+    // Public rendering paths, including the custom error page REST fallback,
+    // need navbar/footer/settings data before an authenticated CMS session exists.
+    read: anyone,
+    update: hasAdminAccess,
   },
   fields: [
     {

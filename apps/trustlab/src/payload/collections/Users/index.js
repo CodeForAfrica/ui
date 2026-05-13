@@ -1,9 +1,9 @@
 import { protectRoleField } from "./hooks/protectRoleField";
 
 import {
-  canCreateAccounts,
-  canManageUsers,
-} from "@/trustlab/payload/access/abilities";
+  hasCreateUserAccess,
+  hasManageUserAccess,
+} from "@/trustlab/payload/access";
 import { ROLE_AUTHOR, ROLE_OPTIONS } from "@/trustlab/payload/access/roles";
 
 const Users = {
@@ -15,11 +15,11 @@ const Users = {
     hideAPIURL: true,
   },
   access: {
-    delete: ({ req: { user } }) => canManageUsers(user),
-    create: ({ req: { user } }) => canCreateAccounts(user),
-    read: ({ req: { user } }) => canManageUsers(user),
-    update: ({ req: { user } }) => canManageUsers(user),
-    unlock: ({ req: { user } }) => canManageUsers(user),
+    delete: hasManageUserAccess,
+    create: hasCreateUserAccess,
+    read: hasManageUserAccess,
+    update: hasManageUserAccess,
+    unlock: hasManageUserAccess,
   },
   auth: true,
   fields: [
@@ -47,7 +47,7 @@ const Users = {
             beforeChange: [protectRoleField],
           },
           access: {
-            update: ({ req: { user } }) => user?.role !== ROLE_AUTHOR,
+            update: hasCreateUserAccess,
           },
         },
       ],

@@ -6,3 +6,8 @@ export const ROLE_OPTIONS = [
   { label: "Editor", value: ROLE_EDITOR },
   { label: "Author", value: ROLE_AUTHOR },
 ];
+
+export const hasValidRole = (user) =>
+  ROLE_OPTIONS.some(({ value }) => user?.role === value);
+
+export default undefined;
