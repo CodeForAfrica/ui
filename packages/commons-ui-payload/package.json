@@ -5,6 +5,12 @@
   "author": "Code for Africa <tech@codeforafrica.org>",
   "description": "",
   "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "node": "./src/index.node.js",
+      "default": "./src/index.js"
+    }
+  },
   "keywords": [
     "react",
     "react-component",

@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { forwardRef } from "react";
 
-import { styleConverter } from "./converter";
+import { styleConverter } from "./converter.jsx";
 
 export const jsxConverters =
   (converterProps) =>

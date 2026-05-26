@@ -9,7 +9,7 @@
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mts payload generate:types",
     "generate:all": "pnpm generate:importmap && pnpm generate:types",
     "jest": "jest",
     "playwright": "npx playwright test --pass-with-no-tests",
