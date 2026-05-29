@@ -1,3 +1,3 @@
-import RichText from "./RichText.jsx";
+import RichText from "./RichText";
 
 export default RichText;

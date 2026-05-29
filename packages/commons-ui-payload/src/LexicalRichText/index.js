@@ -1,3 +1,3 @@
-import LexicalRichText from "./LexicalRichText.jsx";
+import LexicalRichText from "./LexicalRichText";
 
 export default LexicalRichText;

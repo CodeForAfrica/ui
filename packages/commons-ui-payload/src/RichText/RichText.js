@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import React, { Fragment } from "react";
 import { Text } from "slate";
 
-import Media from "./Media.jsx";
+import Media from "./Media";
 
 const DEFAULT_PROPS = {
   html: false,

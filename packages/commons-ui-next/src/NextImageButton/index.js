@@ -1,1 +1,1 @@
-export { default } from "./NextImageButton.jsx";
+export { default } from "./NextImageButton";
