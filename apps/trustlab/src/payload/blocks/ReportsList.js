@@ -1,4 +1,4 @@
-import { richText } from "@commons-ui/payload";
+import { richText } from "@commons-ui/payload/fields";
 
 const ReportsList = {
   slug: "reports-list",

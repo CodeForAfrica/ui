@@ -1,4 +1,8 @@
-import { socialMediaOptions, link, linkArray } from "@commons-ui/payload";
+import {
+  socialMediaOptions,
+  link,
+  linkArray,
+} from "@commons-ui/payload/fields";
 
 const linkField = link({
   disableOpenInNewTab: true,

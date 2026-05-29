@@ -53,6 +53,7 @@ module.exports = [
       "**/contrib/",
       "**/scripts/",
       "**/src/app/(payload)/admin/importMap.js",
+      "**/payload-types.ts",
     ],
   },
   js.configs.recommended,

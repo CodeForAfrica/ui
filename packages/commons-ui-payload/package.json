@@ -6,10 +6,10 @@
   "description": "",
   "main": "./src/index.js",
   "exports": {
-    ".": {
-      "node": "./src/index.node.js",
-      "default": "./src/index.js"
-    }
+    ".": "./src/index.js",
+    "./fields": "./src/fields/index.js",
+    "./hooks": "./src/hooks/index.js",
+    "./utils": "./src/utils/index.js"
   },
   "keywords": [
     "react",

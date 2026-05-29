@@ -1,4 +1,4 @@
-import { link, richText } from "@commons-ui/payload";
+import { link, richText } from "@commons-ui/payload/fields";
 
 const ContentOverview = {
   slug: "content-overview",

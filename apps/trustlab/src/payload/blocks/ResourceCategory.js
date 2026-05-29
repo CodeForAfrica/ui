@@ -1,4 +1,4 @@
-import { image, richText, linkGroup } from "@commons-ui/payload";
+import { image, richText, linkGroup } from "@commons-ui/payload/fields";
 
 const ResourceCategory = {
   slug: "resource-category",

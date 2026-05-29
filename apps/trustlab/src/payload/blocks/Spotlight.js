@@ -1,4 +1,4 @@
-import { linkGroup } from "@commons-ui/payload";
+import { linkGroup } from "@commons-ui/payload/fields";
 
 const Spotlight = {
   slug: "spotlight",

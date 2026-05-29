@@ -1,4 +1,4 @@
-import { image, richText } from "@commons-ui/payload";
+import { image, richText } from "@commons-ui/payload/fields";
 
 const GeneralTab = {
   label: "General",

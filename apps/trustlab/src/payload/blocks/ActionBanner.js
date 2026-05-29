@@ -1,4 +1,4 @@
-import { richText, linkGroup } from "@commons-ui/payload";
+import { richText, linkGroup } from "@commons-ui/payload/fields";
 import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
 import validateColorModule from "validate-color";
 const { validateHTMLColorHex } = validateColorModule;

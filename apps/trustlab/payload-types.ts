@@ -72,8 +72,14 @@ export interface Config {
     posts: Post;
     tags: Tag;
     donors: Donor;
+    organisations: Organisation;
     partners: Partner;
+    playbooks: Playbook;
+    toolkits: Toolkit;
+    reports: Report;
     users: User;
+    opportunities: Opportunity;
+    "payload-kv": PayloadKv;
     "payload-locked-documents": PayloadLockedDocument;
     "payload-preferences": PayloadPreference;
     "payload-migrations": PayloadMigration;
@@ -85,8 +91,14 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     donors: DonorsSelect<false> | DonorsSelect<true>;
+    organisations: OrganisationsSelect<false> | OrganisationsSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
+    playbooks: PlaybooksSelect<false> | PlaybooksSelect<true>;
+    toolkits: ToolkitsSelect<false> | ToolkitsSelect<true>;
+    reports: ReportsSelect<false> | ReportsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    opportunities: OpportunitiesSelect<false> | OpportunitiesSelect<true>;
+    "payload-kv": PayloadKvSelect<false> | PayloadKvSelect<true>;
     "payload-locked-documents":
       | PayloadLockedDocumentsSelect<false>
       | PayloadLockedDocumentsSelect<true>;
@@ -100,6 +112,7 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
+  fallbackLocale: ("false" | "none" | "null") | false | null | "en" | "en"[];
   globals: {
     "site-settings": SiteSetting;
   };
@@ -107,9 +120,10 @@ export interface Config {
     "site-settings": SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
   locale: "en";
-  user: User & {
-    collection: "users";
+  widgets: {
+    collections: CollectionsWidget;
   };
+  user: User;
   jobs: {
     tasks: unknown;
     workflows: unknown;
@@ -229,7 +243,15 @@ export interface User {
   hash?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
   password?: string | null;
+  collection: "users";
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -243,104 +265,66 @@ export interface Page {
   blocks?:
     | (
         | {
-            title: string;
-            items: {
-              relationTo: "posts";
-              value: string | Post;
-            }[];
-            linkLabel: string;
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            buttonLink: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            button: {
+              /**
+               * Border Color of Action button
+               */
+              borderColor: string;
+            };
+            /**
+             * Provide a descriptive label for screen readers when the button text is generic (e.g. "Learn more about Baraza"). Leave blank if the button text is already descriptive.
+             */
+            buttonAriaLabel?: string | null;
+            /**
+             * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+             */
+            embedCode?: string | null;
+            embedDialogTitle?: string | null;
+            embedCloseLabel?: string | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "helplines-overview-list";
-          }
-        | {
-            slides?:
-              | {
-                  title: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ("ltr" | "rtl") | null;
-                      format:
-                        | "left"
-                        | "start"
-                        | "center"
-                        | "right"
-                        | "end"
-                        | "justify"
-                        | "";
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  };
-                  subtitle: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ("ltr" | "rtl") | null;
-                      format:
-                        | "left"
-                        | "start"
-                        | "center"
-                        | "right"
-                        | "end"
-                        | "justify"
-                        | "";
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  };
-                  /**
-                   * A brief description of the slide content.
-                   */
-                  description: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
-                        [k: string]: unknown;
-                      }[];
-                      direction: ("ltr" | "rtl") | null;
-                      format:
-                        | "left"
-                        | "start"
-                        | "center"
-                        | "right"
-                        | "end"
-                        | "justify"
-                        | "";
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  };
-                  backgroundImage: string | Media;
-                  label: string;
-                  linkType?: ("custom" | "internal") | null;
-                  doc?: {
-                    relationTo: "pages";
-                    value: string | Page;
-                  } | null;
-                  url?: string | null;
-                  href: string;
-                  newTab?: boolean | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "hero";
+            blockType: "action-banner";
           }
         | {
             title: string;
@@ -351,7 +335,7 @@ export interface Page {
               root: {
                 type: string;
                 children: {
-                  type: string;
+                  type: any;
                   version: number;
                   [k: string]: unknown;
                 }[];
@@ -396,119 +380,11 @@ export interface Page {
             blockType: "call-to-action";
           }
         | {
-            title: string;
-            donors?: (string | Donor)[] | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "donor-overview-list";
-          }
-        | {
-            /**
-             * The title of the gallery.
-             */
-            title: string;
-            images: {
-              image?: (string | null) | Media;
-              id?: string | null;
-            }[];
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "gallery";
-          }
-        | {
-            title: string;
-            description?: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            } | null;
-            image: string | Media;
-            /**
-             * Background color in hex format
-             */
-            backgroundColor: string;
-            /**
-             * Text color in hex format
-             */
-            textColor: string;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "page-header";
-          }
-        | {
-            /**
-             * A brief description of the content.
-             */
             content: {
               root: {
                 type: string;
                 children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ("ltr" | "rtl") | null;
-                format:
-                  | "left"
-                  | "start"
-                  | "center"
-                  | "right"
-                  | "end"
-                  | "justify"
-                  | "";
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            };
-            image: string | Media;
-            caption?: string | null;
-            buttonLink?: {
-              label?: string | null;
-              linkType?: ("custom" | "internal") | null;
-              doc?: {
-                relationTo: "pages";
-                value: string | Page;
-              } | null;
-              url?: string | null;
-              href?: string | null;
-              newTab?: boolean | null;
-            };
-            /**
-             * Background color in hex format
-             */
-            backgroundColor: string;
-            /**
-             * Text color in hex format
-             */
-            textColor: string;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "page-overview";
-          }
-        | {
-            content: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
+                  type: any;
                   version: number;
                   [k: string]: unknown;
                 }[];
@@ -539,37 +415,566 @@ export interface Page {
             blockType: "content";
           }
         | {
-            title: string;
-            partners?: (string | Partner)[] | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * Enter a valid CSS color (e.g., #FFDE59, rgb(255, 222, 89))
+             */
+            backgroundColor?: string | null;
+            /**
+             * Enter a valid CSS color (e.g., #000000, rgb(0, 0, 0))
+             */
+            textColor?: string | null;
+            button?: {
+              /**
+               * Enter a valid CSS color for the button border
+               */
+              borderColor?: string | null;
+            };
+            buttonLink: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
             id?: string | null;
             blockName?: string | null;
-            blockType: "partner-overview-list";
-          }
-        | {
-            title: string;
-            partners?: (string | Partner)[] | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: "partners-list";
+            blockType: "content-action-banner";
           }
         | {
             title?: string | null;
-            showAllPosts?: boolean | null;
-            posts?: (string | Post)[] | null;
-            linkLabel: string;
-            closedLabel: string;
-            deadlineLabel?: string | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            card: {
+              title: string;
+              cardType?: ("items" | "richtext") | null;
+              items?:
+                | {
+                    fieldLabel?: string | null;
+                    isLink?: boolean | null;
+                    value?: string | null;
+                    label?: string | null;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href?: string | null;
+                    newTab?: boolean | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              /**
+               * Rich text content displayed inside the card.
+               */
+              richContent?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+            };
             id?: string | null;
             blockName?: string | null;
-            blockType: "post-list";
+            blockType: "content-overview";
+          }
+        | {
+            title?: string | null;
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            courses?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "course-list";
           }
         | {
             title: string;
+            donors?: (string | Donor)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "donor-overview-list";
+          }
+        | {
+            title: string;
+            subtitle: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image?: (string | null) | Media;
+            link: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "error";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            facilitators?:
+              | {
+                  name: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "facilitators";
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "feature-list";
+          }
+        | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "gallery";
+          }
+        | {
+            title: string;
+            displayType?: ("row" | "list") | null;
+            /**
+             * Add Rapid Response Briefs
+             */
+            briefs?:
+              | {
+                  icon: string | Media;
+                  title: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  useEmbedCode?: boolean | null;
+                  embedCode?: string | null;
+                  embedButtonLabel?: string | null;
+                  embedCloseLabel?: string | null;
+                  link?: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines";
+          }
+        | {
+            title: string;
+            items: {
+              relationTo: "posts";
+              value: string | Post;
+            }[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines-overview-list";
+          }
+        | {
+            slides?:
+              | {
+                  /**
+                   * Background color in hex format
+                   */
+                  backgroundColor: string;
+                  /**
+                   * Text color in hex format
+                   */
+                  textColor: string;
+                  title: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  /**
+                   * A brief description of the slide content.
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  image: string | Media;
+                  imagePosition?: ("left" | "right") | null;
+                  buttons: {
+                    /**
+                     * Background color in hex format
+                     */
+                    backgroundColor: string;
+                    /**
+                     * Text color in hex format
+                     */
+                    textColor: string;
+                    links?:
+                      | {
+                          label: string;
+                          linkType?: ("custom" | "internal") | null;
+                          doc?: {
+                            relationTo: "pages";
+                            value: string | Page;
+                          } | null;
+                          url?: string | null;
+                          href: string;
+                          newTab?: boolean | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                  };
+                  divider?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "hero";
+          }
+        | {
+            title: string;
+            items: {
+              content: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "highlight-list";
+          }
+        | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "horizontal-gallery";
+          }
+        | {
+            title?: string | null;
+            /**
+             * A brief description of the content.
+             */
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            textAlign?: ("left" | "center" | "right") | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "incubator";
+          }
+        | {
+            title: string;
+            subtitle: string;
             description?: {
               root: {
                 type: string;
                 children: {
-                  type: string;
+                  type: any;
                   version: number;
                   [k: string]: unknown;
                 }[];
@@ -587,7 +992,242 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
+            /**
+             * Add Intelligence Briefing Briefs
+             */
+            briefs?:
+              | {
+                  icon: string | Media;
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "intelligence-briefings";
+          }
+        | {
+            /**
+             * Opportunity category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  opportunityType:
+                    | "baraza"
+                    | "incubator"
+                    | "intelligence-briefing";
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            settings?: {
+              backButtonLabel?: string | null;
+              viewMoreLabel?: string | null;
+              overviewLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunity-category";
+          }
+        | {
+            title?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            opportunityType: "incubator" | "intelligence-briefing" | "baraza";
+            hasFilters?: boolean | null;
+            filterByLabel?: string | null;
+            filters?:
+              | {
+                  type: "year" | "month" | "location" | "opportunity";
+                  label: string;
+                  options?:
+                    | {
+                        label: string;
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            clearFiltersLabel?: string | null;
+            hasSearch?: boolean | null;
+            searchPlaceholderLabel?: string | null;
+            hasSortBy?: boolean | null;
+            sortByLabel?: string | null;
+            sortOptions?:
+              | {
+                  label: string;
+                  value:
+                    | "-date"
+                    | "date"
+                    | "title"
+                    | "-title"
+                    | "-createdAt"
+                    | "createdAt"
+                    | "-updatedAt"
+                    | "updatedAt";
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Sort applied on initial load and after clearing filters.
+             */
+            defaultSort?:
+              | (
+                  | "-date"
+                  | "date"
+                  | "title"
+                  | "-title"
+                  | "-createdAt"
+                  | "createdAt"
+                  | "-updatedAt"
+                  | "updatedAt"
+                )
+              | null;
+            hasPagination?: boolean | null;
+            itemsPerPage?: number | null;
+            showJumpToPage?: boolean | null;
+            jumpToPageLabel?: string | null;
+            cardActionLabel?: string | null;
+            notFoundTitleLabel?: string | null;
+            notFoundSubtitleLabel?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunities-list";
+          }
+        | {
+            title?: string | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
             image: string | Media;
+            /**
+             * Optional key stats displayed below the richtext.
+             */
+            metrics?:
+              | {
+                  value: string;
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
             /**
              * Background color in hex format
              */
@@ -598,7 +1238,397 @@ export interface Page {
             textColor: string;
             id?: string | null;
             blockName?: string | null;
-            blockType: "what-we-do";
+            blockType: "opportunity-overview";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (string | null) | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            hasBackButton?: boolean | null;
+            backButton?: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-header";
+          }
+        | {
+            title?: string | null;
+            /**
+             * A brief description of the content.
+             */
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            textAlign?: ("left" | "center" | "right") | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-overview";
+          }
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            variant: "chip" | "card";
+            /**
+             * Select organizations to display in this list
+             */
+            organizations?: (string | Organisation)[] | null;
+            /**
+             * Label for the button on each card
+             */
+            buttonLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "participating-organization-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partner-overview-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partners-list";
+          }
+        | {
+            hasFilters?: boolean | null;
+            title?: string | null;
+            hasPagination?: boolean | null;
+            playbooksPerPage?: number | null;
+            filters?:
+              | {
+                  type: "year" | "month";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            cardActionLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "playbooks-list";
+          }
+        | {
+            title?: string | null;
+            showAllPosts?: boolean | null;
+            posts?: (string | Post)[] | null;
+            linkLabel: string;
+            closedLabel: string;
+            dateLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "post-list";
+          }
+        | {
+            condensed?: boolean | null;
+            reportsType?: ("baseline" | "situational" | "bi-weekly") | null;
+            hasFilters?: boolean | null;
+            reportsPerPage?: number | null;
+            hasPagination?: boolean | null;
+            filterByLabel?: string | null;
+            filters?:
+              | {
+                  type: "year" | "month" | "report";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            hasSearch?: boolean | null;
+            searchPlaceholderLabel?: string | null;
+            hasSortBy?: boolean | null;
+            sortByLabel?: string | null;
+            sortOptions?:
+              | {
+                  label: string;
+                  value:
+                    | "-date"
+                    | "date"
+                    | "title"
+                    | "-title"
+                    | "-createdAt"
+                    | "createdAt"
+                    | "-updatedAt"
+                    | "updatedAt";
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Sort applied on initial load and after clearing filters.
+             */
+            defaultSort?:
+              | (
+                  | "-date"
+                  | "date"
+                  | "title"
+                  | "-title"
+                  | "-createdAt"
+                  | "createdAt"
+                  | "-updatedAt"
+                  | "updatedAt"
+                )
+              | null;
+            cardActionLabel?: string | null;
+            clearFiltersLabel?: string | null;
+            notFoundTitleLabel?: string | null;
+            notFoundSubtitleLabel?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "reports-list";
+          }
+        | {
+            /**
+             * Research category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  reportType: "baseline" | "bi-weekly" | "situational";
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            settings?: {
+              backButtonLabel?: string | null;
+              downloadLabel?: string | null;
+              overViewLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "research-category";
+          }
+        | {
+            /**
+             * Resource Category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resource-category";
+          }
+        | {
+            title: string;
+            /**
+             * Add Helplines
+             */
+            resources?:
+              | {
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  icon: string | Media;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources";
           }
         | {
             title: string;
@@ -614,12 +1644,154 @@ export interface Page {
         | {
             title: string;
             items: {
-              relationTo: "posts";
-              value: string | Post;
+              item: string | Post;
+              title?: string | null;
+              buttonLink?: {
+                label?: string | null;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href?: string | null;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
             }[];
             id?: string | null;
             blockName?: string | null;
             blockType: "spotlight";
+          }
+        | {
+            title?: string | null;
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            /**
+             * Logo or signature image displayed below the description
+             */
+            signatureIcon?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "testimonial";
+          }
+        | {
+            hasFilters?: boolean | null;
+            hasPagination?: boolean | null;
+            toolkitsPerPage?: number | null;
+            filters?:
+              | {
+                  type: "year" | "month";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            cardActionLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "toolkits-list";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (string | null) | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "what-we-do";
+          }
+        | {
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            /**
+             * The title of the where we work block.
+             */
+            title: string;
+            /**
+             * A brief description of the where we work block.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "where-we-work";
           }
       )[]
     | null;
@@ -646,6 +1818,57 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "donors".
+ */
+export interface Donor {
+  id: string;
+  name: string;
+  slug?: string | null;
+  logo: string | Media;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  link: {
+    label: string;
+    linkType?: ("custom" | "internal") | null;
+    doc?: {
+      relationTo: "pages";
+      value: string | Page;
+    } | null;
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
+  };
+  connect?:
+    | {
+        platform:
+          | "Facebook"
+          | "Twitter"
+          | "Instagram"
+          | "Linkedin"
+          | "Github"
+          | "Slack";
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -656,11 +1879,126 @@ export interface Post {
   excerpt: string;
   content: (
     | {
+        title: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        buttonLink: {
+          label?: string | null;
+          linkType?: ("custom" | "internal") | null;
+          doc?: {
+            relationTo: "pages";
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href?: string | null;
+          newTab?: boolean | null;
+        };
+        button: {
+          /**
+           * Border Color of Action button
+           */
+          borderColor: string;
+        };
+        /**
+         * Provide a descriptive label for screen readers when the button text is generic (e.g. "Learn more about Baraza"). Leave blank if the button text is already descriptive.
+         */
+        buttonAriaLabel?: string | null;
+        /**
+         * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+         */
+        embedCode?: string | null;
+        embedDialogTitle?: string | null;
+        embedCloseLabel?: string | null;
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "action-banner";
+      }
+    | {
+        title: string;
+        /**
+         * A brief description of the content.
+         */
+        description: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        /**
+         * If enabled, the layout of the showcase block will be reversed. This is used to determine the layout of the showcase block.
+         */
+        reverse?: boolean | null;
+        label: string;
+        linkType?: ("custom" | "internal") | null;
+        doc?: {
+          relationTo: "pages";
+          value: string | Page;
+        } | null;
+        url?: string | null;
+        href: string;
+        newTab?: boolean | null;
+        images?:
+          | {
+              /**
+               * Image to display in the showcase block.
+               */
+              image: string | Media;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "call-to-action";
+      }
+    | {
         content: {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -691,11 +2029,290 @@ export interface Post {
         blockType: "content";
       }
     | {
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        /**
+         * Enter a valid CSS color (e.g., #FFDE59, rgb(255, 222, 89))
+         */
+        backgroundColor?: string | null;
+        /**
+         * Enter a valid CSS color (e.g., #000000, rgb(0, 0, 0))
+         */
+        textColor?: string | null;
+        button?: {
+          /**
+           * Enter a valid CSS color for the button border
+           */
+          borderColor?: string | null;
+        };
+        buttonLink: {
+          label: string;
+          linkType?: ("custom" | "internal") | null;
+          doc?: {
+            relationTo: "pages";
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "content-action-banner";
+      }
+    | {
+        title?: string | null;
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        card: {
+          title: string;
+          cardType?: ("items" | "richtext") | null;
+          items?:
+            | {
+                fieldLabel?: string | null;
+                isLink?: boolean | null;
+                value?: string | null;
+                label?: string | null;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href?: string | null;
+                newTab?: boolean | null;
+                id?: string | null;
+              }[]
+            | null;
+          /**
+           * Rich text content displayed inside the card.
+           */
+          richContent?: {
+            root: {
+              type: string;
+              children: {
+                type: any;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ("ltr" | "rtl") | null;
+              format:
+                | "left"
+                | "start"
+                | "center"
+                | "right"
+                | "end"
+                | "justify"
+                | "";
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          } | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "content-overview";
+      }
+    | {
+        title?: string | null;
+        description: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        courses?:
+          | {
+              image?: (string | null) | Media;
+              title: string;
+              description: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              link: {
+                label: string;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "course-list";
+      }
+    | {
         title: string;
         donors?: (string | Donor)[] | null;
         id?: string | null;
         blockName?: string | null;
         blockType: "donor-overview-list";
+      }
+    | {
+        title: string;
+        subtitle: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        image?: (string | null) | Media;
+        link: {
+          label: string;
+          linkType?: ("custom" | "internal") | null;
+          doc?: {
+            relationTo: "pages";
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "error";
+      }
+    | {
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        facilitators?:
+          | {
+              name: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "facilitators";
+      }
+    | {
+        title?: string | null;
+        description?: string | null;
+        items: {
+          title: string;
+          description: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "feature-list";
       }
     | {
         /**
@@ -712,23 +2329,207 @@ export interface Post {
       }
     | {
         title: string;
-        partners?: (string | Partner)[] | null;
+        displayType?: ("row" | "list") | null;
+        /**
+         * Add Rapid Response Briefs
+         */
+        briefs?:
+          | {
+              icon: string | Media;
+              title: string;
+              description: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              useEmbedCode?: boolean | null;
+              embedCode?: string | null;
+              embedButtonLabel?: string | null;
+              embedCloseLabel?: string | null;
+              link?: {
+                label: string;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
-        blockType: "partner-overview-list";
+        blockType: "helplines";
+      }
+    | {
+        title: string;
+        items: {
+          relationTo: "posts";
+          value: string | Post;
+        }[];
+        linkLabel: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "helplines-overview-list";
+      }
+    | {
+        slides?:
+          | {
+              /**
+               * Background color in hex format
+               */
+              backgroundColor: string;
+              /**
+               * Text color in hex format
+               */
+              textColor: string;
+              title: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              /**
+               * A brief description of the slide content.
+               */
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              image: string | Media;
+              imagePosition?: ("left" | "right") | null;
+              buttons: {
+                /**
+                 * Background color in hex format
+                 */
+                backgroundColor: string;
+                /**
+                 * Text color in hex format
+                 */
+                textColor: string;
+                links?:
+                  | {
+                      label: string;
+                      linkType?: ("custom" | "internal") | null;
+                      doc?: {
+                        relationTo: "pages";
+                        value: string | Page;
+                      } | null;
+                      url?: string | null;
+                      href: string;
+                      newTab?: boolean | null;
+                      id?: string | null;
+                    }[]
+                  | null;
+              };
+              divider?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "hero";
+      }
+    | {
+        title: string;
+        items: {
+          content: {
+            root: {
+              type: string;
+              children: {
+                type: any;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ("ltr" | "rtl") | null;
+              format:
+                | "left"
+                | "start"
+                | "center"
+                | "right"
+                | "end"
+                | "justify"
+                | "";
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "highlight-list";
+      }
+    | {
+        /**
+         * The title of the gallery.
+         */
+        title: string;
+        images: {
+          image?: (string | null) | Media;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "horizontal-gallery";
       }
     | {
         title?: string | null;
-        showAllPosts?: boolean | null;
-        posts?: (string | Post)[] | null;
-        linkLabel: string;
-        closedLabel: string;
-        deadlineLabel?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: "post-list";
-      }
-    | {
         /**
          * A brief description of the content.
          */
@@ -736,7 +2537,7 @@ export interface Post {
           root: {
             type: string;
             children: {
-              type: string;
+              type: any;
               version: number;
               [k: string]: unknown;
             }[];
@@ -767,6 +2568,379 @@ export interface Post {
           href?: string | null;
           newTab?: boolean | null;
         };
+        textAlign?: ("left" | "center" | "right") | null;
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "incubator";
+      }
+    | {
+        title: string;
+        subtitle: string;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        /**
+         * Add Intelligence Briefing Briefs
+         */
+        briefs?:
+          | {
+              icon: string | Media;
+              title: string;
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "intelligence-briefings";
+      }
+    | {
+        /**
+         * Opportunity category items
+         */
+        categories?:
+          | {
+              image?: (string | null) | Media;
+              title: string;
+              opportunityType: "baraza" | "incubator" | "intelligence-briefing";
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              link: {
+                label: string;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        settings?: {
+          backButtonLabel?: string | null;
+          viewMoreLabel?: string | null;
+          overviewLabel?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "opportunity-category";
+      }
+    | {
+        title?: string | null;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        opportunityType: "incubator" | "intelligence-briefing" | "baraza";
+        hasFilters?: boolean | null;
+        filterByLabel?: string | null;
+        filters?:
+          | {
+              type: "year" | "month" | "location" | "opportunity";
+              label: string;
+              options?:
+                | {
+                    label: string;
+                    value: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        clearFiltersLabel?: string | null;
+        hasSearch?: boolean | null;
+        searchPlaceholderLabel?: string | null;
+        hasSortBy?: boolean | null;
+        sortByLabel?: string | null;
+        sortOptions?:
+          | {
+              label: string;
+              value:
+                | "-date"
+                | "date"
+                | "title"
+                | "-title"
+                | "-createdAt"
+                | "createdAt"
+                | "-updatedAt"
+                | "updatedAt";
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Sort applied on initial load and after clearing filters.
+         */
+        defaultSort?:
+          | (
+              | "-date"
+              | "date"
+              | "title"
+              | "-title"
+              | "-createdAt"
+              | "createdAt"
+              | "-updatedAt"
+              | "updatedAt"
+            )
+          | null;
+        hasPagination?: boolean | null;
+        itemsPerPage?: number | null;
+        showJumpToPage?: boolean | null;
+        jumpToPageLabel?: string | null;
+        cardActionLabel?: string | null;
+        notFoundTitleLabel?: string | null;
+        notFoundSubtitleLabel?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "opportunities-list";
+      }
+    | {
+        title?: string | null;
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        image: string | Media;
+        /**
+         * Optional key stats displayed below the richtext.
+         */
+        metrics?:
+          | {
+              value: string;
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "opportunity-overview";
+      }
+    | {
+        title: string;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        image?: (string | null) | Media;
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        hasBackButton?: boolean | null;
+        backButton?: {
+          label: string;
+          linkType?: ("custom" | "internal") | null;
+          doc?: {
+            relationTo: "pages";
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          newTab?: boolean | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "page-header";
+      }
+    | {
+        title?: string | null;
+        /**
+         * A brief description of the content.
+         */
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        image: string | Media;
+        caption?: string | null;
+        buttonLink?: {
+          label?: string | null;
+          linkType?: ("custom" | "internal") | null;
+          doc?: {
+            relationTo: "pages";
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          href?: string | null;
+          newTab?: boolean | null;
+        };
+        textAlign?: ("left" | "center" | "right") | null;
         /**
          * Background color in hex format
          */
@@ -778,6 +2952,457 @@ export interface Post {
         id?: string | null;
         blockName?: string | null;
         blockType: "page-overview";
+      }
+    | {
+        title?: string | null;
+        subtitle?: string | null;
+        variant: "chip" | "card";
+        /**
+         * Select organizations to display in this list
+         */
+        organizations?: (string | Organisation)[] | null;
+        /**
+         * Label for the button on each card
+         */
+        buttonLabel?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "participating-organization-list";
+      }
+    | {
+        title: string;
+        partners?: (string | Partner)[] | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "partner-overview-list";
+      }
+    | {
+        title: string;
+        partners?: (string | Partner)[] | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "partners-list";
+      }
+    | {
+        hasFilters?: boolean | null;
+        title?: string | null;
+        hasPagination?: boolean | null;
+        playbooksPerPage?: number | null;
+        filters?:
+          | {
+              type: "year" | "month";
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        applyFiltersLabel?: string | null;
+        cardActionLabel?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "playbooks-list";
+      }
+    | {
+        title?: string | null;
+        showAllPosts?: boolean | null;
+        posts?: (string | Post)[] | null;
+        linkLabel: string;
+        closedLabel: string;
+        dateLabel?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "post-list";
+      }
+    | {
+        condensed?: boolean | null;
+        reportsType?: ("baseline" | "situational" | "bi-weekly") | null;
+        hasFilters?: boolean | null;
+        reportsPerPage?: number | null;
+        hasPagination?: boolean | null;
+        filterByLabel?: string | null;
+        filters?:
+          | {
+              type: "year" | "month" | "report";
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        applyFiltersLabel?: string | null;
+        hasSearch?: boolean | null;
+        searchPlaceholderLabel?: string | null;
+        hasSortBy?: boolean | null;
+        sortByLabel?: string | null;
+        sortOptions?:
+          | {
+              label: string;
+              value:
+                | "-date"
+                | "date"
+                | "title"
+                | "-title"
+                | "-createdAt"
+                | "createdAt"
+                | "-updatedAt"
+                | "updatedAt";
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Sort applied on initial load and after clearing filters.
+         */
+        defaultSort?:
+          | (
+              | "-date"
+              | "date"
+              | "title"
+              | "-title"
+              | "-createdAt"
+              | "createdAt"
+              | "-updatedAt"
+              | "updatedAt"
+            )
+          | null;
+        cardActionLabel?: string | null;
+        clearFiltersLabel?: string | null;
+        notFoundTitleLabel?: string | null;
+        notFoundSubtitleLabel?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "reports-list";
+      }
+    | {
+        /**
+         * Research category items
+         */
+        categories?:
+          | {
+              image?: (string | null) | Media;
+              title: string;
+              reportType: "baseline" | "bi-weekly" | "situational";
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              link: {
+                label: string;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        settings?: {
+          backButtonLabel?: string | null;
+          downloadLabel?: string | null;
+          overViewLabel?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "research-category";
+      }
+    | {
+        /**
+         * Resource Category items
+         */
+        categories?:
+          | {
+              image?: (string | null) | Media;
+              title: string;
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              link: {
+                label: string;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "resource-category";
+      }
+    | {
+        title: string;
+        /**
+         * Add Helplines
+         */
+        resources?:
+          | {
+              title: string;
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              icon: string | Media;
+              link: {
+                label: string;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href: string;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "resources";
+      }
+    | {
+        title: string;
+        items: {
+          relationTo: "posts";
+          value: string | Post;
+        }[];
+        linkLabel: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "resources-overview-list";
+      }
+    | {
+        title: string;
+        items: {
+          item: string | Post;
+          title?: string | null;
+          buttonLink?: {
+            label?: string | null;
+            linkType?: ("custom" | "internal") | null;
+            doc?: {
+              relationTo: "pages";
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            href?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "spotlight";
+      }
+    | {
+        title?: string | null;
+        description: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        image: string | Media;
+        /**
+         * Logo or signature image displayed below the description
+         */
+        signatureIcon?: (string | null) | Media;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "testimonial";
+      }
+    | {
+        hasFilters?: boolean | null;
+        hasPagination?: boolean | null;
+        toolkitsPerPage?: number | null;
+        filters?:
+          | {
+              type: "year" | "month";
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        applyFiltersLabel?: string | null;
+        cardActionLabel?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "toolkits-list";
+      }
+    | {
+        title: string;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        image?: (string | null) | Media;
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "what-we-do";
+      }
+    | {
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
+        /**
+         * The title of the where we work block.
+         */
+        title: string;
+        /**
+         * A brief description of the where we work block.
+         */
+        description: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ("ltr" | "rtl") | null;
+            format:
+              | "left"
+              | "start"
+              | "center"
+              | "right"
+              | "end"
+              | "justify"
+              | "";
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        image: string | Media;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: "where-we-work";
       }
   )[];
   tags?: (string | Tag)[] | null;
@@ -822,18 +3447,16 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "donors".
+ * via the `definition` "organisations".
  */
-export interface Donor {
+export interface Organisation {
   id: string;
   name: string;
-  slug?: string | null;
-  logo: string | Media;
-  description: {
+  description?: {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -843,20 +3466,1553 @@ export interface Donor {
       version: number;
     };
     [k: string]: unknown;
+  } | null;
+  image?: (string | null) | Media;
+  link: {
+    label: string;
+    linkType?: ("custom" | "internal") | null;
+    doc?: {
+      relationTo: "pages";
+      value: string | Page;
+    } | null;
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
   };
-  connect?:
-    | {
-        platform:
-          | "Facebook"
-          | "Twitter"
-          | "Instagram"
-          | "Linkedin"
-          | "Github"
-          | "Slack";
-        url: string;
-        id?: string | null;
-      }[]
+  blocks?:
+    | (
+        | {
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            buttonLink: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            button: {
+              /**
+               * Border Color of Action button
+               */
+              borderColor: string;
+            };
+            /**
+             * Provide a descriptive label for screen readers when the button text is generic (e.g. "Learn more about Baraza"). Leave blank if the button text is already descriptive.
+             */
+            buttonAriaLabel?: string | null;
+            /**
+             * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+             */
+            embedCode?: string | null;
+            embedDialogTitle?: string | null;
+            embedCloseLabel?: string | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "action-banner";
+          }
+        | {
+            title: string;
+            /**
+             * A brief description of the content.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * If enabled, the layout of the showcase block will be reversed. This is used to determine the layout of the showcase block.
+             */
+            reverse?: boolean | null;
+            label: string;
+            linkType?: ("custom" | "internal") | null;
+            doc?: {
+              relationTo: "pages";
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            href: string;
+            newTab?: boolean | null;
+            images?:
+              | {
+                  /**
+                   * Image to display in the showcase block.
+                   */
+                  image: string | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "call-to-action";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * Enter a valid CSS color (e.g., #FFDE59, rgb(255, 222, 89))
+             */
+            backgroundColor?: string | null;
+            /**
+             * Enter a valid CSS color (e.g., #000000, rgb(0, 0, 0))
+             */
+            textColor?: string | null;
+            button?: {
+              /**
+               * Enter a valid CSS color for the button border
+               */
+              borderColor?: string | null;
+            };
+            buttonLink: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content-action-banner";
+          }
+        | {
+            title?: string | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            card: {
+              title: string;
+              cardType?: ("items" | "richtext") | null;
+              items?:
+                | {
+                    fieldLabel?: string | null;
+                    isLink?: boolean | null;
+                    value?: string | null;
+                    label?: string | null;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href?: string | null;
+                    newTab?: boolean | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              /**
+               * Rich text content displayed inside the card.
+               */
+              richContent?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content-overview";
+          }
+        | {
+            title?: string | null;
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            courses?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "course-list";
+          }
+        | {
+            title: string;
+            donors?: (string | Donor)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "donor-overview-list";
+          }
+        | {
+            title: string;
+            subtitle: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image?: (string | null) | Media;
+            link: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "error";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            facilitators?:
+              | {
+                  name: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "facilitators";
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "feature-list";
+          }
+        | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "gallery";
+          }
+        | {
+            title: string;
+            displayType?: ("row" | "list") | null;
+            /**
+             * Add Rapid Response Briefs
+             */
+            briefs?:
+              | {
+                  icon: string | Media;
+                  title: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  useEmbedCode?: boolean | null;
+                  embedCode?: string | null;
+                  embedButtonLabel?: string | null;
+                  embedCloseLabel?: string | null;
+                  link?: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines";
+          }
+        | {
+            title: string;
+            items: {
+              relationTo: "posts";
+              value: string | Post;
+            }[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines-overview-list";
+          }
+        | {
+            slides?:
+              | {
+                  /**
+                   * Background color in hex format
+                   */
+                  backgroundColor: string;
+                  /**
+                   * Text color in hex format
+                   */
+                  textColor: string;
+                  title: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  /**
+                   * A brief description of the slide content.
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  image: string | Media;
+                  imagePosition?: ("left" | "right") | null;
+                  buttons: {
+                    /**
+                     * Background color in hex format
+                     */
+                    backgroundColor: string;
+                    /**
+                     * Text color in hex format
+                     */
+                    textColor: string;
+                    links?:
+                      | {
+                          label: string;
+                          linkType?: ("custom" | "internal") | null;
+                          doc?: {
+                            relationTo: "pages";
+                            value: string | Page;
+                          } | null;
+                          url?: string | null;
+                          href: string;
+                          newTab?: boolean | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                  };
+                  divider?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "hero";
+          }
+        | {
+            title: string;
+            items: {
+              content: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "highlight-list";
+          }
+        | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "horizontal-gallery";
+          }
+        | {
+            title?: string | null;
+            /**
+             * A brief description of the content.
+             */
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            textAlign?: ("left" | "center" | "right") | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "incubator";
+          }
+        | {
+            title: string;
+            subtitle: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            /**
+             * Add Intelligence Briefing Briefs
+             */
+            briefs?:
+              | {
+                  icon: string | Media;
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "intelligence-briefings";
+          }
+        | {
+            /**
+             * Opportunity category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  opportunityType:
+                    | "baraza"
+                    | "incubator"
+                    | "intelligence-briefing";
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            settings?: {
+              backButtonLabel?: string | null;
+              viewMoreLabel?: string | null;
+              overviewLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunity-category";
+          }
+        | {
+            title?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            opportunityType: "incubator" | "intelligence-briefing" | "baraza";
+            hasFilters?: boolean | null;
+            filterByLabel?: string | null;
+            filters?:
+              | {
+                  type: "year" | "month" | "location" | "opportunity";
+                  label: string;
+                  options?:
+                    | {
+                        label: string;
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            clearFiltersLabel?: string | null;
+            hasSearch?: boolean | null;
+            searchPlaceholderLabel?: string | null;
+            hasSortBy?: boolean | null;
+            sortByLabel?: string | null;
+            sortOptions?:
+              | {
+                  label: string;
+                  value:
+                    | "-date"
+                    | "date"
+                    | "title"
+                    | "-title"
+                    | "-createdAt"
+                    | "createdAt"
+                    | "-updatedAt"
+                    | "updatedAt";
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Sort applied on initial load and after clearing filters.
+             */
+            defaultSort?:
+              | (
+                  | "-date"
+                  | "date"
+                  | "title"
+                  | "-title"
+                  | "-createdAt"
+                  | "createdAt"
+                  | "-updatedAt"
+                  | "updatedAt"
+                )
+              | null;
+            hasPagination?: boolean | null;
+            itemsPerPage?: number | null;
+            showJumpToPage?: boolean | null;
+            jumpToPageLabel?: string | null;
+            cardActionLabel?: string | null;
+            notFoundTitleLabel?: string | null;
+            notFoundSubtitleLabel?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunities-list";
+          }
+        | {
+            title?: string | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            /**
+             * Optional key stats displayed below the richtext.
+             */
+            metrics?:
+              | {
+                  value: string;
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunity-overview";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (string | null) | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            hasBackButton?: boolean | null;
+            backButton?: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-header";
+          }
+        | {
+            title?: string | null;
+            /**
+             * A brief description of the content.
+             */
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            textAlign?: ("left" | "center" | "right") | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-overview";
+          }
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            variant: "chip" | "card";
+            /**
+             * Select organizations to display in this list
+             */
+            organizations?: (string | Organisation)[] | null;
+            /**
+             * Label for the button on each card
+             */
+            buttonLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "participating-organization-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partner-overview-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partners-list";
+          }
+        | {
+            hasFilters?: boolean | null;
+            title?: string | null;
+            hasPagination?: boolean | null;
+            playbooksPerPage?: number | null;
+            filters?:
+              | {
+                  type: "year" | "month";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            cardActionLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "playbooks-list";
+          }
+        | {
+            title?: string | null;
+            showAllPosts?: boolean | null;
+            posts?: (string | Post)[] | null;
+            linkLabel: string;
+            closedLabel: string;
+            dateLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "post-list";
+          }
+        | {
+            condensed?: boolean | null;
+            reportsType?: ("baseline" | "situational" | "bi-weekly") | null;
+            hasFilters?: boolean | null;
+            reportsPerPage?: number | null;
+            hasPagination?: boolean | null;
+            filterByLabel?: string | null;
+            filters?:
+              | {
+                  type: "year" | "month" | "report";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            hasSearch?: boolean | null;
+            searchPlaceholderLabel?: string | null;
+            hasSortBy?: boolean | null;
+            sortByLabel?: string | null;
+            sortOptions?:
+              | {
+                  label: string;
+                  value:
+                    | "-date"
+                    | "date"
+                    | "title"
+                    | "-title"
+                    | "-createdAt"
+                    | "createdAt"
+                    | "-updatedAt"
+                    | "updatedAt";
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Sort applied on initial load and after clearing filters.
+             */
+            defaultSort?:
+              | (
+                  | "-date"
+                  | "date"
+                  | "title"
+                  | "-title"
+                  | "-createdAt"
+                  | "createdAt"
+                  | "-updatedAt"
+                  | "updatedAt"
+                )
+              | null;
+            cardActionLabel?: string | null;
+            clearFiltersLabel?: string | null;
+            notFoundTitleLabel?: string | null;
+            notFoundSubtitleLabel?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "reports-list";
+          }
+        | {
+            /**
+             * Research category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  reportType: "baseline" | "bi-weekly" | "situational";
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            settings?: {
+              backButtonLabel?: string | null;
+              downloadLabel?: string | null;
+              overViewLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "research-category";
+          }
+        | {
+            /**
+             * Resource Category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resource-category";
+          }
+        | {
+            title: string;
+            /**
+             * Add Helplines
+             */
+            resources?:
+              | {
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  icon: string | Media;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources";
+          }
+        | {
+            title: string;
+            items: {
+              relationTo: "posts";
+              value: string | Post;
+            }[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources-overview-list";
+          }
+        | {
+            title: string;
+            items: {
+              item: string | Post;
+              title?: string | null;
+              buttonLink?: {
+                label?: string | null;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href?: string | null;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "spotlight";
+          }
+        | {
+            title?: string | null;
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            /**
+             * Logo or signature image displayed below the description
+             */
+            signatureIcon?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "testimonial";
+          }
+        | {
+            hasFilters?: boolean | null;
+            hasPagination?: boolean | null;
+            toolkitsPerPage?: number | null;
+            filters?:
+              | {
+                  type: "year" | "month";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            cardActionLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "toolkits-list";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (string | null) | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "what-we-do";
+          }
+        | {
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            /**
+             * The title of the where we work block.
+             */
+            title: string;
+            /**
+             * A brief description of the where we work block.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "where-we-work";
+          }
+      )[]
     | null;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -873,7 +5029,7 @@ export interface Partner {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -913,6 +5069,1712 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "playbooks".
+ */
+export interface Playbook {
+  id: string;
+  title: string;
+  image?: (string | null) | Media;
+  slug?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Upload the playbook PDF
+   */
+  pdf: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "toolkits".
+ */
+export interface Toolkit {
+  id: string;
+  title: string;
+  image?: (string | null) | Media;
+  slug?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Primary link for this toolkit
+   */
+  link: {
+    label: string;
+    linkType?: ("custom" | "internal") | null;
+    doc?: {
+      relationTo: "pages";
+      value: string | Page;
+    } | null;
+    url?: string | null;
+    href: string;
+    newTab?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reports".
+ */
+export interface Report {
+  id: string;
+  title: string;
+  image?: (string | null) | Media;
+  slug?: string | null;
+  overview?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  reportType: "baseline" | "situational" | "bi-weekly";
+  file?: (string | null) | Media;
+  date: string;
+  pageHeaderImage?: (string | null) | Media;
+  pageHeaderDescription?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "opportunities".
+ */
+export interface Opportunity {
+  id: string;
+  title: string;
+  image: string | Media;
+  type: "incubator" | "intelligence-briefing" | "baraza";
+  /**
+   * Short caption displayed above the title (e.g., 'Hate Speech | Report')
+   */
+  caption?: string | null;
+  location?: string | null;
+  /**
+   * Date of the opportunity event
+   */
+  date: string;
+  blocks?:
+    | (
+        | {
+            title: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            buttonLink: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            button: {
+              /**
+               * Border Color of Action button
+               */
+              borderColor: string;
+            };
+            /**
+             * Provide a descriptive label for screen readers when the button text is generic (e.g. "Learn more about Baraza"). Leave blank if the button text is already descriptive.
+             */
+            buttonAriaLabel?: string | null;
+            /**
+             * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+             */
+            embedCode?: string | null;
+            embedDialogTitle?: string | null;
+            embedCloseLabel?: string | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "action-banner";
+          }
+        | {
+            title: string;
+            /**
+             * A brief description of the content.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * If enabled, the layout of the showcase block will be reversed. This is used to determine the layout of the showcase block.
+             */
+            reverse?: boolean | null;
+            label: string;
+            linkType?: ("custom" | "internal") | null;
+            doc?: {
+              relationTo: "pages";
+              value: string | Page;
+            } | null;
+            url?: string | null;
+            href: string;
+            newTab?: boolean | null;
+            images?:
+              | {
+                  /**
+                   * Image to display in the showcase block.
+                   */
+                  image: string | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "call-to-action";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            /**
+             * Enter a valid CSS color (e.g., #FFDE59, rgb(255, 222, 89))
+             */
+            backgroundColor?: string | null;
+            /**
+             * Enter a valid CSS color (e.g., #000000, rgb(0, 0, 0))
+             */
+            textColor?: string | null;
+            button?: {
+              /**
+               * Enter a valid CSS color for the button border
+               */
+              borderColor?: string | null;
+            };
+            buttonLink: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content-action-banner";
+          }
+        | {
+            title?: string | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            card: {
+              title: string;
+              cardType?: ("items" | "richtext") | null;
+              items?:
+                | {
+                    fieldLabel?: string | null;
+                    isLink?: boolean | null;
+                    value?: string | null;
+                    label?: string | null;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href?: string | null;
+                    newTab?: boolean | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              /**
+               * Rich text content displayed inside the card.
+               */
+              richContent?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "content-overview";
+          }
+        | {
+            title?: string | null;
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            courses?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "course-list";
+          }
+        | {
+            title: string;
+            donors?: (string | Donor)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "donor-overview-list";
+          }
+        | {
+            title: string;
+            subtitle: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image?: (string | null) | Media;
+            link: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "error";
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            facilitators?:
+              | {
+                  name: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "facilitators";
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            items: {
+              title: string;
+              description: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "feature-list";
+          }
+        | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "gallery";
+          }
+        | {
+            title: string;
+            displayType?: ("row" | "list") | null;
+            /**
+             * Add Rapid Response Briefs
+             */
+            briefs?:
+              | {
+                  icon: string | Media;
+                  title: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  useEmbedCode?: boolean | null;
+                  embedCode?: string | null;
+                  embedButtonLabel?: string | null;
+                  embedCloseLabel?: string | null;
+                  link?: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines";
+          }
+        | {
+            title: string;
+            items: {
+              relationTo: "posts";
+              value: string | Post;
+            }[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "helplines-overview-list";
+          }
+        | {
+            slides?:
+              | {
+                  /**
+                   * Background color in hex format
+                   */
+                  backgroundColor: string;
+                  /**
+                   * Text color in hex format
+                   */
+                  textColor: string;
+                  title: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  /**
+                   * A brief description of the slide content.
+                   */
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  image: string | Media;
+                  imagePosition?: ("left" | "right") | null;
+                  buttons: {
+                    /**
+                     * Background color in hex format
+                     */
+                    backgroundColor: string;
+                    /**
+                     * Text color in hex format
+                     */
+                    textColor: string;
+                    links?:
+                      | {
+                          label: string;
+                          linkType?: ("custom" | "internal") | null;
+                          doc?: {
+                            relationTo: "pages";
+                            value: string | Page;
+                          } | null;
+                          url?: string | null;
+                          href: string;
+                          newTab?: boolean | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                  };
+                  divider?: boolean | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "hero";
+          }
+        | {
+            title: string;
+            items: {
+              content: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ("ltr" | "rtl") | null;
+                  format:
+                    | "left"
+                    | "start"
+                    | "center"
+                    | "right"
+                    | "end"
+                    | "justify"
+                    | "";
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "highlight-list";
+          }
+        | {
+            /**
+             * The title of the gallery.
+             */
+            title: string;
+            images: {
+              image?: (string | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "horizontal-gallery";
+          }
+        | {
+            title?: string | null;
+            /**
+             * A brief description of the content.
+             */
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            textAlign?: ("left" | "center" | "right") | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "incubator";
+          }
+        | {
+            title: string;
+            subtitle: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            /**
+             * Add Intelligence Briefing Briefs
+             */
+            briefs?:
+              | {
+                  icon: string | Media;
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "intelligence-briefings";
+          }
+        | {
+            /**
+             * Opportunity category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  opportunityType:
+                    | "baraza"
+                    | "incubator"
+                    | "intelligence-briefing";
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            settings?: {
+              backButtonLabel?: string | null;
+              viewMoreLabel?: string | null;
+              overviewLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunity-category";
+          }
+        | {
+            title?: string | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            opportunityType: "incubator" | "intelligence-briefing" | "baraza";
+            hasFilters?: boolean | null;
+            filterByLabel?: string | null;
+            filters?:
+              | {
+                  type: "year" | "month" | "location" | "opportunity";
+                  label: string;
+                  options?:
+                    | {
+                        label: string;
+                        value: string;
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            clearFiltersLabel?: string | null;
+            hasSearch?: boolean | null;
+            searchPlaceholderLabel?: string | null;
+            hasSortBy?: boolean | null;
+            sortByLabel?: string | null;
+            sortOptions?:
+              | {
+                  label: string;
+                  value:
+                    | "-date"
+                    | "date"
+                    | "title"
+                    | "-title"
+                    | "-createdAt"
+                    | "createdAt"
+                    | "-updatedAt"
+                    | "updatedAt";
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Sort applied on initial load and after clearing filters.
+             */
+            defaultSort?:
+              | (
+                  | "-date"
+                  | "date"
+                  | "title"
+                  | "-title"
+                  | "-createdAt"
+                  | "createdAt"
+                  | "-updatedAt"
+                  | "updatedAt"
+                )
+              | null;
+            hasPagination?: boolean | null;
+            itemsPerPage?: number | null;
+            showJumpToPage?: boolean | null;
+            jumpToPageLabel?: string | null;
+            cardActionLabel?: string | null;
+            notFoundTitleLabel?: string | null;
+            notFoundSubtitleLabel?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunities-list";
+          }
+        | {
+            title?: string | null;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            /**
+             * Optional key stats displayed below the richtext.
+             */
+            metrics?:
+              | {
+                  value: string;
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "opportunity-overview";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (string | null) | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            hasBackButton?: boolean | null;
+            backButton?: {
+              label: string;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href: string;
+              newTab?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-header";
+          }
+        | {
+            title?: string | null;
+            /**
+             * A brief description of the content.
+             */
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            caption?: string | null;
+            buttonLink?: {
+              label?: string | null;
+              linkType?: ("custom" | "internal") | null;
+              doc?: {
+                relationTo: "pages";
+                value: string | Page;
+              } | null;
+              url?: string | null;
+              href?: string | null;
+              newTab?: boolean | null;
+            };
+            textAlign?: ("left" | "center" | "right") | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "page-overview";
+          }
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            variant: "chip" | "card";
+            /**
+             * Select organizations to display in this list
+             */
+            organizations?: (string | Organisation)[] | null;
+            /**
+             * Label for the button on each card
+             */
+            buttonLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "participating-organization-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partner-overview-list";
+          }
+        | {
+            title: string;
+            partners?: (string | Partner)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "partners-list";
+          }
+        | {
+            hasFilters?: boolean | null;
+            title?: string | null;
+            hasPagination?: boolean | null;
+            playbooksPerPage?: number | null;
+            filters?:
+              | {
+                  type: "year" | "month";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            cardActionLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "playbooks-list";
+          }
+        | {
+            title?: string | null;
+            showAllPosts?: boolean | null;
+            posts?: (string | Post)[] | null;
+            linkLabel: string;
+            closedLabel: string;
+            dateLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "post-list";
+          }
+        | {
+            condensed?: boolean | null;
+            reportsType?: ("baseline" | "situational" | "bi-weekly") | null;
+            hasFilters?: boolean | null;
+            reportsPerPage?: number | null;
+            hasPagination?: boolean | null;
+            filterByLabel?: string | null;
+            filters?:
+              | {
+                  type: "year" | "month" | "report";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            hasSearch?: boolean | null;
+            searchPlaceholderLabel?: string | null;
+            hasSortBy?: boolean | null;
+            sortByLabel?: string | null;
+            sortOptions?:
+              | {
+                  label: string;
+                  value:
+                    | "-date"
+                    | "date"
+                    | "title"
+                    | "-title"
+                    | "-createdAt"
+                    | "createdAt"
+                    | "-updatedAt"
+                    | "updatedAt";
+                  id?: string | null;
+                }[]
+              | null;
+            /**
+             * Sort applied on initial load and after clearing filters.
+             */
+            defaultSort?:
+              | (
+                  | "-date"
+                  | "date"
+                  | "title"
+                  | "-title"
+                  | "-createdAt"
+                  | "createdAt"
+                  | "-updatedAt"
+                  | "updatedAt"
+                )
+              | null;
+            cardActionLabel?: string | null;
+            clearFiltersLabel?: string | null;
+            notFoundTitleLabel?: string | null;
+            notFoundSubtitleLabel?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "reports-list";
+          }
+        | {
+            /**
+             * Research category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  reportType: "baseline" | "bi-weekly" | "situational";
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            settings?: {
+              backButtonLabel?: string | null;
+              downloadLabel?: string | null;
+              overViewLabel?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "research-category";
+          }
+        | {
+            /**
+             * Resource Category items
+             */
+            categories?:
+              | {
+                  image?: (string | null) | Media;
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resource-category";
+          }
+        | {
+            title: string;
+            /**
+             * Add Helplines
+             */
+            resources?:
+              | {
+                  title: string;
+                  description?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: any;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ("ltr" | "rtl") | null;
+                      format:
+                        | "left"
+                        | "start"
+                        | "center"
+                        | "right"
+                        | "end"
+                        | "justify"
+                        | "";
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  icon: string | Media;
+                  link: {
+                    label: string;
+                    linkType?: ("custom" | "internal") | null;
+                    doc?: {
+                      relationTo: "pages";
+                      value: string | Page;
+                    } | null;
+                    url?: string | null;
+                    href: string;
+                    newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources";
+          }
+        | {
+            title: string;
+            items: {
+              relationTo: "posts";
+              value: string | Post;
+            }[];
+            linkLabel: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "resources-overview-list";
+          }
+        | {
+            title: string;
+            items: {
+              item: string | Post;
+              title?: string | null;
+              buttonLink?: {
+                label?: string | null;
+                linkType?: ("custom" | "internal") | null;
+                doc?: {
+                  relationTo: "pages";
+                  value: string | Page;
+                } | null;
+                url?: string | null;
+                href?: string | null;
+                newTab?: boolean | null;
+              };
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "spotlight";
+          }
+        | {
+            title?: string | null;
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            /**
+             * Logo or signature image displayed below the description
+             */
+            signatureIcon?: (string | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "testimonial";
+          }
+        | {
+            hasFilters?: boolean | null;
+            hasPagination?: boolean | null;
+            toolkitsPerPage?: number | null;
+            filters?:
+              | {
+                  type: "year" | "month";
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            applyFiltersLabel?: string | null;
+            cardActionLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "toolkits-list";
+          }
+        | {
+            title: string;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            image?: (string | null) | Media;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "what-we-do";
+          }
+        | {
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
+            /**
+             * The title of the where we work block.
+             */
+            title: string;
+            /**
+             * A brief description of the where we work block.
+             */
+            description: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ("ltr" | "rtl") | null;
+                format:
+                  | "left"
+                  | "start"
+                  | "center"
+                  | "right"
+                  | "end"
+                  | "justify"
+                  | "";
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            image: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: "where-we-work";
+          }
+      )[]
+    | null;
+  slug?: string | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv".
+ */
+export interface PayloadKv {
+  id: string;
+  key: string;
+  data:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -939,12 +6801,32 @@ export interface PayloadLockedDocument {
         value: string | Donor;
       } | null)
     | ({
+        relationTo: "organisations";
+        value: string | Organisation;
+      } | null)
+    | ({
         relationTo: "partners";
         value: string | Partner;
       } | null)
     | ({
+        relationTo: "playbooks";
+        value: string | Playbook;
+      } | null)
+    | ({
+        relationTo: "toolkits";
+        value: string | Toolkit;
+      } | null)
+    | ({
+        relationTo: "reports";
+        value: string | Report;
+      } | null)
+    | ({
         relationTo: "users";
         value: string | User;
+      } | null)
+    | ({
+        relationTo: "opportunities";
+        value: string | Opportunity;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1092,33 +6974,31 @@ export interface PagesSelect<T extends boolean = true> {
   blocks?:
     | T
     | {
-        "helplines-overview-list"?:
+        "action-banner"?:
           | T
           | {
               title?: T;
-              items?: T;
-              linkLabel?: T;
-              id?: T;
-              blockName?: T;
-            };
-        hero?:
-          | T
-          | {
-              slides?:
+              buttonLink?:
                 | T
                 | {
-                    title?: T;
-                    subtitle?: T;
-                    description?: T;
-                    backgroundImage?: T;
                     label?: T;
                     linkType?: T;
                     doc?: T;
                     url?: T;
                     href?: T;
                     newTab?: T;
-                    id?: T;
                   };
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonAriaLabel?: T;
+              embedCode?: T;
+              embedDialogTitle?: T;
+              embedCloseLabel?: T;
+              backgroundColor?: T;
+              textColor?: T;
               id?: T;
               blockName?: T;
             };
@@ -1143,11 +7023,146 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        content?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "content-action-banner"?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "content-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              card?:
+                | T
+                | {
+                    title?: T;
+                    cardType?: T;
+                    items?:
+                      | T
+                      | {
+                          fieldLabel?: T;
+                          isLink?: T;
+                          value?: T;
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                          id?: T;
+                        };
+                    richContent?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "course-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              courses?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
         "donor-overview-list"?:
           | T
           | {
               title?: T;
               donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        error?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              image?: T;
+              link?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        facilitators?:
+          | T
+          | {
+              content?: T;
+              facilitators?:
+                | T
+                | {
+                    name?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "feature-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1164,20 +7179,110 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        "page-header"?:
+        helplines?:
           | T
           | {
               title?: T;
-              description?: T;
-              image?: T;
-              backgroundColor?: T;
-              textColor?: T;
+              displayType?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    useEmbedCode?: T;
+                    embedCode?: T;
+                    embedButtonLabel?: T;
+                    embedCloseLabel?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
-        "page-overview"?:
+        "helplines-overview-list"?:
           | T
           | {
+              title?: T;
+              items?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        hero?:
+          | T
+          | {
+              slides?:
+                | T
+                | {
+                    backgroundColor?: T;
+                    textColor?: T;
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    imagePosition?: T;
+                    buttons?:
+                      | T
+                      | {
+                          backgroundColor?: T;
+                          textColor?: T;
+                          links?:
+                            | T
+                            | {
+                                label?: T;
+                                linkType?: T;
+                                doc?: T;
+                                url?: T;
+                                href?: T;
+                                newTab?: T;
+                                id?: T;
+                              };
+                        };
+                    divider?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "highlight-list"?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "horizontal-gallery"?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        incubator?:
+          | T
+          | {
+              title?: T;
               content?: T;
               image?: T;
               caption?: T;
@@ -1191,17 +7296,177 @@ export interface PagesSelect<T extends boolean = true> {
                     href?: T;
                     newTab?: T;
                   };
+              textAlign?: T;
               backgroundColor?: T;
               textColor?: T;
               id?: T;
               blockName?: T;
             };
-        content?:
+        "intelligence-briefings"?:
           | T
           | {
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    opportunityType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    viewMoreLabel?: T;
+                    overviewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunities-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              opportunityType?: T;
+              hasFilters?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    options?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              clearFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              hasPagination?: T;
+              itemsPerPage?: T;
+              showJumpToPage?: T;
+              jumpToPageLabel?: T;
+              cardActionLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-overview"?:
+          | T
+          | {
+              title?: T;
               content?: T;
+              image?: T;
+              metrics?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
               backgroundColor?: T;
               textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "page-header"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              hasBackButton?: T;
+              backButton?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "page-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              textAlign?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "participating-organization-list"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              variant?: T;
+              organizations?: T;
+              buttonLabel?: T;
               id?: T;
               blockName?: T;
             };
@@ -1221,6 +7486,25 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        "playbooks-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              title?: T;
+              hasPagination?: T;
+              playbooksPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
         "post-list"?:
           | T
           | {
@@ -1229,18 +7513,124 @@ export interface PagesSelect<T extends boolean = true> {
               posts?: T;
               linkLabel?: T;
               closedLabel?: T;
-              deadlineLabel?: T;
+              dateLabel?: T;
               id?: T;
               blockName?: T;
             };
-        "what-we-do"?:
+        "reports-list"?:
+          | T
+          | {
+              condensed?: T;
+              reportsType?: T;
+              hasFilters?: T;
+              reportsPerPage?: T;
+              hasPagination?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              cardActionLabel?: T;
+              clearFiltersLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "research-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    reportType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    downloadLabel?: T;
+                    overViewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resource-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        resources?:
           | T
           | {
               title?: T;
-              description?: T;
-              image?: T;
-              backgroundColor?: T;
-              textColor?: T;
+              resources?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1257,7 +7647,73 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              items?: T;
+              items?:
+                | T
+                | {
+                    item?: T;
+                    title?: T;
+                    buttonLink?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonial?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              signatureIcon?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "toolkits-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              hasPagination?: T;
+              toolkitsPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "what-we-do"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "where-we-work"?:
+          | T
+          | {
+              backgroundColor?: T;
+              textColor?: T;
+              title?: T;
+              description?: T;
+              image?: T;
               id?: T;
               blockName?: T;
             };
@@ -1294,6 +7750,55 @@ export interface PostsSelect<T extends boolean = true> {
   content?:
     | T
     | {
+        "action-banner"?:
+          | T
+          | {
+              title?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonAriaLabel?: T;
+              embedCode?: T;
+              embedDialogTitle?: T;
+              embedCloseLabel?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "call-to-action"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              reverse?: T;
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              newTab?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
         content?:
           | T
           | {
@@ -1303,11 +7808,137 @@ export interface PostsSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        "content-action-banner"?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "content-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              card?:
+                | T
+                | {
+                    title?: T;
+                    cardType?: T;
+                    items?:
+                      | T
+                      | {
+                          fieldLabel?: T;
+                          isLink?: T;
+                          value?: T;
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                          id?: T;
+                        };
+                    richContent?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "course-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              courses?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
         "donor-overview-list"?:
           | T
           | {
               title?: T;
               donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        error?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              image?: T;
+              link?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        facilitators?:
+          | T
+          | {
+              content?: T;
+              facilitators?:
+                | T
+                | {
+                    name?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "feature-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1324,29 +7955,110 @@ export interface PostsSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        "partner-overview-list"?:
+        helplines?:
           | T
           | {
               title?: T;
-              partners?: T;
+              displayType?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    useEmbedCode?: T;
+                    embedCode?: T;
+                    embedButtonLabel?: T;
+                    embedCloseLabel?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
-        "post-list"?:
+        "helplines-overview-list"?:
           | T
           | {
               title?: T;
-              showAllPosts?: T;
-              posts?: T;
+              items?: T;
               linkLabel?: T;
-              closedLabel?: T;
-              deadlineLabel?: T;
               id?: T;
               blockName?: T;
             };
-        "page-overview"?:
+        hero?:
           | T
           | {
+              slides?:
+                | T
+                | {
+                    backgroundColor?: T;
+                    textColor?: T;
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    imagePosition?: T;
+                    buttons?:
+                      | T
+                      | {
+                          backgroundColor?: T;
+                          textColor?: T;
+                          links?:
+                            | T
+                            | {
+                                label?: T;
+                                linkType?: T;
+                                doc?: T;
+                                url?: T;
+                                href?: T;
+                                newTab?: T;
+                                id?: T;
+                              };
+                        };
+                    divider?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "highlight-list"?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "horizontal-gallery"?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        incubator?:
+          | T
+          | {
+              title?: T;
               content?: T;
               image?: T;
               caption?: T;
@@ -1360,8 +8072,424 @@ export interface PostsSelect<T extends boolean = true> {
                     href?: T;
                     newTab?: T;
                   };
+              textAlign?: T;
               backgroundColor?: T;
               textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "intelligence-briefings"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    opportunityType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    viewMoreLabel?: T;
+                    overviewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunities-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              opportunityType?: T;
+              hasFilters?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    options?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              clearFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              hasPagination?: T;
+              itemsPerPage?: T;
+              showJumpToPage?: T;
+              jumpToPageLabel?: T;
+              cardActionLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              metrics?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "page-header"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              hasBackButton?: T;
+              backButton?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "page-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              textAlign?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "participating-organization-list"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              variant?: T;
+              organizations?: T;
+              buttonLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partners-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "playbooks-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              title?: T;
+              hasPagination?: T;
+              playbooksPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "post-list"?:
+          | T
+          | {
+              title?: T;
+              showAllPosts?: T;
+              posts?: T;
+              linkLabel?: T;
+              closedLabel?: T;
+              dateLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "reports-list"?:
+          | T
+          | {
+              condensed?: T;
+              reportsType?: T;
+              hasFilters?: T;
+              reportsPerPage?: T;
+              hasPagination?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              cardActionLabel?: T;
+              clearFiltersLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "research-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    reportType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    downloadLabel?: T;
+                    overViewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resource-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        resources?:
+          | T
+          | {
+              title?: T;
+              resources?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resources-overview-list"?:
+          | T
+          | {
+              title?: T;
+              items?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    item?: T;
+                    title?: T;
+                    buttonLink?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonial?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              signatureIcon?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "toolkits-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              hasPagination?: T;
+              toolkitsPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "what-we-do"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "where-we-work"?:
+          | T
+          | {
+              backgroundColor?: T;
+              textColor?: T;
+              title?: T;
+              description?: T;
+              image?: T;
               id?: T;
               blockName?: T;
             };
@@ -1420,6 +8548,16 @@ export interface DonorsSelect<T extends boolean = true> {
   slug?: T;
   logo?: T;
   description?: T;
+  link?:
+    | T
+    | {
+        label?: T;
+        linkType?: T;
+        doc?: T;
+        url?: T;
+        href?: T;
+        newTab?: T;
+      };
   connect?:
     | T
     | {
@@ -1427,6 +8565,775 @@ export interface DonorsSelect<T extends boolean = true> {
         url?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "organisations_select".
+ */
+export interface OrganisationsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  image?: T;
+  link?:
+    | T
+    | {
+        label?: T;
+        linkType?: T;
+        doc?: T;
+        url?: T;
+        href?: T;
+        newTab?: T;
+      };
+  blocks?:
+    | T
+    | {
+        "action-banner"?:
+          | T
+          | {
+              title?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonAriaLabel?: T;
+              embedCode?: T;
+              embedDialogTitle?: T;
+              embedCloseLabel?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "call-to-action"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              reverse?: T;
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              newTab?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        content?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "content-action-banner"?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "content-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              card?:
+                | T
+                | {
+                    title?: T;
+                    cardType?: T;
+                    items?:
+                      | T
+                      | {
+                          fieldLabel?: T;
+                          isLink?: T;
+                          value?: T;
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                          id?: T;
+                        };
+                    richContent?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "course-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              courses?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "donor-overview-list"?:
+          | T
+          | {
+              title?: T;
+              donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        error?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              image?: T;
+              link?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        facilitators?:
+          | T
+          | {
+              content?: T;
+              facilitators?:
+                | T
+                | {
+                    name?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "feature-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        gallery?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        helplines?:
+          | T
+          | {
+              title?: T;
+              displayType?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    useEmbedCode?: T;
+                    embedCode?: T;
+                    embedButtonLabel?: T;
+                    embedCloseLabel?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "helplines-overview-list"?:
+          | T
+          | {
+              title?: T;
+              items?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        hero?:
+          | T
+          | {
+              slides?:
+                | T
+                | {
+                    backgroundColor?: T;
+                    textColor?: T;
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    imagePosition?: T;
+                    buttons?:
+                      | T
+                      | {
+                          backgroundColor?: T;
+                          textColor?: T;
+                          links?:
+                            | T
+                            | {
+                                label?: T;
+                                linkType?: T;
+                                doc?: T;
+                                url?: T;
+                                href?: T;
+                                newTab?: T;
+                                id?: T;
+                              };
+                        };
+                    divider?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "highlight-list"?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "horizontal-gallery"?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        incubator?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              textAlign?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "intelligence-briefings"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    opportunityType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    viewMoreLabel?: T;
+                    overviewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunities-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              opportunityType?: T;
+              hasFilters?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    options?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              clearFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              hasPagination?: T;
+              itemsPerPage?: T;
+              showJumpToPage?: T;
+              jumpToPageLabel?: T;
+              cardActionLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              metrics?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "page-header"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              hasBackButton?: T;
+              backButton?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "page-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              textAlign?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "participating-organization-list"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              variant?: T;
+              organizations?: T;
+              buttonLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partners-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "playbooks-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              title?: T;
+              hasPagination?: T;
+              playbooksPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "post-list"?:
+          | T
+          | {
+              title?: T;
+              showAllPosts?: T;
+              posts?: T;
+              linkLabel?: T;
+              closedLabel?: T;
+              dateLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "reports-list"?:
+          | T
+          | {
+              condensed?: T;
+              reportsType?: T;
+              hasFilters?: T;
+              reportsPerPage?: T;
+              hasPagination?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              cardActionLabel?: T;
+              clearFiltersLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "research-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    reportType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    downloadLabel?: T;
+                    overViewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resource-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        resources?:
+          | T
+          | {
+              title?: T;
+              resources?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resources-overview-list"?:
+          | T
+          | {
+              title?: T;
+              items?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    item?: T;
+                    title?: T;
+                    buttonLink?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonial?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              signatureIcon?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "toolkits-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              hasPagination?: T;
+              toolkitsPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "what-we-do"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "where-we-work"?:
+          | T
+          | {
+              backgroundColor?: T;
+              textColor?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1451,6 +9358,65 @@ export interface PartnersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "playbooks_select".
+ */
+export interface PlaybooksSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  slug?: T;
+  description?: T;
+  pdf?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "toolkits_select".
+ */
+export interface ToolkitsSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  slug?: T;
+  description?: T;
+  link?:
+    | T
+    | {
+        label?: T;
+        linkType?: T;
+        doc?: T;
+        url?: T;
+        href?: T;
+        newTab?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reports_select".
+ */
+export interface ReportsSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  slug?: T;
+  overview?: T;
+  reportType?: T;
+  file?: T;
+  date?: T;
+  pageHeaderImage?: T;
+  pageHeaderDescription?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -1466,6 +9432,790 @@ export interface UsersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+  sessions?:
+    | T
+    | {
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "opportunities_select".
+ */
+export interface OpportunitiesSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  type?: T;
+  caption?: T;
+  location?: T;
+  date?: T;
+  blocks?:
+    | T
+    | {
+        "action-banner"?:
+          | T
+          | {
+              title?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonAriaLabel?: T;
+              embedCode?: T;
+              embedDialogTitle?: T;
+              embedCloseLabel?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "call-to-action"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              reverse?: T;
+              label?: T;
+              linkType?: T;
+              doc?: T;
+              url?: T;
+              href?: T;
+              newTab?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        content?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "content-action-banner"?:
+          | T
+          | {
+              content?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              button?:
+                | T
+                | {
+                    borderColor?: T;
+                  };
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "content-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              card?:
+                | T
+                | {
+                    title?: T;
+                    cardType?: T;
+                    items?:
+                      | T
+                      | {
+                          fieldLabel?: T;
+                          isLink?: T;
+                          value?: T;
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                          id?: T;
+                        };
+                    richContent?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "course-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              courses?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "donor-overview-list"?:
+          | T
+          | {
+              title?: T;
+              donors?: T;
+              id?: T;
+              blockName?: T;
+            };
+        error?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              image?: T;
+              link?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        facilitators?:
+          | T
+          | {
+              content?: T;
+              facilitators?:
+                | T
+                | {
+                    name?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "feature-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        gallery?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        helplines?:
+          | T
+          | {
+              title?: T;
+              displayType?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    useEmbedCode?: T;
+                    embedCode?: T;
+                    embedButtonLabel?: T;
+                    embedCloseLabel?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "helplines-overview-list"?:
+          | T
+          | {
+              title?: T;
+              items?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        hero?:
+          | T
+          | {
+              slides?:
+                | T
+                | {
+                    backgroundColor?: T;
+                    textColor?: T;
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    imagePosition?: T;
+                    buttons?:
+                      | T
+                      | {
+                          backgroundColor?: T;
+                          textColor?: T;
+                          links?:
+                            | T
+                            | {
+                                label?: T;
+                                linkType?: T;
+                                doc?: T;
+                                url?: T;
+                                href?: T;
+                                newTab?: T;
+                                id?: T;
+                              };
+                        };
+                    divider?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "highlight-list"?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "horizontal-gallery"?:
+          | T
+          | {
+              title?: T;
+              images?:
+                | T
+                | {
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        incubator?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              textAlign?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "intelligence-briefings"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              briefs?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    opportunityType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    viewMoreLabel?: T;
+                    overviewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "opportunities-list"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              opportunityType?: T;
+              hasFilters?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    options?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              clearFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              hasPagination?: T;
+              itemsPerPage?: T;
+              showJumpToPage?: T;
+              jumpToPageLabel?: T;
+              cardActionLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "opportunity-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              metrics?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "page-header"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              hasBackButton?: T;
+              backButton?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "page-overview"?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              caption?: T;
+              buttonLink?:
+                | T
+                | {
+                    label?: T;
+                    linkType?: T;
+                    doc?: T;
+                    url?: T;
+                    href?: T;
+                    newTab?: T;
+                  };
+              textAlign?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "participating-organization-list"?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              variant?: T;
+              organizations?: T;
+              buttonLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partner-overview-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "partners-list"?:
+          | T
+          | {
+              title?: T;
+              partners?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "playbooks-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              title?: T;
+              hasPagination?: T;
+              playbooksPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "post-list"?:
+          | T
+          | {
+              title?: T;
+              showAllPosts?: T;
+              posts?: T;
+              linkLabel?: T;
+              closedLabel?: T;
+              dateLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "reports-list"?:
+          | T
+          | {
+              condensed?: T;
+              reportsType?: T;
+              hasFilters?: T;
+              reportsPerPage?: T;
+              hasPagination?: T;
+              filterByLabel?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              hasSearch?: T;
+              searchPlaceholderLabel?: T;
+              hasSortBy?: T;
+              sortByLabel?: T;
+              sortOptions?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    id?: T;
+                  };
+              defaultSort?: T;
+              cardActionLabel?: T;
+              clearFiltersLabel?: T;
+              notFoundTitleLabel?: T;
+              notFoundSubtitleLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "research-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    reportType?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              settings?:
+                | T
+                | {
+                    backButtonLabel?: T;
+                    downloadLabel?: T;
+                    overViewLabel?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resource-category"?:
+          | T
+          | {
+              categories?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    description?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        resources?:
+          | T
+          | {
+              title?: T;
+              resources?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    link?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        "resources-overview-list"?:
+          | T
+          | {
+              title?: T;
+              items?: T;
+              linkLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        spotlight?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    item?: T;
+                    title?: T;
+                    buttonLink?:
+                      | T
+                      | {
+                          label?: T;
+                          linkType?: T;
+                          doc?: T;
+                          url?: T;
+                          href?: T;
+                          newTab?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonial?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              signatureIcon?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "toolkits-list"?:
+          | T
+          | {
+              hasFilters?: T;
+              hasPagination?: T;
+              toolkitsPerPage?: T;
+              filters?:
+                | T
+                | {
+                    type?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              applyFiltersLabel?: T;
+              cardActionLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "what-we-do"?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        "where-we-work"?:
+          | T
+          | {
+              backgroundColor?: T;
+              textColor?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  slug?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv_select".
+ */
+export interface PayloadKvSelect<T extends boolean = true> {
+  key?: T;
+  data?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1510,7 +10260,7 @@ export interface SiteSetting {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -1529,7 +10279,10 @@ export interface SiteSetting {
    * Shown on main footer. If not provided, primary logo will be reused.
    */
   secondaryLogo?: (string | null) | Media;
+  donorTitle: string;
+  funders?: (string | Donor)[] | null;
   primaryNavigation?: {
+    title?: string | null;
     menus?:
       | {
           label: string;
@@ -1546,8 +10299,10 @@ export interface SiteSetting {
     connect?:
       | ("Facebook" | "Twitter" | "Instagram" | "Linkedin" | "Github" | "Slack")
       | null;
+    searchButtonLabel?: string | null;
   };
   secondaryNavigation?: {
+    title?: string | null;
     menus?:
       | {
           label: string;
@@ -1581,9 +10336,20 @@ export interface SiteSetting {
         }[]
       | null;
   };
-  newsletter: {
-    title: string;
-    embedCode: string;
+  initiativeAttribution: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
   };
   analytics?: {
     analyticsId?: string | null;
@@ -1596,6 +10362,10 @@ export interface SiteSetting {
      */
     image?: (string | null) | Media;
   };
+  /**
+   * Enter the exact robots.txt text to serve.
+   */
+  robotsTxt?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1608,9 +10378,12 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   description?: T;
   primaryLogo?: T;
   secondaryLogo?: T;
+  donorTitle?: T;
+  funders?: T;
   primaryNavigation?:
     | T
     | {
+        title?: T;
         menus?:
           | T
           | {
@@ -1622,10 +10395,12 @@ export interface SiteSettingsSelect<T extends boolean = true> {
               id?: T;
             };
         connect?: T;
+        searchButtonLabel?: T;
       };
   secondaryNavigation?:
     | T
     | {
+        title?: T;
         menus?:
           | T
           | {
@@ -1649,12 +10424,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
               id?: T;
             };
       };
-  newsletter?:
-    | T
-    | {
-        title?: T;
-        embedCode?: T;
-      };
+  initiativeAttribution?: T;
   analytics?:
     | T
     | {
@@ -1667,9 +10437,20 @@ export interface SiteSettingsSelect<T extends boolean = true> {
         description?: T;
         image?: T;
       };
+  robotsTxt?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "collections_widget".
+ */
+export interface CollectionsWidget {
+  data?: {
+    [k: string]: unknown;
+  };
+  width: "full";
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

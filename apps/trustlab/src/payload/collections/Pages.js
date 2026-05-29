@@ -1,4 +1,5 @@
-import { appendPathname, fullTitle, slug } from "@commons-ui/payload";
+import { fullTitle, slug } from "@commons-ui/payload/fields";
+import { appendPathname } from "@commons-ui/payload/hooks";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";

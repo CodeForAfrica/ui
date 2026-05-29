@@ -1,4 +1,4 @@
-import { richText, image, link } from "@commons-ui/payload";
+import { richText, image, link } from "@commons-ui/payload/fields";
 
 const CallToAction = {
   slug: "call-to-action",

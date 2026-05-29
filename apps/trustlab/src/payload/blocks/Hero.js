@@ -1,4 +1,4 @@
-import { richText, image, linkArray } from "@commons-ui/payload";
+import { richText, image, linkArray } from "@commons-ui/payload/fields";
 
 import colorSettingsField from "../fields/colorSettingsField";
 

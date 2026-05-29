@@ -1,4 +1,4 @@
-import { linkGroup, richText } from "@commons-ui/payload";
+import { linkGroup, richText } from "@commons-ui/payload/fields";
 
 const ContentActionBanner = {
   slug: "content-action-banner",

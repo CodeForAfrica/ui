@@ -1,4 +1,4 @@
-import { image, richText, slug, linkGroup } from "@commons-ui/payload";
+import { image, richText, slug, linkGroup } from "@commons-ui/payload/fields";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 
