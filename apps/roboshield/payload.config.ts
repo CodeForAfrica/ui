@@ -1,4 +1,4 @@
-import { loadEnvConfig } from "@next/env";
+import nextEnv from "@next/env";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import { nestedDocsPlugin } from "@payloadcms/plugin-nested-docs";
@@ -8,14 +8,14 @@ import { SlateToLexicalFeature } from "@payloadcms/richtext-lexical/migrate";
 import { s3Storage } from "@payloadcms/storage-s3";
 import { CollectionConfig, GlobalConfig, buildConfig } from "payload";
 
-import Media from "./src/payload/collections/Media";
-import Pages from "./src/payload/collections/Pages";
-import Users from "./src/payload/collections/Users";
-import Site from "./src/payload/globals/Site";
-import { defaultLocale, locales } from "./src/payload/utils/locales";
+import Media from "@/roboshield/payload/collections/Media";
+import Pages from "@/roboshield/payload/collections/Pages";
+import Users from "@/roboshield/payload/collections/Users";
+import Site from "@/roboshield/payload/globals/Site";
+import { defaultLocale, locales } from "@/roboshield/payload/utils/locales";
 
 const projectDir = process.cwd();
-loadEnvConfig(projectDir);
+nextEnv?.loadEnvConfig(projectDir);
 
 const appURL = process?.env?.PAYLOAD_PUBLIC_APP_URL;
 

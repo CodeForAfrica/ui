@@ -2,6 +2,7 @@
   "name": "roboshield",
   "version": "0.1.17",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "payload-migrate:create": "payload migrate:create",
