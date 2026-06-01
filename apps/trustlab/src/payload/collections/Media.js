@@ -1,6 +1,6 @@
 import path from "path";
 
-import { createdBy } from "@commons-ui/payload";
+import { createdBy } from "@commons-ui/payload/fields";
 
 import { anyone, hasAuthorAccess } from "@/trustlab/payload/access";
 import { hideAPIURL, slugify } from "@/trustlab/payload/utils";

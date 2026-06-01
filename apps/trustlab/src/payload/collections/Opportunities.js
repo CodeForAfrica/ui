@@ -1,4 +1,5 @@
-import { image, appendPathnameToCollection, slug } from "@commons-ui/payload";
+import { image, slug } from "@commons-ui/payload/fields";
+import { appendPathnameToCollection } from "@commons-ui/payload/hooks";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";

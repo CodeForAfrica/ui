@@ -1,4 +1,4 @@
-import { findAndFormatPagePath } from "@commons-ui/payload";
+import { findAndFormatPagePath } from "@commons-ui/payload/utils";
 
 import { site } from "@/trustlab/utils";
 

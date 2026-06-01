@@ -1,4 +1,4 @@
-import { socialLinks, richText } from "@commons-ui/payload";
+import { socialLinks, richText } from "@commons-ui/payload/fields";
 
 const EngagementTab = {
   label: "Engagement",

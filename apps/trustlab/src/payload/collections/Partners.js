@@ -1,10 +1,5 @@
-import {
-  image,
-  richText,
-  socialLinks,
-  nestCollectionUnderPage,
-  slug,
-} from "@commons-ui/payload";
+import { image, richText, socialLinks, slug } from "@commons-ui/payload/fields";
+import { nestCollectionUnderPage } from "@commons-ui/payload/utils";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 

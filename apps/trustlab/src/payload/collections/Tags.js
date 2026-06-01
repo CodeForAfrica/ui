@@ -1,4 +1,4 @@
-import { slug } from "@commons-ui/payload";
+import { slug } from "@commons-ui/payload/fields";
 
 const Tags = {
   slug: "tags",

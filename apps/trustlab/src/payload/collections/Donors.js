@@ -4,7 +4,7 @@ import {
   socialLinks,
   slug,
   linkGroup,
-} from "@commons-ui/payload";
+} from "@commons-ui/payload/fields";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 

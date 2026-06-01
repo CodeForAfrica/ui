@@ -2,10 +2,10 @@ import {
   createdBy,
   image,
   linkGroup,
-  nestCollectionUnderPage,
   publishedOn,
   slug,
-} from "@commons-ui/payload";
+} from "@commons-ui/payload/fields";
+import { nestCollectionUnderPage } from "@commons-ui/payload/utils";
 import { createParentField } from "@payloadcms/plugin-nested-docs";
 
 import { anyone, hasAuthorAccess } from "@/trustlab/payload/access";

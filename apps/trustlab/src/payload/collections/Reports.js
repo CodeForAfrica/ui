@@ -1,9 +1,5 @@
-import {
-  appendPathnameToCollection,
-  image,
-  richText,
-  slug,
-} from "@commons-ui/payload";
+import { image, richText, slug } from "@commons-ui/payload/fields";
+import { appendPathnameToCollection } from "@commons-ui/payload/hooks";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 

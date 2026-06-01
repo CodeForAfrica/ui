@@ -1,7 +1,11 @@
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
 
-const { withPayload } = require("@payloadcms/next/withPayload");
-const { withSentryConfig } = require("@sentry/nextjs");
+import { withPayload } from "@payloadcms/next/withPayload";
+import { withSentryConfig } from "@sentry/nextjs";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
 const outputFileTracingRoot = PROJECT_ROOT
@@ -41,7 +45,7 @@ const nextConfig = {
   },
 };
 
-module.exports = withPayload(
+export default withPayload(
   withSentryConfig(nextConfig, {
     silent: !process.env.CI,
     hideSourceMaps: true,
