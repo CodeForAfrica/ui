@@ -8,12 +8,12 @@
     "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/trustlab/server.js",
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
-    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mts payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mts payload generate:types",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mjs payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mjs payload generate:types",
     "generate:all": "pnpm generate:importmap && pnpm generate:types",
     "jest": "jest",
     "playwright": "npx playwright test --pass-with-no-tests",
-    "payload": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mts payload",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mjs payload",
     "clean": "rm -rf .next .turbo build coverage dist node_modules"
   },
   "dependencies": {

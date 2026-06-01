@@ -26,7 +26,7 @@ pnpm generate:importmap
 pnpm generate:all   # both
 ```
 
-Both scripts point at `payload.config.mts` (not `.ts`) via `PAYLOAD_CONFIG_PATH`. The `.mts` extension is intentional: tsx must load the config as ESM so its namespace propagates to imports and `@/trustlab/*` path aliases resolve correctly. Renaming it back to `.ts` breaks `generate:types`.
+Both scripts point at `payload.config.mjs` via `PAYLOAD_CONFIG_PATH`. The `.mjs` extension is intentional: it is always treated as ESM by both Node.js (and tsx, which Payload CLI uses internally) and by Next.js/webpack — no custom webpack loader rules are needed. A plain `.ts` extension would be loaded as CJS by tsx (since the app root has no `"type":"module"`), which breaks `@/trustlab/*` path alias resolution during `generate:types`.
 
 ### `src/payload/package.json` and `src/utils/package.json`
 

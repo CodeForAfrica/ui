@@ -1,11 +1,12 @@
-import sharp from "sharp";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
-import type { NodemailerAdapterArgs } from "@payloadcms/email-nodemailer";
-import { buildConfig, CollectionConfig, GlobalConfig } from "payload";
 import path from "path";
 import { fileURLToPath } from "url";
+
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { buildConfig } from "payload";
+import sharp from "sharp";
+
 import {
   Donors,
   Media,
@@ -20,17 +21,16 @@ import {
   Opportunities,
   Organisations,
 } from "@/trustlab/payload/collections";
-import plugins from "@/trustlab/payload/plugins";
 import SiteSettings from "@/trustlab/payload/globals";
-import { site } from "@/trustlab/utils";
+import plugins from "@/trustlab/payload/plugins";
 import { defaultLocale, locales } from "@/trustlab/payload/utils/locales";
+import { site } from "@/trustlab/utils";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const normaliseOrigin = (value?: string) =>
-  value?.trim()?.replace(/\/+$/, "") ?? "";
+const normaliseOrigin = (value) => value?.trim()?.replace(/\/+$/, "") ?? "";
 
-const normaliseOrigins = (value?: string) =>
+const normaliseOrigins = (value) =>
   value
     ?.split(",")
     .map((d) => d.trim())
@@ -41,7 +41,7 @@ const serverUrl = normaliseOrigin(site.url) || "";
 const cors = normaliseOrigins(process.env.PAYLOAD_CORS?.trim() || serverUrl);
 const csrf = normaliseOrigins(process.env.PAYLOAD_CSRF?.trim() || serverUrl);
 
-let nodemailerAdapterArgs: NodemailerAdapterArgs | undefined;
+let nodemailerAdapterArgs;
 if (process.env.SMTP_HOST && process.env.SMTP_PASS) {
   const smtpPort = Number(process.env.SMTP_PORT) || 587;
   nodemailerAdapterArgs = {
@@ -89,7 +89,7 @@ export default buildConfig({
     Reports,
     Users,
     Opportunities,
-  ] as CollectionConfig[],
+  ],
   cors,
   csrf,
   db: mongooseAdapter({
@@ -97,7 +97,7 @@ export default buildConfig({
   }),
   email,
   editor: lexicalEditor(),
-  globals: [SiteSettings] as GlobalConfig[],
+  globals: [SiteSettings],
   ...(locales?.length
     ? {
         localization: {

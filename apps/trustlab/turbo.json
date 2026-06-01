@@ -5,10 +5,15 @@
       "env": [
         "APP_NAME",
         "APP_URL",
+        "DATABASE_URL",
         "DEFAULT_LOCALE",
         "ENABLE_HSTS",
         "LOCALES",
         "NEXT_RUNTIME",
+        "NEXT_TELEMETRY_DISABLED",
+        "PAYLOAD_CORS",
+        "PAYLOAD_CSRF",
+        "PAYLOAD_SECRET",
         "PREVIEW_SECRET",
         "REVALIDATE_SECRET",
         "S3_ACCESS_KEY_ID",
@@ -18,9 +23,15 @@
         "S3_MAX_SOCKETS",
         "S3_REGION",
         "S3_SECRET_ACCESS_KEY",
+        "SENDGRID_FROM_NAME",
         "SENTRY_DSN",
+        "SENTRY_ENVIRONMENT",
         "SEO_DISABLED",
-        "SENTRY_ENVIRONMENT"
+        "SMTP_FROM_ADDRESS",
+        "SMTP_HOST",
+        "SMTP_PASS",
+        "SMTP_PORT",
+        "SMTP_USER"
       ]
     }
   }
