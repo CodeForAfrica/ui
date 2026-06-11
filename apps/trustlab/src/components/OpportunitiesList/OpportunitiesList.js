@@ -39,6 +39,7 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     title,
     description,
     backgroundColor = "#fff",
+    textColor = "#000",
     sx,
   } = props;
 
@@ -240,7 +241,10 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     router.push(urlPath, undefined, { shallow: true, scroll: false });
   }
   return (
-    <Box ref={listRef} sx={{ background: backgroundColor, ...sx }}>
+    <Box
+      ref={listRef}
+      sx={{ background: backgroundColor, color: textColor, ...sx }}
+    >
       {title || description ? (
         <Section sx={{ pt: 5, pb: 0, px: { xs: 2.5, md: 0 } }}>
           <Typography variant="h2">{title}</Typography>
