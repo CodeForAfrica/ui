@@ -1,6 +1,8 @@
 import { deepmerge } from "@mui/utils";
-import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
 import validateColorModule from "validate-color";
+
+import colourTextField from "./colourTextField";
+
 const { validateHTMLColorHex } = validateColorModule;
 
 const validate = (value) => validateHTMLColorHex(value) || "Invalid hex color";
@@ -33,7 +35,7 @@ const colorSettingsField = ({
   );
   return {
     type: "row",
-    fields: [...ColourTextField(background), ...ColourTextField(text)],
+    fields: [...colourTextField(background), ...colourTextField(text)],
   };
 };
 
