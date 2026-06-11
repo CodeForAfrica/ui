@@ -38,6 +38,8 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     defaultSort,
     title,
     description,
+    backgroundColor = "#fff",
+    textColor = "#000",
     sx,
   } = props;
 
@@ -238,40 +240,34 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     }
     router.push(urlPath, undefined, { shallow: true, scroll: false });
   }
-
   return (
-    <Box ref={listRef} sx={sx}>
-      <Box sx={{ background: "#fff" }}>
-        {title || description ? (
-          <Section
-            sx={{
-              backgroundColor: "common.white",
-              py: 5,
-              px: { xs: 2.5, md: 0 },
-            }}
-          >
-            <Typography variant="h2">{title}</Typography>
-            {description && (
-              <LexicalRichText
-                elements={description}
-                sx={{
-                  h1: { mb: 1, fontWeight: 700, variant: "h1" },
-                  h2: { mb: 1, fontWeight: 700, variant: "h2" },
-                  h3: { mb: 1, fontWeight: 700, variant: "h3" },
-                }}
-                TypographyProps={{
-                  gutterBottom: true,
-                  variant: "p2",
-                  component: "p",
-                  sx: {
-                    mb: 2,
-                  },
-                }}
-              />
-            )}
-          </Section>
-        ) : null}
-      </Box>
+    <Box
+      ref={listRef}
+      sx={{ background: backgroundColor, color: textColor, ...sx }}
+    >
+      {title || description ? (
+        <Section sx={{ pt: 5, pb: 0, px: { xs: 2.5, md: 0 } }}>
+          <Typography variant="h2">{title}</Typography>
+          {description && (
+            <LexicalRichText
+              elements={description}
+              sx={{
+                h1: { mb: 1, fontWeight: 700, variant: "h1" },
+                h2: { mb: 1, fontWeight: 700, variant: "h2" },
+                h3: { mb: 1, fontWeight: 700, variant: "h3" },
+              }}
+              TypographyProps={{
+                gutterBottom: true,
+                variant: "p2",
+                component: "p",
+                sx: {
+                  mb: 2,
+                },
+              }}
+            />
+          )}
+        </Section>
+      ) : null}
 
       {hasFilters || hasSearch || hasSortBy ? (
         <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
@@ -292,39 +288,42 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
           />
         </Section>
       ) : null}
-      <Box sx={{ background: "#fff" }}>
-        {items.length ? (
-          <Box>
-            <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
-              <Grid container spacing={3} rowSpacing={3.75}>
-                {items.map((item, index) => (
-                  <Grid key={item.id ?? index} size={{ xs: 12, sm: 6, md: 4 }}>
-                    <OpportunityCard
-                      image={item.image}
-                      title={item.title}
-                      description={item.description}
-                      link={item.link}
-                      caption={item.caption}
-                      location={item.location}
-                      date={item.date}
-                      viewMoreLabel={cardActionLabel}
-                    />
-                  </Grid>
-                ))}
+
+      {items.length ? (
+        <Section
+          sx={{
+            pb: 5,
+            pt: title || description ? 0 : 5,
+            px: { xs: 2.5, sm: 0 },
+          }}
+        >
+          <Grid container spacing={3} rowSpacing={3.75}>
+            {items.map((item, index) => (
+              <Grid key={item.id ?? index} size={{ xs: 12, sm: 6, md: 4 }}>
+                <OpportunityCard
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  link={item.link}
+                  caption={item.caption}
+                  location={item.location}
+                  date={item.date}
+                  viewMoreLabel={cardActionLabel}
+                />
               </Grid>
-              {hasPagination ? (
-                <Box display="flex" justifyContent="flex-end" mt={4}>
-                  <Pagination
-                    page={pagination?.page ?? 1}
-                    count={pagination?.count ?? 1}
-                    onChange={handlePageChange}
-                  />
-                </Box>
-              ) : null}
-            </Section>
-          </Box>
-        ) : null}
-      </Box>
+            ))}
+          </Grid>
+          {hasPagination ? (
+            <Box display="flex" justifyContent="flex-end" mt={4}>
+              <Pagination
+                page={pagination?.page ?? 1}
+                count={pagination?.count ?? 1}
+                onChange={handlePageChange}
+              />
+            </Box>
+          ) : null}
+        </Section>
+      ) : null}
     </Box>
   );
 });

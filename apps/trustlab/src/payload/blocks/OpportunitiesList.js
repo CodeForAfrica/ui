@@ -1,5 +1,7 @@
 import { richText } from "@commons-ui/payload/fields";
 
+import colorSettingsField from "../fields/colorSettingsField";
+
 const OpportunitiesList = {
   slug: "opportunities-list",
   labels: { singular: "Opportunities List", plural: "Opportunities Lists" },
@@ -14,6 +16,10 @@ const OpportunitiesList = {
     richText({
       name: "description",
       localized: true,
+    }),
+    colorSettingsField({
+      backgroundOverrides: { defaultValue: "#fff" },
+      textOverrides: { defaultValue: "#000" },
     }),
     {
       name: "opportunityType",

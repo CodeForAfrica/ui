@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { Figure, Link } from "@commons-ui/next";
+import { Link } from "@commons-ui/next";
 import { LexicalRichText } from "@commons-ui/payload";
 import { Box, Button, Card, Grid2 as Grid, Typography } from "@mui/material";
 import { forwardRef } from "react";
@@ -61,42 +61,6 @@ const CardList = forwardRef(function CardList(props, ref) {
                       mb: 2,
                     }}
                   >
-                    {org.image ? (
-                      <Figure
-                        ImageProps={{
-                          alt: org.image.alt || org.name,
-                          src: org.image.src,
-                          sx: {
-                            objectFit: "contain",
-                          },
-                        }}
-                        sx={{
-                          width: 56,
-                          height: 56,
-                          minWidth: 56,
-                          borderRadius: "50%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          overflow: "hidden",
-                        }}
-                      />
-                    ) : (
-                      <Box
-                        sx={{
-                          width: 56,
-                          height: 56,
-                          minWidth: 56,
-                          borderRadius: "50%",
-                          backgroundColor: "#4A4A68",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontSize: "0.75rem",
-                          fontWeight: 700,
-                        }}
-                      />
-                    )}
                     <Typography
                       variant="p2"
                       sx={{

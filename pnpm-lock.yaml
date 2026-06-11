@@ -584,9 +584,6 @@ catalogs:
       specifier: ^5.16.6
       version: 5.17.1
   payload-v3:
-    '@nouance/payload-better-fields-plugin':
-      specifier: ^2.0.2
-      version: 2.0.2
     '@payloadcms/admin-bar':
       specifier: ^3.66.0
       version: 3.83.0
@@ -2108,9 +2105,6 @@ importers:
       '@next/third-parties':
         specifier: 'catalog:'
         version: 15.5.15(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)
-      '@nouance/payload-better-fields-plugin':
-        specifier: catalog:payload-v3
-        version: 2.0.2(colord@2.9.3)(date-fns-tz@2.0.1(date-fns@4.1.0))(payload@3.83.0(graphql@16.13.2)(typescript@5.9.3))(react-colorful@5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-number-format@5.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-phone-number-input@3.4.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(slug@10.0.0)
       '@payloadcms/admin-bar':
         specifier: catalog:payload-v3
         version: 3.83.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -5894,18 +5888,6 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nouance/payload-better-fields-plugin@2.0.2':
-    resolution: {integrity: sha512-LMio+mqzArm8rT7DP/he9H96BBu1s16aWoh66NWaO50+bMWKnnQwa7XGt8Sixinv4yUn1FCTkvyz0GcjcxNHQw==}
-    engines: {node: ^18.20.2 || >=20.9.0}
-    peerDependencies:
-      colord: ^2.9.3
-      date-fns-tz: ^2.0.1
-      payload: ^3.22.0
-      react-colorful: ^5.6.1
-      react-number-format: ^5.3.1
-      react-phone-number-input: ^3.3.7
-      slug: ^10.0.0
-
   '@npmcli/config@8.3.4':
     resolution: {integrity: sha512-01rtHedemDNhUXdicU7s+QYz/3JyV5Naj84cvdXGH4mgCdL+agmSYaLF4LUG4vMCLzhBO8YtS0gPpH1FGvbgAw==}
     engines: {node: ^16.14.0 || >=18.0.0}
@@ -9041,9 +9023,6 @@ packages:
     resolution: {integrity: sha512-ezmVcLR3xAVp8kYOm4GS45ZLLgIE6SPAFoduLr6hTDajwb3KZ2F46gulK3XpcwRFb5KKGCSezCBAY4Dw4HsyXA==}
     engines: {node: '>=18'}
 
-  colord@2.9.3:
-    resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
-
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
 
@@ -9214,9 +9193,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  country-flag-icons@1.6.16:
-    resolution: {integrity: sha512-HxJVoE/aaZGcUMx1vK/u9430uKGB3ODZDDZJJOqVJQzoHk5v42c0fSp1rk4tDfyr1dVOJjwxRiaBPliBMo2Liw==}
 
   crawler-user-agents@1.43.0:
     resolution: {integrity: sha512-fw9UPHWOVy1eJ784y3Y80r+acS2Ke85eYnuga8vnd1i8pbpoSD+j9e3lLp/O9X8cviq88llZZRN4Sgjmydguwg==}
@@ -9490,11 +9466,6 @@ packages:
 
   dataloader@2.2.3:
     resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
-
-  date-fns-tz@2.0.1:
-    resolution: {integrity: sha512-fJCG3Pwx8HUoLhkepdsP7Z5RsucUi+ZBOxyM5d0ZZ6c4SdYustq0VMmOu6Wf7bli+yS/Jwp91TOCqn9jMcVrUA==}
-    peerDependencies:
-      date-fns: 2.x
 
   date-fns@2.30.0:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
@@ -11173,17 +11144,6 @@ packages:
   inline-style-parser@0.2.7:
     resolution: {integrity: sha512-Nb2ctOyNR8DqQoR0OwRG95uNWIC0C1lCgf5Naz5H6Ji72KZ8OcFZLz2P5sNgwlyoJ8Yif11oMuYs5pBQa86csA==}
 
-  input-format@0.3.14:
-    resolution: {integrity: sha512-gHMrgrbCgmT4uK5Um5eVDUohuV9lcs95ZUUN9Px2Y0VIfjTzT2wF8Q3Z4fwLFm7c5Z2OXCm53FHoovj6SlOKdg==}
-    peerDependencies:
-      react: '>=18.1.0'
-      react-dom: '>=18.1.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
   install@0.13.0:
     resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
     engines: {node: '>= 0.10'}
@@ -11927,9 +11887,6 @@ packages:
     resolution: {integrity: sha512-DeXj9X5xDCjgKLU/7RR+/HQEVzuuEUiwldwOGsHK/sfAfELGWEyTcf0x+uOvCvK3O2zPmZePXWL85vtia6GyZw==}
     engines: {node: '>=16'}
     hasBin: true
-
-  libphonenumber-js@1.12.41:
-    resolution: {integrity: sha512-lsmMmGXBxXIK/VMLEj0kL6MtUs1kBGj1nTCzi6zgQoG1DEwqwt2DQyHxcLykceIxAnfE3hya7NuIh6PpC6S3fA==}
 
   lie@3.1.1:
     resolution: {integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==}
@@ -13816,12 +13773,6 @@ packages:
       react: '>=15.6.2'
       react-dom: '>=15.6.2'
 
-  react-colorful@5.6.1:
-    resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-
   react-copy-to-clipboard@5.1.1:
     resolution: {integrity: sha512-s+HrzLyJBxrpGTYXF15dTgMjAJpEPZT/Yp6NytAtZMRngejxt6Pt5WrfFxLAcsqUDU6sY1Jz6tyHwIicE1U2Xg==}
     peerDependencies:
@@ -13947,23 +13898,11 @@ packages:
     resolution: {integrity: sha512-sAX5I9Xec3MR9FxLgZYcYqNnY8M8zJxRRwRipMPtuh4BGvcvoptJfX8Z6nRn0ROMkqVO72iAmb83GlqmSW4Gqw==}
     engines: {node: '>=8'}
 
-  react-number-format@5.4.5:
-    resolution: {integrity: sha512-y8O2yHHj3w0aE9XO8d2BCcUOOdQTRSVq+WIuMlLVucAm5XNjJAy+BoOJiuQMldVYVOKTMyvVNfnbl2Oqp+YxGw==}
-    peerDependencies:
-      react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-      react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-
   react-onclickoutside@6.13.2:
     resolution: {integrity: sha512-h6Hbf1c8b7tIYY4u90mDdBLY4+AGQVMFtIE89HgC0DtVCh/JfKl477gYqUtGLmjZBKK3MJxomP/lFiLbz4sq9A==}
     peerDependencies:
       react: ^15.5.x || ^16.x || ^17.x || ^18.x
       react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
-
-  react-phone-number-input@3.4.16:
-    resolution: {integrity: sha512-ix1+SIyGuLxnlAeW+XQNhwOmmDd4Zmr6Ng1eQl0E2XS8xIuue3gdZeBG4LGTMjTIFneOTO9pUPL+AEDhV6+r+A==}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
 
   react-popper@2.3.0:
     resolution: {integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==}
@@ -14634,10 +14573,6 @@ packages:
   slice-ansi@7.1.2:
     resolution: {integrity: sha512-iOBWFgUX7caIZiuutICxVgX1SdxwAVFFKwt1EvMYYec/NWO5meOJ6K5uQxhrYBdQJne4KxiqZc+KptFOWFSI9w==}
     engines: {node: '>=18'}
-
-  slug@10.0.0:
-    resolution: {integrity: sha512-M8s2PWOUeSCdD4S1NH5lCzXg2zFV1fozrtfr0FSKl65x+EF1rUowj+/vyFlnHgxPxWzT+DL0VXKfYc1DHJoymg==}
-    hasBin: true
 
   smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
@@ -19764,16 +19699,6 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@nouance/payload-better-fields-plugin@2.0.2(colord@2.9.3)(date-fns-tz@2.0.1(date-fns@4.1.0))(payload@3.83.0(graphql@16.13.2)(typescript@5.9.3))(react-colorful@5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-number-format@5.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-phone-number-input@3.4.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(slug@10.0.0)':
-    dependencies:
-      colord: 2.9.3
-      date-fns-tz: 2.0.1(date-fns@4.1.0)
-      payload: 3.83.0(graphql@16.13.2)(typescript@5.9.3)
-      react-colorful: 5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-number-format: 5.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-phone-number-input: 3.4.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      slug: 10.0.0
-
   '@npmcli/config@8.3.4':
     dependencies:
       '@npmcli/map-workspaces': 3.0.6
@@ -24140,8 +24065,6 @@ snapshots:
       color-convert: 3.1.3
       color-string: 2.1.4
 
-  colord@2.9.3: {}
-
   colorette@2.0.20: {}
 
   combined-stream@1.0.8:
@@ -24306,8 +24229,6 @@ snapshots:
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 5.9.3
-
-  country-flag-icons@1.6.16: {}
 
   crawler-user-agents@1.43.0: {}
 
@@ -24630,10 +24551,6 @@ snapshots:
   dataloader@2.2.2: {}
 
   dataloader@2.2.3: {}
-
-  date-fns-tz@2.0.1(date-fns@4.1.0):
-    dependencies:
-      date-fns: 4.1.0
 
   date-fns@2.30.0:
     dependencies:
@@ -26916,13 +26833,6 @@ snapshots:
 
   inline-style-parser@0.2.7: {}
 
-  input-format@0.3.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      prop-types: 15.8.1
-    optionalDependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
   install@0.13.0: {}
 
   internal-slot@1.1.0:
@@ -28058,8 +27968,6 @@ snapshots:
   lib0@0.2.117:
     dependencies:
       isomorphic.js: 0.2.5
-
-  libphonenumber-js@1.12.41: {}
 
   lie@3.1.1:
     dependencies:
@@ -30504,11 +30412,6 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-colorful@5.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
   react-copy-to-clipboard@5.1.1(react@18.3.1):
     dependencies:
       copy-to-clipboard: 3.3.3
@@ -30654,23 +30557,8 @@ snapshots:
       install: 0.13.0
       npm: 10.9.8
 
-  react-number-format@5.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
   react-onclickoutside@6.13.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  react-phone-number-input@3.4.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      classnames: 2.5.1
-      country-flag-icons: 1.6.16
-      input-format: 0.3.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      libphonenumber-js: 1.12.41
-      prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -31616,8 +31504,6 @@ snapshots:
     dependencies:
       ansi-styles: 6.2.3
       is-fullwidth-code-point: 5.1.0
-
-  slug@10.0.0: {}
 
   smart-buffer@4.2.0: {}
 

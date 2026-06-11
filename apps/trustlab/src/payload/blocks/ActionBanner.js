@@ -1,9 +1,10 @@
 import { richText, linkGroup } from "@commons-ui/payload/fields";
-import { ColourTextField } from "@nouance/payload-better-fields-plugin/ColourText";
 import validateColorModule from "validate-color";
-const { validateHTMLColorHex } = validateColorModule;
 
 import colorSettingsField from "../fields/colorSettingsField";
+import colourTextField from "../fields/colourTextField";
+
+const { validateHTMLColorHex } = validateColorModule;
 
 const validateColor = (value) =>
   validateHTMLColorHex(value) || "Invalid hex color";
@@ -32,7 +33,7 @@ const ActionBanner = {
       type: "group",
       required: true,
       fields: [
-        ...ColourTextField({
+        ...colourTextField({
           name: "borderColor",
           admin: {
             description: "Border Color of Action button",

@@ -27,7 +27,6 @@
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
     "@next/third-parties": "catalog:",
-    "@nouance/payload-better-fields-plugin": "catalog:payload-v3",
     "@payloadcms/admin-bar": "catalog:payload-v3",
     "@payloadcms/db-mongodb": "catalog:payload-v3",
     "@payloadcms/email-nodemailer": "catalog:payload-v3",
