@@ -5,7 +5,12 @@ import colourTextField from "./colourTextField";
 
 const { validateHTMLColorHex } = validateColorModule;
 
-const validate = (value) => validateHTMLColorHex(value) || "Invalid hex color";
+const validate = (value) => {
+  if (!value) {
+    return "This field is required";
+  }
+  return validateHTMLColorHex(value) || "Invalid hex color";
+};
 const colorSettingsField = ({
   backgroundOverrides = {},
   textOverrides = {},

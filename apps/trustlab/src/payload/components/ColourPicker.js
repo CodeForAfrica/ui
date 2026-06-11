@@ -19,6 +19,10 @@ export function ColourPicker(props) {
   const { label, required, admin: { description } = {} } = field ?? {};
   const { value, setValue, showError, errorMessage } = useField({ path });
 
+  // Both inputs fall back to the same colour so the swatch and the hex text
+  // never disagree when no value is stored (e.g. a new or cleared field).
+  const colour = value || "#ffffff";
+
   return (
     <div className={`field-type text${showError ? " error" : ""}`}>
       <FieldLabel label={label} path={path} required={required} />
@@ -26,7 +30,7 @@ export function ColourPicker(props) {
         <input
           type="color"
           aria-label={`${typeof label === "string" ? label : "Colour"} swatch`}
-          value={value || "#ffffff"}
+          value={colour}
           onChange={(e) => setValue(e.target.value)}
           style={{
             width: "40px",
@@ -40,7 +44,7 @@ export function ColourPicker(props) {
         />
         <input
           type="text"
-          value={value || ""}
+          value={colour}
           placeholder="#ffffff"
           onChange={(e) => setValue(e.target.value)}
           style={{ flex: 1 }}
