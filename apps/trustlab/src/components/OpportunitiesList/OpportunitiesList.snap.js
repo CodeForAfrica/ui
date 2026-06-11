@@ -3,7 +3,7 @@
 exports[`<OpportunitiesList /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-c3vlm2"
+    class="MuiBox-root css-1p6hwme"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-1xx78f4-MuiContainer-root"
