@@ -23,37 +23,28 @@ async function getParticipatingOrganizationListBlock(block, api) {
   const { docs } = await api.findPage(parentSlug, {});
   const doc = docs[0];
   const pagePath = fullSlugFromParents(doc);
-  const resolvedOrganizations = await Promise.all(
-    (organizations || []).map(async (org) => {
-      // Handle both populated and unpopulated relationships
-      const orgData = typeof org === "object" ? org : null;
+  const resolvedOrganizations = (organizations || []).map((org) => {
+    if (!org || typeof org !== "object") {
+      return null;
+    }
 
-      if (!orgData) {
-        return null;
-      }
+    const image = org.image ?? null;
 
-      const image = orgData.image ?? null;
+    // For card variant, generate link from breadcrumbs/slug
+    const href =
+      variant === "card" && org.slug
+        ? `/${[pagePath, org.slug].filter(Boolean).join("/")}`
+        : org.link?.href;
 
-      // For card variant, generate link from breadcrumbs/slug
-      const link =
-        (variant === "card"
-          ? {
-              href: `/${pagePath}/${orgData.slug}`,
-            }
-          : {
-              href: orgData?.link?.href ?? null,
-            }) ?? null;
-
-      return {
-        id: orgData.id,
-        name: orgData.name,
-        description: orgData.description ?? null,
-        image,
-        link,
-        buttonLabel: buttonLabel || "Learn More",
-      };
-    }),
-  );
+    return {
+      id: org.id,
+      name: org.name,
+      description: org.description ?? null,
+      image,
+      link: href ? { href } : null,
+      buttonLabel: buttonLabel || "Learn More",
+    };
+  });
 
   return {
     ...rest,
