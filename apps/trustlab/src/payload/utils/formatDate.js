@@ -1,6 +1,8 @@
 const formatDate = (date, options = {}) => {
   const { locale = "en", includeTime, ...restOptions } = options;
-
+  if (!date) {
+    return null;
+  }
   const formatOptions = {
     ...(includeTime
       ? { hour: "numeric", minute: "numeric", second: "2-digit" }
