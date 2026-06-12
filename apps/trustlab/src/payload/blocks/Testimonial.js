@@ -1,5 +1,7 @@
 import { richText } from "@commons-ui/payload/fields";
 
+import colorSettingsField from "../fields/colorSettingsField";
+
 const Testimonial = {
   slug: "testimonial",
   labels: { singular: "Testimonial", plural: "Testimonials" },
@@ -16,6 +18,10 @@ const Testimonial = {
       label: { en: "Description" },
       required: true,
       localized: true,
+    }),
+    colorSettingsField({
+      backgroundOverrides: { defaultValue: "#fff" },
+      textOverrides: { defaultValue: "#000" },
     }),
     {
       name: "image",

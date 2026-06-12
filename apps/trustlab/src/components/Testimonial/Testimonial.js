@@ -5,7 +5,15 @@ import { Box, Grid2 as Grid, Typography } from "@mui/material";
 import { forwardRef } from "react";
 
 const Testimonial = forwardRef(function Testimonial(props, ref) {
-  const { title, description, image, signatureIcon, sx } = props;
+  const {
+    title,
+    description,
+    image,
+    signatureIcon,
+    backgroundColor = "#fff",
+    textColor = "#000",
+    sx,
+  } = props;
 
   if (!(description && image?.src && image.width && image.height)) {
     return null;
@@ -22,7 +30,8 @@ const Testimonial = forwardRef(function Testimonial(props, ref) {
       ref={ref}
       sx={[
         {
-          backgroundColor: "#fff",
+          backgroundColor,
+          color: textColor,
           py: 2,
         },
         ...(Array.isArray(sx) ? sx : [sx]),
