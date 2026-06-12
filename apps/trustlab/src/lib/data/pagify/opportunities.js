@@ -32,7 +32,7 @@ function pagifyOpportunities(collection) {
         return {
           ...block,
           date,
-          location: doc?.location ?? null,
+          location: doc.location || null,
           title: block.title || "Overview",
         };
       }

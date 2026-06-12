@@ -1,11 +1,22 @@
 import formatDate from "./formatDate";
 
 describe("payload.utils.formatDate", () => {
-  it("returns null for missing dates", () => {
+  it("returns null for undefined dates", () => {
     expect(formatDate()).toBeNull();
-    expect(formatDate(null)).toBeNull();
     expect(formatDate(undefined)).toBeNull();
+  });
+
+  it("returns null for null and empty dates", () => {
+    expect(formatDate(null)).toBeNull();
     expect(formatDate("")).toBeNull();
+  });
+
+  it("returns null for an invalid date", () => {
+    expect(formatDate("not-a-date")).toBeNull();
+  });
+
+  it("returns null for an invalid locale", () => {
+    expect(formatDate("2024-01-15", { locale: "!!bad locale" })).toBeNull();
   });
 
   it("formats a valid date", () => {
@@ -23,9 +34,5 @@ describe("payload.utils.formatDate", () => {
 
     expect(formatted).toContain("January 15, 2024");
     expect(formatted).toMatch(/1:45/);
-  });
-
-  it("returns null when formatting throws", () => {
-    expect(formatDate("2024-01-15", { locale: "!!bad locale" })).toBeNull();
   });
 });

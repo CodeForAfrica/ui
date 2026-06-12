@@ -1,8 +1,12 @@
 const formatDate = (date, options = {}) => {
-  const { locale = "en", includeTime, ...restOptions } = options;
-  if (!date) {
+  if (!date?.length) {
     return null;
   }
+  const parsedDate = new Date(date);
+  if (Number.isNaN(parsedDate.getTime())) {
+    return null;
+  }
+  const { locale = "en", includeTime, ...restOptions } = options;
   const formatOptions = {
     ...(includeTime
       ? { hour: "numeric", minute: "numeric", second: "2-digit" }
@@ -10,7 +14,7 @@ const formatDate = (date, options = {}) => {
     ...restOptions,
   };
   try {
-    const formattedDate = new Date(date).toLocaleString(locale, {
+    const formattedDate = parsedDate.toLocaleString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
