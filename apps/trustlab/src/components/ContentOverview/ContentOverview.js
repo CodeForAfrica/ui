@@ -87,7 +87,15 @@ const itemValueSx = {
 };
 
 const ContentOverview = forwardRef(function ContentOverview(props, ref) {
-  const { card, content, date, location, title } = props;
+  const {
+    card,
+    content,
+    date,
+    location,
+    title,
+    backgroundColor = "#fff",
+    textColor = "#000",
+  } = props;
 
   if (!(content && card)) {
     return null;
@@ -95,7 +103,7 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
   const { cardType, items, richContent, title: cardTitle } = card;
   const hasLocationOrDate = location?.length || date?.length;
   return (
-    <Box sx={{ backgroundColor: "common.white" }} ref={ref}>
+    <Box sx={{ backgroundColor, color: textColor }} ref={ref}>
       <Section sx={{ py: 5, px: { xs: 2.5, sm: 0 } }}>
         <Grid container spacing={4} alignItems="flex-start">
           <Grid
