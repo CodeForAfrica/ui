@@ -3,7 +3,7 @@
 exports[`<ContentOverview /> renders items without labels 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1k9ek97"
+    class="MuiBox-root css-jvd2ob"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
@@ -18,7 +18,7 @@ exports[`<ContentOverview /> renders items without labels 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
           >
             <div
-              class="MuiBox-root css-e71fug"
+              class="MuiBox-root css-1wrl852"
             />
           </div>
         </div>
@@ -75,7 +75,7 @@ exports[`<ContentOverview /> renders items without labels 1`] = `
 exports[`<ContentOverview /> renders richtext card type 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1k9ek97"
+    class="MuiBox-root css-jvd2ob"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
@@ -90,7 +90,7 @@ exports[`<ContentOverview /> renders richtext card type 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
           >
             <div
-              class="MuiBox-root css-e71fug"
+              class="MuiBox-root css-1wrl852"
             />
           </div>
         </div>
@@ -119,7 +119,7 @@ exports[`<ContentOverview /> renders richtext card type 1`] = `
 exports[`<ContentOverview /> renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1k9ek97"
+    class="MuiBox-root css-jvd2ob"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
@@ -134,7 +134,7 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
           >
             <div
-              class="MuiBox-root css-e71fug"
+              class="MuiBox-root css-1wrl852"
             />
           </div>
         </div>
@@ -248,7 +248,7 @@ exports[`<ContentOverview /> renders unchanged 1`] = `
 exports[`<ContentOverview /> renders with linked item 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1k9ek97"
+    class="MuiBox-root css-jvd2ob"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-j09c23-MuiContainer-root"
@@ -263,7 +263,7 @@ exports[`<ContentOverview /> renders with linked item 1`] = `
             class="MuiGrid2-root MuiGrid2-direction-xs-row css-1fzlhpv-MuiGrid2-root"
           >
             <div
-              class="MuiBox-root css-e71fug"
+              class="MuiBox-root css-1wrl852"
             />
           </div>
         </div>

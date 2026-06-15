@@ -1,5 +1,7 @@
 import { link, richText } from "@commons-ui/payload/fields";
 
+import colorSettingsField from "../fields/colorSettingsField";
+
 const ContentOverview = {
   slug: "content-overview",
   imageURL: "/images/cms/blocks/content-overview.png",
@@ -12,6 +14,10 @@ const ContentOverview = {
       localized: true,
     },
     richText({ name: "content", required: true, localized: true }),
+    colorSettingsField({
+      backgroundOverrides: { defaultValue: "#fff" },
+      textOverrides: { defaultValue: "#000" },
+    }),
     {
       name: "card",
       type: "group",
