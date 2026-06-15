@@ -1,7 +1,7 @@
 import { RichTypography } from "@commons-ui/next";
 import { Divider, Stack } from "@mui/material";
 
-function LocationAndDate({ DividerProps, date, location, sx }) {
+function LocationAndDate({ DividerProps, color, date, location, sx }) {
   // if both location and date are not present, return null
   if (!(date?.length || location?.length)) {
     return null;
@@ -14,14 +14,14 @@ function LocationAndDate({ DividerProps, date, location, sx }) {
         orientation="vertical"
         flexItem
         variant="middle"
-        sx={{ backgroundColor: "text.primary" }}
+        sx={{ backgroundColor: color ?? "text.primary" }}
         {...DividerProps}
       />
     );
   }
   return (
     <Stack direction="row" divider={divider} spacing={1} sx={sx}>
-      <RichTypography variant="p2" sx={{ color: "common.black" }}>
+      <RichTypography variant="p2" sx={{ color: color ?? "common.black" }}>
         {location}
       </RichTypography>
       <RichTypography variant="p2" sx={{ color: "#828499" }}>

@@ -121,7 +121,11 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
             ) : null}
             {hasLocationOrDate ? (
               <Grid>
-                <LocationAndDate date={date} location={location} />
+                <LocationAndDate
+                  color={textColor}
+                  date={date}
+                  location={location}
+                />
               </Grid>
             ) : null}
             <Grid>
