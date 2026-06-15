@@ -131,12 +131,13 @@ const ContentOverview = forwardRef(function ContentOverview(props, ref) {
                   "h1, h2, h3, h4, h5, h6": {
                     ...headingSx,
                     mb: 1,
+                    color: textColor,
                   },
                   p: { mb: 2 },
                 }}
                 TypographyProps={{
                   gutterBottom: true,
-                  sx: bodySx,
+                  sx: { ...bodySx, color: textColor },
                 }}
               />
             </Grid>
