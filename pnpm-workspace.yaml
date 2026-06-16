@@ -152,7 +152,7 @@ catalog:
   lint-staged: ^15.2.10
   lodash: ^4.17.23
   markdown-it-link-attributes: ^4.0.0
-  markdown-it: ^12.3.2
+  markdown-it: ^14.2.0
   migrate-mongo: ^11.0.0
   monaco-editor: ^0.51.0
   nanoid: ^3.3.8
