@@ -3,7 +3,7 @@ import { Link } from "@commons-ui/next";
 import { Box, Chip, SvgIcon, Typography } from "@mui/material";
 import { forwardRef } from "react";
 
-import ExternalLinkIcon from "@/trustlab/assets/icons/Type=external-link, Size=24, Color=CurrentColor.svg";
+import LinkIcon from "@/trustlab/assets/icons/Type=external-link, Size=24, Color=CurrentColor.svg";
 
 const ChipList = forwardRef(function ChipList(props, ref) {
   const { title, organizations = [], sx } = props;
@@ -50,8 +50,6 @@ const ChipList = forwardRef(function ChipList(props, ref) {
               ? {
                   component: Link,
                   href: org.link.href,
-                  target: "_blank",
-                  rel: "noopener noreferrer",
                   clickable: true,
                 }
               : {};
@@ -72,7 +70,7 @@ const ChipList = forwardRef(function ChipList(props, ref) {
                     </Typography>
                     {hasLink && (
                       <SvgIcon
-                        component={ExternalLinkIcon}
+                        component={LinkIcon}
                         inheritViewBox
                         viewBox="0 0 24 24"
                         sx={{

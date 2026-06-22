@@ -1,50 +1,45 @@
-function fullSlugFromParents(doc) {
-  if (!doc) {
-    return "";
-  }
-  const { slug, parent } = doc;
-  if (!parent) {
-    return slug;
-  }
-  return `${fullSlugFromParents(parent)}/${slug}`;
-}
-
-async function getParticipatingOrganizationListBlock(block, api) {
-  const {
-    title,
-    subtitle = null,
-    variant,
-    organizations = [],
-    buttonLabel = "Learn More",
-    ...rest
-  } = block;
-
-  const parentSlug = "organisations";
-  const { docs } = await api.findPage(parentSlug, {});
-  const doc = docs[0];
-  const pagePath = fullSlugFromParents(doc);
-  const resolvedOrganizations = (organizations || []).map((org) => {
-    if (!org || typeof org !== "object") {
+function propsifyOrg(buttonLabel) {
+  return function propsifyOrgWithButtonLabel(org) {
+    // valid org must have at least an id and a name
+    if (!(org?.id && org.name)) {
       return null;
     }
 
     const image = org.image ?? null;
-
-    // For card variant, generate link from breadcrumbs/slug
-    const href =
-      variant === "card" && org.slug
-        ? `/${[pagePath, org.slug].filter(Boolean).join("/")}`
-        : org.link?.href;
-
+    let href = null;
+    if (org.includeLink && org.link?.href) {
+      if (org.link.linkType === "custom") {
+        // link.href manually set to external url
+        ({ href } = org.link);
+      } else {
+        // linkType == internal: link.href points to org parent page via beforeValidate hook
+        href = `${org.link.href}/${org.slug}`;
+      }
+    }
+    const link = href ? { href } : null;
     return {
       id: org.id,
       name: org.name,
       description: org.description ?? null,
       image,
-      link: href ? { href } : null,
+      link,
       buttonLabel: buttonLabel || "Learn More",
     };
-  });
+  };
+}
+
+function getParticipatingOrganizationListBlock(block) {
+  const {
+    title,
+    subtitle = null,
+    variant,
+    organizations: orgs,
+    buttonLabel,
+    ...rest
+  } = block;
+
+  const organizations =
+    orgs?.map(propsifyOrg(buttonLabel)).filter(Boolean) ?? [];
 
   return {
     ...rest,
@@ -52,7 +47,7 @@ async function getParticipatingOrganizationListBlock(block, api) {
     title,
     subtitle,
     variant,
-    organizations: resolvedOrganizations.filter(Boolean),
+    organizations,
   };
 }
 

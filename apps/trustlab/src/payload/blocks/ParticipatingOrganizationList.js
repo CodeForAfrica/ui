@@ -1,8 +1,8 @@
 const ParticipatingOrganizationList = {
   slug: "participating-organization-list",
   labels: {
-    singular: "Participating Organization List",
-    plural: "Participating Organization Lists",
+    singular: "Participating Organisation List",
+    plural: "Participating Organisation Lists",
   },
   imageURL: "/images/cms/blocks/participating-organization-list.png",
   fields: [
@@ -34,9 +34,11 @@ const ParticipatingOrganizationList = {
       type: "relationship",
       relationTo: "organisations",
       hasMany: true,
-      label: { en: "Organizations" },
+      label: { en: "Organisations" },
       admin: {
-        description: "Select organizations to display in this list",
+        description: "Select organisations to display in this list",
+        isSortable: true,
+        sortOptions: "name",
       },
     },
     {
