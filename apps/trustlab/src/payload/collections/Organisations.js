@@ -48,6 +48,7 @@ const Organisations = {
         disableOpenInNewTab: true,
       },
       overrides: {
+        required: false,
         admin: {
           condition: (_, siblingData) => Boolean(siblingData?.includeLink),
         },
