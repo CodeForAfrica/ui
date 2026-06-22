@@ -6,8 +6,8 @@ import blocks from "@/trustlab/payload/blocks";
 const Organisations = {
   slug: "organisations",
   labels: {
-    singular: "Organization",
-    plural: "Organizations",
+    singular: "Organisation",
+    plural: "Organisations",
   },
   admin: {
     group: "Publication",
@@ -36,9 +36,20 @@ const Organisations = {
         name: "image",
       },
     }),
+    {
+      name: "includeLink",
+      type: "checkbox",
+      defaultValue: true, // We already have some links in CMS so default to showing them
+    },
     linkGroup({
+      linkConfig: {
+        disableLabel: true,
+        disableOpenInNewTab: true,
+      },
       overrides: {
-        label: "Organization Link",
+        admin: {
+          condition: (_, siblingData) => Boolean(siblingData?.includeLink),
+        },
       },
     }),
     {
@@ -48,6 +59,9 @@ const Organisations = {
     },
     slug({
       fieldToUse: "name",
+      overrides: {
+        required: true,
+      },
     }),
   ],
 };
