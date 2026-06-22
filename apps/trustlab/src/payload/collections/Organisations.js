@@ -39,6 +39,7 @@ const Organisations = {
     {
       name: "includeLink",
       type: "checkbox",
+      required: true,
       defaultValue: true, // We already have some links in CMS so default to showing them
     },
     linkGroup({
