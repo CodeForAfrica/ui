@@ -490,6 +490,14 @@ export interface Page {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             card: {
               title: string;
               cardType?: ("items" | "richtext") | null;
@@ -1109,6 +1117,14 @@ export interface Page {
               };
               [k: string]: unknown;
             } | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             opportunityType: "incubator" | "intelligence-briefing" | "baraza";
             hasFilters?: boolean | null;
             filterByLabel?: string | null;
@@ -1347,7 +1363,7 @@ export interface Page {
             subtitle?: string | null;
             variant: "chip" | "card";
             /**
-             * Select organizations to display in this list
+             * Select organisations to display in this list
              */
             organizations?: (string | Organisation)[] | null;
             /**
@@ -1687,6 +1703,14 @@ export interface Page {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             image: string | Media;
             /**
              * Logo or signature image displayed below the description
@@ -2104,6 +2128,14 @@ export interface Post {
           };
           [k: string]: unknown;
         };
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
         card: {
           title: string;
           cardType?: ("items" | "richtext") | null;
@@ -2720,6 +2752,14 @@ export interface Post {
           };
           [k: string]: unknown;
         } | null;
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
         opportunityType: "incubator" | "intelligence-briefing" | "baraza";
         hasFilters?: boolean | null;
         filterByLabel?: string | null;
@@ -2958,7 +2998,7 @@ export interface Post {
         subtitle?: string | null;
         variant: "chip" | "card";
         /**
-         * Select organizations to display in this list
+         * Select organisations to display in this list
          */
         organizations?: (string | Organisation)[] | null;
         /**
@@ -3298,6 +3338,14 @@ export interface Post {
           };
           [k: string]: unknown;
         };
+        /**
+         * Background color in hex format
+         */
+        backgroundColor: string;
+        /**
+         * Text color in hex format
+         */
+        textColor: string;
         image: string | Media;
         /**
          * Logo or signature image displayed below the description
@@ -3468,8 +3516,8 @@ export interface Organisation {
     [k: string]: unknown;
   } | null;
   image?: (string | null) | Media;
-  link: {
-    label: string;
+  includeLink: boolean;
+  link?: {
     linkType?: ("custom" | "internal") | null;
     doc?: {
       relationTo: "pages";
@@ -3477,7 +3525,6 @@ export interface Organisation {
     } | null;
     url?: string | null;
     href: string;
-    newTab?: boolean | null;
   };
   blocks?:
     | (
@@ -3707,6 +3754,14 @@ export interface Organisation {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             card: {
               title: string;
               cardType?: ("items" | "richtext") | null;
@@ -4326,6 +4381,14 @@ export interface Organisation {
               };
               [k: string]: unknown;
             } | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             opportunityType: "incubator" | "intelligence-briefing" | "baraza";
             hasFilters?: boolean | null;
             filterByLabel?: string | null;
@@ -4564,7 +4627,7 @@ export interface Organisation {
             subtitle?: string | null;
             variant: "chip" | "card";
             /**
-             * Select organizations to display in this list
+             * Select organisations to display in this list
              */
             organizations?: (string | Organisation)[] | null;
             /**
@@ -4904,6 +4967,14 @@ export interface Organisation {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             image: string | Media;
             /**
              * Logo or signature image displayed below the description
@@ -5012,7 +5083,7 @@ export interface Organisation {
           }
       )[]
     | null;
-  slug?: string | null;
+  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -5439,6 +5510,14 @@ export interface Opportunity {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             card: {
               title: string;
               cardType?: ("items" | "richtext") | null;
@@ -6058,6 +6137,14 @@ export interface Opportunity {
               };
               [k: string]: unknown;
             } | null;
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             opportunityType: "incubator" | "intelligence-briefing" | "baraza";
             hasFilters?: boolean | null;
             filterByLabel?: string | null;
@@ -6296,7 +6383,7 @@ export interface Opportunity {
             subtitle?: string | null;
             variant: "chip" | "card";
             /**
-             * Select organizations to display in this list
+             * Select organisations to display in this list
              */
             organizations?: (string | Organisation)[] | null;
             /**
@@ -6636,6 +6723,14 @@ export interface Opportunity {
               };
               [k: string]: unknown;
             };
+            /**
+             * Background color in hex format
+             */
+            backgroundColor: string;
+            /**
+             * Text color in hex format
+             */
+            textColor: string;
             image: string | Media;
             /**
              * Logo or signature image displayed below the description
@@ -7061,6 +7156,8 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               title?: T;
               content?: T;
+              backgroundColor?: T;
+              textColor?: T;
               card?:
                 | T
                 | {
@@ -7356,6 +7453,8 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               opportunityType?: T;
               hasFilters?: T;
               filterByLabel?: T;
@@ -7672,6 +7771,8 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               image?: T;
               signatureIcon?: T;
               id?: T;
@@ -7837,6 +7938,8 @@ export interface PostsSelect<T extends boolean = true> {
           | {
               title?: T;
               content?: T;
+              backgroundColor?: T;
+              textColor?: T;
               card?:
                 | T
                 | {
@@ -8132,6 +8235,8 @@ export interface PostsSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               opportunityType?: T;
               hasFilters?: T;
               filterByLabel?: T;
@@ -8448,6 +8553,8 @@ export interface PostsSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               image?: T;
               signatureIcon?: T;
               id?: T;
@@ -8576,15 +8683,14 @@ export interface OrganisationsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
   image?: T;
+  includeLink?: T;
   link?:
     | T
     | {
-        label?: T;
         linkType?: T;
         doc?: T;
         url?: T;
         href?: T;
-        newTab?: T;
       };
   blocks?:
     | T
@@ -8676,6 +8782,8 @@ export interface OrganisationsSelect<T extends boolean = true> {
           | {
               title?: T;
               content?: T;
+              backgroundColor?: T;
+              textColor?: T;
               card?:
                 | T
                 | {
@@ -8971,6 +9079,8 @@ export interface OrganisationsSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               opportunityType?: T;
               hasFilters?: T;
               filterByLabel?: T;
@@ -9287,6 +9397,8 @@ export interface OrganisationsSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               image?: T;
               signatureIcon?: T;
               id?: T;
@@ -9541,6 +9653,8 @@ export interface OpportunitiesSelect<T extends boolean = true> {
           | {
               title?: T;
               content?: T;
+              backgroundColor?: T;
+              textColor?: T;
               card?:
                 | T
                 | {
@@ -9836,6 +9950,8 @@ export interface OpportunitiesSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               opportunityType?: T;
               hasFilters?: T;
               filterByLabel?: T;
@@ -10152,6 +10268,8 @@ export interface OpportunitiesSelect<T extends boolean = true> {
           | {
               title?: T;
               description?: T;
+              backgroundColor?: T;
+              textColor?: T;
               image?: T;
               signatureIcon?: T;
               id?: T;
