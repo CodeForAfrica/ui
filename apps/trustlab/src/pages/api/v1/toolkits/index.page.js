@@ -1,4 +1,6 @@
 import api from "@/trustlab/lib/payload";
+import { buildDateRangeCondition } from "@/trustlab/utils/dateFilters";
+import { singleQueryValue } from "@/trustlab/utils/queryParams";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -7,76 +9,21 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { page, sort, years, months, limit = 12 } = req.query;
+  // year/month are multi-value (repeated in the URL) and normalized
+  // downstream; the rest are single-valued.
+  const { year, month } = req.query;
+  const sort = singleQueryValue(req.query.sort);
+  const page = singleQueryValue(req.query.page);
+  const limit = singleQueryValue(req.query.limit) ?? 12;
 
-  const monthRange = (year, monthNumber) => {
-    const mIdx = monthNumber - 1;
-    const start = new Date(Date.UTC(year, mIdx, 1, 0, 0, 0, 0));
-    const end =
-      mIdx === 11
-        ? new Date(Date.UTC(year + 1, 0, 1, 0, 0, 0, 0))
-        : new Date(Date.UTC(year, mIdx + 1, 1, 0, 0, 0, 0));
-    return {
-      and: [
-        { createdAt: { greater_than_equal: start.toISOString() } },
-        { createdAt: { less_than: end.toISOString() } },
-      ],
-    };
-  };
-
-  const yearRange = (year) => {
-    const start = new Date(Date.UTC(year, 0, 1, 0, 0, 0, 0));
-    const end = new Date(Date.UTC(year + 1, 0, 1, 0, 0, 0, 0));
-    return {
-      and: [
-        { createdAt: { greater_than_equal: start.toISOString() } },
-        { createdAt: { less_than: end.toISOString() } },
-      ],
-    };
-  };
-
-  // Build filters
   const andConditions = [];
-
-  // Years/months on date
-  const yearsArray = years
-    ? years
-        .split(",")
-        .map((y) => parseInt(y, 10))
-        .filter((y) => !Number.isNaN(y))
-    : [];
-
-  const monthsArray = months
-    ? months
-        .split(",")
-        .map((m) => parseInt(m, 10))
-        .filter((m) => !Number.isNaN(m) && m >= 1 && m <= 12)
-    : [];
-
-  const dateOrConditions = [];
-  const currentYear = new Date().getFullYear();
-  const defaultStartYear = 2000;
-
-  if (yearsArray.length && monthsArray.length) {
-    yearsArray.forEach((y) => {
-      monthsArray.forEach((m) => {
-        dateOrConditions.push(monthRange(y, m));
-      });
-    });
-  } else if (yearsArray.length) {
-    yearsArray.forEach((y) => {
-      dateOrConditions.push(yearRange(y));
-    });
-  } else if (monthsArray.length) {
-    for (let y = defaultStartYear; y <= currentYear; y += 1) {
-      monthsArray.forEach((m) => {
-        dateOrConditions.push(monthRange(y, m));
-      });
-    }
-  }
-
-  if (dateOrConditions.length) {
-    andConditions.push({ or: dateOrConditions });
+  const dateCondition = buildDateRangeCondition({
+    field: "createdAt",
+    month,
+    year,
+  });
+  if (dateCondition) {
+    andConditions.push(dateCondition);
   }
 
   const where = andConditions.length > 0 ? { and: andConditions } : {};

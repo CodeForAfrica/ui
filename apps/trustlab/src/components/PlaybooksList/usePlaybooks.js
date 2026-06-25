@@ -1,22 +1,11 @@
 import useSWR from "swr";
 
+import { setSearchParam } from "@/trustlab/utils/queryParams";
+
 export const buildQueryString = (params) => {
   const query = new URLSearchParams();
   Object.entries(params || {}).forEach(([key, value]) => {
-    if (value === undefined || value === null) {
-      return;
-    }
-    if (Array.isArray(value)) {
-      if (!value.length) {
-        return;
-      }
-      query.set(key, value.join(","));
-      return;
-    }
-    const str = String(value).trim();
-    if (str) {
-      query.set(key, str);
-    }
+    setSearchParam(query, key, value);
   });
   return query.toString();
 };
