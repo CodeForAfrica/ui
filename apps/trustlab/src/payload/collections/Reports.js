@@ -36,6 +36,7 @@ const Reports = {
       type: "text",
       required: true,
       localized: true,
+      index: true,
     },
     image({ name: "image" }),
     slug({ name: "slug" }),
