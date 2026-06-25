@@ -15,6 +15,7 @@ import useOpportunities from "./useOpportunities";
 import Filters from "@/trustlab/components/Filters";
 import OpportunityCard from "@/trustlab/components/OpportunityCard";
 import Pagination from "@/trustlab/components/Pagination";
+import { parseQueryParams, setSearchParam } from "@/trustlab/utils/queryParams";
 
 const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
   const {
@@ -62,14 +63,7 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     limit: itemsPerPage,
     ...(defaultSort ? { sort: defaultSort } : {}),
     // Parse query params to restore filter state (may override defaultSort)
-    ...Object.entries(queryParams).reduce((acc, [key, value]) => {
-      if (typeof value === "string" && value.includes(",")) {
-        acc[key] = value.split(",");
-      } else if (value) {
-        acc[key] = value;
-      }
-      return acc;
-    }, {}),
+    ...parseQueryParams(queryParams),
   }));
 
   const listRef = useRef(null);
@@ -97,14 +91,7 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
       type: itemsType,
       limit: itemsPerPage,
       ...(defaultSort ? { sort: defaultSort } : {}),
-      ...Object.entries(currentQueryParams).reduce((acc, [key, value]) => {
-        if (typeof value === "string" && value.includes(",")) {
-          acc[key] = value.split(",");
-        } else if (value) {
-          acc[key] = value;
-        }
-        return acc;
-      }, {}),
+      ...parseQueryParams(currentQueryParams),
     };
     setParams(newParams);
   }, [router.isReady]);
@@ -156,11 +143,7 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
       searchParams.delete(k),
     );
     Object.entries(filterParams).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.length > 0) {
-        searchParams.set(key, value.join(","));
-      } else if (value && typeof value === "string") {
-        searchParams.set(key, value);
-      }
+      setSearchParam(searchParams, key, value);
     });
     searchParams.delete("page");
 
