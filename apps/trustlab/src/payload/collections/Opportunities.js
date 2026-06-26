@@ -38,6 +38,7 @@ const Opportunities = {
       type: "text",
       required: true,
       localized: true,
+      index: true,
     },
     image({
       overrides: {
@@ -71,6 +72,7 @@ const Opportunities = {
       name: "location",
       type: "text",
       localized: true,
+      index: true,
     },
     {
       name: "date",

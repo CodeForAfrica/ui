@@ -9,6 +9,7 @@ import useToolkits from "./useToolkits";
 
 import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
+import { parseQueryParams, setSearchParam } from "@/trustlab/utils/queryParams";
 
 const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   const {
@@ -43,6 +44,22 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
     }
   }, [initialPage]);
 
+  // Restore filter results from a bookmarked/shared URL once the router is
+  // ready (the filter UI controls are not restored — out of scope).
+  useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
+    const { year, month, sort } = query;
+    if (!year && !month && !sort) {
+      return;
+    }
+    setParams((prev) => ({
+      ...prev,
+      ...parseQueryParams({ year, month, sort }),
+    }));
+  }, [router.isReady]);
+
   const { toolkits = [], pagination = p } = useToolkits(
     page,
     params,
@@ -53,7 +70,7 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
 
   const handlePageChange = (value) => {
     setPage(value);
-    const urlParams = new URLSearchParams(router.query);
+    const urlParams = new URLSearchParams(window.location.search);
     if (value === 1) {
       urlParams.delete("page");
     } else {
@@ -72,13 +89,9 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   const handleApplyFilters = (filterParams) => {
     setParams((prev) => ({ ...prev, ...filterParams }));
     setPage(1);
-    const urlParams = new URLSearchParams(router.query);
+    const urlParams = new URLSearchParams(window.location.search);
     Object.entries(filterParams).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        urlParams.set(key, value.join(","));
-      } else {
-        urlParams.set(key, value);
-      }
+      setSearchParam(urlParams, key, value);
     });
     urlParams.delete("page");
     router.push(

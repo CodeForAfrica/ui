@@ -31,9 +31,10 @@ const nextConfig = {
   output: "standalone",
   outputFileTracingRoot,
   // TODO(kilemensi): There is an upstream bug on this @ https://github.com/vercel/next.js/issues/51478
-  //                  `js`, `ts`, `tsx` are just to make sure there is more than one item;
-  //                  we SHOULDN'T use them in pages router!
-  pageExtensions: ["page.js", "js", "ts", "tsx"],
+  //                  the extra `page.*` entries just make sure there is more than
+  //                  one item; using `page.` infixes (instead of bare js/ts/tsx)
+  //                  keeps co-located *.test.js files from being collected as routes.
+  pageExtensions: ["page.js", "page.jsx", "page.ts", "page.tsx"],
   reactStrictMode: true,
   webpack: (config) => {
     config.module.rules.push({

@@ -1,6 +1,23 @@
 import useSWR from "swr";
 
+import { setSearchParam } from "@/trustlab/utils/queryParams";
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
+
+// Allowlist of params forwarded to the API. Intentionally excludes `page`
+// (set separately) and keeps arbitrary URL params from being proxied through.
+// Keep in sync with the /api/v1/opportunities handler.
+const QUERY_PARAM_KEYS = [
+  "limit",
+  "type",
+  "location",
+  "date",
+  "search",
+  "sort",
+  "opportunity",
+  "year",
+  "month",
+];
 
 function useOpportunities(
   page,
@@ -13,33 +30,9 @@ function useOpportunities(
   const searchParams = new URLSearchParams();
   searchParams.set("page", page);
 
-  if (params?.limit) {
-    searchParams.set("limit", params.limit);
-  }
-  if (params?.type) {
-    searchParams.set("type", params.type);
-  }
-  if (params?.location) {
-    searchParams.set("location", params.location);
-  }
-  if (params?.date) {
-    searchParams.set("date", params.date);
-  }
-  if (params?.search) {
-    searchParams.set("search", params.search);
-  }
-  if (params?.sort) {
-    searchParams.set("sort", params.sort);
-  }
-  if (params?.opportunity) {
-    searchParams.set("opportunity", params.opportunity);
-  }
-  if (params?.year) {
-    searchParams.set("year", params.year);
-  }
-  if (params?.month) {
-    searchParams.set("month", params.month);
-  }
+  QUERY_PARAM_KEYS.forEach((key) => {
+    setSearchParam(searchParams, key, params?.[key]);
+  });
 
   const { data } = useSWR(
     skip ? null : `${apiEndpoint}?${searchParams.toString()}`,

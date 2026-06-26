@@ -8,6 +8,7 @@ import usePlaybooks from "./usePlaybooks";
 import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
 import RowCard from "@/trustlab/components/RowCard";
+import { parseQueryParams, setSearchParam } from "@/trustlab/utils/queryParams";
 
 const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
   const {
@@ -40,6 +41,22 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
     }
   }, [initialPage]);
 
+  // Restore filter results from a bookmarked/shared URL once the router is
+  // ready (the filter UI controls are not restored — out of scope).
+  useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
+    const { year, month, sort } = query;
+    if (!year && !month && !sort) {
+      return;
+    }
+    setParams((prev) => ({
+      ...prev,
+      ...parseQueryParams({ year, month, sort }),
+    }));
+  }, [router.isReady]);
+
   const { playbooks = [], pagination = p } = usePlaybooks(
     page,
     params,
@@ -50,7 +67,7 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
 
   const handlePageChange = (value) => {
     setPage(value);
-    const urlParams = new URLSearchParams(router.query);
+    const urlParams = new URLSearchParams(window.location.search);
     if (value === 1) {
       urlParams.delete("page");
     } else {
@@ -69,13 +86,9 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
   const handleApplyFilters = (filterParams) => {
     setParams((prev) => ({ ...prev, ...filterParams }));
     setPage(1);
-    const urlParams = new URLSearchParams(router.query);
+    const urlParams = new URLSearchParams(window.location.search);
     Object.entries(filterParams).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        urlParams.set(key, value.join(","));
-      } else {
-        urlParams.set(key, value);
-      }
+      setSearchParam(urlParams, key, value);
     });
     urlParams.delete("page");
     router.push(

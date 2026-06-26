@@ -1,4 +1,6 @@
 import formatDate from "@/trustlab/payload/utils/formatDate";
+import { buildDateRangeCondition } from "@/trustlab/utils/dateFilters";
+import { normalizeQueryList } from "@/trustlab/utils/queryParams";
 
 function fullSlugFromParents(doc) {
   if (!doc) {
@@ -9,6 +11,15 @@ function fullSlugFromParents(doc) {
     return slug;
   }
   return `${fullSlugFromParents(parent)}/${slug}`;
+}
+
+function addExactMatchCondition(andConditions, field, value) {
+  const values = normalizeQueryList(value);
+  if (values.length === 1) {
+    andConditions.push({ [field]: { equals: values[0] } });
+  } else if (values.length > 1) {
+    andConditions.push({ [field]: { in: values } });
+  }
 }
 
 async function getOpportunities(api, options = {}) {
@@ -32,36 +43,23 @@ async function getOpportunities(api, options = {}) {
   }
 
   if (search) {
-    andConditions.push({ title: { like: search } });
+    // Fuzzy matching lives in search (the location filter itself is exact).
+    andConditions.push({
+      or: [{ title: { like: search } }, { location: { like: search } }],
+    });
   }
 
   if (id) {
-    andConditions.push({ id: { equals: id } });
+    addExactMatchCondition(andConditions, "id", id);
   }
 
   if (location) {
-    andConditions.push({ location: { contains: location } });
+    addExactMatchCondition(andConditions, "location", location);
   }
 
-  if (year) {
-    const startOfYear = new Date(year, 0, 1).toISOString();
-    const startOfNextYear = new Date(Number(year) + 1, 0, 1).toISOString();
-    andConditions.push({ date: { greater_than_equal: startOfYear } });
-    andConditions.push({ date: { less_than: startOfNextYear } });
-  }
-
-  if (month) {
-    // month is 1-based (1 = January)
-    const monthIndex = parseInt(month, 10) - 1;
-    const targetYear = year || new Date().getFullYear();
-    const startOfMonth = new Date(targetYear, monthIndex, 1).toISOString();
-    const startOfNextMonth = new Date(
-      targetYear,
-      monthIndex + 1,
-      1,
-    ).toISOString();
-    andConditions.push({ date: { greater_than_equal: startOfMonth } });
-    andConditions.push({ date: { less_than: startOfNextMonth } });
+  const dateCondition = buildDateRangeCondition({ month, year });
+  if (dateCondition) {
+    andConditions.push(dateCondition);
   }
 
   const where = andConditions.length ? { and: andConditions } : {};

@@ -17,6 +17,7 @@ import ErrorPageIcon from "@/trustlab/assets/error-page-icon.svg?url";
 import Filters from "@/trustlab/components/Filters";
 import Pagination from "@/trustlab/components/Pagination";
 import ReportCard from "@/trustlab/components/ReportCard";
+import { parseQueryParams, setSearchParam } from "@/trustlab/utils/queryParams";
 
 const ReportsList = forwardRef(function ReportsList(props, ref) {
   const {
@@ -95,16 +96,10 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   };
 
   const handleApplyFilters = (filterParams) => {
-    // filter keys are singular (year/month/report); API expects plural
-    const keyMap = { year: "years", month: "months", report: "reports" };
-    const mappedParams = Object.fromEntries(
-      Object.entries(filterParams).map(([k, v]) => [keyMap[k] ?? k, v]),
-    );
-
     setParams((prev) => ({
       reportsType,
       limit: reportsPerPage,
-      ...mappedParams,
+      ...filterParams,
       // preserve sort and search across filter changes
       ...(prev.sort ? { sort: prev.sort } : {}),
       ...(prev.search ? { search: prev.search } : {}),
@@ -113,13 +108,9 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
 
     const searchParams = new URLSearchParams(window.location.search);
     // clear existing filter params before setting new ones
-    ["years", "months", "reports"].forEach((k) => searchParams.delete(k));
-    Object.entries(mappedParams).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.length > 0) {
-        searchParams.set(key, value.join(","));
-      } else if (value && typeof value === "string") {
-        searchParams.set(key, value);
-      }
+    ["year", "month", "report"].forEach((k) => searchParams.delete(k));
+    Object.entries(filterParams).forEach(([key, value]) => {
+      setSearchParam(searchParams, key, value);
     });
     searchParams.delete("page");
 
@@ -205,34 +196,23 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     if (!router.isReady) {
       return;
     }
-    const { years, months, reports: reportsFilter, sort, search } = query;
-    if (!years && !months && !reportsFilter && !sort && !search) {
+    const { year, month, report, sort, search } = query;
+    if (!year && !month && !report && !sort && !search) {
       return;
     }
-
-    const parseParam = (v) =>
-      typeof v === "string" && v.includes(",") ? v.split(",") : v;
 
     const newParams = {
       reportsType,
       limit: reportsPerPage,
       ...(defaultSort ? { sort: defaultSort } : {}),
+      ...parseQueryParams({
+        year,
+        month,
+        report,
+        sort,
+        search,
+      }),
     };
-    if (years) {
-      newParams.years = parseParam(years);
-    }
-    if (months) {
-      newParams.months = parseParam(months);
-    }
-    if (reportsFilter) {
-      newParams.reports = parseParam(reportsFilter);
-    }
-    if (sort) {
-      newParams.sort = sort;
-    }
-    if (search) {
-      newParams.search = search;
-    }
 
     setParams(newParams);
   }, [router.isReady]);
