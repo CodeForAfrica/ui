@@ -15,7 +15,7 @@ const useToolkits = (page, params, initialToolkits, _, showAll) => {
   }
 
   return {
-    toolkits: !showAll ? data?.toolkits || [] : initialToolkits || [],
+    toolkits: data?.toolkits || [],
     pagination: data?.pagination,
     isBusy,
   };
