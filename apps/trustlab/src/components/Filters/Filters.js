@@ -35,14 +35,15 @@ const defaultIcons = {
   report: DocumentIcon,
 };
 
-const generateYearOptions = () => {
+// Computed once at module load (year list is bounded 2020..current year), so we
+// don't re-run `new Date()` each time the filters config changes.
+const YEAR_OPTIONS = (() => {
   const currentYear = new Date().getFullYear();
   const len = currentYear - 2020 + 1;
   return Array.from({ length: len }, (_, i) => currentYear - i);
-};
+})();
 
-// Generate month options
-const generateMonthOptions = () => [
+const MONTH_OPTIONS = [
   { label: "January", value: 1 },
   { label: "February", value: 2 },
   { label: "March", value: 3 },
@@ -217,9 +218,9 @@ const Filters = React.forwardRef(function Filters(
       let resolvedOptions = options;
       if (!resolvedOptions?.length) {
         if (type === "year") {
-          resolvedOptions = generateYearOptions();
+          resolvedOptions = YEAR_OPTIONS;
         } else if (type === "month") {
-          resolvedOptions = generateMonthOptions();
+          resolvedOptions = MONTH_OPTIONS;
         }
       }
 
