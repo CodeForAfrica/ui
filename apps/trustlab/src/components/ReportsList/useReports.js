@@ -1,8 +1,5 @@
-import useSWR from "swr";
-
+import useListData from "@/trustlab/hooks/useListData";
 import { setSearchParam } from "@/trustlab/utils/queryParams";
-
-const fetcher = (url) => fetch(url).then((res) => res.json());
 
 // Allowlist of params forwarded to the API. Intentionally excludes `page`
 // (set separately) and keeps arbitrary URL params from being proxied through.
@@ -25,16 +22,17 @@ function useReports(page, params, initialReports, initialCount, skip) {
     setSearchParam(searchParams, key, params?.[key]);
   });
 
-  const { data } = useSWR(
-    skip ? null : `/api/v1/reports?${searchParams.toString()}`,
-    fetcher,
+  const { data, isBusy } = useListData(
+    `/api/v1/reports?${searchParams.toString()}`,
     {
       fallbackData: { reports: initialReports, page, totalPages: initialCount },
+      enabled: !skip,
     },
   );
 
   return {
     reports: skip ? initialReports : (data?.reports ?? initialReports),
+    isBusy,
     pagination: {
       page: data?.pagination?.page ?? page,
       count: data?.pagination?.count ?? initialCount,

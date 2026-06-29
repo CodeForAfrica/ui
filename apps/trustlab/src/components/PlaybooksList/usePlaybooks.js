@@ -1,16 +1,5 @@
-import useSWR from "swr";
-
-import { setSearchParam } from "@/trustlab/utils/queryParams";
-
-export const buildQueryString = (params) => {
-  const query = new URLSearchParams();
-  Object.entries(params || {}).forEach(([key, value]) => {
-    setSearchParam(query, key, value);
-  });
-  return query.toString();
-};
-
-const fetcher = (url) => fetch(url).then((res) => res.json());
+import useListData from "@/trustlab/hooks/useListData";
+import { buildQueryString } from "@/trustlab/utils/queryParams";
 
 const usePlaybooks = (
   page,
@@ -20,23 +9,20 @@ const usePlaybooks = (
   showAllPosts,
 ) => {
   const queryString = buildQueryString({ ...params, page });
-  const { data, isLoading } = useSWR(
-    `/api/v1/playbooks?${queryString}`,
-    fetcher,
-  );
+  const { data, isBusy } = useListData(`/api/v1/playbooks?${queryString}`);
 
   if (!data) {
     return {
       playbooks: initialPlaybooks || [],
       pagination: { count: initialCount, page },
-      isLoading: true,
+      isBusy,
     };
   }
 
   return {
     playbooks: !showAllPosts ? data?.playbooks || [] : initialPlaybooks || [],
     pagination: data?.pagination,
-    isLoading,
+    isBusy,
   };
 };
 

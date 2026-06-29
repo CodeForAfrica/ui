@@ -43,3 +43,13 @@ export function setSearchParam(searchParams, key, value) {
   searchParams.delete(key);
   normalizeQueryList(value).forEach((v) => searchParams.append(key, v));
 }
+
+// Serialize a params object into a query string, applying setSearchParam per
+// key (repeated params for arrays, trimmed, blanks dropped).
+export function buildQueryString(params) {
+  const searchParams = new URLSearchParams();
+  Object.entries(params || {}).forEach(([key, value]) => {
+    setSearchParam(searchParams, key, value);
+  });
+  return searchParams.toString();
+}
