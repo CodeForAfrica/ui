@@ -44,17 +44,27 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     defaultSort,
   } = props;
 
-  const [page, setPage] = useState(p?.page);
-  const [params, setParams] = useState({
-    reportsType,
-    limit: reportsPerPage,
-    ...(defaultSort ? { sort: defaultSort } : {}),
-  });
-  const listRef = useRef(null);
-  useImperativeHandle(ref, () => listRef.current);
   const router = useRouter();
   const { query } = router;
   const { page: initialPage } = query;
+
+  const [page, setPage] = useState(p?.page);
+  const [params, setParams] = useState(() => ({
+    reportsType,
+    limit: reportsPerPage,
+    ...(defaultSort ? { sort: defaultSort } : {}),
+    // Restore filters from the URL at mount (mirrors the router.isReady effect
+    // below) so client-side nav to a filtered URL renders without a flash.
+    ...parseQueryParams({
+      year: query.year,
+      month: query.month,
+      report: query.report,
+      sort: query.sort,
+      search: query.search,
+    }),
+  }));
+  const listRef = useRef(null);
+  useImperativeHandle(ref, () => listRef.current);
 
   useEffect(() => {
     if (initialPage) {
