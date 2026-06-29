@@ -111,7 +111,6 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
             filterByLabel={filterByLabel}
             selectedValues={params}
             isBusy={isBusy}
-            hasFilters={hasFilters}
             applyFiltersLabel={applyFiltersLabel}
             clearFiltersLabel={clearFiltersLabel}
             onApply={handleApplyFilters}
