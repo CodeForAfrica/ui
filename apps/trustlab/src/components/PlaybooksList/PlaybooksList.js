@@ -57,13 +57,11 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
     }));
   }, [router.isReady]);
 
-  const { playbooks = [], pagination = p } = usePlaybooks(
-    page,
-    params,
-    initialPlaybooks,
-    p?.count,
-    !hasPagination,
-  );
+  const {
+    playbooks = [],
+    pagination = p,
+    isBusy,
+  } = usePlaybooks(page, params, initialPlaybooks, p?.count, !hasPagination);
 
   const handlePageChange = (value) => {
     setPage(value);
@@ -107,11 +105,12 @@ const PlaybooksList = forwardRef(function PlaybooksList(props, ref) {
       ref={ref}
     >
       {hasFilters ? (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
+        <Section sx={{ pt: 2.5, pb: 2, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             filters={filters}
             filterByLabel={filterByLabel}
-            hasFilters={hasFilters}
+            selectedValues={params}
+            isBusy={isBusy}
             applyFiltersLabel={applyFiltersLabel}
             clearFiltersLabel={clearFiltersLabel}
             onApply={handleApplyFilters}

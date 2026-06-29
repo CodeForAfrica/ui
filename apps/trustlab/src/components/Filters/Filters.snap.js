@@ -3,102 +3,109 @@
 exports[`ReportFilters renders unchanged 1`] = `
 <div>
   <div
-    class="MuiBox-root css-1821gv5"
+    class="MuiStack-root css-ook25x-MuiStack-root"
   >
-    <h6
-      class="MuiTypography-root MuiTypography-subtitle1 css-1k0y18v-MuiTypography-root"
-    >
-      Filter By
-    </h6>
     <div
-      class="MuiStack-root css-1u7tqyj-MuiStack-root"
+      class="MuiBox-root css-1821gv5"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
+      <h6
+        class="MuiTypography-root MuiTypography-subtitle1 css-1k0y18v-MuiTypography-root"
       >
-        <span
-          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
-            focusable="false"
-            viewbox="0 0 24 24"
-          />
-        </span>
-        Year
-        <span
-          class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
-            focusable="false"
-          />
-        </span>
-      </button>
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
-            focusable="false"
-            viewbox="0 0 24 24"
-          />
-        </span>
-        Month
-        <span
-          class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
-            focusable="false"
-          />
-        </span>
-      </button>
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
-            focusable="false"
-            viewbox="0 0 24 24"
-          />
-        </span>
-        Report
-        <span
-          class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
-        >
-          <div
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
-            focusable="false"
-          />
-        </span>
-      </button>
-    </div>
-    <div
-      class="MuiStack-root css-1x34icn-MuiStack-root"
-    >
+        Filter By
+      </h6>
       <div
-        class="MuiBox-root css-1sl536g"
-      />
+        class="MuiStack-root css-1u7tqyj-MuiStack-root"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </span>
+          Year
+          <span
+            class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
+              focusable="false"
+            />
+          </span>
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </span>
+          Month
+          <span
+            class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
+              focusable="false"
+            />
+          </span>
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-impya7-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-1in3o51-MuiButton-startIcon"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-129mfkz-MuiSvgIcon-root"
+              focusable="false"
+              viewbox="0 0 24 24"
+            />
+          </span>
+          Report
+          <span
+            class="MuiButton-icon MuiButton-endIcon MuiButton-iconSizeSmall css-dp0v3c-MuiButton-endIcon"
+          >
+            <div
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1it0eoq-MuiSvgIcon-root"
+              focusable="false"
+            />
+          </span>
+        </button>
+      </div>
+      <div
+        class="MuiStack-root css-1x34icn-MuiStack-root"
+      >
+        <div
+          class="MuiBox-root css-1sl536g"
+        />
+      </div>
     </div>
+    <div
+      class="MuiBox-root css-xh7cac"
+    />
   </div>
 </div>
 `;
