@@ -60,13 +60,11 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
     }));
   }, [router.isReady]);
 
-  const { toolkits = [], pagination = p } = useToolkits(
-    page,
-    params,
-    initialToolkits,
-    p?.count,
-    !hasPagination,
-  );
+  const {
+    toolkits = [],
+    pagination = p,
+    isBusy,
+  } = useToolkits(page, params, initialToolkits, p?.count, !hasPagination);
 
   const handlePageChange = (value) => {
     setPage(value);
@@ -104,10 +102,12 @@ const ToolkitList = forwardRef(function ToolkitList(props, ref) {
   return (
     <Box sx={sx} ref={ref}>
       {hasFilters && (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
+        <Section sx={{ pt: 2.5, pb: 2, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             filters={filters}
             filterByLabel={filterByLabel}
+            selectedValues={params}
+            isBusy={isBusy}
             hasFilters={hasFilters}
             applyFiltersLabel={applyFiltersLabel}
             clearFiltersLabel={clearFiltersLabel}

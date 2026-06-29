@@ -1,22 +1,23 @@
 import {
   Box,
-  Typography,
   Button,
-  Stack,
   Chip,
-  SvgIcon,
-  InputBase,
   InputAdornment,
+  InputBase,
+  LinearProgress,
+  ListItemText,
   Menu,
   MenuItem,
-  ListItemText,
+  Stack,
+  SvgIcon,
+  Typography,
 } from "@mui/material";
 import React, {
-  useState,
-  useMemo,
   useCallback,
-  useRef,
   useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from "react";
 
 import FilterDropdown from "./FilterDropdown";
@@ -160,7 +161,13 @@ const Filters = React.forwardRef(function Filters(
   {
     filterByLabel,
     filters = [],
+    // Current control state from the parent's URL-synced params: filter
+    // selections keyed by type, plus `sort` and `search`. Filters is controlled
+    // by this and holds no selection state of its own.
+    selectedValues = {},
+    defaultSort,
     clearFiltersLabel,
+    isBusy = false,
     onApply,
     onClear,
     sx,
@@ -173,13 +180,23 @@ const Filters = React.forwardRef(function Filters(
     onSortChange,
     // Atomic clear (preferred over onApply/onClear when search/sort are active)
     onClearAll,
+    showProgress = true,
+    // progress will take .5 height e.g. if showProgress = false, spacing should be 2.5
+    spacing = { xs: 2 },
   },
   ref,
 ) {
-  const [selectedValues, setSelectedValues] = useState({});
-  const [sortValue, setSortValue] = useState(null);
-  const [searchValue, setSearchValue] = useState("");
+  // Sort is controlled and the search box keeps a local draft for immediate
+  // typing while syncing from the current controlled state.
+  const sortValue = selectedValues.sort ?? null;
+  const hasActiveSort = Boolean(sortValue) && sortValue !== defaultSort;
+  const controlledSearchValue = selectedValues.search ?? "";
+  const [searchValue, setSearchValue] = useState(controlledSearchValue);
   const searchTimerRef = useRef(null);
+
+  useEffect(() => {
+    setSearchValue(controlledSearchValue);
+  }, [controlledSearchValue]);
 
   // Cleanup debounce timer on unmount
   useEffect(() => {
@@ -227,6 +244,27 @@ const Filters = React.forwardRef(function Filters(
     });
   }, [filters]);
 
+  // Reconcile the incoming selection (from the URL/params, where values are
+  // strings) against each filter's options so types match for selection
+  // highlighting and chip labels (e.g. year/month options are numbers).
+  const normalizedSelected = useMemo(() => {
+    const result = {};
+    processedFilters.forEach((filter) => {
+      const incoming = selectedValues?.[filter.type];
+      if (incoming == null) {
+        return;
+      }
+      const values = Array.isArray(incoming) ? incoming : [incoming];
+      result[filter.type] = values.map((value) => {
+        const option = filter.options.find(
+          (opt) => String(filter.getOptionValue(opt)) === String(value),
+        );
+        return option ? filter.getOptionValue(option) : value;
+      });
+    });
+    return result;
+  }, [selectedValues, processedFilters]);
+
   const getChipLabel = useCallback(
     (filterType, value) => {
       const filter = processedFilters.find((f) => f.type === filterType);
@@ -255,26 +293,20 @@ const Filters = React.forwardRef(function Filters(
 
   const handleFilterChange = useCallback(
     (filterType, values) => {
-      const newSelectedValues = {
-        ...selectedValues,
-        [filterType]: values,
-      };
-      setSelectedValues(newSelectedValues);
-
-      if (onApply) {
-        onApply(newSelectedValues);
-      }
+      // Controlled: emit the full selection and let the parent update
+      // params/URL, which flows back down as `selectedValues`.
+      onApply?.({ ...normalizedSelected, [filterType]: values });
     },
-    [selectedValues, onApply],
+    [normalizedSelected, onApply],
   );
 
   const handleChipDelete = useCallback(
     (filterType, value) => {
-      const currentValues = selectedValues[filterType] || [];
+      const currentValues = normalizedSelected[filterType] || [];
       const newValues = currentValues.filter((v) => v !== value);
       handleFilterChange(filterType, newValues);
     },
-    [selectedValues, handleFilterChange],
+    [normalizedSelected, handleFilterChange],
   );
 
   const handleSearchChange = useCallback(
@@ -293,15 +325,13 @@ const Filters = React.forwardRef(function Filters(
 
   const handleSortChange = useCallback(
     (value) => {
-      setSortValue(value);
+      // Controlled: let the parent update params/URL, which flows back as sortValue.
       onSortChange?.(value);
     },
     [onSortChange],
   );
 
   const clearAll = useCallback(() => {
-    setSelectedValues({});
-    setSortValue(null);
     setSearchValue("");
     if (searchTimerRef.current) {
       clearTimeout(searchTimerRef.current);
@@ -318,16 +348,16 @@ const Filters = React.forwardRef(function Filters(
 
   const anySelected = useMemo(() => {
     return (
-      Object.values(selectedValues).some((values) => values?.length > 0) ||
+      Object.values(normalizedSelected).some((values) => values?.length > 0) ||
       !!searchValue ||
-      !!sortValue
+      hasActiveSort
     );
-  }, [selectedValues, searchValue, sortValue]);
+  }, [normalizedSelected, searchValue, hasActiveSort]);
 
   // Collect all chips from all filter types
   const allChips = useMemo(() => {
     const chips = [];
-    Object.entries(selectedValues).forEach(([filterType, values]) => {
+    Object.entries(normalizedSelected).forEach(([filterType, values]) => {
       (values || []).forEach((value) => {
         chips.push({
           filterType,
@@ -337,7 +367,7 @@ const Filters = React.forwardRef(function Filters(
       });
     });
     return chips;
-  }, [selectedValues, getChipLabel]);
+  }, [normalizedSelected, getChipLabel]);
 
   // Gate on the callback props so a stale CMS label can't accidentally re-show
   // a control whose feature flag has been disabled
@@ -345,157 +375,164 @@ const Filters = React.forwardRef(function Filters(
   const showSort = Boolean(onSortChange) && sortOptions.length > 0;
 
   return (
-    <Box ref={ref} display="flex" flexDirection="column" gap={1} sx={sx}>
-      {/* Filter By label sits above the controls row */}
-      {filterByLabel && (
-        <Typography variant="subtitle1" fontWeight={700}>
-          {filterByLabel}
-        </Typography>
-      )}
+    <Stack spacing={spacing} sx={sx} ref={ref}>
+      <Box display="flex" flexDirection="column" gap={1}>
+        {/* Filter By label sits above the controls row */}
+        {filterByLabel && (
+          <Typography variant="subtitle1" fontWeight={700}>
+            {filterByLabel}
+          </Typography>
+        )}
 
-      {/* Controls row — flat flex row that wraps.
+        {/* Controls row — flat flex row that wraps.
           xs: search claims its own line (width 100%), filters + sort wrap below.
           sm+: search is capped at 50%, everything stays on one line. */}
-      <Stack
-        direction="row"
-        alignItems="center"
-        flexWrap="wrap"
-        useFlexGap
-        gap={2}
-      >
-        {showSearch && (
-          <InputBase
-            value={searchValue}
-            onChange={handleSearchChange}
-            placeholder={searchPlaceholderLabel || "Search..."}
-            startAdornment={
-              <InputAdornment position="start" sx={{ ml: 0.5, mr: 0.25 }}>
-                <SvgIcon
-                  sx={{ fontSize: 16, fill: "none", color: "text.secondary" }}
-                  viewBox="0 0 20 20"
-                >
-                  <circle
-                    cx="9"
-                    cy="9"
-                    r="6"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="m14 14 3.5 3.5"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </SvgIcon>
-              </InputAdornment>
-            }
-            sx={{
-              width: { xs: "100%", sm: "auto" },
-              flex: { sm: 1 },
-              maxWidth: { sm: "50%" },
-              minWidth: 180,
-              border: "1px solid #C9CACB",
-              borderRadius: "10px",
-              px: 1.5,
-              py: 0.5,
-              fontSize: "14px",
-              backgroundColor: "#fff",
-            }}
-          />
-        )}
-        {processedFilters.map((filter) => (
-          <FilterDropdown
-            key={filter.type}
-            label={filter.label}
-            options={filter.options}
-            selected={selectedValues[filter.type] || []}
-            onChange={(values) => handleFilterChange(filter.type, values)}
-            getOptionValue={filter.getOptionValue}
-            getOptionLabel={filter.getOptionLabel}
-            startIcon={
-              <SvgIcon
-                component={filter.icon}
-                sx={{ fill: "none", fontSize: "16px" }}
-              />
-            }
-            size="small"
-          />
-        ))}
-        {/* ml:auto keeps sort at the far right of whichever line it lands on */}
-        {showSort && (
-          <Box sx={{ ml: "auto" }}>
-            <SortDropdown
-              label={sortByLabel}
-              options={sortOptions}
-              value={sortValue}
-              onChange={handleSortChange}
-            />
-          </Box>
-        )}
-      </Stack>
-
-      {/* Row 3: Chips + Actions */}
-      <Stack
-        direction="row"
-        spacing={1}
-        flexWrap="wrap"
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Box
-          display="flex"
+        <Stack
+          direction="row"
           alignItems="center"
           flexWrap="wrap"
+          useFlexGap
           gap={2}
-          flex={1}
         >
-          {allChips.map((chip) => (
-            <Chip
-              key={`${chip.filterType}-${chip.value}`}
-              label={chip.label}
-              size="small"
-              onDelete={() => handleChipDelete(chip.filterType, chip.value)}
+          {showSearch && (
+            <InputBase
+              value={searchValue}
+              onChange={handleSearchChange}
+              placeholder={searchPlaceholderLabel || "Search..."}
+              startAdornment={
+                <InputAdornment position="start" sx={{ ml: 0.5, mr: 0.25 }}>
+                  <SvgIcon
+                    sx={{ fontSize: 16, fill: "none", color: "text.secondary" }}
+                    viewBox="0 0 20 20"
+                  >
+                    <circle
+                      cx="9"
+                      cy="9"
+                      r="6"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="m14 14 3.5 3.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  </SvgIcon>
+                </InputAdornment>
+              }
               sx={{
-                px: 2,
+                width: { xs: "100%", sm: "auto" },
+                flex: { sm: 1 },
+                maxWidth: { sm: "50%" },
+                minWidth: 180,
+                border: "1px solid #C9CACB",
                 borderRadius: "10px",
-                p: 0.5,
+                px: 1.5,
+                py: 0.5,
+                fontSize: "14px",
+                backgroundColor: "#fff",
               }}
             />
-          ))}
-          {!!anySelected && (
-            <Button
-              variant="text"
-              onClick={clearAll}
-              size="small"
-              sx={{
-                textTransform: "none",
-                cursor: anySelected ? "pointer" : "default",
-                border: "none",
-                background: "transparent",
-                p: 0,
-                height: "20px",
-                color: "#BE1F23",
-                position: "relative",
-                pl: 3,
-              }}
-            >
-              <SvgIcon
-                sx={{
-                  fill: "none",
-                  position: "absolute",
-                  top: "50%",
-                  transform: "translateY(-35%)",
-                  left: 0,
-                }}
-                component={CloseIcon}
-              />
-              {clearFiltersLabel || "Clear Filter(s)"}
-            </Button>
           )}
+          {processedFilters.map((filter) => (
+            <FilterDropdown
+              key={filter.type}
+              label={filter.label}
+              options={filter.options}
+              selected={normalizedSelected[filter.type] || []}
+              onChange={(values) => handleFilterChange(filter.type, values)}
+              getOptionValue={filter.getOptionValue}
+              getOptionLabel={filter.getOptionLabel}
+              startIcon={
+                <SvgIcon
+                  component={filter.icon}
+                  sx={{ fill: "none", fontSize: "16px" }}
+                />
+              }
+              size="small"
+            />
+          ))}
+          {/* ml:auto keeps sort at the far right of whichever line it lands on */}
+          {showSort && (
+            <Box sx={{ ml: "auto" }}>
+              <SortDropdown
+                label={sortByLabel}
+                options={sortOptions}
+                value={sortValue}
+                onChange={handleSortChange}
+              />
+            </Box>
+          )}
+        </Stack>
+
+        {/* Row 3: Chips + Actions */}
+        <Stack
+          direction="row"
+          spacing={1}
+          flexWrap="wrap"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Box
+            display="flex"
+            alignItems="center"
+            flexWrap="wrap"
+            gap={2}
+            flex={1}
+          >
+            {allChips.map((chip) => (
+              <Chip
+                key={`${chip.filterType}-${chip.value}`}
+                label={chip.label}
+                size="small"
+                onDelete={() => handleChipDelete(chip.filterType, chip.value)}
+                sx={{
+                  px: 2,
+                  borderRadius: "10px",
+                  p: 0.5,
+                }}
+              />
+            ))}
+            {!!anySelected && (
+              <Button
+                variant="text"
+                onClick={clearAll}
+                size="small"
+                sx={{
+                  textTransform: "none",
+                  cursor: anySelected ? "pointer" : "default",
+                  border: "none",
+                  background: "transparent",
+                  p: 0,
+                  height: "20px",
+                  color: "#BE1F23",
+                  position: "relative",
+                  pl: 3,
+                }}
+              >
+                <SvgIcon
+                  sx={{
+                    fill: "none",
+                    position: "absolute",
+                    top: "50%",
+                    transform: "translateY(-35%)",
+                    left: 0,
+                  }}
+                  component={CloseIcon}
+                />
+                {clearFiltersLabel || "Clear Filter(s)"}
+              </Button>
+            )}
+          </Box>
+        </Stack>
+      </Box>
+      {showProgress ? (
+        <Box sx={{ height: 4, width: "100%" }}>
+          {isBusy ? <LinearProgress /> : null}
         </Box>
-      </Stack>
-    </Box>
+      ) : null}
+    </Stack>
   );
 });
 

@@ -96,7 +96,11 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     setParams(newParams);
   }, [router.isReady]);
 
-  const { items = [], pagination = p } = useOpportunities(
+  const {
+    items = [],
+    pagination = p,
+    isBusy,
+  } = useOpportunities(
     page,
     params,
     initialItems,
@@ -223,12 +227,14 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
     }
     router.push(urlPath, undefined, { shallow: true, scroll: false });
   }
+  const showTitle = title || description;
+  const showFilterBar = hasFilters || hasSearch || hasSortBy;
   return (
     <Box
       ref={listRef}
       sx={{ background: backgroundColor, color: textColor, ...sx }}
     >
-      {title || description ? (
+      {showTitle ? (
         <Section sx={{ pt: 5, pb: 0, px: { xs: 2.5, md: 0 } }}>
           <Typography variant="h2">{title}</Typography>
           {description && (
@@ -252,13 +258,17 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
         </Section>
       ) : null}
 
-      {hasFilters || hasSearch || hasSortBy ? (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
+      {showFilterBar ? (
+        // pb is 2 instead of 2.5 because of progress bar taking .5 i.e. 4px
+        <Section sx={{ pt: 2.5, pb: 2, px: { xs: 2.5, sm: 0 } }}>
           <Filters
-            filterByLabel={filterByLabel}
-            filters={filters}
             applyFiltersLabel={applyFiltersLabel}
             clearFiltersLabel={clearFiltersLabel}
+            filterByLabel={filterByLabel}
+            filters={filters}
+            selectedValues={params}
+            defaultSort={defaultSort}
+            isBusy={isBusy}
             onApply={handleApplyFilters}
             onClearAll={handleClearAll}
             onSearch={hasSearch ? handleSearch : undefined}
@@ -276,7 +286,7 @@ const OpportunitiesList = forwardRef(function OpportunitiesList(props, ref) {
         <Section
           sx={{
             pb: 5,
-            pt: title || description ? 0 : 5,
+            pt: showTitle ? 0 : 5,
             px: { xs: 2.5, sm: 0 },
           }}
         >

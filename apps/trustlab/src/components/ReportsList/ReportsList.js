@@ -65,7 +65,11 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
     }
   }, [initialPage]);
 
-  const { reports = [], pagination = p } = useReports(
+  const {
+    reports = [],
+    pagination = p,
+    isBusy,
+  } = useReports(
     page,
     params,
     initialReports,
@@ -222,10 +226,13 @@ const ReportsList = forwardRef(function ReportsList(props, ref) {
   return (
     <Box ref={listRef}>
       {showFiltersBar ? (
-        <Section sx={{ py: 2.5, px: { xs: 2.5, sm: 0 } }}>
+        <Section sx={{ pt: 2.5, pb: 0, px: { xs: 2.5, sm: 0 } }}>
           <Filters
             filterByLabel={filterByLabel}
             filters={filters}
+            selectedValues={params}
+            defaultSort={defaultSort}
+            isBusy={isBusy}
             clearFiltersLabel={clearFiltersLabel}
             applyFiltersLabel={applyFiltersLabel}
             onApply={handleApplyFilters}
