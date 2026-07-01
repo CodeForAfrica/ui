@@ -97,12 +97,31 @@ async function getOpportunitiesEntries(api) {
   return docsToSitemapEntries(docs, "opportunities");
 }
 
+async function getOrganisationsEntries(api) {
+  const { docs } = await api.getCollection("organisations", {
+    pagination: false,
+    select: {
+      pathname: true,
+      slug: true,
+      updatedAt: true,
+      createdAt: true,
+      link: true,
+      includeLink: true,
+    },
+  });
+  const docsWithAPage = docs.filter(
+    (doc) => doc?.includeLink && doc.link?.linkType === "internal",
+  );
+  return docsToSitemapEntries(docsWithAPage, "organisations");
+}
+
 async function getSitemapEntries(api) {
-  const [pages, opportunities] = await Promise.all([
+  const [pages, opportunities, organisations] = await Promise.all([
     getPagesEntries(api),
     getOpportunitiesEntries(api),
+    getOrganisationsEntries(api),
   ]);
-  return [...pages, ...opportunities];
+  return [...pages, ...opportunities, ...organisations];
 }
 
 async function buildSitemapXml(api) {

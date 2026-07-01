@@ -64,7 +64,13 @@ const plugins = [
   }),
   seoPlugin({
     // helplines don't have individual pages and we don't resources collection
-    collections: ["opportunities", "pages", "posts", "reports"],
+    collections: [
+      "organisations",
+      "opportunities",
+      "pages",
+      "posts",
+      "reports",
+    ],
     generateDescription: ({ doc }) => {
       const data = doc?.description || doc?.excerpt;
       if (data) {
@@ -72,8 +78,10 @@ const plugins = [
       }
       return "";
     },
-    generateTitle: ({ doc }) => doc?.title ?? "",
-    generateURL: ({ doc }) => (doc?.slug ? `${site.url}${doc.slug}` : ""),
+    // Organisations don't have title, just name
+    generateTitle: ({ doc }) => doc?.title ?? doc?.name ?? "",
+    generateURL: ({ doc }) =>
+      doc?.pathname ?? (doc?.slug ? `${site.url}${doc.slug}` : ""),
     uploadsCollection: "media",
   }),
 ];
