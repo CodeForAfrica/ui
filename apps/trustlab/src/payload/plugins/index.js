@@ -16,6 +16,15 @@ const s3MaxAttempts = Number(process.env.S3_MAX_ATTEMPTS) || 3;
 const s3MaxSockets = Number(process.env.S3_MAX_SOCKETS) || 1000;
 const s3ConnectionTimeout = Number(process.env.S3_CONNECTION_TIMEOUT) || 5000;
 
+function generateURL({ doc }) {
+  if (!(doc?.pathname || doc?.slug)) {
+    return "";
+  }
+  // site.url always has a trailing /
+  const pathname = (doc.pathname || `${doc.slug}`).replace(/^\//, "");
+  return `${site.url}${pathname}`;
+}
+
 const plugins = [
   nestedDocsPlugin({
     collections: ["pages", "posts"],
@@ -64,7 +73,13 @@ const plugins = [
   }),
   seoPlugin({
     // helplines don't have individual pages and we don't resources collection
-    collections: ["opportunities", "pages", "posts", "reports"],
+    collections: [
+      "organisations",
+      "opportunities",
+      "pages",
+      "posts",
+      "reports",
+    ],
     generateDescription: ({ doc }) => {
       const data = doc?.description || doc?.excerpt;
       if (data) {
@@ -72,8 +87,9 @@ const plugins = [
       }
       return "";
     },
-    generateTitle: ({ doc }) => doc?.title ?? "",
-    generateURL: ({ doc }) => (doc?.slug ? `${site.url}${doc.slug}` : ""),
+    // Organisations don't have title, just name
+    generateTitle: ({ doc }) => doc?.title ?? doc?.name ?? "",
+    generateURL,
     uploadsCollection: "media",
   }),
 ];

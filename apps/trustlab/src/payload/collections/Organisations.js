@@ -1,4 +1,5 @@
 import { slug, image, richText, linkGroup } from "@commons-ui/payload/fields";
+import { appendPathnameToCollection } from "@commons-ui/payload/hooks";
 
 import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
@@ -66,6 +67,9 @@ const Organisations = {
       },
     }),
   ],
+  hooks: {
+    afterRead: [appendPathnameToCollection("organisations")],
+  },
 };
 
 export default Organisations;

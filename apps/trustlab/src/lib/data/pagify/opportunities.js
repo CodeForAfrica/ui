@@ -24,6 +24,8 @@ function pagifyOpportunities(collection) {
 
     const doc = docs[0];
     const date = formatDate(doc.date);
+    // opportunities have titles but organisations have name only.
+    const title = doc.title || doc.name || null;
     const contentBlocks = doc.blocks || [];
     // blockify is called after pagefy so *MUST* not call it here
     const blocks = contentBlocks.filter(Boolean).map((block) => {
@@ -37,7 +39,7 @@ function pagifyOpportunities(collection) {
       }
       return block;
     });
-    return { ...doc, blocks, date, parent: parentPage };
+    return { ...doc, blocks, date, title, parent: parentPage };
   };
 }
 
