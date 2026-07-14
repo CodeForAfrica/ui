@@ -12,6 +12,8 @@ import {
 import React, { forwardRef, useState } from "react";
 
 import CloseIcon from "@/trustlab/assets/icons/close.svg";
+import AirtableEmbed from "@/trustlab/components/AirtableEmbed";
+import useAirtableEmbedPreload from "@/trustlab/components/AirtableEmbed/useAirtableEmbedPreload";
 import Button from "@/trustlab/components/StyledButton";
 
 const ActionBanner = forwardRef(function ActionBanner(
@@ -30,6 +32,7 @@ const ActionBanner = forwardRef(function ActionBanner(
 ) {
   const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
+  const preload = useAirtableEmbedPreload(hasEmbed);
 
   const handleOpen = () => {
     if (hasEmbed) {
@@ -116,6 +119,7 @@ const ActionBanner = forwardRef(function ActionBanner(
         <Dialog
           open={open}
           onClose={handleClose}
+          keepMounted
           maxWidth="md"
           fullWidth
           PaperProps={{
@@ -144,15 +148,12 @@ const ActionBanner = forwardRef(function ActionBanner(
             </IconButton>
           </DialogTitle>
           <DialogContent>
-            <Box
-              dangerouslySetInnerHTML={{ __html: embedCode }}
+            <AirtableEmbed
+              embedCode={embedCode}
+              load={Boolean(preload || open)}
+              title={embedDialogTitle}
               sx={{
-                width: "100%",
-                "& iframe": {
-                  width: "100%",
-                  minHeight: 400,
-                  border: "none",
-                },
+                height: { xs: 450, md: "70vh" },
               }}
             />
           </DialogContent>

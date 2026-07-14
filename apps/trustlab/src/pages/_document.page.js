@@ -55,6 +55,9 @@ class MyDocument extends Document {
             href="/apple-touch-icon.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
+          <link rel="preconnect" href="https://airtable.com" />
+          <link rel="dns-prefetch" href="https://airtable.com" />
+          <link rel="dns-prefetch" href="https://static.airtable.com" />
           <meta name="apple-mobile-web-app-title" content="TrustLab" />
           <meta name="theme-color" content="#000" />
           <meta name="emotion-insertion-point" content="" />
