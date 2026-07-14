@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
@@ -8,13 +7,23 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
+import AirtableEmbed from "@/trustlab/components/AirtableEmbed";
+
+function HelplineEmbedDialog({
+  closeLabel,
+  embedCode,
+  onClose,
+  open,
+  preload,
+  title,
+}) {
   const dialogTitleId = React.useId();
 
   return (
     <Dialog
       aria-labelledby={dialogTitleId}
       fullWidth
+      keepMounted
       maxWidth={false}
       onClose={onClose}
       open={Boolean(open)}
@@ -31,28 +40,15 @@ function HelplineEmbedDialog({ closeLabel, embedCode, onClose, open, title }) {
         dividers
         sx={{
           p: 0,
-          "& .airtable-embed-container": {
-            width: "100%",
-            height: "100%",
-          },
         }}
       >
-        <Box
-          className="airtable-embed-container"
+        <AirtableEmbed
+          embedCode={embedCode}
+          load={Boolean(preload || open)}
+          title={title}
           sx={{
-            width: "100%",
-            "& iframe": {
-              width: "100%",
-              minHeight: { xs: 400, md: "70vh" },
-            },
+            height: { xs: 400, md: "70vh" },
           }}
-          dangerouslySetInnerHTML={
-            embedCode?.trim()
-              ? {
-                  __html: embedCode,
-                }
-              : undefined
-          }
         />
       </DialogContent>
       <DialogActions sx={{ px: 3, py: 2 }}>

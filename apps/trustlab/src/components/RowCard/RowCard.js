@@ -4,6 +4,7 @@ import { useState, forwardRef } from "react";
 
 import RowCardActionButton from "./RowCardActionButton";
 
+import useAirtableEmbedPreload from "@/trustlab/components/AirtableEmbed/useAirtableEmbedPreload";
 import HelplineEmbedDialog from "@/trustlab/components/HelplineCard/HelplineEmbedDialog";
 
 const RowCard = forwardRef(function RowCard(props, ref) {
@@ -20,6 +21,7 @@ const RowCard = forwardRef(function RowCard(props, ref) {
   } = props;
   const hasEmbed = Boolean(embedCode?.trim());
   const [open, setOpen] = useState(false);
+  const preload = useAirtableEmbedPreload(hasEmbed);
   const buttonLabel = embedButtonLabel || actionLabel;
 
   const handleOpen = () => {
@@ -107,13 +109,16 @@ const RowCard = forwardRef(function RowCard(props, ref) {
           onOpen={handleOpen}
         />
       </Stack>
-      <HelplineEmbedDialog
-        closeLabel={embedCloseLabel}
-        embedCode={embedCode}
-        onClose={handleClose}
-        open={open}
-        title={title}
-      />
+      {hasEmbed && (
+        <HelplineEmbedDialog
+          closeLabel={embedCloseLabel}
+          embedCode={embedCode}
+          onClose={handleClose}
+          open={open}
+          preload={preload}
+          title={title}
+        />
+      )}
     </Card>
   );
 });
