@@ -10,11 +10,16 @@ export async function fetchProfile() {
     new URL("/api/v1/profiles/1/?format=json", apiUrl),
   );
 
-  const locations = configuration?.featured_locations?.map(
-    ({ name, code, level }) => {
-      return { name, level, code: code.toLowerCase() };
-    },
-  );
+  const featuredLocations = configuration?.featured_locations;
+  if (!Array.isArray(featuredLocations) || !featuredLocations.length) {
+    throw new Error(
+      "Invalid HURUmap profile response: featured_locations is missing or empty",
+    );
+  }
+
+  const locations = featuredLocations.map(({ name, code, level }) => {
+    return { name, level, code: code.toLowerCase() };
+  });
 
   return { locations, preferredChildren: configuration.preferred_children };
 }

@@ -1,5 +1,15 @@
 async function fetchJson(resource, init) {
-  return fetch(resource, init).then((res) => res.json());
+  const response = await fetch(resource, init);
+
+  if (!response.ok) {
+    throw new Error(
+      `Request to ${resource} failed with status ${response.status}${
+        response.statusText ? ` ${response.statusText}` : ""
+      }`,
+    );
+  }
+
+  return response.json();
 }
 
 export default fetchJson;
