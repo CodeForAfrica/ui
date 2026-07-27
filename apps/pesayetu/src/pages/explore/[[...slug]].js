@@ -102,6 +102,14 @@ export async function getStaticProps({ preview, previewData, params }) {
     .split("-vs-")
     .map((c) => c.trim())
     .filter((c) => c);
+  // `locations` from fetchProfile() is treated as the authoritative set of
+  // supported codes. A healthy backend returns the complete list; a partially
+  // degraded response (non-empty but incomplete) could make a valid code look
+  // missing and cache it as a 404 during revalidation. We can't distinguish
+  // "removed" from "degraded" without an upstream completeness signal, so this
+  // remains a known edge case (fully empty/malformed responses throw earlier in
+  // fetchProfile and are protected). See the ISR failure-handling notes in the
+  // PR that introduced this guard.
   if (!geoCodes.every((gC) => locationCodes.includes(gC))) {
     return {
       notFound: true,
