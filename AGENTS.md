@@ -58,12 +58,10 @@ docker buildx bake --file docker-bake.hcl <app>   # Build image manually
 docker compose up <app>           # Run locally after bake
 ```
 
-### Versioning
+### Publishing
 
 ```bash
-pnpm changeset        # Create a changeset for a package
-pnpm release          # Version packages (changeset version + pnpm install)
-pnpm bump             # Bump versions via scripts/bump.js
+pnpm publish          # Publish workspace packages to npm
 ```
 
 ## Architecture

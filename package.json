@@ -15,7 +15,6 @@
     "lint:check": "turbo run lint:check",
     "lint": "turbo run lint",
     "prepare": "husky",
-    "release": "changeset version && pnpm install",
     "publish": "-r publish",
     "jest": "turbo run jest",
     "jest:ci": "turbo run jest --concurrency=2 -- --ci --maxWorkers=4",
@@ -27,13 +26,9 @@
     "test:scripts": "node --test scripts/*.test.mjs",
     "clean": "turbo run clean && rm -rf node_modules",
     "format:check": "oxfmt --check .",
-    "format": "oxfmt .",
-    "bump": "node scripts/bump.js"
+    "format": "oxfmt ."
   },
   "devDependencies": {
-    "@actions/exec": "catalog:",
-    "@changesets/changelog-github": "catalog:",
-    "@changesets/cli": "catalog:",
     "@playwright/test": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",
