@@ -77,21 +77,3 @@ This command uses [`bake-up.sh`](./scripts/bake-up.sh) script to:
 
 See [docker/README.md](./docker/README.md) for full details including CI commands and
 the pattern for migrating additional apps.
-
-### Adding changesets
-
-To add changeset, run the following command. This will let you choose what package you want to publish
-
-```
-pnpm changeset
-```
-
-### Releasing and publishing to npm
-
-To publish you packages, run
-
-```
-pnpm publish
-```
-
-Make sure you are logged in to npm before publishing your package
