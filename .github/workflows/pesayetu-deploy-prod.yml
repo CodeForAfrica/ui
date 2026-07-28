@@ -1,11 +1,11 @@
-name: Pesayetu | Deploy | DEV
+name: Pesayetu | Deploy | PROD
 
 on:
   push:
     branches: [main]
     paths:
       - "apps/pesayetu/**"
-      - "Dockerfile.pesayetu"
+      - "Dockerfile"
       - ".github/workflows/pesayetu-deploy-prod.yml"
 
 concurrency:
