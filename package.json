@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:compile": "turbo run build:compile",
     "build-next": "turbo run build-next",
     "build-payload": "turbo run build-payload",
     "dev": "turbo run dev --parallel",

@@ -28,6 +28,7 @@
     "jest": "jest --passWithNoTests",
     "playwright": "npx playwright test --pass-with-no-tests",
     "build": "next build",
+    "build:compile": "next build --experimental-build-mode compile",
     "start": "next start",
     "clean": "rm -rf .next .turbo node_modules"
   },
@@ -35,6 +36,7 @@
     "@apollo/client": "catalog:",
     "@commons-ui/core": "catalog:",
     "@commons-ui/next": "workspace:*",
+    "@commons-ui/payload": "workspace:*",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@hurumap/core": "workspace:*",
