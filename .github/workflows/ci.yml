@@ -79,6 +79,12 @@ jobs:
       - name: Test
         run: pnpm test:ci
 
+      # Compile opted-in apps without prerendering pages. This keeps module
+      # resolution and bundler compilation deterministic when full builds read
+      # from live services.
+      - name: Compile apps
+        run: pnpm build:compile
+
       # TODO: Re-enable build in a dedicated CI build cleanup PR. The current
       # build surface needs app-scoped env isolation for Payload/Next apps.
       - name: Build

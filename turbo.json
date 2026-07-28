@@ -11,6 +11,10 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "build:compile": {
+      "dependsOn": ["^build:compile"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
     "jest": {
       "inputs": [
         "$TURBO_DEFAULT$",
