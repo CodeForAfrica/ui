@@ -77,13 +77,3 @@ This command uses [`bake-up.sh`](./scripts/bake-up.sh) script to:
 
 See [docker/README.md](./docker/README.md) for full details including CI commands and
 the pattern for migrating additional apps.
-
-### Publishing packages to npm
-
-To publish packages, run:
-
-```bash
-pnpm publish
-```
-
-Make sure you are logged in to npm before publishing.

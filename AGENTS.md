@@ -58,12 +58,6 @@ docker buildx bake --file docker-bake.hcl <app>   # Build image manually
 docker compose up <app>           # Run locally after bake
 ```
 
-### Publishing
-
-```bash
-pnpm publish          # Publish workspace packages to npm
-```
-
 ## Architecture
 
 ### Monorepo structure
