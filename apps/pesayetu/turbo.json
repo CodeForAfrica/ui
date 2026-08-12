@@ -2,9 +2,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "build-next"]
-    },
-    "build-next": {
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "HURUMAP_API_URL",
@@ -19,7 +17,7 @@
         "NEXT_PUBLIC_VERCEL_ENV",
         "NEXT_PUBLIC_VERCEL_URL",
         "NODE_TLS_REJECT_UNAUTHORIZED",
-        "PROJECT_ROOT",
+        "TRACING_ROOT",
         "S3_UPLOAD_KEY",
         "S3_UPLOAD_SECRET",
         "S3_UPLOAD_BUCKET",

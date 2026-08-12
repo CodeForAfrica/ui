@@ -13,7 +13,7 @@ export interface LogoProps extends ImageProps {
 }
 
 const Logo = React.forwardRef(function Logo(
-  props: LogoProps,
+  props: Omit<LogoProps, "ref">,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
   const {

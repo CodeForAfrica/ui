@@ -39,7 +39,7 @@ COPY --from=pruned /workspace/out/full/ ./
 RUN --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm --filter './apps/techlabblog' build
+  pnpm --filter './apps/techlabblog' build:next
 
 FROM ui_runner_base AS runner
 

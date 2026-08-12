@@ -1,8 +1,8 @@
 const path = require("path");
 
-const PROJECT_ROOT = process.env.PROJECT_ROOT?.trim();
-const outputFileTracingRoot = PROJECT_ROOT
-  ? path.resolve(__dirname, PROJECT_ROOT)
+const TRACING_ROOT = process.env.TRACING_ROOT?.trim();
+const outputFileTracingRoot = TRACING_ROOT
+  ? path.resolve(__dirname, TRACING_ROOT)
   : undefined;
 
 module.exports = {

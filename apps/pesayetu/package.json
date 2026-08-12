@@ -27,9 +27,11 @@
     "lint": "eslint --fix .",
     "jest": "jest --passWithNoTests",
     "playwright": "npx playwright test --pass-with-no-tests",
-    "build": "next build",
     "build:compile": "next build --experimental-build-mode compile",
-    "start": "next start",
+    "build:next": "next build",
+    "copy:assets": "cp -r public .next/standalone/apps/pesayetu/public && cp -r .next/static .next/standalone/apps/pesayetu/.next/static",
+    "build": "pnpm run build:next && pnpm run copy:assets",
+    "start": "node --env-file-if-exists=.env --env-file-if-exists=.env.local .next/standalone/apps/pesayetu/server.js",
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {

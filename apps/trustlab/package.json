@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/trustlab/server.js",
+    "build:next": "next build",
+    "copy:assets": "cp -r public .next/standalone/apps/trustlab/public && cp -r .next/static .next/standalone/apps/trustlab/.next/static",
+    "build": "pnpm run build:next && pnpm run copy:assets",
+    "start": "node --env-file-if-exists=.env --env-file-if-exists=.env.local .next/standalone/apps/trustlab/server.js",
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation PAYLOAD_CONFIG_PATH=./payload.config.mjs payload generate:importmap",
