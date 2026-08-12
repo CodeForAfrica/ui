@@ -14,7 +14,11 @@ import getNavigationMenu from "@/pesayetu/functions/menus/getNavigationMenu";
 /**
  * Base page that can be used to build all other pages.
  */
-function BasePage({ children, menus, variant, post: { seo } = {}, ...props }) {
+function BasePage({ children, menus, variant, post, ...props }) {
+  // getPostTypeStaticProps sets post to null (not undefined) when WordPress
+  // has no content for the homepage, so a destructuring default (`= {}`)
+  // won't catch it — that only applies for undefined. Use `??` instead.
+  const { seo } = post ?? {};
   const footerProps = getFooterMenu(menus?.footerMenu || []);
   const navigation = getNavigationMenu(menus?.primaryMenu || []);
   const { menuProps, socialLinks } = navigation;

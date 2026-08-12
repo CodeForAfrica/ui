@@ -1,0 +1,73 @@
+name: Reusable Build | Pesayetu
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+        description: "Image tag to build or push"
+      push:
+        required: true
+        type: boolean
+        description: "Whether to push the built image to the registry"
+      base_tag:
+        required: true
+        type: string
+        description: "Published base image tag to build from"
+      app_url:
+        required: true
+        type: string
+        description: "NEXT_PUBLIC_APP_URL baked into the client bundle (public, not a secret)"
+      set:
+        required: false
+        type: string
+        default: ""
+        description: "Additional bake --set overrides"
+    secrets:
+      DOCKER_HUB_USERNAME:
+        required: false
+      DOCKER_HUB_ACCESS_TOKEN:
+        required: false
+      # WordPress content is fetched via WPGraphQL during static generation, so
+      # these are needed at build time, not just runtime.
+      WORDPRESS_URL:
+        required: false
+      WORDPRESS_MULTISITE_PREFIX:
+        required: false
+      HURUMAP_API_URL:
+        required: false
+      JWT_SECRET_KEY:
+        required: false
+      WORDPRESS_APPLICATION_USERNAME:
+        required: false
+      WORDPRESS_APPLICATION_PASSWORD:
+        required: false
+      WORDPRESS_PREVIEW_SECRET:
+        required: false
+
+jobs:
+  build:
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_bake-and-push.yml
+    with:
+      target: pesayetu
+      target_os: '["ubuntu-24.04-arm"]'
+      base_tag: ${{ inputs.base_tag }}
+      tag: ${{ inputs.tag }}
+      push: ${{ inputs.push }}
+      set: |
+        pesayetu.args.NEXT_PUBLIC_APP_URL=${{ inputs.app_url }}
+        ${{ inputs.set }}
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      WORDPRESS_URL: ${{ secrets.WORDPRESS_URL }}
+      WORDPRESS_MULTISITE_PREFIX: ${{ secrets.WORDPRESS_MULTISITE_PREFIX }}
+      HURUMAP_API_URL: ${{ secrets.HURUMAP_API_URL }}
+      JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+      WORDPRESS_APPLICATION_USERNAME: ${{ secrets.WORDPRESS_APPLICATION_USERNAME }}
+      WORDPRESS_APPLICATION_PASSWORD: ${{ secrets.WORDPRESS_APPLICATION_PASSWORD }}
+      WORDPRESS_PREVIEW_SECRET: ${{ secrets.WORDPRESS_PREVIEW_SECRET }}

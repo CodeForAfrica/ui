@@ -21,7 +21,7 @@ Apps checked below have migrated to the per-app Dockerfile pattern under
 - [ ] `civicsignalblog`
 - [ ] `climatemappedafrica`
 - [ ] `codeforafrica`
-- [ ] `pesayetu`
+- [x] `pesayetu`
 - [ ] `roboshield`
 - [x] `techlabblog`
 - [x] `trustlab`

@@ -99,21 +99,7 @@ services:
       ["--replSet", "rs0", "--bind_ip_all", "--keyFile", "/etc/mongo-keyfile"]
 
   pesayetu:
-    build:
-      secrets:
-        - jwt_secret_key
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-        - wordpress_application_password
-        - wordpress_application_username
-        - wordpress_preview_secret
-      context: .
-      target: pesayetu-runner
-      args:
-        - HURUMAP_API_URL=${HURUMAP_API_URL}
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
-        - WORDPRESS_URL=${WORDPRESS_URL}
+    image: codeforafrica/pesayetu:${TAG:-local}
     env_file:
       - path: ./apps/pesayetu/.env
       - path: ./apps/pesayetu/.env.local
