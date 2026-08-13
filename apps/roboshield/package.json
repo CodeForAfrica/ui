@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "build:next": "next build",
+    "build": "pnpm run build:next",
     "payload-migrate:create": "payload migrate:create",
     "payload-migrate:status": "payload migrate:status",
     "payload-migrate:up": "payload migrate",

@@ -189,7 +189,7 @@ RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm --filter "./apps/charterafrica/" build-next
+  pnpm --filter "./apps/charterafrica/" build:next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -293,7 +293,7 @@ RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm --filter "./apps/civicsignalblog/" build-next
+  pnpm --filter "./apps/civicsignalblog/" build:next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -401,7 +401,7 @@ ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
 RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
   --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
-  pnpm --filter "./apps/climatemappedafrica" build-next
+  pnpm --filter "./apps/climatemappedafrica" build:next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
@@ -511,7 +511,7 @@ RUN --mount=type=secret,id=mongodb_url,env=MONGODB_URL \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm --filter "./apps/codeforafrica/" build-next
+  pnpm --filter "./apps/codeforafrica/" build:next
 
 # When building Payload app, Payload needs to have final app URL
 ENV PAYLOAD_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
