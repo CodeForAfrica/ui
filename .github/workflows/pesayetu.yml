@@ -79,10 +79,10 @@ jobs:
       tag: ${{ github.sha }}
       push: true
       app_url: ${{ vars.PESAYETU_APP_URL }}
+      # `tag` supplies the SHA tag; append release aliases without replacing it.
       set: |
-        ${{ needs.version-check.outputs.changed == 'true' && format('pesayetu.tags=codeforafrica/pesayetu:{0}', github.sha) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && format('pesayetu.tags=codeforafrica/pesayetu:{0}', needs.version-check.outputs.version) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && 'pesayetu.tags=codeforafrica/pesayetu:latest' || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('pesayetu.tags+=codeforafrica/pesayetu:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'pesayetu.tags+=codeforafrica/pesayetu:latest' || '' }}
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
