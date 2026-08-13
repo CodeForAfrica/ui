@@ -11,6 +11,12 @@ import { fileURLToPath } from "node:url";
 // - Non-workspace build inputs are handled explicitly because Turbo cannot map
 //   them through the workspace graph.
 export const BUILD_TARGET_CONFIG = {
+  pesayetu: {
+    directBuildInputPaths: [
+      ".github/workflows/pesayetu.yml",
+      "docker/apps/pesayetu/",
+    ],
+  },
   techlabblog: {
     directBuildInputPaths: [
       ".github/workflows/techlabblog.yml",
@@ -28,6 +34,7 @@ export const BUILD_TARGET_CONFIG = {
 
 const GLOBAL_BUILD_FILES = new Set([
   ".github/workflows/_bake-and-push.yml",
+  ".github/workflows/_build-pesayetu.yml",
   ".github/workflows/_build-techlabblog.yml",
   ".github/workflows/_build-trustlab.yml",
   ".github/workflows/pr-build.yml",

@@ -2,9 +2,9 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["build-next", "build-payload"]
+      "dependsOn": ["build:next", "build-payload"]
     },
-    "build-next": {
+    "build:next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "AIRTABLE_API_TOKEN",

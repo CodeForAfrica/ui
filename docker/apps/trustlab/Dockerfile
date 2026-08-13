@@ -38,7 +38,7 @@ RUN --mount=type=secret,id=database_url,env=DATABASE_URL \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
-  pnpm --filter './apps/trustlab' build
+  pnpm --filter './apps/trustlab' build:next
 
 FROM ui_runner_base AS runner
 

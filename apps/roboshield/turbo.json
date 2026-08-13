@@ -2,9 +2,16 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "build-next", "build-payload"]
+      "dependsOn": ["^build", "build-payload"],
+      "env": [
+        "NEXT_RUNTIME",
+        "PROJECT_ROOT",
+        "SENTRY_AUTH_TOKEN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT"
+      ]
     },
-    "build-next": {
+    "build:next": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "NEXT_RUNTIME",

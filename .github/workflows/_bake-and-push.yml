@@ -71,6 +71,23 @@ on:
         required: false
       SENTRY_PROJECT:
         required: false
+      JWT_SECRET_KEY:
+        required: false
+      WORDPRESS_APPLICATION_USERNAME:
+        required: false
+      WORDPRESS_APPLICATION_PASSWORD:
+        required: false
+      WORDPRESS_PREVIEW_SECRET:
+        required: false
+      # Not BuildKit secrets (plain Dockerfile ARGs, per docker-bake.hcl's
+      # WORDPRESS_URL/HURUMAP_API_URL variable blocks) — routed through here
+      # anyway so GitHub masks them in logs like the rest of pesayetu's config.
+      WORDPRESS_URL:
+        required: false
+      WORDPRESS_MULTISITE_PREFIX:
+        required: false
+      HURUMAP_API_URL:
+        required: false
 
 jobs:
   bake:
@@ -112,6 +129,13 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+          WORDPRESS_APPLICATION_USERNAME: ${{ secrets.WORDPRESS_APPLICATION_USERNAME }}
+          WORDPRESS_APPLICATION_PASSWORD: ${{ secrets.WORDPRESS_APPLICATION_PASSWORD }}
+          WORDPRESS_PREVIEW_SECRET: ${{ secrets.WORDPRESS_PREVIEW_SECRET }}
+          WORDPRESS_URL: ${{ secrets.WORDPRESS_URL }}
+          WORDPRESS_MULTISITE_PREFIX: ${{ secrets.WORDPRESS_MULTISITE_PREFIX }}
+          HURUMAP_API_URL: ${{ secrets.HURUMAP_API_URL }}
         with:
           files: docker-bake.hcl
           targets: ${{ inputs.target }}

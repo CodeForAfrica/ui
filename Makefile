@@ -28,7 +28,7 @@ mongodb-keyfile:
 	chmod 600 ./mongo-keyfile
 
 pesayetu:
-	./scripts/dc.sh pesayetu
+	./scripts/bake-up.sh pesayetu
 
 roboshield:
 	./scripts/dc.sh roboshield

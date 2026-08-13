@@ -71,7 +71,7 @@ group "base" {
 }
 
 group "apps" {
-  targets = ["techlabblog", "trustlab"]
+  targets = ["pesayetu", "techlabblog", "trustlab"]
 }
 
 # Prefer explicit targets/groups for predictability.
@@ -157,6 +157,49 @@ target "_payload-app-runner" {
   secret = [
     "type=env,id=database_url,env=DATABASE_URL",
     "type=env,id=payload_secret,env=PAYLOAD_SECRET",
+  ]
+}
+
+# pesayetu fetches content from WordPress (WPGraphQL) during static generation,
+# so these are real build args, not just runtime config. They default to empty
+# so the image still builds without them; pages that depend on WordPress data
+# just fail to prerender, matching the pre-migration Dockerfile's behavior.
+variable "WORDPRESS_URL" {
+  default = ""
+}
+
+variable "WORDPRESS_MULTISITE_PREFIX" {
+  default = "/pesayetu"
+}
+
+variable "HURUMAP_API_URL" {
+  default = ""
+}
+
+# Public config (not a secret) — inlined into the client bundle at build time,
+# so it must be set here rather than left to Dokku runtime config:set.
+variable "NEXT_PUBLIC_APP_URL" {
+  default = ""
+}
+
+target "pesayetu" {
+  inherits   = ["_app-runner"]
+  dockerfile = "docker/apps/pesayetu/Dockerfile"
+  tags       = ["${REGISTRY}pesayetu:${TAG}"]
+  args = {
+    WORDPRESS_URL              = "${WORDPRESS_URL}"
+    WORDPRESS_MULTISITE_PREFIX = "${WORDPRESS_MULTISITE_PREFIX}"
+    HURUMAP_API_URL            = "${HURUMAP_API_URL}"
+    NEXT_PUBLIC_APP_URL        = "${NEXT_PUBLIC_APP_URL}"
+  }
+  # sentry_auth_token/org/project are inherited from _app but intentionally
+  # unused here — pesayetu has no @sentry/nextjs dependency, so there's
+  # nothing to upload source maps for. Harmless no-op mounts, not wired below.
+  secret = [
+    "type=env,id=jwt_secret_key,env=JWT_SECRET_KEY",
+    "type=env,id=wordpress_application_username,env=WORDPRESS_APPLICATION_USERNAME",
+    "type=env,id=wordpress_application_password,env=WORDPRESS_APPLICATION_PASSWORD",
+    "type=env,id=wordpress_preview_secret,env=WORDPRESS_PREVIEW_SECRET",
   ]
 }
 

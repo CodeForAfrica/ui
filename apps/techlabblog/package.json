@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build:next": "next build",
+    "copy:assets": "cp -r public .next/standalone/apps/techlabblog/public && cp -r .next/static .next/standalone/apps/techlabblog/.next/static",
+    "build": "pnpm run build:next && pnpm run copy:assets",
+    "start": "node --env-file-if-exists=.env --env-file-if-exists=.env.local .next/standalone/apps/techlabblog/server.js",
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "clean": "rm -rf .next .turbo node_modules"

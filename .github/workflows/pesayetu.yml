@@ -1,0 +1,108 @@
+name: Pesayetu
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/pesayetu/**"
+      - "docker/apps/pesayetu/**"
+      - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-pesayetu.yml"
+      - ".github/workflows/pesayetu.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # Checks whether apps/pesayetu/package.json has a version bump.
+  # The prod deploy is gated on this: every push triggers a build, but only
+  # a version bump triggers a prod deploy.
+  version-check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04]
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v3
+        with:
+          diff-search: true
+          file-name: apps/pesayetu/package.json
+
+  # Builds the pesayetu image and pushes it to DockerHub. Always tagged with
+  # the git SHA. When the version is bumped, also tagged with the semver and
+  # `latest` — all three pushed in a single bake invocation.
+  #
+  # Tag strategy:
+  #   codeforafrica/pesayetu:<sha>      — every push (immutable, for tracing)
+  #   codeforafrica/pesayetu:<version>  — version bump only (immutable, for releases)
+  #   codeforafrica/pesayetu:latest     — version bump only (mutable, for convenience)
+  #
+  # Required GitHub Variables:
+  #   UI_BASE_TAG, PESAYETU_APP_URL (public canonical URL, inlined into the
+  #   client bundle at build time — e.g. https://pesayetu.pesacheck.org)
+  #
+  # Required GitHub Secrets:
+  #   PESAYETU_WORDPRESS_URL, PESAYETU_WORDPRESS_MULTISITE_PREFIX,
+  #   PESAYETU_HURUMAP_API_URL, PESAYETU_JWT_SECRET_KEY,
+  #   PESAYETU_WORDPRESS_APPLICATION_USERNAME, PESAYETU_WORDPRESS_APPLICATION_PASSWORD,
+  #   PESAYETU_WORDPRESS_PREVIEW_SECRET
+  build:
+    needs: version-check
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-pesayetu.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ github.sha }}
+      push: true
+      app_url: ${{ vars.PESAYETU_APP_URL }}
+      # `tag` supplies the SHA tag; append release aliases without replacing it.
+      set: |
+        ${{ needs.version-check.outputs.changed == 'true' && format('pesayetu.tags+=codeforafrica/pesayetu:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'pesayetu.tags+=codeforafrica/pesayetu:latest' || '' }}
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      WORDPRESS_URL: ${{ secrets.PESAYETU_WORDPRESS_URL }}
+      WORDPRESS_MULTISITE_PREFIX: ${{ secrets.PESAYETU_WORDPRESS_MULTISITE_PREFIX }}
+      HURUMAP_API_URL: ${{ secrets.PESAYETU_HURUMAP_API_URL }}
+      JWT_SECRET_KEY: ${{ secrets.PESAYETU_JWT_SECRET_KEY }}
+      WORDPRESS_APPLICATION_USERNAME: ${{ secrets.PESAYETU_WORDPRESS_APPLICATION_USERNAME }}
+      WORDPRESS_APPLICATION_PASSWORD: ${{ secrets.PESAYETU_WORDPRESS_APPLICATION_PASSWORD }}
+      WORDPRESS_PREVIEW_SECRET: ${{ secrets.PESAYETU_WORDPRESS_PREVIEW_SECRET }}
+
+  # Deploys to production when the package.json version is bumped.
+  # Both version-check and build must pass before this job runs.
+  deploy-prod:
+    needs: [version-check, build]
+    if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/pesayetu-ui"
+      deploy_docker_image: "codeforafrica/pesayetu:${{ needs.version-check.outputs.version }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

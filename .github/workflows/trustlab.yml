@@ -59,10 +59,10 @@ jobs:
       base_tag: ${{ vars.UI_BASE_TAG }}
       tag: ${{ github.sha }}
       push: true
+      # `tag` supplies the SHA tag; append release aliases without replacing it.
       set: |
-        ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', github.sha) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && 'trustlab.tags=codeforafrica/trustlab:latest' || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('trustlab.tags+=codeforafrica/trustlab:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'trustlab.tags+=codeforafrica/trustlab:latest' || '' }}
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}

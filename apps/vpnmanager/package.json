@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:next": "next build",
+    "build": "pnpm run build:next",
     "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/vpnmanager/server.js",
     "lint:check": "eslint .",
     "lint": "eslint --fix .",

@@ -1,0 +1,14 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["TRACING_ROOT"]
+    },
+    "build:next": {
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["TRACING_ROOT"]
+    }
+  }
+}

@@ -4,8 +4,10 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
+      - "apps/pesayetu/**"
       - "apps/techlabblog/**"
       - "apps/trustlab/**"
+      - "docker/apps/pesayetu/**"
       - "docker/apps/techlabblog/**"
       - "docker/apps/trustlab/**"
       - "docker-bake.hcl"
@@ -18,8 +20,10 @@ on:
       - "scripts/pr-build-targets.mjs"
       - "scripts/pr-build-targets.test.mjs"
       - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-pesayetu.yml"
       - ".github/workflows/_build-techlabblog.yml"
       - ".github/workflows/_build-trustlab.yml"
+      - ".github/workflows/pesayetu.yml"
       - ".github/workflows/pr-build.yml"
       - ".github/workflows/techlabblog.yml"
       - ".github/workflows/trustlab.yml"
@@ -91,6 +95,31 @@ jobs:
             --base "${{ github.event.pull_request.base.sha }}" \
             --head "${{ github.event.pull_request.head.sha }}"
 
+  build-pesayetu:
+    name: Build pesayetu image
+    needs: affected
+    if: ${{ contains(fromJSON(needs.affected.outputs.targets), 'pesayetu') }}
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-pesayetu.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+      push: false
+      app_url: ${{ vars.PESAYETU_APP_URL }}
+    secrets:
+      WORDPRESS_URL: ${{ secrets.PESAYETU_WORDPRESS_URL }}
+      WORDPRESS_MULTISITE_PREFIX: ${{ secrets.PESAYETU_WORDPRESS_MULTISITE_PREFIX }}
+      HURUMAP_API_URL: ${{ secrets.PESAYETU_HURUMAP_API_URL }}
+      # Preview/authentication paths are not exercised during static generation.
+      # Keep their build-secret mounts populated without exposing production credentials
+      # to code from a pull request.
+      JWT_SECRET_KEY: pr-build-unused
+      WORDPRESS_APPLICATION_USERNAME: pr-build-unused
+      WORDPRESS_APPLICATION_PASSWORD: pr-build-unused
+      WORDPRESS_PREVIEW_SECRET: pr-build-unused
+
   build-techlabblog:
     name: Build techlabblog image
     needs: affected
@@ -105,9 +134,11 @@ jobs:
       push: false
       sentry_environment: ci
     secrets:
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.TECHLABBLOG_SENTRY_PROJECT }}
+      # TechLab Blog has no active Sentry build integration. Preserve the
+      # reusable workflow's secret-mount contract without exposing credentials.
+      SENTRY_AUTH_TOKEN: pr-build-unused
+      SENTRY_ORG: pr-build-unused
+      SENTRY_PROJECT: pr-build-unused
 
   build-trustlab:
     name: Build trustlab image
@@ -122,8 +153,10 @@ jobs:
       tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
       push: false
     secrets:
+      # Payload connects while generating the sitemap, so PR builds need a
+      # reachable database. The remaining secrets are not required to compile.
       DATABASE_URL: ${{ secrets.TRUSTLAB_MONGO_URL }}
-      PAYLOAD_SECRET: ${{ secrets.TRUSTLAB_PAYLOAD_SECRET }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.TRUSTLAB_SENTRY_PROJECT }}
+      PAYLOAD_SECRET: pr-build-unused
+      SENTRY_AUTH_TOKEN: pr-build-unused
+      SENTRY_ORG: pr-build-unused
+      SENTRY_PROJECT: pr-build-unused

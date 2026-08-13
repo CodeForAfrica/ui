@@ -82,10 +82,10 @@ jobs:
       tag: ${{ github.sha }}
       push: true
       sentry_environment: production
+      # `tag` supplies the SHA tag; append release aliases without replacing it.
       set: |
-        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', github.sha) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
-        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags=codeforafrica/techlabblog:latest' || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && format('techlabblog.tags+=codeforafrica/techlabblog:{0}', needs.version-check.outputs.version) || '' }}
+        ${{ needs.version-check.outputs.changed == 'true' && 'techlabblog.tags+=codeforafrica/techlabblog:latest' || '' }}
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}

@@ -21,7 +21,7 @@ Apps checked below have migrated to the per-app Dockerfile pattern under
 - [ ] `civicsignalblog`
 - [ ] `climatemappedafrica`
 - [ ] `codeforafrica`
-- [ ] `pesayetu`
+- [x] `pesayetu`
 - [ ] `roboshield`
 - [x] `techlabblog`
 - [x] `trustlab`
@@ -146,8 +146,16 @@ target "<app>" {
 	./scripts/bake-up.sh <app>
 ```
 
-6. Copy `.github/workflows/techlabblog.yml` to `.github/workflows/<app>.yml` and update
+6. Copy `.github/workflows/techlabblog.yml` and `.github/workflows/_build-techlabblog.yml`
+   to `.github/workflows/<app>.yml` and `.github/workflows/_build-<app>.yml`, and update
    the `paths` filter, `target`, `file-name`, image references, and Dokku remote URL.
 
 7. If the app deploys via Dokku, add `docker/apps/<app>/app.json` and copy it into the
    runtime image `WORKDIR`.
+
+8. Add `<app>` to `BUILD_TARGET_CONFIG` in `scripts/pr-build-targets.mjs` (and
+   `.github/workflows/_build-<app>.yml` to `GLOBAL_BUILD_FILES` if it exists), add a
+   matching `build-<app>` job to `.github/workflows/pr-build.yml`, and add `apps/<app>/**`,
+   `docker/apps/<app>/**`, `.github/workflows/_build-<app>.yml`, and `.github/workflows/<app>.yml`
+   to `pr-build.yml`'s `paths` filter. Without this, PRs touching `<app>` get no pre-merge
+   build validation — breakage is only caught after merging to `main`.

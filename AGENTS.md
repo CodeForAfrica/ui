@@ -21,7 +21,7 @@ pnpm dev --filter=<app>   # Run a single app (e.g., --filter=techlabblog)
 ```bash
 pnpm build            # Build all apps and packages (respects dependency order)
 pnpm build --filter=<app>   # Build a single app
-pnpm build-next       # Build only Next.js apps
+pnpm build:next       # Build only Next.js apps
 pnpm build-payload    # Build Payload CMS
 ```
 
