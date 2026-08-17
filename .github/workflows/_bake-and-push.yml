@@ -63,7 +63,11 @@ on:
         required: false
       DOCKER_HUB_ACCESS_TOKEN:
         required: false
+      MONGO_URL:
+        required: false
       PAYLOAD_SECRET:
+        required: false
+      NEXT_PUBLIC_SENTRY_DSN:
         required: false
       SENTRY_AUTH_TOKEN:
         required: false
@@ -125,7 +129,9 @@ jobs:
           GIT_REVISION: ${{ github.sha }}
           BUILD_DATE: ${{ steps.meta.outputs.date }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          MONGO_URL: ${{ secrets.MONGO_URL }}
           PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}

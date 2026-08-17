@@ -1,0 +1,129 @@
+name: RoboShield
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/roboshield/**"
+      - "docker/apps/roboshield/**"
+      - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-roboshield.yml"
+      - ".github/workflows/roboshield.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # Checks whether apps/roboshield/package.json has a version bump.
+  # The prod deploy is gated on this: every push triggers a dev build+deploy,
+  # only a version bump triggers a prod build+deploy.
+  version-check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04]
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v3
+        with:
+          diff-search: true
+          file-name: apps/roboshield/package.json
+
+  # Builds the DEV image and pushes it to DockerHub on every push. roboshield
+  # bakes its canonical URL into the client bundle (NEXT_PUBLIC_APP_URL), and
+  # DEV/PROD use different Dokku apps with different URLs, so — unlike
+  # techlabblog/trustlab which build once and promote — DEV and PROD each get
+  # their own build, matching the pre-bake two-workflow setup this replaces.
+  #
+  # Required GitHub Secrets:
+  #   ROBOSHIELD_MONGO_URL, ROBOSHIELD_PAYLOAD_SECRET, ROBOSHIELD_SENTRY_DSN,
+  #   ROBOSHIELD_SENTRY_PROJECT, SENTRY_AUTH_TOKEN, SENTRY_ORG, UI_BASE_TAG (var)
+  build-dev:
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-roboshield.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ github.sha }}
+      push: true
+      app_url: "https://roboshield-ui.dev.codeforafrica.org"
+      sentry_environment: development
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      MONGO_URL: ${{ secrets.ROBOSHIELD_MONGO_URL }}
+      PAYLOAD_SECRET: ${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
+      NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.ROBOSHIELD_SENTRY_DSN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
+
+  deploy-dev:
+    needs: build-dev
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/roboshield-ui"
+      deploy_docker_image: "codeforafrica/roboshield:${{ github.sha }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  # Builds the PROD image only when the package.json version is bumped, using
+  # the PROD canonical URL and the semver tag.
+  build-prod:
+    needs: version-check
+    if: needs.version-check.outputs.changed == 'true'
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-roboshield.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ needs.version-check.outputs.version }}
+      push: true
+      app_url: "https://roboshield.trustlab.africa"
+      sentry_environment: production
+      set: |
+        roboshield.tags+=codeforafrica/roboshield:latest
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      MONGO_URL: ${{ secrets.ROBOSHIELD_MONGO_URL }}
+      PAYLOAD_SECRET: ${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
+      NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.ROBOSHIELD_SENTRY_DSN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
+
+  deploy-prod:
+    needs: [version-check, build-prod]
+    if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/roboshield-ui"
+      deploy_docker_image: "codeforafrica/roboshield:${{ needs.version-check.outputs.version }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

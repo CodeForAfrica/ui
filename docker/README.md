@@ -22,7 +22,7 @@ Apps checked below have migrated to the per-app Dockerfile pattern under
 - [ ] `climatemappedafrica`
 - [ ] `codeforafrica`
 - [x] `pesayetu`
-- [ ] `roboshield`
+- [x] `roboshield`
 - [x] `techlabblog`
 - [x] `trustlab`
 - [ ] `twoopstracker`
