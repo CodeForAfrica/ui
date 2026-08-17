@@ -64,6 +64,7 @@
     "tsconfig-paths": "catalog:"
   },
   "devDependencies": {
+    "@babel/preset-react": "catalog:",
     "@svgr/webpack": "catalog:",
     "@types/express": "catalog:",
     "@types/node": "catalog:",
