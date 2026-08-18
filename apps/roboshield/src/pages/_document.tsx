@@ -17,6 +17,17 @@ import theme from "@/roboshield/theme";
 export default function MyDocument(
   props: DocumentProps & DocumentHeadTagsProps,
 ) {
+  // Read fresh on every server render and exposed to client code via
+  // `window` (see src/utils/site.ts) instead of NEXT_PUBLIC_SENTRY_DSN,
+  // so it can be changed via Dokku config without rebuilding the image.
+  // NOTE: this only covers Pages Router routes — Payload's App Router admin
+  // panel (src/app/(payload)/layout.tsx) is generated and must not be
+  // edited, so instrumentation-client.ts falls back to the build-time
+  // NEXT_PUBLIC_SENTRY_DSN there.
+  const runtimeConfig = JSON.stringify({
+    SENTRY_DSN: process.env.SENTRY_DSN,
+  });
+
   return (
     <Html lang="en">
       <Head>
@@ -43,6 +54,11 @@ export default function MyDocument(
         <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `Object.assign(window, ${runtimeConfig});`,
+          }}
+        />
         <DocumentHeadTags {...props} />
       </Head>
       <body>

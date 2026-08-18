@@ -4,7 +4,13 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN;
+import site from "@/roboshield/utils/site";
+
+// site.sentryDsn is injected into `window` by _document.tsx at request time
+// (Pages Router only). NEXT_PUBLIC_SENTRY_DSN is a build-time fallback for
+// Payload's generated App Router admin panel, which has no equivalent
+// injection point.
+const SENTRY_DSN = site.sentryDsn ?? process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 Sentry.init({
   dsn: SENTRY_DSN,

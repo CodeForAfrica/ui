@@ -5,8 +5,13 @@
 
 import * as Sentry from "@sentry/nextjs";
 
+import site from "@/roboshield/utils/site";
+
 Sentry.init({
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  // Read directly from process.env — no build-time NEXT_PUBLIC_ inlining
+  // needed in the edge runtime, so the DSN can be changed via Dokku config
+  // alone.
+  dsn: site.sentryDsn,
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
