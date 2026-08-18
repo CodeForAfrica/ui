@@ -38,7 +38,7 @@ COPY --from=pruned /workspace/out/full/ ./
 # supplied at runtime via Dokku config, not baked into the image.
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 
-RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
+RUN --mount=type=secret,id=database_url,env=DATABASE_URL \
   --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
   --mount=type=secret,id=next_public_sentry_dsn,env=NEXT_PUBLIC_SENTRY_DSN \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \

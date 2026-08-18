@@ -23,10 +23,11 @@ describe("pr-build-targets", () => {
     assert.deepEqual(
       directBuildTargets([
         "docker/apps/pesayetu/Dockerfile",
+        "docker/apps/roboshield/Dockerfile",
         "docker/apps/techlabblog/Dockerfile",
         ".github/workflows/trustlab.yml",
       ]),
-      ["pesayetu", "techlabblog", "trustlab"],
+      ["pesayetu", "roboshield", "techlabblog", "trustlab"],
     );
   });
 

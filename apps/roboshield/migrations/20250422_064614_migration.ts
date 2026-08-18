@@ -1,7 +1,10 @@
 import { MigrateDownArgs, MigrateUpArgs } from "@payloadcms/db-mongodb";
 import mongoose from "mongoose";
 
-const mongoURL = process.env.MONGO_URL || "";
+// MONGO_URL is a fallback for Dokku environments not yet updated to the
+// standardized DATABASE_URL config var; remove once all environments have
+// been migrated.
+const mongoURL = process.env.DATABASE_URL || process.env.MONGO_URL || "";
 const { ObjectId } = mongoose.Types;
 
 export async function up({ payload }: MigrateUpArgs): Promise<void> {

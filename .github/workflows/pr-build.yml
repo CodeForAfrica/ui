@@ -5,9 +5,11 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - "apps/pesayetu/**"
+      - "apps/roboshield/**"
       - "apps/techlabblog/**"
       - "apps/trustlab/**"
       - "docker/apps/pesayetu/**"
+      - "docker/apps/roboshield/**"
       - "docker/apps/techlabblog/**"
       - "docker/apps/trustlab/**"
       - "docker-bake.hcl"
@@ -21,10 +23,12 @@ on:
       - "scripts/pr-build-targets.test.mjs"
       - ".github/workflows/_bake-and-push.yml"
       - ".github/workflows/_build-pesayetu.yml"
+      - ".github/workflows/_build-roboshield.yml"
       - ".github/workflows/_build-techlabblog.yml"
       - ".github/workflows/_build-trustlab.yml"
       - ".github/workflows/pesayetu.yml"
       - ".github/workflows/pr-build.yml"
+      - ".github/workflows/roboshield.yml"
       - ".github/workflows/techlabblog.yml"
       - ".github/workflows/trustlab.yml"
 
@@ -119,6 +123,32 @@ jobs:
       WORDPRESS_APPLICATION_USERNAME: pr-build-unused
       WORDPRESS_APPLICATION_PASSWORD: pr-build-unused
       WORDPRESS_PREVIEW_SECRET: pr-build-unused
+
+  build-roboshield:
+    name: Build roboshield image
+    needs: affected
+    if: ${{ contains(fromJSON(needs.affected.outputs.targets), 'roboshield') }}
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-roboshield.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+      push: false
+      app_url: "http://localhost:3000"
+      sentry_environment: ci
+    secrets:
+      # Payload's mongooseAdapter is not queried during static generation, so
+      # PR builds don't need a reachable database — a well-formed but unused
+      # connection string is enough to satisfy the build. The remaining
+      # secrets are not required to compile either.
+      DATABASE_URL: "mongodb://pr-build-unused/pr-build-unused"
+      PAYLOAD_SECRET: pr-build-unused
+      NEXT_PUBLIC_SENTRY_DSN: pr-build-unused
+      SENTRY_AUTH_TOKEN: pr-build-unused
+      SENTRY_ORG: pr-build-unused
+      SENTRY_PROJECT: pr-build-unused
 
   build-techlabblog:
     name: Build techlabblog image

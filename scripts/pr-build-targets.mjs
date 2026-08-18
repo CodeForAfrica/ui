@@ -17,6 +17,12 @@ export const BUILD_TARGET_CONFIG = {
       "docker/apps/pesayetu/",
     ],
   },
+  roboshield: {
+    directBuildInputPaths: [
+      ".github/workflows/roboshield.yml",
+      "docker/apps/roboshield/",
+    ],
+  },
   techlabblog: {
     directBuildInputPaths: [
       ".github/workflows/techlabblog.yml",
@@ -35,6 +41,7 @@ export const BUILD_TARGET_CONFIG = {
 const GLOBAL_BUILD_FILES = new Set([
   ".github/workflows/_bake-and-push.yml",
   ".github/workflows/_build-pesayetu.yml",
+  ".github/workflows/_build-roboshield.yml",
   ".github/workflows/_build-techlabblog.yml",
   ".github/workflows/_build-trustlab.yml",
   ".github/workflows/pr-build.yml",

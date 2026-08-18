@@ -210,7 +210,7 @@ target "pesayetu" {
 }
 
 target "roboshield" {
-  inherits   = ["_app-runner"]
+  inherits   = ["_payload-app-runner"]
   dockerfile = "docker/apps/roboshield/Dockerfile"
   tags       = ["${REGISTRY}roboshield:${TAG}"]
   # roboshield builds a URL from NEXT_PUBLIC_APP_URL at module-eval time
@@ -221,13 +221,10 @@ target "roboshield" {
     NEXT_PUBLIC_APP_URL = "${NEXT_PUBLIC_APP_URL}"
     SENTRY_ENVIRONMENT  = "${SENTRY_ENVIRONMENT}"
   }
-  # sentry_auth_token/org/project are inherited from _app. mongo_url,
-  # payload_secret, and next_public_sentry_dsn are roboshield-specific
-  # (Payload CMS) — added here rather than via _payload-app-runner since
-  # roboshield reads MONGO_URL, not DATABASE_URL like _payload-app-runner.
+  # database_url/payload_secret/sentry_auth_token/org/project are inherited
+  # from _payload-app-runner/_app. next_public_sentry_dsn is the only
+  # roboshield-specific addition needed here.
   secret = [
-    "type=env,id=mongo_url,env=MONGO_URL",
-    "type=env,id=payload_secret,env=PAYLOAD_SECRET",
     "type=env,id=next_public_sentry_dsn,env=NEXT_PUBLIC_SENTRY_DSN",
   ]
 }

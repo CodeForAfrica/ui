@@ -33,7 +33,7 @@ on:
         required: false
       DOCKER_HUB_ACCESS_TOKEN:
         required: false
-      MONGO_URL:
+      DATABASE_URL:
         required: false
       PAYLOAD_SECRET:
         required: false
@@ -69,7 +69,7 @@ jobs:
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      MONGO_URL: ${{ secrets.MONGO_URL }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
       NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
