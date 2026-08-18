@@ -221,12 +221,9 @@ target "roboshield" {
     NEXT_PUBLIC_APP_URL = "${NEXT_PUBLIC_APP_URL}"
     SENTRY_ENVIRONMENT  = "${SENTRY_ENVIRONMENT}"
   }
-  # database_url/payload_secret/sentry_auth_token/org/project are inherited
-  # from _payload-app-runner/_app. next_public_sentry_dsn is the only
-  # roboshield-specific addition needed here.
-  secret = [
-    "type=env,id=next_public_sentry_dsn,env=NEXT_PUBLIC_SENTRY_DSN",
-  ]
+  # database_url/payload_secret/sentry_auth_token/org/project are all
+  # inherited from _payload-app-runner/_app — no roboshield-specific
+  # secrets needed.
 }
 
 target "techlabblog" {

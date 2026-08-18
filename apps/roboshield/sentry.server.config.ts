@@ -7,8 +7,6 @@ import * as Sentry from "@sentry/nextjs";
 import site from "@/roboshield/utils/site";
 
 Sentry.init({
-  // Read directly from process.env — no build-time NEXT_PUBLIC_ inlining
-  // needed server-side, so the DSN can be changed via Dokku config alone.
   dsn: site.sentryDsn,
 
   // Adjust this value in production, or use tracesSampler for greater control

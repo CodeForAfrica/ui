@@ -40,7 +40,6 @@ ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 
 RUN --mount=type=secret,id=database_url,env=DATABASE_URL \
   --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
-  --mount=type=secret,id=next_public_sentry_dsn,env=NEXT_PUBLIC_SENTRY_DSN \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \

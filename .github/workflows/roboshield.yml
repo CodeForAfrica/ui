@@ -57,7 +57,7 @@ jobs:
   # their own build, matching the pre-bake two-workflow setup this replaces.
   #
   # Required GitHub Secrets:
-  #   ROBOSHIELD_MONGO_URL, ROBOSHIELD_PAYLOAD_SECRET, ROBOSHIELD_SENTRY_DSN,
+  #   ROBOSHIELD_MONGO_URL, ROBOSHIELD_PAYLOAD_SECRET,
   #   ROBOSHIELD_SENTRY_PROJECT, SENTRY_AUTH_TOKEN, SENTRY_ORG, UI_BASE_TAG (var)
   build-dev:
     permissions:
@@ -75,7 +75,6 @@ jobs:
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       DATABASE_URL: ${{ secrets.ROBOSHIELD_MONGO_URL }}
       PAYLOAD_SECRET: ${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
-      NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.ROBOSHIELD_SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}
@@ -112,7 +111,6 @@ jobs:
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       DATABASE_URL: ${{ secrets.ROBOSHIELD_MONGO_URL }}
       PAYLOAD_SECRET: ${{ secrets.ROBOSHIELD_PAYLOAD_SECRET }}
-      NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.ROBOSHIELD_SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.ROBOSHIELD_SENTRY_PROJECT }}

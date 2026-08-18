@@ -145,7 +145,6 @@ jobs:
       # secrets are not required to compile either.
       DATABASE_URL: "mongodb://pr-build-unused/pr-build-unused"
       PAYLOAD_SECRET: pr-build-unused
-      NEXT_PUBLIC_SENTRY_DSN: pr-build-unused
       SENTRY_AUTH_TOKEN: pr-build-unused
       SENTRY_ORG: pr-build-unused
       SENTRY_PROJECT: pr-build-unused

@@ -16,10 +16,6 @@ if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   );
 }
 
-// Read fresh on every server render and injected into `window` by
-// _document.tsx (see the comment there), rather than inlined via
-// NEXT_PUBLIC_SENTRY_DSN at build time — matches trustlab's pattern, and
-// means the DSN can be changed via Dokku config without a rebuild.
 const isClient = typeof window !== "undefined";
 const sentryDsn = isClient
   ? (window as typeof window & { SENTRY_DSN?: string }).SENTRY_DSN
