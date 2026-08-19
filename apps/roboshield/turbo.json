@@ -28,7 +28,6 @@
       "env": [
         "DATABASE_URL",
         "MIGRATIONS_DIR",
-        "MONGO_URL",
         "PAYLOAD_CORS",
         "PAYLOAD_CSRF",
         "PAYLOAD_PUBLIC_APP_URL",

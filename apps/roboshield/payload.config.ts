@@ -54,10 +54,7 @@ export default buildConfig({
     ],
   }),
   db: mongooseAdapter({
-    // MONGO_URL is a fallback for Dokku environments not yet updated to the
-    // standardized DATABASE_URL config var; remove once all environments
-    // have been migrated.
-    url: process.env.DATABASE_URL ?? process.env.MONGO_URL ?? false,
+    url: process.env.DATABASE_URL ?? false,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
   collections: [Media, Pages, Users] as CollectionConfig[],
