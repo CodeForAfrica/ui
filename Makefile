@@ -31,7 +31,7 @@ pesayetu:
 	./scripts/bake-up.sh pesayetu
 
 roboshield:
-	./scripts/dc.sh roboshield
+	./scripts/bake-up.sh roboshield
 
 techlabblog:
 	./scripts/bake-up.sh techlabblog

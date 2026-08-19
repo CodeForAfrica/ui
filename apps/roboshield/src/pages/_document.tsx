@@ -17,6 +17,10 @@ import theme from "@/roboshield/theme";
 export default function MyDocument(
   props: DocumentProps & DocumentHeadTagsProps,
 ) {
+  const runtimeConfig = JSON.stringify({
+    SENTRY_DSN: process.env.SENTRY_DSN,
+  });
+
   return (
     <Html lang="en">
       <Head>
@@ -43,6 +47,11 @@ export default function MyDocument(
         <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `Object.assign(window, ${runtimeConfig});`,
+          }}
+        />
         <DocumentHeadTags {...props} />
       </Head>
       <body>

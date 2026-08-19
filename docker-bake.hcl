@@ -71,7 +71,7 @@ group "base" {
 }
 
 group "apps" {
-  targets = ["pesayetu", "techlabblog", "trustlab"]
+  targets = ["pesayetu", "roboshield", "techlabblog", "trustlab"]
 }
 
 # Prefer explicit targets/groups for predictability.
@@ -182,6 +182,12 @@ variable "NEXT_PUBLIC_APP_URL" {
   default = ""
 }
 
+# Sentry environment tag baked into the app. Defaults to "local" (rather than
+# "") for a sane out-of-the-box `make <app>` build; CI overrides it per target.
+variable "SENTRY_ENVIRONMENT" {
+  default = "local"
+}
+
 target "pesayetu" {
   inherits   = ["_app-runner"]
   dockerfile = "docker/apps/pesayetu/Dockerfile"
@@ -201,6 +207,23 @@ target "pesayetu" {
     "type=env,id=wordpress_application_password,env=WORDPRESS_APPLICATION_PASSWORD",
     "type=env,id=wordpress_preview_secret,env=WORDPRESS_PREVIEW_SECRET",
   ]
+}
+
+target "roboshield" {
+  inherits   = ["_payload-app-runner"]
+  dockerfile = "docker/apps/roboshield/Dockerfile"
+  tags       = ["${REGISTRY}roboshield:${TAG}"]
+  # roboshield builds a URL from NEXT_PUBLIC_APP_URL at module-eval time
+  # (src/pages/api/draft.ts) — unlike pesayetu, which degrades gracefully,
+  # an empty value throws during `next build`'s page-data collection, so
+  # both args must resolve to a real value even for local `make` builds.
+  args = {
+    NEXT_PUBLIC_APP_URL = "${NEXT_PUBLIC_APP_URL}"
+    SENTRY_ENVIRONMENT  = "${SENTRY_ENVIRONMENT}"
+  }
+  # database_url/payload_secret/sentry_auth_token/org/project are all
+  # inherited from _payload-app-runner/_app — no roboshield-specific
+  # secrets needed.
 }
 
 target "techlabblog" {

@@ -4,10 +4,10 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN;
+import site from "@/roboshield/utils/site";
 
 Sentry.init({
-  dsn: SENTRY_DSN,
+  dsn: site.sentryDsn,
 
   // Add optional integrations for additional features
   integrations: [

@@ -7,6 +7,7 @@
         "NEXT_RUNTIME",
         "PROJECT_ROOT",
         "SENTRY_AUTH_TOKEN",
+        "SENTRY_DSN",
         "SENTRY_ORG",
         "SENTRY_PROJECT"
       ]
@@ -17,6 +18,7 @@
         "NEXT_RUNTIME",
         "PROJECT_ROOT",
         "SENTRY_AUTH_TOKEN",
+        "SENTRY_DSN",
         "SENTRY_ORG",
         "SENTRY_PROJECT"
       ]
@@ -24,8 +26,8 @@
     "build-payload": {
       "outputs": ["build/**"],
       "env": [
+        "DATABASE_URL",
         "MIGRATIONS_DIR",
-        "MONGO_URL",
         "PAYLOAD_CORS",
         "PAYLOAD_CSRF",
         "PAYLOAD_PUBLIC_APP_URL",

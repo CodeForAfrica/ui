@@ -4,8 +4,10 @@
 
 import * as Sentry from "@sentry/nextjs";
 
+import site from "@/roboshield/utils/site";
+
 Sentry.init({
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  dsn: site.sentryDsn,
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,

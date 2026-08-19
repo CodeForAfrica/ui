@@ -1,7 +1,7 @@
 import { MigrateDownArgs, MigrateUpArgs } from "@payloadcms/db-mongodb";
 import mongoose from "mongoose";
 
-const mongoURL = process.env.MONGO_URL || "";
+const mongoURL = process.env.DATABASE_URL || "";
 const { ObjectId } = mongoose.Types;
 
 export async function up({ payload }: MigrateUpArgs): Promise<void> {

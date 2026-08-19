@@ -54,7 +54,7 @@ export default buildConfig({
     ],
   }),
   db: mongooseAdapter({
-    url: process.env.MONGO_URL ?? false,
+    url: process.env.DATABASE_URL ?? false,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
   collections: [Media, Pages, Users] as CollectionConfig[],

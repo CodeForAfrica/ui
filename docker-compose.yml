@@ -108,17 +108,7 @@ services:
       - 3000:3000
 
   roboshield:
-    build:
-      secrets:
-        - mongo_url
-        - payload_secret
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-      context: .
-      target: roboshield-runner
-      args:
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    image: codeforafrica/roboshield:${TAG:-local}
     env_file:
       - path: ./apps/roboshield/.env
       - path: ./apps/roboshield/.env.local

@@ -16,9 +16,15 @@ if (process.env.NEXT_PUBLIC_VERCEL_ENV === "preview") {
   );
 }
 
+const isClient = typeof window !== "undefined";
+const sentryDsn = isClient
+  ? (window as typeof window & { SENTRY_DSN?: string }).SENTRY_DSN
+  : process.env.SENTRY_DSN;
+
 const site = {
   environmentUrl,
   name,
+  sentryDsn,
   url,
 };
 
