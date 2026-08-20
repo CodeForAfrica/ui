@@ -210,6 +210,9 @@ catalogs:
     airtable:
       specifier: ^0.12.2
       version: 0.12.2
+    ajv:
+      specifier: 8.14.0
+      version: 8.14.0
     apollo-link-rest:
       specifier: ^0.9.0
       version: 0.9.0
@@ -842,6 +845,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 18.3.28
+      ajv:
+        specifier: 'catalog:'
+        version: 8.14.0
       babel-jest:
         specifier: 'catalog:'
         version: 30.3.0(@babel/core@7.29.0)
@@ -1270,6 +1276,9 @@ importers:
       '@svgr/webpack':
         specifier: 'catalog:'
         version: 8.1.0(typescript@5.9.3)
+      '@types/express':
+        specifier: 'catalog:'
+        version: 4.17.25
       '@types/node':
         specifier: 'catalog:'
         version: 20.19.39
@@ -1478,6 +1487,9 @@ importers:
       '@types/react':
         specifier: 'catalog:'
         version: 18.3.28
+      ajv:
+        specifier: 'catalog:'
+        version: 8.14.0
       babel-jest:
         specifier: 'catalog:'
         version: 30.3.0(@babel/core@7.29.0)

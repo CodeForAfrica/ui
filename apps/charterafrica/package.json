@@ -97,6 +97,7 @@
     "@types/express": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
+    "ajv": "catalog:",
     "babel-jest": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",

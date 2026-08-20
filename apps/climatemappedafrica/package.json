@@ -99,6 +99,7 @@
     "@material-ui/codemod": "catalog:",
     "@playwright/test": "catalog:",
     "@svgr/webpack": "catalog:",
+    "@types/express": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "apollo-link-rest": "catalog:",
