@@ -5,11 +5,13 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - "apps/climatemappedafrica/**"
+      - "apps/codeforafrica/**"
       - "apps/pesayetu/**"
       - "apps/roboshield/**"
       - "apps/techlabblog/**"
       - "apps/trustlab/**"
       - "docker/apps/climatemappedafrica/**"
+      - "docker/apps/codeforafrica/**"
       - "docker/apps/pesayetu/**"
       - "docker/apps/roboshield/**"
       - "docker/apps/techlabblog/**"
@@ -25,11 +27,13 @@ on:
       - "scripts/pr-build-targets.test.mjs"
       - ".github/workflows/_bake-and-push.yml"
       - ".github/workflows/_build-climatemappedafrica.yml"
+      - ".github/workflows/_build-codeforafrica.yml"
       - ".github/workflows/_build-pesayetu.yml"
       - ".github/workflows/_build-roboshield.yml"
       - ".github/workflows/_build-techlabblog.yml"
       - ".github/workflows/_build-trustlab.yml"
       - ".github/workflows/climatemappedafrica.yml"
+      - ".github/workflows/codeforafrica.yml"
       - ".github/workflows/pesayetu.yml"
       - ".github/workflows/pr-build.yml"
       - ".github/workflows/roboshield.yml"
@@ -122,6 +126,33 @@ jobs:
       # builds need a genuinely reachable database, not a dummy value.
       DATABASE_URL: ${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
       PAYLOAD_SECRET: pr-build-unused
+
+  build-codeforafrica:
+    name: Build codeforafrica image
+    needs: affected
+    if: ${{ contains(fromJSON(needs.affected.outputs.targets), 'codeforafrica') }}
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-codeforafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+      push: false
+      app_url: "http://localhost:3000"
+      sentry_environment: ci
+    secrets:
+      # The custom server connects to MongoDB via payload.init() before
+      # spawning `next build`, so — like the other Payload-backed migrated
+      # apps — PR builds need a genuinely reachable database, not a dummy
+      # value.
+      DATABASE_URL: "${{ secrets.CODEFORAFRICA_MONGO_URL }}/codeforafrica-ui"
+      PAYLOAD_SECRET: pr-build-unused
+      SENTRY_AUTH_TOKEN: pr-build-unused
+      SENTRY_ORG: pr-build-unused
+      SENTRY_PROJECT: pr-build-unused
+      NEXT_PUBLIC_APP_NAME: pr-build-unused
+      NEXT_PUBLIC_APP_LOGO_URL: pr-build-unused
 
   build-pesayetu:
     name: Build pesayetu image

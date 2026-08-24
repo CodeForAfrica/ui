@@ -71,7 +71,7 @@ group "base" {
 }
 
 group "apps" {
-  targets = ["climatemappedafrica", "pesayetu", "roboshield", "techlabblog", "trustlab"]
+  targets = ["climatemappedafrica", "codeforafrica", "pesayetu", "roboshield", "techlabblog", "trustlab"]
 }
 
 # Prefer explicit targets/groups for predictability.
@@ -173,6 +173,25 @@ target "climatemappedafrica" {
   # are unused (no @sentry/nextjs dependency; Payload's own sentry plugin
   # reads NEXT_PUBLIC_SENTRY_DSN, and only at runtime), but harmless no-op
   # mounts, matching pesayetu's approach.
+}
+
+target "codeforafrica" {
+  inherits   = ["_payload-app-runner"]
+  dockerfile = "docker/apps/codeforafrica/Dockerfile"
+  # "-ui" suffix matches the pre-bake DockerHub repository name
+  # (codeforafrica/codeforafrica-ui) that the live Dokku apps already pull by.
+  tags = ["${REGISTRY}codeforafrica-ui:${TAG}"]
+  args = {
+    NEXT_PUBLIC_APP_URL = "${NEXT_PUBLIC_APP_URL}"
+    SENTRY_ENVIRONMENT  = "${SENTRY_ENVIRONMENT}"
+  }
+  # database_url/payload_secret/sentry_auth_token/org/project are all
+  # inherited from _payload-app-runner/_app. NEXT_PUBLIC_APP_NAME and
+  # NEXT_PUBLIC_APP_LOGO_URL are set via --set overrides at the workflow
+  # level (see _build-codeforafrica.yml), since they're sourced from
+  # GitHub Secrets rather than Variables — matching the legacy pipeline,
+  # which never wired NEXT_PUBLIC_IMAGE_DOMAINS/NEXT_PUBLIC_IMAGE_UNOPTIMIZED
+  # as build args either, despite next.config.js reading them.
 }
 
 # pesayetu fetches content from WordPress (WPGraphQL) during static generation,

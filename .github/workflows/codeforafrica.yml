@@ -1,0 +1,138 @@
+name: codeforAFRICA
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/codeforafrica/**"
+      - "docker/apps/codeforafrica/**"
+      - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-codeforafrica.yml"
+      - ".github/workflows/codeforafrica.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # Checks whether apps/codeforafrica/package.json has a version bump.
+  # The prod deploy is gated on this: every push triggers a dev build+deploy,
+  # only a version bump triggers a prod build+deploy.
+  version-check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04]
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v3
+        with:
+          diff-search: true
+          file-name: apps/codeforafrica/package.json
+
+  # Builds the DEV image and pushes it to DockerHub on every push. Matches
+  # the pre-bake workflow's DEV/PROD split: each is a separate build using
+  # its own canonical URL and its own Mongo secret.
+  #
+  # Required GitHub Secrets:
+  #   CODEFORAFRICA_MONGO_URL, CODEFORAFRICA_PAYLOAD_SECRET,
+  #   CODEFORAFRICA_SENTRY_PROJECT, NEXT_PUBLIC_CODEFORAFRICA_APP_NAME,
+  #   NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL, SENTRY_AUTH_TOKEN, SENTRY_ORG,
+  #   UI_BASE_TAG (var)
+  build-dev:
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-codeforafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ github.sha }}
+      push: true
+      app_url: "https://codeforafrica-ui.dev.codeforafrica.org"
+      sentry_environment: development
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      # The pre-bake DEV workflow appends the Dokku app name to this secret
+      # (a shared Mongo host, disambiguated by database name per app).
+      DATABASE_URL: "${{ secrets.CODEFORAFRICA_MONGO_URL }}/codeforafrica-ui"
+      PAYLOAD_SECRET: ${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
+      NEXT_PUBLIC_APP_NAME: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+      NEXT_PUBLIC_APP_LOGO_URL: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+
+  deploy-dev:
+    needs: build-dev
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/codeforafrica-ui"
+      deploy_docker_image: "codeforafrica/codeforafrica-ui:${{ github.sha }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  # Builds the PROD image only when the package.json version is bumped, using
+  # the PROD canonical URL and the semver tag.
+  build-prod:
+    needs: version-check
+    if: needs.version-check.outputs.changed == 'true'
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-codeforafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ needs.version-check.outputs.version }}
+      push: true
+      # Matches the pre-bake PROD workflow's existing (if unusual) value —
+      # not changed here since that's a pre-existing app config question,
+      # not something this build-tooling migration should alter.
+      app_url: "https://cfa.dev.codeforafrica.org"
+      sentry_environment: production
+      set: |
+        codeforafrica.tags+=codeforafrica/codeforafrica-ui:latest
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      # PROD uses a distinct secret from DEV — a dedicated, full connection
+      # string (no app-name path appended), matching the pre-bake workflow.
+      DATABASE_URL: ${{ secrets.CODEFORAFRICA_MONGODB_URL }}
+      PAYLOAD_SECRET: ${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
+      NEXT_PUBLIC_APP_NAME: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
+      NEXT_PUBLIC_APP_LOGO_URL: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
+
+  deploy-prod:
+    needs: [version-check, build-prod]
+    if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/codeforafrica-ui"
+      deploy_docker_image: "codeforafrica/codeforafrica-ui:${{ needs.version-check.outputs.version }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

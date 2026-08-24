@@ -15,7 +15,7 @@ climatemappedafrica:
 	./scripts/bake-up.sh climatemappedafrica
 
 codeforafrica:
-	./scripts/dc.sh codeforafrica
+	./scripts/bake-up.sh codeforafrica
 
 down:
 	$(COMPOSE_BUILD_ENV) $(COMPOSE) down --volumes
