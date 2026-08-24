@@ -102,6 +102,7 @@
     "@types/express": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
+    "ajv": "catalog:",
     "apollo-link-rest": "catalog:",
     "babel-jest": "catalog:",
     "babel-loader": "catalog:",
