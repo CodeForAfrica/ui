@@ -1,6 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography, Link } from "@commons-ui/next";
-import { RichText } from "@commons-ui/payload";
+import RichText from "@commons-ui/payload/RichText";
 import { Button, Box, Grid } from "@mui/material";
 
 import heroBg from "@/climatemappedafrica/assets/images/bg-map-white.jpg";

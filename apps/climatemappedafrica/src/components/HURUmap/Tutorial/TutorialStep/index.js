@@ -1,4 +1,4 @@
-import { RichText } from "@commons-ui/payload";
+import RichText from "@commons-ui/payload/RichText";
 import { Image } from "@hurumap/next";
 import { Grid, Typography, IconButton, Avatar, Box } from "@mui/material";
 import { useTour } from "@reactour/tour";

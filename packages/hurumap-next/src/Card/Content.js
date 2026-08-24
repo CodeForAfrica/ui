@@ -1,4 +1,4 @@
-import { RichText } from "@commons-ui/payload";
+import RichText from "@commons-ui/payload/RichText";
 import { CardContent, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
