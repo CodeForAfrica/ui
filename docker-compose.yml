@@ -39,17 +39,7 @@ services:
       - 3000:3000
 
   climatemappedafrica:
-    build:
-      secrets:
-        - mongo_url
-        - payload_secret
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-      context: .
-      target: climatemappedafrica-runner
-      args:
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    image: codeforafrica/climatemappedafrica:${TAG:-local}
     env_file:
       - path: ./apps/climatemappedafrica/.env
       - path: ./apps/climatemappedafrica/.env.local

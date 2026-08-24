@@ -22,12 +22,19 @@ describe("pr-build-targets", () => {
   it("maps direct build input paths to candidate build targets", () => {
     assert.deepEqual(
       directBuildTargets([
+        "docker/apps/climatemappedafrica/Dockerfile",
         "docker/apps/pesayetu/Dockerfile",
         "docker/apps/roboshield/Dockerfile",
         "docker/apps/techlabblog/Dockerfile",
         ".github/workflows/trustlab.yml",
       ]),
-      ["pesayetu", "roboshield", "techlabblog", "trustlab"],
+      [
+        "climatemappedafrica",
+        "pesayetu",
+        "roboshield",
+        "techlabblog",
+        "trustlab",
+      ],
     );
   });
 

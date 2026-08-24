@@ -1,0 +1,56 @@
+name: Reusable Build | Climate Mapped Africa
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+        description: "Image tag to build or push"
+      push:
+        required: true
+        type: boolean
+        description: "Whether to push the built image to the registry"
+      base_tag:
+        required: true
+        type: string
+        description: "Published base image tag to build from"
+      app_url:
+        required: true
+        type: string
+        description: "NEXT_PUBLIC_APP_URL baked into the client bundle (public, not a secret)"
+      set:
+        required: false
+        type: string
+        default: ""
+        description: "Additional bake --set overrides"
+    secrets:
+      DOCKER_HUB_USERNAME:
+        required: false
+      DOCKER_HUB_ACCESS_TOKEN:
+        required: false
+      DATABASE_URL:
+        required: false
+      PAYLOAD_SECRET:
+        required: false
+
+jobs:
+  build:
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_bake-and-push.yml
+    with:
+      target: climatemappedafrica
+      target_os: '["ubuntu-24.04-arm"]'
+      base_tag: ${{ inputs.base_tag }}
+      tag: ${{ inputs.tag }}
+      push: ${{ inputs.push }}
+      set: |
+        climatemappedafrica.args.NEXT_PUBLIC_APP_URL=${{ inputs.app_url }}
+        ${{ inputs.set }}
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}

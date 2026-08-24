@@ -12,7 +12,7 @@ civicsignalblog:
 	./scripts/dc.sh civicsignalblog
 
 climatemappedafrica:
-	./scripts/dc.sh climatemappedafrica
+	./scripts/bake-up.sh climatemappedafrica
 
 codeforafrica:
 	./scripts/dc.sh codeforafrica

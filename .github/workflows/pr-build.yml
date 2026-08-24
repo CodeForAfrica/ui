@@ -4,10 +4,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
+      - "apps/climatemappedafrica/**"
       - "apps/pesayetu/**"
       - "apps/roboshield/**"
       - "apps/techlabblog/**"
       - "apps/trustlab/**"
+      - "docker/apps/climatemappedafrica/**"
       - "docker/apps/pesayetu/**"
       - "docker/apps/roboshield/**"
       - "docker/apps/techlabblog/**"
@@ -22,10 +24,12 @@ on:
       - "scripts/pr-build-targets.mjs"
       - "scripts/pr-build-targets.test.mjs"
       - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-climatemappedafrica.yml"
       - ".github/workflows/_build-pesayetu.yml"
       - ".github/workflows/_build-roboshield.yml"
       - ".github/workflows/_build-techlabblog.yml"
       - ".github/workflows/_build-trustlab.yml"
+      - ".github/workflows/climatemappedafrica.yml"
       - ".github/workflows/pesayetu.yml"
       - ".github/workflows/pr-build.yml"
       - ".github/workflows/roboshield.yml"
@@ -98,6 +102,26 @@ jobs:
             --github-output \
             --base "${{ github.event.pull_request.base.sha }}" \
             --head "${{ github.event.pull_request.head.sha }}"
+
+  build-climatemappedafrica:
+    name: Build climatemappedafrica image
+    needs: affected
+    if: ${{ contains(fromJSON(needs.affected.outputs.targets), 'climatemappedafrica') }}
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-climatemappedafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+      push: false
+      app_url: "http://localhost:3000"
+    secrets:
+      # The custom server connects to MongoDB via payload.init() before
+      # spawning `next build`, so — unlike the other migrated apps — PR
+      # builds need a genuinely reachable database, not a dummy value.
+      DATABASE_URL: ${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
+      PAYLOAD_SECRET: pr-build-unused
 
   build-pesayetu:
     name: Build pesayetu image

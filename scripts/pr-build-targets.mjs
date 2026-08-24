@@ -11,6 +11,12 @@ import { fileURLToPath } from "node:url";
 // - Non-workspace build inputs are handled explicitly because Turbo cannot map
 //   them through the workspace graph.
 export const BUILD_TARGET_CONFIG = {
+  climatemappedafrica: {
+    directBuildInputPaths: [
+      ".github/workflows/climatemappedafrica.yml",
+      "docker/apps/climatemappedafrica/",
+    ],
+  },
   pesayetu: {
     directBuildInputPaths: [
       ".github/workflows/pesayetu.yml",
@@ -40,6 +46,7 @@ export const BUILD_TARGET_CONFIG = {
 
 const GLOBAL_BUILD_FILES = new Set([
   ".github/workflows/_bake-and-push.yml",
+  ".github/workflows/_build-climatemappedafrica.yml",
   ".github/workflows/_build-pesayetu.yml",
   ".github/workflows/_build-roboshield.yml",
   ".github/workflows/_build-techlabblog.yml",
