@@ -71,7 +71,7 @@ group "base" {
 }
 
 group "apps" {
-  targets = ["climatemappedafrica", "codeforafrica", "pesayetu", "roboshield", "techlabblog", "trustlab"]
+  targets = ["charterafrica", "climatemappedafrica", "codeforafrica", "pesayetu", "roboshield", "techlabblog", "trustlab"]
 }
 
 # Prefer explicit targets/groups for predictability.
@@ -157,6 +157,25 @@ target "_payload-app-runner" {
   secret = [
     "type=env,id=database_url,env=DATABASE_URL",
     "type=env,id=payload_secret,env=PAYLOAD_SECRET",
+  ]
+}
+
+target "charterafrica" {
+  inherits   = ["_app-runner"]
+  dockerfile = "docker/apps/charterafrica/Dockerfile"
+  tags       = ["${REGISTRY}charterafrica:${TAG}"]
+  args = {
+    NEXT_PUBLIC_APP_URL = "${NEXT_PUBLIC_APP_URL}"
+    SENTRY_ENVIRONMENT  = "${SENTRY_ENVIRONMENT}"
+  }
+  # sentry_auth_token/org/project are inherited from _app. database_url,
+  # payload_secret_key, and next_public_sentry_dsn are charterafrica-specific
+  # — it reads PAYLOAD_SECRET_KEY (not PAYLOAD_SECRET like _payload-app-runner
+  # provides), so this declares its own secret list rather than inheriting it.
+  secret = [
+    "type=env,id=database_url,env=DATABASE_URL",
+    "type=env,id=payload_secret_key,env=PAYLOAD_SECRET_KEY",
+    "type=env,id=next_public_sentry_dsn,env=NEXT_PUBLIC_SENTRY_DSN",
   ]
 }
 
