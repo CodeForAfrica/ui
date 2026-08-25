@@ -23,6 +23,7 @@ describe("pr-build-targets", () => {
     assert.deepEqual(
       directBuildTargets([
         "docker/apps/climatemappedafrica/Dockerfile",
+        "docker/apps/codeforafrica/Dockerfile",
         "docker/apps/pesayetu/Dockerfile",
         "docker/apps/roboshield/Dockerfile",
         "docker/apps/techlabblog/Dockerfile",
@@ -30,6 +31,7 @@ describe("pr-build-targets", () => {
       ]),
       [
         "climatemappedafrica",
+        "codeforafrica",
         "pesayetu",
         "roboshield",
         "techlabblog",

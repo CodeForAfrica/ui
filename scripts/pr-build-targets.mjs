@@ -17,6 +17,12 @@ export const BUILD_TARGET_CONFIG = {
       "docker/apps/climatemappedafrica/",
     ],
   },
+  codeforafrica: {
+    directBuildInputPaths: [
+      ".github/workflows/codeforafrica.yml",
+      "docker/apps/codeforafrica/",
+    ],
+  },
   pesayetu: {
     directBuildInputPaths: [
       ".github/workflows/pesayetu.yml",
@@ -47,6 +53,7 @@ export const BUILD_TARGET_CONFIG = {
 const GLOBAL_BUILD_FILES = new Set([
   ".github/workflows/_bake-and-push.yml",
   ".github/workflows/_build-climatemappedafrica.yml",
+  ".github/workflows/_build-codeforafrica.yml",
   ".github/workflows/_build-pesayetu.yml",
   ".github/workflows/_build-roboshield.yml",
   ".github/workflows/_build-techlabblog.yml",

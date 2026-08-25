@@ -48,17 +48,7 @@ services:
       - 3000:3000
 
   codeforafrica:
-    build:
-      secrets:
-        - mongodb_url
-        - payload_secret
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-      context: .
-      target: codeforafrica-runner
-      args:
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    image: codeforafrica/codeforafrica-ui:${TAG:-local}
     env_file:
       - path: ./apps/codeforafrica/.env
       - path: ./apps/codeforafrica/.env.local

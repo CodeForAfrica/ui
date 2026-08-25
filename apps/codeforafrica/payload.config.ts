@@ -60,7 +60,7 @@ export default buildConfig({
   serverURL: appURL,
   editor: slateEditor({}),
   db: mongooseAdapter({
-    url: process.env.MONGODB_URL,
+    url: process.env.DATABASE_URL,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
   collections: [
