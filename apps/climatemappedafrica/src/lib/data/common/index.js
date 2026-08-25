@@ -2,7 +2,10 @@ import { blockify } from "@/climatemappedafrica/lib/data/blockify";
 import { fetchCachedProfile } from "@/climatemappedafrica/lib/hurumap";
 
 export function imageFromMedia(media, options) {
-  const alt = options?.alt || media.alt;
+  if (!media) {
+    return null;
+  }
+  const alt = options?.alt || media.alt || null;
   const { height, url: src, width } = media;
   return { alt, height, src, width };
 }
@@ -21,15 +24,15 @@ function getFooter(variant, settings) {
   const media = secondaryLogo || primaryLogo;
 
   return {
-    connect,
-    description,
+    connect: connect ?? null,
+    description: description ?? null,
     logo: imageFromMedia(media, { alt: title }),
     links: {
       ...footerProps,
-      links: footerMenus,
+      links: footerMenus ?? null,
     },
-    newsletter,
-    title,
+    newsletter: newsletter ?? null,
+    title: title ?? null,
     variant,
   };
 }
@@ -60,9 +63,9 @@ function getNavBar(variant, settings) {
     explorePagePath,
     locations,
     logo: imageFromMedia(primaryLogo, { alt: title }),
-    menus,
-    socialLinks,
-    tutorialEnabled,
+    menus: menus ?? null,
+    socialLinks: socialLinks ?? null,
+    tutorialEnabled: tutorialEnabled ?? null,
     variant,
   };
 }
@@ -217,7 +220,7 @@ export async function getPageProps(api, context) {
   const menus = getNavBar(variant, settings);
 
   return {
-    analytics,
+    analytics: analytics ?? null,
     blocks,
     footer,
     menus,

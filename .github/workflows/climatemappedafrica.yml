@@ -1,0 +1,55 @@
+name: Climate Mapped Africa
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/climatemappedafrica/**"
+      - "docker/apps/climatemappedafrica/**"
+      - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-climatemappedafrica.yml"
+      - ".github/workflows/climatemappedafrica.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # No PROD Dokku app exists for this one yet, so — matching the pre-bake
+  # workflow it replaces — every push to main builds and deploys to DEV,
+  # with no version-check gate.
+  #
+  # Required GitHub Secrets:
+  #   CLIMATEMAPPEDAFRICA_MONGO_URL, CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET,
+  #   UI_BASE_TAG (var)
+  build:
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-climatemappedafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ github.sha }}
+      push: true
+      app_url: "https://climatemapped-africa.dev.codeforafrica.org"
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      DATABASE_URL: ${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
+      PAYLOAD_SECRET: ${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
+
+  deploy-dev:
+    needs: build
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/climatemapped-africa-ui"
+      deploy_docker_image: "codeforafrica/climatemappedafrica:${{ github.sha }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}

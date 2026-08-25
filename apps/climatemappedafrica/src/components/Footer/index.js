@@ -1,6 +1,6 @@
 import { Copyright, QuickLinks, StayInTouch, Section } from "@commons-ui/core";
 import { Link, NextImageButton } from "@commons-ui/next";
-import { RichText } from "@commons-ui/payload";
+import RichText from "@commons-ui/payload/RichText";
 import { Box, Grid } from "@mui/material";
 import React from "react";
 

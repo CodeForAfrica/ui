@@ -1,5 +1,5 @@
 import { RichTypography } from "@commons-ui/next";
-import { RichText } from "@commons-ui/payload";
+import RichText from "@commons-ui/payload/RichText";
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";

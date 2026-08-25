@@ -9,6 +9,7 @@
     ".": "./src/index.js",
     "./fields": "./src/fields/index.js",
     "./hooks": "./src/hooks/index.js",
+    "./RichText": "./src/RichText/index.js",
     "./utils": "./src/utils/index.js"
   },
   "keywords": [

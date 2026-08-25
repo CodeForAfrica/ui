@@ -1,5 +1,5 @@
 import { Section } from "@commons-ui/core";
-import { RichText } from "@commons-ui/payload";
+import RichText from "@commons-ui/payload/RichText";
 import { Box, Grid, Typography, alpha } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";

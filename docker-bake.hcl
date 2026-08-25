@@ -71,7 +71,7 @@ group "base" {
 }
 
 group "apps" {
-  targets = ["pesayetu", "roboshield", "techlabblog", "trustlab"]
+  targets = ["climatemappedafrica", "pesayetu", "roboshield", "techlabblog", "trustlab"]
 }
 
 # Prefer explicit targets/groups for predictability.
@@ -158,6 +158,21 @@ target "_payload-app-runner" {
     "type=env,id=database_url,env=DATABASE_URL",
     "type=env,id=payload_secret,env=PAYLOAD_SECRET",
   ]
+}
+
+target "climatemappedafrica" {
+  inherits   = ["_payload-app-runner"]
+  dockerfile = "docker/apps/climatemappedafrica/Dockerfile"
+  tags       = ["${REGISTRY}climatemappedafrica:${TAG}"]
+  args = {
+    PROJECT_ROOT        = "${TRACING_ROOT}"
+    NEXT_PUBLIC_APP_URL = "${NEXT_PUBLIC_APP_URL}"
+  }
+  # database_url/payload_secret/sentry_auth_token/org/project are all
+  # inherited from _payload-app-runner/_app — sentry_auth_token/org/project
+  # are unused (no @sentry/nextjs dependency; Payload's own sentry plugin
+  # reads NEXT_PUBLIC_SENTRY_DSN, and only at runtime), but harmless no-op
+  # mounts, matching pesayetu's approach.
 }
 
 # pesayetu fetches content from WordPress (WPGraphQL) during static generation,
