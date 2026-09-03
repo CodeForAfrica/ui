@@ -17,7 +17,7 @@ container/deploy metadata tied to the image rather than the application code.
 Apps checked below have migrated to the per-app Dockerfile pattern under
 `docker/apps/<app>/`. Unchecked apps still use the root `Dockerfile`.
 
-- [ ] `charterafrica`
+- [x] `charterafrica`
 - [ ] `civicsignalblog`
 - [x] `climatemappedafrica`
 - [x] `codeforafrica`

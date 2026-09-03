@@ -1,17 +1,6 @@
 services:
   charterafrica:
-    build:
-      secrets:
-        - mongo_url
-        - payload_secret
-        - sentry_auth_token
-        - sentry_org
-        - sentry_project
-        - payload_secret_key
-      context: .
-      target: charterafrica-runner
-      args:
-        - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
+    image: codeforafrica/charterafrica:${TAG:-local}
     env_file:
       - path: ./apps/charterafrica/.env
       - path: ./apps/charterafrica/.env.local

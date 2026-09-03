@@ -6,7 +6,7 @@ COMPOSE_BUILD_ENV=BUILDKIT_PROGRESS=plain
 .PHONY: charterafrica civicsignalblog climatemappedafrica codeforafrica down mongodb mongodb-keyfile pesayetu roboshield techlabblog trustlab twoopstracker vpnmanager
 
 charterafrica:
-	./scripts/dc.sh charterafrica
+	./scripts/bake-up.sh charterafrica
 
 civicsignalblog:
 	./scripts/dc.sh civicsignalblog

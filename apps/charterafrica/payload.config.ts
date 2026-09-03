@@ -82,7 +82,7 @@ export default buildConfig({
     admin: "/admin",
   },
   db: mongooseAdapter({
-    url: process.env.MONGO_URL,
+    url: process.env.DATABASE_URL,
     migrationDir: process.env.MIGRATIONS_DIR,
   }),
   collections: [

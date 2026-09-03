@@ -65,6 +65,14 @@ on:
         required: false
       PAYLOAD_SECRET:
         required: false
+      PAYLOAD_SECRET_KEY:
+        required: false
+      # Not a genuine secret (Sentry DSNs are inlined into the public client
+      # bundle by design) but plumbed as one because it's stored as a GitHub
+      # Secret today; going through --mount=type=secret keeps it unlogged
+      # without needing a GitHub Variable migration.
+      NEXT_PUBLIC_SENTRY_DSN:
+        required: false
       SENTRY_AUTH_TOKEN:
         required: false
       SENTRY_ORG:
@@ -126,6 +134,8 @@ jobs:
           BUILD_DATE: ${{ steps.meta.outputs.date }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          PAYLOAD_SECRET_KEY: ${{ secrets.PAYLOAD_SECRET_KEY }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}

@@ -1,0 +1,136 @@
+name: charterAFRICA
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/charterafrica/**"
+      - "docker/apps/charterafrica/**"
+      - "docker-bake.hcl"
+      - ".github/workflows/_bake-and-push.yml"
+      - ".github/workflows/_build-charterafrica.yml"
+      - ".github/workflows/charterafrica.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  # Checks whether apps/charterafrica/package.json has a version bump.
+  # The prod build/deploy is gated on this; dev builds on every push.
+  version-check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04]
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v3
+        with:
+          diff-search: true
+          file-name: apps/charterafrica/package.json
+
+  # Builds the DEV image and pushes it to DockerHub on every push. Matches
+  # the pre-bake workflow this replaces: there's no DEV Dokku app for
+  # charterafrica yet, so this only validates and publishes the image.
+  #
+  # Required GitHub Secrets:
+  #   CHARTERAFRICA_MONGO_URL, CHARTERAFRICA_PAYLOAD_SECRET_KEY,
+  #   CHARTERAFRICA_SENTRY_DSN, CHARTERAFRICA_SENTRY_PROJECT,
+  #   SENTRY_AUTH_TOKEN, SENTRY_ORG, UI_BASE_TAG (var)
+  build-dev:
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-charterafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ github.sha }}
+      push: true
+      app_url: "https://charterafrica.dev.codeforafrica.org"
+      sentry_environment: development
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      DATABASE_URL: ${{ secrets.CHARTERAFRICA_MONGO_URL }}
+      PAYLOAD_SECRET_KEY: ${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+      NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
+
+  # TODO: No DEV Dokku app exists for charterafrica yet.
+  # Enable this job (remove `if: false`) when the app is created on ui-1.dev
+  # and update the git_remote_url below.
+  deploy-dev:
+    if: false
+    needs: build-dev
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/charterafrica-ui"
+      deploy_docker_image: "codeforafrica/charterafrica:${{ github.sha }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  # Builds the PROD image only when the package.json version is bumped,
+  # using the PROD canonical URL and the semver tag.
+  build-prod:
+    needs: version-check
+    if: needs.version-check.outputs.changed == 'true'
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-charterafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ needs.version-check.outputs.version }}
+      push: true
+      app_url: "https://charter.africa"
+      sentry_environment: production
+      seo_disabled: "false"
+      set: |
+        charterafrica.tags+=codeforafrica/charterafrica:latest
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      DATABASE_URL: ${{ secrets.CHARTERAFRICA_MONGO_URL }}
+      PAYLOAD_SECRET_KEY: ${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}
+      NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.CHARTERAFRICA_SENTRY_DSN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}
+
+  # TODO: No PROD Dokku app exists for charterafrica yet either — confirm
+  # whether it should point to a different server (e.g. a different AWS
+  # account) before enabling this, matching the pre-bake workflow's own
+  # unresolved TODO.
+  deploy-prod:
+    if: false
+    needs: [version-check, build-prod]
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-1.prod.codeforafrica.org/charterafrica-ui"
+      deploy_docker_image: "codeforafrica/charterafrica:${{ needs.version-check.outputs.version }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
