@@ -29,7 +29,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24]
         os: [ubuntu-latest]
 
     # Temporarily disable the deployment of review apps until we've reviewed all apps

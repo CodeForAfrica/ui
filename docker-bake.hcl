@@ -18,15 +18,48 @@ variable "BUILD_DATE" {
   default = ""
 }
 
+# TOOLCHAIN PINS
+#
+# Bake's HCL dialect has no `file()` function, so it cannot read the root
+# package.json. These are therefore literal pins, not derived values — and
+# scripts/toolchain-contract.test.mjs (run by `pnpm test:scripts` in CI) fails
+# the build if any of them drifts from the single source of truth:
+#
+#   NODE_VERSION  must satisfy package.json#engines.node
+#   PNPM_VERSION  must equal   package.json#packageManager
+#   TURBO_VERSION must satisfy pnpm-workspace.yaml#catalog.turbo
+#
+# Bump them here; the contract test tells you what else has to move with them.
 variable "NODE_VERSION" {
-  default = "24.14.0"
+  default = "24.21.0"
 }
 
-# Image index digest for node:${NODE_VERSION}-alpine. Must be the index digest
-# (not a platform-specific digest) so multi-arch CI builds resolve correctly.
-# Format: "sha256:<hash>" — no leading "@", HCL composes the full image reference.
-# To get the index digest: docker buildx imagetools inspect node:24.14.0-alpine
-# Renovate/Dependabot can keep this in sync with NODE_VERSION automatically.
+# Image index digest for node:${NODE_VERSION}-alpine. Optional today: when empty,
+# NODE_IMAGE_REF below falls back to the bare tag. Setting it makes base image
+# builds reproducible, because a Docker tag is a mutable pointer — the
+# docker-library team repoints version tags on Alpine CVE rebuilds, so the same
+# NODE_VERSION can resolve to different content over time. (This is unlike
+# pnpm/turbo, which npm publishes immutably, so a version there already pins
+# content.)
+#
+# Must be the index digest (not a platform-specific one) or multi-arch CI builds
+# resolve incorrectly. Format: "sha256:<hash>" — no leading "@", HCL composes the
+# full reference. Note it is per-tag-index, not purely content-derived:
+# node:24-alpine and node:24.21.0-alpine hold identical content yet differ here,
+# which is why it has to be recorded rather than computed.
+#
+#   docker buildx imagetools inspect node:24.21.0-alpine    # read "Digest:"
+#
+# If you set it, set it in the same commit as NODE_VERSION. Docker checks only
+# that a digest exists in library/node, never that it matches the tag beside it
+# (asked for since 2018: moby/moby#37866, still open), so a stale digest silently
+# builds the old Node while the logs show the new version. build-base-images.yml
+# verifies the pairing against the registry whenever a digest is present.
+#
+# TODO: make this mandatory — pinned by default, with a bake `validation` block
+# rejecting an empty value and a Renovate custom manager bumping it alongside
+# NODE_VERSION. Deliberately left out of the toolchain-standardisation change:
+# it is supply-chain hardening, and it deserves its own review.
 variable "NODE_DIGEST" {
   default = ""
 }
@@ -39,11 +72,15 @@ variable "NODE_IMAGE_REF" {
 }
 
 variable "PNPM_VERSION" {
-  default = "10.30.3"
+  default = "11.27.0"
 }
 
+# The globally-installed turbo that runs `turbo prune` in the builder image.
+# Must equal the turbo pnpm-lock.yaml resolves for the workspace, not the
+# catalog's caret floor — a global turbo older than the workspace's can prune
+# against a turbo.json schema it does not understand.
 variable "TURBO_VERSION" {
-  default = "2.8.12"
+  default = "2.9.6"
 }
 
 # Telemetry is disabled repo-wide. These are set here as the single source of

@@ -10,9 +10,14 @@ permissions:
 # every app push. See docker/README.md for the full rationale.
 #
 # Workflow:
-#   1. Update NODE_VERSION / PNPM_VERSION / TURBO_VERSION in docker-bake.hcl.
-#   2. Run this workflow with the next version tag (e.g. v4).
-#   3. Update BASE_TAG in app CI workflows (e.g. techlabblog.yml) to the new tag.
+#   1. Update the root package.json (engines.node / packageManager) — the single
+#      source of truth — then NODE_VERSION / PNPM_VERSION / TURBO_VERSION in
+#      docker-bake.hcl to match, plus NODE_DIGEST if one is set (it is optional
+#      today, and empty by default).
+#   2. Run `pnpm test:scripts`; scripts/toolchain-contract.test.mjs reports any
+#      pin still out of sync.
+#   3. Run this workflow with the next version tag (e.g. v4).
+#   4. Update vars.UI_BASE_TAG to the new tag.
 #
 # The tag (e.g. v3) is separate from app image tags and from the Node version
 # string. It tracks the iteration of the base image configuration.
@@ -46,6 +51,57 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      # Guards against a stale NODE_DIGEST in docker-bake.hcl.
+      #
+      # Docker verifies only that a digest exists in library/node — never that it
+      # matches the tag written beside it in `name:tag@sha256:...`. A typo'd
+      # digest fails loudly ("not found"), but the realistic drift does not: bump
+      # NODE_VERSION, forget NODE_DIGEST, and the previous digest still resolves,
+      # so the whole estate silently builds on the old Node while every log line
+      # shows the new version. Confirmed against the live registry:
+      # node:24.21.0-alpine@sha256:c610... (node:22-alpine's index digest) pulls
+      # without error and yields NODE_VERSION=22.23.2.
+      #
+      # This is arguably Docker's to fix, and it has been asked for since 2018 —
+      # moby/moby#37866 ("dockerfile FROM should deny the usage of a digest that
+      # does not match the tag") proposes exactly this check and is still open.
+      # Until it lands, every consumer has to verify it themselves; this is ours.
+      #
+      # scripts/toolchain-contract.test.mjs cannot do it — it runs offline by
+      # design, so it can only check NODE_DIGEST's shape. This needs the registry,
+      # so it runs here, before anything is built — and deliberately after the
+      # login above, so this query counts against the authenticated Docker Hub
+      # pull-rate limit rather than the much lower anonymous one. A guard that
+      # can fail on rate limiting is not a guard.
+      - name: Verify NODE_DIGEST matches NODE_VERSION
+        run: |
+          set -euo pipefail
+          ref=$(docker buildx bake --file docker-bake.hcl --print ui-builder-base \
+            | jq -r '.target["ui-builder-base"].args.NODE_IMAGE_REF')
+
+          # NODE_DIGEST is optional today, so the reference may carry no digest
+          # at all. Skip rather than fail: this step's job is to catch a *wrong*
+          # pin, not to mandate one. It reads the resolved reference rather than
+          # the HCL default, so it also covers a digest supplied via the
+          # environment.
+          case "$ref" in
+            *@sha256:*) ;;
+            *)
+              echo "::notice::$ref is not digest-pinned; skipping digest verification."
+              exit 0
+              ;;
+          esac
+
+          tag="${ref%@*}"
+          pinned="${ref#*@}"
+          actual=$(docker buildx imagetools inspect "$tag" --format '{{.Manifest.Digest}}')
+
+          if [ "$pinned" != "$actual" ]; then
+            echo "::error::NODE_DIGEST is not the digest for $tag. Pinned: $pinned. Actual: $actual. Update NODE_DIGEST in docker-bake.hcl."
+            exit 1
+          fi
+          echo "$tag correctly pinned to $pinned"
 
       - name: Build and push base images
         uses: docker/bake-action@v6
