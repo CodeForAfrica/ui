@@ -40,7 +40,7 @@ on:
         required: false
       DATABASE_URL:
         required: false
-      PAYLOAD_SECRET_KEY:
+      PAYLOAD_SECRET:
         required: false
       NEXT_PUBLIC_SENTRY_DSN:
         required: false
@@ -72,7 +72,7 @@ jobs:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      PAYLOAD_SECRET_KEY: ${{ secrets.PAYLOAD_SECRET_KEY }}
+      PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
       NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}

@@ -66,8 +66,8 @@ jobs:
           platforms: linux/arm64
           push: true
           secrets: |
-            "mongo_url=${{ secrets.CHARTERAFRICA_MONGO_URL }}"
-            "payload_secret_key=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}"
+            "database_url=${{ secrets.CHARTERAFRICA_MONGO_URL }}"
+            "payload_secret=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}"

@@ -204,8 +204,8 @@ COPY apps/charterafrica ./apps/charterafrica/
 # When building Next.js app, Next.js needs to connect to local Payload
 ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 ENV NEXT_PUBLIC_SEO_DISABLED=${NEXT_PUBLIC_SEO_DISABLED}
-RUN --mount=type=secret,id=mongo_url,env=MONGO_URL \
-  --mount=type=secret,id=payload_secret_key,env=PAYLOAD_SECRET_KEY \
+RUN --mount=type=secret,id=database_url,env=DATABASE_URL \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \
   --mount=type=secret,id=sentry_project,env=SENTRY_PROJECT \
