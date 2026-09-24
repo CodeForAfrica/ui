@@ -25,8 +25,13 @@
 # ============================================================================
 
 ARG \
-  # Must match packageManager in package.json
-  PNPM_VERSION=10.12.1 \
+  # Toolchain pins. Bake-migrated apps get these from docker-bake.hcl; this
+  # legacy Dockerfile still builds civicsignalblog, twoopstracker and vpnmanager,
+  # so it carries its own copy. Both are checked against the root package.json by
+  # scripts/toolchain-contract.test.mjs — NODE_VERSION must satisfy engines.node,
+  # PNPM_VERSION must equal packageManager.
+  NODE_VERSION=24.21.0 \
+  PNPM_VERSION=11.27.0 \
   # Next.js / Payload (build time)
   PORT=3000 \
   # Next.js (runtime)
@@ -38,7 +43,19 @@ ARG \
   SENTRY_ENVIRONMENT="local"
 
 
-FROM node:24.13.0-alpine AS node
+# NODE_VERSION is already in scope from the pre-FROM ARG block above.
+#
+# Do NOT add a bare `ARG NODE_VERSION` here. In the *global* (pre-FROM) scope a
+# redeclaration without a default resets the value to empty, and this FROM then
+# degrades to the unparseable "node:-alpine":
+#
+#   ERROR: failed to parse stage name "node:-alpine": invalid reference format
+#
+# This is easy to get backwards, because the Dockerfile reference's "a bare ARG
+# inherits the global value" rule describes the *stage* scope — an ARG after a
+# FROM. Verified on BuildKit with dockerfile:1.10.0: bare redeclaration before
+# FROM fails, the same redeclaration after FROM inherits correctly.
+FROM node:${NODE_VERSION}-alpine AS node
 
 # Always install security updated e.g. https://pythonspeed.com/articles/security-updates-in-docker/
 # Update local cache so that other stages don't need to update cache
@@ -69,7 +86,10 @@ FROM base AS pnpm-base
 
 ARG PNPM_VERSION
 
-RUN corepack enable && corepack prepare pnpm@${PNPM_VERSION} --activate
+# Installed via npm rather than corepack, matching docker/base.Dockerfile.
+# Corepack is being removed from Node.js, so pinning pnpm through it is a
+# dead end for anything that outlives Node 24.
+RUN npm install -g pnpm@${PNPM_VERSION}
 
 #
 # base-desp: image with the common packages package.json copied

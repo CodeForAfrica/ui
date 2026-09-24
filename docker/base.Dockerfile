@@ -6,7 +6,7 @@
 ARG NODE_IMAGE_REF
 
 # NODE_IMAGE_REF is composed by ../docker-bake.hcl from NODE_VERSION and NODE_DIGEST.
-# e.g. "node:24.14.0-alpine@sha256:<index-digest>" (pinned) or "node:24.14.0-alpine" (local dev).
+# e.g. "node:24.21.0-alpine@sha256:<index-digest>" (pinned) or "node:24.21.0-alpine" (unpinned).
 FROM ${NODE_IMAGE_REF} AS node
 
 RUN apk update \

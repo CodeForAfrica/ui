@@ -31,29 +31,19 @@ jobs:
         with:
           fetch-depth: 2
 
-      # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
+      # pnpm/action-setup must come first: setup-node's `cache: "pnpm"` shells
+      # out to `pnpm store path`, so pnpm has to exist by then.
+      # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
       - name: Install pnpm
         uses: pnpm/action-setup@v6
-        id: pnpm-install
         with:
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v5
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      # Looks like to use pnpm cache, setup-node must run after pnpm/action-setup
-      # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
+      # `cache: "pnpm"` below replaces the manual `pnpm store path` +
+      # actions/cache pair this job used to carry. That pair was not just
+      # redundant: it ran `pnpm store path` on the runner's default Node,
+      # i.e. before Node 24 was installed. No repository script may run
+      # before this step.
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:

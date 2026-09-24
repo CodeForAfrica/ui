@@ -49,6 +49,58 @@ from apps. They only change when Node, pnpm, or Alpine tooling changes. The `BAS
 variable pins the base image version used by app builds, keeping it decoupled from `TAG`
 (the app version).
 
+## Toolchain pins
+
+`NODE_VERSION`, `NODE_DIGEST`, `PNPM_VERSION` and `TURBO_VERSION` in `docker-bake.hcl`
+are literal pins rather than derived values: bake's HCL dialect has no `file()`
+function, so it cannot read the root `package.json` or `pnpm-workspace.yaml`.
+
+They are not free-floating. `scripts/toolchain-contract.test.mjs` fails CI if any of
+them drifts from the source of truth:
+
+| Bake variable   | Must match                               |
+| --------------- | ---------------------------------------- |
+| `NODE_VERSION`  | `package.json#engines.node` (same major) |
+| `NODE_DIGEST`   | an index digest (`sha256:…`) _if set_    |
+| `PNPM_VERSION`  | `package.json#packageManager` (exactly)  |
+| `TURBO_VERSION` | the turbo `pnpm-lock.yaml` resolves      |
+
+### Digest pinning (optional today)
+
+`NODE_DIGEST` is empty by default, so base images currently float on the
+`node:<version>-alpine` tag. That tag is a mutable pointer — the docker-library team
+repoints version tags on Alpine CVE rebuilds — so the same `NODE_VERSION` can resolve to
+different content over time. Setting a digest makes base image builds reproducible.
+
+This is deliberately **not** mandatory yet: making it so is supply-chain hardening rather
+than toolchain standardisation, and it needs a story for keeping the digest fresh
+(a bake `validation` block plus a Renovate custom manager bumping it alongside
+`NODE_VERSION`). See the `TODO` on the variable in `docker-bake.hcl`.
+
+Note this asymmetry is intentional, not an oversight: `PNPM_VERSION` and `TURBO_VERSION`
+need no digest because npm publishes versions immutably, so a version there already pins
+content. A Docker tag does not. Each pin uses the strongest immutable identifier its
+registry offers.
+
+If you do set one, it must be the **index** digest, not a platform-specific one, or
+multi-arch builds break:
+
+```bash
+docker buildx imagetools inspect node:24.21.0-alpine    # read "Digest:"
+```
+
+And set it in the same commit as `NODE_VERSION`. Docker checks only that a digest exists
+in `library/node`, never that it matches the tag beside it, so a stale digest resolves
+happily and silently builds the old Node while the logs show the new version. (Docker has
+been asked to validate this since 2018 —
+[moby/moby#37866](https://github.com/moby/moby/issues/37866) — and it is still open.)
+`build-base-images.yml` verifies the pairing against the registry whenever a digest is
+present, and skips with a notice when it is not — the check the contract test cannot do
+offline.
+
+Changing any of these means republishing base images (`build-base-images.yml`) and
+bumping `vars.UI_BASE_TAG`. See AGENTS.md § Toolchain versions for the full contract.
+
 ## Build commands
 
 ### Testing a production image locally

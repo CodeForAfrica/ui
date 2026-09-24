@@ -95,10 +95,5 @@
     "tsx": "catalog:",
     "typescript": "catalog:",
     "webpack": "catalog:"
-  },
-  "engines": {
-    "node": "24.x",
-    "pnpm": "10"
-  },
-  "packageManager": "pnpm@10.12.1"
+  }
 }
