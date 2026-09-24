@@ -12,10 +12,10 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
       style="--Paper-shadow: none;"
     >
       <div
-        class="MuiCardContent-root css-3p3r5n-MuiCardContent-root"
+        class="MuiCardContent-root css-jmzxbd-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-h9ee70-MuiTypography-root"
         >
           Test Report
         </h3>
@@ -35,7 +35,7 @@ exports[`<ReportCard /> renders in condensed mode 1`] = `
     </div>
   </div>
   <div
-    class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
+    class="MuiCardActions-root MuiCardActions-spacing css-phnh0e-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-lu4tw"
@@ -77,10 +77,10 @@ exports[`<ReportCard /> renders unchanged 1`] = `
         src="/test-image.jpg"
       />
       <div
-        class="MuiCardContent-root css-9bakwa-MuiCardContent-root"
+        class="MuiCardContent-root css-nxc5z5-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-h9ee70-MuiTypography-root"
         >
           Test Report
         </h3>
@@ -103,7 +103,7 @@ exports[`<ReportCard /> renders unchanged 1`] = `
     class="MuiDivider-root MuiDivider-fullWidth css-hv6zls-MuiDivider-root"
   />
   <div
-    class="MuiCardActions-root MuiCardActions-spacing css-brej4a-MuiCardActions-root"
+    class="MuiCardActions-root MuiCardActions-spacing css-147ao35-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-1d8nr69"
@@ -137,10 +137,10 @@ exports[`<ReportCard /> renders without image 1`] = `
       style="--Paper-shadow: none;"
     >
       <div
-        class="MuiCardContent-root css-3p3r5n-MuiCardContent-root"
+        class="MuiCardContent-root css-jmzxbd-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-h9ee70-MuiTypography-root"
         >
           Test Report
         </h3>
@@ -163,7 +163,7 @@ exports[`<ReportCard /> renders without image 1`] = `
     class="MuiDivider-root MuiDivider-fullWidth css-hv6zls-MuiDivider-root"
   />
   <div
-    class="MuiCardActions-root MuiCardActions-spacing css-11bzvph-MuiCardActions-root"
+    class="MuiCardActions-root MuiCardActions-spacing css-phnh0e-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-1d8nr69"
@@ -204,10 +204,10 @@ exports[`<ReportCard /> renders without link 1`] = `
         src="/test-image.jpg"
       />
       <div
-        class="MuiCardContent-root css-9bakwa-MuiCardContent-root"
+        class="MuiCardContent-root css-nxc5z5-MuiCardContent-root"
       >
         <h3
-          class="MuiTypography-root MuiTypography-h3 css-hxwek7-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h3 css-h9ee70-MuiTypography-root"
         >
           Test Report
         </h3>
@@ -230,7 +230,7 @@ exports[`<ReportCard /> renders without link 1`] = `
     class="MuiDivider-root MuiDivider-fullWidth css-hv6zls-MuiDivider-root"
   />
   <div
-    class="MuiCardActions-root MuiCardActions-spacing css-brej4a-MuiCardActions-root"
+    class="MuiCardActions-root MuiCardActions-spacing css-147ao35-MuiCardActions-root"
   >
     <div
       class="MuiBox-root css-1d8nr69"
