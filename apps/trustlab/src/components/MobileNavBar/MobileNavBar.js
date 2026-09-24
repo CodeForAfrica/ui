@@ -28,6 +28,15 @@ const MobileNavBar = React.forwardRef(function MobileNavBar(props, ref) {
           alt="Logo"
           width={136}
           height={61}
+          // The logo comes from Payload with no intrinsic dimensions, so the
+          // width/height above are nominal. Scaling by width with height: auto
+          // keeps the uploaded asset's aspect ratio; maxHeight stops a tall
+          // upload from overflowing the 94px bar.
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: 61,
+          }}
         />
       </Grid>
       <Grid>
