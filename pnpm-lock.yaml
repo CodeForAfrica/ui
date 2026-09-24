@@ -346,8 +346,8 @@ catalogs:
       specifier: ^30.0.0
       version: 30.3.0
     js-yaml:
-      specifier: ^4.1.0
-      version: 4.1.1
+      specifier: ^4.3.2
+      version: 4.3.2
     jscodeshift:
       specifier: ^0.15.2
       version: 0.15.2
@@ -980,7 +980,7 @@ importers:
         version: 5.4.0
       js-yaml:
         specifier: 'catalog:'
-        version: 4.1.1
+        version: 4.3.2
       next:
         specifier: 'catalog:'
         version: 15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
@@ -1432,7 +1432,7 @@ importers:
         version: 5.4.0
       js-yaml:
         specifier: 'catalog:'
-        version: 4.1.1
+        version: 4.3.2
       next:
         specifier: 'catalog:'
         version: 15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
@@ -2268,7 +2268,7 @@ importers:
         version: 2.4.9(@types/react@18.3.28)(react@18.3.1)
       js-yaml:
         specifier: 'catalog:'
-        version: 4.1.1
+        version: 4.3.2
       jwt-decode:
         specifier: 'catalog:'
         version: 4.0.0
@@ -11577,6 +11577,10 @@ packages:
 
   js-yaml@4.1.1:
     resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
+    hasBin: true
+
+  js-yaml@4.3.2:
+    resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
     hasBin: true
 
   jscodeshift-add-imports@1.0.11:
@@ -27035,6 +27039,10 @@ snapshots:
       esprima: 4.0.1
 
   js-yaml@4.1.1:
+    dependencies:
+      argparse: 2.0.1
+
+  js-yaml@4.3.2:
     dependencies:
       argparse: 2.0.1
 
