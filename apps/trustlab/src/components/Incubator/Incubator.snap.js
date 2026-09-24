@@ -9,7 +9,7 @@ exports[`<Incubator /> renders unchanged 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed MuiContainer-disableGutters css-zhro9p-MuiContainer-root"
     >
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-1h365td-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-2qcho6-MuiTypography-root"
       >
         Incubator
       </h2>

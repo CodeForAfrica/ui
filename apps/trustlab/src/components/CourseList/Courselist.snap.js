@@ -9,7 +9,7 @@ exports[`<CourseList /> renders unchanged 1`] = `
       class="MuiBox-root css-gq77ek"
     >
       <h2
-        class="MuiTypography-root MuiTypography-display4 css-1czwdei-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-display4 css-pmyeji-MuiTypography-root"
       >
         Test Course List
       </h2>

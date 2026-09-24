@@ -28,7 +28,10 @@ const Incubator = forwardRef((props, ref) => {
       ref={ref}
     >
       <Section sx={{ py: 8, px: { xs: 2.5, sm: 0 } }}>
-        <Typography sx={{ whiteSpace: "nowrap", mb: 2 }} variant="display4">
+        <Typography
+          sx={{ whiteSpace: { xs: "normal", sm: "nowrap" }, mb: 2 }}
+          variant="display4"
+        >
           {title}
         </Typography>
         <Grid container spacing={2} alignItems="center">
