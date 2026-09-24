@@ -40,8 +40,9 @@ const IntelligenceBriefings = React.forwardRef(
                 )}
                 {briefs.length > 0 && (
                   <Stack
-                    direction="row"
+                    direction={{ xs: "column", sm: "row" }}
                     spacing={{ xs: 2, md: 4 }}
+                    alignItems="center"
                     justifyContent="space-between"
                   >
                     {briefs.map((item) => (
@@ -50,7 +51,7 @@ const IntelligenceBriefings = React.forwardRef(
                         flexDirection="column"
                         alignItems="center"
                         key={item.title}
-                        sx={{ width: 180 }}
+                        sx={{ width: { xs: "100%", sm: 180 } }}
                       >
                         <Figure
                           ImageProps={{
@@ -66,7 +67,7 @@ const IntelligenceBriefings = React.forwardRef(
                           sx={{
                             textTransform: "uppercase",
                             maxWidth: 140,
-                            textOverflow: "break-word",
+                            overflowWrap: "anywhere",
                           }}
                           textAlign="center"
                           variant="h3"
