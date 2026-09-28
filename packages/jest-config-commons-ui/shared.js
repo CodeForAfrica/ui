@@ -8,6 +8,7 @@ const DEFAULT_TRANSPILED_PACKAGES = [
   "@hurumap/next",
   "@payloadcms",
   "payload",
+  "uuid",
 ];
 
 function escapeRegExp(value) {
