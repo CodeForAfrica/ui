@@ -113,4 +113,18 @@ describe("<ReportCard />", () => {
     );
     expect(getByText("Download Report")).toBeInTheDocument();
   });
+
+  it("does not constrain the title to a fixed height", () => {
+    const longTitle =
+      "A baseline Information Ecosystem Assessment of online communities in Kenya";
+    const { getByRole } = render(
+      <ReportCard title={longTitle} overview={mockDescription} />,
+    );
+
+    // A fixed height plus overflow: hidden truncated long titles mid-line.
+    expect(getByRole("heading", { name: longTitle })).not.toHaveStyle({
+      height: "48px",
+      overflow: "hidden",
+    });
+  });
 });

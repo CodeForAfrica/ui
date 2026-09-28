@@ -60,7 +60,7 @@ const start = async (): Promise<void> => {
             },
           }
         : undefined),
-      secret: process.env.PAYLOAD_SECRET_KEY,
+      secret: process.env.PAYLOAD_SECRET,
       express: server,
       onInit: (initPayload) => {
         initPayload.logger.info(

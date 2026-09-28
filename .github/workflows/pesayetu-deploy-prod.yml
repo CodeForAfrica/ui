@@ -27,7 +27,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24]
         os: [ubuntu-latest]
     steps:
       - name: Cloning repo
@@ -36,9 +35,9 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: "package.json"
 
       - name: Check if version is bumped
         id: version-check

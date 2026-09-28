@@ -131,7 +131,7 @@ jobs:
       # apps — PR builds need a genuinely reachable database, not a dummy
       # value.
       DATABASE_URL: ${{ secrets.CHARTERAFRICA_MONGO_URL }}
-      PAYLOAD_SECRET_KEY: pr-build-unused
+      PAYLOAD_SECRET: pr-build-unused
       NEXT_PUBLIC_SENTRY_DSN: pr-build-unused
       SENTRY_AUTH_TOKEN: pr-build-unused
       SENTRY_ORG: pr-build-unused

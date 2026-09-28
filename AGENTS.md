@@ -111,6 +111,40 @@ docker compose up <app>           # Run locally after bake
   - Jest v30 shared through `jest-config-commons-ui`.
   - Playwright shared through `playwright-config-commons-ui`.
 
+### Toolchain versions (Node.js and pnpm)
+
+The root `package.json` is the **single source of truth**. Nothing else in the repo
+may declare a Node.js or pnpm version:
+
+| Field            | Value          | Who reads it                                                                         |
+| ---------------- | -------------- | ------------------------------------------------------------------------------------ |
+| `engines.node`   | `24.x`         | `actions/setup-node` (`node-version-file: "package.json"`); pnpm, via `engineStrict` |
+| `engines.pnpm`   | `11.x`         | Documents the supported pnpm major                                                   |
+| `packageManager` | `pnpm@11.27.0` | pnpm itself (self-provisions this exact build); `pnpm/action-setup`                  |
+
+Rules:
+
+- **Workspace manifests carry neither field.** `apps/*` are private, so the root
+  `engines` govern them. `packages/*` are published, so they declare only
+  `engines.node: ">=24"` — a floor for consumers, not this repo's pin — and never
+  `packageManager`, which pnpm ignores outside the root anyway.
+- **No `.nvmrc` / `.node-version` / `.tool-versions`.** `engineStrict: true` in
+  `pnpm-workspace.yaml` escalates the root `engines.node` check from a warning to a
+  hard install failure, which is the same guarantee without a second copy to keep in
+  sync. Note it is broader than the toolchain: it also rejects any _dependency_
+  declaring a Node range that excludes the runtime. That is deliberate — see the
+  comment on the setting for the rationale and the escape hatch.
+- **Workflows never hardcode a version.** Use `node-version-file: "package.json"`,
+  and pass no `version` to `pnpm/action-setup` — it reads `packageManager`.
+- **Docker carries literal pins** (`docker-bake.hcl`, and the pre-bake root
+  `Dockerfile`), because bake's HCL has no `file()` function and a Dockerfile
+  cannot parse JSON.
+
+`scripts/toolchain-contract.test.mjs` enforces all of the above in CI via
+`pnpm test:scripts`. It is dependency-free, so it also runs from a bare checkout.
+To upgrade Node.js or pnpm: change the root `package.json`, run the test, and fix
+whatever it reports.
+
 ### Dependency management
 
 All package versions are pinned in `pnpm-workspace.yaml` using catalogs:

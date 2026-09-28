@@ -43,7 +43,7 @@ ENV PAYLOAD_PUBLIC_APP_URL=http://localhost:3000
 # it stays unlogged without needing a GitHub Variable migration — it's
 # stored as a GitHub Secret today even though DSNs aren't actually sensitive.
 RUN --mount=type=secret,id=database_url,env=DATABASE_URL \
-  --mount=type=secret,id=payload_secret_key,env=PAYLOAD_SECRET_KEY \
+  --mount=type=secret,id=payload_secret,env=PAYLOAD_SECRET \
   --mount=type=secret,id=next_public_sentry_dsn,env=NEXT_PUBLIC_SENTRY_DSN \
   --mount=type=secret,id=sentry_auth_token,env=SENTRY_AUTH_TOKEN \
   --mount=type=secret,id=sentry_org,env=SENTRY_ORG \

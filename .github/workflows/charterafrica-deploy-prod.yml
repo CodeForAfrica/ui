@@ -23,7 +23,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24]
         os: [ubuntu-latest]
     steps:
       - name: Checkout
@@ -34,9 +33,9 @@ jobs:
       # Set up Node since it's required by version-check
       # https://github.com/EndBug/version-check#github-workflow
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: "package.json"
 
       - name: Check if version is bumped
         id: version-check
@@ -92,8 +91,8 @@ jobs:
           platforms: linux/amd64
           push: true
           secrets: |
-            "mongo_url=${{ secrets.CHARTERAFRICA_MONGO_URL }}"
-            "payload_secret_key=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}"
+            "database_url=${{ secrets.CHARTERAFRICA_MONGO_URL }}"
+            "payload_secret=${{ secrets.CHARTERAFRICA_PAYLOAD_SECRET_KEY }}"
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.CHARTERAFRICA_SENTRY_PROJECT }}"

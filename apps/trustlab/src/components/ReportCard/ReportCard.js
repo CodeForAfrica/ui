@@ -80,15 +80,15 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
           )}
 
           <CardContent
-            sx={{ pb: "0px !important", px: image?.src && !condensed ? 0 : 2 }}
+            sx={{
+              pb: 0,
+              px: image?.src && !condensed ? 0 : 2,
+              "&:last-child": { pb: 0 },
+            }}
           >
             <Typography
               variant="h3"
               sx={{
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                lineClamp: 2,
-                height: "48px",
                 color: "#252B37",
               }}
             >
@@ -129,7 +129,7 @@ const ReportCard = forwardRef(function ReportCard(props, ref) {
         </Card>
       </Box>
       {!condensed && <Divider sx={{ my: 1 }} />}
-      <CardActions sx={{ px: image?.src && !condensed ? 0 : 2, pt: 0 }}>
+      <CardActions sx={{ pb: 2, px: image?.src && !condensed ? 0 : 2, pt: 0 }}>
         <Box
           href={file?.url}
           component={file?.url ? Link : "div"}
