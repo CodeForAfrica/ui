@@ -20,6 +20,19 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Learn More
 
+### Page regeneration failures
+
+WordPress request/parsing failures and HURUmap failures must reject page
+generation, not become `notFound` results. Next.js ISR then preserves the last
+successful page and retries on a subsequent request. Without a previously
+generated page, a dependency failure can still produce a server error.
+
+The Explore route revalidates missing CMS content and unknown geography codes
+after five minutes. A partially populated location list can temporarily produce
+a 404, but the next request after that interval permits regeneration. This is
+request-driven, not a background timer. A deployment is required to replace
+previously cached permanent 404s; this code change does not invalidate live caches.
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.

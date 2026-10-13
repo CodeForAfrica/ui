@@ -44,7 +44,8 @@ export default async function processPostTypeQuery(
     };
   }
 
-  // Execute query.
+  // Let dependency and parsing failures reach Next.js so ISR keeps the last
+  // successful page. Only a successful query with missing content is a 404.
   response.post = await apolloClient
     .query({ query, variables })
     .then(async (res) => {
@@ -105,11 +106,6 @@ export default async function processPostTypeQuery(
       delete newPost?.postsPageBlocks;
 
       return newPost;
-    })
-    .catch((error) => {
-      response.error = true;
-      response.errorMessage = error.message;
-      return null;
     });
 
   return response;

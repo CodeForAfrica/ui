@@ -41,6 +41,7 @@ export default async function getPostTypeStaticProps(
     return postType !== "404"
       ? {
           notFound: true,
+          revalidate,
         }
       : {
           revalidate,
@@ -129,10 +130,11 @@ export default async function getPostTypeStaticProps(
     props.error = false;
   }
 
-  // Display 404 error page if error encountered.
+  // Missing content may be published later; do not cache its absence forever.
   if (props.error) {
     return {
       notFound: true,
+      revalidate,
     };
   }
 
