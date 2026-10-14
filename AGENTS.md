@@ -211,4 +211,5 @@ After a Next.js or Payload upgrade, check a Payload v3 app on its dev deployment
 - `MONGO_URL` / `MONGODB_URL` — database connection (required for Payload CMS apps)
 - `PAYLOAD_SECRET` / `PAYLOAD_SECRET_KEY` — CMS authentication
 - `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` — error tracking
+- `SENTRY_TRACES_SAMPLE_RATE` — share of server and edge requests that Sentry traces (0-1, read at runtime); defaults to `0.1`. Requests from the browser keep the browser's sampling decision (`tracesSampleRate` in `instrumentation-client`)
 - Build-time args must be exported in shell for local Docker builds; runtime vars are loaded from `apps/<app>/.env` and `apps/<app>/.env.local` by `docker compose`
