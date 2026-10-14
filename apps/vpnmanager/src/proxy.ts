@@ -5,7 +5,7 @@ export const config = {
   matcher: ["/api/statistics/:path*", "/api/users/:path*"],
 };
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const key: string | null = req.headers.get("x-api-key");
   const API_SECRET_KEY = process.env.API_SECRET_KEY;
   if (req.method !== "GET") {
