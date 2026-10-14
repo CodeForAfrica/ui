@@ -1003,6 +1003,10 @@ COPY apps/vpnmanager/package.json ./apps/vpnmanager/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
 RUN pnpm --filter "./apps/vpnmanager" install --prefer-offline --frozen-lockfile
+# base-deps already unpacked better-sqlite3 (outside its --filter, so without
+# running its install script), which makes the install above a no-op. Build
+# the native binding explicitly.
+RUN pnpm --filter "./apps/vpnmanager" rebuild better-sqlite3
 
 #
 # vpnmanager-builder: image that uses deps to build shippable output
