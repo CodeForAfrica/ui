@@ -1,9 +1,31 @@
+const path = require("node:path");
+
 const { createTransformIgnorePatterns } = require("./shared");
+
+// `JEST_REACT=19` runs a project's tests against React 19 instead of the
+// project's React, so shared packages developed against React 18 are also
+// tested on the React 19 that some of their consumers use. React 19 comes from
+// this package's devDependencies, so this only works inside the monorepo.
+function createReactModuleNameMapper() {
+  if (process.env.JEST_REACT !== "19") {
+    return {};
+  }
+  const packageDir = (name) =>
+    path.dirname(require.resolve(`${name}/package.json`));
+  return {
+    "^react$": packageDir("react"),
+    "^react/(.*)$": `${packageDir("react")}/$1`,
+    "^react-dom$": packageDir("react-dom"),
+    "^react-dom/(.*)$": `${packageDir("react-dom")}/$1`,
+  };
+}
 
 module.exports = {
   collectCoverage: false,
   coverageProvider: "v8",
   moduleNameMapper: {
+    ...createReactModuleNameMapper(),
+
     // Handle CSS imports (with CSS modules)
     // https://jestjs.io/docs/webpack#mocking-css-modules
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",

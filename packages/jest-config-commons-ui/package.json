@@ -57,7 +57,8 @@
     "eslint-config-commons-ui": "workspace:*",
     "jest": "catalog:",
     "next": "catalog:",
-    "react": "catalog:",
+    "react": "catalog:react-19",
+    "react-dom": "catalog:react-19",
     "typescript": "catalog:"
   },
   "peerDependencies": {

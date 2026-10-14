@@ -23,7 +23,8 @@
         "$TURBO_ROOT$/packages/commons-ui-testing-library/src/**",
         "$TURBO_ROOT$/packages/commons-ui-testing-library/jest.setup.js",
         "$TURBO_ROOT$/packages/commons-ui-testing-library/package.json"
-      ]
+      ],
+      "env": ["JEST_REACT"]
     },
     "playwright": {
       "dependsOn": ["build"]

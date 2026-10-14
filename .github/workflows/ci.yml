@@ -69,6 +69,11 @@ jobs:
       - name: Test
         run: pnpm test:ci
 
+      # Shared packages are developed against React 18 but also compiled into
+      # React 19 apps, so run their tests on React 19 too.
+      - name: Test shared packages on React 19
+        run: pnpm jest:react-19
+
       # Compile opted-in apps without prerendering pages. This keeps module
       # resolution and bundler compilation deterministic when full builds read
       # from live services.

@@ -20,6 +20,7 @@
     "jest:ci": "turbo run jest --concurrency=2 -- --ci --maxWorkers=4",
     "jest:coverage": "turbo run jest -- --coverage",
     "jest:debug": "turbo run jest --concurrency=1 -- --runInBand --detectOpenHandles",
+    "jest:react-19": "JEST_REACT=19 turbo run jest --filter=@commons-ui/core --filter=@commons-ui/next --filter=@commons-ui/payload -- --ci",
     "playwright": "turbo run playwright",
     "test": "pnpm test:scripts && pnpm jest",
     "test:ci": "pnpm test:scripts && pnpm jest:ci",
