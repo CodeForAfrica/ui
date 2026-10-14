@@ -1,8 +1,9 @@
 import path from "path";
 import { fileURLToPath } from "url";
 
+import { ResolvePeersFromAppPlugin } from "@commons-ui/next/config.js";
 import { withPayload } from "@payloadcms/next/withPayload";
-import { withSentryConfig } from "@sentry/nextjs";
+import { withSentryConfig } from "@sentry/nextjs/config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +15,9 @@ const outputFileTracingRoot = PROJECT_ROOT
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Don't let `next dev` write Next.js agent rules into AGENTS.md; the repo
+  // maintains its own agent instructions.
+  agentRules: false,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
   reactStrictMode: true,
   output: "standalone",
@@ -32,13 +36,19 @@ const nextConfig = {
         use: ["@svgr/webpack"],
       },
     );
+    // Resolve shared packages' peers (React, Next, MUI, ...) from this app so
+    // there's a single copy of each; see @commons-ui/next/config.js.
+    config.plugins.push(new ResolvePeersFromAppPlugin({ appDir: __dirname }));
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
   images: {
-    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
-      ?.map((d) => d.trim())
-      ?.filter((d) => d),
+    // No protocol, so both http and https stay allowed, as with `domains`.
+    remotePatterns:
+      process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+        .map((d) => d.trim())
+        .filter(Boolean)
+        .map((hostname) => ({ hostname })) ?? [],
     unoptimized:
       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
       "true",
@@ -48,7 +58,6 @@ const nextConfig = {
 export default withPayload(
   withSentryConfig(nextConfig, {
     silent: !process.env.CI,
-    hideSourceMaps: true,
     org: process.env.SENTRY_ORG,
     authToken: process.env.SENTRY_AUTH_TOKEN,
     project: process.env.SENTRY_PROJECT,

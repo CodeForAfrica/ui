@@ -38,6 +38,7 @@
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
     "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "babel-loader": "catalog:",
     "eslint": "catalog:",
     "eslint-config-commons-ui": "workspace:*",

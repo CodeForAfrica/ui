@@ -1,5 +1,6 @@
 import { Section } from "@commons-ui/core";
 import { RichTypography } from "@commons-ui/next";
+import type { JSX } from "react";
 
 import TwoToneBackground from "@/roboshield/components/TwoToneBackground";
 import { ExtractBlockType } from "@/roboshield/utils/blocks";
