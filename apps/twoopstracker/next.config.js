@@ -1,11 +1,17 @@
-const { withSentryConfig } = require("@sentry/nextjs");
+const { withSentryConfig } = require("@sentry/nextjs/config");
 
 const nextConfig = {
+  // Don't let `next dev` write Next.js agent rules into AGENTS.md; the repo
+  // maintains its own agent instructions.
+  agentRules: false,
   output: "standalone",
   images: {
-    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
-      ?.filter((d) => d.trim())
-      ?.map((d) => d.trim()),
+    // No protocol, so both http and https stay allowed, as with `domains`.
+    remotePatterns:
+      process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+        .map((d) => d.trim())
+        .filter(Boolean)
+        .map((hostname) => ({ hostname })) ?? [],
   },
   reactStrictMode: true,
   webpack: function webpack(config) {
@@ -34,5 +40,4 @@ module.exports = withSentryConfig(nextConfig, {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
   silent: !process.env.CI,
-  hideSourceMaps: true,
 });
