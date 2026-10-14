@@ -46,7 +46,6 @@ module.exports = [
       "**/.turbo",
       "**/test-results/",
       "**/playwright-report/",
-      "**/storybook-static/",
       "**/next.config.mjs",
       "**/public/",
       "**/build",

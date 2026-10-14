@@ -22,7 +22,6 @@
   },
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
-    "storybook": "storybook dev -p 6006",
     "lint:check": "eslint .",
     "lint": "eslint --fix .",
     "jest": "jest --passWithNoTests",
@@ -87,14 +86,6 @@
     "@commons-ui/testing-library": "workspace:*",
     "@material-ui/codemod": "catalog:",
     "@playwright/test": "catalog:",
-    "@storybook/addon-essentials": "catalog:",
-    "@storybook/addon-interactions": "catalog:",
-    "@storybook/addon-links": "catalog:",
-    "@storybook/blocks": "catalog:",
-    "@storybook/cli": "catalog:",
-    "@storybook/nextjs": "catalog:",
-    "@storybook/react": "catalog:",
-    "@storybook/test": "catalog:",
     "@svgr/webpack": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
@@ -117,7 +108,6 @@
     "next-sitemap": "catalog:",
     "playwright-config-commons-ui": "workspace:*",
     "react-test-renderer": "catalog:",
-    "storybook": "catalog:",
     "svg-url-loader": "catalog:",
     "typescript": "catalog:"
   }

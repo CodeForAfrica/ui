@@ -10,8 +10,7 @@
     "lint": "eslint --fix .",
     "build:next": "next build",
     "build": "pnpm run build:next",
-    "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/twoopstracker/server.js",
-    "storybook": "storybook dev -p 6006"
+    "start": "node --env-file=.env --env-file=.env.local .next/standalone/apps/twoopstracker/server.js"
   },
   "dependencies": {
     "@commons-ui/core": "catalog:",
@@ -59,14 +58,6 @@
     "@babel/preset-react": "catalog:",
     "@material-ui/codemod": "catalog:",
     "@next/eslint-plugin-next": "catalog:",
-    "@storybook/addon-essentials": "catalog:",
-    "@storybook/addon-interactions": "catalog:",
-    "@storybook/addon-links": "catalog:",
-    "@storybook/blocks": "catalog:",
-    "@storybook/cli": "catalog:",
-    "@storybook/nextjs": "catalog:",
-    "@storybook/react": "catalog:",
-    "@storybook/test": "catalog:",
     "@types/react": "catalog:",
     "babel-loader": "catalog:",
     "babel-plugin-transform-imports": "catalog:",
@@ -83,9 +74,6 @@
     "frontmatter-markdown-loader": "catalog:",
     "jscodeshift": "catalog:",
     "netlify-cms-proxy-server": "catalog:",
-    "storybook": "catalog:",
-    "storybook-addon-material-ui": "catalog:",
-    "storybook-addon-next-router": "catalog:",
     "svg-url-loader": "catalog:",
     "typescript": "catalog:"
   },

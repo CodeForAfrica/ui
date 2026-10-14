@@ -29,8 +29,7 @@ function DatasetsAndDocuments({ items: sources, activeType, ...props }) {
   return (
     <div className={classes.root} ref={contentRef}>
       <Section classes={{ root: classes.section }}>
-        {/* key is needed to re-render the component when prop changes e.g.
-            via storybook controls */}
+        {/* key is needed to re-render the component when activeTab changes */}
         <Tabs key={activeTab} name="dnd" items={items} activeTab={activeTab} />
       </Section>
     </div>
