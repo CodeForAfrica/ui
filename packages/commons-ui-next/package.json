@@ -65,7 +65,9 @@
     "react-dom": "catalog:shared-peers"
   },
   "dependencies": {
-    "clsx": "catalog:"
+    "clsx": "catalog:",
+    "js-yaml": "catalog:",
+    "semver": "catalog:"
   },
   "engines": {
     "node": ">=24"

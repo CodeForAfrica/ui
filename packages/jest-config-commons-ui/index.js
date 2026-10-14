@@ -21,6 +21,7 @@ module.exports = {
   },
   roots: ["<rootDir>/src"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  resolver: require.resolve("./resolver"),
   snapshotResolver: "jest-config-commons-ui/snapshotResolver",
   testEnvironment: "jsdom",
   testEnvironmentOptions: {

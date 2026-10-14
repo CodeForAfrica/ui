@@ -1,4 +1,4 @@
-const nextJest = require("next/jest");
+const path = require("node:path");
 
 const { createTransformIgnorePatterns } = require("../shared");
 const typescriptConfig = require("../typescript");
@@ -28,6 +28,11 @@ function createNextAppJestConfig(customConfig = {}) {
     transformIgnorePatterns: _baseTransformIgnorePatterns,
     ...baseConfig
   } = typescriptConfig;
+  // Load next/jest from the app, so tests use the app's Next.js and not this
+  // package's devDependency.
+  const nextJest = require(
+    require.resolve("next/jest", { paths: [path.resolve(dir)] }),
+  );
   const createJestConfig = nextJest({ dir });
   const mergedModuleNameMapper = mergeModuleNameMapper(
     baseModuleNameMapper,

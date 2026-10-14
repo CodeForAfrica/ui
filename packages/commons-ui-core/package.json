@@ -52,6 +52,7 @@
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
+    "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
@@ -64,5 +65,10 @@
   },
   "engines": {
     "node": ">=24"
+  },
+  "peerDependenciesMeta": {
+    "@emotion/cache": {
+      "optional": true
+    }
   }
 }

@@ -10,6 +10,7 @@
     "./next.js": "./next.js",
     "./next/app": "./next/app.js",
     "./next/library": "./next/library.js",
+    "./resolver": "./resolver.js",
     "./setup/browser": "./setup/browser.js",
     "./setup/next/router": "./setup/next/router.js",
     "./setup/next-router": "./setup/next-router.js",
@@ -31,6 +32,7 @@
     "shared.js",
     "next.js",
     "next",
+    "resolver.js",
     "setup",
     "snapshotResolver"
   ],
@@ -45,7 +47,9 @@
     "@babel/preset-typescript": "catalog:",
     "babel-jest": "catalog:",
     "identity-obj-proxy": "catalog:",
-    "jest-environment-jsdom": "catalog:"
+    "jest-environment-jsdom": "catalog:",
+    "js-yaml": "catalog:",
+    "semver": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",

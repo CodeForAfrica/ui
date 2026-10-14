@@ -157,6 +157,24 @@ All package versions are pinned in `pnpm-workspace.yaml` using catalogs:
 
 Reference catalog versions in `package.json` as `"some-pkg": "catalog:"` or `"some-pkg": "catalog:payload-v3"`.
 
+### Shared packages compiled from source
+
+Apps compile the shared `@commons-ui/*` and `@hurumap/*` packages from source. pnpm installs each shared package's own devDependencies (for example React 18 and Next.js 15) in `packages/*/node_modules`. An app on other majors can then bundle two copies of React, Next.js, MUI and Emotion.
+
+To prevent this, an import from shared-package source resolves from the app when both of these are true:
+
+- The shared package declares the import as a peer dependency.
+- The app's installed version satisfies that peer range.
+
+Declare React, Next.js, MUI, Emotion and similar packages as peers of the shared packages that import them.
+
+- Builds: an app that compiles shared source on other majors adds `ResolvePeersFromAppPlugin` from `@commons-ui/next/config.js` to its webpack config.
+- Tests: the `jest-config-commons-ui` resolver applies the same rule in every Jest project.
+- `packages/commons-ui-next/src/peer-resolution.test.js` runs the same cases against both implementations.
+- The shared packages' React and Next.js peers reference the `shared-peers` catalog, so they accept every major that some app uses. Exceptions: `@hurumap/*` peers React 18 only, and the `payload` and `@payloadcms/richtext-lexical` peers of `commons-ui-payload` are Payload v3 only.
+
+pnpm's injected workspace packages (`dependenciesMeta.<pkg>.injected`) also prevent the second copy. We don't use them: an app then compiles a copy of the shared source, so edits to the shared packages don't hot-reload.
+
 ### Docker architecture
 
 Docker is for **deployment image validation only** — use `pnpm dev` for development.

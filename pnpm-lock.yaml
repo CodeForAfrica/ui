@@ -2515,6 +2515,12 @@ importers:
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
+      js-yaml:
+        specifier: 'catalog:'
+        version: 4.1.1
+      semver:
+        specifier: ^7.7.4
+        version: 7.7.4
     devDependencies:
       '@babel/core':
         specifier: 'catalog:'
@@ -3004,6 +3010,12 @@ importers:
       jest-environment-jsdom:
         specifier: 'catalog:'
         version: 30.3.0(supports-color@9.4.0)
+      js-yaml:
+        specifier: 'catalog:'
+        version: 4.1.1
+      semver:
+        specifier: ^7.7.4
+        version: 7.7.4
     devDependencies:
       '@babel/core':
         specifier: 'catalog:'
