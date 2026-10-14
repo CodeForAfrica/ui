@@ -21,6 +21,11 @@ const nextConfig = {
   agentRules: false,
   output: "standalone",
   outputFileTracingRoot,
+  // Site settings are read with fs at request time (e.g. by the not-found
+  // page), which file tracing can't follow, so ship them in standalone output.
+  outputFileTracingIncludes: {
+    "/*": ["./content/site/**/*"],
+  },
   pageExtensions: ["mdx", "tsx"],
   reactStrictMode: true,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
