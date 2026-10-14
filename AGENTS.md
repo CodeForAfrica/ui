@@ -153,6 +153,7 @@ All package versions are pinned in `pnpm-workspace.yaml` using catalogs:
 - `mui-styles:` — MUI v5 for legacy apps
 - `payload-v3:` — Payload CMS 3.x
 - `react-19:` — React 19 (opt-in)
+- `shared-peers:` — peer ranges of the shared packages: every major that some app uses
 
 Reference catalog versions in `package.json` as `"some-pkg": "catalog:"` or `"some-pkg": "catalog:payload-v3"`.
 

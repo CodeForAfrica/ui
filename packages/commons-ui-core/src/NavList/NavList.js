@@ -31,8 +31,4 @@ NavList.propTypes = {
   direction: PropTypes.oneOf(["column", "row"]),
 };
 
-NavList.defaultProps = {
-  direction: undefined,
-};
-
 export default NavList;

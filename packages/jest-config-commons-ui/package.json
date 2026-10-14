@@ -58,7 +58,7 @@
   },
   "peerDependencies": {
     "jest": "catalog:",
-    "next": "catalog:"
+    "next": "catalog:shared-peers"
   },
   "peerDependenciesMeta": {
     "next": {
