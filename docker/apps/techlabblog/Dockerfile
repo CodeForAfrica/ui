@@ -32,6 +32,9 @@ ENV SENTRY_DSN=${SENTRY_DSN} \
 
 COPY --from=deps /workspace/node_modules ./node_modules
 COPY --from=deps /workspace/apps/techlabblog/node_modules ./apps/techlabblog/node_modules
+# next.config loads @commons-ui/next/config.js, which needs that package's own
+# dependencies (e.g. semver).
+COPY --from=deps /workspace/packages/commons-ui-next/node_modules ./packages/commons-ui-next/node_modules
 # turbo WARNs when lockfile is missing during build
 COPY --from=pruned /workspace/out/pnpm-lock.yaml ./
 COPY --from=pruned /workspace/out/full/ ./

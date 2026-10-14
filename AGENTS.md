@@ -100,7 +100,7 @@ docker compose up <app>           # Run locally after bake
   - Legacy:
     - MUI v5 + `@mui/styles` via the `mui-styles` catalog for `pesayetu` and `twoopstracker`.
 - **Framework stack**:
-  - Next.js 16 + React 19 (`catalog:next-16`, `catalog:react-19`) for `roboshield` and `trustlab`. Payload v3 doesn't support Next.js 15.5.
+  - Next.js 16 + React 19 (`catalog:next-16`, `catalog:react-19`) for `roboshield` and `trustlab` (Payload v3 doesn't support Next.js 15.5), and `techlabblog`.
   - Next.js 15 + React 18 (`catalog:`) for the other apps.
   - Next.js 16 apps build with `--webpack` because they have custom webpack rules (Next.js 16 defaults to Turbopack). They set `agentRules: false` so that `next dev` doesn't write Next.js agent rules into the app's `AGENTS.md`.
 - **CMS stack**:
@@ -175,7 +175,7 @@ Declare React, Next.js, MUI, Emotion and similar packages as peers of the shared
 
 - Builds: an app that compiles shared source on other majors adds `ResolvePeersFromAppPlugin` from `@commons-ui/next/config.js` to its webpack config.
 - Tests: the `jest-config-commons-ui` resolver applies the same rule in every Jest project.
-- Type-checks: TypeScript apps on React 19 that type-check shared source map `react` and `react-dom` to their own `@types` in `tsconfig.json` `paths` (`roboshield`, `trustlab`).
+- Type-checks: TypeScript apps on React 19 that type-check shared source map `react` and `react-dom` to their own `@types` in `tsconfig.json` `paths` (`roboshield`, `techlabblog`, `trustlab`).
 - `packages/commons-ui-next/src/peer-resolution.test.js` runs the same cases against both implementations.
 - `pnpm jest:react-19` runs the shared packages' tests on React 19 (`JEST_REACT=19`). CI runs it too.
 - CI builds the apps with `CHECK_BUNDLE_SINGLETONS=1`. Then `pnpm check:bundle-singletons` fails if an app that uses the plugin bundles more than one copy of React, Next.js, MUI or Emotion.
