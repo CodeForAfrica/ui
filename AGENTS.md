@@ -101,6 +101,7 @@ docker compose up <app>           # Run locally after bake
     - MUI v5 + `@mui/styles` via the `mui-styles` catalog for `pesayetu` and `twoopstracker`.
 - **Framework stack**:
   - Next.js 16 + React 19 (`catalog:next-16`, `catalog:react-19`) for `roboshield` and `trustlab` (Payload v3 doesn't support Next.js 15.5), `techlabblog` and `vpnmanager`.
+  - Next.js 16 + React 18 for `pesayetu`. Next.js 16 deprecates React 18 and Next.js 17 removes it. Before Next.js 17, the app must convert `defaultProps` to default parameters (React 19 ignores `defaultProps` on function components), replace the npm `@commons-ui/core@0.1.0` (React 17 peer), and move to `react-leaflet` 5 and React 19 peers on `@hurumap/*`.
   - Next.js 15 + React 18 (`catalog:`) for the other apps.
   - Next.js 16 apps build with `--webpack` because they have custom webpack rules (Next.js 16 defaults to Turbopack). They set `agentRules: false` so that `next dev` doesn't write Next.js agent rules into the app's `AGENTS.md`.
 - **CMS stack**:

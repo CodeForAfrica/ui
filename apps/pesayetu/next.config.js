@@ -1,16 +1,24 @@
 const path = require("path");
 
+const { ResolvePeersFromAppPlugin } = require("@commons-ui/next/config");
+
 const TRACING_ROOT = process.env.TRACING_ROOT?.trim();
 const outputFileTracingRoot = TRACING_ROOT
   ? path.resolve(__dirname, TRACING_ROOT)
   : undefined;
 
 module.exports = {
+  // Don't let `next dev` write Next.js agent rules into AGENTS.md; the repo
+  // maintains its own agent instructions.
+  agentRules: false,
   outputFileTracingRoot,
   images: {
-    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
-      ?.map((d) => d.trim())
-      ?.filter((d) => d),
+    // No protocol, so both http and https stay allowed, as with `domains`.
+    remotePatterns:
+      process.env.NEXT_PUBLIC_IMAGE_DOMAINS?.split(",")
+        .map((d) => d.trim())
+        .filter(Boolean)
+        .map((hostname) => ({ hostname })) ?? [],
     unoptimized:
       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED?.trim()?.toLowerCase() ===
       "true",
@@ -41,6 +49,9 @@ module.exports = {
         },
       ],
     });
+    // Resolve shared packages' peers (React, Next, MUI, ...) from this app so
+    // there's a single copy of each; see @commons-ui/next/config.js.
+    config.plugins.push(new ResolvePeersFromAppPlugin({ appDir: __dirname }));
     return config;
   },
   async redirects() {
