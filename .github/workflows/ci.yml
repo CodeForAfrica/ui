@@ -79,6 +79,13 @@ jobs:
       # from live services.
       - name: Compile apps
         run: pnpm build:compile
+        env:
+          CHECK_BUNDLE_SINGLETONS: "1"
+
+      # Shared packages are compiled from source; make sure each app still
+      # bundles one copy of React, Next, MUI and Emotion.
+      - name: Check bundled singletons
+        run: pnpm check:bundle-singletons
 
       # TODO: Re-enable build in a dedicated CI build cleanup PR. The current
       # build surface needs app-scoped env isolation for Payload/Next apps.

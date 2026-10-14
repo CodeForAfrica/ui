@@ -172,6 +172,7 @@ Declare React, Next.js, MUI, Emotion and similar packages as peers of the shared
 - Tests: the `jest-config-commons-ui` resolver applies the same rule in every Jest project.
 - `packages/commons-ui-next/src/peer-resolution.test.js` runs the same cases against both implementations.
 - `pnpm jest:react-19` runs the shared packages' tests on React 19 (`JEST_REACT=19`). CI runs it too.
+- CI builds the apps with `CHECK_BUNDLE_SINGLETONS=1`. Then `pnpm check:bundle-singletons` fails if an app that uses the plugin bundles more than one copy of React, Next.js, MUI or Emotion.
 - The shared packages' React and Next.js peers reference the `shared-peers` catalog, so they accept every major that some app uses. Exceptions: `@hurumap/*` peers React 18 only, and the `payload` and `@payloadcms/richtext-lexical` peers of `commons-ui-payload` are Payload v3 only.
 
 pnpm's injected workspace packages (`dependenciesMeta.<pkg>.injected`) also prevent the second copy. We don't use them: an app then compiles a copy of the shared source, so edits to the shared packages don't hot-reload.

@@ -6,6 +6,9 @@ const semver = require("semver");
 
 const PLUGIN_NAME = "ResolvePeersFromAppPlugin";
 const NODE_MODULES = `${path.sep}node_modules${path.sep}`;
+// `.pnpm/<dir>/node_modules/<name>/`, a package's own pnpm directory.
+const PNPM_PACKAGE =
+  /[/\\]\.pnpm[/\\]([^/\\]+)[/\\]node_modules[/\\]((?:@[^/\\]+[/\\])?[^/\\]+)[/\\]/;
 
 function packageName(request) {
   const [scopeOrName, name] = request.split("/");
@@ -142,6 +145,36 @@ class ResolvePeersFromAppPlugin {
         }
       });
     });
+    if (process.env.CHECK_BUNDLE_SINGLETONS) {
+      compiler.hooks.done.tap(PLUGIN_NAME, (stats) =>
+        this.reportBundledPackages(compiler, stats),
+      );
+    }
+  }
+
+  // Writes the pnpm package directories each compilation bundled to
+  // .next/bundle-packages/, for scripts/check-bundle-singletons.mjs. Bundled
+  // module paths only exist in webpack's module graph, not in the output.
+  reportBundledPackages(compiler, stats) {
+    const packages = {};
+    for (const bundled of stats.compilation.modules) {
+      // A ConcatenatedModule has no resource; its inner modules do.
+      for (const { resource } of bundled.modules ?? [bundled]) {
+        const match = PNPM_PACKAGE.exec(resource ?? "");
+        if (match) {
+          const [, dir, name] = match;
+          packages[name] ??= new Set();
+          packages[name].add(dir);
+        }
+      }
+    }
+    const reportDir = path.join(this.appDir, ".next", "bundle-packages");
+    const toJson = (_, value) => (value instanceof Set ? [...value] : value);
+    fs.mkdirSync(reportDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(reportDir, `${compiler.name ?? "default"}.json`),
+      `${JSON.stringify(packages, toJson, 2)}\n`,
+    );
   }
 }
 
