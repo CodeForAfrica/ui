@@ -10,7 +10,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -22,7 +22,11 @@
       "@/commons-ui/core/*": ["../../packages/commons-ui-core/src/*"],
       "@/commons-ui/next/*": ["../../packages/commons-ui-next/src/*"],
       "@/root/*": ["./*"],
-      "@payload-config": ["./payload.config.ts"]
+      "@payload-config": ["./payload.config.ts"],
+      "react": ["./node_modules/@types/react"],
+      "react/*": ["./node_modules/@types/react/*"],
+      "react-dom": ["./node_modules/@types/react-dom"],
+      "react-dom/*": ["./node_modules/@types/react-dom/*"]
     },
     "target": "ES2017"
   },
@@ -31,7 +35,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "eslint.webpack.config.js"
+    "eslint.webpack.config.js",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

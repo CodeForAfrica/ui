@@ -82,7 +82,7 @@ exports[`<PostList /> renders unchanged 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"
-                id=":r2:"
+                id="_r_2_"
                 placeholder="5"
                 type="text"
                 value="1"

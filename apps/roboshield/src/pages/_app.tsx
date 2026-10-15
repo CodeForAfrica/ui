@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
+import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { AppProps } from "next/app";
 import Head from "next/head";

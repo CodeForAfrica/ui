@@ -1,4 +1,5 @@
-import { withSentryConfig } from "@sentry/nextjs";
+import { withSentryConfig } from "@sentry/nextjs/config";
+import { ResolvePeersFromAppPlugin } from "@commons-ui/next/config.js";
 import { withPayload } from "@payloadcms/next/withPayload";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -20,6 +21,9 @@ const imageDomains =
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Don't let `next dev` write Next.js agent rules into AGENTS.md; the repo
+  // maintains its own agent instructions.
+  agentRules: false,
   images: {
     remotePatterns: imageDomains.map((hostname) => ({
       protocol: "https",
@@ -56,6 +60,9 @@ const nextConfig = {
         },
       ],
     });
+    // Resolve shared packages' peers (React, Next, MUI, ...) from this app so
+    // there's a single copy of each; see @commons-ui/next/config.js.
+    config.plugins.push(new ResolvePeersFromAppPlugin({ appDir: __dirname }));
     config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
@@ -127,13 +134,15 @@ export default withPayload(
     // side errors will fail.
     tunnelRoute: "/monitoring",
 
-    // Automatically tree-shake Sentry logger statements to reduce bundle size
-    disableLogger: true,
+    webpack: {
+      // Automatically tree-shake Sentry logger statements to reduce bundle size
+      treeshake: { removeDebugLogging: true },
 
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    // See the following for more information:
-    // https://docs.sentry.io/product/crons/
-    // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
+      // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
+      // See the following for more information:
+      // https://docs.sentry.io/product/crons/
+      // https://vercel.com/docs/cron-jobs
+      automaticVercelMonitors: true,
+    },
   }),
 );

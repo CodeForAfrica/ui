@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function middleware(req) {
+export async function proxy(req) {
   // /research?slugs=research&slugs=baseline-reports
   const slugsPathname = new URLSearchParams(req.nextUrl.search)
     .getAll("slugs")
