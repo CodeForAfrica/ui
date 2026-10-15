@@ -86,7 +86,15 @@ const Media = {
     ],
     afterRead: [
       ({ doc }) => {
-        const { pathname } = new URL(doc?.url);
+        // Payload doesn't store url. The url field's own afterRead hook builds
+        // it, and only when the read selects it. This collection hook runs on
+        // every read, so it also gets docs without url, e.g. the storage
+        // plugin selects only _objectKey and prefix to serve
+        // /api/media/file/<filename>.
+        if (!doc?.url) {
+          return doc;
+        }
+        const { pathname } = new URL(doc.url);
         return {
           ...doc,
           // Need relative URLs since we're deploying Payload and Next.js
