@@ -15,7 +15,7 @@
 // Without arguments, checks every apps/*/ whose next.config uses the plugin.
 
 import { existsSync, readdirSync, readFileSync, realpathSync } from "node:fs";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export const SINGLETONS = [
@@ -30,6 +30,23 @@ export const SINGLETONS = [
   "@emotion/cache",
 ];
 
+// Known exceptions, allowed one copy per major version. pesayetu is a MUI 5
+// app that also renders the MUI 6 @hurumap/* and @commons-ui/* packages.
+// Remove this when pesayetu moves to MUI 6 and React 19.
+export const ONE_COPY_PER_MAJOR = {
+  pesayetu: ["@mui/material", "@mui/system", "@mui/styled-engine"],
+};
+
+// "@mui+material@6.5.0_react@19.3.0..." -> "6"
+function major(pnpmDir) {
+  return pnpmDir.slice(pnpmDir.indexOf("@", 1) + 1).split(".")[0];
+}
+
+function isDuplicate(app, name, dirs) {
+  if (!ONE_COPY_PER_MAJOR[app]?.includes(name)) return dirs.size > 1;
+  return new Set([...dirs].map(major)).size < dirs.size;
+}
+
 // Merges every compilation's report (client, server, edge): the server and
 // the browser must render with the same copy too.
 export function findDuplicates(appDir) {
@@ -42,7 +59,8 @@ export function findDuplicates(appDir) {
       for (const dir of report[name] ?? []) copies.get(name).add(dir);
     }
   }
-  return [...copies].filter(([, dirs]) => dirs.size > 1);
+  const app = basename(appDir);
+  return [...copies].filter(([name, dirs]) => isDuplicate(app, name, dirs));
 }
 
 function appsUsingPlugin() {
