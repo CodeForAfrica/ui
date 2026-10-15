@@ -67,8 +67,7 @@ function MobilePanel({ scrollToTopLabel, activeType, ...props }) {
           >{`${geography.name} ${dataNotAvailable}`}</Typography>
         </Section>
       )}
-      {/* key is needed to re-render the component when prop changes e.g.
-            via storybook controls */}
+      {/* key is needed to re-render the component when activeTab changes */}
       <Tabs
         key={activeTab}
         name="mobilepanel"

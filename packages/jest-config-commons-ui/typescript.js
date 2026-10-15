@@ -6,7 +6,6 @@ module.exports = {
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/**/*.d.ts",
     "!src/**/__mocks__/**",
-    "!src/**/*.stories.{js,jsx,ts,tsx}",
   ],
   moduleFileExtensions: [
     "js",

@@ -47,7 +47,6 @@ docker/README.md
 **/build
 **/coverage
 **/dist
-**/storybook-static
 **/*.tsbuildinfo
 
 # App/static media export folders (if generated)
