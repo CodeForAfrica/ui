@@ -59,13 +59,15 @@
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
     "clsx": "catalog:",
-    "next": "catalog:",
+    "next": "catalog:shared-peers",
     "prop-types": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "react": "catalog:shared-peers",
+    "react-dom": "catalog:shared-peers"
   },
   "dependencies": {
-    "clsx": "catalog:"
+    "clsx": "catalog:",
+    "js-yaml": "catalog:",
+    "semver": "catalog:"
   },
   "engines": {
     "node": ">=24"

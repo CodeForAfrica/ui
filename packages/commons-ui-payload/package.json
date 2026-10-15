@@ -69,14 +69,25 @@
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
+    "@mui/utils": "catalog:",
+    "@payloadcms/richtext-lexical": "catalog:payload-v3",
     "clsx": "catalog:",
-    "next": "catalog:",
+    "next": "catalog:shared-peers",
+    "payload": "catalog:payload-v3",
     "prop-types": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
+    "react": "catalog:shared-peers",
+    "react-dom": "catalog:shared-peers",
     "slate": "catalog:"
   },
   "engines": {
     "node": ">=24"
+  },
+  "peerDependenciesMeta": {
+    "@payloadcms/richtext-lexical": {
+      "optional": true
+    },
+    "payload": {
+      "optional": true
+    }
   }
 }

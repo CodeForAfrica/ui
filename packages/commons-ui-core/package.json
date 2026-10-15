@@ -52,17 +52,23 @@
   },
   "peerDependencies": {
     "@babel/core": "catalog:",
+    "@emotion/cache": "catalog:",
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
     "@mui/utils": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "react": "catalog:shared-peers",
+    "react-dom": "catalog:shared-peers"
   },
   "dependencies": {
     "prop-types": "catalog:"
   },
   "engines": {
     "node": ">=24"
+  },
+  "peerDependenciesMeta": {
+    "@emotion/cache": {
+      "optional": true
+    }
   }
 }

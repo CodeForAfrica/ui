@@ -153,8 +153,29 @@ All package versions are pinned in `pnpm-workspace.yaml` using catalogs:
 - `mui-styles:` — MUI v5 for legacy apps
 - `payload-v3:` — Payload CMS 3.x
 - `react-19:` — React 19 (opt-in)
+- `shared-peers:` — peer ranges of the shared packages: every major that some app uses
 
 Reference catalog versions in `package.json` as `"some-pkg": "catalog:"` or `"some-pkg": "catalog:payload-v3"`.
+
+### Shared packages compiled from source
+
+Apps compile the shared `@commons-ui/*` and `@hurumap/*` packages from source. pnpm installs each shared package's own devDependencies (for example React 18 and Next.js 15) in `packages/*/node_modules`. An app on other majors can then bundle two copies of React, Next.js, MUI and Emotion.
+
+To prevent this, an import from shared-package source resolves from the app when both of these are true:
+
+- The shared package declares the import as a peer dependency.
+- The app's installed version satisfies that peer range.
+
+Declare React, Next.js, MUI, Emotion and similar packages as peers of the shared packages that import them.
+
+- Builds: an app that compiles shared source on other majors adds `ResolvePeersFromAppPlugin` from `@commons-ui/next/config.js` to its webpack config.
+- Tests: the `jest-config-commons-ui` resolver applies the same rule in every Jest project.
+- `packages/commons-ui-next/src/peer-resolution.test.js` runs the same cases against both implementations.
+- `pnpm jest:react-19` runs the shared packages' tests on React 19 (`JEST_REACT=19`). CI runs it too.
+- CI builds the apps with `CHECK_BUNDLE_SINGLETONS=1`. Then `pnpm check:bundle-singletons` fails if an app that uses the plugin bundles more than one copy of React, Next.js, MUI or Emotion.
+- The shared packages' React and Next.js peers reference the `shared-peers` catalog, so they accept every major that some app uses. Exceptions: `@hurumap/*` peers React 18 only, and the `payload` and `@payloadcms/richtext-lexical` peers of `commons-ui-payload` are Payload v3 only.
+
+pnpm's injected workspace packages (`dependenciesMeta.<pkg>.injected`) also prevent the second copy. We don't use them: an app then compiles a copy of the shared source, so edits to the shared packages don't hot-reload.
 
 ### Docker architecture
 

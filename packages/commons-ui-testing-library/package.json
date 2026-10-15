@@ -55,8 +55,8 @@
     "@emotion/react": "catalog:",
     "@emotion/styled": "catalog:",
     "@mui/material": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "react": "catalog:shared-peers",
+    "react-dom": "catalog:shared-peers"
   },
   "dependencies": {
     "@testing-library/jest-dom": "catalog:",

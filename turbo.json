@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": ["**/.env.*local", "pnpm-workspace.yaml"],
   "globalEnv": ["CI", "GITHUB_TOKEN", "NODE_ENV", "PORT"],
   "tasks": {
     "//#format:check": {},
@@ -13,7 +13,8 @@
     },
     "build:compile": {
       "dependsOn": ["^build:compile"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["CHECK_BUNDLE_SINGLETONS"]
     },
     "jest": {
       "inputs": [
@@ -23,7 +24,8 @@
         "$TURBO_ROOT$/packages/commons-ui-testing-library/src/**",
         "$TURBO_ROOT$/packages/commons-ui-testing-library/jest.setup.js",
         "$TURBO_ROOT$/packages/commons-ui-testing-library/package.json"
-      ]
+      ],
+      "env": ["JEST_REACT"]
     },
     "playwright": {
       "dependsOn": ["build"]
