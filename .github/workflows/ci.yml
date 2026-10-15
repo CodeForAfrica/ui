@@ -76,9 +76,10 @@ jobs:
 
       # Compile opted-in apps without prerendering pages. This keeps module
       # resolution and bundler compilation deterministic when full builds read
-      # from live services.
+      # from live services. Compile two at a time: all the Next.js 16 apps at
+      # once can exhaust the runner's 16 GB of memory.
       - name: Compile apps
-        run: pnpm build:compile
+        run: pnpm build:compile --concurrency=2
         env:
           CHECK_BUNDLE_SINGLETONS: "1"
 
