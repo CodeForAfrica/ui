@@ -109,8 +109,8 @@ catalogs:
       specifier: ^1.0.7
       version: 1.0.7
     '@payloadcms/db-mongodb':
-      specifier: ^1.7.2
-      version: 1.7.5
+      specifier: ^3.87.0
+      version: 3.90.2
     '@payloadcms/live-preview':
       specifier: ^0.2.2
       version: 0.2.2
@@ -718,7 +718,7 @@ importers:
         version: 1.0.7(@swc/core@1.15.30(@swc/helpers@0.5.23))(ajv@8.18.0)(esbuild@0.28.2)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(sass@1.77.4)(supports-color@9.4.0)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.5(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(supports-color@9.4.0)
+        version: 3.90.2(@aws-sdk/credential-providers@3.1034.0)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(socks@2.8.7)(supports-color@9.4.0)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
         version: 1.2.2(@aws-sdk/client-s3@3.1034.0)(@aws-sdk/lib-storage@3.1034.0(@aws-sdk/client-s3@3.1034.0))(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))
@@ -935,7 +935,7 @@ importers:
         version: 1.0.7(@swc/core@1.15.30(@swc/helpers@0.5.23))(ajv@8.14.0)(esbuild@0.28.2)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(sass@1.77.4)(supports-color@9.4.0)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.5(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(supports-color@9.4.0)
+        version: 3.90.2(@aws-sdk/credential-providers@3.1034.0)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(socks@2.8.7)(supports-color@9.4.0)
       '@payloadcms/live-preview':
         specifier: 'catalog:'
         version: 0.2.2
@@ -1134,7 +1134,7 @@ importers:
         version: 1.0.7(@swc/core@1.15.30(@swc/helpers@0.5.23))(ajv@8.18.0)(esbuild@0.28.2)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(sass@1.77.4)(supports-color@9.4.0)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.5(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(supports-color@9.4.0)
+        version: 3.90.2(@aws-sdk/credential-providers@3.1034.0)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(socks@2.8.7)(supports-color@9.4.0)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
         version: 1.2.2(@aws-sdk/client-s3@3.1034.0)(@aws-sdk/lib-storage@3.1034.0(@aws-sdk/client-s3@3.1034.0))(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))
@@ -1393,7 +1393,7 @@ importers:
         version: 1.0.7(@swc/core@1.15.30(@swc/helpers@0.5.23))(ajv@8.18.0)(esbuild@0.28.2)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(sass@1.77.4)(supports-color@9.4.0)
       '@payloadcms/db-mongodb':
         specifier: 'catalog:'
-        version: 1.7.5(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(supports-color@9.4.0)
+        version: 3.90.2(@aws-sdk/credential-providers@3.1034.0)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(socks@2.8.7)(supports-color@9.4.0)
       '@payloadcms/plugin-cloud-storage':
         specifier: 'catalog:'
         version: 1.2.2(@aws-sdk/client-s3@3.1034.0)(@aws-sdk/lib-storage@3.1034.0(@aws-sdk/client-s3@3.1034.0))(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))
@@ -6089,11 +6089,6 @@ packages:
       ajv: 8.14.0
       payload: ^2.0.0
 
-  '@payloadcms/db-mongodb@1.7.5':
-    resolution: {integrity: sha512-2UQfVTjdZYSUa4T1DemY/Q1wMYuCR7f69nX0Q387li2zKllYGHxZZLVuq9gK2iNe1+2F03wG5mGS665/0AEqQQ==}
-    peerDependencies:
-      payload: ^2.0.0
-
   '@payloadcms/db-mongodb@3.90.2':
     resolution: {integrity: sha512-5fpA5bQAG/5/ZplD27EWnTyZR6ZUrgRhBcJdCrw+9MKWGZwXtXrzah1xWngBwVhC7QNVkgxOwKuwLE2jcDqIHg==}
     peerDependencies:
@@ -7698,9 +7693,6 @@ packages:
   '@types/whatwg-url@11.0.5':
     resolution: {integrity: sha512-coYR071JRaHa+xoEvvYqvnIHaVqaYrLPbsufM9BF63HkwI5Lgmy2QR8Q5K/lYDYo5AK82wOvSOS0UsLTpTG7uQ==}
 
-  '@types/whatwg-url@8.2.2':
-    resolution: {integrity: sha512-FtQu10RWgn3D9U4aazdwIE2yzphmTJREDqNdODHrbrZmmMqI0vMheC/6NE/J1Yveaj8H+ela+YwWTjq5PGmuhA==}
-
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
 
@@ -8437,10 +8429,6 @@ packages:
 
   bson-objectid@2.0.4:
     resolution: {integrity: sha512-vgnKAUzcDoa+AeyYwXCoHyF2q6u/8H46dxu5JN+4/TZeq/Dlinn0K6GvxsCLb3LHUJl0m/TLiEK31kUwtgocMQ==}
-
-  bson@4.7.2:
-    resolution: {integrity: sha512-Ry9wCtIZ5kGqkJoi6aD8KjxFZEx78guTQDnpXWiNthsxzrxAK/i8E6pCHAIZTbaEFWcOCvbecMukfK7XUvyLpQ==}
-    engines: {node: '>=6.9.0'}
 
   bson@6.10.4:
     resolution: {integrity: sha512-WIsKqkSC0ABoBJuT1LEX+2HEvNmNKKgnTAyd0fL8qzK4SH2i9NXg+t08YtdZp/V9IZ33cxe3iV4yM0qg8lMQng==}
@@ -10120,10 +10108,6 @@ packages:
     resolution: {integrity: sha512-pjzuKtY64GYfWizNAJ0fr9VqttZkNiK2iS430LtIHzjBEr6bX8Am2zm4sW4Ro5wjWW5cAlRL1qAMTcXbjNAO2Q==}
     engines: {node: '>=8.0.0'}
 
-  get-port@5.1.1:
-    resolution: {integrity: sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==}
-    engines: {node: '>=8'}
-
   get-proto@1.0.1:
     resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
@@ -11253,10 +11237,6 @@ packages:
     resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
     engines: {node: '>=18'}
 
-  kareem@2.5.1:
-    resolution: {integrity: sha512-7jFxRVm+jD+rkq3kY0iZDJfsO2/t4BBPeEb2qKn2lR/9KhuksYk5hxzfRYWMPV8P/x2d0kHD306YyWLzjjH+uA==}
-    engines: {node: '>=12.0.0'}
-
   kareem@2.6.3:
     resolution: {integrity: sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==}
     engines: {node: '>=12.0.0'}
@@ -11831,15 +11811,8 @@ packages:
   monaco-editor@0.51.0:
     resolution: {integrity: sha512-xaGwVV1fq343cM7aOYB6lVE4Ugf0UyimdD/x5PWcWBMKENwectaEu77FAN7c5sFiyumqeJdX1RPTh1ocioyDjw==}
 
-  mongodb-connection-string-url@2.6.0:
-    resolution: {integrity: sha512-WvTZlI9ab0QYtTYnuMLgobULWhokRjtC7db9LtcVfJ+Hsnyr5eo6ZtNAt3Ly24XZScGMelOcGtm7lSn0332tPQ==}
-
   mongodb-connection-string-url@3.0.2:
     resolution: {integrity: sha512-rMO7CGo/9BFwyZABcKAWL8UJwH/Kc2x0g72uhDWzG48URRax5TCIcJ7Rc3RZqffZzO/Gwff/jyKwCU9TN8gehA==}
-
-  mongodb@4.17.2:
-    resolution: {integrity: sha512-mLV7SEiov2LHleRJPMPrK2PMyhXFZt2UQLC4VD4pnth3jMjYKHhtqfwwkkvS/NXuo/Fp3vbhaNcXrIDaLRb9Tg==}
-    engines: {node: '>=12.9.0'}
 
   mongodb@6.20.0:
     resolution: {integrity: sha512-Tl6MEIU3K4Rq3TSHd+sZQqRBoGlFsOgNrH5ltAcFBV62Re3Fd+FcaVf8uSEQFOJ51SDowDVttBTONMfoYWrWlQ==}
@@ -11868,27 +11841,15 @@ packages:
       socks:
         optional: true
 
-  mongoose-aggregate-paginate-v2@1.0.6:
-    resolution: {integrity: sha512-UuALu+mjhQa1K9lMQvjLL3vm3iALvNw8PQNIh2gp1b+tO5hUa0NC0Wf6/8QrT9PSJVTihXaD8hQVy3J4e0jO0Q==}
-    engines: {node: '>=4.0.0'}
-
   mongoose-lean-virtuals@1.1.1:
     resolution: {integrity: sha512-8chOqpVE3bcoWT2pIgcJeIZlXaOfQCavZgQZF4qytUtjRBqsNMyzUoR16qdw9XL2kC478N8iA8z0AA+NSS0d1A==}
     engines: {node: '>=16.20.1'}
     peerDependencies:
       mongoose: '>=5.11.10'
 
-  mongoose-paginate-v2@1.7.22:
-    resolution: {integrity: sha512-xW5GugkE21DJiu9e13EOxKt4ejEKQkRP/S1PkkXRjnk2rRZVKBcld1nPV+VJ/YCPfm8hb3sz9OvI7O38RmixkA==}
-    engines: {node: '>=4.0.0'}
-
   mongoose-paginate-v2@1.9.4:
     resolution: {integrity: sha512-0LOsVEQmjrbJKVDi/IvFEhIezmuRjUE4loGgslv57j9nK/NMC+mbKT0QnaPSPpib4lByKVBcy3VbDa1TvlHZjA==}
     engines: {node: '>=4.0.0'}
-
-  mongoose@6.13.8:
-    resolution: {integrity: sha512-JHKco/533CyVrqCbyQsnqMpLn8ZCiKrPDTd2mvo2W7ygIvhygWjX2wj+RPjn6upZZgw0jC6U51RD7kUsyK8NBg==}
-    engines: {node: '>=12.0.0'}
 
   mongoose@8.24.1:
     resolution: {integrity: sha512-UpHBA0l5kHyKJQFjmBaFYQFo5sgz1DK0TRqDkOyBLYbqiIbKKhIvBpHWBXqeo0rgW4kGI1UhhAw+kTQZoj1BdA==}
@@ -11909,10 +11870,6 @@ packages:
   mpd-parser@1.3.1:
     resolution: {integrity: sha512-1FuyEWI5k2HcmhS1HkKnUAQV7yFPfXPht2DnRRGtoiiAAW+ESTbtEXIDpRkwdU+XyrQuwrIym7UkoPKsZ0SyFw==}
     hasBin: true
-
-  mquery@4.0.3:
-    resolution: {integrity: sha512-J5heI+P08I6VJ2Ky3+33IpCdAvlYGTSUjwTPxkAr8i8EoduPMBX2OY/wa3IKZIQl7MU4SbFk8ndgSKyB/cl1zA==}
-    engines: {node: '>=12.0.0'}
 
   mquery@5.0.0:
     resolution: {integrity: sha512-iQMncpmEK8R8ncT8HJGsGc9Dsp8xcgYMVSbs5jgnm1lFHTZqMJTUWTDx1LBO8+mK3tPNZWFLBghQEIOULSTHZg==}
@@ -13740,9 +13697,6 @@ packages:
     resolution: {integrity: sha512-ZX99e6tRweoUXqR+VBrslhda51Nh5MTQwou5tnUDgbtyM0dBgmhEDtWGP/xbKn6hqfPRHujUNwz5fy/wbbhnpw==}
     engines: {node: '>= 0.4'}
 
-  sift@16.0.1:
-    resolution: {integrity: sha512-Wv6BjQ5zbhW7VFefWusVP33T/EM0vYikCaQ2qR8yULbsilAT8/wQaXvuQ3ptGLpoKx+lihJE3y2UTgKDyyNHZQ==}
-
   sift@17.1.3:
     resolution: {integrity: sha512-Rtlj66/b0ICeFzYTuNvX/EF1igRbbnGSvEyT79McoZa/DeGhMyC5pWKOEsZKnpkqtSeovd5FL/bjHWC3CIIvCQ==}
 
@@ -14331,10 +14285,6 @@ packages:
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  tr46@3.0.0:
-    resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
-    engines: {node: '>=12'}
-
   tr46@5.1.1:
     resolution: {integrity: sha512-hdF5ZgjTqgAntKkklYw0R03MG2x/bSzTtkxmIRw/sTNV8YXsCJ1tfLAX23lhxhHJlEf3CRCOCGGWw3vI3GaSPw==}
     engines: {node: '>=18'}
@@ -14651,11 +14601,6 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
-    hasBin: true
-
-  uuid@9.0.0:
-    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
@@ -14988,10 +14933,6 @@ packages:
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
     engines: {node: '>=18'}
-
-  whatwg-url@11.0.0:
-    resolution: {integrity: sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ==}
-    engines: {node: '>=12'}
 
   whatwg-url@14.2.0:
     resolution: {integrity: sha512-De72GdQZzNTUBBChsXueQUnPKDkg/5A5zp7pFDuQAj5UFoENpiACU0wlCvzpAGnTkj++ihpKwKyYewn/XNUbKw==}
@@ -19217,20 +19158,21 @@ snapshots:
       - utf-8-validate
       - webpack-dev-server
 
-  '@payloadcms/db-mongodb@1.7.5(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(supports-color@9.4.0)':
+  '@payloadcms/db-mongodb@3.90.2(@aws-sdk/credential-providers@3.1034.0)(payload@2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2))(socks@2.8.7)(supports-color@9.4.0)':
     dependencies:
-      bson-objectid: 2.0.4
-      deepmerge: 4.3.1
-      get-port: 5.1.1
-      http-status: 1.6.2
-      mongoose: 6.13.8(supports-color@9.4.0)
-      mongoose-aggregate-paginate-v2: 1.0.6(supports-color@9.4.0)
-      mongoose-paginate-v2: 1.7.22
+      mongoose: 8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0)
+      mongoose-paginate-v2: 1.9.4(mongoose@8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0))
       payload: 2.32.3(@swc/helpers@0.5.23)(@types/react@18.3.28)(encoding@0.1.13)(esbuild@0.28.2)(supports-color@9.4.0)(typescript@5.9.3)(webpack@5.106.2)
       prompts: 2.4.2
-      uuid: 9.0.0
+      uuid: 13.0.2
     transitivePeerDependencies:
-      - aws-crt
+      - '@aws-sdk/credential-providers'
+      - '@mongodb-js/zstd'
+      - gcp-metadata
+      - kerberos
+      - mongodb-client-encryption
+      - snappy
+      - socks
       - supports-color
 
   '@payloadcms/db-mongodb@3.90.2(@aws-sdk/credential-providers@3.1034.0)(payload@3.90.2(graphql@16.13.2)(supports-color@9.4.0)(typescript@5.9.3))(socks@2.8.7)(supports-color@9.4.0)':
@@ -21283,11 +21225,6 @@ snapshots:
     dependencies:
       '@types/webidl-conversions': 7.0.3
 
-  '@types/whatwg-url@8.2.2':
-    dependencies:
-      '@types/node': 25.6.0
-      '@types/webidl-conversions': 7.0.3
-
   '@types/ws@8.18.1':
     dependencies:
       '@types/node': 25.6.0
@@ -22149,10 +22086,6 @@ snapshots:
       node-int64: 0.4.0
 
   bson-objectid@2.0.4: {}
-
-  bson@4.7.2:
-    dependencies:
-      buffer: 5.7.1
 
   bson@6.10.4: {}
 
@@ -24150,8 +24083,6 @@ snapshots:
 
   get-package-type@0.1.0: {}
 
-  get-port@5.1.1: {}
-
   get-proto@1.0.1:
     dependencies:
       dunder-proto: 1.0.1
@@ -24769,7 +24700,8 @@ snapshots:
 
   interpret@2.2.0: {}
 
-  ip-address@10.1.0: {}
+  ip-address@10.1.0:
+    optional: true
 
   ipaddr.js@1.9.1: {}
 
@@ -25713,8 +25645,6 @@ snapshots:
 
   jwt-decode@4.0.0: {}
 
-  kareem@2.5.1: {}
-
   kareem@2.6.3: {}
 
   keycode@2.2.1: {}
@@ -26540,26 +26470,10 @@ snapshots:
 
   monaco-editor@0.51.0: {}
 
-  mongodb-connection-string-url@2.6.0:
-    dependencies:
-      '@types/whatwg-url': 8.2.2
-      whatwg-url: 11.0.0
-
   mongodb-connection-string-url@3.0.2:
     dependencies:
       '@types/whatwg-url': 11.0.5
       whatwg-url: 14.2.0
-
-  mongodb@4.17.2:
-    dependencies:
-      bson: 4.7.2
-      mongodb-connection-string-url: 2.6.0
-      socks: 2.8.7
-    optionalDependencies:
-      '@aws-sdk/credential-providers': 3.1034.0
-      '@mongodb-js/saslprep': 1.4.8
-    transitivePeerDependencies:
-      - aws-crt
 
   mongodb@6.20.0(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7):
     dependencies:
@@ -26570,38 +26484,16 @@ snapshots:
       '@aws-sdk/credential-providers': 3.1034.0
       socks: 2.8.7
 
-  mongoose-aggregate-paginate-v2@1.0.6(supports-color@9.4.0):
-    dependencies:
-      mongoose: 6.13.8(supports-color@9.4.0)
-    transitivePeerDependencies:
-      - aws-crt
-      - supports-color
-
   mongoose-lean-virtuals@1.1.1(mongoose@8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0)):
     dependencies:
       mongoose: 8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0)
       mpath: 0.8.4
-
-  mongoose-paginate-v2@1.7.22: {}
 
   mongoose-paginate-v2@1.9.4(mongoose@8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0)):
     dependencies:
       mongoose-lean-virtuals: 1.1.1(mongoose@8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0))
     transitivePeerDependencies:
       - mongoose
-
-  mongoose@6.13.8(supports-color@9.4.0):
-    dependencies:
-      bson: 4.7.2
-      kareem: 2.5.1
-      mongodb: 4.17.2
-      mpath: 0.9.0
-      mquery: 4.0.3(supports-color@9.4.0)
-      ms: 2.1.3
-      sift: 16.0.1
-    transitivePeerDependencies:
-      - aws-crt
-      - supports-color
 
   mongoose@8.24.1(@aws-sdk/credential-providers@3.1034.0)(socks@2.8.7)(supports-color@9.4.0):
     dependencies:
@@ -26642,12 +26534,6 @@ snapshots:
       '@videojs/vhs-utils': 4.1.1
       '@xmldom/xmldom': 0.8.13
       global: 4.4.0
-
-  mquery@4.0.3(supports-color@9.4.0):
-    dependencies:
-      debug: 4.4.3(supports-color@9.4.0)
-    transitivePeerDependencies:
-      - supports-color
 
   mquery@5.0.0(supports-color@9.4.0):
     dependencies:
@@ -29074,8 +28960,6 @@ snapshots:
       side-channel-map: 1.0.1
       side-channel-weakmap: 1.0.2
 
-  sift@16.0.1: {}
-
   sift@17.1.3: {}
 
   signal-exit@3.0.7: {}
@@ -29198,7 +29082,8 @@ snapshots:
       ansi-styles: 6.2.3
       is-fullwidth-code-point: 5.1.0
 
-  smart-buffer@4.2.0: {}
+  smart-buffer@4.2.0:
+    optional: true
 
   snake-case@3.0.4:
     dependencies:
@@ -29218,6 +29103,7 @@ snapshots:
     dependencies:
       ip-address: 10.1.0
       smart-buffer: 4.2.0
+    optional: true
 
   sonic-boom@3.8.1:
     dependencies:
@@ -29731,10 +29617,6 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  tr46@3.0.0:
-    dependencies:
-      punycode: 2.3.1
-
   tr46@5.1.1:
     dependencies:
       punycode: 2.3.1
@@ -30130,8 +30012,6 @@ snapshots:
   uuid@8.0.0: {}
 
   uuid@8.3.2: {}
-
-  uuid@9.0.0: {}
 
   uuid@9.0.1: {}
 
@@ -30707,11 +30587,6 @@ snapshots:
   whatwg-mimetype@3.0.0: {}
 
   whatwg-mimetype@4.0.0: {}
-
-  whatwg-url@11.0.0:
-    dependencies:
-      tr46: 3.0.0
-      webidl-conversions: 7.0.0
 
   whatwg-url@14.2.0:
     dependencies:
