@@ -9,6 +9,12 @@ const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN;
 
 Sentry.init({
   dsn: SENTRY_DSN,
+
+  // Sample 10% of server traces by default; override (0-1) with
+  // SENTRY_TRACES_SAMPLE_RATE. Requests from the browser keep the browser's
+  // sampling decision (instrumentation-client).
+  tracesSampleRate: Number(process.env.SENTRY_TRACES_SAMPLE_RATE || 0.1),
+
   // Note: if you want to override the automatic release value, do not set a
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so
   // that it will also get attached to your source maps
