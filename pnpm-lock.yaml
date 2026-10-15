@@ -75,9 +75,6 @@ catalogs:
     '@mui/material':
       specifier: ^6.4.0
       version: 6.5.0
-    '@mui/material-nextjs':
-      specifier: ^6.3.1
-      version: 6.5.0
     '@mui/utils':
       specifier: ^6.4.0
       version: 6.4.9
@@ -92,9 +89,6 @@ catalogs:
       version: 15.5.15
     '@next/eslint-plugin-next':
       specifier: ^15.0.3
-      version: 15.5.15
-    '@next/mdx':
-      specifier: ^15.2.4
       version: 15.5.15
     '@next/third-parties':
       specifier: ^15.3.2
@@ -205,8 +199,8 @@ catalogs:
       specifier: ^2.0.0
       version: 2.0.0
     better-sqlite3:
-      specifier: ^11.9.1
-      version: 11.10.0
+      specifier: ^12.11.1
+      version: 12.11.1
     camelcase-keys:
       specifier: ^9.1.3
       version: 9.1.3
@@ -546,6 +540,9 @@ catalogs:
       specifier: ^7.3.10
       version: 7.3.10
     '@next/env':
+      specifier: ~16.4.0
+      version: 16.4.0
+    '@next/mdx':
       specifier: ~16.4.0
       version: 16.4.0
     '@next/third-parties':
@@ -1954,10 +1951,10 @@ importers:
         version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
-        version: 11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
+        version: 11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0)
       '@emotion/styled':
         specifier: 'catalog:'
-        version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
+        version: 11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0)
       '@mdx-js/loader':
         specifier: 'catalog:'
         version: 3.1.1(supports-color@9.4.0)(webpack@5.106.2)
@@ -1966,34 +1963,34 @@ importers:
         version: 3.1.1(supports-color@9.4.0)
       '@mui/material':
         specifier: 'catalog:'
-        version: 6.5.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.5.0(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@mui/material-nextjs':
-        specifier: 'catalog:'
-        version: 6.5.0(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@emotion/server@11.11.0(@emotion/css@11.13.5(supports-color@9.4.0)))(@types/react@18.3.28)(next@15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)
+        specifier: catalog:next-16
+        version: 7.3.10(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@emotion/server@11.11.0(@emotion/css@11.13.5(supports-color@9.4.0)))(@types/react@19.3.0)(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(react@19.3.0)
       '@mui/utils':
         specifier: 'catalog:'
-        version: 6.4.9(@types/react@18.3.28)(react@18.3.1)
+        version: 6.4.9(@types/react@19.3.0)(react@19.3.0)
       '@next/mdx':
-        specifier: 'catalog:'
-        version: 15.5.15(@mdx-js/loader@3.1.1(supports-color@9.4.0)(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@18.3.28)(react@18.3.1))
+        specifier: catalog:next-16
+        version: 16.4.0(@mdx-js/loader@3.1.1(supports-color@9.4.0)(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.0))
       '@next/third-parties':
-        specifier: 'catalog:'
-        version: 15.5.15(next@15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)
+        specifier: catalog:next-16
+        version: 16.4.0(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(react@19.3.0)
       date-fns:
         specifier: 'catalog:'
         version: 4.1.0
       next:
-        specifier: 'catalog:'
-        version: 15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
+        specifier: catalog:next-16
+        version: 16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4)
       parse-numeric-range:
         specifier: 'catalog:'
         version: 1.3.0
       react:
-        specifier: 'catalog:'
-        version: 18.3.1
+        specifier: catalog:react-19
+        version: 19.3.0
       react-dom:
-        specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react-19
+        version: 19.3.0(react@19.3.0)
       rehype-autolink-headings:
         specifier: 'catalog:'
         version: 7.1.0
@@ -2023,11 +2020,11 @@ importers:
         specifier: 'catalog:'
         version: 20.19.39
       '@types/react':
-        specifier: 'catalog:'
-        version: 18.3.28
+        specifier: catalog:react-19
+        version: 19.3.0
       '@types/react-dom':
-        specifier: 'catalog:'
-        version: 18.3.7(@types/react@18.3.28)
+        specifier: catalog:react-19
+        version: 19.3.0(@types/react@19.3.0)
       eslint:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.6.1)(supports-color@9.4.0)
@@ -2395,37 +2392,37 @@ importers:
         version: 11.14.0
       '@emotion/react':
         specifier: 'catalog:'
-        version: 11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
+        version: 11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0)
       '@emotion/server':
         specifier: 'catalog:'
         version: 11.11.0(@emotion/css@11.13.5(supports-color@9.4.0))
       '@emotion/styled':
         specifier: 'catalog:'
-        version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
+        version: 11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0)
       '@mui/material':
         specifier: 'catalog:'
-        version: 6.5.0(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.5.0(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@mui/utils':
         specifier: 'catalog:'
-        version: 6.4.9(@types/react@18.3.28)(react@18.3.1)
+        version: 6.4.9(@types/react@19.3.0)(react@19.3.0)
       '@next/env':
-        specifier: 'catalog:'
-        version: 15.5.15
+        specifier: catalog:next-16
+        version: 16.4.0
       '@next/third-parties':
-        specifier: 'catalog:'
-        version: 15.5.15(next@15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)
+        specifier: catalog:next-16
+        version: 16.4.0(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(react@19.3.0)
       '@sendgrid/mail':
         specifier: 'catalog:'
         version: 8.1.6(debug@4.4.3(supports-color@9.4.0))
       '@sentry/nextjs':
-        specifier: 'catalog:'
-        version: 9.47.1(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.1))(encoding@0.1.13)(next@15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)(supports-color@9.4.0)(webpack@5.106.2)
+        specifier: catalog:next-16
+        version: 10.76.2(@opentelemetry/core@2.12.0(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@2.12.0(@opentelemetry/api@1.9.1))(encoding@0.1.13)(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(react@19.3.0)(supports-color@9.4.0)(webpack@5.106.2)
       '@svgr/webpack':
         specifier: 'catalog:'
         version: 8.1.0(supports-color@9.4.0)(typescript@5.9.3)
       better-sqlite3:
         specifier: 'catalog:'
-        version: 11.10.0
+        version: 12.11.1
       date-fns:
         specifier: 'catalog:'
         version: 4.1.0
@@ -2433,17 +2430,17 @@ importers:
         specifier: 'catalog:'
         version: 133.0.0(encoding@0.1.13)(supports-color@9.4.0)
       next:
-        specifier: 'catalog:'
-        version: 15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
+        specifier: catalog:next-16
+        version: 16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4)
       next-auth:
         specifier: 'catalog:'
-        version: 4.24.14(next@15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(nodemailer@7.0.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.24.14(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(nodemailer@7.0.12)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
-        specifier: 'catalog:'
-        version: 18.3.1
+        specifier: catalog:react-19
+        version: 19.3.0
       react-dom:
-        specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        specifier: catalog:react-19
+        version: 19.3.0(react@19.3.0)
       tsc-alias:
         specifier: 'catalog:'
         version: 1.8.16
@@ -2455,11 +2452,11 @@ importers:
         specifier: 'catalog:'
         version: 20.19.39
       '@types/react':
-        specifier: 'catalog:'
-        version: 18.3.28
+        specifier: catalog:react-19
+        version: 19.3.0
       '@types/react-dom':
-        specifier: 'catalog:'
-        version: 18.3.7(@types/react@18.3.28)
+        specifier: catalog:react-19
+        version: 19.3.0(@types/react@19.3.0)
       eslint:
         specifier: 'catalog:'
         version: 9.39.4(jiti@2.6.1)(supports-color@9.4.0)
@@ -5262,24 +5259,6 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/material-nextjs@6.5.0':
-    resolution: {integrity: sha512-VV+4BhmnY32pbPuIevs+rPl0R+bkVvqGCqRqZqNhkdBdX0pn1IHQ5mG/EfYJKoKUkF7q9FKSag5wduSTUxDqnQ==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      '@emotion/cache': ^11.11.0
-      '@emotion/react': ^11.11.4
-      '@emotion/server': ^11.11.0
-      '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
-      next: ^13.0.0 || ^14.0.0 || ^15.0.0
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@emotion/cache':
-        optional: true
-      '@emotion/server':
-        optional: true
-      '@types/react':
-        optional: true
-
   '@mui/material-nextjs@7.3.10':
     resolution: {integrity: sha512-gJzAFPA3pPg2gg8QUTDEzcI1yLm8A2XLFxis8ejt3DlwCnEt6q1q91dtmeynwsu47XDiJl/l62PVuER6kgFzkA==}
     engines: {node: '>=14.0.0'}
@@ -5529,8 +5508,8 @@ packages:
   '@next/eslint-plugin-next@15.5.15':
     resolution: {integrity: sha512-ExQoBfyKMjAUQ2nuF39ryQsG26H374ZfH13dlOZqf6TaE9ycRbIm+qUbUFCliU4BtQhiqtS7cnGA1yWfPMQ+jA==}
 
-  '@next/mdx@15.5.15':
-    resolution: {integrity: sha512-4F4A89eL7ZoBjh4MEBQQzZvgKfS24hXHbqS9CsncwtLctgWYTilXlvDxTWYDokgq8jJxeJnBEooBLogZzW/vRw==}
+  '@next/mdx@16.4.0':
+    resolution: {integrity: sha512-qKI9HvbqwSo1F8ebVsia0meLm2iu/DxaB1ynWNKRn4bny0xjQJBGixzEdJ9wsPqCwPcG4Qn4z5Rai1Pee/AQFQ==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
       '@mdx-js/react': '>=0.15.0'
@@ -8388,8 +8367,9 @@ packages:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
     engines: {node: '>= 0.8'}
 
-  better-sqlite3@11.10.0:
-    resolution: {integrity: sha512-EwhOpyXiOEL/lKzHz9AW1msWFNzGc/z+LzeB3/jnFJpxu+th2yqvzsSWas1v9jgs9+xiXJcD5A8CJxAG2TaghQ==}
+  better-sqlite3@12.11.1:
+    resolution: {integrity: sha512-dq9AtApgg5PGFtBzPFSBl3HZQjHok5gaQCM6zh2Yk0aSmDCs1CbnVI8/HgASQkNKsWFpseIO9beg5xxpYhbIfA==}
+    engines: {node: 20.x || 22.x || 23.x || 24.x || 25.x || 26.x}
 
   big.js@5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
@@ -18097,11 +18077,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.1.1(@types/react@18.3.28)(react@18.3.1)':
+  '@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.0)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 18.3.28
-      react: 18.3.1
+      '@types/react': 19.3.0
+      react: 19.3.0
     optional: true
 
   '@monaco-editor/loader@1.7.0':
@@ -18190,17 +18170,6 @@ snapshots:
     optionalDependencies:
       '@emotion/react': 11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
-      '@types/react': 18.3.28
-
-  '@mui/material-nextjs@6.5.0(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0))(@emotion/server@11.11.0(@emotion/css@11.13.5(supports-color@9.4.0)))(@types/react@18.3.28)(next@15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.29.2
-      '@emotion/react': 11.14.0(@types/react@18.3.28)(react@18.3.1)(supports-color@9.4.0)
-      next: 15.5.15(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.4)
-      react: 18.3.1
-    optionalDependencies:
-      '@emotion/cache': 11.14.0
-      '@emotion/server': 11.11.0(@emotion/css@11.13.5(supports-color@9.4.0))
       '@types/react': 18.3.28
 
   '@mui/material-nextjs@7.3.10(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.3.0)(supports-color@9.4.0))(@emotion/server@11.11.0(@emotion/css@11.13.5(supports-color@9.4.0)))(@types/react@19.3.0)(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(react@19.3.0)':
@@ -18549,12 +18518,12 @@ snapshots:
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/mdx@15.5.15(@mdx-js/loader@3.1.1(supports-color@9.4.0)(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@18.3.28)(react@18.3.1))':
+  '@next/mdx@16.4.0(@mdx-js/loader@3.1.1(supports-color@9.4.0)(webpack@5.106.2))(@mdx-js/react@3.1.1(@types/react@19.3.0)(react@19.3.0))':
     dependencies:
       source-map: 0.7.6
     optionalDependencies:
       '@mdx-js/loader': 3.1.1(supports-color@9.4.0)(webpack@5.106.2)
-      '@mdx-js/react': 3.1.1(@types/react@18.3.28)(react@18.3.1)
+      '@mdx-js/react': 3.1.1(@types/react@19.3.0)(react@19.3.0)
 
   '@next/swc-darwin-arm64@15.5.15':
     optional: true
@@ -21210,7 +21179,7 @@ snapshots:
 
   '@types/react-lifecycles-compat@3.0.4':
     dependencies:
-      '@types/react': 18.3.28
+      '@types/react': 19.3.0
 
   '@types/react-transition-group@4.4.12(@types/react@18.3.28)':
     dependencies:
@@ -22045,7 +22014,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  better-sqlite3@11.10.0:
+  better-sqlite3@12.11.1:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
@@ -26724,6 +26693,23 @@ snapshots:
       preact-render-to-string: 5.2.6(preact@10.29.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+      uuid: 8.3.2
+    optionalDependencies:
+      nodemailer: 7.0.12
+
+  next-auth@4.24.14(next@16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4))(nodemailer@7.0.12)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+    dependencies:
+      '@babel/runtime': 7.29.2
+      '@panva/hkdf': 1.2.1
+      cookie: 0.7.2
+      jose: 6.2.2
+      next: 16.4.0(@babel/core@7.29.0(supports-color@9.4.0))(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(babel-plugin-macros@3.1.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(sass@1.77.4)
+      oauth: 0.9.15
+      openid-client: 5.7.1
+      preact: 10.29.1
+      preact-render-to-string: 5.2.6(preact@10.29.1)
+      react: 19.3.0
+      react-dom: 19.3.0(react@19.3.0)
       uuid: 8.3.2
     optionalDependencies:
       nodemailer: 7.0.12

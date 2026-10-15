@@ -1,6 +1,7 @@
 import { fileURLToPath } from "url";
 import path from "path";
 
+import { ResolvePeersFromAppPlugin } from "@commons-ui/next/config.js";
 import createMDX from "@next/mdx";
 
 import { rehypePlugins, remarkPlugins } from "./mdx.config.mjs";
@@ -15,8 +16,16 @@ const outputFileTracingRoot = TRACING_ROOT
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Don't let `next dev` write Next.js agent rules into AGENTS.md; the repo
+  // maintains its own agent instructions.
+  agentRules: false,
   output: "standalone",
   outputFileTracingRoot,
+  // Site settings are read with fs at request time (e.g. by the not-found
+  // page), which file tracing can't follow, so ship them in standalone output.
+  outputFileTracingIncludes: {
+    "/*": ["./content/site/**/*"],
+  },
   pageExtensions: ["mdx", "tsx"],
   reactStrictMode: true,
   transpilePackages: ["@commons-ui/core", "@commons-ui/next"],
@@ -39,6 +48,9 @@ const nextConfig = {
     );
     // Since *.svg files are now handled ☝️, we can safely ignore file loader rule.
     fileLoaderRule.exclude = /\.svg$/i;
+    // Resolve shared packages' peers (React, Next, MUI, ...) from this app so
+    // there's a single copy of each; see @commons-ui/next/config.js.
+    config.plugins.push(new ResolvePeersFromAppPlugin({ appDir: __dirname }));
     config.experiments = { ...config.experiments, topLevelAwait: true }; // eslint-disable-line no-param-reassign
     return config;
   },

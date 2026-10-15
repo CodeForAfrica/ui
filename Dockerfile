@@ -112,7 +112,11 @@ COPY packages/eslint-config-commons-ui/package.json ./packages/eslint-config-com
 # TODO(kilemensi): Figure out why this is needed (charterafrica, codeforafrica, etc.)
 COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-testing-library/package.json
 
-RUN pnpm --filter "./packages/**" install --offline --frozen-lockfile
+# --prefer-offline, not --offline: pnpm 11 verifies the lockfile against the
+# workspace supply-chain policies (minimumReleaseAge, trustPolicy), which needs
+# registry metadata that `pnpm fetch` doesn't cache. Packages still come from
+# the store populated above.
+RUN pnpm --filter "./packages/**" install --prefer-offline --frozen-lockfile
 
 #
 # base-builder: base image that will be used by application-specific builders
@@ -175,7 +179,7 @@ FROM base-deps AS charterafrica-deps
 
 COPY apps/charterafrica/package.json ./apps/charterafrica/package.json
 
-RUN pnpm --filter "./apps/charterafrica/" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/charterafrica/" install --prefer-offline --frozen-lockfile
 
 #
 # charterafrica-builder: image that uses deps to build shippable output
@@ -281,7 +285,7 @@ FROM base-deps AS civicsignalblog-deps
 
 COPY apps/civicsignalblog/package.json ./apps/civicsignalblog/package.json
 
-RUN pnpm --filter "./apps/civicsignalblog/" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/civicsignalblog/" install --prefer-offline --frozen-lockfile
 
 #
 # civicsignalblog-builder: image that uses deps to build shippable output
@@ -385,7 +389,7 @@ FROM base-deps AS climatemappedafrica-deps
 COPY apps/climatemappedafrica/package.json ./apps/climatemappedafrica/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/climatemappedafrica" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/climatemappedafrica" install --prefer-offline --frozen-lockfile
 
 #
 # climatemappedafrica-builder: image that uses deps to build shippable output
@@ -495,7 +499,7 @@ COPY packages/commons-ui-testing-library/package.json ./packages/commons-ui-test
 
 COPY apps/codeforafrica/package.json ./apps/codeforafrica/package.json
 
-RUN pnpm --filter "./apps/codeforafrica/" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/codeforafrica/" install --prefer-offline --frozen-lockfile
 
 #
 # codeforafrica-builder: image that uses deps to build shippable output
@@ -599,7 +603,7 @@ FROM base-deps AS pesayetu-deps
 COPY apps/pesayetu/package.json ./apps/pesayetu/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/pesayetu" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/pesayetu" install --prefer-offline --frozen-lockfile
 
 #
 # pesayetu-builder: image that uses deps to build shippable output
@@ -697,7 +701,7 @@ FROM base-deps AS roboshield-deps
 
 COPY apps/roboshield/package.json ./apps/roboshield/package.json
 
-RUN pnpm --filter "./apps/roboshield/" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/roboshield/" install --prefer-offline --frozen-lockfile
 
 #
 # roboshield-builder: image that uses deps to build shippable output
@@ -782,7 +786,7 @@ FROM base-deps AS techlabblog-deps
 COPY apps/techlabblog/package.json ./apps/techlabblog/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/techlabblog" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/techlabblog" install --prefer-offline --frozen-lockfile
 
 #
 # techlabblog-builder: image that uses deps to build shippable output
@@ -856,7 +860,7 @@ FROM base-deps AS trustlab-deps
 COPY apps/trustlab/package.json ./apps/trustlab/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm install --filter trustlab --offline --frozen-lockfile
+RUN pnpm install --filter trustlab --prefer-offline --frozen-lockfile
 
 #
 # trustlab-builder: image that uses deps to build shippable output
@@ -929,7 +933,7 @@ CMD ["node", "apps/trustlab/server.js"]
 FROM base-deps AS twoopstracker-deps
 COPY apps/twoopstracker/package.json ./apps/twoopstracker/package.json
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/twoopstracker" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/twoopstracker" install --prefer-offline --frozen-lockfile
 
 #
 # twoopstracker-builder: image that uses deps to build shippable output
@@ -998,7 +1002,11 @@ FROM base-deps AS vpnmanager-deps
 COPY apps/vpnmanager/package.json ./apps/vpnmanager/package.json
 
 # Use virtual store: https://pnpm.io/cli/fetch#usage-scenario
-RUN pnpm --filter "./apps/vpnmanager" install --offline --frozen-lockfile
+RUN pnpm --filter "./apps/vpnmanager" install --prefer-offline --frozen-lockfile
+# base-deps already unpacked better-sqlite3 (outside its --filter, so without
+# running its install script), which makes the install above a no-op. Build
+# the native binding explicitly.
+RUN pnpm --filter "./apps/vpnmanager" rebuild better-sqlite3
 
 #
 # vpnmanager-builder: image that uses deps to build shippable output
