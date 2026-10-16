@@ -67,6 +67,7 @@ export async function getStaticProps({ preview, previewData, params }) {
   if (notFound) {
     return {
       notFound,
+      revalidate,
     };
   }
 
@@ -107,12 +108,12 @@ export async function getStaticProps({ preview, previewData, params }) {
   // degraded response (non-empty but incomplete) could make a valid code look
   // missing and cache it as a 404 during revalidation. We can't distinguish
   // "removed" from "degraded" without an upstream completeness signal, so this
-  // remains a known edge case (fully empty/malformed responses throw earlier in
-  // fetchProfile and are protected). See the ISR failure-handling notes in the
-  // PR that introduced this guard.
+  // remains a known edge case. Revalidate the 404 so the route can recover when
+  // the location returns. Empty/malformed responses reject in fetchProfile.
   if (!geoCodes.every((gC) => locationCodes.includes(gC))) {
     return {
       notFound: true,
+      revalidate,
     };
   }
 
