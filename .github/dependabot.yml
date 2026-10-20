@@ -10,7 +10,15 @@ updates:
     # Look for `package.json` and `lock` files in the `root` directory
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    # One PR a week for minor and patch updates. Major updates and security
+    # updates still get their own PRs.
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
   # Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `root` directory
