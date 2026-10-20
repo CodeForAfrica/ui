@@ -80,7 +80,7 @@ variable "PNPM_VERSION" {
 # catalog's caret floor — a global turbo older than the workspace's can prune
 # against a turbo.json schema it does not understand.
 variable "TURBO_VERSION" {
-  default = "2.9.6"
+  default = "2.11.9"
 }
 
 # Telemetry is disabled repo-wide. These are set here as the single source of
