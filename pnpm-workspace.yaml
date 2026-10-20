@@ -118,7 +118,6 @@ catalog:
   "@eslint/eslintrc": ^3.2.0
   "@eslint/js": ^9.16.0
   "@googlemaps/react-wrapper": ^1.1.42
-  "@material-ui/codemod": ^4.5.1
   "@mdx-js/loader": ^3.0.1
   "@mdx-js/mdx": ^3.0.1
   "@mdx-js/react": ^3.0.1
@@ -216,7 +215,6 @@ catalog:
   jest: ^30.0.0
   jose: ^6.2.2
   js-yaml: ^4.3.2
-  jscodeshift: ^0.15.2
   jwt-decode: ^4.0.0
   leaflet: ^1.9.4
   lint-staged: ^15.2.10
