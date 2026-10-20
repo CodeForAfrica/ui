@@ -157,7 +157,7 @@ All package versions are pinned in `pnpm-workspace.yaml` using catalogs:
 - `catalog:` — default catalog for most packages
 - `mui-styles:` — MUI v5 for legacy apps
 - `payload-v3:` — Payload CMS 3.x
-- `next-16:` — Next.js 16 and the Next.js integrations it needs (`@next/*`, Sentry v10, `@mui/material-nextjs` v7)
+- `next-16:` — Next.js 16 and the Next.js integrations it needs (`@next/*`, Sentry v10, `@mui/material-nextjs` v7). Update `next` and `@next/*` together, to the same version. Dependabot ignores `@next/env` 16.x, so update it by hand when you update `next`
 - `react-19:` — React 19 (opt-in)
 - `shared-peers:` — peer ranges of the shared packages: every major that some app uses
 

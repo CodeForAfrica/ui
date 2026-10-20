@@ -324,7 +324,9 @@ catalogs:
   # it. Apps opt in, as with react-19 (App Router apps need both). Payload v3
   # needs Next.js >=16.3.3, and 16.4.0 is the minimum for apps with compound
   # pageExtensions such as trustlab's (vercel/next.js#93246). Kept to patch
-  # releases until Payload's release notes cover a newer minor.
+  # releases until Payload's release notes cover a newer minor. Keep
+  # next and @next/* on the same version: Dependabot ignores @next/env 16.x,
+  # because the default catalog's @next/env 15 belongs to the Payload v2 apps.
   next-16:
     "@mui/material-nextjs": ^7.3.10
     "@next/env": ~16.4.0
