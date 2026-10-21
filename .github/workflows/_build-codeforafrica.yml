@@ -43,14 +43,6 @@ on:
         required: false
       SENTRY_PROJECT:
         required: false
-      # Not genuine secrets (public app name/logo, inlined into the client
-      # bundle by design) but stored as GitHub Secrets today — plumbed
-      # through here rather than as bake Variables to avoid a GitHub
-      # Variable migration, matching NEXT_PUBLIC_SENTRY_DSN's precedent.
-      NEXT_PUBLIC_APP_NAME:
-        required: false
-      NEXT_PUBLIC_APP_LOGO_URL:
-        required: false
 
 jobs:
   build:
@@ -67,8 +59,6 @@ jobs:
       set: |
         codeforafrica.args.NEXT_PUBLIC_APP_URL=${{ inputs.app_url }}
         codeforafrica.args.SENTRY_ENVIRONMENT=${{ inputs.sentry_environment }}
-        codeforafrica.args.NEXT_PUBLIC_APP_NAME=${{ secrets.NEXT_PUBLIC_APP_NAME }}
-        codeforafrica.args.NEXT_PUBLIC_APP_LOGO_URL=${{ secrets.NEXT_PUBLIC_APP_LOGO_URL }}
         ${{ inputs.set }}
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}

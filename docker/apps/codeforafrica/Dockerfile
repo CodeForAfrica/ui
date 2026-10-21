@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1
 
+# Global, so that the builder and runner stages share one default.
+ARG NEXT_PUBLIC_APP_LOGO_URL="https://res.cloudinary.com/code-for-africa/image/upload/v1656078512/codeforafrica/logos/CfA_logo_BW_twlmo6.png"
+
 # ui_builder_base / ui_runner_base: Docker named context references use underscores
 # because hyphens are invalid in context names. The bake targets are still named
 # ui-builder-base and ui-runner-base — only the FROM reference uses underscores.

@@ -55,9 +55,8 @@ jobs:
   # its own canonical URL and its own Mongo secret.
   #
   # Required GitHub Secrets:
-  #   CODEFORAFRICA_MONGO_URL, CODEFORAFRICA_PAYLOAD_SECRET,
-  #   CODEFORAFRICA_SENTRY_PROJECT, NEXT_PUBLIC_CODEFORAFRICA_APP_NAME,
-  #   NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL, SENTRY_AUTH_TOKEN, SENTRY_ORG,
+  #   CODEFORAFRICA_DEV_DATABASE_URL, CODEFORAFRICA_PAYLOAD_SECRET,
+  #   CODEFORAFRICA_SENTRY_PROJECT, SENTRY_AUTH_TOKEN, SENTRY_ORG,
   #   UI_BASE_TAG (var)
   build-dev:
     permissions:
@@ -73,15 +72,11 @@ jobs:
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      # The pre-bake DEV workflow appends the Dokku app name to this secret
-      # (a shared Mongo host, disambiguated by database name per app).
-      DATABASE_URL: "${{ secrets.CODEFORAFRICA_MONGO_URL }}/codeforafrica-ui"
+      DATABASE_URL: ${{ secrets.CODEFORAFRICA_DEV_DATABASE_URL }}
       PAYLOAD_SECRET: ${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
-      NEXT_PUBLIC_APP_NAME: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
-      NEXT_PUBLIC_APP_LOGO_URL: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
 
   deploy-dev:
     needs: build-dev
@@ -116,15 +111,11 @@ jobs:
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      # PROD uses a distinct secret from DEV — a dedicated, full connection
-      # string (no app-name path appended), matching the pre-bake workflow.
-      DATABASE_URL: ${{ secrets.CODEFORAFRICA_MONGODB_URL }}
+      DATABASE_URL: ${{ secrets.CODEFORAFRICA_PRD_DATABASE_URL }}
       PAYLOAD_SECRET: ${{ secrets.CODEFORAFRICA_PAYLOAD_SECRET }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.CODEFORAFRICA_SENTRY_PROJECT }}
-      NEXT_PUBLIC_APP_NAME: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_NAME }}
-      NEXT_PUBLIC_APP_LOGO_URL: ${{ secrets.NEXT_PUBLIC_CODEFORAFRICA_APP_LOGO_URL }}
 
   deploy-prod:
     needs: [version-check, build-prod]
