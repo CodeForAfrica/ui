@@ -181,8 +181,6 @@ jobs:
       SENTRY_AUTH_TOKEN: pr-build-unused
       SENTRY_ORG: pr-build-unused
       SENTRY_PROJECT: pr-build-unused
-      NEXT_PUBLIC_APP_NAME: pr-build-unused
-      NEXT_PUBLIC_APP_LOGO_URL: pr-build-unused
 
   build-pesayetu:
     name: Build pesayetu image
