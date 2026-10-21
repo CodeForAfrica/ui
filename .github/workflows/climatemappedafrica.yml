@@ -21,14 +21,39 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # No PROD Dokku app exists for this one yet, so — matching the pre-bake
-  # workflow it replaces — every push to main builds and deploys to DEV,
-  # with no version-check gate.
-  #
+  # Checks whether apps/climatemappedafrica/package.json has a version bump.
+  # Every push builds and deploys DEV; only a version bump builds and deploys
+  # PROD.
+  version-check:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04]
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+
+      - name: Check if version is bumped
+        id: check
+        uses: EndBug/version-check@v3
+        with:
+          diff-search: true
+          file-name: apps/climatemappedafrica/package.json
+
   # Required GitHub Secrets:
-  #   CLIMATEMAPPEDAFRICA_MONGO_URL, CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET,
-  #   UI_BASE_TAG (var)
-  build:
+  #   CLIMATEMAPPEDAFRICA_DEV_DATABASE_URL, CLIMATEMAPPEDAFRICA_PRD_DATABASE_URL,
+  #   CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET, UI_BASE_TAG (var)
+  build-dev:
     permissions:
       actions: read
       contents: read
@@ -41,15 +66,46 @@ jobs:
     secrets:
       DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      DATABASE_URL: ${{ secrets.CLIMATEMAPPEDAFRICA_MONGO_URL }}
+      DATABASE_URL: ${{ secrets.CLIMATEMAPPEDAFRICA_DEV_DATABASE_URL }}
       PAYLOAD_SECRET: ${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
 
   deploy-dev:
-    needs: build
+    needs: build-dev
     permissions: {}
     uses: ./.github/workflows/push-to-dokku.yml
     with:
       git_remote_url: "ssh://azureuser@ui-1.dev.codeforafrica.org/climatemapped-africa-ui"
       deploy_docker_image: "codeforafrica/climatemappedafrica:${{ github.sha }}"
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+  build-prod:
+    needs: version-check
+    if: needs.version-check.outputs.changed == 'true'
+    permissions:
+      actions: read
+      contents: read
+    uses: ./.github/workflows/_build-climatemappedafrica.yml
+    with:
+      base_tag: ${{ vars.UI_BASE_TAG }}
+      tag: ${{ needs.version-check.outputs.version }}
+      push: true
+      app_url: "https://climatemapped-africa.prod.codeforafrica.org"
+      set: |
+        climatemappedafrica.tags+=codeforafrica/climatemappedafrica:latest
+    secrets:
+      DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+      DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      DATABASE_URL: ${{ secrets.CLIMATEMAPPEDAFRICA_PRD_DATABASE_URL }}
+      PAYLOAD_SECRET: ${{ secrets.CLIMATEMAPPEDAFRICA_PAYLOAD_SECRET }}
+
+  deploy-prod:
+    needs: [version-check, build-prod]
+    if: needs.version-check.outputs.changed == 'true'
+    permissions: {}
+    uses: ./.github/workflows/push-to-dokku.yml
+    with:
+      git_remote_url: "ssh://dokku@ui-2.prod.codeforafrica.org/climatemapped-africa-ui"
+      deploy_docker_image: "codeforafrica/climatemappedafrica:${{ needs.version-check.outputs.version }}"
     secrets:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
