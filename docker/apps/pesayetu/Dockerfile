@@ -82,6 +82,12 @@ ENV NEXT_PUBLIC_IMAGE_DOMAINS=${NEXT_PUBLIC_IMAGE_DOMAINS} \
   NEXT_PUBLIC_OPENAFRICA_DOMAINS=${NEXT_PUBLIC_OPENAFRICA_DOMAINS} \
   NEXT_PUBLIC_SOURCEAFRICA_DOMAINS=${NEXT_PUBLIC_SOURCEAFRICA_DOMAINS}
 
+# Embed pages render chart images with sharp, which needs fontconfig and font
+# files to draw text. Poppins is the site's font; DejaVu covers other glyphs.
+RUN apk add --no-cache fontconfig font-dejavu
+COPY --from=builder /workspace/apps/pesayetu/public/fonts/*.ttf /usr/share/fonts/poppins/
+RUN fc-cache -f
+
 RUN set -ex \
   && mkdir -p ./apps/pesayetu/.next \
   && chown nextjs:nodejs ./apps/pesayetu/.next
