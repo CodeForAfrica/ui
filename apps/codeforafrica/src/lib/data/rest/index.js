@@ -34,9 +34,12 @@ export const api = {
   findPage,
 };
 
+// Used by the 404 and error pages, which Next.js renders at build time. The
+// build uses the dev database, so revalidate to load the deployment's content.
 export async function getPageStaticProps(context) {
   const props = await getPageProps(api, context);
   return {
     props,
+    revalidate: 60,
   };
 }
