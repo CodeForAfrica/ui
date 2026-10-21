@@ -969,6 +969,11 @@ ARG TWOOPSTRACKER_API_URL
 
 ENV TWOOPSTRACKER_API_URL=${TWOOPSTRACKER_API_URL}
 
+# Chart images are rendered with sharp, which needs fontconfig and font files
+# to draw text. Liberation Sans stands in for the charts' Arial; DejaVu covers
+# other glyphs.
+RUN apk add --no-cache fontconfig font-liberation font-dejavu
+
 RUN set -ex \
   # Create nextjs cache dir w/ correct permissions
   && mkdir -p ./apps/twoopstracker/.next \
