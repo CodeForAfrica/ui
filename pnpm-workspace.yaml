@@ -61,6 +61,9 @@ overrides:
   "react-swipeable-views-utils-react-18-fix@0.14.1>@babel/runtime": "catalog:"
   # Keep Babel's transitive SemVer implementation on the maintained catalog line.
   semver: "catalog:"
+  # frontmatter-markdown-loader, latest 3.7.0, still asks for markdown-it 12,
+  # which has open security alerts. 14 keeps the markdownIt().render() API it uses.
+  "frontmatter-markdown-loader>markdown-it": "catalog:"
   # Older Sharp versions pulled by Payload have caused native installation failures.
   sharp: "catalog:"
   # Avoid incompatible duplicate Undici declarations across Node and HTTP packages.
