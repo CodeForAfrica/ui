@@ -90,7 +90,9 @@ export default buildConfig({
       }
     : undefined),
   admin: {
-    css: path.resolve(__dirname, "./src/payload/admin/scss/custom.scss"),
+    // Not __dirname: the server loads the compiled config from dist/, and tsc
+    // doesn't copy .scss files there.
+    css: path.resolve(process.cwd(), "src/payload/admin/scss/custom.scss"),
     user: Users.slug,
     webpack: (config) => ({
       ...config,
