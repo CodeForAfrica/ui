@@ -206,8 +206,6 @@ GitHub Actions workflows in `.github/workflows/`:
 
 After a Next.js or Payload upgrade, check a Payload v3 app on its dev deployment before you bump its version for production. Log in to the Payload admin and check that you can edit and save a document, upload media (S3), use live preview, and use `/preview` draft mode. Automated tests don't cover these flows.
 
-Do not bump `twoopstracker`'s version until its image builds and runs on Next.js 16. Its production deploy uses the legacy root `Dockerfile`, and nobody has verified that image since the upgrade.
-
 ### Environment variables
 
 - `NEXT_PUBLIC_*` — client-side env vars (baked at build time)
