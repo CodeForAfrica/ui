@@ -31,7 +31,7 @@ variable "BUILD_DATE" {
 #
 # Bump them here; the contract test tells you what else has to move with them.
 variable "NODE_VERSION" {
-  default = "24.21.0"
+  default = "24.22.1"
 }
 
 # Image index digest for node:${NODE_VERSION}-alpine. Optional today: when empty,
