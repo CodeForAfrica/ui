@@ -197,7 +197,7 @@ catalog:
   eslint-plugin-mdx: ^3.8.1
   eslint-plugin-module-resolver: ^1.5.0
   eslint-plugin-playwright: ^2.12.1
-  eslint-plugin-react-hooks: ^4.6.2
+  eslint-plugin-react-hooks: ^5.2.0
   eslint-plugin-react: ^7.35.2
   eslint-plugin-testing-library: ^6.2.2
   eslint: ^9.23.0
