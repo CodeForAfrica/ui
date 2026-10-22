@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "apps/civicsignalblog/**"
+      - "Dockerfile"
+      - ".github/workflows/civicsignalblog-deploy-prod.yml"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -91,7 +95,10 @@ jobs:
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.CIVICSIGNALBLOG_SENTRY_PROJECT }}"
-          tags: "${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}"
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
+            ${{ env.IMAGE_NAME }}:latest
           target: civicsignalblog-runner
 
       # Temp fix
