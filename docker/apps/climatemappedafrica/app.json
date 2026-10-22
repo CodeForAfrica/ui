@@ -4,7 +4,9 @@
       {
         "name": "homepage",
         "path": "/",
-        "type": "startup"
+        "type": "startup",
+        "attempts": 12,
+        "wait": 5
       }
     ]
   }
