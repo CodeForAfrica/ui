@@ -109,9 +109,11 @@ jobs:
 
   # Deploys to production when the package.json version is bumped.
   # Both version-check and build must pass before this job runs.
+  # No Dokku app exists for techlabblog yet, on ui-2.prod or elsewhere.
+  # Enable this job (remove `false &&`) when one does.
   deploy-prod:
     needs: [version-check, build]
-    if: needs.version-check.outputs.changed == 'true'
+    if: false && needs.version-check.outputs.changed == 'true'
     permissions: {}
     uses: ./.github/workflows/push-to-dokku.yml
     with:

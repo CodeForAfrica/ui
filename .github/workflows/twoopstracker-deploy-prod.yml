@@ -15,7 +15,8 @@ concurrency:
 env:
   APP_NAME: twoopstracker-ui
   DOKKU_REMOTE_BRANCH: "master"
-  DOKKU_REMOTE_URL: "ssh://azureuser@ui-1.prod.codeforafrica.org"
+  # ui-1.prod is amd64.
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-1.prod.codeforafrica.org"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: "codeforafrica/twoopstracker-ui"
   NEXT_PUBLIC_APP_URL: "https://trolltracker.investigate.africa"
@@ -49,11 +50,6 @@ jobs:
           diff-search: true
           file-name: "${{ env.VERSION_FILE_NAME }}"
 
-      # Add support for more platforms with QEMU (optional)
-      - name: Set up QEMU
-        if: steps.version-check.outputs.changed == 'true'
-        uses: docker/setup-qemu-action@v3
-
       - name: Set up Docker Buildx
         if: steps.version-check.outputs.changed == 'true'
         uses: docker/setup-buildx-action@v3
@@ -83,13 +79,16 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           context: .
-          platforms: linux/arm64
+          platforms: linux/amd64
           push: true
           secrets: |
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.TWOOPSTRACKER_SENTRY_PROJECT }}"
-          tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
+            ${{ env.IMAGE_NAME }}:latest
           target: twoopstracker-runner
 
       # Temp fix
@@ -99,7 +98,7 @@ jobs:
         if: steps.version-check.outputs.changed == 'true'
         run: |
           rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cach
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       - name: Push to Dokku
         if: steps.version-check.outputs.changed == 'true'
@@ -107,4 +106,4 @@ jobs:
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}/${{ env.APP_NAME }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}

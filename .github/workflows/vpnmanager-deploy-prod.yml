@@ -1,4 +1,4 @@
-name: VPN Manager | Deploy | DEV
+name: VPN Manager | Deploy | PROD
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
     paths:
       - "apps/vpnmanager/**"
-      - "Dockerfile.vpnmanager"
+      - "Dockerfile"
       - ".github/workflows/vpnmanager-deploy-prod.yml"
 
 # This allows a subsequently queued workflow run to interrupt previous runs
@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOKKU_REMOTE_URL: "ssh://ubuntu@ui-2.prod.codeforafrica.org/vpnmanager-ui"
+  DOKKU_REMOTE_URL: "ssh://dokku@ui-2.prod.codeforafrica.org/vpnmanager-ui"
   IMAGE_NAME: "codeforafrica/vpnmanager-ui"
   SENTRY_ENVIRONMENT: "production"
   VERSION_FILE_NAME: "./apps/vpnmanager/package.json"
@@ -87,7 +87,10 @@ jobs:
             "sentry_auth_token=${{ secrets.SENTRY_AUTH_TOKEN }}"
             "sentry_org=${{ secrets.SENTRY_ORG }}"
             "sentry_project=${{ secrets.VPNMANAGER_SENTRY_PROJECT }}"
-          tags: "${{ env.IMAGE_NAME }}:${{ github.sha }}"
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
+            ${{ env.IMAGE_NAME }}:latest
           target: vpnmanager-runner
 
       # Temp fix
@@ -105,4 +108,4 @@ jobs:
         with:
           git_remote_url: ${{ env.DOKKU_REMOTE_URL }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          deploy_docker_image: ${{ env.IMAGE_NAME }}:${{ steps.version-check.outputs.version }}
