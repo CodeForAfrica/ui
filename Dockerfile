@@ -30,7 +30,7 @@ ARG \
   # so it carries its own copy. Both are checked against the root package.json by
   # scripts/toolchain-contract.test.mjs — NODE_VERSION must satisfy engines.node,
   # PNPM_VERSION must equal packageManager.
-  NODE_VERSION=24.21.0 \
+  NODE_VERSION=24.22.1 \
   PNPM_VERSION=11.27.0 \
   # Next.js / Payload (build time)
   PORT=3000 \
