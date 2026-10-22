@@ -26,7 +26,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        # ui-2.prod is arm64, so build natively on an arm64 runner.
+        os: [ubuntu-24.04-arm]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,11 +45,6 @@ jobs:
         with:
           diff-search: true
           file-name: "${{ env.VERSION_FILE_NAME }}"
-
-      # Add support for more platforms with QEMU (optional)
-      - name: Set up QEMU
-        if: steps.version-check.outputs.changed == 'true'
-        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         if: steps.version-check.outputs.changed == 'true'
