@@ -28,16 +28,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        # ui-2.prod is arm64, so build natively on an arm64 runner.
+        os: [ubuntu-24.04-arm]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      # Add support for more platforms with QEMU (optional)
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
 
       # Set up Node since it's required by version-check
       # https://github.com/EndBug/version-check#github-workflow
