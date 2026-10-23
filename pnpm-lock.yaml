@@ -412,8 +412,8 @@ catalogs:
       specifier: ^0.14.1
       version: 0.14.1
     react-test-renderer:
-      specifier: ^18.3.1
-      version: 18.3.1
+      specifier: ^19.3.1
+      version: 19.3.1
     react-vega:
       specifier: ^7.6.0
       version: 7.7.1
@@ -870,7 +870,7 @@ importers:
         version: link:../../packages/playwright-config-commons-ui
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.23.15
@@ -1063,7 +1063,7 @@ importers:
         version: link:../../packages/playwright-config-commons-ui
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.23.15
@@ -1325,7 +1325,7 @@ importers:
         version: link:../../packages/playwright-config-commons-ui
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       svg-url-loader:
         specifier: 'catalog:'
         version: 8.1.0(webpack@5.112.0)
@@ -1509,7 +1509,7 @@ importers:
         version: link:../../packages/playwright-config-commons-ui
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       tsx:
         specifier: 'catalog:'
         version: 4.23.15
@@ -1732,7 +1732,7 @@ importers:
         version: link:../../packages/playwright-config-commons-ui
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       svg-url-loader:
         specifier: 'catalog:'
         version: 8.1.0(webpack@5.112.0)
@@ -2509,7 +2509,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -2670,7 +2670,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -2743,7 +2743,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -2910,7 +2910,7 @@ importers:
         version: 5.3.0(react@18.3.1)(supports-color@9.4.0)
       react-test-renderer:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.3.1(react@18.3.1)
       require-from-string:
         specifier: 'catalog:'
         version: 2.0.2
@@ -6012,12 +6012,14 @@ packages:
   '@opentelemetry/sdk-trace-base@1.30.1':
     resolution: {integrity: sha512-jVPgBbH1gCy2Lb7X0AVQ8XAfgg0pJ4nvl8/IiQA6nxOsPvS+0zMJaFSs2ltXe0J6C8dqjcnpyqINDJmU30+uOg==}
     engines: {node: '>=14'}
+    deprecated: Use @opentelemetry/sdk-trace package
     peerDependencies:
       '@opentelemetry/api': '>=1.0.0 <1.10.0'
 
   '@opentelemetry/sdk-trace-base@2.12.0':
     resolution: {integrity: sha512-JOERgZCxRM06FEJ5kEWxlSRChah6MmXDx3KwCruqEv/iEyLkTokCSemf2y1w8oIHtfrr8EVTpzebq/31vn2Cpg==}
     engines: {node: ^18.19.0 || >=20.6.0}
+    deprecated: Use @opentelemetry/sdk-trace package
     peerDependencies:
       '@opentelemetry/api': '>=1.3.0 <1.10.0'
 
@@ -13423,6 +13425,9 @@ packages:
   react-is@19.2.5:
     resolution: {integrity: sha512-Dn0t8IQhCmeIT3wu+Apm1/YVsJXsGWi6k4sPdnBIdqMVtHtv0IGi6dcpNpNkNac0zB2uUAqNX3MHzN8c+z2rwQ==}
 
+  react-is@19.3.1:
+    resolution: {integrity: sha512-RRieF6IyxQBkcK6pP8xOHprLTPW6QjRkbGdImtqNme+/hYVwCZkLQLdlZGOhUqXwkS9IEynaGvPJtv6XB/cz0Q==}
+
   react-leaflet@4.2.1:
     resolution: {integrity: sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q==}
     peerDependencies:
@@ -13490,11 +13495,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-shallow-renderer@16.15.0:
-    resolution: {integrity: sha512-oScf2FqQ9LFVQgA73vr86xl2NaOIX73rh+YFqcOp68CWj56tSfgtGKrEbyhCj0rSijyG9M1CYprTh39fBi5hzA==}
-    peerDependencies:
-      react: ^16.0.0 || ^17.0.0 || ^18.0.0
-
   react-share@5.3.0:
     resolution: {integrity: sha512-NU4TqizVi2TuyLpN93/ng2ux+uIGHK5b2dT15cHvZDwfi5b5NuzGych4htCGObN8lubygeamhRxUot4lZ0Pv6Q==}
     peerDependencies:
@@ -13523,10 +13523,10 @@ packages:
     peerDependencies:
       react: ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
 
-  react-test-renderer@18.3.1:
-    resolution: {integrity: sha512-KkAgygexHUkQqtvvx/otwxtuFu5cVjfzTCtjXLH9boS19/Nbtg84zS7wIQn39G8IlrhThBpQsMKkq5ZHZIYFXA==}
+  react-test-renderer@19.3.1:
+    resolution: {integrity: sha512-YcNewwmnZMd0wTb2nkb4hQ58NmX/u1hW2OJsNpen8CnV+jNkmEjYd1R6wJrOMSgb8bIF5HAJv4iL+S3PwNptOA==}
     peerDependencies:
-      react: ^18.3.1
+      react: ^19.3.1
 
   react-toastify@10.0.5:
     resolution: {integrity: sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==}
@@ -29240,6 +29240,8 @@ snapshots:
 
   react-is@19.2.5: {}
 
+  react-is@19.3.1: {}
+
   react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -29361,12 +29363,6 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  react-shallow-renderer@16.15.0(react@18.3.1):
-    dependencies:
-      object-assign: 4.1.1
-      react: 18.3.1
-      react-is: 18.3.1
-
   react-share@5.3.0(react@18.3.1)(supports-color@9.4.0):
     dependencies:
       classnames: 2.5.1
@@ -29404,12 +29400,11 @@ snapshots:
       react-swipeable-views-core-react-18-fix: 0.14.0(react@18.3.1)
       shallow-equal: 1.2.1
 
-  react-test-renderer@18.3.1(react@18.3.1):
+  react-test-renderer@19.3.1(react@18.3.1):
     dependencies:
       react: 18.3.1
-      react-is: 18.3.1
-      react-shallow-renderer: 16.15.0(react@18.3.1)
-      scheduler: 0.23.2
+      react-is: 19.3.1
+      scheduler: 0.28.0
 
   react-toastify@10.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
