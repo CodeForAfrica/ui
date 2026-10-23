@@ -19,6 +19,33 @@ updates:
         update-types:
           - "minor"
           - "patch"
+  # GitHub Actions. Workflows pin actions to commit SHAs with the version in
+  # a comment; Dependabot updates both. Major updates get their own PRs.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Disabled pre-bake deploy workflows. They go with the shared root
+    # Dockerfile once every app builds with bake.
+    exclude-paths:
+      - "**/charterafrica-deploy-dev.yml"
+      - "**/charterafrica-deploy-prod.yml"
+      - "**/climatemappedafrica-deploy-dev.yml"
+      - "**/codeforafrica-deploy-dev.yml"
+      - "**/codeforafrica-deploy-prod.yml"
+      - "**/codeforafrica-deploy-review-app.yml"
+      - "**/pesayetu-deploy-prod.yml"
+      - "**/roboshield-deploy-dev.yml"
+      - "**/roboshield-deploy-prod.yml"
+      - "**/techlabblog-deploy-dev.yml"
+      - "**/trustlab-deploy-dev.yml"
+      - "**/trustlab-deploy-prod.yml"
+    groups:
+      minor-and-patch:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
   # Docker
   - package-ecosystem: "docker"
     # Look for a `Dockerfile` in the `root` directory
