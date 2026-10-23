@@ -206,6 +206,10 @@ GitHub Actions workflows in `.github/workflows/`:
 
 Pin every third-party action to a full commit SHA, with its version in a comment on the same line, e.g. `uses: actions/checkout@<sha> # v6.1.0`. A tag can be moved to other code; a commit can't. Dependabot updates both the SHA and the comment.
 
+Run jobs on `ubuntu-26.04`, or on `ubuntu-26.04-arm` for arm64 images. Don't use `ubuntu-latest`: GitHub moves it to a new release without a commit. `scripts/toolchain-contract.test.mjs` checks this. To upgrade Ubuntu, change the labels there and in the workflows. The disabled pre-bake deploy workflows (`exclude-paths` in `.github/dependabot.yml`) are exempt until we delete them.
+
+Don't release many apps at once. With six deploys at the same time, `ui-2.prod` dropped SSH connections and two deploys failed. Merge the version bumps for two or three apps at a time.
+
 After a Next.js or Payload upgrade, check a Payload v3 app on its dev deployment before you bump its version for production. Log in to the Payload admin and check that you can edit and save a document, upload media (S3), use live preview, and use `/preview` draft mode. Automated tests don't cover these flows.
 
 ### Environment variables

@@ -359,6 +359,43 @@ describe("toolchain contract", () => {
       });
     }
 
+    // `-latest` moves to a new Ubuntu release without a commit, so a build can
+    // change under us. Pin the release instead and upgrade it here, on purpose.
+    const runnerLabels = ["ubuntu-26.04", "ubuntu-26.04-arm"];
+
+    // The disabled pre-bake deploy workflows are left as they are until they
+    // are deleted. dependabot.yml already lists them in `exclude-paths`.
+    const disabledWorkflows = [
+      ...read(".github/dependabot.yml").matchAll(/^\s*-\s*"\*\*\/([^"]+)"/gm),
+    ].map((match) => match[1]);
+
+    it("excludes only workflows that exist from Dependabot", () => {
+      for (const workflow of disabledWorkflows) {
+        assert.ok(
+          workflows.includes(workflow),
+          `dependabot.yml excludes ${workflow}, which does not exist`,
+        );
+      }
+    });
+
+    for (const workflow of workflows) {
+      if (disabledWorkflows.includes(workflow)) continue;
+
+      it(`runs ${workflow} on a pinned Ubuntu release`, () => {
+        const contents = readFileSync(
+          `${workflowsDirectory}/${workflow}`,
+          "utf8",
+        );
+
+        for (const [label] of contents.matchAll(/\bubuntu-[\w.-]+/g)) {
+          assert.ok(
+            runnerLabels.includes(label),
+            `${workflow} uses ${label}; use one of ${runnerLabels.join(", ")}`,
+          );
+        }
+      });
+    }
+
     it("lets pnpm/action-setup read the version from packageManager", () => {
       for (const workflow of workflows) {
         const contents = readFileSync(

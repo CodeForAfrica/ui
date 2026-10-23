@@ -55,7 +55,7 @@ concurrency:
 jobs:
   affected:
     name: Detect affected apps
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     outputs:
       targets: ${{ steps.targets.outputs.targets }}
     steps:
