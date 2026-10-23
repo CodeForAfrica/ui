@@ -54,7 +54,7 @@ jobs:
     uses: ./.github/workflows/_bake-and-push.yml
     with:
       target: pesayetu
-      target_os: '["ubuntu-24.04-arm"]'
+      target_os: '["ubuntu-26.04-arm"]'
       base_tag: ${{ inputs.base_tag }}
       tag: ${{ inputs.tag }}
       push: ${{ inputs.push }}
