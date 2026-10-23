@@ -173,7 +173,7 @@ catalog:
   # 12.x ships prebuilt Node.js 24 binaries for Alpine (linuxmusl x64 and
   # arm64). 11.x doesn't, nor does 13.x yet, and the Docker images have no
   # compiler to build one.
-  better-sqlite3: ^12.11.1
+  better-sqlite3: ^13.0.3
   camelcase-keys: ^9.1.3
   clsx: ^2.1.1
   crawler-user-agents: ^1.62.0
