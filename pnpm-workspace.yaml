@@ -128,7 +128,7 @@ catalog:
   "@mui/material": ^6.4.0
   "@mui/utils": ^6.4.0
   "@mui/x-date-pickers": ^7.15.0
-  "@mui/x-tree-view": ^7.15.0
+  "@mui/x-tree-view": ^9.16.0
   "@next/env": ^15.5.28
   "@next/eslint-plugin-next": ^15.0.3
   "@next/third-parties": ^15.5.28
