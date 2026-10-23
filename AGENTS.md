@@ -204,6 +204,8 @@ GitHub Actions workflows in `.github/workflows/`:
 - `bake-and-push.yml` — builds and pushes app images
 - Per-app deploy workflows (e.g., `techlabblog.yml`) deploy to Dokku
 
+Pin every third-party action to a full commit SHA, with its version in a comment on the same line, e.g. `uses: actions/checkout@<sha> # v6.1.0`. A tag can be moved to other code; a commit can't. Dependabot updates both the SHA and the comment.
+
 After a Next.js or Payload upgrade, check a Payload v3 app on its dev deployment before you bump its version for production. Log in to the Payload admin and check that you can edit and save a document, upload media (S3), use live preview, and use `/preview` draft mode. Automated tests don't cover these flows.
 
 ### Environment variables
