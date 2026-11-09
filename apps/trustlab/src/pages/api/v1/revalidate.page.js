@@ -25,6 +25,7 @@ function getAuthToken(authorizationHeader) {
 }
 
 export default async function handler(req, res) {
+  const expectedSecret = process.env.REVALIDATE_SECRET;
   // Node converts header names to lowercase
   let secret = getAuthToken(req.headers.authorization);
   if (!secret) {
@@ -32,7 +33,8 @@ export default async function handler(req, res) {
     //                  for the secret or will headers/POST do?
     secret = req.query.secret;
   }
-  if (secret !== process.env.REVALIDATE_SECRET) {
+  // Fail closed: with no secret configured, a missing token would match
+  if (!expectedSecret || secret !== expectedSecret) {
     return res.status(401).json({ message: "Invalid token" });
   }
   const { path } = req.body;
