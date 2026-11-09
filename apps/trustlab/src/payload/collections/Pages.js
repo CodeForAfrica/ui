@@ -1,7 +1,10 @@
 import { fullTitle, slug } from "@commons-ui/payload/fields";
 import { appendPathname } from "@commons-ui/payload/hooks";
 
-import { anyone, hasEditorAccess } from "@/trustlab/payload/access";
+import {
+  hasEditorAccess,
+  hasLoggedInOrPublishedAccess,
+} from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
 import {
   hideAPIURL,
@@ -13,7 +16,7 @@ import { site } from "@/trustlab/utils";
 const Pages = {
   slug: "pages",
   access: {
-    read: anyone,
+    read: hasLoggedInOrPublishedAccess,
     create: hasEditorAccess,
     update: hasEditorAccess,
     delete: hasEditorAccess,

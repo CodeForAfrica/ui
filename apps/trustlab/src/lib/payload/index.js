@@ -1,12 +1,24 @@
 import config from "@payload-config";
 import { getPayload } from "payload";
 
+import { publishedOnly } from "./publishedOnly";
+
 const payload = await getPayload({ config });
 
-async function findPage(slug, options) {
+async function find(collection, options) {
   return payload.find({
     ...options,
-    collection: "pages",
+    collection,
+    where: publishedOnly(options?.where, {
+      draft: options?.draft,
+      drafts: payload.collections[collection]?.config?.versions?.drafts,
+    }),
+  });
+}
+
+async function findPage(slug, options) {
+  return find("pages", {
+    ...options,
     where: {
       ...options?.where,
       slug: {
@@ -17,10 +29,9 @@ async function findPage(slug, options) {
 }
 
 async function getCollection(collection, options) {
-  return payload.find({
+  return find(collection, {
     limit: 0,
     ...options,
-    collection,
   });
 }
 
