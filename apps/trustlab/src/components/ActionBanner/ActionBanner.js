@@ -13,6 +13,7 @@ import React, { forwardRef, useState } from "react";
 
 import CloseIcon from "@/trustlab/assets/icons/close.svg";
 import AirtableEmbed from "@/trustlab/components/AirtableEmbed";
+import getEmbedSrc from "@/trustlab/components/AirtableEmbed/getEmbedSrc";
 import useAirtableEmbedPreload from "@/trustlab/components/AirtableEmbed/useAirtableEmbedPreload";
 import Button from "@/trustlab/components/StyledButton";
 
@@ -30,7 +31,7 @@ const ActionBanner = forwardRef(function ActionBanner(
   },
   ref,
 ) {
-  const hasEmbed = Boolean(embedCode?.trim());
+  const hasEmbed = Boolean(getEmbedSrc(embedCode));
   const [open, setOpen] = useState(false);
   const preload = useAirtableEmbedPreload(hasEmbed);
 
