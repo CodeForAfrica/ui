@@ -19,6 +19,8 @@ describe("<AirtableEmbed />", () => {
     const iframe = container.querySelector("iframe");
     expect(iframe).toHaveAttribute("src", "https://airtable.com/embed/form");
     expect(iframe).toHaveAttribute("title", "Report");
+    expect(iframe).toHaveAttribute("referrerpolicy", "strict-origin");
+    expect(iframe.getAttribute("sandbox")).not.toMatch(/allow-top-navigation/);
   });
 
   it("does not render embed code that isn't an https iframe", () => {

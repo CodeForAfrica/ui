@@ -32,6 +32,10 @@ function AirtableEmbed({ embedCode, load = true, title, sx }) {
         <Box
           component="iframe"
           src={src}
+          referrerPolicy="strict-origin"
+          // Forms need scripts, their own origin, submissions and popups; the
+          // embed still can't navigate this page or start downloads.
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
           title={title || "Airtable form"}
           onLoad={() => setLoaded(true)}
           sx={{
