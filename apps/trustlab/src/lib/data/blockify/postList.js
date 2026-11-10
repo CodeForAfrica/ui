@@ -15,7 +15,9 @@ async function postList(block, api, context) {
   const { slugs } = params;
   const [page] = slugs;
 
-  // afterRead hook doesn't run in the relationship field for selected posts of a block. We are adding this to query the posts by ids so we can have links populated.
+  // Selected posts reached through the relationship don't get their parent
+  // page (`maxDepth: 1`), so the afterRead hook can't build their links. We
+  // query the posts by ids so that the links are populated.
   const options = showAllPosts
     ? {
         limit: 9,

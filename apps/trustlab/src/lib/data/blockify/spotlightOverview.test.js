@@ -33,6 +33,7 @@ describe("blockify/spotlightOverview", () => {
     const { items } = await spotlightOverview(block, api);
 
     expect(api.getCollection).toHaveBeenCalledWith("posts", {
+      draft: false,
       where: { id: { in: "other,unpublished-id,published" } },
     });
     expect(items).toEqual([
@@ -57,6 +58,21 @@ describe("blockify/spotlightOverview", () => {
         buttonLink: { label: "Read" },
       },
     ]);
+  });
+
+  it("queries drafts in preview", async () => {
+    const api = { getCollection: jest.fn().mockResolvedValue({ docs: [] }) };
+
+    await spotlightOverview(
+      { blockType: "spotlight", items: [{ item: "draft" }] },
+      api,
+      { draftMode: true },
+    );
+
+    expect(api.getCollection).toHaveBeenCalledWith("posts", {
+      draft: true,
+      where: { id: { in: "draft" } },
+    });
   });
 
   it("doesn't query posts when none are selected", async () => {

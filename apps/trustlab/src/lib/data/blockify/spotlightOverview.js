@@ -1,13 +1,15 @@
-async function spotlightOverview(block, api) {
+async function spotlightOverview(block, api, context) {
   const { blockType, items: collectionList = [], ...other } = block;
-  // Query the selected posts so that the posts collection's read access
-  // decides which ones are shown (e.g. no unpublished posts for visitors), and
-  // so that the afterRead hook populates their links.
+  // Query the selected posts rather than use the populated ones: posts reached
+  // through a relationship don't get their parent page (`maxDepth: 1`), so
+  // their links can't be built. The query also applies the posts read access
+  // (e.g. no unpublished posts for visitors) and shows drafts in preview.
   const ids = collectionList
     .map(({ item }) => item?.id ?? item)
     .filter(Boolean);
   const { docs: posts } = ids.length
     ? await api.getCollection("posts", {
+        draft: Boolean(context?.draftMode),
         where: {
           id: {
             in: ids.join(","),
