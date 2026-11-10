@@ -1,18 +1,17 @@
 import config from "@payload-config";
 import { getPayload } from "payload";
 
-import { publishedOnly } from "./publishedOnly";
-
 const payload = await getPayload({ config });
 
+// Public reads respect collection access so that anonymous visitors only get
+// published pages and posts, including those reached through relationships.
+// Draft reads (`draft: true`) come only from the authenticated preview and
+// keep the local API's default of overriding access.
 async function find(collection, options) {
   return payload.find({
+    overrideAccess: Boolean(options?.draft),
     ...options,
     collection,
-    where: publishedOnly(options?.where, {
-      draft: options?.draft,
-      drafts: payload.collections[collection]?.config?.versions?.drafts,
-    }),
   });
 }
 

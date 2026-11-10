@@ -2,8 +2,10 @@ import { getPost } from "@/trustlab/utils/post";
 
 async function spotlightOverview(block, api) {
   const { blockType, items: collectionList, ...other } = block;
-  const promises = collectionList.map(
-    async ({ item, title: cardTitle, buttonLink = null }) => {
+  // Posts the visitor can't read (e.g. unpublished) aren't populated
+  const promises = collectionList
+    .filter(({ item }) => item && typeof item === "object")
+    .map(async ({ item, title: cardTitle, buttonLink = null }) => {
       const { excerpt, image = {}, title, tags = [], id, slug } = item;
       const post = await getPost(api, slug);
       const href = post?.link?.href || null;
@@ -22,8 +24,7 @@ async function spotlightOverview(block, api) {
         href,
         buttonLink,
       };
-    },
-  );
+    });
 
   const items = await Promise.all(promises);
   return {

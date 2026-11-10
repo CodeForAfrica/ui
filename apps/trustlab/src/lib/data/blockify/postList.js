@@ -23,7 +23,9 @@ async function postList(block, api, context) {
     : {
         where: {
           id: {
-            in: initialPosts.map((post) => post.id).join(","),
+            // Posts the visitor can't read (e.g. unpublished) are IDs, not
+            // documents; getPosts leaves them out
+            in: initialPosts.map((post) => post?.id ?? post).join(","),
           },
         },
       };
