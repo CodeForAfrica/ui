@@ -1,14 +1,31 @@
-import { getPost } from "@/trustlab/utils/post";
-
 async function spotlightOverview(block, api) {
-  const { blockType, items: collectionList, ...other } = block;
-  // Posts the visitor can't read (e.g. unpublished) aren't populated
-  const promises = collectionList
-    .filter(({ item }) => item && typeof item === "object")
-    .map(async ({ item, title: cardTitle, buttonLink = null }) => {
-      const { excerpt, image = {}, title, tags = [], id, slug } = item;
-      const post = await getPost(api, slug);
-      const href = post?.link?.href || null;
+  const { blockType, items: collectionList = [], ...other } = block;
+  // Query the selected posts so that the posts collection's read access
+  // decides which ones are shown (e.g. no unpublished posts for visitors), and
+  // so that the afterRead hook populates their links.
+  const ids = collectionList
+    .map(({ item }) => item?.id ?? item)
+    .filter(Boolean);
+  const { docs: posts } = ids.length
+    ? await api.getCollection("posts", {
+        where: {
+          id: {
+            in: ids.join(","),
+          },
+        },
+      })
+    : { docs: [] };
+  const postsById = new Map(posts.map((post) => [post.id, post]));
+
+  const items = collectionList
+    .map(({ item, title: cardTitle, buttonLink = null }) => ({
+      post: postsById.get(item?.id ?? item),
+      cardTitle,
+      buttonLink,
+    }))
+    .filter(({ post }) => post)
+    .map(({ post, cardTitle, buttonLink }) => {
+      const { excerpt, image = {}, title, tags = [], id, link } = post;
       const [firstTag] = tags;
 
       return {
@@ -21,12 +38,11 @@ async function spotlightOverview(block, api) {
         cardTitle: cardTitle || "",
         tag: firstTag?.name || null,
         id,
-        href,
+        href: link?.href || null,
         buttonLink,
       };
     });
 
-  const items = await Promise.all(promises);
   return {
     ...other,
     items,

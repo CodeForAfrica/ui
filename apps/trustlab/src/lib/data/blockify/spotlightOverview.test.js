@@ -1,46 +1,73 @@
 import spotlightOverview from "./spotlightOverview";
 
-import { getPost } from "@/trustlab/utils/post";
-
-jest.mock("@/trustlab/utils/post", () => ({
-  getPost: jest.fn(),
-}));
-
 describe("blockify/spotlightOverview", () => {
-  beforeEach(() => {
-    getPost.mockResolvedValue({ link: { href: "/news/published" } });
-  });
+  const published = {
+    id: "published",
+    slug: "published",
+    title: "Published",
+    excerpt: "Excerpt",
+    image: { src: "/image.png", alt: "Image" },
+    tags: [{ name: "News" }],
+    link: { href: "/news/published" },
+  };
+  const other = {
+    id: "other",
+    title: "Other",
+    link: { href: "/news/other" },
+  };
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  it("leaves out posts that weren't populated", async () => {
+  it("shows only the selected posts that the posts query returns, in the selected order", async () => {
+    const api = {
+      // e.g. read access leaves out the unpublished post
+      getCollection: jest.fn().mockResolvedValue({ docs: [published, other] }),
+    };
     const block = {
       blockType: "spotlight",
       items: [
-        {
-          item: {
-            id: "published",
-            slug: "published",
-            title: "Published",
-            excerpt: "Excerpt",
-            tags: [{ name: "News" }],
-          },
-        },
+        { item: "other", title: "Card" },
         { item: "unpublished-id" },
+        { item: { id: "published" }, buttonLink: { label: "Read" } },
       ],
     };
 
-    const { items } = await spotlightOverview(block, {});
+    const { items } = await spotlightOverview(block, api);
 
-    expect(items).toHaveLength(1);
-    expect(items[0]).toMatchObject({
-      id: "published",
-      title: "Published",
-      tag: "News",
-      href: "/news/published",
+    expect(api.getCollection).toHaveBeenCalledWith("posts", {
+      where: { id: { in: "other,unpublished-id,published" } },
     });
-    expect(getPost).toHaveBeenCalledTimes(1);
+    expect(items).toEqual([
+      {
+        excerpt: undefined,
+        image: { src: "", alt: "" },
+        title: "Other",
+        cardTitle: "Card",
+        tag: null,
+        id: "other",
+        href: "/news/other",
+        buttonLink: null,
+      },
+      {
+        excerpt: "Excerpt",
+        image: { src: "/image.png", alt: "Image" },
+        title: "Published",
+        cardTitle: "",
+        tag: "News",
+        id: "published",
+        href: "/news/published",
+        buttonLink: { label: "Read" },
+      },
+    ]);
+  });
+
+  it("doesn't query posts when none are selected", async () => {
+    const api = { getCollection: jest.fn() };
+
+    const { items } = await spotlightOverview(
+      { blockType: "spotlight", items: [] },
+      api,
+    );
+
+    expect(items).toEqual([]);
+    expect(api.getCollection).not.toHaveBeenCalled();
   });
 });
