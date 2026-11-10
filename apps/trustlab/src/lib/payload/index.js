@@ -34,8 +34,11 @@ async function getCollection(collection, options) {
   });
 }
 
+// Same as `find`, e.g. navigation links in the site settings to unpublished
+// pages.
 async function findGlobal(slug, options) {
   return payload.findGlobal({
+    overrideAccess: Boolean(options?.draft),
     ...options,
     slug,
   });
