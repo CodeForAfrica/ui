@@ -8,10 +8,10 @@ function createResponse() {
   };
 }
 
-function createRequest({ authorization, secret, path = "/about" } = {}) {
+function createRequest({ authorization, query = {}, path = "/about" } = {}) {
   return {
     headers: authorization ? { authorization } : {},
-    query: secret === undefined ? {} : { secret },
+    query,
     body: { path },
   };
 }
@@ -38,11 +38,11 @@ describe("/api/v1/revalidate", () => {
       expect(res.revalidate).not.toHaveBeenCalled();
     });
 
-    it("rejects requests whose token is empty", async () => {
+    it("rejects requests when the configured secret is empty", async () => {
       process.env.REVALIDATE_SECRET = "";
       const res = createResponse();
 
-      await handler(createRequest({ secret: "" }), res);
+      await handler(createRequest({ query: { secret: "" } }), res);
 
       expect(res.status).toHaveBeenCalledWith(401);
       expect(res.revalidate).not.toHaveBeenCalled();
@@ -63,6 +63,27 @@ describe("/api/v1/revalidate", () => {
       expect(res.revalidate).not.toHaveBeenCalled();
     });
 
+    it("rejects requests with a token that only shares a prefix", async () => {
+      const res = createResponse();
+
+      await handler(
+        createRequest({ authorization: "Bearer test-secret-and-more" }),
+        res,
+      );
+
+      expect(res.status).toHaveBeenCalledWith(401);
+      expect(res.revalidate).not.toHaveBeenCalled();
+    });
+
+    it("rejects the secret in the query string", async () => {
+      const res = createResponse();
+
+      await handler(createRequest({ query: { secret: "test-secret" } }), res);
+
+      expect(res.status).toHaveBeenCalledWith(401);
+      expect(res.revalidate).not.toHaveBeenCalled();
+    });
+
     it("revalidates with a bearer token", async () => {
       const res = createResponse();
 
@@ -73,14 +94,6 @@ describe("/api/v1/revalidate", () => {
 
       expect(res.revalidate).toHaveBeenCalledWith("/about");
       expect(res.json).toHaveBeenCalledWith({ revalidated: true });
-    });
-
-    it("revalidates with a query token", async () => {
-      const res = createResponse();
-
-      await handler(createRequest({ secret: "test-secret" }), res);
-
-      expect(res.revalidate).toHaveBeenCalledWith("/about");
     });
 
     it("requires a path", async () => {
