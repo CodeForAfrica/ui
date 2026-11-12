@@ -8,7 +8,10 @@ import {
 import { nestCollectionUnderPage } from "@commons-ui/payload/utils";
 import { createParentField } from "@payloadcms/plugin-nested-docs";
 
-import { anyone, hasAuthorAccess } from "@/trustlab/payload/access";
+import {
+  hasAuthorAccess,
+  hasLoggedInOrPublishedAccess,
+} from "@/trustlab/payload/access";
 import blocks from "@/trustlab/payload/blocks";
 import { hideAPIURL, revalidatePost } from "@/trustlab/payload/utils";
 
@@ -21,7 +24,7 @@ const Posts = {
     useAsTitle: "title",
   },
   access: {
-    read: anyone,
+    read: hasLoggedInOrPublishedAccess,
     create: hasAuthorAccess,
     update: hasAuthorAccess,
     delete: hasAuthorAccess,

@@ -3,10 +3,21 @@ import { getPayload } from "payload";
 
 const payload = await getPayload({ config });
 
-async function findPage(slug, options) {
+// Public reads respect collection access so that anonymous visitors only get
+// published pages and posts, including those reached through relationships.
+// Draft reads (`draft: true`) come only from the authenticated preview and
+// keep the local API's default of overriding access.
+async function find(collection, options) {
   return payload.find({
+    overrideAccess: Boolean(options?.draft),
     ...options,
-    collection: "pages",
+    collection,
+  });
+}
+
+async function findPage(slug, options) {
+  return find("pages", {
+    ...options,
     where: {
       ...options?.where,
       slug: {
@@ -17,15 +28,17 @@ async function findPage(slug, options) {
 }
 
 async function getCollection(collection, options) {
-  return payload.find({
+  return find(collection, {
     limit: 0,
     ...options,
-    collection,
   });
 }
 
+// Same as `find`, e.g. navigation links in the site settings to unpublished
+// pages.
 async function findGlobal(slug, options) {
   return payload.findGlobal({
+    overrideAccess: Boolean(options?.draft),
     ...options,
     slug,
   });

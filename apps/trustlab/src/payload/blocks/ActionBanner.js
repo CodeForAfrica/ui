@@ -60,7 +60,7 @@ const ActionBanner = {
       label: { en: "Embed Code" },
       admin: {
         description:
-          "Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.",
+          "Optional iframe embed code (e.g., from Airtable) with an https src. If provided, the button will open a dialog with this content instead of navigating to the link. Other HTML is not displayed.",
       },
     },
     {

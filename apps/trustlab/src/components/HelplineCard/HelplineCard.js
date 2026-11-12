@@ -14,6 +14,7 @@ import React, { useState } from "react";
 
 import HelplineEmbedDialog from "./HelplineEmbedDialog";
 
+import getEmbedSrc from "@/trustlab/components/AirtableEmbed/getEmbedSrc";
 import useAirtableEmbedPreload from "@/trustlab/components/AirtableEmbed/useAirtableEmbedPreload";
 
 function HelplineCard({
@@ -25,7 +26,7 @@ function HelplineCard({
   embedButtonLabel,
   embedCloseLabel,
 }) {
-  const hasEmbed = Boolean(embedCode?.trim());
+  const hasEmbed = Boolean(getEmbedSrc(embedCode));
   const [open, setOpen] = useState(false);
   const preload = useAirtableEmbedPreload(hasEmbed);
   const buttonLabel = embedButtonLabel || link?.label || title;

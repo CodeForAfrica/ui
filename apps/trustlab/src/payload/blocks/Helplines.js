@@ -65,6 +65,8 @@ const Helplines = {
           admin: {
             language: "html",
             condition: (_, siblingData) => siblingData?.useEmbedCode,
+            description:
+              "Iframe embed code (e.g., from Airtable) with an https src. Other HTML is not displayed.",
           },
         },
         {

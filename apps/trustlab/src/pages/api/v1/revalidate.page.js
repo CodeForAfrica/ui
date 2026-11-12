@@ -1,3 +1,5 @@
+import { createHash, timingSafeEqual } from "node:crypto";
+
 /**
  * Robustly extracts the Bearer token from the Authorization header.
  *
@@ -24,15 +26,22 @@ function getAuthToken(authorizationHeader) {
   return match ? match[1] : null;
 }
 
-export default async function handler(req, res) {
-  // Node converts header names to lowercase
-  let secret = getAuthToken(req.headers.authorization);
-  if (!secret) {
-    // TODO(kilemensi): @kevinkoech do we need to support query/GET
-    //                  for the secret or will headers/POST do?
-    secret = req.query.secret;
+// Compares digests so that the comparison takes the same time whatever the
+// token's length or content.
+function isValidSecret(secret, expectedSecret) {
+  // Fail closed: with no secret configured, a missing token would match
+  if (!expectedSecret || !secret) {
+    return false;
   }
-  if (secret !== process.env.REVALIDATE_SECRET) {
+  const digest = (value) => createHash("sha256").update(value).digest();
+  return timingSafeEqual(digest(secret), digest(expectedSecret));
+}
+
+export default async function handler(req, res) {
+  // Node converts header names to lowercase. Both the CMS and the deploy
+  // script send the secret as a bearer token, never in the URL.
+  const secret = getAuthToken(req.headers.authorization);
+  if (!isValidSecret(secret, process.env.REVALIDATE_SECRET)) {
     return res.status(401).json({ message: "Invalid token" });
   }
   const { path } = req.body;

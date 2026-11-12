@@ -6,6 +6,7 @@ import {
   hasManageUserAccess,
   hasEditorAccess,
   hasLoggedInAccess,
+  hasLoggedInOrPublishedAccess,
   isAuthor,
 } from "./abilities";
 import { anyone } from "./anyone";
@@ -178,6 +179,30 @@ describe("payload.access", () => {
       expect(hasLoggedInAccess({ req: { user: 1 } })).toBe(false);
       expect(hasLoggedInAccess({ req: {} })).toBe(false);
       expect(hasLoggedInAccess(undefined)).toBe(false);
+    });
+  });
+
+  describe("abilities.hasLoggedInOrPublishedAccess", () => {
+    it("allows requests with users that have valid roles to read all documents", () => {
+      expect(
+        hasLoggedInOrPublishedAccess({ req: { user: { role: ROLE_ADMIN } } }),
+      ).toBe(true);
+      expect(
+        hasLoggedInOrPublishedAccess({ req: { user: { role: ROLE_AUTHOR } } }),
+      ).toBe(true);
+      expect(
+        hasLoggedInOrPublishedAccess({ req: { user: { role: ROLE_EDITOR } } }),
+      ).toBe(true);
+    });
+
+    it("restricts all other requests to published documents", () => {
+      const published = { _status: { equals: "published" } };
+
+      expect(
+        hasLoggedInOrPublishedAccess({ req: { user: { role: "unknown" } } }),
+      ).toEqual(published);
+      expect(hasLoggedInOrPublishedAccess({ req: {} })).toEqual(published);
+      expect(hasLoggedInOrPublishedAccess(undefined)).toEqual(published);
     });
   });
 

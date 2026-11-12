@@ -5,6 +5,18 @@ export const isLoggedIn = (user) => hasValidRole(user);
 
 export const hasLoggedInAccess = ({ req } = {}) => isLoggedIn(req?.user);
 
+// Drafts are for CMS users only; everyone else reads published documents
+export const hasLoggedInOrPublishedAccess = ({ req } = {}) => {
+  if (isLoggedIn(req?.user)) {
+    return true;
+  }
+  return {
+    _status: {
+      equals: "published",
+    },
+  };
+};
+
 // Admins and editors can manage any content
 export const isEditor = (user) => checkRole([ROLE_ADMIN, ROLE_EDITOR], user);
 

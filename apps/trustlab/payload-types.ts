@@ -311,7 +311,7 @@ export interface Page {
              */
             buttonAriaLabel?: string | null;
             /**
-             * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+             * Optional iframe embed code (e.g., from Airtable) with an https src. If provided, the button will open a dialog with this content instead of navigating to the link. Other HTML is not displayed.
              */
             embedCode?: string | null;
             embedDialogTitle?: string | null;
@@ -756,6 +756,9 @@ export interface Page {
                     [k: string]: unknown;
                   };
                   useEmbedCode?: boolean | null;
+                  /**
+                   * Iframe embed code (e.g., from Airtable) with an https src. Other HTML is not displayed.
+                   */
                   embedCode?: string | null;
                   embedButtonLabel?: string | null;
                   embedCloseLabel?: string | null;
@@ -1949,7 +1952,7 @@ export interface Post {
          */
         buttonAriaLabel?: string | null;
         /**
-         * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+         * Optional iframe embed code (e.g., from Airtable) with an https src. If provided, the button will open a dialog with this content instead of navigating to the link. Other HTML is not displayed.
          */
         embedCode?: string | null;
         embedDialogTitle?: string | null;
@@ -2394,6 +2397,9 @@ export interface Post {
                 [k: string]: unknown;
               };
               useEmbedCode?: boolean | null;
+              /**
+               * Iframe embed code (e.g., from Airtable) with an https src. Other HTML is not displayed.
+               */
               embedCode?: string | null;
               embedButtonLabel?: string | null;
               embedCloseLabel?: string | null;
@@ -3575,7 +3581,7 @@ export interface Organisation {
              */
             buttonAriaLabel?: string | null;
             /**
-             * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+             * Optional iframe embed code (e.g., from Airtable) with an https src. If provided, the button will open a dialog with this content instead of navigating to the link. Other HTML is not displayed.
              */
             embedCode?: string | null;
             embedDialogTitle?: string | null;
@@ -4020,6 +4026,9 @@ export interface Organisation {
                     [k: string]: unknown;
                   };
                   useEmbedCode?: boolean | null;
+                  /**
+                   * Iframe embed code (e.g., from Airtable) with an https src. Other HTML is not displayed.
+                   */
                   embedCode?: string | null;
                   embedButtonLabel?: string | null;
                   embedCloseLabel?: string | null;
@@ -5339,7 +5348,7 @@ export interface Opportunity {
              */
             buttonAriaLabel?: string | null;
             /**
-             * Optional embed code (e.g., iframe). If provided, the button will open a dialog with this content instead of navigating to the link.
+             * Optional iframe embed code (e.g., from Airtable) with an https src. If provided, the button will open a dialog with this content instead of navigating to the link. Other HTML is not displayed.
              */
             embedCode?: string | null;
             embedDialogTitle?: string | null;
@@ -5784,6 +5793,9 @@ export interface Opportunity {
                     [k: string]: unknown;
                   };
                   useEmbedCode?: boolean | null;
+                  /**
+                   * Iframe embed code (e.g., from Airtable) with an https src. Other HTML is not displayed.
+                   */
                   embedCode?: string | null;
                   embedButtonLabel?: string | null;
                   embedCloseLabel?: string | null;

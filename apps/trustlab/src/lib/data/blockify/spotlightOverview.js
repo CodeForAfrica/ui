@@ -1,12 +1,33 @@
-import { getPost } from "@/trustlab/utils/post";
+async function spotlightOverview(block, api, context) {
+  const { blockType, items: collectionList = [], ...other } = block;
+  // Query the selected posts rather than use the populated ones: posts reached
+  // through a relationship don't get their parent page (`maxDepth: 1`), so
+  // their links can't be built. The query also applies the posts read access
+  // (e.g. no unpublished posts for visitors) and shows drafts in preview.
+  const ids = collectionList
+    .map(({ item }) => item?.id ?? item)
+    .filter(Boolean);
+  const { docs: posts } = ids.length
+    ? await api.getCollection("posts", {
+        draft: Boolean(context?.draftMode),
+        where: {
+          id: {
+            in: ids.join(","),
+          },
+        },
+      })
+    : { docs: [] };
+  const postsById = new Map(posts.map((post) => [post.id, post]));
 
-async function spotlightOverview(block, api) {
-  const { blockType, items: collectionList, ...other } = block;
-  const promises = collectionList.map(
-    async ({ item, title: cardTitle, buttonLink = null }) => {
-      const { excerpt, image = {}, title, tags = [], id, slug } = item;
-      const post = await getPost(api, slug);
-      const href = post?.link?.href || null;
+  const items = collectionList
+    .map(({ item, title: cardTitle, buttonLink = null }) => ({
+      post: postsById.get(item?.id ?? item),
+      cardTitle,
+      buttonLink,
+    }))
+    .filter(({ post }) => post)
+    .map(({ post, cardTitle, buttonLink }) => {
+      const { excerpt, image = {}, title, tags = [], id, link } = post;
       const [firstTag] = tags;
 
       return {
@@ -19,13 +40,11 @@ async function spotlightOverview(block, api) {
         cardTitle: cardTitle || "",
         tag: firstTag?.name || null,
         id,
-        href,
+        href: link?.href || null,
         buttonLink,
       };
-    },
-  );
+    });
 
-  const items = await Promise.all(promises);
   return {
     ...other,
     items,
